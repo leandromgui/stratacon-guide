@@ -36,10 +36,10 @@ expect_nonempty_array(".conditions.ref_name.include"; .conditions.ref_name.inclu
 expect_type(".conditions.ref_name.exclude"; .conditions.ref_name.exclude; "array"),
 
 # Every include/exclude entry must be a string
-( (.conditions.ref_name.include // []) | to_entries[]
+( (.conditions.ref_name.include // []) | select(type == "array") | to_entries[]
     | select((.value | type) != "string")
     | err(".conditions.ref_name.include[" + (.key|tostring) + "] must be a string, got " + (.value|type)) ),
-( (.conditions.ref_name.exclude // []) | to_entries[]
+( (.conditions.ref_name.exclude // []) | select(type == "array") | to_entries[]
     | select((.value | type) != "string")
     | err(".conditions.ref_name.exclude[" + (.key|tostring) + "] must be a string, got " + (.value|type)) ),
 
@@ -47,10 +47,10 @@ expect_type(".conditions.ref_name.exclude"; .conditions.ref_name.exclude; "array
 expect_nonempty_array(".rules"; .rules),
 
 # Each rule must be an object with a string type
-( (.rules // []) | to_entries[]
+( (.rules // []) | select(type == "array") | to_entries[]
     | select((.value | type) != "object")
     | err(".rules[" + (.key|tostring) + "] must be an object, got " + (.value|type)) ),
-( (.rules // []) | to_entries[]
+( (.rules // []) | select(type == "array") | to_entries[]
     | select((.value | type) == "object")
     | select((.value.type | type) != "string")
     | err(".rules[" + (.key|tostring) + "].type must be a string") ),
@@ -66,10 +66,10 @@ expect_nonempty_array(".rules"; .rules),
       ( expect_nonempty_array(
           ".rules[required_status_checks].parameters.required_status_checks";
           $rsc.parameters.required_status_checks) ),
-      ( ($rsc.parameters.required_status_checks // []) | to_entries[]
+      ( ($rsc.parameters.required_status_checks // []) | select(type == "array") | to_entries[]
           | select((.value | type) != "object")
           | err(".rules[required_status_checks].parameters.required_status_checks[" + (.key|tostring) + "] must be an object") ),
-      ( ($rsc.parameters.required_status_checks // []) | to_entries[]
+      ( ($rsc.parameters.required_status_checks // []) | select(type == "array") | to_entries[]
           | select((.value | type) == "object")
           | select((.value.context | type) != "string" or (.value.context | length) == 0)
           | err(".rules[required_status_checks].parameters.required_status_checks[" + (.key|tostring) + "].context must be a non-empty string") )
