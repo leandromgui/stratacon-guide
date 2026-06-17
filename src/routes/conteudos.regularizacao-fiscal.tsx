@@ -11,6 +11,12 @@ export const Route = createFileRoute("/conteudos/regularizacao-fiscal")({
       { property: "og:url", content: "/conteudos/regularizacao-fiscal" },
     ],
     links: [{ rel: "canonical", href: "/conteudos/regularizacao-fiscal" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Conteúdos", "item": "/conteudos"}, {"@type": "ListItem", "position": 3, "name": "Regularização Fiscal", "item": "/conteudos/regularizacao-fiscal"}]}),
+      },
+    ],
   }),
   component: Page,
 });

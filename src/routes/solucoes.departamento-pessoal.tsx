@@ -11,6 +11,12 @@ export const Route = createFileRoute("/solucoes/departamento-pessoal")({
       { property: "og:url", content: "/solucoes/departamento-pessoal" },
     ],
     links: [{ rel: "canonical", href: "/solucoes/departamento-pessoal" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Soluções", "item": "/solucoes"}, {"@type": "ListItem", "position": 3, "name": "Departamento Pessoal", "item": "/solucoes/departamento-pessoal"}]}),
+      },
+    ],
   }),
   component: Page,
 });

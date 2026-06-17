@@ -11,6 +11,12 @@ export const Route = createFileRoute("/segmentos/franquias-redes")({
       { property: "og:url", content: "/segmentos/franquias-redes" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/franquias-redes" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Segmentos", "item": "/segmentos"}, {"@type": "ListItem", "position": 3, "name": "Franquias e Redes", "item": "/segmentos/franquias-redes"}]}),
+      },
+    ],
   }),
   component: Page,
 });

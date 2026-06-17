@@ -11,6 +11,12 @@ export const Route = createFileRoute("/segmentos/medicos-clinicas")({
       { property: "og:url", content: "/segmentos/medicos-clinicas" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/medicos-clinicas" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Segmentos", "item": "/segmentos"}, {"@type": "ListItem", "position": 3, "name": "Médicos e Clínicas", "item": "/segmentos/medicos-clinicas"}]}),
+      },
+    ],
   }),
   component: Page,
 });

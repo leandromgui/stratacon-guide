@@ -11,6 +11,12 @@ export const Route = createFileRoute("/segmentos/condominios")({
       { property: "og:url", content: "/segmentos/condominios" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/condominios" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Segmentos", "item": "/segmentos"}, {"@type": "ListItem", "position": 3, "name": "Condomínios", "item": "/segmentos/condominios"}]}),
+      },
+    ],
   }),
   component: Page,
 });

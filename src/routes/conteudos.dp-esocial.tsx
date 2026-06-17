@@ -11,6 +11,12 @@ export const Route = createFileRoute("/conteudos/dp-esocial")({
       { property: "og:url", content: "/conteudos/dp-esocial" },
     ],
     links: [{ rel: "canonical", href: "/conteudos/dp-esocial" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Conteúdos", "item": "/conteudos"}, {"@type": "ListItem", "position": 3, "name": "DP e eSocial", "item": "/conteudos/dp-esocial"}]}),
+      },
+    ],
   }),
   component: Page,
 });

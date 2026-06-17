@@ -11,6 +11,12 @@ export const Route = createFileRoute("/segmentos/holdings")({
       { property: "og:url", content: "/segmentos/holdings" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/holdings" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Segmentos", "item": "/segmentos"}, {"@type": "ListItem", "position": 3, "name": "Holdings", "item": "/segmentos/holdings"}]}),
+      },
+    ],
   }),
   component: Page,
 });

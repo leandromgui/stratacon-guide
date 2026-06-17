@@ -11,6 +11,12 @@ export const Route = createFileRoute("/solucoes/holding-patrimonial")({
       { property: "og:url", content: "/solucoes/holding-patrimonial" },
     ],
     links: [{ rel: "canonical", href: "/solucoes/holding-patrimonial" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Soluções", "item": "/solucoes"}, {"@type": "ListItem", "position": 3, "name": "Holding Patrimonial", "item": "/solucoes/holding-patrimonial"}]}),
+      },
+    ],
   }),
   component: Page,
 });

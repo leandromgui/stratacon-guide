@@ -11,6 +11,12 @@ export const Route = createFileRoute("/conteudos/saude-clinicas")({
       { property: "og:url", content: "/conteudos/saude-clinicas" },
     ],
     links: [{ rel: "canonical", href: "/conteudos/saude-clinicas" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Conteúdos", "item": "/conteudos"}, {"@type": "ListItem", "position": 3, "name": "Saúde e Clínicas", "item": "/conteudos/saude-clinicas"}]}),
+      },
+    ],
   }),
   component: Page,
 });
