@@ -57,6 +57,7 @@ jobs:
           STRICT_UPDATES: ${{ github.event.inputs.strict_updates || vars.RULESET_STRICT_UPDATES || 'true' }}
           REQUIRED_REVIEWS: ${{ github.event.inputs.required_reviews || vars.RULESET_REQUIRED_REVIEWS || '1' }}
           ENFORCEMENT: ${{ github.event.inputs.enforcement || vars.RULESET_ENFORCEMENT || 'active' }}
+          DRY_RUN: ${{ github.event.inputs.dry_run || vars.RULESET_DRY_RUN || 'false' }}
         run: |
           set -euo pipefail
 
