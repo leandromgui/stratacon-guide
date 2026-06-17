@@ -5,9 +5,9 @@ export const Route = createFileRoute("/solucoes/departamento-fiscal")({
   head: () => ({
     meta: [
       { title: "Departamento Fiscal | DCON Serviços Contábeis" },
-      { name: "description", content: "Departamento fiscal técnico e auditável. Atendimento consultivo da DCON em Goiânia e online." },
+      { name: "description", content: "Departamento fiscal técnico e auditável. Atendimento consultivo DCON em Goiânia e online." },
       { property: "og:title", content: "Departamento Fiscal | DCON Serviços Contábeis" },
-      { property: "og:description", content: "Departamento fiscal técnico e auditável. Atendimento consultivo da DCON em Goiânia e online." },
+      { property: "og:description", content: "Departamento fiscal técnico e auditável. Atendimento consultivo DCON em Goiânia e online." },
       { property: "og:url", content: "/solucoes/departamento-fiscal" },
     ],
     links: [{ rel: "canonical", href: "/solucoes/departamento-fiscal" }],
@@ -20,17 +20,17 @@ function Page() {
     <PageScaffold
       eyebrow="Soluções"
       h1="Departamento fiscal técnico e auditável"
-      
-      intent="departamento fiscal terceirizado, apuração de impostos"
+      intro="Apuração de tributos com base técnica, SPEDs sem inconsistências e revisão preventiva de risco fiscal."
+      intent="departamento fiscal terceirizado, apuração de impostos empresa"
       observation="Forte gancho para Recuperação de Créditos e Regularização."
       ctaPrimary={{ label: "Solicitar proposta", to: "/contato" }}
       ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
       sections={[
-      { h2: "O que está incluso", h3: ["[preencher]"] },
-      { h2: "Para quem é indicado", h3: ["[preencher]"] },
-      { h2: "Como entregamos", h3: ["[preencher]"] },
-      { h2: "Diferenciais técnicos", h3: ["[preencher]"] },
-      { h2: "Perguntas frequentes", h3: ["[preencher]"] },
+      { h2: "O que está incluso", h3: [{"title":"Apuração de tributos","body":"PIS, COFINS, ICMS, ISS, IRPJ e CSLL apurados com revisão técnica."},{"title":"SPED Fiscal e Contribuições","body":"Entregas auditadas antes da transmissão para reduzir risco de malha."},{"title":"Obrigações estaduais e municipais","body":"GIA, DESTDA, declarações de ISS conforme o município."},{"title":"Conferência de notas","body":"Validação técnica de CFOP, CST, NCM e base de cálculo."}] },
+      { h2: "Para quem é indicado", h3: [{"title":"Comércio e indústria","body":"Operações com ICMS, ST e DIFAL que exigem precisão."},{"title":"Empresas com filiais","body":"Operações multiestaduais com regras tributárias distintas."},{"title":"Empresas que sofreram autuação","body":"Negócios que precisam corrigir rota fiscal antes de crescer."}] },
+      { h2: "Como entregamos", h3: [{"title":"Calendário fiscal ativo","body":"Controle de prazos federais, estaduais e municipais."},{"title":"Auditoria preventiva","body":"Revisão mensal cruzando faturamento, NFs e apuração."},{"title":"Comunicação proativa","body":"Avisamos riscos antes da malha — não depois."}] },
+      { h2: "Diferenciais técnicos", h3: [{"title":"Olho na ST e no DIFAL","body":"Erros silenciosos que custam caro em fiscalização."},{"title":"Cruzamento com SPED","body":"Conferência cruzada antes da transmissão definitiva."},{"title":"Integração com Recuperação","body":"Identificamos crédito recuperável durante a rotina."}] },
+      { h2: "Perguntas frequentes", h3: [{"title":"Vocês emitem notas?","body":"Não. Operamos a apuração e a conformidade fiscal."},{"title":"Atendem empresas no Simples?","body":"Sim, com revisão de anexo, fator R e sublimite."},{"title":"Fazem defesa em autuação?","body":"Apoiamos tecnicamente. Defesa jurídica fica com advogado parceiro."}] },
       ]}
     />
   );

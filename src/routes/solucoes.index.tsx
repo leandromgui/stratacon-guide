@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 
-export const Route = createFileRoute("/solucoes/")({
+export const Route = createFileRoute("/solucoes")({
   head: () => ({
     meta: [
       { title: "Soluções Contábeis | DCON Serviços Contábeis" },
@@ -20,23 +20,15 @@ function Page() {
     <PageScaffold
       eyebrow="Soluções"
       h1="Soluções contábeis para empresas que precisam de segurança, controle e estratégia"
-      
+      intro="Da rotina fiscal ao planejamento tributário e reestruturação societária — tudo conduzido por equipe técnica."
       intent="soluções contábeis empresa, contabilidade consultiva serviços"
       
       ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       sections={[
-      { h2: "Contabilidade Empresarial", h3: ["Escrituração","Balanços","Relatórios gerenciais"] },
-      { h2: "Departamento Fiscal", h3: ["Apuração de tributos","Obrigações acessórias","Conformidade"] },
-      { h2: "Planejamento Tributário", h3: ["Análise de regime","Reorganização societária","Benefícios fiscais"] },
-      { h2: "Recuperação de Créditos Tributários", h3: ["Levantamento","Análise técnica","Restituição"] },
-      { h2: "Departamento Pessoal", h3: ["Folha","eSocial","Encargos"] },
-      { h2: "Societário e Legalização", h3: ["Constituição","Alterações","Encerramento"] },
-      { h2: "Regularização Fiscal", h3: ["Pendências","Parcelamentos","Compliance"] },
-      { h2: "Holding e Estrutura Patrimonial", h3: ["Holding familiar","Patrimonial","Sucessão"] },
-      { h2: "BPO Financeiro", h3: ["Rotinas financeiras","Fluxo de caixa","Indicadores"] },
-      { h2: "Abrir Empresa", h3: ["Enquadramento","CNAE","Documentação"] },
-      { h2: "Trocar de Contabilidade", h3: ["Transição segura","Auditoria de entrada","Migração"] },
+      { h2: "Rotina contábil e fiscal", lead: "A base segura sobre a qual qualquer decisão tributária se sustenta.", h3: [{"title":"Contabilidade Empresarial","body":"Escrituração, balanços e relatórios gerenciais com revisão técnica mensal."},{"title":"Departamento Fiscal","body":"Apuração de tributos, SPEDs e obrigações acessórias dentro do prazo e auditáveis."},{"title":"Departamento Pessoal","body":"Folha, encargos, eSocial e admissões com conformidade trabalhista."},{"title":"BPO Financeiro","body":"Rotinas financeiras, conciliações e fluxo de caixa com governança."}] },
+      { h2: "Decisão tributária e patrimonial", lead: "Onde a contabilidade deixa de ser custo e vira economia.", h3: [{"title":"Planejamento Tributário","body":"Estudo comparativo de regimes e cenários com fundamento legal."},{"title":"Recuperação de Créditos","body":"Levantamento técnico de créditos pagos a maior nos últimos 5 anos."},{"title":"Holding e Patrimônio","body":"Estruturação patrimonial, sucessão e proteção dentro da lei."},{"title":"Societário e Legalização","body":"Constituições, alterações, encerramentos e governança societária."}] },
+      { h2: "Saída de crises e transições", lead: "Para empresas que precisam reorganizar a casa.", h3: [{"title":"Regularização Fiscal","body":"Diagnóstico de pendências, parcelamentos e plano de compliance."},{"title":"Trocar de Contabilidade","body":"Transição técnica sem perder prazos nem desorganizar a empresa."},{"title":"Abrir Empresa","body":"Enquadramento, CNAE e regime certos desde o primeiro dia."}] },
       ]}
     />
   );

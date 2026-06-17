@@ -26,9 +26,9 @@ function Page() {
       ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
       
       sections={[
-      { h2: "Solicite uma análise da sua empresa", h3: ["Diagnóstico fiscal","Diagnóstico contábil","Diagnóstico tributário"] },
-      { h2: "Atendimento em Goiânia e online", h3: ["Endereço","Horário","Atendimento remoto"] },
-      { h2: "Canais de contato", h3: ["WhatsApp","E-mail","Telefone"] },
+      { h2: "Solicite uma análise da sua empresa", h3: [{"title":"Diagnóstico fiscal","body":"Revisão técnica de apurações, SPEDs e classificação."},{"title":"Diagnóstico contábil","body":"Análise de escrituração e fechamentos."},{"title":"Diagnóstico tributário","body":"Comparativo de regime e oportunidades."}] },
+      { h2: "Atendimento em Goiânia e online", h3: [{"title":"Goiânia","body":"Encontros presenciais em horário comercial."},{"title":"Online","body":"Atendimento remoto em todo o Brasil."},{"title":"Reuniões","body":"Por videoconferência, agendadas com responsável técnico."}] },
+      { h2: "Canais", h3: [{"title":"WhatsApp","body":"Atendimento direto para clientes e novos contatos."},{"title":"E-mail","body":"contato@dcon.com.br"},{"title":"Telefone","body":"[preencher]"}] },
       ]}
     />
   );

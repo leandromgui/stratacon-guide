@@ -20,17 +20,17 @@ function Page() {
     <PageScaffold
       eyebrow="Segmento"
       h1="Contabilidade para construtoras, incorporadoras e SPEs"
-      
+      intro="Contabilidade técnica desenhada para a realidade tributária e operacional de construção civil e spes."
       intent="contabilidade construção civil, SPE incorporação, RET 4%"
       observation="Alto valor por clique; cluster denso."
       ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       sections={[
-      { h2: "Particularidades tributárias e contábeis", h3: ["[preencher]"] },
-      { h2: "Riscos comuns no segmento", h3: ["[preencher]"] },
-      { h2: "Como a DCON atua neste segmento", h3: ["[preencher]"] },
-      { h2: "Casos e exemplos", h3: ["[preencher]"] },
-      { h2: "Perguntas frequentes", h3: ["[preencher]"] },
+      { h2: "Particularidades do setor", h3: [{"title":"RET e patrimônio de afetação","body":"Regime especial para incorporações imobiliárias."},{"title":"SPE por obra","body":"Estrutura societária dedicada por empreendimento."},{"title":"INSS na construção","body":"Retenção previdenciária com regras próprias."}] },
+      { h2: "Decisões estratégicas", h3: [{"title":"Quando vale RET","body":"Cenário em que a alíquota reduzida compensa as restrições."},{"title":"Habitacional × comercial","body":"Tratamento diferente por tipo de empreendimento."},{"title":"Custos por obra","body":"Apropriação contábil correta para análise por empreendimento."}] },
+      { h2: "Riscos comuns", h3: [{"title":"Mistura de obras","body":"Não segregar custos e receitas por SPE."},{"title":"Patrimônio de afetação mal formalizado","body":"Comprometer o benefício do RET."},{"title":"Retenção previdenciária errada","body":"Autuação no INSS."}] },
+      { h2: "Como a DCON atua", h3: [{"title":"Estruturação societária","body":"Constituição de SPE e enquadramento no RET."},{"title":"Rotina técnica","body":"Apropriação por obra e fechamento auditável."},{"title":"Acompanhamento estratégico","body":"Revisão por empreendimento e por regime."}] },
+      { h2: "Perguntas frequentes", h3: [{"title":"Vale abrir SPE para 1 obra?","body":"Depende do porte e do financiamento."},{"title":"RET serve para reforma?","body":"Não. RET é para incorporação."},{"title":"Atendem obras fora de GO?","body":"Sim, em todo o Brasil."}] },
       ]}
     />
   );
