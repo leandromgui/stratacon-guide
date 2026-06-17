@@ -15,14 +15,74 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const blocks = [
-  { h2: "Por que sua contabilidade precisa ir além das guias", h3: ["Riscos invisíveis", "O custo de cada erro fiscal", "Decisão sem dado é risco"] },
-  { h2: "Como a DCON atua", h3: ["Diagnóstico técnico", "Estruturação", "Acompanhamento estratégico"] },
-  { h2: "Soluções contábeis, fiscais e tributárias", h3: ["Contabilidade Empresarial", "Planejamento Tributário", "Regularização Fiscal", "Holding e Patrimônio"] },
-  { h2: "Segmentos atendidos", h3: ["Médicos e clínicas", "E-commerce", "Construção civil e SPEs", "Holdings", "Tecnologia"] },
-  { h2: "Diagnóstico fiscal e contábil", h3: ["O que avaliamos", "Quando solicitar", "Como funciona"] },
-  { h2: "Conteúdos para empresários", h3: ["Planejamento tributário", "Regimes tributários", "Holding e sucessão"] },
-  { h2: "Fale com a DCON", h3: ["Goiânia", "Atendimento online", "WhatsApp"] },
+const blocks: Array<{ h2: string; lead: string; h3: { title: string; body: string }[] }> = [
+  {
+    h2: "Por que sua contabilidade precisa ir além das guias",
+    lead: "Cumprir prazo é o mínimo. Decisão segura exige leitura técnica do que está sendo declarado.",
+    h3: [
+      { title: "Riscos invisíveis", body: "Erro de classificação fiscal, ST e DIFAL costumam aparecer só na autuação." },
+      { title: "O custo do erro fiscal", body: "Multa, juros e perda de oportunidade superam em muito qualquer economia inicial." },
+      { title: "Decisão sem dado é risco", body: "Sem relatório gerencial confiável, o sócio decide no instinto — e paga caro." },
+    ],
+  },
+  {
+    h2: "Como a DCON atua",
+    lead: "Quatro etapas que transformam contabilidade em informação útil para decidir.",
+    h3: [
+      { title: "Diagnóstico técnico", body: "Antes de qualquer entrega, mapeamos o que está exposto." },
+      { title: "Estruturação", body: "Regime, CNAE, sócios e processos ajustados à operação real." },
+      { title: "Rotina auditável", body: "Calendário fiscal, fechamento revisado e relatórios padronizados." },
+      { title: "Acompanhamento consultivo", body: "Reuniões periódicas com leitura do que o número está dizendo." },
+    ],
+  },
+  {
+    h2: "Soluções contábeis, fiscais e tributárias",
+    lead: "Da rotina obrigatória às decisões de maior impacto patrimonial.",
+    h3: [
+      { title: "Contabilidade Empresarial", body: "Escrituração, balanços e relatórios entregues com revisão técnica." },
+      { title: "Planejamento Tributário", body: "Comparativo de regimes com fundamento legal e cenários reais." },
+      { title: "Regularização Fiscal", body: "Saída de pendências com plano e parcelamentos adequados." },
+      { title: "Holding e Patrimônio", body: "Estrutura patrimonial e sucessão dentro da lei." },
+    ],
+  },
+  {
+    h2: "Segmentos atendidos",
+    lead: "Conhecimento específico por vertical — não tratamos todo cliente igual.",
+    h3: [
+      { title: "Médicos e clínicas", body: "PJ médica, sociedade médica e equiparação hospitalar." },
+      { title: "E-commerce", body: "DIFAL, ICMS-ST e operação multiestadual sob controle." },
+      { title: "Construção civil e SPEs", body: "RET, patrimônio de afetação e SPE por obra." },
+      { title: "Holdings", body: "Estrutura patrimonial e familiar com base técnica." },
+      { title: "Tecnologia e startups", body: "SaaS, ISS, equity e Lei do Bem." },
+    ],
+  },
+  {
+    h2: "Diagnóstico fiscal e contábil",
+    lead: "Entrega técnica em até 7 dias úteis com plano de ação acionável.",
+    h3: [
+      { title: "O que avaliamos", body: "Fiscal, contábil, tributário, trabalhista e societário." },
+      { title: "Quando solicitar", body: "Troca de contador, crescimento ou pendência fiscal." },
+      { title: "Como funciona", body: "Coleta, análise técnica e devolutiva consultiva." },
+    ],
+  },
+  {
+    h2: "Conteúdos para empresários",
+    lead: "Material técnico escrito para quem decide, não só para quem opera.",
+    h3: [
+      { title: "Planejamento tributário", body: "Cenários, regimes e estruturas explicados com base." },
+      { title: "Regimes tributários", body: "Simples, Presumido e Real comparados sem floreio." },
+      { title: "Holding e sucessão", body: "O que funciona, o que é mito e o que ninguém te conta." },
+    ],
+  },
+  {
+    h2: "Fale com a DCON",
+    lead: "Atendimento presencial em Goiânia e online em todo o Brasil.",
+    h3: [
+      { title: "Goiânia", body: "Reuniões presenciais com o responsável técnico." },
+      { title: "Atendimento online", body: "Videoconferência agendada para empresas de outras cidades." },
+      { title: "WhatsApp e e-mail", body: "Canais diretos para clientes e novos contatos." },
+    ],
+  },
 ];
 
 function Home() {
@@ -54,11 +114,12 @@ function Home() {
         {blocks.map((b) => (
           <article key={b.h2} className="border-l-2 border-primary/60 pl-6">
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">{b.h2}</h2>
+            <p className="mt-3 max-w-3xl text-muted-foreground">{b.lead}</p>
             <ul className="mt-5 grid gap-3 sm:grid-cols-2 md:grid-cols-3">
               {b.h3.map((h) => (
-                <li key={h} className="rounded-md border border-border bg-card p-4 text-sm">
-                  <h3 className="font-medium">{h}</h3>
-                  <p className="mt-1 text-muted-foreground text-xs">[conteúdo a desenvolver]</p>
+                <li key={h.title} className="rounded-md border border-border bg-card p-4 text-sm">
+                  <h3 className="font-medium">{h.title}</h3>
+                  <p className="mt-1.5 text-muted-foreground text-[13px] leading-relaxed">{h.body}</p>
                 </li>
               ))}
             </ul>
