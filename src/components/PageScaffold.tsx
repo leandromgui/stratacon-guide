@@ -1,9 +1,15 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
+export interface H3Item {
+  title: string;
+  body: string;
+}
+
 export interface Section {
   h2: string;
-  h3?: string[];
+  lead?: string;
+  h3?: H3Item[];
 }
 
 export interface PageScaffoldProps {
@@ -61,16 +67,19 @@ export function PageScaffold(p: PageScaffoldProps) {
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
               {s.h2}
             </h2>
+            {s.lead && (
+              <p className="mt-3 max-w-3xl text-muted-foreground">{s.lead}</p>
+            )}
             {s.h3 && s.h3.length > 0 && (
               <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                 {s.h3.map((h) => (
                   <li
-                    key={h}
+                    key={h.title}
                     className="rounded-md border border-border bg-card p-4 text-sm"
                   >
-                    <h3 className="font-medium text-card-foreground">{h}</h3>
-                    <p className="mt-1 text-muted-foreground text-xs">
-                      [conteúdo a desenvolver]
+                    <h3 className="font-medium text-card-foreground">{h.title}</h3>
+                    <p className="mt-1.5 text-muted-foreground text-[13px] leading-relaxed">
+                      {h.body}
                     </p>
                   </li>
                 ))}
