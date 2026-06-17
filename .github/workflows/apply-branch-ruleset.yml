@@ -162,8 +162,12 @@ jobs:
           ERRORS=$(jq -r -f .github/workflows/ruleset-schema.jq ruleset-payload.json || true)
 
           if [ -n "$ERRORS" ]; then
+            ERROR_COUNT=$(echo "$ERRORS" | wc -l)
             echo "Schema validation failed:"
             echo "$ERRORS"
+            echo
+            echo "SUMMARY: $ERROR_COUNT schema validation failure(s) found."
+            echo "HINT: Check the paths and expected types above, then update the workflow inputs or the ruleset-payload.json fields accordingly."
             exit 1
           fi
 
