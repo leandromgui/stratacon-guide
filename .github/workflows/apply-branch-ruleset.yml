@@ -30,7 +30,7 @@ on:
         required: false
         default: "active"
         type: choice
-        options: ["active", "evaluate", "{ "disabled" }
+        options: ["active", "evaluate", "disabled"]
       dry_run:
         description: "Validate inputs and show payload without applying"
         required: false
