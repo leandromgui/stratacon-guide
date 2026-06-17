@@ -11,6 +11,12 @@ export const Route = createFileRoute("/segmentos/terceiro-setor")({
       { property: "og:url", content: "/segmentos/terceiro-setor" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/terceiro-setor" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Segmentos", "item": "/segmentos"}, {"@type": "ListItem", "position": 3, "name": "Terceiro Setor", "item": "/segmentos/terceiro-setor"}]}),
+      },
+    ],
   }),
   component: Page,
 });

@@ -11,6 +11,12 @@ export const Route = createFileRoute("/solucoes/departamento-fiscal")({
       { property: "og:url", content: "/solucoes/departamento-fiscal" },
     ],
     links: [{ rel: "canonical", href: "/solucoes/departamento-fiscal" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Soluções", "item": "/solucoes"}, {"@type": "ListItem", "position": 3, "name": "Departamento Fiscal", "item": "/solucoes/departamento-fiscal"}]}),
+      },
+    ],
   }),
   component: Page,
 });

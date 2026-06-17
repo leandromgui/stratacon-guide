@@ -11,6 +11,12 @@ export const Route = createFileRoute("/conteudos/planejamento-tributario")({
       { property: "og:url", content: "/conteudos/planejamento-tributario" },
     ],
     links: [{ rel: "canonical", href: "/conteudos/planejamento-tributario" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Conteúdos", "item": "/conteudos"}, {"@type": "ListItem", "position": 3, "name": "Planejamento Tributário", "item": "/conteudos/planejamento-tributario"}]}),
+      },
+    ],
   }),
   component: Page,
 });

@@ -11,6 +11,12 @@ export const Route = createFileRoute("/conteudos/regimes-tributarios")({
       { property: "og:url", content: "/conteudos/regimes-tributarios" },
     ],
     links: [{ rel: "canonical", href: "/conteudos/regimes-tributarios" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Conteúdos", "item": "/conteudos"}, {"@type": "ListItem", "position": 3, "name": "Regimes Tributários", "item": "/conteudos/regimes-tributarios"}]}),
+      },
+    ],
   }),
   component: Page,
 });

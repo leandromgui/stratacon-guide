@@ -11,6 +11,12 @@ export const Route = createFileRoute("/goiania")({
       { property: "og:url", content: "/goiania" },
     ],
     links: [{ rel: "canonical", href: "/goiania" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Contador em Goiânia", "item": "/goiania"}]}),
+      },
+    ],
   }),
   component: Page,
 });

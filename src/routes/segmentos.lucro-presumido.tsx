@@ -11,6 +11,12 @@ export const Route = createFileRoute("/segmentos/lucro-presumido")({
       { property: "og:url", content: "/segmentos/lucro-presumido" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/lucro-presumido" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Segmentos", "item": "/segmentos"}, {"@type": "ListItem", "position": 3, "name": "Lucro Presumido", "item": "/segmentos/lucro-presumido"}]}),
+      },
+    ],
   }),
   component: Page,
 });

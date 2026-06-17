@@ -11,6 +11,12 @@ export const Route = createFileRoute("/sobre/metodologia")({
       { property: "og:url", content: "/sobre/metodologia" },
     ],
     links: [{ rel: "canonical", href: "/sobre/metodologia" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Sobre", "item": "/sobre"}, {"@type": "ListItem", "position": 3, "name": "Metodologia", "item": "/sobre/metodologia"}]}),
+      },
+    ],
   }),
   component: Page,
 });

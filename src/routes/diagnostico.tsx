@@ -11,6 +11,12 @@ export const Route = createFileRoute("/diagnostico")({
       { property: "og:url", content: "/diagnostico" },
     ],
     links: [{ rel: "canonical", href: "/diagnostico" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Diagnóstico", "item": "/diagnostico"}]}),
+      },
+    ],
   }),
   component: Page,
 });

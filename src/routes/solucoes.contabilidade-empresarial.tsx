@@ -11,6 +11,12 @@ export const Route = createFileRoute("/solucoes/contabilidade-empresarial")({
       { property: "og:url", content: "/solucoes/contabilidade-empresarial" },
     ],
     links: [{ rel: "canonical", href: "/solucoes/contabilidade-empresarial" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Soluções", "item": "/solucoes"}, {"@type": "ListItem", "position": 3, "name": "Contabilidade Empresarial", "item": "/solucoes/contabilidade-empresarial"}]}),
+      },
+    ],
   }),
   component: Page,
 });

@@ -11,6 +11,12 @@ export const Route = createFileRoute("/conteudos/comercio-icms")({
       { property: "og:url", content: "/conteudos/comercio-icms" },
     ],
     links: [{ rel: "canonical", href: "/conteudos/comercio-icms" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Conteúdos", "item": "/conteudos"}, {"@type": "ListItem", "position": 3, "name": "Comércio e ICMS", "item": "/conteudos/comercio-icms"}]}),
+      },
+    ],
   }),
   component: Page,
 });

@@ -11,6 +11,12 @@ export const Route = createFileRoute("/segmentos/e-commerce")({
       { property: "og:url", content: "/segmentos/e-commerce" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/e-commerce" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Segmentos", "item": "/segmentos"}, {"@type": "ListItem", "position": 3, "name": "E-commerce", "item": "/segmentos/e-commerce"}]}),
+      },
+    ],
   }),
   component: Page,
 });

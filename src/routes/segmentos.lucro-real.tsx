@@ -11,6 +11,12 @@ export const Route = createFileRoute("/segmentos/lucro-real")({
       { property: "og:url", content: "/segmentos/lucro-real" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/lucro-real" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Segmentos", "item": "/segmentos"}, {"@type": "ListItem", "position": 3, "name": "Lucro Real", "item": "/segmentos/lucro-real"}]}),
+      },
+    ],
   }),
   component: Page,
 });

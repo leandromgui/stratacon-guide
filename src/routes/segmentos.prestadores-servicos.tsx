@@ -11,6 +11,12 @@ export const Route = createFileRoute("/segmentos/prestadores-servicos")({
       { property: "og:url", content: "/segmentos/prestadores-servicos" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/prestadores-servicos" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Segmentos", "item": "/segmentos"}, {"@type": "ListItem", "position": 3, "name": "Prestadores de Serviço", "item": "/segmentos/prestadores-servicos"}]}),
+      },
+    ],
   }),
   component: Page,
 });
