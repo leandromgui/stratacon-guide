@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/solucoes/")({
   head: () => ({
     meta: [
-      { title: "Soluções Contábeis | DCON Serviços Contábeis" },
-      { name: "description", content: "Soluções contábeis, fiscais, tributárias e societárias para empresas que precisam de segurança, controle e estratégia." },
-      { property: "og:title", content: "Soluções Contábeis | DCON Serviços Contábeis" },
-      { property: "og:description", content: "Soluções contábeis, fiscais, tributárias e societárias para empresas que precisam de segurança, controle e estratégia." },
+      { title: "Soluções Contábeis e Tributárias | DCON Goiânia" },
+      { name: "description", content: "Contabilidade, fiscal, departamento pessoal, planejamento tributário e holding. Soluções DCON para empresas em Goiânia e em todo o Brasil." },
+      { property: "og:title", content: "Soluções Contábeis e Tributárias | DCON Goiânia" },
+      { property: "og:description", content: "Contabilidade, fiscal, departamento pessoal, planejamento tributário e holding. Soluções DCON para empresas em Goiânia e em todo o Brasil." },
       { property: "og:url", content: "/solucoes" },
     ],
     links: [{ rel: "canonical", href: "/solucoes" }],

@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/conteudos/planejamento-tributario")({
   head: () => ({
     meta: [
-      { title: "Planejamento Tributário | Central de Conteúdo DCON" },
-      { name: "description", content: "Conteúdos sobre planejamento tributário empresarial. Artigos técnicos da DCON Serviços Contábeis." },
-      { property: "og:title", content: "Planejamento Tributário | Central de Conteúdo DCON" },
-      { property: "og:description", content: "Conteúdos sobre planejamento tributário empresarial. Artigos técnicos da DCON Serviços Contábeis." },
+      { title: "Conteúdos sobre Planejamento Tributário | DCON" },
+      { name: "description", content: "Artigos da DCON sobre planejamento tributário: regimes, comparativos, fator R e economia fiscal com segurança jurídica." },
+      { property: "og:title", content: "Conteúdos sobre Planejamento Tributário | DCON" },
+      { property: "og:description", content: "Artigos da DCON sobre planejamento tributário: regimes, comparativos, fator R e economia fiscal com segurança jurídica." },
       { property: "og:url", content: "/conteudos/planejamento-tributario" },
     ],
     links: [{ rel: "canonical", href: "/conteudos/planejamento-tributario" }],

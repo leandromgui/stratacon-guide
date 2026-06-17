@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/solucoes/recuperacao-creditos-tributarios")({
   head: () => ({
     meta: [
-      { title: "Recuperação de Créditos Tributários | DCON Serviços Contábeis" },
-      { name: "description", content: "Recuperação de créditos tributários com análise técnica e auditável. Atendimento consultivo DCON em Goiânia e online." },
-      { property: "og:title", content: "Recuperação de Créditos Tributários | DCON Serviços Contábeis" },
-      { property: "og:description", content: "Recuperação de créditos tributários com análise técnica e auditável. Atendimento consultivo DCON em Goiânia e online." },
+      { title: "Recuperação de Créditos Tributários | DCON Goiânia" },
+      { name: "description", content: "Recupere PIS, Cofins, INSS e ICMS pagos a maior. Análise técnica e administrativa da DCON em Goiânia, com base em jurisprudência atualizada." },
+      { property: "og:title", content: "Recuperação de Créditos Tributários | DCON Goiânia" },
+      { property: "og:description", content: "Recupere PIS, Cofins, INSS e ICMS pagos a maior. Análise técnica e administrativa da DCON em Goiânia, com base em jurisprudência atualizada." },
       { property: "og:url", content: "/solucoes/recuperacao-creditos-tributarios" },
     ],
     links: [{ rel: "canonical", href: "/solucoes/recuperacao-creditos-tributarios" }],

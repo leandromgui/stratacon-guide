@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/segmentos/lucro-real")({
   head: () => ({
     meta: [
-      { title: "Lucro Real | Contabilidade Especializada DCON" },
-      { name: "description", content: "Contabilidade para empresas no Lucro Real. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
-      { property: "og:title", content: "Lucro Real | Contabilidade Especializada DCON" },
-      { property: "og:description", content: "Contabilidade para empresas no Lucro Real. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
+      { title: "Empresas no Lucro Real | DCON Goiânia" },
+      { name: "description", content: "Contabilidade para empresas no Lucro Real em Goiânia: ECF, ECD, créditos de PIS e Cofins e planejamento tributário com a DCON." },
+      { property: "og:title", content: "Empresas no Lucro Real | DCON Goiânia" },
+      { property: "og:description", content: "Contabilidade para empresas no Lucro Real em Goiânia: ECF, ECD, créditos de PIS e Cofins e planejamento tributário com a DCON." },
       { property: "og:url", content: "/segmentos/lucro-real" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/lucro-real" }],

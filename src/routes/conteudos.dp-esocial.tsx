@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/conteudos/dp-esocial")({
   head: () => ({
     meta: [
-      { title: "DP e eSocial | Central de Conteúdo DCON" },
-      { name: "description", content: "Conteúdos sobre departamento pessoal, folha e eSocial. Artigos técnicos da DCON Serviços Contábeis." },
-      { property: "og:title", content: "DP e eSocial | Central de Conteúdo DCON" },
-      { property: "og:description", content: "Conteúdos sobre departamento pessoal, folha e eSocial. Artigos técnicos da DCON Serviços Contábeis." },
+      { title: "Conteúdos sobre DP e eSocial | DCON Contábil" },
+      { name: "description", content: "Conteúdos da DCON sobre departamento pessoal e eSocial: folha, admissões, rescisões e obrigações acessórias com segurança." },
+      { property: "og:title", content: "Conteúdos sobre DP e eSocial | DCON Contábil" },
+      { property: "og:description", content: "Conteúdos da DCON sobre departamento pessoal e eSocial: folha, admissões, rescisões e obrigações acessórias com segurança." },
       { property: "og:url", content: "/conteudos/dp-esocial" },
     ],
     links: [{ rel: "canonical", href: "/conteudos/dp-esocial" }],

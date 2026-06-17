@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/diagnostico")({
   head: () => ({
     meta: [
-      { title: "Diagnóstico Fiscal e Contábil | DCON Serviços Contábeis" },
-      { name: "description", content: "Descubra em até 7 dias úteis os riscos fiscais, tributários e contábeis da sua empresa. Diagnóstico técnico DCON." },
-      { property: "og:title", content: "Diagnóstico Fiscal e Contábil | DCON Serviços Contábeis" },
-      { property: "og:description", content: "Descubra em até 7 dias úteis os riscos fiscais, tributários e contábeis da sua empresa. Diagnóstico técnico DCON." },
+      { title: "Diagnóstico Contábil Gratuito | DCON Goiânia" },
+      { name: "description", content: "Solicite um diagnóstico contábil, fiscal e tributário gratuito da DCON em Goiânia. Identifique riscos e oportunidades na sua empresa." },
+      { property: "og:title", content: "Diagnóstico Contábil Gratuito | DCON Goiânia" },
+      { property: "og:description", content: "Solicite um diagnóstico contábil, fiscal e tributário gratuito da DCON em Goiânia. Identifique riscos e oportunidades na sua empresa." },
       { property: "og:url", content: "/diagnostico" },
     ],
     links: [{ rel: "canonical", href: "/diagnostico" }],

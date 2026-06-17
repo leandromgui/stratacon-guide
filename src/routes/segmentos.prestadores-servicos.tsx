@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/segmentos/prestadores-servicos")({
   head: () => ({
     meta: [
-      { title: "Prestadores de Serviços | Contabilidade Especializada DCON" },
-      { name: "description", content: "Contabilidade para prestadores de serviços e consultorias. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
-      { property: "og:title", content: "Prestadores de Serviços | Contabilidade Especializada DCON" },
-      { property: "og:description", content: "Contabilidade para prestadores de serviços e consultorias. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
+      { title: "Contabilidade para Prestadores de Serviço | DCON Goiânia" },
+      { name: "description", content: "Contabilidade para prestadores de serviço em Goiânia: ISS, retenções, fator R e planejamento tributário consultivo com a DCON." },
+      { property: "og:title", content: "Contabilidade para Prestadores de Serviço | DCON Goiânia" },
+      { property: "og:description", content: "Contabilidade para prestadores de serviço em Goiânia: ISS, retenções, fator R e planejamento tributário consultivo com a DCON." },
       { property: "og:url", content: "/segmentos/prestadores-servicos" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/prestadores-servicos" }],

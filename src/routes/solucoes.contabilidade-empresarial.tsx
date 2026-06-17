@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/solucoes/contabilidade-empresarial")({
   head: () => ({
     meta: [
-      { title: "Contabilidade Empresarial | DCON Serviços Contábeis" },
-      { name: "description", content: "Contabilidade empresarial com visão técnica e estratégica. Atendimento consultivo DCON em Goiânia e online." },
-      { property: "og:title", content: "Contabilidade Empresarial | DCON Serviços Contábeis" },
-      { property: "og:description", content: "Contabilidade empresarial com visão técnica e estratégica. Atendimento consultivo DCON em Goiânia e online." },
+      { title: "Contabilidade Empresarial em Goiânia | DCON" },
+      { name: "description", content: "Contabilidade empresarial consultiva em Goiânia com relatórios gerenciais, fechamento auditável e leitura técnica para decisões seguras." },
+      { property: "og:title", content: "Contabilidade Empresarial em Goiânia | DCON" },
+      { property: "og:description", content: "Contabilidade empresarial consultiva em Goiânia com relatórios gerenciais, fechamento auditável e leitura técnica para decisões seguras." },
       { property: "og:url", content: "/solucoes/contabilidade-empresarial" },
     ],
     links: [{ rel: "canonical", href: "/solucoes/contabilidade-empresarial" }],

@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/segmentos/comercio")({
   head: () => ({
     meta: [
-      { title: "Comércio | Contabilidade Especializada DCON" },
-      { name: "description", content: "Contabilidade para comércio varejista e atacadista. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
-      { property: "og:title", content: "Comércio | Contabilidade Especializada DCON" },
-      { property: "og:description", content: "Contabilidade para comércio varejista e atacadista. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
+      { title: "Contabilidade para Comércio em Goiânia | DCON" },
+      { name: "description", content: "Contabilidade para comércio em Goiânia: ICMS, substituição tributária, SPED Fiscal e gestão de estoque com a DCON Contábil." },
+      { property: "og:title", content: "Contabilidade para Comércio em Goiânia | DCON" },
+      { property: "og:description", content: "Contabilidade para comércio em Goiânia: ICMS, substituição tributária, SPED Fiscal e gestão de estoque com a DCON Contábil." },
       { property: "og:url", content: "/segmentos/comercio" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/comercio" }],

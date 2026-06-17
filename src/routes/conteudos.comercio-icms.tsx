@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/conteudos/comercio-icms")({
   head: () => ({
     meta: [
-      { title: "Comércio e ICMS | Central de Conteúdo DCON" },
-      { name: "description", content: "Conteúdos sobre comércio, ICMS, ST e e-commerce. Artigos técnicos da DCON Serviços Contábeis." },
-      { property: "og:title", content: "Comércio e ICMS | Central de Conteúdo DCON" },
-      { property: "og:description", content: "Conteúdos sobre comércio, ICMS, ST e e-commerce. Artigos técnicos da DCON Serviços Contábeis." },
+      { title: "Conteúdos sobre Comércio, ICMS e E-commerce | DCON" },
+      { name: "description", content: "Conteúdos da DCON sobre comércio, ICMS, substituição tributária, DIFAL e contabilidade para e-commerce e marketplaces." },
+      { property: "og:title", content: "Conteúdos sobre Comércio, ICMS e E-commerce | DCON" },
+      { property: "og:description", content: "Conteúdos da DCON sobre comércio, ICMS, substituição tributária, DIFAL e contabilidade para e-commerce e marketplaces." },
       { property: "og:url", content: "/conteudos/comercio-icms" },
     ],
     links: [{ rel: "canonical", href: "/conteudos/comercio-icms" }],

@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/segmentos/condominios")({
   head: () => ({
     meta: [
-      { title: "Condomínios | Contabilidade Especializada DCON" },
-      { name: "description", content: "Contabilidade para condomínios residenciais e comerciais. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
-      { property: "og:title", content: "Condomínios | Contabilidade Especializada DCON" },
-      { property: "og:description", content: "Contabilidade para condomínios residenciais e comerciais. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
+      { title: "Contabilidade para Condomínios | DCON Goiânia" },
+      { name: "description", content: "Contabilidade para condomínios em Goiânia: folha de funcionários, prestação de contas e obrigações acessórias com a DCON." },
+      { property: "og:title", content: "Contabilidade para Condomínios | DCON Goiânia" },
+      { property: "og:description", content: "Contabilidade para condomínios em Goiânia: folha de funcionários, prestação de contas e obrigações acessórias com a DCON." },
       { property: "og:url", content: "/segmentos/condominios" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/condominios" }],

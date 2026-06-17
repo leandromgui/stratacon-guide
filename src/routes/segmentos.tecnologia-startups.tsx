@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/segmentos/tecnologia-startups")({
   head: () => ({
     meta: [
-      { title: "Tecnologia e Startups | Contabilidade Especializada DCON" },
-      { name: "description", content: "Contabilidade para empresas de tecnologia, SaaS e startups. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
-      { property: "og:title", content: "Tecnologia e Startups | Contabilidade Especializada DCON" },
-      { property: "og:description", content: "Contabilidade para empresas de tecnologia, SaaS e startups. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
+      { title: "Contabilidade para Startups e Tech em Goiânia | DCON" },
+      { name: "description", content: "Contabilidade para empresas de tecnologia e startups em Goiânia: Lei do Bem, stock options, SaaS e regime ideal com a DCON." },
+      { property: "og:title", content: "Contabilidade para Startups e Tech em Goiânia | DCON" },
+      { property: "og:description", content: "Contabilidade para empresas de tecnologia e startups em Goiânia: Lei do Bem, stock options, SaaS e regime ideal com a DCON." },
       { property: "og:url", content: "/segmentos/tecnologia-startups" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/tecnologia-startups" }],

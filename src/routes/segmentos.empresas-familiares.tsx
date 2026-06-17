@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/segmentos/empresas-familiares")({
   head: () => ({
     meta: [
-      { title: "Empresas Familiares | Contabilidade Especializada DCON" },
-      { name: "description", content: "Contabilidade para empresas familiares com sucessão e governança. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
-      { property: "og:title", content: "Empresas Familiares | Contabilidade Especializada DCON" },
-      { property: "og:description", content: "Contabilidade para empresas familiares com sucessão e governança. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
+      { title: "Contabilidade para Empresas Familiares | DCON Goiânia" },
+      { name: "description", content: "Contabilidade para empresas familiares em Goiânia: sucessão, governança, holding e profissionalização da gestão com a DCON." },
+      { property: "og:title", content: "Contabilidade para Empresas Familiares | DCON Goiânia" },
+      { property: "og:description", content: "Contabilidade para empresas familiares em Goiânia: sucessão, governança, holding e profissionalização da gestão com a DCON." },
       { property: "og:url", content: "/segmentos/empresas-familiares" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/empresas-familiares" }],

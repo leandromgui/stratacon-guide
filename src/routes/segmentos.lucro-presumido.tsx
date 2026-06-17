@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/segmentos/lucro-presumido")({
   head: () => ({
     meta: [
-      { title: "Lucro Presumido | Contabilidade Especializada DCON" },
-      { name: "description", content: "Contabilidade para empresas no Lucro Presumido. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
-      { property: "og:title", content: "Lucro Presumido | Contabilidade Especializada DCON" },
-      { property: "og:description", content: "Contabilidade para empresas no Lucro Presumido. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
+      { title: "Empresas no Lucro Presumido | DCON Goiânia" },
+      { name: "description", content: "Contabilidade para empresas no Lucro Presumido em Goiânia: apuração, PIS, Cofins, IRPJ e CSLL com revisão técnica DCON." },
+      { property: "og:title", content: "Empresas no Lucro Presumido | DCON Goiânia" },
+      { property: "og:description", content: "Contabilidade para empresas no Lucro Presumido em Goiânia: apuração, PIS, Cofins, IRPJ e CSLL com revisão técnica DCON." },
       { property: "og:url", content: "/segmentos/lucro-presumido" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/lucro-presumido" }],

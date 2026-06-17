@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/conteudos/")({
   head: () => ({
     meta: [
-      { title: "Central de Conteúdo | DCON Contabilidade" },
-      { name: "description", content: "Conteúdos para empresários que querem decidir com mais segurança: planejamento tributário, regularização, holding, eSocial e mais." },
-      { property: "og:title", content: "Central de Conteúdo | DCON Contabilidade" },
-      { property: "og:description", content: "Conteúdos para empresários que querem decidir com mais segurança: planejamento tributário, regularização, holding, eSocial e mais." },
+      { title: "Conteúdos e Insights Contábeis | DCON Goiânia" },
+      { name: "description", content: "Artigos técnicos da DCON sobre planejamento tributário, regularização fiscal, holdings e segmentos. Conteúdo de autoridade para decidir." },
+      { property: "og:title", content: "Conteúdos e Insights Contábeis | DCON Goiânia" },
+      { property: "og:description", content: "Artigos técnicos da DCON sobre planejamento tributário, regularização fiscal, holdings e segmentos. Conteúdo de autoridade para decidir." },
       { property: "og:url", content: "/conteudos" },
     ],
     links: [{ rel: "canonical", href: "/conteudos" }],

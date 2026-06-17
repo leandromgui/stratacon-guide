@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/solucoes/trocar-contabilidade")({
   head: () => ({
     meta: [
-      { title: "Trocar de Contabilidade | DCON Serviços Contábeis" },
-      { name: "description", content: "Troque de contabilidade com segurança e sem perder prazos. Atendimento consultivo DCON em Goiânia e online." },
-      { property: "og:title", content: "Trocar de Contabilidade | DCON Serviços Contábeis" },
-      { property: "og:description", content: "Troque de contabilidade com segurança e sem perder prazos. Atendimento consultivo DCON em Goiânia e online." },
+      { title: "Trocar de Contabilidade em Goiânia | DCON" },
+      { name: "description", content: "Migração assistida da sua contabilidade para a DCON em Goiânia: diagnóstico, transição sem rupturas e rotina auditável desde o primeiro mês." },
+      { property: "og:title", content: "Trocar de Contabilidade em Goiânia | DCON" },
+      { property: "og:description", content: "Migração assistida da sua contabilidade para a DCON em Goiânia: diagnóstico, transição sem rupturas e rotina auditável desde o primeiro mês." },
       { property: "og:url", content: "/solucoes/trocar-contabilidade" },
     ],
     links: [{ rel: "canonical", href: "/solucoes/trocar-contabilidade" }],

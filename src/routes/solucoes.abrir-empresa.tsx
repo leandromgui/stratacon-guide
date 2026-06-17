@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/solucoes/abrir-empresa")({
   head: () => ({
     meta: [
-      { title: "Abrir Empresa | DCON Serviços Contábeis" },
-      { name: "description", content: "Abrir empresa com enquadramento e estrutura corretos desde o início. Atendimento consultivo DCON em Goiânia e online." },
-      { property: "og:title", content: "Abrir Empresa | DCON Serviços Contábeis" },
-      { property: "og:description", content: "Abrir empresa com enquadramento e estrutura corretos desde o início. Atendimento consultivo DCON em Goiânia e online." },
+      { title: "Abrir Empresa em Goiânia | DCON Contabilidade" },
+      { name: "description", content: "Abertura de empresa em Goiânia com a DCON: definição de CNAE, regime tributário, contrato social e legalização completa em todos os órgãos." },
+      { property: "og:title", content: "Abrir Empresa em Goiânia | DCON Contabilidade" },
+      { property: "og:description", content: "Abertura de empresa em Goiânia com a DCON: definição de CNAE, regime tributário, contrato social e legalização completa em todos os órgãos." },
       { property: "og:url", content: "/solucoes/abrir-empresa" },
     ],
     links: [{ rel: "canonical", href: "/solucoes/abrir-empresa" }],

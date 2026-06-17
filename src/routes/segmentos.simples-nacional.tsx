@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/segmentos/simples-nacional")({
   head: () => ({
     meta: [
-      { title: "Simples Nacional | Contabilidade Especializada DCON" },
-      { name: "description", content: "Contabilidade para empresas no Simples Nacional. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
-      { property: "og:title", content: "Simples Nacional | Contabilidade Especializada DCON" },
-      { property: "og:description", content: "Contabilidade para empresas no Simples Nacional. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
+      { title: "Empresas no Simples Nacional | DCON Goiânia" },
+      { name: "description", content: "Contabilidade para empresas no Simples Nacional em Goiânia: enquadramento, fator R, sublimites e revisão de DAS com a DCON." },
+      { property: "og:title", content: "Empresas no Simples Nacional | DCON Goiânia" },
+      { property: "og:description", content: "Contabilidade para empresas no Simples Nacional em Goiânia: enquadramento, fator R, sublimites e revisão de DAS com a DCON." },
       { property: "og:url", content: "/segmentos/simples-nacional" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/simples-nacional" }],

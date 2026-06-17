@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/segmentos/terceiro-setor")({
   head: () => ({
     meta: [
-      { title: "Terceiro Setor | Contabilidade Especializada DCON" },
-      { name: "description", content: "Contabilidade para OSCs, associações e fundações. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
-      { property: "og:title", content: "Terceiro Setor | Contabilidade Especializada DCON" },
-      { property: "og:description", content: "Contabilidade para OSCs, associações e fundações. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
+      { title: "Contabilidade para Terceiro Setor | DCON Goiânia" },
+      { name: "description", content: "Contabilidade para ONGs, OSCIPs e associações em Goiânia: imunidades, prestação de contas e gestão fiscal com a DCON." },
+      { property: "og:title", content: "Contabilidade para Terceiro Setor | DCON Goiânia" },
+      { property: "og:description", content: "Contabilidade para ONGs, OSCIPs e associações em Goiânia: imunidades, prestação de contas e gestão fiscal com a DCON." },
       { property: "og:url", content: "/segmentos/terceiro-setor" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/terceiro-setor" }],

@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/conteudos/holding-patrimonio")({
   head: () => ({
     meta: [
-      { title: "Holding e Patrimônio | Central de Conteúdo DCON" },
-      { name: "description", content: "Conteúdos sobre holding familiar, patrimonial e sucessão. Artigos técnicos da DCON Serviços Contábeis." },
-      { property: "og:title", content: "Holding e Patrimônio | Central de Conteúdo DCON" },
-      { property: "og:description", content: "Conteúdos sobre holding familiar, patrimonial e sucessão. Artigos técnicos da DCON Serviços Contábeis." },
+      { title: "Conteúdos sobre Holding e Patrimônio | DCON" },
+      { name: "description", content: "Conteúdos da DCON sobre holding patrimonial, familiar e sucessão: proteção, eficiência tributária e estruturação." },
+      { property: "og:title", content: "Conteúdos sobre Holding e Patrimônio | DCON" },
+      { property: "og:description", content: "Conteúdos da DCON sobre holding patrimonial, familiar e sucessão: proteção, eficiência tributária e estruturação." },
       { property: "og:url", content: "/conteudos/holding-patrimonio" },
     ],
     links: [{ rel: "canonical", href: "/conteudos/holding-patrimonio" }],

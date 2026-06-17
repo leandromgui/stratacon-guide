@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/segmentos/imobiliarias")({
   head: () => ({
     meta: [
-      { title: "Imobiliárias | Contabilidade Especializada DCON" },
-      { name: "description", content: "Contabilidade para imobiliárias e administradoras. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
-      { property: "og:title", content: "Imobiliárias | Contabilidade Especializada DCON" },
-      { property: "og:description", content: "Contabilidade para imobiliárias e administradoras. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
+      { title: "Contabilidade para Imobiliárias em Goiânia | DCON" },
+      { name: "description", content: "Contabilidade para imobiliárias em Goiânia: comissões, locação, intermediação e definição do regime tributário ideal com a DCON." },
+      { property: "og:title", content: "Contabilidade para Imobiliárias em Goiânia | DCON" },
+      { property: "og:description", content: "Contabilidade para imobiliárias em Goiânia: comissões, locação, intermediação e definição do regime tributário ideal com a DCON." },
       { property: "og:url", content: "/segmentos/imobiliarias" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/imobiliarias" }],

@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/solucoes/societario-legalizacao")({
   head: () => ({
     meta: [
-      { title: "Societário e Legalização | DCON Serviços Contábeis" },
-      { name: "description", content: "Estrutura societária com segurança jurídica. Atendimento consultivo DCON em Goiânia e online." },
-      { property: "og:title", content: "Societário e Legalização | DCON Serviços Contábeis" },
-      { property: "og:description", content: "Estrutura societária com segurança jurídica. Atendimento consultivo DCON em Goiânia e online." },
+      { title: "Societário e Legalização de Empresas | DCON Goiânia" },
+      { name: "description", content: "Alterações contratuais, abertura, baixa e regularização societária em Goiânia. Estruturação societária consultiva com a DCON Contábil." },
+      { property: "og:title", content: "Societário e Legalização de Empresas | DCON Goiânia" },
+      { property: "og:description", content: "Alterações contratuais, abertura, baixa e regularização societária em Goiânia. Estruturação societária consultiva com a DCON Contábil." },
       { property: "og:url", content: "/solucoes/societario-legalizacao" },
     ],
     links: [{ rel: "canonical", href: "/solucoes/societario-legalizacao" }],

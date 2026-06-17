@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/solucoes/regularizacao-fiscal")({
   head: () => ({
     meta: [
-      { title: "Regularização Fiscal | DCON Serviços Contábeis" },
-      { name: "description", content: "Regularização fiscal de empresas com pendências. Atendimento consultivo DCON em Goiânia e online." },
-      { property: "og:title", content: "Regularização Fiscal | DCON Serviços Contábeis" },
-      { property: "og:description", content: "Regularização fiscal de empresas com pendências. Atendimento consultivo DCON em Goiânia e online." },
+      { title: "Regularização Fiscal em Goiânia | DCON Contábil" },
+      { name: "description", content: "Regularize pendências na Receita Federal, Sefaz e prefeitura com a DCON em Goiânia. CND, parcelamentos e revisão de débitos com segurança técnica." },
+      { property: "og:title", content: "Regularização Fiscal em Goiânia | DCON Contábil" },
+      { property: "og:description", content: "Regularize pendências na Receita Federal, Sefaz e prefeitura com a DCON em Goiânia. CND, parcelamentos e revisão de débitos com segurança técnica." },
       { property: "og:url", content: "/solucoes/regularizacao-fiscal" },
     ],
     links: [{ rel: "canonical", href: "/solucoes/regularizacao-fiscal" }],

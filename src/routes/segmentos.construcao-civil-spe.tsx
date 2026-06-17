@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/segmentos/construcao-civil-spe")({
   head: () => ({
     meta: [
-      { title: "Construção Civil e SPEs | Contabilidade Especializada DCON" },
-      { name: "description", content: "Contabilidade para construtoras, incorporadoras e SPEs. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
-      { property: "og:title", content: "Construção Civil e SPEs | Contabilidade Especializada DCON" },
-      { property: "og:description", content: "Contabilidade para construtoras, incorporadoras e SPEs. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
+      { title: "Contabilidade para Construção Civil e SPE | DCON Goiânia" },
+      { name: "description", content: "Contabilidade para construção civil e SPE em Goiânia: RET, patrimônio de afetação, INSS obra e gestão fiscal por incorporação." },
+      { property: "og:title", content: "Contabilidade para Construção Civil e SPE | DCON Goiânia" },
+      { property: "og:description", content: "Contabilidade para construção civil e SPE em Goiânia: RET, patrimônio de afetação, INSS obra e gestão fiscal por incorporação." },
       { property: "og:url", content: "/segmentos/construcao-civil-spe" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/construcao-civil-spe" }],

@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/segmentos/produtor-rural")({
   head: () => ({
     meta: [
-      { title: "Produtor Rural | Contabilidade Especializada DCON" },
-      { name: "description", content: "Contabilidade para produtor rural pessoa física e jurídica. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
-      { property: "og:title", content: "Produtor Rural | Contabilidade Especializada DCON" },
-      { property: "og:description", content: "Contabilidade para produtor rural pessoa física e jurídica. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
+      { title: "Contabilidade para Produtor Rural | DCON Goiânia" },
+      { name: "description", content: "Contabilidade para produtor rural em Goiás: Funrural, ITR, livro caixa do produtor e planejamento sucessório com a DCON." },
+      { property: "og:title", content: "Contabilidade para Produtor Rural | DCON Goiânia" },
+      { property: "og:description", content: "Contabilidade para produtor rural em Goiás: Funrural, ITR, livro caixa do produtor e planejamento sucessório com a DCON." },
       { property: "og:url", content: "/segmentos/produtor-rural" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/produtor-rural" }],
