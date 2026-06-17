@@ -2,6 +2,27 @@ name: Apply Branch Protection
 
 on:
   workflow_dispatch:
+    inputs:
+      branch:
+        description: "Branch name (or pattern) to protect"
+        required: true
+        default: "main"
+      status_check:
+        description: "Required status check context"
+        required: true
+        default: "validate-breadcrumbs"
+      strict:
+        description: "Require branch to be up to date before merging"
+        required: false
+        default: "true"
+      required_reviews:
+        description: "Number of required approving reviews (0 to disable)"
+        required: false
+        default: "1"
+      enforce_admins:
+        description: "Apply rules to administrators"
+        required: false
+        default: "true"
   push:
     paths:
       - .github/workflows/apply-branch-protection.yml
@@ -12,36 +33,51 @@ jobs:
     permissions:
       contents: read
     steps:
-      - name: Apply branch protection to main
+      - name: Apply branch protection
         env:
           GH_TOKEN: ${{ secrets.BRANCH_PROTECTION_TOKEN }}
           REPO: ${{ github.repository }}
+          BRANCH: ${{ github.event.inputs.branch || vars.PROTECTED_BRANCH || 'main' }}
+          STATUS_CHECK: ${{ github.event.inputs.status_check || vars.REQUIRED_STATUS_CHECK || 'validate-breadcrumbs' }}
+          STRICT: ${{ github.event.inputs.strict || vars.PROTECTION_STRICT || 'true' }}
+          REQUIRED_REVIEWS: ${{ github.event.inputs.required_reviews || vars.PROTECTION_REQUIRED_REVIEWS || '1' }}
+          ENFORCE_ADMINS: ${{ github.event.inputs.enforce_admins || vars.PROTECTION_ENFORCE_ADMINS || 'true' }}
         run: |
           if [ -z "$GH_TOKEN" ]; then
             echo "Missing BRANCH_PROTECTION_TOKEN secret (PAT with 'repo' or fine-grained 'Administration: write')."
             exit 1
           fi
 
+          echo "Applying protection to '$BRANCH' requiring check '$STATUS_CHECK'..."
+
+          if [ "$REQUIRED_REVIEWS" -gt 0 ] 2>/dev/null; then
+            REVIEWS_JSON=$(printf '{"required_approving_review_count":%s,"dismiss_stale_reviews":true}' "$REQUIRED_REVIEWS")
+          else
+            REVIEWS_JSON="null"
+          fi
+
+          PAYLOAD=$(cat <<EOF
+          {
+            "required_status_checks": {
+              "strict": $STRICT,
+              "contexts": ["$STATUS_CHECK"]
+            },
+            "enforce_admins": $ENFORCE_ADMINS,
+            "required_pull_request_reviews": $REVIEWS_JSON,
+            "restrictions": null,
+            "allow_force_pushes": false,
+            "allow_deletions": false,
+            "required_linear_history": false,
+            "required_conversation_resolution": true
+          }
+          EOF
+          )
+
           curl -fsSL -X PUT \
             -H "Authorization: Bearer $GH_TOKEN" \
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
-            "https://api.github.com/repos/$REPO/branches/main/protection" \
-            -d '{
-              "required_status_checks": {
-                "strict": true,
-                "contexts": ["validate-breadcrumbs"]
-              },
-              "enforce_admins": true,
-              "required_pull_request_reviews": {
-                "required_approving_review_count": 1,
-                "dismiss_stale_reviews": true
-              },
-              "restrictions": null,
-              "allow_force_pushes": false,
-              "allow_deletions": false,
-              "required_linear_history": false,
-              "required_conversation_resolution": true
-            }'
+            "https://api.github.com/repos/$REPO/branches/$BRANCH/protection" \
+            -d "$PAYLOAD"
 
-          echo "Branch protection applied to main."
+          echo "Branch protection applied to '$BRANCH'."
