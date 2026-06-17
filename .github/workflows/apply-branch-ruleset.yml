@@ -124,8 +124,44 @@ jobs:
             }
           ')
 
-          echo "Payload:"
+          echo "--- Validated Inputs ---"
+          echo "ruleset_name:     $RULESET_NAME"
+          echo "enforcement:      $ENFORCEMENT"
+          echo "strict_updates:   $STRICT_UPDATES"
+          echo "required_reviews: $REQUIRED_REVIEWS"
+          echo "branch_patterns:  $BRANCH_PATTERNS"
+          echo "status_checks:    $STATUS_CHECKS"
+          echo "dry_run:          $DRY_RUN"
+
+          # Validate non-empty arrays after parsing
+          INCLUDE_COUNT=$(echo "$INCLUDE_JSON" | jq 'length')
+          CHECKS_COUNT=$(echo "$CHECKS_JSON" | jq 'length')
+          if [ "$INCLUDE_COUNT" -eq 0 ]; then
+            echo "ERROR: branch_patterns resulted in an empty include list."
+            exit 1
+          fi
+          if [ "$CHECKS_COUNT" -eq 0 ]; then
+            echo "ERROR: status_checks resulted in an empty checks list."
+            exit 1
+          fi
+
+          echo
+          echo "Payload to be sent:"
           echo "$PAYLOAD" | jq .
+
+          if [ "$DRY_RUN" = "true" ]; then
+            echo
+            echo "DRY RUN enabled — querying existing ruleset without applying changes."
+            EXISTING_ID=$(curl -fsSL "${AUTH[@]}" "$API?per_page=100" \
+              | jq --arg name "$RULESET_NAME" '[.[] | select(.name == $name)][0].id // empty')
+            if [ -n "$EXISTING_ID" ]; then
+              echo "Would UPDATE existing ruleset id=$EXISTING_ID"
+            else
+              echo "Would CREATE a new ruleset"
+            fi
+            echo "No changes were applied."
+            exit 0
+          fi
 
           # Find existing ruleset by name
           EXISTING_ID=$(curl -fsSL "${AUTH[@]}" "$API?per_page=100" \
