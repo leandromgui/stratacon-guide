@@ -180,6 +180,13 @@ jobs:
             MISSING=1
           fi
 
+          # Ensure required_status_checks (status_check_contexts) is present and non-empty
+          STATUS_CHECKS_LEN=$(jq '[.rules[] | select(.type == "required_status_checks") | .parameters.required_status_checks // empty] | add | length' ruleset-payload.json)
+          if [ "$STATUS_CHECKS_LEN" -eq 0 ]; then
+            echo "ERROR: required_status_checks must be present as a non-empty array when status_checks is configured."
+            MISSING=1
+          fi
+
           # Ensure rules is a non-empty array
           RULES_LEN=$(jq '.rules | length' ruleset-payload.json)
           if [ "$RULES_LEN" -eq 0 ]; then
