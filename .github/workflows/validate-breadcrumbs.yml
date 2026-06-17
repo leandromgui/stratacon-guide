@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   breadcrumbs:
-    name: BreadcrumbList JSON-LD
+    name: validate-breadcrumbs
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
