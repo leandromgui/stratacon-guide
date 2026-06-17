@@ -4,10 +4,10 @@ on:
   push:
     branches: [main]
   pull_request:
-    paths:
-      - "src/routes/**"
-      - "scripts/validate-breadcrumbs.mjs"
-      - ".github/workflows/validate-breadcrumbs.yml"
+
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
   breadcrumbs:
@@ -18,5 +18,66 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+
       - name: Validate BreadcrumbList in all routes
-        run: node scripts/validate-breadcrumbs.mjs
+        id: validate
+        run: |
+          set +e
+          node scripts/validate-breadcrumbs.mjs | tee breadcrumbs-report.txt
+          echo "exit_code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+          exit ${PIPESTATUS[0]}
+        continue-on-error: true
+
+      - name: Comment PR on failure
+        if: github.event_name == 'pull_request' && steps.validate.outputs.exit_code != '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('breadcrumbs-report.txt', 'utf8');
+            const marker = '<!-- breadcrumb-validation -->';
+            const body = `${marker}
+            ### ❌ Validação de BreadcrumbList falhou
+
+            Uma ou mais rotas estão sem \`BreadcrumbList\` ou com JSON-LD inválido.
+            Corrija os itens abaixo antes do merge.
+
+            <details><summary>Relatório completo</summary>
+
+            \`\`\`
+            ${report.slice(-50000)}
+            \`\`\`
+            </details>
+
+            _Rode localmente:_ \`npm run validate:breadcrumbs\``;
+
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const { data: comments } = await github.rest.issues.listComments({ owner, repo, issue_number });
+            const existing = comments.find(c => c.body && c.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number, body });
+            }
+
+      - name: Resolve sticky comment on success
+        if: github.event_name == 'pull_request' && steps.validate.outputs.exit_code == '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const marker = '<!-- breadcrumb-validation -->';
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const { data: comments } = await github.rest.issues.listComments({ owner, repo, issue_number });
+            const existing = comments.find(c => c.body && c.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner, repo, comment_id: existing.id,
+                body: `${marker}\n### ✅ BreadcrumbList válido em todas as rotas`,
+              });
+            }
+
+      - name: Fail job if validation failed
+        if: steps.validate.outputs.exit_code != '0'
+        run: exit 1
