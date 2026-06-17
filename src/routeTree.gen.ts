@@ -9,38 +9,673 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as GoianiaRouteImport } from './routes/goiania'
+import { Route as DiagnosticoRouteImport } from './routes/diagnostico'
+import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SolucoesIndexRouteImport } from './routes/solucoes.index'
+import { Route as SegmentosIndexRouteImport } from './routes/segmentos.index'
+import { Route as ConteudosIndexRouteImport } from './routes/conteudos.index'
+import { Route as SolucoesTrocarContabilidadeRouteImport } from './routes/solucoes.trocar-contabilidade'
+import { Route as SolucoesSocietarioLegalizacaoRouteImport } from './routes/solucoes.societario-legalizacao'
+import { Route as SolucoesRegularizacaoFiscalRouteImport } from './routes/solucoes.regularizacao-fiscal'
+import { Route as SolucoesRecuperacaoCreditosTributariosRouteImport } from './routes/solucoes.recuperacao-creditos-tributarios'
+import { Route as SolucoesPlanejamentoTributarioRouteImport } from './routes/solucoes.planejamento-tributario'
+import { Route as SolucoesHoldingPatrimonialRouteImport } from './routes/solucoes.holding-patrimonial'
+import { Route as SolucoesDepartamentoPessoalRouteImport } from './routes/solucoes.departamento-pessoal'
+import { Route as SolucoesDepartamentoFiscalRouteImport } from './routes/solucoes.departamento-fiscal'
+import { Route as SolucoesContabilidadeEmpresarialRouteImport } from './routes/solucoes.contabilidade-empresarial'
+import { Route as SolucoesBpoFinanceiroRouteImport } from './routes/solucoes.bpo-financeiro'
+import { Route as SolucoesAbrirEmpresaRouteImport } from './routes/solucoes.abrir-empresa'
+import { Route as SobreMetodologiaRouteImport } from './routes/sobre.metodologia'
+import { Route as SobreLeandroRouteImport } from './routes/sobre.leandro'
+import { Route as SegmentosTerceiroSetorRouteImport } from './routes/segmentos.terceiro-setor'
+import { Route as SegmentosTecnologiaStartupsRouteImport } from './routes/segmentos.tecnologia-startups'
+import { Route as SegmentosSimplesNacionalRouteImport } from './routes/segmentos.simples-nacional'
+import { Route as SegmentosProdutorRuralRouteImport } from './routes/segmentos.produtor-rural'
+import { Route as SegmentosPrestadoresServicosRouteImport } from './routes/segmentos.prestadores-servicos'
+import { Route as SegmentosPendenciasFiscaisRouteImport } from './routes/segmentos.pendencias-fiscais'
+import { Route as SegmentosOdontologiaRouteImport } from './routes/segmentos.odontologia'
+import { Route as SegmentosMedicosClinicasRouteImport } from './routes/segmentos.medicos-clinicas'
+import { Route as SegmentosLucroRealRouteImport } from './routes/segmentos.lucro-real'
+import { Route as SegmentosLucroPresumidoRouteImport } from './routes/segmentos.lucro-presumido'
+import { Route as SegmentosImobiliariasRouteImport } from './routes/segmentos.imobiliarias'
+import { Route as SegmentosHoldingsRouteImport } from './routes/segmentos.holdings'
+import { Route as SegmentosFranquiasRedesRouteImport } from './routes/segmentos.franquias-redes'
+import { Route as SegmentosEmpresasFamiliaresRouteImport } from './routes/segmentos.empresas-familiares'
+import { Route as SegmentosECommerceRouteImport } from './routes/segmentos.e-commerce'
+import { Route as SegmentosConstrucaoCivilSpeRouteImport } from './routes/segmentos.construcao-civil-spe'
+import { Route as SegmentosCondominiosRouteImport } from './routes/segmentos.condominios'
+import { Route as SegmentosComercioRouteImport } from './routes/segmentos.comercio'
+import { Route as ConteudosSaudeClinicasRouteImport } from './routes/conteudos.saude-clinicas'
+import { Route as ConteudosRegularizacaoFiscalRouteImport } from './routes/conteudos.regularizacao-fiscal'
+import { Route as ConteudosRegimesTributariosRouteImport } from './routes/conteudos.regimes-tributarios'
+import { Route as ConteudosPlanejamentoTributarioRouteImport } from './routes/conteudos.planejamento-tributario'
+import { Route as ConteudosHoldingPatrimonioRouteImport } from './routes/conteudos.holding-patrimonio'
+import { Route as ConteudosDpEsocialRouteImport } from './routes/conteudos.dp-esocial'
+import { Route as ConteudosComercioIcmsRouteImport } from './routes/conteudos.comercio-icms'
 
+const SobreRoute = SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GoianiaRoute = GoianiaRouteImport.update({
+  id: '/goiania',
+  path: '/goiania',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiagnosticoRoute = DiagnosticoRouteImport.update({
+  id: '/diagnostico',
+  path: '/diagnostico',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SolucoesIndexRoute = SolucoesIndexRouteImport.update({
+  id: '/solucoes/',
+  path: '/solucoes/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SegmentosIndexRoute = SegmentosIndexRouteImport.update({
+  id: '/segmentos/',
+  path: '/segmentos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConteudosIndexRoute = ConteudosIndexRouteImport.update({
+  id: '/conteudos/',
+  path: '/conteudos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolucoesTrocarContabilidadeRoute =
+  SolucoesTrocarContabilidadeRouteImport.update({
+    id: '/solucoes/trocar-contabilidade',
+    path: '/solucoes/trocar-contabilidade',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolucoesSocietarioLegalizacaoRoute =
+  SolucoesSocietarioLegalizacaoRouteImport.update({
+    id: '/solucoes/societario-legalizacao',
+    path: '/solucoes/societario-legalizacao',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolucoesRegularizacaoFiscalRoute =
+  SolucoesRegularizacaoFiscalRouteImport.update({
+    id: '/solucoes/regularizacao-fiscal',
+    path: '/solucoes/regularizacao-fiscal',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolucoesRecuperacaoCreditosTributariosRoute =
+  SolucoesRecuperacaoCreditosTributariosRouteImport.update({
+    id: '/solucoes/recuperacao-creditos-tributarios',
+    path: '/solucoes/recuperacao-creditos-tributarios',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolucoesPlanejamentoTributarioRoute =
+  SolucoesPlanejamentoTributarioRouteImport.update({
+    id: '/solucoes/planejamento-tributario',
+    path: '/solucoes/planejamento-tributario',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolucoesHoldingPatrimonialRoute =
+  SolucoesHoldingPatrimonialRouteImport.update({
+    id: '/solucoes/holding-patrimonial',
+    path: '/solucoes/holding-patrimonial',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolucoesDepartamentoPessoalRoute =
+  SolucoesDepartamentoPessoalRouteImport.update({
+    id: '/solucoes/departamento-pessoal',
+    path: '/solucoes/departamento-pessoal',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolucoesDepartamentoFiscalRoute =
+  SolucoesDepartamentoFiscalRouteImport.update({
+    id: '/solucoes/departamento-fiscal',
+    path: '/solucoes/departamento-fiscal',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolucoesContabilidadeEmpresarialRoute =
+  SolucoesContabilidadeEmpresarialRouteImport.update({
+    id: '/solucoes/contabilidade-empresarial',
+    path: '/solucoes/contabilidade-empresarial',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolucoesBpoFinanceiroRoute = SolucoesBpoFinanceiroRouteImport.update({
+  id: '/solucoes/bpo-financeiro',
+  path: '/solucoes/bpo-financeiro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolucoesAbrirEmpresaRoute = SolucoesAbrirEmpresaRouteImport.update({
+  id: '/solucoes/abrir-empresa',
+  path: '/solucoes/abrir-empresa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreMetodologiaRoute = SobreMetodologiaRouteImport.update({
+  id: '/metodologia',
+  path: '/metodologia',
+  getParentRoute: () => SobreRoute,
+} as any)
+const SobreLeandroRoute = SobreLeandroRouteImport.update({
+  id: '/leandro',
+  path: '/leandro',
+  getParentRoute: () => SobreRoute,
+} as any)
+const SegmentosTerceiroSetorRoute = SegmentosTerceiroSetorRouteImport.update({
+  id: '/segmentos/terceiro-setor',
+  path: '/segmentos/terceiro-setor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SegmentosTecnologiaStartupsRoute =
+  SegmentosTecnologiaStartupsRouteImport.update({
+    id: '/segmentos/tecnologia-startups',
+    path: '/segmentos/tecnologia-startups',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SegmentosSimplesNacionalRoute =
+  SegmentosSimplesNacionalRouteImport.update({
+    id: '/segmentos/simples-nacional',
+    path: '/segmentos/simples-nacional',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SegmentosProdutorRuralRoute = SegmentosProdutorRuralRouteImport.update({
+  id: '/segmentos/produtor-rural',
+  path: '/segmentos/produtor-rural',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SegmentosPrestadoresServicosRoute =
+  SegmentosPrestadoresServicosRouteImport.update({
+    id: '/segmentos/prestadores-servicos',
+    path: '/segmentos/prestadores-servicos',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SegmentosPendenciasFiscaisRoute =
+  SegmentosPendenciasFiscaisRouteImport.update({
+    id: '/segmentos/pendencias-fiscais',
+    path: '/segmentos/pendencias-fiscais',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SegmentosOdontologiaRoute = SegmentosOdontologiaRouteImport.update({
+  id: '/segmentos/odontologia',
+  path: '/segmentos/odontologia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SegmentosMedicosClinicasRoute =
+  SegmentosMedicosClinicasRouteImport.update({
+    id: '/segmentos/medicos-clinicas',
+    path: '/segmentos/medicos-clinicas',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SegmentosLucroRealRoute = SegmentosLucroRealRouteImport.update({
+  id: '/segmentos/lucro-real',
+  path: '/segmentos/lucro-real',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SegmentosLucroPresumidoRoute = SegmentosLucroPresumidoRouteImport.update({
+  id: '/segmentos/lucro-presumido',
+  path: '/segmentos/lucro-presumido',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SegmentosImobiliariasRoute = SegmentosImobiliariasRouteImport.update({
+  id: '/segmentos/imobiliarias',
+  path: '/segmentos/imobiliarias',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SegmentosHoldingsRoute = SegmentosHoldingsRouteImport.update({
+  id: '/segmentos/holdings',
+  path: '/segmentos/holdings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SegmentosFranquiasRedesRoute = SegmentosFranquiasRedesRouteImport.update({
+  id: '/segmentos/franquias-redes',
+  path: '/segmentos/franquias-redes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SegmentosEmpresasFamiliaresRoute =
+  SegmentosEmpresasFamiliaresRouteImport.update({
+    id: '/segmentos/empresas-familiares',
+    path: '/segmentos/empresas-familiares',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SegmentosECommerceRoute = SegmentosECommerceRouteImport.update({
+  id: '/segmentos/e-commerce',
+  path: '/segmentos/e-commerce',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SegmentosConstrucaoCivilSpeRoute =
+  SegmentosConstrucaoCivilSpeRouteImport.update({
+    id: '/segmentos/construcao-civil-spe',
+    path: '/segmentos/construcao-civil-spe',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SegmentosCondominiosRoute = SegmentosCondominiosRouteImport.update({
+  id: '/segmentos/condominios',
+  path: '/segmentos/condominios',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SegmentosComercioRoute = SegmentosComercioRouteImport.update({
+  id: '/segmentos/comercio',
+  path: '/segmentos/comercio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConteudosSaudeClinicasRoute = ConteudosSaudeClinicasRouteImport.update({
+  id: '/conteudos/saude-clinicas',
+  path: '/conteudos/saude-clinicas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConteudosRegularizacaoFiscalRoute =
+  ConteudosRegularizacaoFiscalRouteImport.update({
+    id: '/conteudos/regularizacao-fiscal',
+    path: '/conteudos/regularizacao-fiscal',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ConteudosRegimesTributariosRoute =
+  ConteudosRegimesTributariosRouteImport.update({
+    id: '/conteudos/regimes-tributarios',
+    path: '/conteudos/regimes-tributarios',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ConteudosPlanejamentoTributarioRoute =
+  ConteudosPlanejamentoTributarioRouteImport.update({
+    id: '/conteudos/planejamento-tributario',
+    path: '/conteudos/planejamento-tributario',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ConteudosHoldingPatrimonioRoute =
+  ConteudosHoldingPatrimonioRouteImport.update({
+    id: '/conteudos/holding-patrimonio',
+    path: '/conteudos/holding-patrimonio',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ConteudosDpEsocialRoute = ConteudosDpEsocialRouteImport.update({
+  id: '/conteudos/dp-esocial',
+  path: '/conteudos/dp-esocial',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConteudosComercioIcmsRoute = ConteudosComercioIcmsRouteImport.update({
+  id: '/conteudos/comercio-icms',
+  path: '/conteudos/comercio-icms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/diagnostico': typeof DiagnosticoRoute
+  '/goiania': typeof GoianiaRoute
+  '/sobre': typeof SobreRouteWithChildren
+  '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
+  '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
+  '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
+  '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
+  '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
+  '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
+  '/conteudos/saude-clinicas': typeof ConteudosSaudeClinicasRoute
+  '/segmentos/comercio': typeof SegmentosComercioRoute
+  '/segmentos/condominios': typeof SegmentosCondominiosRoute
+  '/segmentos/construcao-civil-spe': typeof SegmentosConstrucaoCivilSpeRoute
+  '/segmentos/e-commerce': typeof SegmentosECommerceRoute
+  '/segmentos/empresas-familiares': typeof SegmentosEmpresasFamiliaresRoute
+  '/segmentos/franquias-redes': typeof SegmentosFranquiasRedesRoute
+  '/segmentos/holdings': typeof SegmentosHoldingsRoute
+  '/segmentos/imobiliarias': typeof SegmentosImobiliariasRoute
+  '/segmentos/lucro-presumido': typeof SegmentosLucroPresumidoRoute
+  '/segmentos/lucro-real': typeof SegmentosLucroRealRoute
+  '/segmentos/medicos-clinicas': typeof SegmentosMedicosClinicasRoute
+  '/segmentos/odontologia': typeof SegmentosOdontologiaRoute
+  '/segmentos/pendencias-fiscais': typeof SegmentosPendenciasFiscaisRoute
+  '/segmentos/prestadores-servicos': typeof SegmentosPrestadoresServicosRoute
+  '/segmentos/produtor-rural': typeof SegmentosProdutorRuralRoute
+  '/segmentos/simples-nacional': typeof SegmentosSimplesNacionalRoute
+  '/segmentos/tecnologia-startups': typeof SegmentosTecnologiaStartupsRoute
+  '/segmentos/terceiro-setor': typeof SegmentosTerceiroSetorRoute
+  '/sobre/leandro': typeof SobreLeandroRoute
+  '/sobre/metodologia': typeof SobreMetodologiaRoute
+  '/solucoes/abrir-empresa': typeof SolucoesAbrirEmpresaRoute
+  '/solucoes/bpo-financeiro': typeof SolucoesBpoFinanceiroRoute
+  '/solucoes/contabilidade-empresarial': typeof SolucoesContabilidadeEmpresarialRoute
+  '/solucoes/departamento-fiscal': typeof SolucoesDepartamentoFiscalRoute
+  '/solucoes/departamento-pessoal': typeof SolucoesDepartamentoPessoalRoute
+  '/solucoes/holding-patrimonial': typeof SolucoesHoldingPatrimonialRoute
+  '/solucoes/planejamento-tributario': typeof SolucoesPlanejamentoTributarioRoute
+  '/solucoes/recuperacao-creditos-tributarios': typeof SolucoesRecuperacaoCreditosTributariosRoute
+  '/solucoes/regularizacao-fiscal': typeof SolucoesRegularizacaoFiscalRoute
+  '/solucoes/societario-legalizacao': typeof SolucoesSocietarioLegalizacaoRoute
+  '/solucoes/trocar-contabilidade': typeof SolucoesTrocarContabilidadeRoute
+  '/conteudos/': typeof ConteudosIndexRoute
+  '/segmentos/': typeof SegmentosIndexRoute
+  '/solucoes/': typeof SolucoesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/diagnostico': typeof DiagnosticoRoute
+  '/goiania': typeof GoianiaRoute
+  '/sobre': typeof SobreRouteWithChildren
+  '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
+  '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
+  '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
+  '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
+  '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
+  '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
+  '/conteudos/saude-clinicas': typeof ConteudosSaudeClinicasRoute
+  '/segmentos/comercio': typeof SegmentosComercioRoute
+  '/segmentos/condominios': typeof SegmentosCondominiosRoute
+  '/segmentos/construcao-civil-spe': typeof SegmentosConstrucaoCivilSpeRoute
+  '/segmentos/e-commerce': typeof SegmentosECommerceRoute
+  '/segmentos/empresas-familiares': typeof SegmentosEmpresasFamiliaresRoute
+  '/segmentos/franquias-redes': typeof SegmentosFranquiasRedesRoute
+  '/segmentos/holdings': typeof SegmentosHoldingsRoute
+  '/segmentos/imobiliarias': typeof SegmentosImobiliariasRoute
+  '/segmentos/lucro-presumido': typeof SegmentosLucroPresumidoRoute
+  '/segmentos/lucro-real': typeof SegmentosLucroRealRoute
+  '/segmentos/medicos-clinicas': typeof SegmentosMedicosClinicasRoute
+  '/segmentos/odontologia': typeof SegmentosOdontologiaRoute
+  '/segmentos/pendencias-fiscais': typeof SegmentosPendenciasFiscaisRoute
+  '/segmentos/prestadores-servicos': typeof SegmentosPrestadoresServicosRoute
+  '/segmentos/produtor-rural': typeof SegmentosProdutorRuralRoute
+  '/segmentos/simples-nacional': typeof SegmentosSimplesNacionalRoute
+  '/segmentos/tecnologia-startups': typeof SegmentosTecnologiaStartupsRoute
+  '/segmentos/terceiro-setor': typeof SegmentosTerceiroSetorRoute
+  '/sobre/leandro': typeof SobreLeandroRoute
+  '/sobre/metodologia': typeof SobreMetodologiaRoute
+  '/solucoes/abrir-empresa': typeof SolucoesAbrirEmpresaRoute
+  '/solucoes/bpo-financeiro': typeof SolucoesBpoFinanceiroRoute
+  '/solucoes/contabilidade-empresarial': typeof SolucoesContabilidadeEmpresarialRoute
+  '/solucoes/departamento-fiscal': typeof SolucoesDepartamentoFiscalRoute
+  '/solucoes/departamento-pessoal': typeof SolucoesDepartamentoPessoalRoute
+  '/solucoes/holding-patrimonial': typeof SolucoesHoldingPatrimonialRoute
+  '/solucoes/planejamento-tributario': typeof SolucoesPlanejamentoTributarioRoute
+  '/solucoes/recuperacao-creditos-tributarios': typeof SolucoesRecuperacaoCreditosTributariosRoute
+  '/solucoes/regularizacao-fiscal': typeof SolucoesRegularizacaoFiscalRoute
+  '/solucoes/societario-legalizacao': typeof SolucoesSocietarioLegalizacaoRoute
+  '/solucoes/trocar-contabilidade': typeof SolucoesTrocarContabilidadeRoute
+  '/conteudos': typeof ConteudosIndexRoute
+  '/segmentos': typeof SegmentosIndexRoute
+  '/solucoes': typeof SolucoesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/diagnostico': typeof DiagnosticoRoute
+  '/goiania': typeof GoianiaRoute
+  '/sobre': typeof SobreRouteWithChildren
+  '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
+  '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
+  '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
+  '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
+  '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
+  '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
+  '/conteudos/saude-clinicas': typeof ConteudosSaudeClinicasRoute
+  '/segmentos/comercio': typeof SegmentosComercioRoute
+  '/segmentos/condominios': typeof SegmentosCondominiosRoute
+  '/segmentos/construcao-civil-spe': typeof SegmentosConstrucaoCivilSpeRoute
+  '/segmentos/e-commerce': typeof SegmentosECommerceRoute
+  '/segmentos/empresas-familiares': typeof SegmentosEmpresasFamiliaresRoute
+  '/segmentos/franquias-redes': typeof SegmentosFranquiasRedesRoute
+  '/segmentos/holdings': typeof SegmentosHoldingsRoute
+  '/segmentos/imobiliarias': typeof SegmentosImobiliariasRoute
+  '/segmentos/lucro-presumido': typeof SegmentosLucroPresumidoRoute
+  '/segmentos/lucro-real': typeof SegmentosLucroRealRoute
+  '/segmentos/medicos-clinicas': typeof SegmentosMedicosClinicasRoute
+  '/segmentos/odontologia': typeof SegmentosOdontologiaRoute
+  '/segmentos/pendencias-fiscais': typeof SegmentosPendenciasFiscaisRoute
+  '/segmentos/prestadores-servicos': typeof SegmentosPrestadoresServicosRoute
+  '/segmentos/produtor-rural': typeof SegmentosProdutorRuralRoute
+  '/segmentos/simples-nacional': typeof SegmentosSimplesNacionalRoute
+  '/segmentos/tecnologia-startups': typeof SegmentosTecnologiaStartupsRoute
+  '/segmentos/terceiro-setor': typeof SegmentosTerceiroSetorRoute
+  '/sobre/leandro': typeof SobreLeandroRoute
+  '/sobre/metodologia': typeof SobreMetodologiaRoute
+  '/solucoes/abrir-empresa': typeof SolucoesAbrirEmpresaRoute
+  '/solucoes/bpo-financeiro': typeof SolucoesBpoFinanceiroRoute
+  '/solucoes/contabilidade-empresarial': typeof SolucoesContabilidadeEmpresarialRoute
+  '/solucoes/departamento-fiscal': typeof SolucoesDepartamentoFiscalRoute
+  '/solucoes/departamento-pessoal': typeof SolucoesDepartamentoPessoalRoute
+  '/solucoes/holding-patrimonial': typeof SolucoesHoldingPatrimonialRoute
+  '/solucoes/planejamento-tributario': typeof SolucoesPlanejamentoTributarioRoute
+  '/solucoes/recuperacao-creditos-tributarios': typeof SolucoesRecuperacaoCreditosTributariosRoute
+  '/solucoes/regularizacao-fiscal': typeof SolucoesRegularizacaoFiscalRoute
+  '/solucoes/societario-legalizacao': typeof SolucoesSocietarioLegalizacaoRoute
+  '/solucoes/trocar-contabilidade': typeof SolucoesTrocarContabilidadeRoute
+  '/conteudos/': typeof ConteudosIndexRoute
+  '/segmentos/': typeof SegmentosIndexRoute
+  '/solucoes/': typeof SolucoesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contato'
+    | '/diagnostico'
+    | '/goiania'
+    | '/sobre'
+    | '/conteudos/comercio-icms'
+    | '/conteudos/dp-esocial'
+    | '/conteudos/holding-patrimonio'
+    | '/conteudos/planejamento-tributario'
+    | '/conteudos/regimes-tributarios'
+    | '/conteudos/regularizacao-fiscal'
+    | '/conteudos/saude-clinicas'
+    | '/segmentos/comercio'
+    | '/segmentos/condominios'
+    | '/segmentos/construcao-civil-spe'
+    | '/segmentos/e-commerce'
+    | '/segmentos/empresas-familiares'
+    | '/segmentos/franquias-redes'
+    | '/segmentos/holdings'
+    | '/segmentos/imobiliarias'
+    | '/segmentos/lucro-presumido'
+    | '/segmentos/lucro-real'
+    | '/segmentos/medicos-clinicas'
+    | '/segmentos/odontologia'
+    | '/segmentos/pendencias-fiscais'
+    | '/segmentos/prestadores-servicos'
+    | '/segmentos/produtor-rural'
+    | '/segmentos/simples-nacional'
+    | '/segmentos/tecnologia-startups'
+    | '/segmentos/terceiro-setor'
+    | '/sobre/leandro'
+    | '/sobre/metodologia'
+    | '/solucoes/abrir-empresa'
+    | '/solucoes/bpo-financeiro'
+    | '/solucoes/contabilidade-empresarial'
+    | '/solucoes/departamento-fiscal'
+    | '/solucoes/departamento-pessoal'
+    | '/solucoes/holding-patrimonial'
+    | '/solucoes/planejamento-tributario'
+    | '/solucoes/recuperacao-creditos-tributarios'
+    | '/solucoes/regularizacao-fiscal'
+    | '/solucoes/societario-legalizacao'
+    | '/solucoes/trocar-contabilidade'
+    | '/conteudos/'
+    | '/segmentos/'
+    | '/solucoes/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contato'
+    | '/diagnostico'
+    | '/goiania'
+    | '/sobre'
+    | '/conteudos/comercio-icms'
+    | '/conteudos/dp-esocial'
+    | '/conteudos/holding-patrimonio'
+    | '/conteudos/planejamento-tributario'
+    | '/conteudos/regimes-tributarios'
+    | '/conteudos/regularizacao-fiscal'
+    | '/conteudos/saude-clinicas'
+    | '/segmentos/comercio'
+    | '/segmentos/condominios'
+    | '/segmentos/construcao-civil-spe'
+    | '/segmentos/e-commerce'
+    | '/segmentos/empresas-familiares'
+    | '/segmentos/franquias-redes'
+    | '/segmentos/holdings'
+    | '/segmentos/imobiliarias'
+    | '/segmentos/lucro-presumido'
+    | '/segmentos/lucro-real'
+    | '/segmentos/medicos-clinicas'
+    | '/segmentos/odontologia'
+    | '/segmentos/pendencias-fiscais'
+    | '/segmentos/prestadores-servicos'
+    | '/segmentos/produtor-rural'
+    | '/segmentos/simples-nacional'
+    | '/segmentos/tecnologia-startups'
+    | '/segmentos/terceiro-setor'
+    | '/sobre/leandro'
+    | '/sobre/metodologia'
+    | '/solucoes/abrir-empresa'
+    | '/solucoes/bpo-financeiro'
+    | '/solucoes/contabilidade-empresarial'
+    | '/solucoes/departamento-fiscal'
+    | '/solucoes/departamento-pessoal'
+    | '/solucoes/holding-patrimonial'
+    | '/solucoes/planejamento-tributario'
+    | '/solucoes/recuperacao-creditos-tributarios'
+    | '/solucoes/regularizacao-fiscal'
+    | '/solucoes/societario-legalizacao'
+    | '/solucoes/trocar-contabilidade'
+    | '/conteudos'
+    | '/segmentos'
+    | '/solucoes'
+  id:
+    | '__root__'
+    | '/'
+    | '/contato'
+    | '/diagnostico'
+    | '/goiania'
+    | '/sobre'
+    | '/conteudos/comercio-icms'
+    | '/conteudos/dp-esocial'
+    | '/conteudos/holding-patrimonio'
+    | '/conteudos/planejamento-tributario'
+    | '/conteudos/regimes-tributarios'
+    | '/conteudos/regularizacao-fiscal'
+    | '/conteudos/saude-clinicas'
+    | '/segmentos/comercio'
+    | '/segmentos/condominios'
+    | '/segmentos/construcao-civil-spe'
+    | '/segmentos/e-commerce'
+    | '/segmentos/empresas-familiares'
+    | '/segmentos/franquias-redes'
+    | '/segmentos/holdings'
+    | '/segmentos/imobiliarias'
+    | '/segmentos/lucro-presumido'
+    | '/segmentos/lucro-real'
+    | '/segmentos/medicos-clinicas'
+    | '/segmentos/odontologia'
+    | '/segmentos/pendencias-fiscais'
+    | '/segmentos/prestadores-servicos'
+    | '/segmentos/produtor-rural'
+    | '/segmentos/simples-nacional'
+    | '/segmentos/tecnologia-startups'
+    | '/segmentos/terceiro-setor'
+    | '/sobre/leandro'
+    | '/sobre/metodologia'
+    | '/solucoes/abrir-empresa'
+    | '/solucoes/bpo-financeiro'
+    | '/solucoes/contabilidade-empresarial'
+    | '/solucoes/departamento-fiscal'
+    | '/solucoes/departamento-pessoal'
+    | '/solucoes/holding-patrimonial'
+    | '/solucoes/planejamento-tributario'
+    | '/solucoes/recuperacao-creditos-tributarios'
+    | '/solucoes/regularizacao-fiscal'
+    | '/solucoes/societario-legalizacao'
+    | '/solucoes/trocar-contabilidade'
+    | '/conteudos/'
+    | '/segmentos/'
+    | '/solucoes/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContatoRoute: typeof ContatoRoute
+  DiagnosticoRoute: typeof DiagnosticoRoute
+  GoianiaRoute: typeof GoianiaRoute
+  SobreRoute: typeof SobreRouteWithChildren
+  ConteudosComercioIcmsRoute: typeof ConteudosComercioIcmsRoute
+  ConteudosDpEsocialRoute: typeof ConteudosDpEsocialRoute
+  ConteudosHoldingPatrimonioRoute: typeof ConteudosHoldingPatrimonioRoute
+  ConteudosPlanejamentoTributarioRoute: typeof ConteudosPlanejamentoTributarioRoute
+  ConteudosRegimesTributariosRoute: typeof ConteudosRegimesTributariosRoute
+  ConteudosRegularizacaoFiscalRoute: typeof ConteudosRegularizacaoFiscalRoute
+  ConteudosSaudeClinicasRoute: typeof ConteudosSaudeClinicasRoute
+  SegmentosComercioRoute: typeof SegmentosComercioRoute
+  SegmentosCondominiosRoute: typeof SegmentosCondominiosRoute
+  SegmentosConstrucaoCivilSpeRoute: typeof SegmentosConstrucaoCivilSpeRoute
+  SegmentosECommerceRoute: typeof SegmentosECommerceRoute
+  SegmentosEmpresasFamiliaresRoute: typeof SegmentosEmpresasFamiliaresRoute
+  SegmentosFranquiasRedesRoute: typeof SegmentosFranquiasRedesRoute
+  SegmentosHoldingsRoute: typeof SegmentosHoldingsRoute
+  SegmentosImobiliariasRoute: typeof SegmentosImobiliariasRoute
+  SegmentosLucroPresumidoRoute: typeof SegmentosLucroPresumidoRoute
+  SegmentosLucroRealRoute: typeof SegmentosLucroRealRoute
+  SegmentosMedicosClinicasRoute: typeof SegmentosMedicosClinicasRoute
+  SegmentosOdontologiaRoute: typeof SegmentosOdontologiaRoute
+  SegmentosPendenciasFiscaisRoute: typeof SegmentosPendenciasFiscaisRoute
+  SegmentosPrestadoresServicosRoute: typeof SegmentosPrestadoresServicosRoute
+  SegmentosProdutorRuralRoute: typeof SegmentosProdutorRuralRoute
+  SegmentosSimplesNacionalRoute: typeof SegmentosSimplesNacionalRoute
+  SegmentosTecnologiaStartupsRoute: typeof SegmentosTecnologiaStartupsRoute
+  SegmentosTerceiroSetorRoute: typeof SegmentosTerceiroSetorRoute
+  SolucoesAbrirEmpresaRoute: typeof SolucoesAbrirEmpresaRoute
+  SolucoesBpoFinanceiroRoute: typeof SolucoesBpoFinanceiroRoute
+  SolucoesContabilidadeEmpresarialRoute: typeof SolucoesContabilidadeEmpresarialRoute
+  SolucoesDepartamentoFiscalRoute: typeof SolucoesDepartamentoFiscalRoute
+  SolucoesDepartamentoPessoalRoute: typeof SolucoesDepartamentoPessoalRoute
+  SolucoesHoldingPatrimonialRoute: typeof SolucoesHoldingPatrimonialRoute
+  SolucoesPlanejamentoTributarioRoute: typeof SolucoesPlanejamentoTributarioRoute
+  SolucoesRecuperacaoCreditosTributariosRoute: typeof SolucoesRecuperacaoCreditosTributariosRoute
+  SolucoesRegularizacaoFiscalRoute: typeof SolucoesRegularizacaoFiscalRoute
+  SolucoesSocietarioLegalizacaoRoute: typeof SolucoesSocietarioLegalizacaoRoute
+  SolucoesTrocarContabilidadeRoute: typeof SolucoesTrocarContabilidadeRoute
+  ConteudosIndexRoute: typeof ConteudosIndexRoute
+  SegmentosIndexRoute: typeof SegmentosIndexRoute
+  SolucoesIndexRoute: typeof SolucoesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sobre': {
+      id: '/sobre'
+      path: '/sobre'
+      fullPath: '/sobre'
+      preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/goiania': {
+      id: '/goiania'
+      path: '/goiania'
+      fullPath: '/goiania'
+      preLoaderRoute: typeof GoianiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/diagnostico': {
+      id: '/diagnostico'
+      path: '/diagnostico'
+      fullPath: '/diagnostico'
+      preLoaderRoute: typeof DiagnosticoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +683,355 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solucoes/': {
+      id: '/solucoes/'
+      path: '/solucoes'
+      fullPath: '/solucoes/'
+      preLoaderRoute: typeof SolucoesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/segmentos/': {
+      id: '/segmentos/'
+      path: '/segmentos'
+      fullPath: '/segmentos/'
+      preLoaderRoute: typeof SegmentosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conteudos/': {
+      id: '/conteudos/'
+      path: '/conteudos'
+      fullPath: '/conteudos/'
+      preLoaderRoute: typeof ConteudosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/trocar-contabilidade': {
+      id: '/solucoes/trocar-contabilidade'
+      path: '/solucoes/trocar-contabilidade'
+      fullPath: '/solucoes/trocar-contabilidade'
+      preLoaderRoute: typeof SolucoesTrocarContabilidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/societario-legalizacao': {
+      id: '/solucoes/societario-legalizacao'
+      path: '/solucoes/societario-legalizacao'
+      fullPath: '/solucoes/societario-legalizacao'
+      preLoaderRoute: typeof SolucoesSocietarioLegalizacaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/regularizacao-fiscal': {
+      id: '/solucoes/regularizacao-fiscal'
+      path: '/solucoes/regularizacao-fiscal'
+      fullPath: '/solucoes/regularizacao-fiscal'
+      preLoaderRoute: typeof SolucoesRegularizacaoFiscalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/recuperacao-creditos-tributarios': {
+      id: '/solucoes/recuperacao-creditos-tributarios'
+      path: '/solucoes/recuperacao-creditos-tributarios'
+      fullPath: '/solucoes/recuperacao-creditos-tributarios'
+      preLoaderRoute: typeof SolucoesRecuperacaoCreditosTributariosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/planejamento-tributario': {
+      id: '/solucoes/planejamento-tributario'
+      path: '/solucoes/planejamento-tributario'
+      fullPath: '/solucoes/planejamento-tributario'
+      preLoaderRoute: typeof SolucoesPlanejamentoTributarioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/holding-patrimonial': {
+      id: '/solucoes/holding-patrimonial'
+      path: '/solucoes/holding-patrimonial'
+      fullPath: '/solucoes/holding-patrimonial'
+      preLoaderRoute: typeof SolucoesHoldingPatrimonialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/departamento-pessoal': {
+      id: '/solucoes/departamento-pessoal'
+      path: '/solucoes/departamento-pessoal'
+      fullPath: '/solucoes/departamento-pessoal'
+      preLoaderRoute: typeof SolucoesDepartamentoPessoalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/departamento-fiscal': {
+      id: '/solucoes/departamento-fiscal'
+      path: '/solucoes/departamento-fiscal'
+      fullPath: '/solucoes/departamento-fiscal'
+      preLoaderRoute: typeof SolucoesDepartamentoFiscalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/contabilidade-empresarial': {
+      id: '/solucoes/contabilidade-empresarial'
+      path: '/solucoes/contabilidade-empresarial'
+      fullPath: '/solucoes/contabilidade-empresarial'
+      preLoaderRoute: typeof SolucoesContabilidadeEmpresarialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/bpo-financeiro': {
+      id: '/solucoes/bpo-financeiro'
+      path: '/solucoes/bpo-financeiro'
+      fullPath: '/solucoes/bpo-financeiro'
+      preLoaderRoute: typeof SolucoesBpoFinanceiroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/abrir-empresa': {
+      id: '/solucoes/abrir-empresa'
+      path: '/solucoes/abrir-empresa'
+      fullPath: '/solucoes/abrir-empresa'
+      preLoaderRoute: typeof SolucoesAbrirEmpresaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre/metodologia': {
+      id: '/sobre/metodologia'
+      path: '/metodologia'
+      fullPath: '/sobre/metodologia'
+      preLoaderRoute: typeof SobreMetodologiaRouteImport
+      parentRoute: typeof SobreRoute
+    }
+    '/sobre/leandro': {
+      id: '/sobre/leandro'
+      path: '/leandro'
+      fullPath: '/sobre/leandro'
+      preLoaderRoute: typeof SobreLeandroRouteImport
+      parentRoute: typeof SobreRoute
+    }
+    '/segmentos/terceiro-setor': {
+      id: '/segmentos/terceiro-setor'
+      path: '/segmentos/terceiro-setor'
+      fullPath: '/segmentos/terceiro-setor'
+      preLoaderRoute: typeof SegmentosTerceiroSetorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/segmentos/tecnologia-startups': {
+      id: '/segmentos/tecnologia-startups'
+      path: '/segmentos/tecnologia-startups'
+      fullPath: '/segmentos/tecnologia-startups'
+      preLoaderRoute: typeof SegmentosTecnologiaStartupsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/segmentos/simples-nacional': {
+      id: '/segmentos/simples-nacional'
+      path: '/segmentos/simples-nacional'
+      fullPath: '/segmentos/simples-nacional'
+      preLoaderRoute: typeof SegmentosSimplesNacionalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/segmentos/produtor-rural': {
+      id: '/segmentos/produtor-rural'
+      path: '/segmentos/produtor-rural'
+      fullPath: '/segmentos/produtor-rural'
+      preLoaderRoute: typeof SegmentosProdutorRuralRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/segmentos/prestadores-servicos': {
+      id: '/segmentos/prestadores-servicos'
+      path: '/segmentos/prestadores-servicos'
+      fullPath: '/segmentos/prestadores-servicos'
+      preLoaderRoute: typeof SegmentosPrestadoresServicosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/segmentos/pendencias-fiscais': {
+      id: '/segmentos/pendencias-fiscais'
+      path: '/segmentos/pendencias-fiscais'
+      fullPath: '/segmentos/pendencias-fiscais'
+      preLoaderRoute: typeof SegmentosPendenciasFiscaisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/segmentos/odontologia': {
+      id: '/segmentos/odontologia'
+      path: '/segmentos/odontologia'
+      fullPath: '/segmentos/odontologia'
+      preLoaderRoute: typeof SegmentosOdontologiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/segmentos/medicos-clinicas': {
+      id: '/segmentos/medicos-clinicas'
+      path: '/segmentos/medicos-clinicas'
+      fullPath: '/segmentos/medicos-clinicas'
+      preLoaderRoute: typeof SegmentosMedicosClinicasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/segmentos/lucro-real': {
+      id: '/segmentos/lucro-real'
+      path: '/segmentos/lucro-real'
+      fullPath: '/segmentos/lucro-real'
+      preLoaderRoute: typeof SegmentosLucroRealRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/segmentos/lucro-presumido': {
+      id: '/segmentos/lucro-presumido'
+      path: '/segmentos/lucro-presumido'
+      fullPath: '/segmentos/lucro-presumido'
+      preLoaderRoute: typeof SegmentosLucroPresumidoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/segmentos/imobiliarias': {
+      id: '/segmentos/imobiliarias'
+      path: '/segmentos/imobiliarias'
+      fullPath: '/segmentos/imobiliarias'
+      preLoaderRoute: typeof SegmentosImobiliariasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/segmentos/holdings': {
+      id: '/segmentos/holdings'
+      path: '/segmentos/holdings'
+      fullPath: '/segmentos/holdings'
+      preLoaderRoute: typeof SegmentosHoldingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/segmentos/franquias-redes': {
+      id: '/segmentos/franquias-redes'
+      path: '/segmentos/franquias-redes'
+      fullPath: '/segmentos/franquias-redes'
+      preLoaderRoute: typeof SegmentosFranquiasRedesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/segmentos/empresas-familiares': {
+      id: '/segmentos/empresas-familiares'
+      path: '/segmentos/empresas-familiares'
+      fullPath: '/segmentos/empresas-familiares'
+      preLoaderRoute: typeof SegmentosEmpresasFamiliaresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/segmentos/e-commerce': {
+      id: '/segmentos/e-commerce'
+      path: '/segmentos/e-commerce'
+      fullPath: '/segmentos/e-commerce'
+      preLoaderRoute: typeof SegmentosECommerceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/segmentos/construcao-civil-spe': {
+      id: '/segmentos/construcao-civil-spe'
+      path: '/segmentos/construcao-civil-spe'
+      fullPath: '/segmentos/construcao-civil-spe'
+      preLoaderRoute: typeof SegmentosConstrucaoCivilSpeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/segmentos/condominios': {
+      id: '/segmentos/condominios'
+      path: '/segmentos/condominios'
+      fullPath: '/segmentos/condominios'
+      preLoaderRoute: typeof SegmentosCondominiosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/segmentos/comercio': {
+      id: '/segmentos/comercio'
+      path: '/segmentos/comercio'
+      fullPath: '/segmentos/comercio'
+      preLoaderRoute: typeof SegmentosComercioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conteudos/saude-clinicas': {
+      id: '/conteudos/saude-clinicas'
+      path: '/conteudos/saude-clinicas'
+      fullPath: '/conteudos/saude-clinicas'
+      preLoaderRoute: typeof ConteudosSaudeClinicasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conteudos/regularizacao-fiscal': {
+      id: '/conteudos/regularizacao-fiscal'
+      path: '/conteudos/regularizacao-fiscal'
+      fullPath: '/conteudos/regularizacao-fiscal'
+      preLoaderRoute: typeof ConteudosRegularizacaoFiscalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conteudos/regimes-tributarios': {
+      id: '/conteudos/regimes-tributarios'
+      path: '/conteudos/regimes-tributarios'
+      fullPath: '/conteudos/regimes-tributarios'
+      preLoaderRoute: typeof ConteudosRegimesTributariosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conteudos/planejamento-tributario': {
+      id: '/conteudos/planejamento-tributario'
+      path: '/conteudos/planejamento-tributario'
+      fullPath: '/conteudos/planejamento-tributario'
+      preLoaderRoute: typeof ConteudosPlanejamentoTributarioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conteudos/holding-patrimonio': {
+      id: '/conteudos/holding-patrimonio'
+      path: '/conteudos/holding-patrimonio'
+      fullPath: '/conteudos/holding-patrimonio'
+      preLoaderRoute: typeof ConteudosHoldingPatrimonioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conteudos/dp-esocial': {
+      id: '/conteudos/dp-esocial'
+      path: '/conteudos/dp-esocial'
+      fullPath: '/conteudos/dp-esocial'
+      preLoaderRoute: typeof ConteudosDpEsocialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conteudos/comercio-icms': {
+      id: '/conteudos/comercio-icms'
+      path: '/conteudos/comercio-icms'
+      fullPath: '/conteudos/comercio-icms'
+      preLoaderRoute: typeof ConteudosComercioIcmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface SobreRouteChildren {
+  SobreLeandroRoute: typeof SobreLeandroRoute
+  SobreMetodologiaRoute: typeof SobreMetodologiaRoute
+}
+
+const SobreRouteChildren: SobreRouteChildren = {
+  SobreLeandroRoute: SobreLeandroRoute,
+  SobreMetodologiaRoute: SobreMetodologiaRoute,
+}
+
+const SobreRouteWithChildren = SobreRoute._addFileChildren(SobreRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContatoRoute: ContatoRoute,
+  DiagnosticoRoute: DiagnosticoRoute,
+  GoianiaRoute: GoianiaRoute,
+  SobreRoute: SobreRouteWithChildren,
+  ConteudosComercioIcmsRoute: ConteudosComercioIcmsRoute,
+  ConteudosDpEsocialRoute: ConteudosDpEsocialRoute,
+  ConteudosHoldingPatrimonioRoute: ConteudosHoldingPatrimonioRoute,
+  ConteudosPlanejamentoTributarioRoute: ConteudosPlanejamentoTributarioRoute,
+  ConteudosRegimesTributariosRoute: ConteudosRegimesTributariosRoute,
+  ConteudosRegularizacaoFiscalRoute: ConteudosRegularizacaoFiscalRoute,
+  ConteudosSaudeClinicasRoute: ConteudosSaudeClinicasRoute,
+  SegmentosComercioRoute: SegmentosComercioRoute,
+  SegmentosCondominiosRoute: SegmentosCondominiosRoute,
+  SegmentosConstrucaoCivilSpeRoute: SegmentosConstrucaoCivilSpeRoute,
+  SegmentosECommerceRoute: SegmentosECommerceRoute,
+  SegmentosEmpresasFamiliaresRoute: SegmentosEmpresasFamiliaresRoute,
+  SegmentosFranquiasRedesRoute: SegmentosFranquiasRedesRoute,
+  SegmentosHoldingsRoute: SegmentosHoldingsRoute,
+  SegmentosImobiliariasRoute: SegmentosImobiliariasRoute,
+  SegmentosLucroPresumidoRoute: SegmentosLucroPresumidoRoute,
+  SegmentosLucroRealRoute: SegmentosLucroRealRoute,
+  SegmentosMedicosClinicasRoute: SegmentosMedicosClinicasRoute,
+  SegmentosOdontologiaRoute: SegmentosOdontologiaRoute,
+  SegmentosPendenciasFiscaisRoute: SegmentosPendenciasFiscaisRoute,
+  SegmentosPrestadoresServicosRoute: SegmentosPrestadoresServicosRoute,
+  SegmentosProdutorRuralRoute: SegmentosProdutorRuralRoute,
+  SegmentosSimplesNacionalRoute: SegmentosSimplesNacionalRoute,
+  SegmentosTecnologiaStartupsRoute: SegmentosTecnologiaStartupsRoute,
+  SegmentosTerceiroSetorRoute: SegmentosTerceiroSetorRoute,
+  SolucoesAbrirEmpresaRoute: SolucoesAbrirEmpresaRoute,
+  SolucoesBpoFinanceiroRoute: SolucoesBpoFinanceiroRoute,
+  SolucoesContabilidadeEmpresarialRoute: SolucoesContabilidadeEmpresarialRoute,
+  SolucoesDepartamentoFiscalRoute: SolucoesDepartamentoFiscalRoute,
+  SolucoesDepartamentoPessoalRoute: SolucoesDepartamentoPessoalRoute,
+  SolucoesHoldingPatrimonialRoute: SolucoesHoldingPatrimonialRoute,
+  SolucoesPlanejamentoTributarioRoute: SolucoesPlanejamentoTributarioRoute,
+  SolucoesRecuperacaoCreditosTributariosRoute:
+    SolucoesRecuperacaoCreditosTributariosRoute,
+  SolucoesRegularizacaoFiscalRoute: SolucoesRegularizacaoFiscalRoute,
+  SolucoesSocietarioLegalizacaoRoute: SolucoesSocietarioLegalizacaoRoute,
+  SolucoesTrocarContabilidadeRoute: SolucoesTrocarContabilidadeRoute,
+  ConteudosIndexRoute: ConteudosIndexRoute,
+  SegmentosIndexRoute: SegmentosIndexRoute,
+  SolucoesIndexRoute: SolucoesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
