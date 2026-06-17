@@ -1,0 +1,136 @@
+name: Apply Branch Ruleset
+
+on:
+  workflow_dispatch:
+    inputs:
+      ruleset_name:
+        description: "Ruleset name (used to find/update an existing ruleset)"
+        required: true
+        default: "require-validate-breadcrumbs"
+      branch_patterns:
+        description: "Comma-separated branch patterns (e.g. main,develop,feature/**,fix/**,release/**)"
+        required: true
+        default: "main,develop,feature/**,fix/**,release/**"
+      status_checks:
+        description: "Comma-separated required status check contexts"
+        required: true
+        default: "validate-breadcrumbs"
+      strict_updates:
+        description: "Require branch to be up to date before merging"
+        required: false
+        default: "true"
+        type: choice
+        options: ["true", "false"]
+      required_reviews:
+        description: "Number of required approving reviews (0 to disable PR requirement)"
+        required: false
+        default: "1"
+      enforcement:
+        description: "Ruleset enforcement mode"
+        required: false
+        default: "active"
+        type: choice
+        options: ["active", "evaluate", "disabled"]
+  push:
+    paths:
+      - .github/workflows/apply-branch-ruleset.yml
+
+jobs:
+  apply-ruleset:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Apply repository ruleset
+        env:
+          GH_TOKEN: ${{ secrets.BRANCH_PROTECTION_TOKEN }}
+          REPO: ${{ github.repository }}
+          RULESET_NAME: ${{ github.event.inputs.ruleset_name || vars.RULESET_NAME || 'require-validate-breadcrumbs' }}
+          BRANCH_PATTERNS: ${{ github.event.inputs.branch_patterns || vars.RULESET_BRANCH_PATTERNS || 'main,develop,feature/**,fix/**,release/**' }}
+          STATUS_CHECKS: ${{ github.event.inputs.status_checks || vars.RULESET_STATUS_CHECKS || 'validate-breadcrumbs' }}
+          STRICT_UPDATES: ${{ github.event.inputs.strict_updates || vars.RULESET_STRICT_UPDATES || 'true' }}
+          REQUIRED_REVIEWS: ${{ github.event.inputs.required_reviews || vars.RULESET_REQUIRED_REVIEWS || '1' }}
+          ENFORCEMENT: ${{ github.event.inputs.enforcement || vars.RULESET_ENFORCEMENT || 'active' }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "$GH_TOKEN" ]; then
+            echo "Missing BRANCH_PROTECTION_TOKEN secret (PAT with 'repo' / 'Administration: write')."
+            exit 1
+          fi
+
+          API="https://api.github.com/repos/$REPO/rulesets"
+          AUTH=(-H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28")
+
+          # Build JSON arrays from comma-separated inputs using jq
+          INCLUDE_JSON=$(echo "$BRANCH_PATTERNS" | jq -R -c '
+            split(",") | map(gsub("^\\s+|\\s+$"; ""))
+            | map(select(length > 0))
+            | map(if startswith("refs/heads/") then . else "refs/heads/" + . end)
+          ')
+
+          CHECKS_JSON=$(echo "$STATUS_CHECKS" | jq -R -c '
+            split(",") | map(gsub("^\\s+|\\s+$"; ""))
+            | map(select(length > 0))
+            | map({context: ., integration_id: null})
+          ')
+
+          RULES_JSON=$(jq -n \
+            --argjson checks "$CHECKS_JSON" \
+            --argjson strict "$([ "$STRICT_UPDATES" = "true" ] && echo true || echo false)" \
+            --argjson reviews "$REQUIRED_REVIEWS" '
+            [
+              {type: "deletion"},
+              {type: "non_fast_forward"},
+              {
+                type: "required_status_checks",
+                parameters: {
+                  strict_required_status_checks_policy: $strict,
+                  required_status_checks: $checks
+                }
+              }
+            ]
+            + (if $reviews > 0 then [{
+                type: "pull_request",
+                parameters: {
+                  required_approving_review_count: $reviews,
+                  dismiss_stale_reviews_on_push: true,
+                  require_code_owner_review: false,
+                  require_last_push_approval: false,
+                  required_review_thread_resolution: true
+                }
+              }] else [] end)
+          ')
+
+          PAYLOAD=$(jq -n \
+            --arg name "$RULESET_NAME" \
+            --arg enforcement "$ENFORCEMENT" \
+            --argjson include "$INCLUDE_JSON" \
+            --argjson rules "$RULES_JSON" '
+            {
+              name: $name,
+              target: "branch",
+              enforcement: $enforcement,
+              bypass_actors: [],
+              conditions: { ref_name: { include: $include, exclude: [] } },
+              rules: $rules
+            }
+          ')
+
+          echo "Payload:"
+          echo "$PAYLOAD" | jq .
+
+          # Find existing ruleset by name
+          EXISTING_ID=$(curl -fsSL "${AUTH[@]}" "$API?per_page=100" \
+            | jq --arg name "$RULESET_NAME" '[.[] | select(.name == $name)][0].id // empty')
+
+          if [ -n "$EXISTING_ID" ]; then
+            echo "Updating existing ruleset id=$EXISTING_ID"
+            curl -fsSL -X PUT "${AUTH[@]}" "$API/$EXISTING_ID" -d "$PAYLOAD"
+          else
+            echo "Creating new ruleset"
+            curl -fsSL -X POST "${AUTH[@]}" "$API" -d "$PAYLOAD"
+          fi
+
+          echo
+          echo "Ruleset '$RULESET_NAME' applied (enforcement=$ENFORCEMENT)."
