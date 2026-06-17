@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 
-export const Route = createFileRoute("/conteudos")({
+export const Route = createFileRoute("/conteudos/")({
   head: () => ({
     meta: [
       { title: "Central de Conteúdo | DCON Contabilidade" },

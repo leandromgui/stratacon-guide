@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 
-export const Route = createFileRoute("/segmentos")({
+export const Route = createFileRoute("/segmentos/")({
   head: () => ({
     meta: [
       { title: "Segmentos Atendidos | DCON Contabilidade Especializada" },
