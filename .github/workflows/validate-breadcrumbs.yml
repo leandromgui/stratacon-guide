@@ -1,0 +1,22 @@
+name: Validate Breadcrumbs
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - "src/routes/**"
+      - "scripts/validate-breadcrumbs.mjs"
+      - ".github/workflows/validate-breadcrumbs.yml"
+
+jobs:
+  breadcrumbs:
+    name: BreadcrumbList JSON-LD
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Validate BreadcrumbList in all routes
+        run: node scripts/validate-breadcrumbs.mjs
