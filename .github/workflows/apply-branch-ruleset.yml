@@ -104,7 +104,7 @@ jobs:
           jq -n \
             --arg name "$RULESET_NAME" \
             --arg enforcement "$ENFORCEMENT" \
-            --argjson include "$INCLUDE_JSON_SCHEMA" \
+            --argjson include "$INCLUDE_JSON" \
             --argjson rules "$RULES_JSON" '
             {
               name: $name,
