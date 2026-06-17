@@ -145,6 +145,54 @@ jobs:
           echo "Payload saved to ruleset-payload.json:"
           cat ruleset-payload.json | jq .
 
+      - name: Validate ruleset payload
+        run: |
+          set -euo pipefail
+          echo "Validating ruleset-payload.json..."
+
+          # 1) JSON parse check
+          if ! jq empty ruleset-payload.json 2>parse.err; then
+            echo "ERROR: ruleset-payload.json is not valid JSON."
+            cat parse.err
+            exit 1
+          fi
+
+          # 2) Minimal field checks
+          MISSING=0
+          check_field() {
+            local field="$1"
+            if [ "$(jq "${field} // empty" ruleset-payload.json | wc -l)" -eq 0 ] || [ -z "$(jq -r "${field} // empty" ruleset-payload.json)" ]; then
+              echo "ERROR: missing or empty required field: ${field}"
+              MISSING=1
+            fi
+          }
+
+          check_field '.name'
+          check_field '.target'
+          check_field '.enforcement'
+          check_field '.conditions.ref_name.include'
+          check_field '.rules'
+
+          # Ensure conditions.ref_name.include is a non-empty array
+          INCLUDE_LEN=$(jq '.conditions.ref_name.include | length' ruleset-payload.json)
+          if [ "$INCLUDE_LEN" -eq 0 ]; then
+            echo "ERROR: conditions.ref_name.include must be a non-empty array."
+            MISSING=1
+          fi
+
+          # Ensure rules is a non-empty array
+          RULES_LEN=$(jq '.rules | length' ruleset-payload.json)
+          if [ "$RULES_LEN" -eq 0 ]; then
+            echo "ERROR: rules must be a non-empty array."
+            MISSING=1
+          fi
+
+          if [ "$MISSING" -ne 0 ]; then
+            exit 1
+          fi
+
+          echo "Payload validation passed."
+
       - name: Upload payload artifact
         if: steps.build.outputs.dry_run == 'true'
         uses: actions/upload-artifact@v4
