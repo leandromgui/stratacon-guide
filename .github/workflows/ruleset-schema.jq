@@ -1,27 +1,39 @@
 # Schema validation for ruleset-payload.json
 # Emits one "ERROR: ..." line per failed check; empty output means valid.
 
-def err($msg): "ERROR: " + $msg;
+# Structured error: one line per failure, includes path, expected type, actual
+# type, and the offending value (truncated).
+def _short($v):
+  ($v | tojson) as $s
+  | if ($s | length) > 80 then ($s[0:77] + "...") else $s end;
+
+def fail($path; $expected; $val; $reason):
+  "ERROR | path=" + $path
+  + " | expected=" + $expected
+  + " | actual=" + ($val | type)
+  + " | value=" + _short($val)
+  + " | reason=" + $reason;
 
 def expect_type($path; $val; $expected):
-  if $val == null then err($path + " is required (missing or null)")
+  if $val == null then
+    fail($path; $expected; $val; "required field is missing or null")
   elif ($val | type) != $expected then
-    err($path + " must be of type " + $expected + ", got " + ($val | type))
+    fail($path; $expected; $val; "wrong type")
   else empty end;
 
 def expect_nonempty_string($path; $val):
   ( expect_type($path; $val; "string") ),
   ( if ($val | type) == "string" and ($val | length) == 0
-      then err($path + " must be a non-empty string") else empty end );
+      then fail($path; "non-empty string"; $val; "string is empty") else empty end );
 
 def expect_nonempty_array($path; $val):
   ( expect_type($path; $val; "array") ),
   ( if ($val | type) == "array" and ($val | length) == 0
-      then err($path + " must be a non-empty array") else empty end );
+      then fail($path; "non-empty array"; $val; "array is empty") else empty end );
 
 def expect_enum($path; $val; $allowed):
   if ($val != null) and ($val | IN($allowed[])) then empty
-  else err($path + " must be one of " + ($allowed | tostring) + ", got " + ($val | tostring)) end;
+  else fail($path; "enum " + ($allowed | tojson); $val; "value not in allowed set") end;
 
 # --- Top-level required fields and types ---
 expect_nonempty_string(".name"; .name),
@@ -38,10 +50,10 @@ expect_type(".conditions.ref_name.exclude"; .conditions.ref_name.exclude; "array
 # Every include/exclude entry must be a string
 ( (.conditions.ref_name.include // []) | select(type == "array") | to_entries[]
     | select((.value | type) != "string")
-    | err(".conditions.ref_name.include[" + (.key|tostring) + "] must be a string, got " + (.value|type)) ),
+    | fail(".conditions.ref_name.include[" + (.key|tostring) + "]"; "string"; .value; "branch pattern must be a string") ),
 ( (.conditions.ref_name.exclude // []) | select(type == "array") | to_entries[]
     | select((.value | type) != "string")
-    | err(".conditions.ref_name.exclude[" + (.key|tostring) + "] must be a string, got " + (.value|type)) ),
+    | fail(".conditions.ref_name.exclude[" + (.key|tostring) + "]"; "string"; .value; "branch pattern must be a string") ),
 
 # --- rules array ---
 expect_nonempty_array(".rules"; .rules),
@@ -49,11 +61,11 @@ expect_nonempty_array(".rules"; .rules),
 # Each rule must be an object with a string type
 ( (.rules // []) | select(type == "array") | to_entries[]
     | select((.value | type) != "object")
-    | err(".rules[" + (.key|tostring) + "] must be an object, got " + (.value|type)) ),
+    | fail(".rules[" + (.key|tostring) + "]"; "object"; .value; "rule entry must be an object") ),
 ( (.rules // []) | select(type == "array") | to_entries[]
     | select((.value | type) == "object")
     | select((.value.type | type) != "string")
-    | err(".rules[" + (.key|tostring) + "].type must be a string") ),
+    | fail(".rules[" + (.key|tostring) + "].type"; "string"; .value.type; "rule type discriminator must be a string") ),
 
 # --- required_status_checks rule ---
 ( [.rules[]? | select(.type == "required_status_checks")][0] // null ) as $rsc
@@ -68,11 +80,11 @@ expect_nonempty_array(".rules"; .rules),
           $rsc.parameters.required_status_checks) ),
       ( ($rsc.parameters.required_status_checks // []) | select(type == "array") | to_entries[]
           | select((.value | type) != "object")
-          | err(".rules[required_status_checks].parameters.required_status_checks[" + (.key|tostring) + "] must be an object") ),
+          | fail(".rules[required_status_checks].parameters.required_status_checks[" + (.key|tostring) + "]"; "object"; .value; "status check entry must be an object") ),
       ( ($rsc.parameters.required_status_checks // []) | select(type == "array") | to_entries[]
           | select((.value | type) == "object")
           | select((.value.context | type) != "string" or (.value.context | length) == 0)
-          | err(".rules[required_status_checks].parameters.required_status_checks[" + (.key|tostring) + "].context must be a non-empty string") )
+          | fail(".rules[required_status_checks].parameters.required_status_checks[" + (.key|tostring) + "].context"; "non-empty string"; .value.context; "status check context must be a non-empty string") )
     end ),
 
 # --- pull_request rule (optional) ---
@@ -85,7 +97,7 @@ expect_nonempty_array(".rules"; .rules),
           $pr.parameters.required_approving_review_count; "number") ),
       ( if (($pr.parameters.required_approving_review_count // -1) | type) == "number"
            and ($pr.parameters.required_approving_review_count < 0)
-          then err(".rules[pull_request].parameters.required_approving_review_count must be >= 0")
+          then fail(".rules[pull_request].parameters.required_approving_review_count"; "number >= 0"; $pr.parameters.required_approving_review_count; "value must be >= 0")
           else empty end ),
       ( expect_type(
           ".rules[pull_request].parameters.dismiss_stale_reviews_on_push";
