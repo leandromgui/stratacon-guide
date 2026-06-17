@@ -31,6 +31,12 @@ on:
         default: "active"
         type: choice
         options: ["active", "evaluate", "disabled"]
+      dry_run:
+        description: "Validate inputs and show payload without applying"
+        required: false
+        default: "false"
+        type: choice
+        options: ["true", "false"]
   push:
     paths:
       - .github/workflows/apply-branch-ruleset.yml
