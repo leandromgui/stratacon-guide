@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/segmentos/medicos-clinicas")({
   head: () => ({
     meta: [
-      { title: "Médicos e Clínicas | Contabilidade Especializada DCON" },
-      { name: "description", content: "Contabilidade especializada para médicos e clínicas. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
-      { property: "og:title", content: "Médicos e Clínicas | Contabilidade Especializada DCON" },
-      { property: "og:description", content: "Contabilidade especializada para médicos e clínicas. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
+      { title: "Contabilidade para Médicos e Clínicas em Goiânia | DCON" },
+      { name: "description", content: "Contabilidade para médicos e clínicas em Goiânia: enquadramento ideal, fator R, equiparação hospitalar e planejamento tributário com a DCON." },
+      { property: "og:title", content: "Contabilidade para Médicos e Clínicas em Goiânia | DCON" },
+      { property: "og:description", content: "Contabilidade para médicos e clínicas em Goiânia: enquadramento ideal, fator R, equiparação hospitalar e planejamento tributário com a DCON." },
       { property: "og:url", content: "/segmentos/medicos-clinicas" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/medicos-clinicas" }],

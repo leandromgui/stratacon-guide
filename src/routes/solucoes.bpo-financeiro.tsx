@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/solucoes/bpo-financeiro")({
   head: () => ({
     meta: [
-      { title: "BPO Financeiro | DCON Serviços Contábeis" },
-      { name: "description", content: "BPO financeiro com controle, governança e visão gerencial. Atendimento consultivo DCON em Goiânia e online." },
-      { property: "og:title", content: "BPO Financeiro | DCON Serviços Contábeis" },
-      { property: "og:description", content: "BPO financeiro com controle, governança e visão gerencial. Atendimento consultivo DCON em Goiânia e online." },
+      { title: "BPO Financeiro em Goiânia | DCON Contábil" },
+      { name: "description", content: "BPO financeiro com contas a pagar, conciliação bancária e fluxo de caixa. Terceirize a rotina financeira com segurança junto à DCON em Goiânia." },
+      { property: "og:title", content: "BPO Financeiro em Goiânia | DCON Contábil" },
+      { property: "og:description", content: "BPO financeiro com contas a pagar, conciliação bancária e fluxo de caixa. Terceirize a rotina financeira com segurança junto à DCON em Goiânia." },
       { property: "og:url", content: "/solucoes/bpo-financeiro" },
     ],
     links: [{ rel: "canonical", href: "/solucoes/bpo-financeiro" }],

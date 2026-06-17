@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/solucoes/departamento-pessoal")({
   head: () => ({
     meta: [
-      { title: "Departamento Pessoal | DCON Serviços Contábeis" },
-      { name: "description", content: "Departamento pessoal completo e em conformidade com eSocial. Atendimento consultivo DCON em Goiânia e online." },
-      { property: "og:title", content: "Departamento Pessoal | DCON Serviços Contábeis" },
-      { property: "og:description", content: "Departamento pessoal completo e em conformidade com eSocial. Atendimento consultivo DCON em Goiânia e online." },
+      { title: "Departamento Pessoal e eSocial em Goiânia | DCON" },
+      { name: "description", content: "Folha, eSocial, admissões, férias e rescisões com revisão técnica. Departamento pessoal DCON em Goiânia para empresas que não aceitam passivo." },
+      { property: "og:title", content: "Departamento Pessoal e eSocial em Goiânia | DCON" },
+      { property: "og:description", content: "Folha, eSocial, admissões, férias e rescisões com revisão técnica. Departamento pessoal DCON em Goiânia para empresas que não aceitam passivo." },
       { property: "og:url", content: "/solucoes/departamento-pessoal" },
     ],
     links: [{ rel: "canonical", href: "/solucoes/departamento-pessoal" }],

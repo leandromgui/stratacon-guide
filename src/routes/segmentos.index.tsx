@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/segmentos/")({
   head: () => ({
     meta: [
-      { title: "Segmentos Atendidos | DCON Contabilidade Especializada" },
-      { name: "description", content: "Contabilidade especializada por segmento: saúde, e-commerce, construção civil, holdings, tecnologia e mais." },
-      { property: "og:title", content: "Segmentos Atendidos | DCON Contabilidade Especializada" },
-      { property: "og:description", content: "Contabilidade especializada por segmento: saúde, e-commerce, construção civil, holdings, tecnologia e mais." },
+      { title: "Segmentos Atendidos | DCON Contabilidade em Goiânia" },
+      { name: "description", content: "Contabilidade especializada por segmento: médicos, e-commerce, construção civil, holdings, tech e mais. Atendimento DCON em Goiânia e online." },
+      { property: "og:title", content: "Segmentos Atendidos | DCON Contabilidade em Goiânia" },
+      { property: "og:description", content: "Contabilidade especializada por segmento: médicos, e-commerce, construção civil, holdings, tech e mais. Atendimento DCON em Goiânia e online." },
       { property: "og:url", content: "/segmentos" },
     ],
     links: [{ rel: "canonical", href: "/segmentos" }],

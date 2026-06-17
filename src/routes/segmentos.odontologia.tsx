@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/segmentos/odontologia")({
   head: () => ({
     meta: [
-      { title: "Odontologia | Contabilidade Especializada DCON" },
-      { name: "description", content: "Contabilidade para dentistas e clínicas odontológicas. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
-      { property: "og:title", content: "Odontologia | Contabilidade Especializada DCON" },
-      { property: "og:description", content: "Contabilidade para dentistas e clínicas odontológicas. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
+      { title: "Contabilidade para Dentistas em Goiânia | DCON" },
+      { name: "description", content: "Contabilidade para odontologia em Goiânia: regime tributário ideal, fator R e gestão fiscal para consultórios e clínicas odontológicas." },
+      { property: "og:title", content: "Contabilidade para Dentistas em Goiânia | DCON" },
+      { property: "og:description", content: "Contabilidade para odontologia em Goiânia: regime tributário ideal, fator R e gestão fiscal para consultórios e clínicas odontológicas." },
       { property: "og:url", content: "/segmentos/odontologia" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/odontologia" }],

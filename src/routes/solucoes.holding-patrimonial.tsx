@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/solucoes/holding-patrimonial")({
   head: () => ({
     meta: [
-      { title: "Holding e Estrutura Patrimonial | DCON Serviços Contábeis" },
-      { name: "description", content: "Holding patrimonial e familiar com estrutura técnica e tributária. Atendimento consultivo DCON em Goiânia e online." },
-      { property: "og:title", content: "Holding e Estrutura Patrimonial | DCON Serviços Contábeis" },
-      { property: "og:description", content: "Holding patrimonial e familiar com estrutura técnica e tributária. Atendimento consultivo DCON em Goiânia e online." },
+      { title: "Holding Patrimonial e Familiar em Goiânia | DCON" },
+      { name: "description", content: "Estruturação de holding patrimonial e familiar em Goiânia com a DCON: proteção, sucessão e eficiência tributária com base contábil e jurídica." },
+      { property: "og:title", content: "Holding Patrimonial e Familiar em Goiânia | DCON" },
+      { property: "og:description", content: "Estruturação de holding patrimonial e familiar em Goiânia com a DCON: proteção, sucessão e eficiência tributária com base contábil e jurídica." },
       { property: "og:url", content: "/solucoes/holding-patrimonial" },
     ],
     links: [{ rel: "canonical", href: "/solucoes/holding-patrimonial" }],

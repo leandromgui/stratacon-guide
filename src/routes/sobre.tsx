@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: [
-      { title: "Sobre a DCON | Contabilidade Consultiva em Goiânia" },
-      { name: "description", content: "Conheça a DCON: contabilidade técnica, fiscal e estratégica para empresas que precisam de segurança e clareza nas decisões." },
-      { property: "og:title", content: "Sobre a DCON | Contabilidade Consultiva em Goiânia" },
-      { property: "og:description", content: "Conheça a DCON: contabilidade técnica, fiscal e estratégica para empresas que precisam de segurança e clareza nas decisões." },
+      { title: "Sobre a DCON | Contabilidade de Autoridade em Goiânia" },
+      { name: "description", content: "Conheça a DCON Serviços Contábeis: escritório de contabilidade consultiva em Goiânia, referência em planejamento tributário e regularização fiscal." },
+      { property: "og:title", content: "Sobre a DCON | Contabilidade de Autoridade em Goiânia" },
+      { property: "og:description", content: "Conheça a DCON Serviços Contábeis: escritório de contabilidade consultiva em Goiânia, referência em planejamento tributário e regularização fiscal." },
       { property: "og:url", content: "/sobre" },
     ],
     links: [{ rel: "canonical", href: "/sobre" }],

@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/conteudos/regimes-tributarios")({
   head: () => ({
     meta: [
-      { title: "Regimes Tributários | Central de Conteúdo DCON" },
-      { name: "description", content: "Simples Nacional, Lucro Presumido e Lucro Real explicados. Artigos técnicos da DCON Serviços Contábeis." },
-      { property: "og:title", content: "Regimes Tributários | Central de Conteúdo DCON" },
-      { property: "og:description", content: "Simples Nacional, Lucro Presumido e Lucro Real explicados. Artigos técnicos da DCON Serviços Contábeis." },
+      { title: "Simples, Presumido e Lucro Real | Conteúdos DCON" },
+      { name: "description", content: "Como escolher entre Simples Nacional, Lucro Presumido e Lucro Real: guias e análises da DCON para decisões com segurança." },
+      { property: "og:title", content: "Simples, Presumido e Lucro Real | Conteúdos DCON" },
+      { property: "og:description", content: "Como escolher entre Simples Nacional, Lucro Presumido e Lucro Real: guias e análises da DCON para decisões com segurança." },
       { property: "og:url", content: "/conteudos/regimes-tributarios" },
     ],
     links: [{ rel: "canonical", href: "/conteudos/regimes-tributarios" }],

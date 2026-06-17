@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/solucoes/planejamento-tributario")({
   head: () => ({
     meta: [
-      { title: "Planejamento Tributário | DCON Serviços Contábeis" },
-      { name: "description", content: "Planejamento tributário com base técnica e segurança jurídica. Atendimento consultivo DCON em Goiânia e online." },
-      { property: "og:title", content: "Planejamento Tributário | DCON Serviços Contábeis" },
-      { property: "og:description", content: "Planejamento tributário com base técnica e segurança jurídica. Atendimento consultivo DCON em Goiânia e online." },
+      { title: "Planejamento Tributário em Goiânia | DCON Contábil" },
+      { name: "description", content: "Planejamento tributário consultivo em Goiânia: análise de regime, comparativo Simples, Presumido e Real e economia fiscal com segurança jurídica." },
+      { property: "og:title", content: "Planejamento Tributário em Goiânia | DCON Contábil" },
+      { property: "og:description", content: "Planejamento tributário consultivo em Goiânia: análise de regime, comparativo Simples, Presumido e Real e economia fiscal com segurança jurídica." },
       { property: "og:url", content: "/solucoes/planejamento-tributario" },
     ],
     links: [{ rel: "canonical", href: "/solucoes/planejamento-tributario" }],

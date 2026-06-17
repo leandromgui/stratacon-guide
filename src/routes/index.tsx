@@ -4,10 +4,10 @@ import { Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "DCON Serviços Contábeis | Contabilidade Estratégica em Goiânia" },
-      { name: "description", content: "Contabilidade consultiva, fiscal e tributária em Goiânia. Segurança, organização e inteligência tributária para empresas que precisam decidir bem." },
-      { property: "og:title", content: "DCON Serviços Contábeis | Contabilidade Estratégica em Goiânia" },
-      { property: "og:description", content: "Contabilidade consultiva, fiscal e tributária em Goiânia. Segurança e inteligência tributária para empresas." },
+      { title: "Contabilidade Consultiva em Goiânia | DCON Contábil" },
+      { name: "description", content: "DCON: contabilidade consultiva em Goiânia para empresas que querem decidir com segurança fiscal, tributária e patrimonial. Atendimento presencial e online." },
+      { property: "og:title", content: "Contabilidade Consultiva em Goiânia | DCON Contábil" },
+      { property: "og:description", content: "DCON: contabilidade consultiva em Goiânia para empresas que querem decidir com segurança fiscal, tributária e patrimonial. Atendimento presencial e online." },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],

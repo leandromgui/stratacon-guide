@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/solucoes/departamento-fiscal")({
   head: () => ({
     meta: [
-      { title: "Departamento Fiscal | DCON Serviços Contábeis" },
-      { name: "description", content: "Departamento fiscal técnico e auditável. Atendimento consultivo DCON em Goiânia e online." },
-      { property: "og:title", content: "Departamento Fiscal | DCON Serviços Contábeis" },
-      { property: "og:description", content: "Departamento fiscal técnico e auditável. Atendimento consultivo DCON em Goiânia e online." },
+      { title: "Departamento Fiscal em Goiânia | DCON Contábil" },
+      { name: "description", content: "Departamento fiscal completo: apuração, SPED, ICMS, ISS, PIS e Cofins. Escritório DCON em Goiânia para empresas que exigem precisão tributária." },
+      { property: "og:title", content: "Departamento Fiscal em Goiânia | DCON Contábil" },
+      { property: "og:description", content: "Departamento fiscal completo: apuração, SPED, ICMS, ISS, PIS e Cofins. Escritório DCON em Goiânia para empresas que exigem precisão tributária." },
       { property: "og:url", content: "/solucoes/departamento-fiscal" },
     ],
     links: [{ rel: "canonical", href: "/solucoes/departamento-fiscal" }],

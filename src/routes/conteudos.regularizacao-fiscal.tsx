@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/conteudos/regularizacao-fiscal")({
   head: () => ({
     meta: [
-      { title: "Regularização Fiscal | Central de Conteúdo DCON" },
-      { name: "description", content: "Conteúdos sobre regularização fiscal e parcelamentos. Artigos técnicos da DCON Serviços Contábeis." },
-      { property: "og:title", content: "Regularização Fiscal | Central de Conteúdo DCON" },
-      { property: "og:description", content: "Conteúdos sobre regularização fiscal e parcelamentos. Artigos técnicos da DCON Serviços Contábeis." },
+      { title: "Conteúdos sobre Regularização Fiscal | DCON" },
+      { name: "description", content: "Conteúdos da DCON sobre regularização fiscal, CND, parcelamentos e como destravar empresas com pendências na Receita e Sefaz." },
+      { property: "og:title", content: "Conteúdos sobre Regularização Fiscal | DCON" },
+      { property: "og:description", content: "Conteúdos da DCON sobre regularização fiscal, CND, parcelamentos e como destravar empresas com pendências na Receita e Sefaz." },
       { property: "og:url", content: "/conteudos/regularizacao-fiscal" },
     ],
     links: [{ rel: "canonical", href: "/conteudos/regularizacao-fiscal" }],

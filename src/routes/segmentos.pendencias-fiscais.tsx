@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/segmentos/pendencias-fiscais")({
   head: () => ({
     meta: [
-      { title: "Empresas com Pendências Fiscais | Contabilidade Especializada DCON" },
-      { name: "description", content: "Contabilidade para empresas com pendências fiscais e dívidas. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
-      { property: "og:title", content: "Empresas com Pendências Fiscais | Contabilidade Especializada DCON" },
-      { property: "og:description", content: "Contabilidade para empresas com pendências fiscais e dívidas. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
+      { title: "Empresas com Pendências Fiscais | DCON Goiânia" },
+      { name: "description", content: "Regularize pendências na Receita, Sefaz e prefeitura com a DCON em Goiânia: CND, parcelamentos e revisão técnica de débitos." },
+      { property: "og:title", content: "Empresas com Pendências Fiscais | DCON Goiânia" },
+      { property: "og:description", content: "Regularize pendências na Receita, Sefaz e prefeitura com a DCON em Goiânia: CND, parcelamentos e revisão técnica de débitos." },
       { property: "og:url", content: "/segmentos/pendencias-fiscais" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/pendencias-fiscais" }],

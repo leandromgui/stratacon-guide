@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/segmentos/holdings")({
   head: () => ({
     meta: [
-      { title: "Holdings | Contabilidade Especializada DCON" },
-      { name: "description", content: "Contabilidade para holdings familiares e patrimoniais. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
-      { property: "og:title", content: "Holdings | Contabilidade Especializada DCON" },
-      { property: "og:description", content: "Contabilidade para holdings familiares e patrimoniais. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
+      { title: "Contabilidade para Holdings em Goiânia | DCON" },
+      { name: "description", content: "Contabilidade para holdings patrimoniais e familiares em Goiânia: governança, sucessão e eficiência tributária com a DCON." },
+      { property: "og:title", content: "Contabilidade para Holdings em Goiânia | DCON" },
+      { property: "og:description", content: "Contabilidade para holdings patrimoniais e familiares em Goiânia: governança, sucessão e eficiência tributária com a DCON." },
       { property: "og:url", content: "/segmentos/holdings" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/holdings" }],

@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/sobre/leandro")({
   head: () => ({
     meta: [
-      { title: "Leandro Matsuoka Guimarães | Responsável Técnico DCON" },
-      { name: "description", content: "Responsável técnico da DCON. Formação, áreas de especialidade tributária e societária e visão sobre contabilidade consultiva." },
-      { property: "og:title", content: "Leandro Matsuoka Guimarães | Responsável Técnico DCON" },
-      { property: "og:description", content: "Responsável técnico da DCON. Formação, áreas de especialidade tributária e societária e visão sobre contabilidade consultiva." },
+      { title: "Leandro Dias | Contador Estrategista em Goiânia" },
+      { name: "description", content: "Leandro Dias, fundador da DCON: contador em Goiânia especialista em planejamento tributário, recuperação de créditos e estruturação societária." },
+      { property: "og:title", content: "Leandro Dias | Contador Estrategista em Goiânia" },
+      { property: "og:description", content: "Leandro Dias, fundador da DCON: contador em Goiânia especialista em planejamento tributário, recuperação de créditos e estruturação societária." },
       { property: "og:url", content: "/sobre/leandro" },
     ],
     links: [{ rel: "canonical", href: "/sobre/leandro" }],

@@ -5,9 +5,9 @@ export const Route = createFileRoute("/goiania")({
   head: () => ({
     meta: [
       { title: "Contador em Goiânia | DCON Serviços Contábeis" },
-      { name: "description", content: "Escritório de contabilidade consultiva em Goiânia. Atendimento técnico fiscal, tributário e societário para empresas." },
+      { name: "description", content: "DCON é o escritório de contabilidade consultiva em Goiânia para empresas que buscam liderança técnica, segurança fiscal e decisões com base em dados." },
       { property: "og:title", content: "Contador em Goiânia | DCON Serviços Contábeis" },
-      { property: "og:description", content: "Escritório de contabilidade consultiva em Goiânia. Atendimento técnico fiscal, tributário e societário para empresas." },
+      { property: "og:description", content: "DCON é o escritório de contabilidade consultiva em Goiânia para empresas que buscam liderança técnica, segurança fiscal e decisões com base em dados." },
       { property: "og:url", content: "/goiania" },
     ],
     links: [{ rel: "canonical", href: "/goiania" }],

@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/contato")({
   head: () => ({
     meta: [
-      { title: "Contato | DCON Serviços Contábeis em Goiânia" },
-      { name: "description", content: "Fale com a DCON Serviços Contábeis. Atendimento em Goiânia e online em todo o Brasil." },
-      { property: "og:title", content: "Contato | DCON Serviços Contábeis em Goiânia" },
-      { property: "og:description", content: "Fale com a DCON Serviços Contábeis. Atendimento em Goiânia e online em todo o Brasil." },
+      { title: "Fale com a DCON | Contabilidade em Goiânia" },
+      { name: "description", content: "Solicite uma análise da sua empresa com a DCON. Contabilidade consultiva em Goiânia e atendimento online em todo o Brasil. WhatsApp, e-mail e telefone." },
+      { property: "og:title", content: "Fale com a DCON | Contabilidade em Goiânia" },
+      { property: "og:description", content: "Solicite uma análise da sua empresa com a DCON. Contabilidade consultiva em Goiânia e atendimento online em todo o Brasil. WhatsApp, e-mail e telefone." },
       { property: "og:url", content: "/contato" },
     ],
     links: [{ rel: "canonical", href: "/contato" }],

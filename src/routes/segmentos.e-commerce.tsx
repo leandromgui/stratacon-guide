@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/segmentos/e-commerce")({
   head: () => ({
     meta: [
-      { title: "E-commerce e Marketplaces | Contabilidade Especializada DCON" },
-      { name: "description", content: "Contabilidade para e-commerce, marketplaces e operações digitais. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
-      { property: "og:title", content: "E-commerce e Marketplaces | Contabilidade Especializada DCON" },
-      { property: "og:description", content: "Contabilidade para e-commerce, marketplaces e operações digitais. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
+      { title: "Contabilidade para E-commerce em Goiânia | DCON" },
+      { name: "description", content: "Contabilidade para e-commerce em Goiânia: ICMS-ST, DIFAL, marketplaces e conciliação de gateways. Especialistas DCON em lojas virtuais." },
+      { property: "og:title", content: "Contabilidade para E-commerce em Goiânia | DCON" },
+      { property: "og:description", content: "Contabilidade para e-commerce em Goiânia: ICMS-ST, DIFAL, marketplaces e conciliação de gateways. Especialistas DCON em lojas virtuais." },
       { property: "og:url", content: "/segmentos/e-commerce" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/e-commerce" }],

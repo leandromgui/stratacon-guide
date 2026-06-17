@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/conteudos/saude-clinicas")({
   head: () => ({
     meta: [
-      { title: "Saúde, Clínicas e Médicos | Central de Conteúdo DCON" },
-      { name: "description", content: "Conteúdos sobre contabilidade para clínicas e médicos. Artigos técnicos da DCON Serviços Contábeis." },
-      { property: "og:title", content: "Saúde, Clínicas e Médicos | Central de Conteúdo DCON" },
-      { property: "og:description", content: "Conteúdos sobre contabilidade para clínicas e médicos. Artigos técnicos da DCON Serviços Contábeis." },
+      { title: "Conteúdos para Médicos, Clínicas e Saúde | DCON" },
+      { name: "description", content: "Conteúdos da DCON para profissionais de saúde: equiparação hospitalar, fator R, PJ médica e planejamento tributário." },
+      { property: "og:title", content: "Conteúdos para Médicos, Clínicas e Saúde | DCON" },
+      { property: "og:description", content: "Conteúdos da DCON para profissionais de saúde: equiparação hospitalar, fator R, PJ médica e planejamento tributário." },
       { property: "og:url", content: "/conteudos/saude-clinicas" },
     ],
     links: [{ rel: "canonical", href: "/conteudos/saude-clinicas" }],

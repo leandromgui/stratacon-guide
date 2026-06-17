@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/segmentos/franquias-redes")({
   head: () => ({
     meta: [
-      { title: "Franquias e Redes | Contabilidade Especializada DCON" },
-      { name: "description", content: "Contabilidade para franquias e redes de unidades. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
-      { property: "og:title", content: "Franquias e Redes | Contabilidade Especializada DCON" },
-      { property: "og:description", content: "Contabilidade para franquias e redes de unidades. DCON Serviços Contábeis — atendimento consultivo em Goiânia e online." },
+      { title: "Contabilidade para Franquias e Redes | DCON Goiânia" },
+      { name: "description", content: "Contabilidade para franquias e redes em Goiânia: royalties, consolidação, multi-CNPJ e padronização fiscal com a DCON." },
+      { property: "og:title", content: "Contabilidade para Franquias e Redes | DCON Goiânia" },
+      { property: "og:description", content: "Contabilidade para franquias e redes em Goiânia: royalties, consolidação, multi-CNPJ e padronização fiscal com a DCON." },
       { property: "og:url", content: "/segmentos/franquias-redes" },
     ],
     links: [{ rel: "canonical", href: "/segmentos/franquias-redes" }],

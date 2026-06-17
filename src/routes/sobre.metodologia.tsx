@@ -4,10 +4,10 @@ import { PageScaffold } from "../components/PageScaffold";
 export const Route = createFileRoute("/sobre/metodologia")({
   head: () => ({
     meta: [
-      { title: "Metodologia DCON | Como Conduzimos a Contabilidade da Sua Empresa" },
-      { name: "description", content: "Conheça as etapas da metodologia DCON: diagnóstico, estruturação, rotina técnica e acompanhamento estratégico." },
-      { property: "og:title", content: "Metodologia DCON | Como Conduzimos a Contabilidade da Sua Empresa" },
-      { property: "og:description", content: "Conheça as etapas da metodologia DCON: diagnóstico, estruturação, rotina técnica e acompanhamento estratégico." },
+      { title: "Metodologia DCON | Contabilidade Auditável em Goiânia" },
+      { name: "description", content: "Diagnóstico técnico, estruturação fiscal e rotina auditável: conheça a metodologia DCON para empresas que buscam previsibilidade e segurança." },
+      { property: "og:title", content: "Metodologia DCON | Contabilidade Auditável em Goiânia" },
+      { property: "og:description", content: "Diagnóstico técnico, estruturação fiscal e rotina auditável: conheça a metodologia DCON para empresas que buscam previsibilidade e segurança." },
       { property: "og:url", content: "/sobre/metodologia" },
     ],
     links: [{ rel: "canonical", href: "/sobre/metodologia" }],
