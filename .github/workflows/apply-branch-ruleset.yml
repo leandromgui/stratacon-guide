@@ -210,7 +210,7 @@ jobs:
             # Path -> (line, col) resolver. Reads pretty-printed JSON and walks
             # object keys / array indices honoring nesting, quoted strings and
             # escapes — far more reliable than grepping the last path segment.
-            cat > /tmp/locate_path.py <<'PY'
+            sed 's/^            //' > /tmp/locate_path.py <<'PY'
             import json, re, sys
 
             path_str = sys.argv[1]
