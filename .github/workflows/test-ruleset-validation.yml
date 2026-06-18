@@ -20,15 +20,18 @@ permissions:
 
 jobs:
   e2e:
-    name: Ruleset validation e2e
+    name: Ruleset validation e2e (Python ${{ matrix.python-version }})
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.11"]
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
+          python-version: ${{ matrix.python-version }}
 
       - name: Verify jq is available
         run: jq --version
