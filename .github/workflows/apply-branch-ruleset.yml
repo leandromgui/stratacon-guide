@@ -203,28 +203,149 @@ jobs:
             ' > validation-report.json
 
             # Emit GitHub Actions annotations (Checks UI) for each failure.
-            # Maps each JSON path to a best-effort line in ruleset-payload.json
-            # so the annotation links directly to the offending field.
+            # Maps each JSON path (e.g. ".rules[0].parameters.type") to the exact
+            # line/column in ruleset-payload.json by walking the parsed structure.
             FILE="ruleset-payload.json"
+
+            # Path -> (line, col) resolver. Reads pretty-printed JSON and walks
+            # object keys / array indices honoring nesting, quoted strings and
+            # escapes — far more reliable than grepping the last path segment.
+            cat > /tmp/locate_path.py <<'PY'
+            import json, re, sys
+
+            path_str = sys.argv[1]
+            file_path = sys.argv[2]
+            with open(file_path, "r", encoding="utf-8") as f:
+                text = f.read()
+
+            # Tokenize ".a.b[0].c" -> [("key","a"), ("key","b"), ("idx",0), ("key","c")]
+            tokens = []
+            for m in re.finditer(r'\.([A-Za-z_][A-Za-z0-9_]*)|\[(\d+)\]', path_str):
+                if m.group(1) is not None:
+                    tokens.append(("key", m.group(1)))
+                else:
+                    tokens.append(("idx", int(m.group(2))))
+
+            def skip_ws(p):
+                while p < len(text) and text[p] in " \t\r\n":
+                    p += 1
+                return p
+
+            def skip_string(p):
+                # assumes text[p] == '"'
+                p += 1
+                while p < len(text):
+                    c = text[p]
+                    if c == "\\":
+                        p += 2
+                        continue
+                    if c == '"':
+                        return p + 1
+                    p += 1
+                return p
+
+            def skip_value(p):
+                p = skip_ws(p)
+                if p >= len(text):
+                    return p
+                c = text[p]
+                if c == '"':
+                    return skip_string(p)
+                if c in "{[":
+                    open_c, close_c = c, ("}" if c == "{" else "]")
+                    depth = 1
+                    p += 1
+                    while p < len(text) and depth > 0:
+                        ch = text[p]
+                        if ch == '"':
+                            p = skip_string(p); continue
+                        if ch == open_c:
+                            depth += 1
+                        elif ch == close_c:
+                            depth -= 1
+                        p += 1
+                    return p
+                # primitive: number / true / false / null
+                m = re.match(r"[^\s,\]\}]+", text[p:])
+                return p + (len(m.group()) if m else 1)
+
+            def line_col(p):
+                line = text.count("\n", 0, p) + 1
+                last_nl = text.rfind("\n", 0, p)
+                col = p - last_nl if last_nl >= 0 else p + 1
+                return line, col
+
+            pos = skip_ws(0)
+            target = pos
+            try:
+                for kind, val in tokens:
+                    pos = skip_ws(pos)
+                    if kind == "key":
+                        if pos >= len(text) or text[pos] != "{":
+                            break
+                        pos += 1
+                        found = False
+                        while pos < len(text):
+                            pos = skip_ws(pos)
+                            if text[pos] == "}":
+                                break
+                            key_start = pos
+                            key_end = skip_string(pos)
+                            name = json.loads(text[key_start:key_end])
+                            pos = skip_ws(key_end)
+                            if text[pos] != ":":
+                                break
+                            pos = skip_ws(pos + 1)
+                            if name == val:
+                                target = key_start  # point at the key itself
+                                found = True
+                                break
+                            pos = skip_value(pos)
+                            pos = skip_ws(pos)
+                            if pos < len(text) and text[pos] == ",":
+                                pos += 1
+                        if not found:
+                            break
+                    else:  # idx
+                        if pos >= len(text) or text[pos] != "[":
+                            break
+                        pos += 1
+                        for _ in range(val):
+                            pos = skip_ws(pos)
+                            pos = skip_value(pos)
+                            pos = skip_ws(pos)
+                            if pos < len(text) and text[pos] == ",":
+                                pos += 1
+                        pos = skip_ws(pos)
+                        target = pos
+            except Exception:
+                pass
+
+            line, col = line_col(target)
+            print(f"{line} {col}")
+            PY
+
             while IFS= read -r row; do
               FPATH=$(echo "$row" | jq -r '.path')
               EXPECTED=$(echo "$row" | jq -r '.expected')
               ACTUAL=$(echo "$row" | jq -r '.actual')
               REASON=$(echo "$row" | jq -r '.reason')
 
-              # Derive the last path segment as a key to grep for (e.g. ".rules[0].type" -> "type")
-              KEY=$(echo "$FPATH" | sed -E 's/.*\.([A-Za-z_][A-Za-z0-9_]*)(\[[0-9]+\])?$/\1/')
+              # Resolve precise line + column by walking the JSON structure
               LINE=1
-              if [ -n "$KEY" ] && [ "$KEY" != "$FPATH" ]; then
-                FOUND=$(grep -n "\"$KEY\"[[:space:]]*:" "$FILE" | head -n1 | cut -d: -f1 || true)
-                if [ -n "$FOUND" ]; then LINE="$FOUND"; fi
+              COL=1
+              if LOC=$(python3 /tmp/locate_path.py "$FPATH" "$FILE" 2>/dev/null); then
+                LINE=$(echo "$LOC" | awk '{print $1}')
+                COL=$(echo "$LOC" | awk '{print $2}')
+                : "${LINE:=1}"
+                : "${COL:=1}"
               fi
 
               # ::error annotations show up inline in the Checks tab on the file
               MSG="[$FPATH] expected=$EXPECTED, actual=$ACTUAL — $REASON"
               # Escape characters that have meaning in workflow commands
               MSG_ESCAPED=$(printf '%s' "$MSG" | sed 's/%/%25/g; s/\r/%0D/g' | tr '\n' ' ')
-              echo "::error file=$FILE,line=$LINE,title=Ruleset schema validation failure::${MSG_ESCAPED}"
+              echo "::error file=$FILE,line=$LINE,col=$COL,title=Ruleset schema validation failure::${MSG_ESCAPED}"
             done < <(jq -c '.failures[]' validation-report.json)
 
             {
