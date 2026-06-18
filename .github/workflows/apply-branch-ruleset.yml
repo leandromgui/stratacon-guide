@@ -147,6 +147,9 @@ jobs:
 
       - name: Validate ruleset payload
         id: validate
+        env:
+          REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
         run: |
           set -euo pipefail
           echo "Validating ruleset-payload.json..."
@@ -161,6 +164,13 @@ jobs:
               --arg details "$(cat parse.err)" \
               '{ summary: { total: 1, hint: "Fix the JSON syntax in ruleset-payload.json." }, failures: [ { path: ".", expected: "valid JSON", actual: "parse error", value: $details, reason: $reason } ] }' \
               > validation-report.json
+            {
+              echo "## Validation Report"
+              echo ""
+              echo "The validation failed because the ruleset payload is not valid JSON."
+              echo ""
+              echo "**Download the full report:** [validation-report.json](https://github.com/$REPO/actions/runs/$RUN_ID#artifacts)"
+            } >> "$GITHUB_STEP_SUMMARY"
             exit 1
           fi
 
@@ -191,6 +201,14 @@ jobs:
                 }
             ' > validation-report.json
 
+            {
+              echo "## Validation Report"
+              echo ""
+              echo "Found **$ERROR_COUNT** schema validation failure(s)."
+              echo ""
+              echo "**Download the full report:** [validation-report.json](https://github.com/$REPO/actions/runs/$RUN_ID#artifacts)"
+            } >> "$GITHUB_STEP_SUMMARY"
+
             exit 1
           fi
 
@@ -205,10 +223,22 @@ jobs:
 
       - name: Upload validation report
         if: failure() && steps.validate.outcome == 'failure'
+        env:
+          REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
         uses: actions/upload-artifact@v4
         with:
           name: ruleset-validation-report
           path: validation-report.json
+
+      - name: Write validation summary link
+        if: failure() && steps.validate.outcome == 'failure'
+        env:
+          REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          echo "Validation report artifact uploaded." >> "$GITHUB_STEP_SUMMARY"
+          echo "Download it here: https://github.com/$REPO/actions/runs/$RUN_ID#artifacts" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Apply repository ruleset
         if: steps.build.outputs.dry_run != 'true'
