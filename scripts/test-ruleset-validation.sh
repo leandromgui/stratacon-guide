@@ -83,6 +83,10 @@ echo "OK: all $(printf '%s\n' "$PATHS" | wc -l | tr -d ' ') paths use numeric in
 
 # Assertion 2: resolver returns a real line/col for every path.
 FAIL=0
+: "${RESOLVER_OUTPUT:=}"
+if [ -n "$RESOLVER_OUTPUT" ]; then
+  : > "$RESOLVER_OUTPUT"
+fi
 while IFS= read -r p; do
   [ -z "$p" ] && continue
   if ! LOC=$(python3 "$RESOLVER" "$p" "$WORK/payload.json" 2>/dev/null); then
@@ -98,7 +102,14 @@ while IFS= read -r p; do
     continue
   fi
   echo "  $p -> $LINE:$COL"
+  if [ -n "$RESOLVER_OUTPUT" ]; then
+    printf '%s\t%s:%s\n' "$p" "$LINE" "$COL" >> "$RESOLVER_OUTPUT"
+  fi
 done <<< "$PATHS"
+
+if [ -n "$RESOLVER_OUTPUT" ] && [ -s "$RESOLVER_OUTPUT" ]; then
+  LC_ALL=C sort -o "$RESOLVER_OUTPUT" "$RESOLVER_OUTPUT"
+fi
 
 if [ "$FAIL" -ne 0 ]; then
   exit 1

@@ -61,4 +61,56 @@ jobs:
           esac
 
       - name: Run end-to-end test
+        env:
+          RESOLVER_OUTPUT: ${{ github.workspace }}/resolver-output.txt
         run: bash scripts/test-ruleset-validation.sh
+
+      - name: Upload resolver output
+        uses: actions/upload-artifact@v4
+        with:
+          name: resolver-output-py${{ matrix.python-version }}-jq${{ matrix.jq-version }}
+          path: resolver-output.txt
+          if-no-files-found: error
+
+  compare:
+    name: Compare resolver output across jq versions
+    needs: e2e
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download all resolver outputs
+        uses: actions/download-artifact@v4
+        with:
+          path: outputs
+          pattern: resolver-output-*
+
+      - name: Diff resolver output across jq versions
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          mapfile -t dirs < <(ls -1d outputs/resolver-output-* | sort)
+          if [ "${#dirs[@]}" -lt 2 ]; then
+            echo "FAIL: expected at least 2 resolver-output artifacts, got ${#dirs[@]}" >&2
+            exit 1
+          fi
+          echo "Found ${#dirs[@]} artifacts:"
+          printf '  %s\n' "${dirs[@]}"
+
+          reference="${dirs[0]}/resolver-output.txt"
+          if [ ! -s "$reference" ]; then
+            echo "FAIL: reference output $reference is missing or empty" >&2
+            exit 1
+          fi
+
+          divergence=0
+          for d in "${dirs[@]:1}"; do
+            candidate="$d/resolver-output.txt"
+            if ! diff -u "$reference" "$candidate"; then
+              echo "FAIL: resolver output diverges between $reference and $candidate" >&2
+              divergence=1
+            fi
+          done
+
+          if [ "$divergence" -ne 0 ]; then
+            exit 1
+          fi
+          echo "PASS: resolver output is identical across all Python x jq combinations."
