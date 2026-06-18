@@ -8,12 +8,14 @@ on:
       - .github/workflows/test-ruleset-validation.yml
       - scripts/locate-json-path.py
       - scripts/test-ruleset-validation.sh
+      - scripts/normalize-resolver-output.sh
   pull_request:
     paths:
       - .github/workflows/ruleset-schema.jq
       - .github/workflows/test-ruleset-validation.yml
       - scripts/locate-json-path.py
       - scripts/test-ruleset-validation.sh
+      - scripts/normalize-resolver-output.sh
 
 permissions:
   contents: read
