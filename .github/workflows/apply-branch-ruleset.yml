@@ -241,6 +241,19 @@ jobs:
           echo "Validation report artifact uploaded." >> "$GITHUB_STEP_SUMMARY"
           echo "Download it here: https://github.com/$REPO/actions/runs/$RUN_ID#artifacts" >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Comment PR with validation report link
+        if: failure() && steps.validate.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          PR_NUMBER=$(gh pr list --head "${{ github.ref_name }}" --repo "$REPO" --json number -q '.[0].number')
+          if [ -n "$PR_NUMBER" ]; then
+            gh pr comment "$PR_NUMBER" --repo "$REPO" --body "❌ A validação do ruleset falhou. Veja o relatório completo: https://github.com/$REPO/actions/runs/$RUN_ID#artifacts"
+          fi
+
       - name: Apply repository ruleset
         if: steps.build.outputs.dry_run != 'true'
         env:
