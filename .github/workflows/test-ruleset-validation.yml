@@ -96,20 +96,6 @@ jobs:
           path: outputs
           pattern: resolver-output-*
 
-      - name: Normalize resolver outputs before comparison
-        run: |
-          set -euo pipefail
-          for f in outputs/*/resolver-output.txt; do
-            # Normalize: trim trailing whitespace, remove blank/whitespace-only lines,
-            # ensure LF line endings, and guarantee exactly one trailing newline.
-            awk 'NF {gsub(/[ \t]+$/, ""); print}' "$f" > "$f.tmp"
-            # Collapse consecutive spaces/tabs into a single space
-            tr -s ' \t' ' ' < "$f.tmp" > "$f.tmp2"
-            # Strip any stray carriage returns (CRLF -> LF)
-            tr -d '\r' < "$f.tmp2" > "$f"
-            rm "$f.tmp" "$f.tmp2"
-          done
-
       - name: Diff resolver output across jq versions
         run: |
           set -euo pipefail
