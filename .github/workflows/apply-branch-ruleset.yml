@@ -268,7 +268,7 @@ jobs:
             gh api "repos/$REPO/issues/comments/$EXISTING_COMMENT_ID" --method PATCH -f body="$FULL_BODY"
           else
             echo "Creating new PR comment"
-            gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$l${MARKER}\n${BODY}"
+            gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$FULL_BODY"
           fi
 
       - name: Apply repository ruleset
