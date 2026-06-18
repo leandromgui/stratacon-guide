@@ -130,13 +130,18 @@ export function SiteLayout() {
       </main>
 
       <footer className="mt-24 border-t border-border bg-secondary text-secondary-foreground">
-        <div className="mx-auto max-w-7xl px-6 py-14 grid gap-10 md:grid-cols-4 text-sm">
-          <div>
+        <div className="mx-auto max-w-7xl px-6 py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-6 text-sm">
+          <div className="lg:col-span-2">
             <div className="text-lg font-semibold">DCON Serviços Contábeis</div>
             <p className="mt-3 text-secondary-foreground/70">
               Contabilidade estratégica para decisões seguras. Goiânia — atendimento
               online em todo o Brasil.
             </p>
+            <ul className="mt-5 space-y-2 text-secondary-foreground/70">
+              <li>Goiânia — GO</li>
+              <li>contato@dcon.com.br</li>
+              <li><Link to="/diagnostico" className="text-primary">Solicitar diagnóstico</Link></li>
+            </ul>
           </div>
           <div>
             <div className="font-medium mb-3">Soluções</div>
@@ -145,6 +150,29 @@ export function SiteLayout() {
               <li><Link to="/solucoes/planejamento-tributario">Planejamento Tributário</Link></li>
               <li><Link to="/solucoes/regularizacao-fiscal">Regularização Fiscal</Link></li>
               <li><Link to="/solucoes/holding-patrimonial">Holding Patrimonial</Link></li>
+              <li><Link to="/solucoes" className="text-primary">Ver todas</Link></li>
+            </ul>
+          </div>
+          <div>
+            <div className="font-medium mb-3">Segmentos</div>
+            <ul className="space-y-2 text-secondary-foreground/70">
+              <li><Link to="/segmentos/medicos-clinicas">Médicos e Clínicas</Link></li>
+              <li><Link to="/segmentos/e-commerce">E-commerce</Link></li>
+              <li><Link to="/segmentos/construcao-civil-spe">Construção Civil e SPEs</Link></li>
+              <li><Link to="/segmentos/holdings">Holdings</Link></li>
+              <li><Link to="/segmentos/tecnologia-startups">Tecnologia e Startups</Link></li>
+              <li><Link to="/segmentos" className="text-primary">Ver todos</Link></li>
+            </ul>
+          </div>
+          <div>
+            <div className="font-medium mb-3">Conteúdos</div>
+            <ul className="space-y-2 text-secondary-foreground/70">
+              <li><Link to="/conteudos/planejamento-tributario">Planejamento Tributário</Link></li>
+              <li><Link to="/conteudos/regularizacao-fiscal">Regularização Fiscal</Link></li>
+              <li><Link to="/conteudos/regimes-tributarios">Regimes Tributários</Link></li>
+              <li><Link to="/conteudos/holding-patrimonio">Holding e Patrimônio</Link></li>
+              <li><Link to="/conteudos/dp-esocial">DP e eSocial</Link></li>
+              <li><Link to="/conteudos" className="text-primary">Central de Conteúdo</Link></li>
             </ul>
           </div>
           <div>
@@ -152,16 +180,8 @@ export function SiteLayout() {
             <ul className="space-y-2 text-secondary-foreground/70">
               <li><Link to="/sobre">Sobre a DCON</Link></li>
               <li><Link to="/sobre/leandro">Responsável técnico</Link></li>
-              <li><Link to="/conteudos">Central de Conteúdo</Link></li>
+              <li><Link to="/sobre/metodologia">Metodologia</Link></li>
               <li><Link to="/contato">Contato</Link></li>
-            </ul>
-          </div>
-          <div>
-            <div className="font-medium mb-3">Contato</div>
-            <ul className="space-y-2 text-secondary-foreground/70">
-              <li>Goiânia — GO</li>
-              <li>contato@dcon.com.br</li>
-              <li><Link to="/diagnostico" className="text-primary">Solicitar diagnóstico</Link></li>
             </ul>
           </div>
         </div>
