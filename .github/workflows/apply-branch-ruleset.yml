@@ -348,6 +348,38 @@ jobs:
               echo "::error file=$FILE,line=$LINE,col=$COL,title=Ruleset schema validation failure::${MSG_ESCAPED}"
             done < <(jq -c '.failures[]' validation-report.json)
 
+            # Aggregate annotations per file: when several failures share the
+            # same file, emit a single grouped ::error annotation summarizing
+            # all of them so the Checks/Annotations tab shows one entry per
+            # file in addition to the per-failure annotations above.
+            jq -r '
+              .failures
+              | map(. + { file: (.file // "ruleset-payload.json") })
+              | group_by(.file)
+              | map({ file: .[0].file, count: length, items: . })
+              | .[]
+              | @base64
+            ' validation-report.json | while IFS= read -r enc; do
+              GROUP=$(echo "$enc" | base64 -d)
+              GFILE=$(echo "$GROUP" | jq -r '.file')
+              GCOUNT=$(echo "$GROUP" | jq -r '.count')
+              if [ "$GCOUNT" -le 1 ]; then
+                continue
+              fi
+              GLIST=$(echo "$GROUP" | jq -r '
+                .items[:10]
+                | map("• \(.path): expected=\(.expected), actual=\(.actual) — \(.reason)")
+                | join(" | ")
+              ')
+              GEXTRA=""
+              if [ "$GCOUNT" -gt 10 ]; then
+                GEXTRA=" | ...and $((GCOUNT - 10)) more"
+              fi
+              GMSG="$GCOUNT validation failures in $GFILE: ${GLIST}${GEXTRA}"
+              GMSG_ESCAPED=$(printf '%s' "$GMSG" | sed 's/%/%25/g; s/\r/%0D/g' | tr '\n' ' ')
+              echo "::error file=$GFILE,line=1,col=1,title=Ruleset validation: $GCOUNT failures in $GFILE::${GMSG_ESCAPED}"
+            done
+
             {
               echo "## Validation Report"
               echo ""
