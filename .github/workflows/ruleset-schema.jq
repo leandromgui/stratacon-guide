@@ -68,47 +68,51 @@ expect_nonempty_array(".rules"; .rules),
     | fail(".rules[" + (.key|tostring) + "].type"; "string"; .value.type; "rule type discriminator must be a string") ),
 
 # --- required_status_checks rule ---
-( [.rules[]? | select(.type == "required_status_checks")][0] // null ) as $rsc
+( (.rules // []) | (map(.type? == "required_status_checks") | index(true)) ) as $rsc_i
+| ( if $rsc_i == null then null else .rules[$rsc_i] end ) as $rsc
+| ( ".rules[" + ($rsc_i | tostring) + "]" ) as $rsc_p
 | ( if $rsc == null then empty
     else
-      ( expect_type(".rules[required_status_checks].parameters"; $rsc.parameters; "object") ),
+      ( expect_type($rsc_p + ".parameters"; $rsc.parameters; "object") ),
       ( expect_type(
-          ".rules[required_status_checks].parameters.strict_required_status_checks_policy";
+          $rsc_p + ".parameters.strict_required_status_checks_policy";
           $rsc.parameters.strict_required_status_checks_policy; "boolean") ),
       ( expect_nonempty_array(
-          ".rules[required_status_checks].parameters.required_status_checks";
+          $rsc_p + ".parameters.required_status_checks";
           $rsc.parameters.required_status_checks) ),
       ( ($rsc.parameters.required_status_checks // []) | select(type == "array") | to_entries[]
           | select((.value | type) != "object")
-          | fail(".rules[required_status_checks].parameters.required_status_checks[" + (.key|tostring) + "]"; "object"; .value; "status check entry must be an object") ),
+          | fail($rsc_p + ".parameters.required_status_checks[" + (.key|tostring) + "]"; "object"; .value; "status check entry must be an object") ),
       ( ($rsc.parameters.required_status_checks // []) | select(type == "array") | to_entries[]
           | select((.value | type) == "object")
           | select((.value.context | type) != "string" or (.value.context | length) == 0)
-          | fail(".rules[required_status_checks].parameters.required_status_checks[" + (.key|tostring) + "].context"; "non-empty string"; .value.context; "status check context must be a non-empty string") )
+          | fail($rsc_p + ".parameters.required_status_checks[" + (.key|tostring) + "].context"; "non-empty string"; .value.context; "status check context must be a non-empty string") )
     end ),
 
 # --- pull_request rule (optional) ---
-( [.rules[]? | select(.type == "pull_request")][0] // null ) as $pr
+( (.rules // []) | (map(.type? == "pull_request") | index(true)) ) as $pr_i
+| ( if $pr_i == null then null else .rules[$pr_i] end ) as $pr
+| ( ".rules[" + ($pr_i | tostring) + "]" ) as $pr_p
 | ( if $pr == null then empty
     else
-      ( expect_type(".rules[pull_request].parameters"; $pr.parameters; "object") ),
+      ( expect_type($pr_p + ".parameters"; $pr.parameters; "object") ),
       ( expect_type(
-          ".rules[pull_request].parameters.required_approving_review_count";
+          $pr_p + ".parameters.required_approving_review_count";
           $pr.parameters.required_approving_review_count; "number") ),
       ( if (($pr.parameters.required_approving_review_count // -1) | type) == "number"
            and ($pr.parameters.required_approving_review_count < 0)
-          then fail(".rules[pull_request].parameters.required_approving_review_count"; "number >= 0"; $pr.parameters.required_approving_review_count; "value must be >= 0")
+          then fail($pr_p + ".parameters.required_approving_review_count"; "number >= 0"; $pr.parameters.required_approving_review_count; "value must be >= 0")
           else empty end ),
       ( expect_type(
-          ".rules[pull_request].parameters.dismiss_stale_reviews_on_push";
+          $pr_p + ".parameters.dismiss_stale_reviews_on_push";
           $pr.parameters.dismiss_stale_reviews_on_push; "boolean") ),
       ( expect_type(
-          ".rules[pull_request].parameters.require_code_owner_review";
+          $pr_p + ".parameters.require_code_owner_review";
           $pr.parameters.require_code_owner_review; "boolean") ),
       ( expect_type(
-          ".rules[pull_request].parameters.require_last_push_approval";
+          $pr_p + ".parameters.require_last_push_approval";
           $pr.parameters.require_last_push_approval; "boolean") ),
       ( expect_type(
-          ".rules[pull_request].parameters.required_review_thread_resolution";
+          $pr_p + ".parameters.required_review_thread_resolution";
           $pr.parameters.required_review_thread_resolution; "boolean") )
     end )
