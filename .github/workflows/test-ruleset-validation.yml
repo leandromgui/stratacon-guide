@@ -1,0 +1,37 @@
+name: Test Ruleset Validation
+
+on:
+  push:
+    branches: [main, develop, "feature/**", "fix/**", "release/**"]
+    paths:
+      - .github/workflows/ruleset-schema.jq
+      - .github/workflows/test-ruleset-validation.yml
+      - scripts/locate-json-path.py
+      - scripts/test-ruleset-validation.sh
+  pull_request:
+    paths:
+      - .github/workflows/ruleset-schema.jq
+      - .github/workflows/test-ruleset-validation.yml
+      - scripts/locate-json-path.py
+      - scripts/test-ruleset-validation.sh
+
+permissions:
+  contents: read
+
+jobs:
+  e2e:
+    name: Ruleset validation e2e
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Verify jq is available
+        run: jq --version
+
+      - name: Run end-to-end test
+        run: bash scripts/test-ruleset-validation.sh
