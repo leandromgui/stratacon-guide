@@ -255,7 +255,18 @@ jobs:
             exit 0
           fi
 
-          BODY="❌ A validação do ruleset falhou. Veja o relatório completo: https://github.com/$REPO/actions/runs/$RUN_ID#artifacts"
+          TOTAL=$(jq '.summary.total' validation-report.json)
+          SUMMARY_MD=$(jq -r '
+            .failures[:5]
+            | map("- `\(.path)`: esperado `\(.expected)`, encontrado `\(.actual)` — \(.reason)")
+            | join("\n")
+          ' validation-report.json)
+
+          if [ "$TOTAL" -gt 5 ]; then
+            SUMMARY_MD="${SUMMARY_MD}\n\n_...e mais $((TOTAL - 5)) falha(s) no relatório completo._"
+          fi
+
+          BODY=$(printf "❌ A validação do ruleset falhou com **%s** erro(s) de schema.\n\n**Principais falhas:**\n%s\n\n📎 [Baixar relatório completo (validation-report.json)](https://github.com/%s/actions/runs/%s#artifacts)" "$TOTAL" "$SUMMARY_MD" "$REPO" "$RUN_ID")
           MARKER='<!-- ruleset-validation-report -->'
           FULL_BODY="${MARKER}\n${BODY}"
 
