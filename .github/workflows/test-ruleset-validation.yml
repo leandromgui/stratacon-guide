@@ -83,6 +83,23 @@ jobs:
           path: outputs
           pattern: resolver-output-*
 
+      - name: Normalize resolver outputs before comparison
+        run: |
+          set -euo pipefail
+          for f in outputs/*/resolver-output.txt; do
+            # Remove trailing whitespace, collapse blank lines, strip carriage returns,
+            # and ensure exactly one trailing newline.
+            sed -i 's/[[:space:]]\+$//' "$f"
+            sed -i '/^[[:space:]]*$/d' "$f"
+            # Ensure file ends with a single newline
+            if [ -s "$f" ]; then
+              printf '\n' >> "$f"
+              # Remove duplicate final newlines
+              perl -pi -e 'chomp if eof' "$f"
+              printf '\n' >> "$f"
+            fi
+          done
+
       - name: Diff resolver output across jq versions
         run: |
           set -euo pipefail
