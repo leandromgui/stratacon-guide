@@ -8,12 +8,14 @@ on:
       - .github/workflows/test-ruleset-validation.yml
       - scripts/locate-json-path.py
       - scripts/test-ruleset-validation.sh
+      - scripts/normalize-resolver-output.sh
   pull_request:
     paths:
       - .github/workflows/ruleset-schema.jq
       - .github/workflows/test-ruleset-validation.yml
       - scripts/locate-json-path.py
       - scripts/test-ruleset-validation.sh
+      - scripts/normalize-resolver-output.sh
 
 permissions:
   contents: read
@@ -66,17 +68,7 @@ jobs:
         run: bash scripts/test-ruleset-validation.sh
 
       - name: Normalize resolver output before upload
-        run: |
-          set -euo pipefail
-          f="${{ github.workspace }}/resolver-output.txt"
-          # Normalize: trim trailing whitespace, remove blank/whitespace-only lines,
-          # ensure LF line endings, and guarantee exactly one trailing newline.
-          awk 'NF {gsub(/[ \t]+$/, ""); print}' "$f" > "$f.tmp"
-          # Collapse consecutive spaces/tabs into a single space
-          tr -s ' \t' ' ' < "$f.tmp" > "$f.tmp2"
-          # Strip any stray carriage returns (CRLF -> LF)
-          tr -d '\r' < "$f.tmp2" > "$f"
-          rm "$f.tmp" "$f.tmp2"
+        run: bash scripts/normalize-resolver-output.sh "${{ github.workspace }}/resolver-output.txt"
 
       - name: Upload resolver output
         uses: actions/upload-artifact@v4
@@ -90,11 +82,20 @@ jobs:
     needs: e2e
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
       - name: Download all resolver outputs
         uses: actions/download-artifact@v4
         with:
           path: outputs
           pattern: resolver-output-*
+
+      - name: Normalize downloaded outputs before comparison
+        run: |
+          set -euo pipefail
+          for f in outputs/*/resolver-output.txt; do
+            bash scripts/normalize-resolver-output.sh "$f"
+          done
 
       - name: Diff resolver output across jq versions
         run: |
