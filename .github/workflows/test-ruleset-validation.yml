@@ -65,6 +65,19 @@ jobs:
           RESOLVER_OUTPUT: ${{ github.workspace }}/resolver-output.txt
         run: bash scripts/test-ruleset-validation.sh
 
+      - name: Normalize resolver output before upload
+        run: |
+          set -euo pipefail
+          f="${{ github.workspace }}/resolver-output.txt"
+          # Normalize: trim trailing whitespace, remove blank/whitespace-only lines,
+          # ensure LF line endings, and guarantee exactly one trailing newline.
+          awk 'NF {gsub(/[ \t]+$/, ""); print}' "$f" > "$f.tmp"
+          # Collapse consecutive spaces/tabs into a single space
+          tr -s ' \t' ' ' < "$f.tmp" > "$f.tmp2"
+          # Strip any stray carriage returns (CRLF -> LF)
+          tr -d '\r' < "$f.tmp2" > "$f"
+          rm "$f.tmp" "$f.tmp2"
+
       - name: Upload resolver output
         uses: actions/upload-artifact@v4
         with:
@@ -82,20 +95,6 @@ jobs:
         with:
           path: outputs
           pattern: resolver-output-*
-
-      - name: Normalize resolver outputs before comparison
-        run: |
-          set -euo pipefail
-          for f in outputs/*/resolver-output.txt; do
-            # Normalize: trim trailing whitespace, remove blank/whitespace-only lines,
-            # ensure LF line endings, and guarantee exactly one trailing newline.
-            awk 'NF {gsub(/[ \t]+$/, ""); print}' "$f" > "$f.tmp"
-            # Collapse consecutive spaces/tabs into a single space
-            tr -s ' \t' ' ' < "$f.tmp" > "$f.tmp2"
-            # Strip any stray carriage returns (CRLF -> LF)
-            tr -d '\r' < "$f.tmp2" > "$f"
-            rm "$f.tmp" "$f.tmp2"
-          done
 
       - name: Diff resolver output across jq versions
         run: |
