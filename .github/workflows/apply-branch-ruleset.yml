@@ -202,6 +202,31 @@ jobs:
                 }
             ' > validation-report.json
 
+            # Emit GitHub Actions annotations (Checks UI) for each failure.
+            # Maps each JSON path to a best-effort line in ruleset-payload.json
+            # so the annotation links directly to the offending field.
+            FILE="ruleset-payload.json"
+            while IFS= read -r row; do
+              FPATH=$(echo "$row" | jq -r '.path')
+              EXPECTED=$(echo "$row" | jq -r '.expected')
+              ACTUAL=$(echo "$row" | jq -r '.actual')
+              REASON=$(echo "$row" | jq -r '.reason')
+
+              # Derive the last path segment as a key to grep for (e.g. ".rules[0].type" -> "type")
+              KEY=$(echo "$FPATH" | sed -E 's/.*\.([A-Za-z_][A-Za-z0-9_]*)(\[[0-9]+\])?$/\1/')
+              LINE=1
+              if [ -n "$KEY" ] && [ "$KEY" != "$FPATH" ]; then
+                FOUND=$(grep -n "\"$KEY\"[[:space:]]*:" "$FILE" | head -n1 | cut -d: -f1 || true)
+                if [ -n "$FOUND" ]; then LINE="$FOUND"; fi
+              fi
+
+              # ::error annotations show up inline in the Checks tab on the file
+              MSG="[$FPATH] expected=$EXPECTED, actual=$ACTUAL — $REASON"
+              # Escape characters that have meaning in workflow commands
+              MSG_ESCAPED=$(printf '%s' "$MSG" | sed 's/%/%25/g; s/\r/%0D/g' | tr '\n' ' ')
+              echo "::error file=$FILE,line=$LINE,title=Ruleset schema validation failure::${MSG_ESCAPED}"
+            done < <(jq -c '.failures[]' validation-report.json)
+
             {
               echo "## Validation Report"
               echo ""
