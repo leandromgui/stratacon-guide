@@ -121,61 +121,63 @@ const results = entries.map((e) => {
 
 const failures = results.filter((r) => r.status === "fail");
 
-// Sempre escreve relatório (sucesso ou falha) em /mnt/documents.
-try {
-  fs.mkdirSync(REPORT_DIR, { recursive: true });
-  const timestamp = new Date().toISOString();
-  const lines = [];
-  lines.push(`# Relatório de links internos do FAQ (Home)`);
-  lines.push("");
-  lines.push(`- Gerado em: ${timestamp}`);
-  lines.push(`- Arquivo analisado: \`${HOME_FILE}\``);
-  lines.push(`- Links analisados: ${results.length}`);
-  lines.push(`- Rotas detectadas: ${routes.size}`);
-  lines.push(`- Falhas: **${failures.length}**`);
-  lines.push("");
-  if (failures.length === 0) {
-    lines.push("✓ Nenhum problema encontrado.");
-  } else {
-    lines.push("## Falhas");
+// No dry-run não grava arquivos.
+if (!DRY_RUN) {
+  try {
+    fs.mkdirSync(REPORT_DIR, { recursive: true });
+    const timestamp = new Date().toISOString();
+    const lines = [];
+    lines.push(`# Relatório de links internos do FAQ (Home)`);
     lines.push("");
-    lines.push("| # | Pergunta | Link | Motivo |");
-    lines.push("|---|----------|------|--------|");
-    failures.forEach((f, i) => {
-      const q = f.question.replace(/\|/g, "\\|");
-      lines.push(`| ${i + 1} | ${q} | \`${f.to}\` | ${f.reasons.join("; ")} |`);
+    lines.push(`- Gerado em: ${timestamp}`);
+    lines.push(`- Arquivo analisado: \`${HOME_FILE}\``);
+    lines.push(`- Links analisados: ${results.length}`);
+    lines.push(`- Rotas detectadas: ${routes.size}`);
+    lines.push(`- Falhas: **${failures.length}**`);
+    lines.push("");
+    if (failures.length === 0) {
+      lines.push("✓ Nenhum problema encontrado.");
+    } else {
+      lines.push("## Falhas");
+      lines.push("");
+      lines.push("| # | Pergunta | Link | Motivo |");
+      lines.push("|---|----------|------|--------|");
+      failures.forEach((f, i) => {
+        const q = f.question.replace(/\|/g, "\\|");
+        lines.push(`| ${i + 1} | ${q} | \`${f.to}\` | ${f.reasons.join("; ")} |`);
+      });
+    }
+    lines.push("");
+    lines.push("## Todos os links");
+    lines.push("");
+    lines.push("| Status | Pergunta | Link | Observação |");
+    lines.push("|--------|----------|------|------------|");
+    results.forEach((r) => {
+      const icon = r.status === "ok" ? "✓" : "✖";
+      const q = r.question.replace(/\|/g, "\\|");
+      lines.push(`| ${icon} | ${q} | \`${r.to}\` | ${r.reasons.join("; ") || "—"} |`);
     });
-  }
-  lines.push("");
-  lines.push("## Todos os links");
-  lines.push("");
-  lines.push("| Status | Pergunta | Link | Observação |");
-  lines.push("|--------|----------|------|------------|");
-  results.forEach((r) => {
-    const icon = r.status === "ok" ? "✓" : "✖";
-    const q = r.question.replace(/\|/g, "\\|");
-    lines.push(`| ${icon} | ${q} | \`${r.to}\` | ${r.reasons.join("; ") || "—"} |`);
-  });
-  fs.writeFileSync(REPORT_PATH, lines.join("\n") + "\n");
-  fs.writeFileSync(
-    REPORT_JSON,
-    JSON.stringify({ generatedAt: timestamp, routesCount: routes.size, results }, null, 2),
-  );
+    fs.writeFileSync(REPORT_PATH, lines.join("\n") + "\n");
+    fs.writeFileSync(
+      REPORT_JSON,
+      JSON.stringify({ generatedAt: timestamp, routesCount: routes.size, results }, null, 2),
+    );
 
-  const failuresForJson = failures.map((f) => ({
-    Pergunta: f.question,
-    Link: f.to,
-    Motivo: f.reasons.join("; "),
-  }));
-  fs.writeFileSync(
-    REPORT_FAILURES_JSON,
-    JSON.stringify(failuresForJson, null, 2) + "\n",
-  );
-  console.log(`→ Relatório MD: ${REPORT_PATH}`);
-  console.log(`→ Relatório JSON completo: ${REPORT_JSON}`);
-  console.log(`→ Falhas JSON (automação): ${REPORT_FAILURES_JSON}`);
-} catch (err) {
-  console.warn(`Aviso: não foi possível gravar relatório (${err.message}).`);
+    const failuresForJson = failures.map((f) => ({
+      Pergunta: f.question,
+      Link: f.to,
+      Motivo: f.reasons.join("; "),
+    }));
+    fs.writeFileSync(
+      REPORT_FAILURES_JSON,
+      JSON.stringify(failuresForJson, null, 2) + "\n",
+    );
+    console.log(`→ Relatório MD: ${REPORT_PATH}`);
+    console.log(`→ Relatório JSON completo: ${REPORT_JSON}`);
+    console.log(`→ Falhas JSON (automação): ${REPORT_FAILURES_JSON}`);
+  } catch (err) {
+    console.warn(`Aviso: não foi possível gravar relatório (${err.message}).`);
+  }
 }
 
 if (failures.length > 0) {
