@@ -7,10 +7,9 @@ const PAGE_SIZE = 6;
 type Props = {
   category: CategoryDef;
   page: number;
-  basePath: string; // ex.: /conteudos/tributario
 };
 
-export function CategoryHub({ category, page, basePath }: Props) {
+export function CategoryHub({ category, page }: Props) {
   const total = category.articles.length;
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
   const current = Math.min(Math.max(1, page), totalPages);
@@ -95,7 +94,8 @@ export function CategoryHub({ category, page, basePath }: Props) {
           <nav aria-label="Paginação" className="mt-10 flex items-center justify-between gap-4">
             {current > 1 ? (
               <Link
-                to={basePath}
+                to="/conteudos/$category"
+                params={{ category: category.slug }}
                 search={{ p: current - 1 }}
                 className="text-[11px] uppercase tracking-[0.18em] border border-border px-4 py-2 hover:border-secondary"
                 rel="prev"
@@ -107,7 +107,8 @@ export function CategoryHub({ category, page, basePath }: Props) {
               {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
                 <li key={n}>
                   <Link
-                    to={basePath}
+                    to="/conteudos/$category"
+                    params={{ category: category.slug }}
                     search={{ p: n }}
                     aria-current={n === current ? "page" : undefined}
                     className={`text-[11px] uppercase tracking-[0.18em] px-3 py-2 border ${n === current ? "bg-secondary text-secondary-foreground border-secondary" : "border-border hover:border-secondary"}`}
@@ -119,7 +120,8 @@ export function CategoryHub({ category, page, basePath }: Props) {
             </ul>
             {current < totalPages ? (
               <Link
-                to={basePath}
+                to="/conteudos/$category"
+                params={{ category: category.slug }}
                 search={{ p: current + 1 }}
                 className="text-[11px] uppercase tracking-[0.18em] border border-border px-4 py-2 hover:border-secondary"
                 rel="next"

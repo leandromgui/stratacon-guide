@@ -70,6 +70,7 @@ import { Route as ConteudosHoldingPatrimonioRouteImport } from './routes/conteud
 import { Route as ConteudosHoldingFamiliarRouteImport } from './routes/conteudos.holding-familiar'
 import { Route as ConteudosDpEsocialRouteImport } from './routes/conteudos.dp-esocial'
 import { Route as ConteudosComercioIcmsRouteImport } from './routes/conteudos.comercio-icms'
+import { Route as ConteudosCategoryRouteImport } from './routes/conteudos.$category'
 import { Route as AuthenticatedAdminLeadsRouteImport } from './routes/_authenticated/admin.leads'
 import { Route as AuthenticatedAdminAuditoriaSeoRouteImport } from './routes/_authenticated/admin.auditoria-seo'
 import { Route as AuthenticatedAdminAnalyticsRouteImport } from './routes/_authenticated/admin.analytics'
@@ -405,6 +406,11 @@ const ConteudosComercioIcmsRoute = ConteudosComercioIcmsRouteImport.update({
   path: '/conteudos/comercio-icms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConteudosCategoryRoute = ConteudosCategoryRouteImport.update({
+  id: '/conteudos/$category',
+  path: '/conteudos/$category',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthenticatedAdminLeadsRoute = AuthenticatedAdminLeadsRouteImport.update({
   id: '/admin/leads',
   path: '/admin/leads',
@@ -440,6 +446,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRouteWithChildren
   '/temas-estrategicos': typeof TemasEstrategicosRoute
+  '/conteudos/$category': typeof ConteudosCategoryRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
@@ -506,6 +513,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRouteWithChildren
   '/temas-estrategicos': typeof TemasEstrategicosRoute
+  '/conteudos/$category': typeof ConteudosCategoryRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
@@ -574,6 +582,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRouteWithChildren
   '/temas-estrategicos': typeof TemasEstrategicosRoute
+  '/conteudos/$category': typeof ConteudosCategoryRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
@@ -642,6 +651,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/sobre'
     | '/temas-estrategicos'
+    | '/conteudos/$category'
     | '/conteudos/comercio-icms'
     | '/conteudos/dp-esocial'
     | '/conteudos/holding-familiar'
@@ -708,6 +718,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/sobre'
     | '/temas-estrategicos'
+    | '/conteudos/$category'
     | '/conteudos/comercio-icms'
     | '/conteudos/dp-esocial'
     | '/conteudos/holding-familiar'
@@ -775,6 +786,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/sobre'
     | '/temas-estrategicos'
+    | '/conteudos/$category'
     | '/conteudos/comercio-icms'
     | '/conteudos/dp-esocial'
     | '/conteudos/holding-familiar'
@@ -843,6 +855,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreRoute: typeof SobreRouteWithChildren
   TemasEstrategicosRoute: typeof TemasEstrategicosRoute
+  ConteudosCategoryRoute: typeof ConteudosCategoryRoute
   ConteudosComercioIcmsRoute: typeof ConteudosComercioIcmsRoute
   ConteudosDpEsocialRoute: typeof ConteudosDpEsocialRoute
   ConteudosHoldingFamiliarRoute: typeof ConteudosHoldingFamiliarRoute
@@ -1323,6 +1336,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosComercioIcmsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/$category': {
+      id: '/conteudos/$category'
+      path: '/conteudos/$category'
+      fullPath: '/conteudos/$category'
+      preLoaderRoute: typeof ConteudosCategoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_authenticated/admin/leads': {
       id: '/_authenticated/admin/leads'
       path: '/admin/leads'
@@ -1393,6 +1413,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreRoute: SobreRouteWithChildren,
   TemasEstrategicosRoute: TemasEstrategicosRoute,
+  ConteudosCategoryRoute: ConteudosCategoryRoute,
   ConteudosComercioIcmsRoute: ConteudosComercioIcmsRoute,
   ConteudosDpEsocialRoute: ConteudosDpEsocialRoute,
   ConteudosHoldingFamiliarRoute: ConteudosHoldingFamiliarRoute,
