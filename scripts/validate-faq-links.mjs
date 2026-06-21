@@ -244,6 +244,17 @@ function buildHtml({ timestamp, mode }) {
     <input type="text" id="filter-path" placeholder="Digite parte do link…" />
     <label style="margin-left:.5rem">Tipo:</label>
     ${typeCheckboxes}
+    <label style="margin-left:.5rem">Ordenar por:</label>
+    <select id="sort-by">
+      <option value="default">Padrão</option>
+      <option value="status">Status</option>
+      <option value="path">Caminho</option>
+      <option value="type">Tipo</option>
+    </select>
+    <select id="sort-dir">
+      <option value="asc">Ascendente</option>
+      <option value="desc">Descendente</option>
+    </select>
   </div>
 
   <h2>Resumo por motivo</h2>
