@@ -15,6 +15,7 @@ export type Recommendation = {
   title: string;
   detail: string;
   actions: RecAction[];
+  impact: number; // 0–100, higher = mais urgente para indexação/CTR
 };
 
 export type UrlRecommendations = {
@@ -24,9 +25,97 @@ export type UrlRecommendations = {
   expectedTarget?: string;
   worst: Severity;
   items: Recommendation[];
+  score: number; // 0–100, prioridade agregada
+  priorityLabel: "P0" | "P1" | "P2" | "P3";
 };
 
 const sevRank: Record<Severity, number> = { critical: 3, warning: 2, info: 1 };
+
+// Peso base por severidade
+const SEV_BASE: Record<Severity, number> = {
+  critical: 55,
+  warning: 30,
+  info: 12,
+};
+
+// Bônus por tipo de problema (impacto direto em indexação/cliques)
+const ID_BONUS: Record<string, number> = {
+  "api-error": 5,
+  robots: 25,
+  noindex: 20,
+  "not-indexed": 25,
+  "canonical-mismatch": 12,
+  "canonical-missing": 10,
+  fetch: 15,
+  unknown: 6,
+  "redirect-not-following": 18,
+  "redirect-still-indexed": 8,
+  "redirect-wrong-canonical": 10,
+  "redirect-no-301": 12,
+};
+
+// Páginas comerciais de alto tráfego/conversão ganham peso extra
+const HIGH_VALUE_PATHS = new Set<string>([
+  "/",
+  "/diagnostico",
+  "/metodo",
+  "/contato",
+  "/goiania",
+  "/solucoes",
+  "/solucoes/planejamento-tributario",
+  "/solucoes/regularizacao-fiscal",
+  "/solucoes/holding-patrimonial",
+  "/solucoes/contabilidade-empresarial",
+  "/solucoes/abrir-empresa",
+  "/solucoes/trocar-contabilidade",
+  "/segmentos/medicos-clinicas",
+  "/segmentos/comercio",
+]);
+
+function pageWeight(path: string, kind: "canonical" | "redirect") {
+  if (kind === "redirect") return 0.7; // redirecionadas têm menos impacto direto
+  if (HIGH_VALUE_PATHS.has(path)) return 1.25;
+  return 1.0;
+}
+
+function scoreItem(
+  rec: Omit<Recommendation, "impact">,
+  path: string,
+  kind: "canonical" | "redirect",
+): number {
+  const base = SEV_BASE[rec.severity];
+  const bonus = ID_BONUS[rec.id] ?? 0;
+  const weight = pageWeight(path, kind);
+  return Math.min(100, Math.round((base + bonus) * weight));
+}
+
+function aggregateScore(items: Recommendation[]): number {
+  if (items.length === 0) return 0;
+  const max = Math.max(...items.map((i) => i.impact));
+  const rest = items
+    .map((i) => i.impact)
+    .sort((a, b) => b - a)
+    .slice(1)
+    .reduce((s, v) => s + v, 0);
+  return Math.min(100, Math.round(max + rest * 0.15));
+}
+
+function priorityFromScore(score: number): "P0" | "P1" | "P2" | "P3" {
+  if (score >= 80) return "P0";
+  if (score >= 60) return "P1";
+  if (score >= 35) return "P2";
+  return "P3";
+}
+
+export function priorityClass(p: "P0" | "P1" | "P2" | "P3"): string {
+  return p === "P0"
+    ? "bg-rose-600 text-white border-rose-700"
+    : p === "P1"
+      ? "bg-amber-500 text-white border-amber-600"
+      : p === "P2"
+        ? "bg-sky-500 text-white border-sky-600"
+        : "bg-muted text-foreground border-border";
+}
 
 function pathOf(url: string, siteUrl: string): string {
   try {
@@ -52,7 +141,7 @@ export function recommendForResult(
   r: AuditResult,
   siteUrl: string,
 ): Recommendation[] {
-  const out: Recommendation[] = [];
+  const out: Omit<Recommendation, "impact">[] = [];
   const path = pathOf(r.url, siteUrl);
   const entry = entryFor(path);
   const kind = r.kind;
@@ -70,7 +159,7 @@ export function recommendForResult(
         { label: "Abrir no GSC", href: gsc, external: true },
       ],
     });
-    return out;
+    return finalize(out, path, kind);
   }
 
   const fetchState = r.pageFetchState ?? "";
@@ -265,7 +354,17 @@ export function recommendForResult(
     }
   }
 
-  return out;
+  return finalize(out, path, kind);
+}
+
+function finalize(
+  items: Omit<Recommendation, "impact">[],
+  path: string,
+  kind: "canonical" | "redirect",
+): Recommendation[] {
+  return items
+    .map((it) => ({ ...it, impact: scoreItem(it, path, kind) }))
+    .sort((a, b) => b.impact - a.impact);
 }
 
 export function buildRecommendations(
@@ -280,6 +379,7 @@ export function buildRecommendations(
         "info",
       );
       const path = pathOf(r.url, siteUrl);
+      const score = aggregateScore(items);
       return {
         url: r.url,
         path,
@@ -287,11 +387,16 @@ export function buildRecommendations(
         expectedTarget: entryFor(path)?.target,
         worst,
         items,
+        score,
+        priorityLabel: priorityFromScore(score),
       };
     })
     .filter((u) => u.items.length > 0)
     .sort(
-      (a, b) => sevRank[b.worst] - sevRank[a.worst] || a.path.localeCompare(b.path),
+      (a, b) =>
+        b.score - a.score ||
+        sevRank[b.worst] - sevRank[a.worst] ||
+        a.path.localeCompare(b.path),
     );
 }
 
