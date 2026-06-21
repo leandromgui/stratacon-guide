@@ -14,24 +14,41 @@ export const Route = createFileRoute("/conteudos/$category")({
   beforeLoad: ({ params }) => {
     if (!getCategory(params.category)) throw notFound();
   },
-  loader: ({ params }) => {
+  loader: ({ params, location }) => {
     const category = getCategory(params.category)!;
-    return { category };
+    const total = category.articles.length;
+    const totalPages = Math.max(1, Math.ceil(total / 6));
+    const current = Math.min(Math.max(1, parsePage((location.search as { p?: unknown }).p)), totalPages);
+
+    const base = `/conteudos/${category.slug}`;
+    return {
+      category,
+      current,
+      totalPages,
+      canonical: current === 1 ? base : `${base}?p=${current}`,
+      prevUrl: current > 1 ? (current === 2 ? base : `${base}?p=${current - 1}`) : null,
+      nextUrl: current < totalPages ? `${base}?p=${current + 1}` : null,
+    };
   },
   head: ({ params, loaderData }) => {
     const c = loaderData?.category ?? getCategory(params.category);
     if (!c) return { meta: [{ title: "Categoria não encontrada | Insights DCON" }] };
-    const url = `/conteudos/${c.slug}`;
+    const base = `/conteudos/${c.slug}`;
+    const pageUrl = loaderData?.canonical ?? base;
     return {
       meta: [
         { title: c.metaTitle },
         { name: "description", content: c.metaDescription },
         { property: "og:title", content: c.metaTitle },
         { property: "og:description", content: c.metaDescription },
-        { property: "og:url", content: url },
+        { property: "og:url", content: pageUrl },
         { property: "og:type", content: "website" },
       ],
-      links: [{ rel: "canonical", href: url }],
+      links: [
+        { rel: "canonical", href: pageUrl },
+        ...(loaderData?.prevUrl ? [{ rel: "prev", href: loaderData.prevUrl }] : []),
+        ...(loaderData?.nextUrl ? [{ rel: "next", href: loaderData.nextUrl }] : []),
+      ],
       scripts: [
         {
           type: "application/ld+json",
@@ -41,7 +58,7 @@ export const Route = createFileRoute("/conteudos/$category")({
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Início", item: "/" },
               { "@type": "ListItem", position: 2, name: "Insights", item: "/conteudos" },
-              { "@type": "ListItem", position: 3, name: c.name, item: url },
+              { "@type": "ListItem", position: 3, name: c.name, item: pageUrl },
             ],
           }),
         },
@@ -52,7 +69,7 @@ export const Route = createFileRoute("/conteudos/$category")({
             "@type": "CollectionPage",
             name: c.metaTitle,
             description: c.metaDescription,
-            url,
+            url: pageUrl,
             hasPart: c.articles.map((a) => ({
               "@type": "Article",
               headline: a.h2,
