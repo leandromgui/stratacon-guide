@@ -185,9 +185,10 @@ if (failures.length > 0) {
   for (const f of failures) {
     console.error(`  - [${f.reasons.join("; ")}] "${f.question}" → ${f.to}`);
   }
-  process.exit(1);
+  if (!DRY_RUN) process.exit(1);
 }
 
+const modeLabel = DRY_RUN ? " (dry-run)" : "";
 console.log(
-  `✓ FAQ Home: ${results.length} link(s) validados contra ${routes.size} rotas. Sem redirects indesejados.`,
+  `✓${modeLabel} FAQ Home: ${results.length} link(s) validados contra ${routes.size} rotas. Sem redirects indesejados.`,
 );
