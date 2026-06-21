@@ -24,6 +24,7 @@ import { Route as SolucoesRegularizacaoFiscalRouteImport } from './routes/soluco
 import { Route as SolucoesReformaTributariaRouteImport } from './routes/solucoes.reforma-tributaria'
 import { Route as SolucoesRecuperacaoCreditosTributariosRouteImport } from './routes/solucoes.recuperacao-creditos-tributarios'
 import { Route as SolucoesPlanejamentoTributarioRouteImport } from './routes/solucoes.planejamento-tributario'
+import { Route as SolucoesPessoaFisicaIrpfRouteImport } from './routes/solucoes.pessoa-fisica-irpf'
 import { Route as SolucoesHoldingPatrimonialRouteImport } from './routes/solucoes.holding-patrimonial'
 import { Route as SolucoesDepartamentoPessoalRouteImport } from './routes/solucoes.departamento-pessoal'
 import { Route as SolucoesDepartamentoFiscalRouteImport } from './routes/solucoes.departamento-fiscal'
@@ -139,6 +140,12 @@ const SolucoesPlanejamentoTributarioRoute =
   SolucoesPlanejamentoTributarioRouteImport.update({
     id: '/solucoes/planejamento-tributario',
     path: '/solucoes/planejamento-tributario',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolucoesPessoaFisicaIrpfRoute =
+  SolucoesPessoaFisicaIrpfRouteImport.update({
+    id: '/solucoes/pessoa-fisica-irpf',
+    path: '/solucoes/pessoa-fisica-irpf',
     getParentRoute: () => rootRouteImport,
   } as any)
 const SolucoesHoldingPatrimonialRoute =
@@ -367,6 +374,7 @@ export interface FileRoutesByFullPath {
   '/solucoes/departamento-fiscal': typeof SolucoesDepartamentoFiscalRoute
   '/solucoes/departamento-pessoal': typeof SolucoesDepartamentoPessoalRoute
   '/solucoes/holding-patrimonial': typeof SolucoesHoldingPatrimonialRoute
+  '/solucoes/pessoa-fisica-irpf': typeof SolucoesPessoaFisicaIrpfRoute
   '/solucoes/planejamento-tributario': typeof SolucoesPlanejamentoTributarioRoute
   '/solucoes/recuperacao-creditos-tributarios': typeof SolucoesRecuperacaoCreditosTributariosRoute
   '/solucoes/reforma-tributaria': typeof SolucoesReformaTributariaRoute
@@ -418,6 +426,7 @@ export interface FileRoutesByTo {
   '/solucoes/departamento-fiscal': typeof SolucoesDepartamentoFiscalRoute
   '/solucoes/departamento-pessoal': typeof SolucoesDepartamentoPessoalRoute
   '/solucoes/holding-patrimonial': typeof SolucoesHoldingPatrimonialRoute
+  '/solucoes/pessoa-fisica-irpf': typeof SolucoesPessoaFisicaIrpfRoute
   '/solucoes/planejamento-tributario': typeof SolucoesPlanejamentoTributarioRoute
   '/solucoes/recuperacao-creditos-tributarios': typeof SolucoesRecuperacaoCreditosTributariosRoute
   '/solucoes/reforma-tributaria': typeof SolucoesReformaTributariaRoute
@@ -470,6 +479,7 @@ export interface FileRoutesById {
   '/solucoes/departamento-fiscal': typeof SolucoesDepartamentoFiscalRoute
   '/solucoes/departamento-pessoal': typeof SolucoesDepartamentoPessoalRoute
   '/solucoes/holding-patrimonial': typeof SolucoesHoldingPatrimonialRoute
+  '/solucoes/pessoa-fisica-irpf': typeof SolucoesPessoaFisicaIrpfRoute
   '/solucoes/planejamento-tributario': typeof SolucoesPlanejamentoTributarioRoute
   '/solucoes/recuperacao-creditos-tributarios': typeof SolucoesRecuperacaoCreditosTributariosRoute
   '/solucoes/reforma-tributaria': typeof SolucoesReformaTributariaRoute
@@ -523,6 +533,7 @@ export interface FileRouteTypes {
     | '/solucoes/departamento-fiscal'
     | '/solucoes/departamento-pessoal'
     | '/solucoes/holding-patrimonial'
+    | '/solucoes/pessoa-fisica-irpf'
     | '/solucoes/planejamento-tributario'
     | '/solucoes/recuperacao-creditos-tributarios'
     | '/solucoes/reforma-tributaria'
@@ -574,6 +585,7 @@ export interface FileRouteTypes {
     | '/solucoes/departamento-fiscal'
     | '/solucoes/departamento-pessoal'
     | '/solucoes/holding-patrimonial'
+    | '/solucoes/pessoa-fisica-irpf'
     | '/solucoes/planejamento-tributario'
     | '/solucoes/recuperacao-creditos-tributarios'
     | '/solucoes/reforma-tributaria'
@@ -625,6 +637,7 @@ export interface FileRouteTypes {
     | '/solucoes/departamento-fiscal'
     | '/solucoes/departamento-pessoal'
     | '/solucoes/holding-patrimonial'
+    | '/solucoes/pessoa-fisica-irpf'
     | '/solucoes/planejamento-tributario'
     | '/solucoes/recuperacao-creditos-tributarios'
     | '/solucoes/reforma-tributaria'
@@ -675,6 +688,7 @@ export interface RootRouteChildren {
   SolucoesDepartamentoFiscalRoute: typeof SolucoesDepartamentoFiscalRoute
   SolucoesDepartamentoPessoalRoute: typeof SolucoesDepartamentoPessoalRoute
   SolucoesHoldingPatrimonialRoute: typeof SolucoesHoldingPatrimonialRoute
+  SolucoesPessoaFisicaIrpfRoute: typeof SolucoesPessoaFisicaIrpfRoute
   SolucoesPlanejamentoTributarioRoute: typeof SolucoesPlanejamentoTributarioRoute
   SolucoesRecuperacaoCreditosTributariosRoute: typeof SolucoesRecuperacaoCreditosTributariosRoute
   SolucoesReformaTributariaRoute: typeof SolucoesReformaTributariaRoute
@@ -792,6 +806,13 @@ declare module '@tanstack/react-router' {
       path: '/solucoes/planejamento-tributario'
       fullPath: '/solucoes/planejamento-tributario'
       preLoaderRoute: typeof SolucoesPlanejamentoTributarioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/pessoa-fisica-irpf': {
+      id: '/solucoes/pessoa-fisica-irpf'
+      path: '/solucoes/pessoa-fisica-irpf'
+      fullPath: '/solucoes/pessoa-fisica-irpf'
+      preLoaderRoute: typeof SolucoesPessoaFisicaIrpfRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solucoes/holding-patrimonial': {
@@ -1085,6 +1106,7 @@ const rootRouteChildren: RootRouteChildren = {
   SolucoesDepartamentoFiscalRoute: SolucoesDepartamentoFiscalRoute,
   SolucoesDepartamentoPessoalRoute: SolucoesDepartamentoPessoalRoute,
   SolucoesHoldingPatrimonialRoute: SolucoesHoldingPatrimonialRoute,
+  SolucoesPessoaFisicaIrpfRoute: SolucoesPessoaFisicaIrpfRoute,
   SolucoesPlanejamentoTributarioRoute: SolucoesPlanejamentoTributarioRoute,
   SolucoesRecuperacaoCreditosTributariosRoute:
     SolucoesRecuperacaoCreditosTributariosRoute,
