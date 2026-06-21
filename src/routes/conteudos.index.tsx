@@ -58,6 +58,77 @@ const insights: Insight[] = [
 const themes = ["Todos", "Tributário", "Defesa fiscal", "Patrimônio", "Trabalhista", "Setores", "Governança"] as const;
 const kinds = ["Todos", "Análise", "Guia", "Estudo", "Briefing"] as const;
 
+type Category = {
+  slug: string;
+  h2: string;
+  intro: string;
+  topics: { h3: string; to: string; desc: string }[];
+};
+
+const categories: Category[] = [
+  {
+    slug: "tributario",
+    h2: "Tributário",
+    intro: "Regimes, reforma, créditos e decisões fiscais que afetam diretamente o caixa da empresa.",
+    topics: [
+      { h3: "Regimes tributários: Simples, Presumido e Real", to: "/conteudos/regimes-tributarios", desc: "Comparativo prático por margem, folha e operação interestadual." },
+      { h3: "Planejamento tributário lícito", to: "/conteudos/planejamento-tributario", desc: "Critérios técnicos para reduzir carga com segurança jurídica." },
+      { h3: "Reforma tributária (CBS/IBS)", to: "/solucoes/reforma-tributaria", desc: "Cronograma de transição 2026–2033 por regime e setor." },
+      { h3: "Recuperação de créditos tributários", to: "/solucoes/recuperacao-creditos-tributarios", desc: "Levantamento de tributos pagos a maior nos últimos 5 anos." },
+    ],
+  },
+  {
+    slug: "defesa-fiscal",
+    h2: "Defesa fiscal e regularização",
+    intro: "Como conduzir autuações, parcelamentos e transação tributária sem destruir o caixa.",
+    topics: [
+      { h3: "Regularização fiscal sem comprometer o caixa", to: "/conteudos/regularizacao-fiscal", desc: "Parcelamentos, transação tributária e plano de compliance." },
+      { h3: "Defesas fiscais administrativas e judiciais", to: "/solucoes/defesas-fiscais", desc: "Impugnação técnica e quando levar ao contencioso." },
+      { h3: "Pendências fiscais por segmento", to: "/segmentos/pendencias-fiscais", desc: "Roteiro setorial para sair do passivo fiscal." },
+    ],
+  },
+  {
+    slug: "patrimonio",
+    h2: "Patrimônio e sucessão",
+    intro: "Estruturas societárias, holdings e sucessão em vida com base técnica, sem promessa milagrosa.",
+    topics: [
+      { h3: "Holding familiar: tipos, custos e passo a passo", to: "/conteudos/holding-familiar", desc: "Modalidades, ITBI, ITCMD e roteiro de constituição." },
+      { h3: "Holding patrimonial: quando vale", to: "/conteudos/holding-patrimonio", desc: "Estrutura societária, ITCMD e governança familiar." },
+      { h3: "Holding patrimonial (solução DCON)", to: "/solucoes/holding-patrimonial", desc: "Implementação assistida por equipe técnica." },
+    ],
+  },
+  {
+    slug: "trabalhista",
+    h2: "Trabalhista e DP/eSocial",
+    intro: "Desenho correto de vínculos, pró-labore e obrigações acessórias do departamento pessoal.",
+    topics: [
+      { h3: "Departamento Pessoal e eSocial", to: "/conteudos/dp-esocial", desc: "PJ x CLT, pró-labore e obrigações acessórias." },
+      { h3: "Departamento Pessoal (solução)", to: "/solucoes/departamento-pessoal", desc: "Operação de folha sob responsabilidade técnica." },
+    ],
+  },
+  {
+    slug: "setores",
+    h2: "Setores e segmentos",
+    intro: "Particularidades contábeis e fiscais de cada operação — do comércio à saúde e tecnologia.",
+    topics: [
+      { h3: "Saúde, clínicas e PJ médica", to: "/conteudos/saude-clinicas", desc: "Equiparação hospitalar e enquadramento correto." },
+      { h3: "Comércio, ICMS-ST e DIFAL", to: "/conteudos/comercio-icms", desc: "Operação multiestadual sem passivo silencioso." },
+      { h3: "Provedores de internet (ISP)", to: "/segmentos/provedores-internet", desc: "Fust, Funttel, ISS e contabilidade do setor." },
+      { h3: "Tecnologia e startups", to: "/segmentos/tecnologia-startups", desc: "Stock options, investidores e regimes possíveis." },
+    ],
+  },
+  {
+    slug: "governanca",
+    h2: "Governança e gestão",
+    intro: "Indicadores, tecnologia contábil e leitura econômica para a mesa do sócio.",
+    topics: [
+      { h3: "Valuation e KPIs para sócios", to: "/solucoes/valuation-kpis", desc: "Indicadores antes de captação ou M&A." },
+      { h3: "Tecnologia contábil com revisão humana", to: "/solucoes/tecnologia-contabil", desc: "Integração com ERPs e SPED sob supervisão técnica." },
+      { h3: "BPO financeiro", to: "/solucoes/bpo-financeiro", desc: "Rotina financeira terceirizada com governança." },
+    ],
+  },
+];
+
 function Page() {
   const [theme, setTheme] = useState<(typeof themes)[number]>("Todos");
   const [kind, setKind] = useState<(typeof kinds)[number]>("Todos");
