@@ -526,6 +526,13 @@ function AuditoriaSeo() {
                 </tbody>
               </table>
             </div>
+
+            {/* Recomendações automáticas */}
+            <RecommendationsPanel
+              recs={recommendations}
+              counts={recCounts}
+              siteUrl={currentRun.site_url}
+            />
           </>
         )}
       </div>
