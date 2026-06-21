@@ -168,9 +168,7 @@ try {
   );
   console.log(`→ Relatório MD: ${REPORT_PATH}`);
   console.log(`→ Relatório JSON completo: ${REPORT_JSON}`);
-  if (failuresForJson.length > 0) {
-    console.log(`→ Falhas JSON (automação): ${REPORT_FAILURES_JSON}`);
-  }
+  console.log(`→ Falhas JSON (automação): ${REPORT_FAILURES_JSON}`);
 } catch (err) {
   console.warn(`Aviso: não foi possível gravar relatório (${err.message}).`);
 }
