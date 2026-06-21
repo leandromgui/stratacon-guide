@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
+import { MethodBadge } from "../components/MethodBadge";
+import { dconMethod } from "../lib/dconMethod";
 
 const faqs: FAQItem[] = [
   { q: "Meu CNPJ já protege minha marca?", a: "Não. CNPJ identifica a pessoa jurídica; nome empresarial identifica a sociedade; domínio protege endereço digital; perfil em rede social protege usuário na plataforma. A proteção nacional da marca no ramo de atividade depende de registro no INPI." },
@@ -39,6 +41,8 @@ function Page() {
       ctaPrimary={{ label: "Verificar se minha marca está protegida", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       pillarKey="registro-marca-inpi"
+      method={dconMethod}
+      ctaVariant="opportunity"
       sections={[
         { h2: "CNPJ, domínio e Instagram não substituem INPI", h3: [
           { title: "Camadas distintas", body: "CNPJ identifica a PJ; nome empresarial identifica a sociedade; domínio protege endereço digital; perfil protege usuário na plataforma — só o INPI protege a marca." },
@@ -52,6 +56,7 @@ function Page() {
         ]},
       ]}
     >
+      <MethodBadge note="Registro de marca conduzido pelo protocolo DCON" />
       <FAQ items={faqs} />
       <LeadCaptureForm page="solucoes" />
     </PageScaffold>
