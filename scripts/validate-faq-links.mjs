@@ -122,7 +122,7 @@ const results = entries.map((e) => {
 
 const failures = results.filter((r) => r.status === "fail");
 
-// No dry-run não grava arquivos.
+// No dry-run não grava arquivos por padrão (exceto se DRY_RUN_REPORT_JSON estiver setado).
 if (!DRY_RUN) {
   try {
     fs.mkdirSync(REPORT_DIR, { recursive: true });
