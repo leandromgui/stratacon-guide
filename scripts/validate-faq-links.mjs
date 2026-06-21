@@ -184,7 +184,7 @@ if (!DRY_RUN) {
     fs.writeFileSync(REPORT_PATH, lines.join("\n") + "\n");
     fs.writeFileSync(
       REPORT_JSON,
-      JSON.stringify({ generatedAt: timestamp, routesCount: routes.size, results }, null, 2),
+      JSON.stringify({ generatedAt: timestamp, routesCount: routes.size, summary: buildSummary(), results }, null, 2),
     );
 
     const failuresForJson = failures.map((f) => ({
