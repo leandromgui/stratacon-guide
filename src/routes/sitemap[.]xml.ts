@@ -61,7 +61,6 @@ const entries: SitemapEntry[] = [
   // Conteúdos
   { path: "/conteudos", changefreq: "weekly", priority: "0.8" },
   { path: "/conteudos/planejamento-tributario", changefreq: "monthly", priority: "0.7" },
-  { path: "/conteudos/reforma-tributaria", changefreq: "monthly", priority: "0.7" },
   { path: "/conteudos/regularizacao-fiscal", changefreq: "monthly", priority: "0.7" },
   { path: "/conteudos/regimes-tributarios", changefreq: "monthly", priority: "0.7" },
   { path: "/conteudos/holding-patrimonio", changefreq: "monthly", priority: "0.7" },
