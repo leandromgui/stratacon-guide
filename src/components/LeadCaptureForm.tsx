@@ -26,8 +26,8 @@ export function LeadCaptureForm({ page }: { page: "solucoes" | "segmentos" | "co
       setErr(parsed.error.issues[0]?.message ?? "Dados inválidos");
       return;
     }
-    const msg = `Olá, sou ${parsed.data.name}. Tenho interesse em: ${parsed.data.interest}. E-mail: ${parsed.data.email}.`;
-    const url = `https://wa.me/5562999999999?text=${encodeURIComponent(msg)}`;
+    const msg = `Olá, sou ${parsed.data.name}. Tenho interesse em: ${parsed.data.interest}. E-mail: ${parsed.data.email}. WhatsApp: ${parsed.data.whatsapp}.`;
+    const url = `https://wa.me/5562992890898?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank", "noopener,noreferrer");
     setStatus("ok");
     e.currentTarget.reset();

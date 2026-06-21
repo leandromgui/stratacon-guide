@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TemasEstrategicosRouteImport } from './routes/temas-estrategicos'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as MetodoRouteImport } from './routes/metodo'
 import { Route as GoianiaRouteImport } from './routes/goiania'
 import { Route as DiagnosticoRouteImport } from './routes/diagnostico'
@@ -79,6 +80,11 @@ const SobreRoute = SobreRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacidadeRoute = PrivacidadeRouteImport.update({
+  id: '/privacidade',
+  path: '/privacidade',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MetodoRoute = MetodoRouteImport.update({
@@ -378,6 +384,7 @@ export interface FileRoutesByFullPath {
   '/diagnostico': typeof DiagnosticoRoute
   '/goiania': typeof GoianiaRoute
   '/metodo': typeof MetodoRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRouteWithChildren
   '/temas-estrategicos': typeof TemasEstrategicosRoute
@@ -436,6 +443,7 @@ export interface FileRoutesByTo {
   '/diagnostico': typeof DiagnosticoRoute
   '/goiania': typeof GoianiaRoute
   '/metodo': typeof MetodoRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRouteWithChildren
   '/temas-estrategicos': typeof TemasEstrategicosRoute
@@ -495,6 +503,7 @@ export interface FileRoutesById {
   '/diagnostico': typeof DiagnosticoRoute
   '/goiania': typeof GoianiaRoute
   '/metodo': typeof MetodoRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRouteWithChildren
   '/temas-estrategicos': typeof TemasEstrategicosRoute
@@ -555,6 +564,7 @@ export interface FileRouteTypes {
     | '/diagnostico'
     | '/goiania'
     | '/metodo'
+    | '/privacidade'
     | '/sitemap.xml'
     | '/sobre'
     | '/temas-estrategicos'
@@ -613,6 +623,7 @@ export interface FileRouteTypes {
     | '/diagnostico'
     | '/goiania'
     | '/metodo'
+    | '/privacidade'
     | '/sitemap.xml'
     | '/sobre'
     | '/temas-estrategicos'
@@ -671,6 +682,7 @@ export interface FileRouteTypes {
     | '/diagnostico'
     | '/goiania'
     | '/metodo'
+    | '/privacidade'
     | '/sitemap.xml'
     | '/sobre'
     | '/temas-estrategicos'
@@ -730,6 +742,7 @@ export interface RootRouteChildren {
   DiagnosticoRoute: typeof DiagnosticoRoute
   GoianiaRoute: typeof GoianiaRoute
   MetodoRoute: typeof MetodoRoute
+  PrivacidadeRoute: typeof PrivacidadeRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreRoute: typeof SobreRouteWithChildren
   TemasEstrategicosRoute: typeof TemasEstrategicosRoute
@@ -802,6 +815,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacidade': {
+      id: '/privacidade'
+      path: '/privacidade'
+      fullPath: '/privacidade'
+      preLoaderRoute: typeof PrivacidadeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/metodo': {
@@ -1196,6 +1216,7 @@ const rootRouteChildren: RootRouteChildren = {
   DiagnosticoRoute: DiagnosticoRoute,
   GoianiaRoute: GoianiaRoute,
   MetodoRoute: MetodoRoute,
+  PrivacidadeRoute: PrivacidadeRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreRoute: SobreRouteWithChildren,
   TemasEstrategicosRoute: TemasEstrategicosRoute,
