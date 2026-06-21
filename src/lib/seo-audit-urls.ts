@@ -1,6 +1,6 @@
 export type AuditUrlKind = "canonical" | "redirect";
 
-export type UrlEntry = { path: string; kind: AuditUrlKind; note?: string };
+export type UrlEntry = { path: string; kind: AuditUrlKind; note?: string; target?: string };
 
 export const CANONICAL_PATHS: UrlEntry[] = [
   { path: "/", kind: "canonical" },
