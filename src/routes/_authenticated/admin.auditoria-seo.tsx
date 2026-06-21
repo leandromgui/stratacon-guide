@@ -19,6 +19,7 @@ import {
 } from "@/lib/seo-audit.functions";
 import {
   buildRecommendations,
+  priorityClass,
   severityClass,
   severityLabel,
   type UrlRecommendations,
@@ -706,6 +707,14 @@ function RecommendationsPanel({
               <div className="min-w-0">
                 <div className="flex items-center gap-2 flex-wrap">
                   <span
+                    className={`inline-block rounded border px-2 py-0.5 text-[10px] font-semibold tracking-wider ${priorityClass(
+                      u.priorityLabel,
+                    )}`}
+                    title={`Score de impacto: ${u.score}/100`}
+                  >
+                    {u.priorityLabel} · {u.score}
+                  </span>
+                  <span
                     className={`inline-block rounded border px-2 py-0.5 text-[10px] uppercase tracking-wider ${severityClass(
                       u.worst,
                     )}`}
@@ -752,6 +761,9 @@ function RecommendationsPanel({
                       )}`}
                     >
                       {severityLabel(it.severity)}
+                    </span>
+                    <span className="text-[10px] text-muted-foreground font-mono">
+                      impacto {it.impact}
                     </span>
                     <span className="text-sm font-medium">{it.title}</span>
                   </div>
