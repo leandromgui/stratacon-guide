@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
+import { MethodBadge } from "../components/MethodBadge";
+import { dconMethod } from "../lib/dconMethod";
 
 const faqs: FAQItem[] = [
   { q: "Como se calcula o valuation de uma empresa?", a: "Os métodos mais usados são DCF (fluxo de caixa descontado), múltiplos de EBITDA/receita e avaliação patrimonial. A escolha depende do setor, do estágio e do propósito (venda, entrada/saída de sócio, sucessão)." },
@@ -39,6 +41,8 @@ function Page() {
       ctaPrimary={{ label: "Medir valor da minha empresa", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       pillarKey="valuation-kpis"
+      method={dconMethod}
+      ctaVariant="opportunity"
       sections={[
         { h2: "Valuation", h3: [
           { title: "Métodos", body: "DCF, múltiplos, EBITDA, receita recorrente, LTV, CAC, churn, fluxo de caixa futuro, carteira de clientes e risco." },
@@ -52,6 +56,7 @@ function Page() {
         ]},
       ]}
     >
+      <MethodBadge note="Valuation e KPIs conduzidos pelo protocolo DCON" />
       <FAQ items={faqs} />
       <LeadCaptureForm page="solucoes" />
     </PageScaffold>
