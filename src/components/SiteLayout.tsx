@@ -199,11 +199,21 @@ const mega: MegaItem[] = [
 
 function MegaPanel({ item }: { item: MegaItem }) {
   if (!item.columns) return null;
+  const colCount = item.columns.length;
+  const colsClass =
+    colCount >= 4
+      ? "grid-cols-4"
+      : colCount === 3
+        ? "grid-cols-3"
+        : colCount === 2
+          ? "grid-cols-2"
+          : "grid-cols-1";
+  const wideFeature = colCount >= 4;
   return (
-    <div className="invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 transition-all duration-150 absolute left-1/2 top-full z-40 -translate-x-1/2 w-screen max-w-6xl pt-2">
+    <div className={`invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 transition-all duration-150 absolute left-1/2 top-full z-40 -translate-x-1/2 w-screen ${wideFeature ? "max-w-7xl" : "max-w-6xl"} pt-2`}>
       <div className="bg-background text-foreground border border-border shadow-2xl rounded-sm grid grid-cols-12 overflow-hidden">
         {item.feature && (
-          <div className="col-span-4 bg-secondary text-secondary-foreground p-8 flex flex-col justify-between">
+          <div className={`${wideFeature ? "col-span-3" : "col-span-4"} bg-secondary text-secondary-foreground p-8 flex flex-col justify-between`}>
             <div>
               <div className="text-[10px] uppercase tracking-[0.22em] text-gold mb-3">
                 {item.feature.eyebrow}
@@ -221,9 +231,9 @@ function MegaPanel({ item }: { item: MegaItem }) {
             </Link>
           </div>
         )}
-        <div className="col-span-8 grid grid-cols-3 gap-8 p-8">
+        <div className={`${wideFeature ? "col-span-9" : "col-span-8"} grid ${colsClass} gap-6 p-8`}>
           {item.columns.map((c) => (
-            <div key={c.title}>
+            <div key={c.title} className="min-w-0">
               <div className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground border-b border-border pb-2 mb-3">
                 {c.title}
               </div>
