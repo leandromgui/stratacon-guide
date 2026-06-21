@@ -167,7 +167,7 @@ function buildHtml({ timestamp, mode }) {
       const icon = r.status === "ok" ? "✓" : "✖";
       const cls = r.status === "ok" ? "ok" : "fail";
       const types = r.reasons.join("; ") || "";
-      return `<tr class="${cls}" data-status="${r.status}" data-types="${escapeHtml(types)}"><td>${icon}</td><td>${escapeHtml(r.question)}</td><td><code>${escapeHtml(r.to)}</code></td><td>${escapeHtml(r.reasons.join("; ") || "—")}</td></tr>`;
+      return `<tr class="${cls}" data-status="${r.status}" data-types="${escapeHtml(types)}" data-path="${escapeHtml(r.to)}"><td>${icon}</td><td>${escapeHtml(r.question)}</td><td><code>${escapeHtml(r.to)}</code></td><td>${escapeHtml(r.reasons.join("; ") || "—")}</td></tr>`;
     })
     .join("\n");
 
