@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
+import { MethodBadge } from "../components/MethodBadge";
+import { dconMethod } from "../lib/dconMethod";
 
 const faqs: FAQItem[] = [
   { q: "Planejamento tributário garante economia?", a: "Não prometemos número antes do estudo. Modelamos cenários conservadores e realistas com fundamento legal. Quando há margem segura para reduzir carga, mostramos quanto, como e em qual prazo." },
@@ -39,6 +41,8 @@ function Page() {
       breadcrumbs={[{ label: "Soluções", to: "/solucoes" }, { label: "Planejamento Tributário", to: "/solucoes/planejamento-tributario" }]}
       ctaPrimary={{ label: "Solicitar proposta", to: "/contato" }}
       ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      ctaVariant="opportunity"
+      method={dconMethod}
       pillarKey="planejamento-tributario"
       sections={[
         { h2: "Escopo do estudo", lead: "O que entra na análise — operação real, estrutura societária e cenários comparados sob fundamento legal.", h3: [
@@ -72,6 +76,8 @@ function Page() {
         { title: "Falta de adaptação à reforma", body: "Empresas que não modelarem o impacto CBS/IBS podem entrar 2027 com margem corroída em segmentos sensíveis." },
       ]}
       faq={faqs}
-    />
+    >
+      <MethodBadge note="Planejamento conduzido pelo protocolo DCON" />
+    </PageScaffold>
   );
 }

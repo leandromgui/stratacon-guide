@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
+import { MethodBadge } from "../components/MethodBadge";
+import { dconMethod } from "../lib/dconMethod";
 
 const faqs: FAQItem[] = [
   { q: "Quanto tempo leva para regularizar uma empresa?", a: "O diagnóstico fica pronto em poucos dias. O plano de regularização varia de semanas a poucos meses conforme o volume de débitos, esferas envolvidas e necessidade de retificação de obrigações acessórias." },
@@ -39,6 +41,8 @@ function Page() {
       breadcrumbs={[{ label: "Soluções", to: "/solucoes" }, { label: "Regularização Fiscal", to: "/solucoes/regularizacao-fiscal" }]}
       ctaPrimary={{ label: "Solicitar proposta", to: "/contato" }}
       ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      ctaVariant="risk"
+      method={dconMethod}
       pillarKey="regularizacao-fiscal"
       sections={[
         { h2: "Escopo do projeto", lead: "Mapeamento completo de débitos, defesas possíveis e plano priorizado por impacto operacional.", h3: [
@@ -72,6 +76,8 @@ function Page() {
         { title: "Inscrição em CADIN", body: "Bloqueia financiamentos públicos, licitações, convênios e parcerias com órgãos públicos." },
       ]}
       faq={faqs}
-    />
+    >
+      <MethodBadge note="Regularização conduzida pelo protocolo DCON" />
+    </PageScaffold>
   );
 }

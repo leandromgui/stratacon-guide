@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
+import { MethodBadge } from "../components/MethodBadge";
+import { dconMethod } from "../lib/dconMethod";
 
 const faqs: FAQItem[] = [
   { q: "O que muda em 2026 com a Reforma Tributária?", a: "2026 é fase de teste de CBS e IBS. As notas fiscais e a apuração informativa já passam a refletir os novos tributos, em regra sem recolhimento quando as obrigações acessórias são cumpridas. É o ano de ajustar ERP, XML, cadastros, NCM, CFOP, CST, cClassTrib, códigos de serviço e rotinas internas." },
@@ -43,6 +45,8 @@ function Page() {
       intent="reforma tributária IBS CBS, preparação Reforma Tributária empresas"
       ctaPrimary={{ label: "Diagnosticar minha empresa para a Reforma", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      ctaVariant="opportunity"
+      method={dconMethod}
       pillarKey="reforma-tributaria"
       sections={[
         { h2: "O que já está em vigor em 2026", lead: "2026 é o ano para ajustar ERP, XML, cadastros, NCM, CFOP, CST, cClassTrib, códigos de serviço e rotinas internas.", h3: [
@@ -72,6 +76,7 @@ function Page() {
         ]},
       ]}
     >
+      <MethodBadge note="Preparação para a Reforma conduzida pelo protocolo DCON" />
       <FAQ items={faqs} />
       <LeadCaptureForm page="solucoes" />
     </PageScaffold>
