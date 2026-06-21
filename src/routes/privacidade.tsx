@@ -23,6 +23,7 @@ function Page() {
       intro="Esta página descreve, em linguagem direta, como a DCON Serviços Contábeis trata os dados pessoais coletados pelo site, em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018)."
       intent="LGPD política privacidade cookies DCON"
       observation="Página mantida pela equipe DCON; revisar com o jurídico antes de publicar."
+      ctaPrimary={{ label: "Falar com a DCON", to: "/contato" }}
       sections={[
         {
           h2: "Quais dados coletamos",
