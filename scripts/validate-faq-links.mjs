@@ -166,7 +166,11 @@ try {
     REPORT_FAILURES_JSON,
     JSON.stringify(failuresForJson, null, 2),
   );
-  console.log(`→ Relatório: ${REPORT_PATH}`);
+  console.log(`→ Relatório MD: ${REPORT_PATH}`);
+  console.log(`→ Relatório JSON completo: ${REPORT_JSON}`);
+  if (failuresForJson.length > 0) {
+    console.log(`→ Falhas JSON (automação): ${REPORT_FAILURES_JSON}`);
+  }
 } catch (err) {
   console.warn(`Aviso: não foi possível gravar relatório (${err.message}).`);
 }
