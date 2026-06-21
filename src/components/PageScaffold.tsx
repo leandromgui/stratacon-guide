@@ -17,6 +17,45 @@ export interface Section {
 
 export interface FaqItem { q: string; a: string | ReactNode }
 
+export type CtaVariant = "diagnostic" | "risk" | "opportunity" | "institutional";
+
+const CTA_VARIANTS: Record<CtaVariant, {
+  eyebrow: string;
+  title: string;
+  body: string;
+  primary: { label: string; to: string };
+  secondary: { label: string; to: string };
+}> = {
+  diagnostic: {
+    eyebrow: "Próximo passo",
+    title: "Solicite um diagnóstico técnico da sua empresa.",
+    body: "Entrega em até 7 dias úteis. Análise fiscal, contábil, tributária, trabalhista e societária, com plano de ação acionável.",
+    primary: { label: "Solicitar diagnóstico", to: "/diagnostico" },
+    secondary: { label: "Falar com a DCON", to: "/contato" },
+  },
+  risk: {
+    eyebrow: "Reduzir exposição",
+    title: "Solicite uma análise de exposição fiscal e trabalhista.",
+    body: "Mapeamos passivos, prazos e medidas de defesa antes que o risco vire autuação ou execução.",
+    primary: { label: "Solicitar análise de exposição", to: "/diagnostico" },
+    secondary: { label: "Falar com a DCON", to: "/contato" },
+  },
+  opportunity: {
+    eyebrow: "Capturar oportunidade",
+    title: "Solicite um diagnóstico de créditos e regime tributário.",
+    body: "Revisamos os últimos 5 anos e simulamos cenários para identificar créditos recuperáveis e economia tributária.",
+    primary: { label: "Solicitar diagnóstico de créditos", to: "/diagnostico" },
+    secondary: { label: "Falar com consultor DCON", to: "/contato" },
+  },
+  institutional: {
+    eyebrow: "Próximo passo",
+    title: "Fale com a equipe técnica da DCON.",
+    body: "Apresentação institucional, método de trabalho e proposta técnica sob responsabilidade do CRC do escritório.",
+    primary: { label: "Falar com consultor DCON", to: "/contato" },
+    secondary: { label: "Conhecer o Método DCON", to: "/metodo" },
+  },
+};
+
 export interface PageScaffoldProps {
   eyebrow?: string;
   h1: string;
@@ -39,6 +78,8 @@ export interface PageScaffoldProps {
   relatedLinks?: { label: string; to: string; eyebrow?: string }[];
   /** Slug da página-pilar para auto-resolver relatedLinks via src/lib/crossLinks.ts */
   pillarKey?: string;
+  /** Contexto do CTA de fechamento. Default: "diagnostic". */
+  ctaVariant?: CtaVariant;
 }
 
 function Eyebrow({ children }: { children: ReactNode }) {
@@ -394,27 +435,26 @@ export function PageScaffold(p: PageScaffoldProps) {
       <section className="bg-secondary text-secondary-foreground">
         <div className="mx-auto max-w-7xl px-6 py-20 grid lg:grid-cols-12 gap-10 items-end">
           <div className="lg:col-span-8">
-            <Eyebrow>Próximo passo</Eyebrow>
+            <Eyebrow>{CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].eyebrow}</Eyebrow>
             <h2 className="mt-4 font-display text-3xl md:text-4xl tracking-tight max-w-2xl">
-              Solicite um diagnóstico técnico da sua empresa.
+              {CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].title}
             </h2>
             <p className="mt-4 max-w-xl text-secondary-foreground/70 text-[15px] leading-relaxed">
-              Entrega em até 7 dias úteis. Análise fiscal, contábil, tributária, trabalhista
-              e societária, com plano de ação acionável.
+              {CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].body}
             </p>
           </div>
           <div className="lg:col-span-4 flex flex-wrap gap-3 lg:justify-end">
             <Link
-              to="/diagnostico"
+              to={CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].primary.to}
               className="inline-flex items-center bg-gold px-6 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-gold-foreground hover:opacity-90"
             >
-              Solicitar diagnóstico →
+              {CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].primary.label} →
             </Link>
             <Link
-              to="/contato"
+              to={CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].secondary.to}
               className="inline-flex items-center border border-secondary-foreground/30 px-6 py-3 text-[12px] uppercase tracking-[0.16em] hover:border-gold hover:text-gold"
             >
-              Falar com a DCON
+              {CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].secondary.label}
             </Link>
           </div>
         </div>

@@ -315,6 +315,13 @@ export function SiteLayout() {
               </div>
             ))}
             <Link
+              to="/metodo"
+              className="ml-2 my-3 inline-flex items-center gap-2 border-b border-gold px-2 py-2 text-[12px] uppercase tracking-[0.16em] font-medium text-secondary hover:text-gold"
+              title="Método DCON — protocolo técnico em 4 fases"
+            >
+              <span className="text-gold">●</span> Método
+            </Link>
+            <Link
               to="/diagnostico"
               className="ml-4 my-3 inline-flex items-center rounded-none border border-secondary bg-secondary px-5 py-2 text-[12px] uppercase tracking-[0.16em] font-medium text-secondary-foreground hover:bg-primary hover:border-primary"
             >
@@ -371,6 +378,12 @@ export function SiteLayout() {
               className="mt-4 inline-flex w-full justify-center bg-secondary px-5 py-3 text-[12px] uppercase tracking-[0.16em] text-secondary-foreground"
             >
               Solicitar diagnóstico
+            </Link>
+            <Link
+              to="/metodo"
+              className="mt-2 inline-flex w-full justify-center border border-gold px-5 py-3 text-[12px] uppercase tracking-[0.16em] text-gold"
+            >
+              ● Método DCON
             </Link>
           </div>
         )}
