@@ -1,4 +1,5 @@
 import { Link, Outlet, useRouterState } from "@tanstack/react-router";
+import { WhatsAppButton } from "./WhatsAppButton";
 import { useEffect, useState } from "react";
 
 type Col = { title: string; items: { label: string; to: string; desc?: string }[] };
