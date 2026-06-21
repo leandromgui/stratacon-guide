@@ -12,6 +12,8 @@
  * quebrar o build e sem gravar arquivos.
  *   → Para ainda gerar o JSON de falhas em dry-run, defina
  *     FAQ_LINKS_DRY_RUN_REPORT=<caminho>.
+ *   → Para gerar também um relatório HTML em dry-run, defina
+ *     FAQ_LINKS_DRY_RUN_REPORT_HTML=<caminho>.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -25,7 +27,9 @@ const REPORT_DIR = process.env.FAQ_LINKS_REPORT_DIR || "/mnt/documents";
 const REPORT_PATH = path.join(REPORT_DIR, "faq-links-report.md");
 const REPORT_JSON = path.join(REPORT_DIR, "faq-links-report.json");
 const REPORT_FAILURES_JSON = path.join(REPORT_DIR, "faq-links-failures.json");
+const REPORT_HTML = path.join(REPORT_DIR, "faq-links-report.html");
 const DRY_RUN_REPORT_JSON = process.env.FAQ_LINKS_DRY_RUN_REPORT;
+const DRY_RUN_REPORT_HTML = process.env.FAQ_LINKS_DRY_RUN_REPORT_HTML;
 
 function fileToRoutePath(file) {
   let base = file.replace(/\.tsx?$/, "");
@@ -145,6 +149,93 @@ function buildSummary() {
   };
 }
 
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function buildHtml({ timestamp, mode }) {
+  const summary = buildSummary();
+  const rows = results
+    .map((r) => {
+      const icon = r.status === "ok" ? "✓" : "✖";
+      const cls = r.status === "ok" ? "ok" : "fail";
+      return `<tr class="${cls}"><td>${icon}</td><td>${escapeHtml(r.question)}</td><td><code>${escapeHtml(r.to)}</code></td><td>${escapeHtml(r.reasons.join("; ") || "—")}</td></tr>`;
+    })
+    .join("\n");
+  const failureRows = failures
+    .map(
+      (f, i) =>
+        `<tr><td>${i + 1}</td><td>${escapeHtml(f.question)}</td><td><code>${escapeHtml(f.to)}</code></td><td>${escapeHtml(f.reasons.join("; "))}</td></tr>`,
+    )
+    .join("\n");
+  const byTypeRows = Object.entries(summary.byType)
+    .map(([k, v]) => `<tr><td>${escapeHtml(k)}</td><td>${v}</td></tr>`)
+    .join("\n");
+  return `<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<title>Relatório de links do FAQ${mode ? ` (${mode})` : ""}</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; max-width: 1100px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+  h1 { margin-bottom: .25rem; }
+  .meta { color: #666; font-size: .9rem; margin-bottom: 1.5rem; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .75rem; margin: 1rem 0 2rem; }
+  .card { border: 1px solid #8884; border-radius: 8px; padding: .9rem 1rem; }
+  .card .label { font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; color: #888; }
+  .card .value { font-size: 1.6rem; font-weight: 600; }
+  .card.fail .value { color: #c0392b; }
+  .card.ok .value { color: #1e8449; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; font-size: .92rem; }
+  th, td { border-bottom: 1px solid #8883; padding: .5rem .6rem; text-align: left; vertical-align: top; }
+  th { background: #8881; }
+  tr.fail td:first-child { color: #c0392b; font-weight: 700; }
+  tr.ok td:first-child { color: #1e8449; font-weight: 700; }
+  code { background: #8882; padding: .1rem .35rem; border-radius: 4px; }
+  .empty { padding: 1rem; border: 1px dashed #8884; border-radius: 8px; color: #1e8449; }
+</style>
+</head>
+<body>
+  <h1>Relatório de links internos do FAQ${mode ? ` <small>(${escapeHtml(mode)})</small>` : ""}</h1>
+  <div class="meta">Gerado em ${escapeHtml(timestamp)} · Arquivo analisado: <code>${escapeHtml(HOME_FILE)}</code></div>
+
+  <section class="cards">
+    <div class="card"><div class="label">Links analisados</div><div class="value">${results.length}</div></div>
+    <div class="card"><div class="label">Rotas detectadas</div><div class="value">${routes.size}</div></div>
+    <div class="card ${summary.totalFailures > 0 ? "fail" : "ok"}"><div class="label">Falhas</div><div class="value">${summary.totalFailures}</div></div>
+    <div class="card ok"><div class="label">OK</div><div class="value">${summary.byStatus.ok}</div></div>
+  </section>
+
+  <h2>Resumo por motivo</h2>
+  <table>
+    <thead><tr><th>Motivo</th><th>Quantidade</th></tr></thead>
+    <tbody>
+${byTypeRows}
+    </tbody>
+  </table>
+
+  <h2>Falhas</h2>
+  ${failures.length === 0 ? `<div class="empty">✓ Nenhuma falha encontrada.</div>` : `<table><thead><tr><th>#</th><th>Pergunta</th><th>Link</th><th>Motivo</th></tr></thead><tbody>\n${failureRows}\n</tbody></table>`}
+
+  <h2>Todos os links</h2>
+  <table>
+    <thead><tr><th>Status</th><th>Pergunta</th><th>Link</th><th>Observação</th></tr></thead>
+    <tbody>
+${rows}
+    </tbody>
+  </table>
+</body>
+</html>
+`;
+}
+
 // No dry-run não grava arquivos por padrão (exceto se DRY_RUN_REPORT_JSON estiver setado).
 if (!DRY_RUN) {
   try {
@@ -196,9 +287,11 @@ if (!DRY_RUN) {
       REPORT_FAILURES_JSON,
       JSON.stringify({ summary: buildSummary(), failures: failuresForJson }, null, 2) + "\n",
     );
+    fs.writeFileSync(REPORT_HTML, buildHtml({ timestamp, mode: "" }));
     console.log(`→ Relatório MD: ${REPORT_PATH}`);
     console.log(`→ Relatório JSON completo: ${REPORT_JSON}`);
     console.log(`→ Falhas JSON (automação): ${REPORT_FAILURES_JSON}`);
+    console.log(`→ Relatório HTML: ${REPORT_HTML}`);
   } catch (err) {
     console.warn(`Aviso: não foi possível gravar relatório (${err.message}).`);
   }
@@ -221,6 +314,18 @@ if (DRY_RUN && DRY_RUN_REPORT_JSON) {
     console.log(`→ Falhas JSON (dry-run): ${DRY_RUN_REPORT_JSON}`);
   } catch (err) {
     console.warn(`Aviso: não foi possível gravar relatório dry-run (${err.message}).`);
+  }
+}
+
+// Em dry-run, exporta o HTML apenas se o usuário solicitou via env.
+if (DRY_RUN && DRY_RUN_REPORT_HTML) {
+  try {
+    const dir = path.dirname(DRY_RUN_REPORT_HTML);
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(DRY_RUN_REPORT_HTML, buildHtml({ timestamp: new Date().toISOString(), mode: "dry-run" }));
+    console.log(`→ Relatório HTML (dry-run): ${DRY_RUN_REPORT_HTML}`);
+  } catch (err) {
+    console.warn(`Aviso: não foi possível gravar HTML dry-run (${err.message}).`);
   }
 }
 
