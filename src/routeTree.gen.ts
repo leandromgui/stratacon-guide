@@ -70,6 +70,7 @@ import { Route as ConteudosDpEsocialRouteImport } from './routes/conteudos.dp-es
 import { Route as ConteudosComercioIcmsRouteImport } from './routes/conteudos.comercio-icms'
 import { Route as AuthenticatedAdminLeadsRouteImport } from './routes/_authenticated/admin.leads'
 import { Route as AuthenticatedAdminAuditoriaSeoRouteImport } from './routes/_authenticated/admin.auditoria-seo'
+import { Route as ApiPublicHooksSeoAuditRunRouteImport } from './routes/api/public/hooks/seo-audit-run'
 
 const TemasEstrategicosRoute = TemasEstrategicosRouteImport.update({
   id: '/temas-estrategicos',
@@ -401,6 +402,12 @@ const AuthenticatedAdminAuditoriaSeoRoute =
     path: '/admin/auditoria-seo',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const ApiPublicHooksSeoAuditRunRoute =
+  ApiPublicHooksSeoAuditRunRouteImport.update({
+    id: '/api/public/hooks/seo-audit-run',
+    path: '/api/public/hooks/seo-audit-run',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -463,6 +470,7 @@ export interface FileRoutesByFullPath {
   '/solucoes/': typeof SolucoesIndexRoute
   '/admin/auditoria-seo': typeof AuthenticatedAdminAuditoriaSeoRoute
   '/admin/leads': typeof AuthenticatedAdminLeadsRoute
+  '/api/public/hooks/seo-audit-run': typeof ApiPublicHooksSeoAuditRunRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -525,6 +533,7 @@ export interface FileRoutesByTo {
   '/solucoes': typeof SolucoesIndexRoute
   '/admin/auditoria-seo': typeof AuthenticatedAdminAuditoriaSeoRoute
   '/admin/leads': typeof AuthenticatedAdminLeadsRoute
+  '/api/public/hooks/seo-audit-run': typeof ApiPublicHooksSeoAuditRunRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -589,6 +598,7 @@ export interface FileRoutesById {
   '/solucoes/': typeof SolucoesIndexRoute
   '/_authenticated/admin/auditoria-seo': typeof AuthenticatedAdminAuditoriaSeoRoute
   '/_authenticated/admin/leads': typeof AuthenticatedAdminLeadsRoute
+  '/api/public/hooks/seo-audit-run': typeof ApiPublicHooksSeoAuditRunRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -653,6 +663,7 @@ export interface FileRouteTypes {
     | '/solucoes/'
     | '/admin/auditoria-seo'
     | '/admin/leads'
+    | '/api/public/hooks/seo-audit-run'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -715,6 +726,7 @@ export interface FileRouteTypes {
     | '/solucoes'
     | '/admin/auditoria-seo'
     | '/admin/leads'
+    | '/api/public/hooks/seo-audit-run'
   id:
     | '__root__'
     | '/'
@@ -778,6 +790,7 @@ export interface FileRouteTypes {
     | '/solucoes/'
     | '/_authenticated/admin/auditoria-seo'
     | '/_authenticated/admin/leads'
+    | '/api/public/hooks/seo-audit-run'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -838,6 +851,7 @@ export interface RootRouteChildren {
   ConteudosIndexRoute: typeof ConteudosIndexRoute
   SegmentosIndexRoute: typeof SegmentosIndexRoute
   SolucoesIndexRoute: typeof SolucoesIndexRoute
+  ApiPublicHooksSeoAuditRunRoute: typeof ApiPublicHooksSeoAuditRunRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1269,6 +1283,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminAuditoriaSeoRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/api/public/hooks/seo-audit-run': {
+      id: '/api/public/hooks/seo-audit-run'
+      path: '/api/public/hooks/seo-audit-run'
+      fullPath: '/api/public/hooks/seo-audit-run'
+      preLoaderRoute: typeof ApiPublicHooksSeoAuditRunRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -1356,6 +1377,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConteudosIndexRoute: ConteudosIndexRoute,
   SegmentosIndexRoute: SegmentosIndexRoute,
   SolucoesIndexRoute: SolucoesIndexRoute,
+  ApiPublicHooksSeoAuditRunRoute: ApiPublicHooksSeoAuditRunRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
