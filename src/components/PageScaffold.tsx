@@ -322,7 +322,7 @@ export function PageScaffold(p: PageScaffoldProps) {
           </section>
         )}
 
-        {p.relatedLinks && p.relatedLinks.length > 0 && (
+        {resolvedRelated && resolvedRelated.length > 0 && (
           <section className="border-t border-border pt-16">
             <div className="grid lg:grid-cols-12 gap-10">
               <header className="lg:col-span-4">
@@ -333,7 +333,7 @@ export function PageScaffold(p: PageScaffoldProps) {
                 </p>
               </header>
               <ul className="lg:col-span-8 grid sm:grid-cols-2 gap-px bg-border border border-border">
-                {p.relatedLinks.map((l) => (
+                {resolvedRelated.map((l) => (
                   <li key={l.to} className="bg-card">
                     <Link to={l.to} className="block p-6 hover:bg-muted/40 transition-colors">
                       {l.eyebrow && (
