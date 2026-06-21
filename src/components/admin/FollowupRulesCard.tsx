@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
 
 type Status = "novo" | "contatado" | "qualificado" | "perdido";
 
@@ -49,6 +51,55 @@ export function FollowupRulesCard() {
       return;
     }
     setHistory((data as unknown as HistoryEntry[]) ?? []);
+  }
+
+  function buildRows() {
+    return (history ?? []).map((h) => ({
+      data: new Date(h.created_at).toLocaleString("pt-BR"),
+      status: LABEL[h.status],
+      sugerir:
+        h.prev_suggest_after_hours !== h.new_suggest_after_hours
+          ? `${h.prev_suggest_after_hours ?? "—"}h → ${h.new_suggest_after_hours ?? "—"}h`
+          : "",
+      lembrete:
+        h.prev_remind_after_hours !== h.new_remind_after_hours
+          ? `${h.prev_remind_after_hours ?? "—"}h → ${h.new_remind_after_hours ?? "—"}h`
+          : "",
+      ativa:
+        h.prev_enabled !== h.new_enabled
+          ? `${h.prev_enabled === null ? "—" : h.prev_enabled ? "sim" : "não"} → ${h.new_enabled ? "sim" : "não"}`
+          : "",
+      autor: h.changed_by ?? "sistema",
+    }));
+  }
+
+  function exportCsv() {
+    const rows = buildRows();
+    const header = ["Data", "Status", "Sugerir (h)", "Lembrete (h)", "Ativa", "Autor"];
+    const escape = (v: string) => `"${String(v).replace(/"/g, '""')}"`;
+    const csv = [
+      header.map(escape).join(","),
+      ...rows.map((r) => [r.data, r.status, r.sugerir, r.lembrete, r.ativa, r.autor].map(escape).join(",")),
+    ].join("\n");
+    const blob = new Blob(["\ufeff" + csv], { type: "text/csv;charset=utf-8;" });
+    triggerDownload(blob, `historico-regras-followup-${stamp()}.csv`);
+  }
+
+  function exportPdf() {
+    const rows = buildRows();
+    const doc = new jsPDF({ orientation: "landscape" });
+    doc.setFontSize(14);
+    doc.text("Histórico de alterações — Regras de follow-up", 14, 16);
+    doc.setFontSize(9);
+    doc.text(`Gerado em ${new Date().toLocaleString("pt-BR")}`, 14, 22);
+    autoTable(doc, {
+      startY: 28,
+      head: [["Data", "Status", "Sugerir (h)", "Lembrete (h)", "Ativa", "Autor"]],
+      body: rows.map((r) => [r.data, r.status, r.sugerir, r.lembrete, r.ativa, r.autor]),
+      styles: { fontSize: 8, cellPadding: 2 },
+      headStyles: { fillColor: [30, 30, 30] },
+    });
+    doc.save(`historico-regras-followup-${stamp()}.pdf`);
   }
 
   useEffect(() => {
@@ -216,6 +267,22 @@ export function FollowupRulesCard() {
             </button>
             {historyOpen && (
               <div className="mt-3">
+                <div className="flex items-center gap-2 mb-3">
+                  <button
+                    onClick={exportCsv}
+                    disabled={!history || history.length === 0}
+                    className="text-[11px] uppercase tracking-[0.16em] border border-border px-3 py-1 rounded-sm hover:bg-muted disabled:opacity-40"
+                  >
+                    Exportar CSV
+                  </button>
+                  <button
+                    onClick={exportPdf}
+                    disabled={!history || history.length === 0}
+                    className="text-[11px] uppercase tracking-[0.16em] border border-border px-3 py-1 rounded-sm hover:bg-muted disabled:opacity-40"
+                  >
+                    Exportar PDF
+                  </button>
+                </div>
                 {historyError && (
                   <div className="mb-3 border border-destructive/40 bg-destructive/10 text-destructive text-xs p-2 rounded-sm">
                     {historyError}
