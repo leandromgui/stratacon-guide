@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import { getCrossLinks } from "../lib/crossLinks";
 
 export interface H3Item {
   title: string;
@@ -34,6 +35,8 @@ export interface PageScaffoldProps {
   faq?: FaqItem[];
   deliverables?: H3Item[];
   relatedLinks?: { label: string; to: string; eyebrow?: string }[];
+  /** Slug da página-pilar para auto-resolver relatedLinks via src/lib/crossLinks.ts */
+  pillarKey?: string;
 }
 
 function Eyebrow({ children }: { children: ReactNode }) {
@@ -43,6 +46,8 @@ function Eyebrow({ children }: { children: ReactNode }) {
 }
 
 export function PageScaffold(p: PageScaffoldProps) {
+  const resolvedRelated =
+    p.relatedLinks ?? (p.pillarKey ? getCrossLinks(p.pillarKey) : undefined);
   return (
     <div>
       {/* Hero */}
