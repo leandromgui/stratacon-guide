@@ -20,6 +20,31 @@ const STATUS_COLOR: Record<LeadStatus, string> = {
 
 const STATUSES: LeadStatus[] = ["novo", "contatado", "qualificado", "perdido"];
 
+const DUE_SOON_WINDOW_MS = 24 * 60 * 60 * 1000;
+
+function isOverdue(l: Lead, now: number) {
+  if (!l.next_followup_at || l.status === "perdido") return false;
+  return new Date(l.next_followup_at).getTime() < now;
+}
+
+function isDueSoon(l: Lead, now: number) {
+  if (!l.next_followup_at || l.status === "perdido") return false;
+  const t = new Date(l.next_followup_at).getTime();
+  return t >= now && t - now <= DUE_SOON_WINDOW_MS;
+}
+
+function relativeFromNow(iso: string, now: number) {
+  const diff = new Date(iso).getTime() - now;
+  const abs = Math.abs(diff);
+  const min = Math.round(abs / 60000);
+  const past = diff < 0;
+  if (min < 60) return past ? `há ${min} min` : `em ${min} min`;
+  const h = Math.round(min / 60);
+  if (h < 48) return past ? `há ${h} h` : `em ${h} h`;
+  const d = Math.round(h / 24);
+  return past ? `há ${d} d` : `em ${d} d`;
+}
+
 type Lead = {
   id: string;
   name: string;
@@ -206,6 +231,7 @@ function AdminLeads() {
                 <th className="text-left px-3 py-3">Nome</th>
                 <th className="text-left px-3 py-3">Contato</th>
                 <th className="text-left px-3 py-3">Interesse</th>
+                <th className="text-left px-3 py-3">Follow-up</th>
                 <th className="text-left px-3 py-3">Origem</th>
                 <th className="text-left px-3 py-3">Status</th>
                 <th className="px-3 py-3"></th>
