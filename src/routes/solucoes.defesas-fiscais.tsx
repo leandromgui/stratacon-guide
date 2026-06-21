@@ -67,6 +67,7 @@ function Page() {
         ]},
       ]}
     >
+      <MethodBadge note="Defesa fiscal conduzida pelo protocolo DCON" />
       <FAQ items={faqs} />
       <LeadCaptureForm page="solucoes" />
     </PageScaffold>
