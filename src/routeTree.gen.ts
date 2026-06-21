@@ -17,6 +17,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as SolucoesIndexRouteImport } from './routes/solucoes.index'
 import { Route as SegmentosIndexRouteImport } from './routes/segmentos.index'
 import { Route as ConteudosIndexRouteImport } from './routes/conteudos.index'
+import { Route as SolucoesValuationKpisRouteImport } from './routes/solucoes.valuation-kpis'
 import { Route as SolucoesTrocarContabilidadeRouteImport } from './routes/solucoes.trocar-contabilidade'
 import { Route as SolucoesTecnologiaContabilRouteImport } from './routes/solucoes.tecnologia-contabil'
 import { Route as SolucoesSocietarioLegalizacaoRouteImport } from './routes/solucoes.societario-legalizacao'
@@ -98,6 +99,11 @@ const SegmentosIndexRoute = SegmentosIndexRouteImport.update({
 const ConteudosIndexRoute = ConteudosIndexRouteImport.update({
   id: '/conteudos/',
   path: '/conteudos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolucoesValuationKpisRoute = SolucoesValuationKpisRouteImport.update({
+  id: '/solucoes/valuation-kpis',
+  path: '/solucoes/valuation-kpis',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SolucoesTrocarContabilidadeRoute =
@@ -382,6 +388,7 @@ export interface FileRoutesByFullPath {
   '/solucoes/societario-legalizacao': typeof SolucoesSocietarioLegalizacaoRoute
   '/solucoes/tecnologia-contabil': typeof SolucoesTecnologiaContabilRoute
   '/solucoes/trocar-contabilidade': typeof SolucoesTrocarContabilidadeRoute
+  '/solucoes/valuation-kpis': typeof SolucoesValuationKpisRoute
   '/conteudos/': typeof ConteudosIndexRoute
   '/segmentos/': typeof SegmentosIndexRoute
   '/solucoes/': typeof SolucoesIndexRoute
@@ -434,6 +441,7 @@ export interface FileRoutesByTo {
   '/solucoes/societario-legalizacao': typeof SolucoesSocietarioLegalizacaoRoute
   '/solucoes/tecnologia-contabil': typeof SolucoesTecnologiaContabilRoute
   '/solucoes/trocar-contabilidade': typeof SolucoesTrocarContabilidadeRoute
+  '/solucoes/valuation-kpis': typeof SolucoesValuationKpisRoute
   '/conteudos': typeof ConteudosIndexRoute
   '/segmentos': typeof SegmentosIndexRoute
   '/solucoes': typeof SolucoesIndexRoute
@@ -487,6 +495,7 @@ export interface FileRoutesById {
   '/solucoes/societario-legalizacao': typeof SolucoesSocietarioLegalizacaoRoute
   '/solucoes/tecnologia-contabil': typeof SolucoesTecnologiaContabilRoute
   '/solucoes/trocar-contabilidade': typeof SolucoesTrocarContabilidadeRoute
+  '/solucoes/valuation-kpis': typeof SolucoesValuationKpisRoute
   '/conteudos/': typeof ConteudosIndexRoute
   '/segmentos/': typeof SegmentosIndexRoute
   '/solucoes/': typeof SolucoesIndexRoute
@@ -541,6 +550,7 @@ export interface FileRouteTypes {
     | '/solucoes/societario-legalizacao'
     | '/solucoes/tecnologia-contabil'
     | '/solucoes/trocar-contabilidade'
+    | '/solucoes/valuation-kpis'
     | '/conteudos/'
     | '/segmentos/'
     | '/solucoes/'
@@ -593,6 +603,7 @@ export interface FileRouteTypes {
     | '/solucoes/societario-legalizacao'
     | '/solucoes/tecnologia-contabil'
     | '/solucoes/trocar-contabilidade'
+    | '/solucoes/valuation-kpis'
     | '/conteudos'
     | '/segmentos'
     | '/solucoes'
@@ -645,6 +656,7 @@ export interface FileRouteTypes {
     | '/solucoes/societario-legalizacao'
     | '/solucoes/tecnologia-contabil'
     | '/solucoes/trocar-contabilidade'
+    | '/solucoes/valuation-kpis'
     | '/conteudos/'
     | '/segmentos/'
     | '/solucoes/'
@@ -696,6 +708,7 @@ export interface RootRouteChildren {
   SolucoesSocietarioLegalizacaoRoute: typeof SolucoesSocietarioLegalizacaoRoute
   SolucoesTecnologiaContabilRoute: typeof SolucoesTecnologiaContabilRoute
   SolucoesTrocarContabilidadeRoute: typeof SolucoesTrocarContabilidadeRoute
+  SolucoesValuationKpisRoute: typeof SolucoesValuationKpisRoute
   ConteudosIndexRoute: typeof ConteudosIndexRoute
   SegmentosIndexRoute: typeof SegmentosIndexRoute
   SolucoesIndexRoute: typeof SolucoesIndexRoute
@@ -757,6 +770,13 @@ declare module '@tanstack/react-router' {
       path: '/conteudos'
       fullPath: '/conteudos/'
       preLoaderRoute: typeof ConteudosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/valuation-kpis': {
+      id: '/solucoes/valuation-kpis'
+      path: '/solucoes/valuation-kpis'
+      fullPath: '/solucoes/valuation-kpis'
+      preLoaderRoute: typeof SolucoesValuationKpisRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solucoes/trocar-contabilidade': {
@@ -1115,6 +1135,7 @@ const rootRouteChildren: RootRouteChildren = {
   SolucoesSocietarioLegalizacaoRoute: SolucoesSocietarioLegalizacaoRoute,
   SolucoesTecnologiaContabilRoute: SolucoesTecnologiaContabilRoute,
   SolucoesTrocarContabilidadeRoute: SolucoesTrocarContabilidadeRoute,
+  SolucoesValuationKpisRoute: SolucoesValuationKpisRoute,
   ConteudosIndexRoute: ConteudosIndexRoute,
   SegmentosIndexRoute: SegmentosIndexRoute,
   SolucoesIndexRoute: SolucoesIndexRoute,
