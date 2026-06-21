@@ -1,21 +1,30 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
+
+const faqs: FAQItem[] = [
+  { q: "Holding serve para qualquer família?", a: "Não. Holding sem patrimônio relevante é custo sem benefício. A análise prévia confirma se o patrimônio, a estrutura familiar e o objetivo justificam a constituição. Em parte dos casos a recomendação é não constituir." },
+  { q: "Holding blinda o patrimônio?", a: "Não. Holding bem estruturada organiza, segrega e protege contra riscos operacionais legítimos. Não protege contra fraude, sonegação, dívida trabalhista, alimentos ou má-fé reconhecida judicialmente." },
+  { q: "Tem incidência de ITBI na integralização?", a: "Depende do município, do tipo de atividade da holding e da natureza dos bens. Avaliamos antes de qualquer transferência, porque a decisão pode mudar o custo de constituição." },
+  { q: "E o ITCMD na sucessão?", a: "Holding bem estruturada permite planejamento de doação em vida com reserva de usufruto, distribuindo o ITCMD ao longo do tempo e evitando inventário litigioso." },
+  { q: "Vocês fazem só a constituição ou também a operação?", a: "Ambos. Estruturamos a constituição e operamos a contabilidade da holding com olhar consultivo — distribuição, locações, ganho de capital, IRPF dos sócios e governança familiar." },
+  { q: "Atendem famílias fora de Goiânia?", a: "Sim. Atendimento remoto em todo o Brasil, com reuniões técnicas por vídeo e documentação trocada por canais auditáveis." },
+];
 
 export const Route = createFileRoute("/solucoes/holding-patrimonial")({
   head: () => ({
     meta: [
-      { title: "Holding Patrimonial e Familiar em Goiânia | DCON" },
-      { name: "description", content: "Estruturação de holding patrimonial e familiar em Goiânia com a DCON: proteção, sucessão e eficiência tributária com base contábil e jurídica." },
-      { property: "og:title", content: "Holding Patrimonial e Familiar em Goiânia | DCON" },
-      { property: "og:description", content: "Estruturação de holding patrimonial e familiar em Goiânia com a DCON: proteção, sucessão e eficiência tributária com base contábil e jurídica." },
+      { title: "Holding Patrimonial e Familiar | DCON Consultoria" },
+      { name: "description", content: "Estruturação técnica de holding patrimonial e familiar: proteção, sucessão e eficiência tributária com fundamento jurídico-contábil." },
+      { property: "og:title", content: "Holding Patrimonial e Familiar | DCON" },
+      { property: "og:description", content: "Estruturação, governança e operação contábil da holding patrimonial e familiar." },
       { property: "og:url", content: "/solucoes/holding-patrimonial" },
     ],
     links: [{ rel: "canonical", href: "/solucoes/holding-patrimonial" }],
     scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Soluções", "item": "/solucoes"}, {"@type": "ListItem", "position": 3, "name": "Holding Patrimonial", "item": "/solucoes/holding-patrimonial"}]}),
-      },
+      { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"/solucoes"},{"@type":"ListItem","position":3,"name":"Holding Patrimonial","item":"/solucoes/holding-patrimonial"}]}) },
+      { type: "application/ld+json", children: serviceJsonLd({ name: "Holding Patrimonial e Familiar", description: "Estudo prévio, constituição técnica e operação contábil de holding patrimonial e familiar.", url: "/solucoes/holding-patrimonial" }) },
+      { type: "application/ld+json", children: faqJsonLd(faqs) },
     ],
   }),
   component: Page,
@@ -24,20 +33,45 @@ export const Route = createFileRoute("/solucoes/holding-patrimonial")({
 function Page() {
   return (
     <PageScaffold
-      eyebrow="Soluções"
-      h1="Holding patrimonial e familiar com estrutura técnica e tributária"
-      intro="Avaliação técnica de viabilidade, estruturação e operação da holding como ferramenta de proteção e sucessão."
-      intent="abrir holding familiar, holding patrimonial vantagens"
-      observation="Ticket alto, intenção qualificada."
+      eyebrow="Soluções · Patrimônio e sucessão"
+      h1="Holding patrimonial e familiar com estrutura técnica e tributária."
+      intro="Estudo prévio, constituição fundamentada e operação contábil contínua. Ferramenta de proteção, sucessão e eficiência — não promessa de blindagem mágica."
+      breadcrumbs={[{ label: "Soluções", to: "/solucoes" }, { label: "Holding Patrimonial", to: "/solucoes/holding-patrimonial" }]}
       ctaPrimary={{ label: "Solicitar proposta", to: "/contato" }}
       ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
       sections={[
-      { h2: "Quando faz sentido", h3: [{"title":"Patrimônio relevante","body":"Imóveis, participações e ativos que justifiquem estrutura."},{"title":"Sucessão em vista","body":"Famílias que querem antecipar a transição patrimonial."},{"title":"Múltiplas operações","body":"Quando o sócio tem várias empresas e quer organizar."}] },
-      { h2: "Tipos de holding", h3: [{"title":"Patrimonial","body":"Concentra imóveis e ativos da família."},{"title":"Familiar","body":"Estrutura para governança e sucessão."},{"title":"Mista","body":"Patrimonial e operacional combinadas conforme o caso."}] },
-      { h2: "Benefícios reais", h3: [{"title":"Sucessão organizada","body":"Transição em vida com regras claras."},{"title":"Proteção patrimonial","body":"Blindagem dentro dos limites legais."},{"title":"Eficiência tributária","body":"Distribuição de aluguéis e ganhos com tratamento mais adequado."}] },
-      { h2: "Riscos e mitos", h3: [{"title":"Não é blindagem mágica","body":"Não protege contra fraude, sonegação ou má-fé."},{"title":"Não vale para todo mundo","body":"Holding sem patrimônio é custo sem benefício."},{"title":"ITCMD e ITBI importam","body":"Avaliação técnica antes de qualquer transferência."}] },
-      { h2: "Como estruturamos", h3: [{"title":"Estudo prévio","body":"Análise patrimonial e familiar antes da decisão."},{"title":"Constituição técnica","body":"Tipo societário, capital e cláusulas alinhadas ao objetivo."},{"title":"Operação contínua","body":"Contabilidade da holding com olhar consultivo."}] },
+        { h2: "Escopo do projeto", lead: "Avaliação técnica antes de qualquer decisão — patrimônio, família, objetivos e impacto tributário modelados em conjunto.", h3: [
+          { title: "Estudo prévio de viabilidade", body: "Análise patrimonial, societária e familiar antes de qualquer transferência. Em parte dos casos a recomendação é não constituir." },
+          { title: "Tipos de holding", body: "Patrimonial, familiar, mista ou operacional — definidos conforme objetivo (proteção, sucessão, governança ou eficiência)." },
+          { title: "Estrutura societária", body: "Tipo societário, capital, cláusulas restritivas, acordo de sócios e governança familiar." },
+          { title: "ITBI, ITCMD e ganho de capital", body: "Análise tributária da integralização, doação em vida e eventual venda futura." },
+          { title: "Distribuição e usufruto", body: "Doação com reserva de usufruto, cláusulas de incomunicabilidade, impenhorabilidade e inalienabilidade." },
+          { title: "Operação contínua", body: "Contabilidade da holding com olhar consultivo: locação, distribuição, IRPF dos sócios e prestação de contas familiar." },
+        ]},
+        { h2: "Quando faz sentido constituir", lead: "Critérios objetivos que justificam o custo de estrutura e operação.", h3: [
+          { title: "Patrimônio relevante", body: "Imóveis, participações societárias e ativos que justifiquem o custo de constituição e manutenção." },
+          { title: "Sucessão em vista", body: "Famílias que querem antecipar a transição em vida e reduzir litígio futuro." },
+          { title: "Múltiplas operações", body: "Sócio com várias empresas que precisa organizar participações e governança." },
+          { title: "Profissionalização familiar", body: "Famílias empresárias que precisam separar pessoa física, empresa e patrimônio comum." },
+        ]},
       ]}
+      deliverables={[
+        { title: "Parecer de viabilidade", body: "Documento técnico com recomendação fundamentada de constituir, postergar ou não constituir." },
+        { title: "Modelagem tributária", body: "Comparativo do cenário atual versus cenário com holding — ITBI, ITCMD, IRPF, IRPJ e ganho de capital." },
+        { title: "Contrato social e governança", body: "Minuta do contrato social, acordo de sócios e cláusulas restritivas alinhadas ao objetivo familiar." },
+        { title: "Plano de integralização", body: "Roteiro técnico da transferência dos bens, com avaliação fiscal e contábil de cada etapa." },
+        { title: "Operação contábil contínua", body: "Escrituração, apuração, ECD/ECF e relatórios gerenciais da holding com revisão técnica mensal." },
+        { title: "Reunião familiar de governança", body: "Encontro estruturado para alinhar regras, papéis e decisões entre os membros da família." },
+      ]}
+      risks={[
+        { title: "Constituir sem patrimônio que justifique", body: "Holding com pouco patrimônio é custo de manutenção sem benefício relevante — DRE consome o que deveria proteger." },
+        { title: "Integralização sem análise de ITBI", body: "Em municípios e atividades específicas o ITBI incide sobre a integralização e pode tornar o custo proibitivo." },
+        { title: "Acreditar em blindagem absoluta", body: "Holding não protege contra fraude, dívida trabalhista, alimentos ou desconsideração da personalidade jurídica reconhecida judicialmente." },
+        { title: "Operação contábil precária", body: "Holding com escrituração descuidada perde o benefício tributário e vira passivo silencioso em fiscalização." },
+        { title: "Conflito familiar não previsto", body: "Sem acordo de sócios e governança escrita, a holding pode amplificar disputas em vez de organizá-las." },
+        { title: "ITCMD mal planejado", body: "Doação em vida sem cálculo de ITCMD progressivo pode custar mais que o próprio inventário." },
+      ]}
+      faq={faqs}
     />
   );
 }
