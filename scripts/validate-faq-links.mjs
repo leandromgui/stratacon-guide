@@ -14,6 +14,9 @@ import path from "node:path";
 const ROUTES_DIR = "src/routes";
 const HOME_FILE = "src/routes/index.tsx";
 const REDIRECT_FILES = ["src/router.tsx", "src/start.ts", "vite.config.ts"];
+const REPORT_DIR = "/mnt/documents";
+const REPORT_PATH = path.join(REPORT_DIR, "faq-links-report.md");
+const REPORT_JSON = path.join(REPORT_DIR, "faq-links-report.json");
 
 function fileToRoutePath(file) {
   let base = file.replace(/\.tsx?$/, "");
@@ -60,12 +63,27 @@ function extractFaqBlock(src) {
   throw new Error("Não foi possível delimitar o array `faqs`");
 }
 
-function extractLinks(block) {
-  const re = /<Link\s+to=\{?["'`]([^"'`]+)["'`]\}?/g;
-  const out = [];
+function extractLinksByQuestion(block) {
+  // Localiza cada `q: "..."` e associa os <Link to="..."> que aparecem
+  // antes da próxima pergunta (i.e., dentro do mesmo objeto da FAQ).
+  const qRe = /q:\s*["'`]([^"'`]+)["'`]/g;
+  const positions = [];
   let m;
-  while ((m = re.exec(block)) !== null) out.push(m[1]);
-  return out;
+  while ((m = qRe.exec(block)) !== null) {
+    positions.push({ q: m[1], start: m.index });
+  }
+  const linkRe = /<Link\s+to=\{?["'`]([^"'`]+)["'`]\}?/g;
+  const entries = [];
+  while ((m = linkRe.exec(block)) !== null) {
+    const idx = m.index;
+    let owner = positions[0]?.q ?? "(desconhecida)";
+    for (let i = 0; i < positions.length; i++) {
+      if (positions[i].start <= idx) owner = positions[i].q;
+      else break;
+    }
+    entries.push({ question: owner, to: m[1] });
+  }
+  return entries;
 }
 
 function collectRedirectTargets() {
@@ -83,31 +101,73 @@ function collectRedirectTargets() {
 
 const home = fs.readFileSync(HOME_FILE, "utf8");
 const faqBlock = extractFaqBlock(home);
-const links = extractLinks(faqBlock);
+const entries = extractLinksByQuestion(faqBlock);
 const routes = collectRoutes(ROUTES_DIR);
 const redirects = collectRedirectTargets();
 
-const errors = [];
-const seen = new Set();
-for (const to of links) {
-  if (seen.has(to)) continue;
-  seen.add(to);
-  const normalized = to.endsWith("/") && to !== "/" ? to.slice(0, -1) : to;
-  if (!routes.has(normalized)) {
-    errors.push(`Rota inexistente: ${to}`);
+const results = entries.map((e) => {
+  const normalized = e.to.endsWith("/") && e.to !== "/" ? e.to.slice(0, -1) : e.to;
+  const reasons = [];
+  if (!routes.has(normalized)) reasons.push("Rota inexistente");
+  if (redirects.has(normalized)) reasons.push("Aponta para rota com redirect declarado");
+  return { ...e, status: reasons.length === 0 ? "ok" : "fail", reasons };
+});
+
+const failures = results.filter((r) => r.status === "fail");
+
+// Sempre escreve relatório (sucesso ou falha) em /mnt/documents.
+try {
+  fs.mkdirSync(REPORT_DIR, { recursive: true });
+  const timestamp = new Date().toISOString();
+  const lines = [];
+  lines.push(`# Relatório de links internos do FAQ (Home)`);
+  lines.push("");
+  lines.push(`- Gerado em: ${timestamp}`);
+  lines.push(`- Arquivo analisado: \`${HOME_FILE}\``);
+  lines.push(`- Links analisados: ${results.length}`);
+  lines.push(`- Rotas detectadas: ${routes.size}`);
+  lines.push(`- Falhas: **${failures.length}**`);
+  lines.push("");
+  if (failures.length === 0) {
+    lines.push("✓ Nenhum problema encontrado.");
+  } else {
+    lines.push("## Falhas");
+    lines.push("");
+    lines.push("| # | Pergunta | Link | Motivo |");
+    lines.push("|---|----------|------|--------|");
+    failures.forEach((f, i) => {
+      const q = f.question.replace(/\|/g, "\\|");
+      lines.push(`| ${i + 1} | ${q} | \`${f.to}\` | ${f.reasons.join("; ")} |`);
+    });
   }
-  if (redirects.has(normalized)) {
-    errors.push(`Link aponta para rota com redirect declarado: ${to}`);
-  }
+  lines.push("");
+  lines.push("## Todos os links");
+  lines.push("");
+  lines.push("| Status | Pergunta | Link | Observação |");
+  lines.push("|--------|----------|------|------------|");
+  results.forEach((r) => {
+    const icon = r.status === "ok" ? "✓" : "✖";
+    const q = r.question.replace(/\|/g, "\\|");
+    lines.push(`| ${icon} | ${q} | \`${r.to}\` | ${r.reasons.join("; ") || "—"} |`);
+  });
+  fs.writeFileSync(REPORT_PATH, lines.join("\n") + "\n");
+  fs.writeFileSync(
+    REPORT_JSON,
+    JSON.stringify({ generatedAt: timestamp, routesCount: routes.size, results }, null, 2),
+  );
+  console.log(`→ Relatório: ${REPORT_PATH}`);
+} catch (err) {
+  console.warn(`Aviso: não foi possível gravar relatório (${err.message}).`);
 }
 
-if (errors.length > 0) {
+if (failures.length > 0) {
   console.error("\n✖ Validação de links internos do FAQ falhou:");
-  for (const e of errors) console.error("  - " + e);
-  console.error(`\nRotas válidas detectadas: ${routes.size}.`);
+  for (const f of failures) {
+    console.error(`  - [${f.reasons.join("; ")}] "${f.question}" → ${f.to}`);
+  }
   process.exit(1);
 }
 
 console.log(
-  `✓ FAQ Home: ${seen.size} link(s) internos validados contra ${routes.size} rotas. Sem redirects indesejados.`,
+  `✓ FAQ Home: ${results.length} link(s) validados contra ${routes.size} rotas. Sem redirects indesejados.`,
 );
