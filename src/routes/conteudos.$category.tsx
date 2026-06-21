@@ -35,10 +35,14 @@ export const Route = createFileRoute("/conteudos/$category")({
     if (!c) return { meta: [{ title: "Categoria não encontrada | Insights DCON" }] };
     const base = `/conteudos/${c.slug}`;
     const pageUrl = loaderData?.canonical ?? base;
+    const isPaginated = (loaderData?.current ?? 1) > 1;
+    const robots = isPaginated ? "noindex, follow" : "index, follow";
     return {
       meta: [
         { title: c.metaTitle },
         { name: "description", content: c.metaDescription },
+        { name: "robots", content: robots },
+        { name: "googlebot", content: robots },
         { property: "og:title", content: c.metaTitle },
         { property: "og:description", content: c.metaDescription },
         { property: "og:url", content: pageUrl },
