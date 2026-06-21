@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { MethodBadge } from "../components/MethodBadge";
+import { dconMethod } from "../lib/dconMethod";
 
 export const Route = createFileRoute("/solucoes/trocar-contabilidade")({
   head: () => ({
@@ -32,6 +34,8 @@ function Page() {
       ctaPrimary={{ label: "Solicitar proposta", to: "/contato" }}
       ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
       pillarKey="trocar-contabilidade"
+      method={dconMethod}
+      ctaVariant="institutional"
       sections={[
       { h2: "Quando trocar", h3: [{"title":"Falta de comunicação","body":"Quando você só recebe guia e nunca recebe análise."},{"title":"Erros recorrentes","body":"Multas, atrasos e retrabalho que viraram rotina."},{"title":"Crescimento da empresa","body":"Operação ficou maior do que o contador suporta."}] },
       { h2: "Riscos da troca mal feita", h3: [{"title":"Perder prazo","body":"Janela entre contadores onde obrigação não é entregue."},{"title":"Documento solto","body":"Base sem entrega completa do anterior."},{"title":"Erro herdado","body":"Adotar problema do contador anterior sem revisar."}] },
@@ -39,6 +43,8 @@ function Page() {
       { h2: "Documentos necessários", h3: [{"title":"Societário","body":"Contrato social atualizado e alterações."},{"title":"Fiscal","body":"Últimas apurações, SPEDs e DCTFs."},{"title":"Trabalhista","body":"Folhas, eSocial e contratos vigentes."}] },
       { h2: "Perguntas frequentes", h3: [{"title":"Demora quanto?","body":"Em geral, 30 dias bem conduzidos."},{"title":"Vou perder histórico?","body":"Não. Trazemos a base e revisamos."},{"title":"Tenho que avisar o atual?","body":"Sim, e te apoiamos nessa comunicação."}] },
       ]}
-    />
+    >
+      <MethodBadge note="Transição conduzida pelo protocolo DCON" />
+    </PageScaffold>
   );
 }
