@@ -282,7 +282,7 @@ export function SiteLayout() {
             </span>
           </div>
           <div className="flex items-center gap-5">
-            <Link to="/contato" className="hover:text-gold">contato@dcon.com.br</Link>
+            <Link to="/contato" className="hover:text-gold">contato@dcon.cnt.br</Link>
             <span className="opacity-30">|</span>
             <Link to="/diagnostico" className="hover:text-gold">Área do Cliente</Link>
             <span className="opacity-30">|</span>
@@ -393,7 +393,7 @@ export function SiteLayout() {
               </p>
               <div className="mt-6 space-y-1.5 text-sm text-secondary-foreground/75">
                 <div className="text-gold text-[10px] uppercase tracking-[0.22em] mb-2">Goiânia — GO</div>
-                <div>contato@dcon.com.br</div>
+                <div>contato@dcon.cnt.br</div>
                 <div>Atendimento presencial e online</div>
               </div>
               <Link
