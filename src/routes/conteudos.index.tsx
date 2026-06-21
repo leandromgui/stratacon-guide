@@ -223,7 +223,13 @@ function Page() {
           {categories.map((c) => (
             <article key={c.slug} id={c.slug} className="bg-card p-8">
               <h3 className="font-display text-xl tracking-tight">
-                <a href={`#${c.slug}`} className="hover:text-secondary">{c.h2}</a>
+                <Link
+                  to="/conteudos/$category"
+                  params={{ category: c.slug }}
+                  className="hover:text-secondary"
+                >
+                  {c.h2}
+                </Link>
               </h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{c.intro}</p>
               <ul className="mt-6 space-y-4 border-t border-border pt-6">
@@ -236,6 +242,15 @@ function Page() {
                   </li>
                 ))}
               </ul>
+              <div className="mt-6 pt-4 border-t border-border">
+                <Link
+                  to="/conteudos/$category"
+                  params={{ category: c.slug }}
+                  className="text-[11px] uppercase tracking-[0.18em] text-secondary hover:text-gold"
+                >
+                  Ver categoria completa →
+                </Link>
+              </div>
             </article>
           ))}
         </div>
