@@ -34,6 +34,7 @@ export const CANONICAL_PATHS: UrlEntry[] = [
   { path: "/segmentos/comercio", kind: "canonical", note: "Comércio/ICMS (canônica unificada)" },
   { path: "/conteudos", kind: "canonical" },
   { path: "/conteudos/regimes-tributarios", kind: "canonical", note: "Regimes (canônica unificada)" },
+  { path: "/conteudos/holding-familiar", kind: "canonical", note: "Pilar de conteúdo — sucessão e patrimônio" },
 ];
 
 export const REDIRECT_PATHS: UrlEntry[] = [
