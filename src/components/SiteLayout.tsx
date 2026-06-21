@@ -1,5 +1,6 @@
 import { Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { WhatsAppButton } from "./WhatsAppButton";
+import { CookieBanner } from "./CookieBanner";
 import { useEffect, useState } from "react";
 
 type Col = { title: string; items: { label: string; to: string; desc?: string }[] };
@@ -380,6 +381,7 @@ export function SiteLayout() {
       </main>
 
       <WhatsAppButton />
+      <CookieBanner />
 
       {/* Footer */}
       <footer className="mt-24 bg-secondary text-secondary-foreground">
