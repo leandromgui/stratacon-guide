@@ -654,6 +654,135 @@ function stripOrigin(url: string, siteUrl: string) {
   }
 }
 
+function RecommendationsPanel({
+  recs,
+  counts,
+  siteUrl,
+}: {
+  recs: UrlRecommendations[];
+  counts: { critical: number; warning: number; info: number };
+  siteUrl: string;
+}) {
+  if (recs.length === 0) {
+    return (
+      <div className="rounded-lg border border-emerald-500/30 bg-emerald-500/5 p-5">
+        <h2 className="text-sm uppercase tracking-[0.18em] text-emerald-700 mb-1">
+          Recomendações
+        </h2>
+        <p className="text-sm text-emerald-700">
+          Nenhum problema detectado nesta execução. Todas as URLs auditadas
+          estão consistentes com o esperado.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="rounded-lg border border-border bg-card p-5">
+      <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
+        <h2 className="text-sm uppercase tracking-[0.18em] text-muted-foreground">
+          Recomendações automáticas
+        </h2>
+        <div className="flex gap-2 text-[11px]">
+          <span className="rounded border border-rose-500/30 bg-rose-500/10 text-rose-600 px-2 py-0.5">
+            {counts.critical} crítico{counts.critical === 1 ? "" : "s"}
+          </span>
+          <span className="rounded border border-amber-500/30 bg-amber-500/10 text-amber-600 px-2 py-0.5">
+            {counts.warning} atenção
+          </span>
+          <span className="rounded border border-sky-500/30 bg-sky-500/10 text-sky-600 px-2 py-0.5">
+            {counts.info} info
+          </span>
+        </div>
+      </div>
+
+      <ul className="space-y-4">
+        {recs.map((u) => (
+          <li
+            key={u.url}
+            className="rounded-md border border-border bg-background/40 p-4"
+          >
+            <div className="flex items-start justify-between gap-3 flex-wrap">
+              <div className="min-w-0">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span
+                    className={`inline-block rounded border px-2 py-0.5 text-[10px] uppercase tracking-wider ${severityClass(
+                      u.worst,
+                    )}`}
+                  >
+                    {severityLabel(u.worst)}
+                  </span>
+                  <KindBadge kind={u.kind} />
+                  <a
+                    href={u.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-mono text-xs break-all hover:text-gold"
+                  >
+                    {stripOrigin(u.url, siteUrl)}
+                  </a>
+                </div>
+                {u.expectedTarget && (
+                  <div className="text-[11px] text-muted-foreground mt-1">
+                    Deveria consolidar em{" "}
+                    <code className="font-mono">{u.expectedTarget}</code>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <ul className="mt-3 space-y-3">
+              {u.items.map((it) => (
+                <li
+                  key={it.id}
+                  className="border-l-2 pl-3"
+                  style={{
+                    borderColor:
+                      it.severity === "critical"
+                        ? "rgb(244 63 94 / 0.5)"
+                        : it.severity === "warning"
+                          ? "rgb(245 158 11 / 0.5)"
+                          : "rgb(14 165 233 / 0.5)",
+                  }}
+                >
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span
+                      className={`inline-block rounded border px-1.5 py-0.5 text-[9px] uppercase tracking-wider ${severityClass(
+                        it.severity,
+                      )}`}
+                    >
+                      {severityLabel(it.severity)}
+                    </span>
+                    <span className="text-sm font-medium">{it.title}</span>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                    {it.detail}
+                  </p>
+                  {it.actions.length > 0 && (
+                    <div className="mt-2 flex gap-2 flex-wrap">
+                      {it.actions.map((a) => (
+                        <a
+                          key={a.label + a.href}
+                          href={a.href}
+                          target={a.external ? "_blank" : undefined}
+                          rel={a.external ? "noreferrer" : undefined}
+                          className="text-[11px] rounded border border-border px-2 py-1 hover:border-gold hover:text-gold transition-colors"
+                        >
+                          {a.label} →
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function KindBadge({ kind }: { kind: "canonical" | "redirect" }) {
   const cls =
     kind === "canonical"
