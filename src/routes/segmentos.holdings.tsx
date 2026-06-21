@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { MethodBadge } from "../components/MethodBadge";
+import { dconMethod } from "../lib/dconMethod";
 
 export const Route = createFileRoute("/segmentos/holdings")({
   head: () => ({
@@ -32,6 +34,8 @@ function Page() {
       ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       pillarKey="holdings"
+      method={dconMethod}
+      ctaVariant="opportunity"
       sections={[
       { h2: "Particularidades da holding", h3: [{"title":"Patrimonial × familiar","body":"Cada tipo serve a um objetivo diferente."},{"title":"Tributação dos aluguéis","body":"Pessoa jurídica versus pessoa física — análise técnica."},{"title":"Distribuição de lucros","body":"Mecânica de pagamento aos sócios."}] },
       { h2: "Riscos e mitos", h3: [{"title":"Não é blindagem mágica","body":"Não protege contra fraude ou má-fé."},{"title":"ITCMD e ITBI","body":"Avaliar antes de qualquer transferência."},{"title":"Estrutura sem patrimônio","body":"Vira custo sem benefício."}] },
@@ -39,6 +43,8 @@ function Page() {
       { h2: "Para quem é indicado", h3: [{"title":"Famílias com patrimônio relevante","body":"Imóveis, participações e ativos significativos."},{"title":"Sócios com várias empresas","body":"Quando faz sentido concentrar."},{"title":"Sucessão em vista","body":"Quem quer organizar a transição em vida."}] },
       { h2: "Perguntas frequentes", h3: [{"title":"A partir de quanto vale?","body":"Avaliamos no diagnóstico patrimonial."},{"title":"Cônjuge precisa entrar?","body":"Depende do regime de bens e do objetivo."},{"title":"Holding paga menos imposto sempre?","body":"Não. Depende da operação."}] },
       ]}
-    />
+    >
+      <MethodBadge note="Atendimento conduzido pelo protocolo DCON" />
+    </PageScaffold>
   );
 }
