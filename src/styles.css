@@ -62,26 +62,33 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(0.985 0.005 90);
-  --foreground: oklch(0.18 0.01 270);
+  --radius: 0.25rem;
+  /* Off-white paper */
+  --background: oklch(0.975 0.005 85);
+  /* Graphite */
+  --foreground: oklch(0.22 0.015 260);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.01 270);
+  --card-foreground: oklch(0.22 0.015 260);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.01 270);
-  --primary: oklch(0.5 0.21 22);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.18 0.01 270);
-  --secondary-foreground: oklch(0.985 0.005 90);
-  --muted: oklch(0.96 0.005 90);
-  --muted-foreground: oklch(0.45 0.01 270);
-  --accent: oklch(0.94 0.01 90);
-  --accent-foreground: oklch(0.18 0.01 270);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.9 0.008 90);
-  --input: oklch(0.9 0.008 90);
-  --ring: oklch(0.5 0.21 22);
+  --popover-foreground: oklch(0.22 0.015 260);
+  /* Navy primary */
+  --primary: oklch(0.32 0.08 255);
+  --primary-foreground: oklch(0.985 0.005 85);
+  /* Deep navy secondary (header/footer) */
+  --secondary: oklch(0.22 0.06 258);
+  --secondary-foreground: oklch(0.97 0.005 85);
+  --muted: oklch(0.955 0.005 85);
+  --muted-foreground: oklch(0.46 0.015 260);
+  --accent: oklch(0.94 0.012 85);
+  --accent-foreground: oklch(0.22 0.015 260);
+  /* Discreet gold accent */
+  --gold: oklch(0.74 0.11 78);
+  --gold-foreground: oklch(0.22 0.015 260);
+  --destructive: oklch(0.55 0.22 27);
+  --destructive-foreground: oklch(0.985 0.005 85);
+  --border: oklch(0.89 0.008 260);
+  --input: oklch(0.89 0.008 260);
+  --ring: oklch(0.32 0.08 255);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -140,5 +147,38 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: "Fraunces", "IBM Plex Serif", Georgia, serif;
+    font-feature-settings: "ss01";
+    letter-spacing: -0.01em;
+  }
+}
+
+@utility text-gold {
+  color: var(--gold);
+}
+
+@utility bg-gold {
+  background-color: var(--gold);
+  color: var(--gold-foreground);
+}
+
+@utility border-gold {
+  border-color: var(--gold);
+}
+
+@utility rule-gold {
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 2.25rem;
+    height: 1px;
+    background: var(--gold);
+    vertical-align: middle;
+    margin-right: 0.75rem;
   }
 }
