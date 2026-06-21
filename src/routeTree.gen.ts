@@ -22,6 +22,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SolucoesIndexRouteImport } from './routes/solucoes.index'
 import { Route as SegmentosIndexRouteImport } from './routes/segmentos.index'
+import { Route as InsightsIndexRouteImport } from './routes/insights.index'
 import { Route as ConteudosIndexRouteImport } from './routes/conteudos.index'
 import { Route as SolucoesValuationKpisRouteImport } from './routes/solucoes.valuation-kpis'
 import { Route as SolucoesTrocarContabilidadeRouteImport } from './routes/solucoes.trocar-contabilidade'
@@ -136,6 +137,11 @@ const SolucoesIndexRoute = SolucoesIndexRouteImport.update({
 const SegmentosIndexRoute = SegmentosIndexRouteImport.update({
   id: '/segmentos/',
   path: '/segmentos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsIndexRoute = InsightsIndexRouteImport.update({
+  id: '/insights/',
+  path: '/insights/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ConteudosIndexRoute = ConteudosIndexRouteImport.update({
@@ -481,6 +487,7 @@ export interface FileRoutesByFullPath {
   '/solucoes/trocar-contabilidade': typeof SolucoesTrocarContabilidadeRoute
   '/solucoes/valuation-kpis': typeof SolucoesValuationKpisRoute
   '/conteudos/': typeof ConteudosIndexRoute
+  '/insights/': typeof InsightsIndexRoute
   '/segmentos/': typeof SegmentosIndexRoute
   '/solucoes/': typeof SolucoesIndexRoute
   '/admin/analytics': typeof AuthenticatedAdminAnalyticsRoute
@@ -546,6 +553,7 @@ export interface FileRoutesByTo {
   '/solucoes/trocar-contabilidade': typeof SolucoesTrocarContabilidadeRoute
   '/solucoes/valuation-kpis': typeof SolucoesValuationKpisRoute
   '/conteudos': typeof ConteudosIndexRoute
+  '/insights': typeof InsightsIndexRoute
   '/segmentos': typeof SegmentosIndexRoute
   '/solucoes': typeof SolucoesIndexRoute
   '/admin/analytics': typeof AuthenticatedAdminAnalyticsRoute
@@ -613,6 +621,7 @@ export interface FileRoutesById {
   '/solucoes/trocar-contabilidade': typeof SolucoesTrocarContabilidadeRoute
   '/solucoes/valuation-kpis': typeof SolucoesValuationKpisRoute
   '/conteudos/': typeof ConteudosIndexRoute
+  '/insights/': typeof InsightsIndexRoute
   '/segmentos/': typeof SegmentosIndexRoute
   '/solucoes/': typeof SolucoesIndexRoute
   '/_authenticated/admin/analytics': typeof AuthenticatedAdminAnalyticsRoute
@@ -680,6 +689,7 @@ export interface FileRouteTypes {
     | '/solucoes/trocar-contabilidade'
     | '/solucoes/valuation-kpis'
     | '/conteudos/'
+    | '/insights/'
     | '/segmentos/'
     | '/solucoes/'
     | '/admin/analytics'
@@ -745,6 +755,7 @@ export interface FileRouteTypes {
     | '/solucoes/trocar-contabilidade'
     | '/solucoes/valuation-kpis'
     | '/conteudos'
+    | '/insights'
     | '/segmentos'
     | '/solucoes'
     | '/admin/analytics'
@@ -811,6 +822,7 @@ export interface FileRouteTypes {
     | '/solucoes/trocar-contabilidade'
     | '/solucoes/valuation-kpis'
     | '/conteudos/'
+    | '/insights/'
     | '/segmentos/'
     | '/solucoes/'
     | '/_authenticated/admin/analytics'
@@ -876,6 +888,7 @@ export interface RootRouteChildren {
   SolucoesTrocarContabilidadeRoute: typeof SolucoesTrocarContabilidadeRoute
   SolucoesValuationKpisRoute: typeof SolucoesValuationKpisRoute
   ConteudosIndexRoute: typeof ConteudosIndexRoute
+  InsightsIndexRoute: typeof InsightsIndexRoute
   SegmentosIndexRoute: typeof SegmentosIndexRoute
   SolucoesIndexRoute: typeof SolucoesIndexRoute
   ApiPublicHooksSeoAuditRunRoute: typeof ApiPublicHooksSeoAuditRunRoute
@@ -972,6 +985,13 @@ declare module '@tanstack/react-router' {
       path: '/segmentos'
       fullPath: '/segmentos/'
       preLoaderRoute: typeof SegmentosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/': {
+      id: '/insights/'
+      path: '/insights'
+      fullPath: '/insights/'
+      preLoaderRoute: typeof InsightsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/conteudos/': {
@@ -1419,6 +1439,7 @@ const rootRouteChildren: RootRouteChildren = {
   SolucoesTrocarContabilidadeRoute: SolucoesTrocarContabilidadeRoute,
   SolucoesValuationKpisRoute: SolucoesValuationKpisRoute,
   ConteudosIndexRoute: ConteudosIndexRoute,
+  InsightsIndexRoute: InsightsIndexRoute,
   SegmentosIndexRoute: SegmentosIndexRoute,
   SolucoesIndexRoute: SolucoesIndexRoute,
   ApiPublicHooksSeoAuditRunRoute: ApiPublicHooksSeoAuditRunRoute,

@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { MethodBadge } from "../components/MethodBadge";
+import { dconMethod } from "../lib/dconMethod";
 
 export const Route = createFileRoute("/segmentos/construcao-civil-spe")({
   head: () => ({
@@ -32,6 +34,8 @@ function Page() {
       ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       pillarKey="construcao-civil-spe"
+      method={dconMethod}
+      ctaVariant="opportunity"
       sections={[
       { h2: "Particularidades do setor", h3: [{"title":"RET e patrimônio de afetação","body":"Regime especial para incorporações imobiliárias."},{"title":"SPE por obra","body":"Estrutura societária dedicada por empreendimento."},{"title":"INSS na construção","body":"Retenção previdenciária com regras próprias."}] },
       { h2: "Decisões estratégicas", h3: [{"title":"Quando vale RET","body":"Cenário em que a alíquota reduzida compensa as restrições."},{"title":"Habitacional × comercial","body":"Tratamento diferente por tipo de empreendimento."},{"title":"Custos por obra","body":"Apropriação contábil correta para análise por empreendimento."}] },
@@ -39,6 +43,8 @@ function Page() {
       { h2: "Como a DCON atua", h3: [{"title":"Estruturação societária","body":"Constituição de SPE e enquadramento no RET."},{"title":"Rotina técnica","body":"Apropriação por obra e fechamento auditável."},{"title":"Acompanhamento estratégico","body":"Revisão por empreendimento e por regime."}] },
       { h2: "Perguntas frequentes", h3: [{"title":"Vale abrir SPE para 1 obra?","body":"Depende do porte e do financiamento."},{"title":"RET serve para reforma?","body":"Não. RET é para incorporação."},{"title":"Atendem obras fora de GO?","body":"Sim, em todo o Brasil."}] },
       ]}
-    />
+    >
+      <MethodBadge note="Construção civil conduzida pelo protocolo DCON" />
+    </PageScaffold>
   );
 }

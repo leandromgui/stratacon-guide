@@ -221,7 +221,7 @@ function Home() {
             ))}
           </ol>
           <div className="mt-12">
-            <Link to="/sobre/metodologia" className="inline-flex items-center border border-gold px-6 py-3 text-[12px] uppercase tracking-[0.18em] text-gold hover:bg-gold hover:text-gold-foreground">
+            <Link to="/metodo" className="inline-flex items-center border border-gold px-6 py-3 text-[12px] uppercase tracking-[0.18em] text-gold hover:bg-gold hover:text-gold-foreground">
               Conhecer o método completo →
             </Link>
           </div>
@@ -257,7 +257,7 @@ function Home() {
             <Link to="/diagnostico" className="inline-flex items-center bg-secondary text-secondary-foreground px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:bg-primary">
               Solicitar diagnóstico →
             </Link>
-            <Link to="/sobre/metodologia" className="inline-flex items-center border border-border px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:border-secondary">
+            <Link to="/metodo" className="inline-flex items-center border border-border px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:border-secondary">
               Ver metodologia
             </Link>
           </div>
