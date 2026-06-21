@@ -19,12 +19,18 @@ const menu = [
       { label: "Contabilidade Empresarial", to: "/solucoes/contabilidade-empresarial" },
       { label: "Departamento Fiscal", to: "/solucoes/departamento-fiscal" },
       { label: "Planejamento Tributário", to: "/solucoes/planejamento-tributario" },
+      { label: "Reforma Tributária", to: "/solucoes/reforma-tributaria" },
       { label: "Recuperação de Créditos", to: "/solucoes/recuperacao-creditos-tributarios" },
+      { label: "Defesas Fiscais", to: "/solucoes/defesas-fiscais" },
       { label: "Departamento Pessoal", to: "/solucoes/departamento-pessoal" },
       { label: "Societário e Legalização", to: "/solucoes/societario-legalizacao" },
       { label: "Regularização Fiscal", to: "/solucoes/regularizacao-fiscal" },
       { label: "Holding e Patrimônio", to: "/solucoes/holding-patrimonial" },
       { label: "BPO Financeiro", to: "/solucoes/bpo-financeiro" },
+      { label: "Tecnologia Contábil", to: "/solucoes/tecnologia-contabil" },
+      { label: "Pessoa Física e IRPF", to: "/solucoes/pessoa-fisica-irpf" },
+      { label: "Valuation e KPIs", to: "/solucoes/valuation-kpis" },
+      { label: "Registro de Marca INPI", to: "/solucoes/registro-marca-inpi" },
       { label: "Abrir Empresa", to: "/solucoes/abrir-empresa" },
       { label: "Trocar de Contabilidade", to: "/solucoes/trocar-contabilidade" },
     ],
@@ -36,6 +42,7 @@ const menu = [
       { label: "Médicos e Clínicas", to: "/segmentos/medicos-clinicas" },
       { label: "E-commerce", to: "/segmentos/e-commerce" },
       { label: "Construção Civil e SPEs", to: "/segmentos/construcao-civil-spe" },
+      { label: "Provedores de Internet", to: "/segmentos/provedores-internet" },
       { label: "Holdings", to: "/segmentos/holdings" },
       { label: "Tecnologia e Startups", to: "/segmentos/tecnologia-startups" },
       { label: "Ver todos", to: "/segmentos" },
@@ -146,10 +153,12 @@ export function SiteLayout() {
           <div>
             <div className="font-medium mb-3">Soluções</div>
             <ul className="space-y-2 text-secondary-foreground/70">
-              <li><Link to="/solucoes/contabilidade-empresarial">Contabilidade Empresarial</Link></li>
               <li><Link to="/solucoes/planejamento-tributario">Planejamento Tributário</Link></li>
-              <li><Link to="/solucoes/regularizacao-fiscal">Regularização Fiscal</Link></li>
-              <li><Link to="/solucoes/holding-patrimonial">Holding Patrimonial</Link></li>
+              <li><Link to="/solucoes/reforma-tributaria">Reforma Tributária</Link></li>
+              <li><Link to="/solucoes/defesas-fiscais">Defesas Fiscais</Link></li>
+              <li><Link to="/solucoes/recuperacao-creditos-tributarios">Recuperação de Créditos</Link></li>
+              <li><Link to="/solucoes/tecnologia-contabil">Tecnologia Contábil</Link></li>
+              <li><Link to="/solucoes/valuation-kpis">Valuation e KPIs</Link></li>
               <li><Link to="/solucoes" className="text-primary">Ver todas</Link></li>
             </ul>
           </div>
