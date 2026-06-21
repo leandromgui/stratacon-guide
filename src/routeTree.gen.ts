@@ -18,6 +18,7 @@ import { Route as SolucoesIndexRouteImport } from './routes/solucoes.index'
 import { Route as SegmentosIndexRouteImport } from './routes/segmentos.index'
 import { Route as ConteudosIndexRouteImport } from './routes/conteudos.index'
 import { Route as SolucoesTrocarContabilidadeRouteImport } from './routes/solucoes.trocar-contabilidade'
+import { Route as SolucoesTecnologiaContabilRouteImport } from './routes/solucoes.tecnologia-contabil'
 import { Route as SolucoesSocietarioLegalizacaoRouteImport } from './routes/solucoes.societario-legalizacao'
 import { Route as SolucoesRegularizacaoFiscalRouteImport } from './routes/solucoes.regularizacao-fiscal'
 import { Route as SolucoesReformaTributariaRouteImport } from './routes/solucoes.reforma-tributaria'
@@ -102,6 +103,12 @@ const SolucoesTrocarContabilidadeRoute =
   SolucoesTrocarContabilidadeRouteImport.update({
     id: '/solucoes/trocar-contabilidade',
     path: '/solucoes/trocar-contabilidade',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolucoesTecnologiaContabilRoute =
+  SolucoesTecnologiaContabilRouteImport.update({
+    id: '/solucoes/tecnologia-contabil',
+    path: '/solucoes/tecnologia-contabil',
     getParentRoute: () => rootRouteImport,
   } as any)
 const SolucoesSocietarioLegalizacaoRoute =
@@ -365,6 +372,7 @@ export interface FileRoutesByFullPath {
   '/solucoes/reforma-tributaria': typeof SolucoesReformaTributariaRoute
   '/solucoes/regularizacao-fiscal': typeof SolucoesRegularizacaoFiscalRoute
   '/solucoes/societario-legalizacao': typeof SolucoesSocietarioLegalizacaoRoute
+  '/solucoes/tecnologia-contabil': typeof SolucoesTecnologiaContabilRoute
   '/solucoes/trocar-contabilidade': typeof SolucoesTrocarContabilidadeRoute
   '/conteudos/': typeof ConteudosIndexRoute
   '/segmentos/': typeof SegmentosIndexRoute
@@ -415,6 +423,7 @@ export interface FileRoutesByTo {
   '/solucoes/reforma-tributaria': typeof SolucoesReformaTributariaRoute
   '/solucoes/regularizacao-fiscal': typeof SolucoesRegularizacaoFiscalRoute
   '/solucoes/societario-legalizacao': typeof SolucoesSocietarioLegalizacaoRoute
+  '/solucoes/tecnologia-contabil': typeof SolucoesTecnologiaContabilRoute
   '/solucoes/trocar-contabilidade': typeof SolucoesTrocarContabilidadeRoute
   '/conteudos': typeof ConteudosIndexRoute
   '/segmentos': typeof SegmentosIndexRoute
@@ -466,6 +475,7 @@ export interface FileRoutesById {
   '/solucoes/reforma-tributaria': typeof SolucoesReformaTributariaRoute
   '/solucoes/regularizacao-fiscal': typeof SolucoesRegularizacaoFiscalRoute
   '/solucoes/societario-legalizacao': typeof SolucoesSocietarioLegalizacaoRoute
+  '/solucoes/tecnologia-contabil': typeof SolucoesTecnologiaContabilRoute
   '/solucoes/trocar-contabilidade': typeof SolucoesTrocarContabilidadeRoute
   '/conteudos/': typeof ConteudosIndexRoute
   '/segmentos/': typeof SegmentosIndexRoute
@@ -518,6 +528,7 @@ export interface FileRouteTypes {
     | '/solucoes/reforma-tributaria'
     | '/solucoes/regularizacao-fiscal'
     | '/solucoes/societario-legalizacao'
+    | '/solucoes/tecnologia-contabil'
     | '/solucoes/trocar-contabilidade'
     | '/conteudos/'
     | '/segmentos/'
@@ -568,6 +579,7 @@ export interface FileRouteTypes {
     | '/solucoes/reforma-tributaria'
     | '/solucoes/regularizacao-fiscal'
     | '/solucoes/societario-legalizacao'
+    | '/solucoes/tecnologia-contabil'
     | '/solucoes/trocar-contabilidade'
     | '/conteudos'
     | '/segmentos'
@@ -618,6 +630,7 @@ export interface FileRouteTypes {
     | '/solucoes/reforma-tributaria'
     | '/solucoes/regularizacao-fiscal'
     | '/solucoes/societario-legalizacao'
+    | '/solucoes/tecnologia-contabil'
     | '/solucoes/trocar-contabilidade'
     | '/conteudos/'
     | '/segmentos/'
@@ -667,6 +680,7 @@ export interface RootRouteChildren {
   SolucoesReformaTributariaRoute: typeof SolucoesReformaTributariaRoute
   SolucoesRegularizacaoFiscalRoute: typeof SolucoesRegularizacaoFiscalRoute
   SolucoesSocietarioLegalizacaoRoute: typeof SolucoesSocietarioLegalizacaoRoute
+  SolucoesTecnologiaContabilRoute: typeof SolucoesTecnologiaContabilRoute
   SolucoesTrocarContabilidadeRoute: typeof SolucoesTrocarContabilidadeRoute
   ConteudosIndexRoute: typeof ConteudosIndexRoute
   SegmentosIndexRoute: typeof SegmentosIndexRoute
@@ -736,6 +750,13 @@ declare module '@tanstack/react-router' {
       path: '/solucoes/trocar-contabilidade'
       fullPath: '/solucoes/trocar-contabilidade'
       preLoaderRoute: typeof SolucoesTrocarContabilidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/tecnologia-contabil': {
+      id: '/solucoes/tecnologia-contabil'
+      path: '/solucoes/tecnologia-contabil'
+      fullPath: '/solucoes/tecnologia-contabil'
+      preLoaderRoute: typeof SolucoesTecnologiaContabilRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solucoes/societario-legalizacao': {
@@ -1070,6 +1091,7 @@ const rootRouteChildren: RootRouteChildren = {
   SolucoesReformaTributariaRoute: SolucoesReformaTributariaRoute,
   SolucoesRegularizacaoFiscalRoute: SolucoesRegularizacaoFiscalRoute,
   SolucoesSocietarioLegalizacaoRoute: SolucoesSocietarioLegalizacaoRoute,
+  SolucoesTecnologiaContabilRoute: SolucoesTecnologiaContabilRoute,
   SolucoesTrocarContabilidadeRoute: SolucoesTrocarContabilidadeRoute,
   ConteudosIndexRoute: ConteudosIndexRoute,
   SegmentosIndexRoute: SegmentosIndexRoute,
