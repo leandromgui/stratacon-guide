@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
+import { MethodBadge } from "../components/MethodBadge";
+import { dconMethod } from "../lib/dconMethod";
 
 const faqs: FAQItem[] = [
   { q: "Recebi uma cobrança da Receita — pago ou contesto?", a: "Antes de pagar ou parcelar, é preciso conferir se a cobrança está correta. Boa parte das autuações tem erro de base de cálculo, decadência, prescrição ou enquadramento que pode ser contestado." },
@@ -39,6 +41,8 @@ function Page() {
       intent="defesa fiscal, impugnação Receita Federal, PRDI PGFN"
       ctaPrimary={{ label: "Recebi intimação e quero revisar", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      ctaVariant="risk"
+      method={dconMethod}
       pillarKey="defesas-fiscais"
       sections={[
         { h2: "Pessoa jurídica", h3: [
