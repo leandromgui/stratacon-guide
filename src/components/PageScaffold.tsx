@@ -17,7 +17,9 @@ export interface FaqItem { q: string; a: string }
 export interface PageScaffoldProps {
   eyebrow?: string;
   h1: string;
+  lead?: string;
   intro?: string;
+  audience?: string[];
   sections: Section[];
   ctaPrimary: { label: string; to: string };
   ctaSecondary?: { label: string; to: string };
@@ -31,6 +33,7 @@ export interface PageScaffoldProps {
   documents?: string[];
   faq?: FaqItem[];
   deliverables?: H3Item[];
+  relatedLinks?: { label: string; to: string; eyebrow?: string }[];
 }
 
 function Eyebrow({ children }: { children: ReactNode }) {
@@ -70,10 +73,24 @@ export function PageScaffold(p: PageScaffoldProps) {
             <h1 className="mt-5 font-display text-4xl md:text-6xl font-medium tracking-tight leading-[1.05] max-w-3xl">
               {p.h1}
             </h1>
+            {p.lead && (
+              <p className="mt-6 max-w-2xl text-lg md:text-xl font-display text-secondary-foreground/90 leading-snug">
+                {p.lead}
+              </p>
+            )}
             {p.intro && (
               <p className="mt-7 max-w-2xl text-base md:text-lg text-secondary-foreground/75 leading-relaxed">
                 {p.intro}
               </p>
+            )}
+            {p.audience && p.audience.length > 0 && (
+              <ul className="mt-7 flex flex-wrap gap-2 max-w-2xl">
+                {p.audience.map((a) => (
+                  <li key={a} className="text-[11px] uppercase tracking-[0.16em] border border-secondary-foreground/25 px-3 py-1.5 text-secondary-foreground/75">
+                    {a}
+                  </li>
+                ))}
+              </ul>
             )}
             <div className="mt-9 flex flex-wrap gap-3">
               <Link
