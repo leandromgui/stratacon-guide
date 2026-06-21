@@ -69,6 +69,7 @@ import { Route as ConteudosHoldingPatrimonioRouteImport } from './routes/conteud
 import { Route as ConteudosDpEsocialRouteImport } from './routes/conteudos.dp-esocial'
 import { Route as ConteudosComercioIcmsRouteImport } from './routes/conteudos.comercio-icms'
 import { Route as AuthenticatedAdminLeadsRouteImport } from './routes/_authenticated/admin.leads'
+import { Route as AuthenticatedAdminAuditoriaSeoRouteImport } from './routes/_authenticated/admin.auditoria-seo'
 import { Route as ApiPublicHooksSeoAuditRunRouteImport } from './routes/api/public/hooks/seo-audit-run'
 
 const TemasEstrategicosRoute = TemasEstrategicosRouteImport.update({
@@ -395,6 +396,12 @@ const AuthenticatedAdminLeadsRoute = AuthenticatedAdminLeadsRouteImport.update({
   path: '/admin/leads',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedAdminAuditoriaSeoRoute =
+  AuthenticatedAdminAuditoriaSeoRouteImport.update({
+    id: '/admin/auditoria-seo',
+    path: '/admin/auditoria-seo',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const ApiPublicHooksSeoAuditRunRoute =
   ApiPublicHooksSeoAuditRunRouteImport.update({
     id: '/api/public/hooks/seo-audit-run',
@@ -461,6 +468,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/': typeof ConteudosIndexRoute
   '/segmentos/': typeof SegmentosIndexRoute
   '/solucoes/': typeof SolucoesIndexRoute
+  '/admin/auditoria-seo': typeof AuthenticatedAdminAuditoriaSeoRoute
   '/admin/leads': typeof AuthenticatedAdminLeadsRoute
   '/api/public/hooks/seo-audit-run': typeof ApiPublicHooksSeoAuditRunRoute
 }
@@ -523,6 +531,7 @@ export interface FileRoutesByTo {
   '/conteudos': typeof ConteudosIndexRoute
   '/segmentos': typeof SegmentosIndexRoute
   '/solucoes': typeof SolucoesIndexRoute
+  '/admin/auditoria-seo': typeof AuthenticatedAdminAuditoriaSeoRoute
   '/admin/leads': typeof AuthenticatedAdminLeadsRoute
   '/api/public/hooks/seo-audit-run': typeof ApiPublicHooksSeoAuditRunRoute
 }
@@ -587,6 +596,7 @@ export interface FileRoutesById {
   '/conteudos/': typeof ConteudosIndexRoute
   '/segmentos/': typeof SegmentosIndexRoute
   '/solucoes/': typeof SolucoesIndexRoute
+  '/_authenticated/admin/auditoria-seo': typeof AuthenticatedAdminAuditoriaSeoRoute
   '/_authenticated/admin/leads': typeof AuthenticatedAdminLeadsRoute
   '/api/public/hooks/seo-audit-run': typeof ApiPublicHooksSeoAuditRunRoute
 }
@@ -651,6 +661,7 @@ export interface FileRouteTypes {
     | '/conteudos/'
     | '/segmentos/'
     | '/solucoes/'
+    | '/admin/auditoria-seo'
     | '/admin/leads'
     | '/api/public/hooks/seo-audit-run'
   fileRoutesByTo: FileRoutesByTo
@@ -713,6 +724,7 @@ export interface FileRouteTypes {
     | '/conteudos'
     | '/segmentos'
     | '/solucoes'
+    | '/admin/auditoria-seo'
     | '/admin/leads'
     | '/api/public/hooks/seo-audit-run'
   id:
@@ -776,6 +788,7 @@ export interface FileRouteTypes {
     | '/conteudos/'
     | '/segmentos/'
     | '/solucoes/'
+    | '/_authenticated/admin/auditoria-seo'
     | '/_authenticated/admin/leads'
     | '/api/public/hooks/seo-audit-run'
   fileRoutesById: FileRoutesById
@@ -1263,6 +1276,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminLeadsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/admin/auditoria-seo': {
+      id: '/_authenticated/admin/auditoria-seo'
+      path: '/admin/auditoria-seo'
+      fullPath: '/admin/auditoria-seo'
+      preLoaderRoute: typeof AuthenticatedAdminAuditoriaSeoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/api/public/hooks/seo-audit-run': {
       id: '/api/public/hooks/seo-audit-run'
       path: '/api/public/hooks/seo-audit-run'
@@ -1274,10 +1294,12 @@ declare module '@tanstack/react-router' {
 }
 
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminAuditoriaSeoRoute: typeof AuthenticatedAdminAuditoriaSeoRoute
   AuthenticatedAdminLeadsRoute: typeof AuthenticatedAdminLeadsRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminAuditoriaSeoRoute: AuthenticatedAdminAuditoriaSeoRoute,
   AuthenticatedAdminLeadsRoute: AuthenticatedAdminLeadsRoute,
 }
 
