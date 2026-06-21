@@ -1,63 +1,22 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
 import {
+  ALL_ENTRIES,
+  CANONICAL_PATHS,
+  REDIRECT_PATHS,
+} from "@/lib/seo-audit-urls";
+import {
   auditSeoUrls,
+  getAuditRun,
+  getAuditSettings,
+  listAuditRuns,
+  updateAuditSettings,
   type AuditResult,
+  type AuditSettings,
+  type StoredRun,
 } from "@/lib/seo-audit.functions";
-
-type UrlEntry = { path: string; kind: "canonical" | "redirect"; note?: string };
-
-const CANONICAL_PATHS: UrlEntry[] = [
-  { path: "/", kind: "canonical" },
-  { path: "/diagnostico", kind: "canonical" },
-  { path: "/metodo", kind: "canonical" },
-  { path: "/temas-estrategicos", kind: "canonical" },
-  { path: "/contato", kind: "canonical" },
-  { path: "/goiania", kind: "canonical" },
-  { path: "/sobre", kind: "canonical" },
-  { path: "/sobre/leandro", kind: "canonical" },
-  { path: "/solucoes", kind: "canonical" },
-  { path: "/solucoes/planejamento-tributario", kind: "canonical" },
-  { path: "/solucoes/regularizacao-fiscal", kind: "canonical" },
-  { path: "/solucoes/holding-patrimonial", kind: "canonical" },
-  { path: "/solucoes/departamento-pessoal", kind: "canonical" },
-  { path: "/solucoes/departamento-fiscal", kind: "canonical" },
-  { path: "/solucoes/contabilidade-empresarial", kind: "canonical" },
-  { path: "/solucoes/reforma-tributaria", kind: "canonical" },
-  { path: "/solucoes/recuperacao-creditos-tributarios", kind: "canonical" },
-  { path: "/solucoes/defesas-fiscais", kind: "canonical" },
-  { path: "/solucoes/bpo-financeiro", kind: "canonical" },
-  { path: "/solucoes/societario-legalizacao", kind: "canonical" },
-  { path: "/solucoes/tecnologia-contabil", kind: "canonical" },
-  { path: "/solucoes/pessoa-fisica-irpf", kind: "canonical" },
-  { path: "/solucoes/valuation-kpis", kind: "canonical" },
-  { path: "/solucoes/registro-marca-inpi", kind: "canonical" },
-  { path: "/solucoes/abrir-empresa", kind: "canonical" },
-  { path: "/solucoes/trocar-contabilidade", kind: "canonical" },
-  { path: "/segmentos", kind: "canonical" },
-  { path: "/segmentos/medicos-clinicas", kind: "canonical", note: "Saúde (canônica unificada)" },
-  { path: "/segmentos/comercio", kind: "canonical", note: "Comércio/ICMS (canônica unificada)" },
-  { path: "/conteudos", kind: "canonical" },
-  { path: "/conteudos/regimes-tributarios", kind: "canonical", note: "Regimes (canônica unificada)" },
-];
-
-const REDIRECT_PATHS: UrlEntry[] = [
-  { path: "/conteudos/planejamento-tributario", kind: "redirect" },
-  { path: "/conteudos/regularizacao-fiscal", kind: "redirect" },
-  { path: "/conteudos/holding-patrimonio", kind: "redirect" },
-  { path: "/conteudos/dp-esocial", kind: "redirect" },
-  { path: "/conteudos/comercio-icms", kind: "redirect" },
-  { path: "/conteudos/saude-clinicas", kind: "redirect" },
-  { path: "/segmentos/pendencias-fiscais", kind: "redirect" },
-  { path: "/segmentos/simples-nacional", kind: "redirect" },
-  { path: "/segmentos/lucro-presumido", kind: "redirect" },
-  { path: "/segmentos/lucro-real", kind: "redirect" },
-  { path: "/sobre/metodologia", kind: "redirect" },
-];
-
-const ALL_ENTRIES: UrlEntry[] = [...CANONICAL_PATHS, ...REDIRECT_PATHS];
 
 export const Route = createFileRoute("/_authenticated/admin/auditoria-seo")({
   head: () => ({
@@ -71,7 +30,11 @@ export const Route = createFileRoute("/_authenticated/admin/auditoria-seo")({
 
 function AuditoriaSeo() {
   const navigate = useNavigate();
-  const run = useServerFn(auditSeoUrls);
+  const runAudit = useServerFn(auditSeoUrls);
+  const fetchRuns = useServerFn(listAuditRuns);
+  const fetchRun = useServerFn(getAuditRun);
+  const fetchSettings = useServerFn(getAuditSettings);
+  const saveSettings = useServerFn(updateAuditSettings);
 
   const defaultOrigin =
     typeof window !== "undefined" ? window.location.origin : "";
@@ -81,35 +44,83 @@ function AuditoriaSeo() {
   const [filter, setFilter] = useState<"all" | "canonical" | "redirect">("all");
   const [running, setRunning] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [results, setResults] = useState<AuditResult[] | null>(null);
-  const [checkedAt, setCheckedAt] = useState<string | null>(null);
 
-  const visibleEntries = useMemo(
-    () =>
-      ALL_ENTRIES.filter((e) => filter === "all" || e.kind === filter),
-    [filter],
-  );
+  const [runs, setRuns] = useState<StoredRun[] | null>(null);
+  const [selectedRunId, setSelectedRunId] = useState<string | null>(null);
+  const [currentResults, setCurrentResults] = useState<AuditResult[] | null>(null);
+  const [previousResults, setPreviousResults] = useState<AuditResult[] | null>(null);
+  const [currentRun, setCurrentRun] = useState<StoredRun | null>(null);
+
+  const [settings, setSettings] = useState<AuditSettings | null>(null);
+  const [savingSettings, setSavingSettings] = useState(false);
 
   async function signOut() {
     await supabase.auth.signOut();
     navigate({ to: "/auth" });
   }
 
-  async function runAudit() {
+  async function refreshHistory(selectId?: string | null) {
+    try {
+      const list = await fetchRuns();
+      setRuns(list);
+      const target = selectId ?? list[0]?.id ?? null;
+      if (target) {
+        const idx = list.findIndex((r) => r.id === target);
+        setSelectedRunId(target);
+        const [cur, prev] = await Promise.all([
+          fetchRun({ data: { runId: target } }),
+          idx + 1 < list.length
+            ? fetchRun({ data: { runId: list[idx + 1].id } })
+            : Promise.resolve(null),
+        ]);
+        setCurrentRun(cur.run);
+        setCurrentResults(cur.results);
+        setPreviousResults(prev?.results ?? null);
+      } else {
+        setSelectedRunId(null);
+        setCurrentRun(null);
+        setCurrentResults(null);
+        setPreviousResults(null);
+      }
+    } catch (e: any) {
+      setError(e?.message ?? String(e));
+    }
+  }
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const s = await fetchSettings();
+        setSettings(s);
+        if (s.site_url) setSiteUrl(s.site_url);
+      } catch (e: any) {
+        setError(e?.message ?? String(e));
+      }
+      refreshHistory();
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const visibleEntries = useMemo(
+    () => ALL_ENTRIES.filter((e) => filter === "all" || e.kind === filter),
+    [filter],
+  );
+
+  async function onRunNow() {
     setError(null);
     setRunning(true);
     try {
       const base = siteUrl.replace(/\/+$/, "");
-      const payload = {
-        siteUrl: siteUrl.endsWith("/") ? siteUrl : `${siteUrl}/`,
-        urls: visibleEntries.map((e) => ({
-          url: `${base}${e.path}`,
-          kind: e.kind,
-        })),
-      };
-      const res = await run({ data: payload });
-      setResults(res.results);
-      setCheckedAt(res.checkedAt);
+      const res = await runAudit({
+        data: {
+          siteUrl: siteUrl.endsWith("/") ? siteUrl : `${siteUrl}/`,
+          urls: visibleEntries.map((e) => ({
+            url: `${base}${e.path}`,
+            kind: e.kind,
+          })),
+        },
+      });
+      await refreshHistory(res.runId);
     } catch (e: any) {
       setError(e?.message ?? String(e));
     } finally {
@@ -117,8 +128,45 @@ function AuditoriaSeo() {
     }
   }
 
+  async function onSelectRun(id: string) {
+    setSelectedRunId(id);
+    try {
+      const idx = runs?.findIndex((r) => r.id === id) ?? -1;
+      const [cur, prev] = await Promise.all([
+        fetchRun({ data: { runId: id } }),
+        runs && idx + 1 < runs.length
+          ? fetchRun({ data: { runId: runs[idx + 1].id } })
+          : Promise.resolve(null),
+      ]);
+      setCurrentRun(cur.run);
+      setCurrentResults(cur.results);
+      setPreviousResults(prev?.results ?? null);
+    } catch (e: any) {
+      setError(e?.message ?? String(e));
+    }
+  }
+
+  async function onSaveSettings(next: AuditSettings) {
+    setSavingSettings(true);
+    try {
+      await saveSettings({
+        data: {
+          site_url: next.site_url,
+          schedule: next.schedule,
+          enabled: next.enabled,
+        },
+      });
+      const fresh = await fetchSettings();
+      setSettings(fresh);
+    } catch (e: any) {
+      setError(e?.message ?? String(e));
+    } finally {
+      setSavingSettings(false);
+    }
+  }
+
   function exportCsv() {
-    if (!results) return;
+    if (!currentResults) return;
     const headers = [
       "url",
       "tipo",
@@ -134,7 +182,7 @@ function AuditoriaSeo() {
       "crawledAs",
       "error",
     ];
-    const rows = results.map((r) =>
+    const rows = currentResults.map((r) =>
       [
         r.url,
         r.kind,
@@ -158,7 +206,7 @@ function AuditoriaSeo() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    const ts = (checkedAt ?? new Date().toISOString())
+    const ts = (currentRun?.started_at ?? new Date().toISOString())
       .replace(/[:.]/g, "-")
       .slice(0, 19);
     a.download = `auditoria-seo-${ts}.csv`;
@@ -166,29 +214,11 @@ function AuditoriaSeo() {
     URL.revokeObjectURL(url);
   }
 
-  const summary = useMemo(() => {
-    if (!results) return null;
-    const ok = results.filter((r) => r.ok).length;
-    const failed = results.length - ok;
-    const canonicals = results.filter((r) => r.kind === "canonical");
-    const indexedPass = canonicals.filter(
-      (r) => r.verdict === "PASS",
-    ).length;
-    const canonicalMismatch = canonicals.filter(
-      (r) =>
-        r.ok &&
-        r.googleCanonical &&
-        r.userCanonical &&
-        r.googleCanonical !== r.userCanonical,
-    ).length;
-    const redirects = results.filter((r) => r.kind === "redirect");
-    const redirectsOk = redirects.filter(
-      (r) =>
-        r.ok &&
-        (r.pageFetchState === "REDIRECT" || r.coverageState?.includes("redirect") || r.coverageState?.toLowerCase().includes("alternate")),
-    ).length;
-    return { ok, failed, indexedPass, canonicalMismatch, redirectsOk, totalCanonical: canonicals.length, totalRedirects: redirects.length };
-  }, [results]);
+  const previousByUrl = useMemo(() => {
+    const m = new Map<string, AuditResult>();
+    (previousResults ?? []).forEach((r) => m.set(r.url, r));
+    return m;
+  }, [previousResults]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -220,9 +250,19 @@ function AuditoriaSeo() {
       </header>
 
       <div className="mx-auto max-w-7xl px-6 py-8 space-y-6">
+        {/* Schedule settings */}
+        {settings && (
+          <ScheduleCard
+            settings={settings}
+            saving={savingSettings}
+            onSave={onSaveSettings}
+          />
+        )}
+
+        {/* Run controls */}
         <div className="rounded-lg border border-border bg-card p-5">
           <h2 className="text-sm uppercase tracking-[0.18em] text-muted-foreground mb-3">
-            Configuração
+            Execução manual
           </h2>
           <div className="grid gap-3 sm:grid-cols-[1fr_auto_auto_auto] items-end">
             <label className="text-xs text-muted-foreground">
@@ -249,7 +289,7 @@ function AuditoriaSeo() {
               </option>
             </select>
             <button
-              onClick={runAudit}
+              onClick={onRunNow}
               disabled={running || !siteUrl}
               className="rounded-md bg-gold px-4 py-2 text-sm font-medium text-background disabled:opacity-50"
             >
@@ -257,117 +297,322 @@ function AuditoriaSeo() {
             </button>
             <button
               onClick={exportCsv}
-              disabled={!results || results.length === 0}
+              disabled={!currentResults?.length}
               className="rounded-md border border-border px-4 py-2 text-sm disabled:opacity-50"
             >
               Exportar CSV
             </button>
           </div>
           <p className="mt-3 text-xs text-muted-foreground">
-            A consulta usa a URL Inspection API do Google Search Console.
-            Requer: (1) site publicado, (2) propriedade verificada no GSC, (3)
-            conector <strong>Google Search Console</strong> vinculado ao
-            projeto. Quota: ~2.000 inspeções/dia.
+            Cada execução é gravada em <code>seo_audit_runs</code>. Quota da
+            URL Inspection API: ~2.000/dia.
           </p>
-          {checkedAt && (
-            <p className="mt-1 text-xs text-muted-foreground">
-              Última verificação: {new Date(checkedAt).toLocaleString("pt-BR")}
-            </p>
-          )}
         </div>
 
         {error && (
           <div className="rounded-md border border-rose-500/40 bg-rose-500/10 p-4 text-sm text-rose-700">
             <strong>Erro:</strong> {error}
-            {error.toLowerCase().includes("conector") && (
-              <p className="mt-2 text-xs">
-                Vincule o conector pelo menu Connectors → Google Search Console.
-                Depois recarregue esta página.
-              </p>
-            )}
           </div>
         )}
 
-        {summary && (
-          <div className="grid gap-3 sm:grid-cols-5">
-            <SummaryCard label="OK" value={summary.ok} total={summary.ok + summary.failed} />
-            <SummaryCard label="Falhas API" value={summary.failed} tone="bad" />
-            <SummaryCard label="Canônicas indexadas" value={summary.indexedPass} total={summary.totalCanonical} tone="good" />
-            <SummaryCard label="Canonical divergente" value={summary.canonicalMismatch} tone={summary.canonicalMismatch ? "warn" : undefined} />
-            <SummaryCard label="301 detectados" value={summary.redirectsOk} total={summary.totalRedirects} />
-          </div>
-        )}
-
-        <div className="rounded-lg border border-border overflow-hidden">
-          <table className="w-full text-sm">
-            <thead className="bg-muted/40 text-xs uppercase tracking-wider text-muted-foreground">
-              <tr>
-                <th className="text-left px-3 py-2">URL</th>
-                <th className="text-left px-3 py-2">Tipo</th>
-                <th className="text-left px-3 py-2">Veredito</th>
-                <th className="text-left px-3 py-2">Cobertura</th>
-                <th className="text-left px-3 py-2">Fetch</th>
-                <th className="text-left px-3 py-2">Canonical Google</th>
-                <th className="text-left px-3 py-2">Última crawl</th>
-              </tr>
-            </thead>
-            <tbody>
-              {(results ?? visibleEntries.map((e) => placeholderRow(e, siteUrl))).map(
-                (r) => (
-                  <tr key={r.url} className="border-t border-border align-top">
-                    <td className="px-3 py-2 font-mono text-xs break-all max-w-[280px]">
-                      <a
-                        href={r.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="hover:text-gold"
-                      >
-                        {stripOrigin(r.url, siteUrl)}
-                      </a>
-                    </td>
-                    <td className="px-3 py-2">
-                      <KindBadge kind={r.kind} />
-                    </td>
-                    <td className="px-3 py-2">
-                      {r.ok ? (
-                        <VerdictBadge verdict={r.verdict} />
-                      ) : results ? (
-                        <span className="text-rose-600 text-xs">{r.error}</span>
-                      ) : (
-                        <span className="text-muted-foreground text-xs">—</span>
-                      )}
-                    </td>
-                    <td className="px-3 py-2 text-xs">{r.coverageState ?? "—"}</td>
-                    <td className="px-3 py-2 text-xs">{r.pageFetchState ?? "—"}</td>
-                    <td className="px-3 py-2 text-xs font-mono break-all max-w-[260px]">
-                      {r.googleCanonical ? (
-                        <CanonicalCell
-                          declared={r.userCanonical}
-                          google={r.googleCanonical}
-                        />
-                      ) : (
-                        "—"
-                      )}
-                    </td>
-                    <td className="px-3 py-2 text-xs">
-                      {r.lastCrawlTime
-                        ? new Date(r.lastCrawlTime).toLocaleDateString("pt-BR")
-                        : "—"}
-                    </td>
+        {/* History list */}
+        <div className="rounded-lg border border-border bg-card p-5">
+          <h2 className="text-sm uppercase tracking-[0.18em] text-muted-foreground mb-3">
+            Histórico de execuções
+          </h2>
+          {!runs || runs.length === 0 ? (
+            <p className="text-sm text-muted-foreground">
+              Nenhuma execução registrada ainda.
+            </p>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="w-full text-xs">
+                <thead className="text-muted-foreground uppercase tracking-wider">
+                  <tr>
+                    <th className="text-left py-2 px-2">Quando</th>
+                    <th className="text-left py-2 px-2">Origem</th>
+                    <th className="text-left py-2 px-2">Site</th>
+                    <th className="text-right py-2 px-2">OK / Falhas</th>
+                    <th className="text-right py-2 px-2">Indexadas</th>
+                    <th className="text-right py-2 px-2">Divergente</th>
+                    <th className="text-right py-2 px-2">301</th>
                   </tr>
-                ),
-              )}
-            </tbody>
-          </table>
+                </thead>
+                <tbody>
+                  {runs.map((r) => (
+                    <tr
+                      key={r.id}
+                      onClick={() => onSelectRun(r.id)}
+                      className={`border-t border-border cursor-pointer hover:bg-muted/40 ${
+                        selectedRunId === r.id ? "bg-muted/60" : ""
+                      }`}
+                    >
+                      <td className="py-2 px-2">
+                        {new Date(r.started_at).toLocaleString("pt-BR")}
+                      </td>
+                      <td className="py-2 px-2">
+                        <span className="rounded border border-border px-1.5 py-0.5 text-[10px] uppercase">
+                          {r.trigger_source}
+                        </span>
+                      </td>
+                      <td className="py-2 px-2 font-mono text-[11px] text-muted-foreground truncate max-w-[260px]">
+                        {r.site_url}
+                      </td>
+                      <td className="py-2 px-2 text-right">
+                        {r.ok_count}/{r.total}
+                        {r.failed_count > 0 && (
+                          <span className="text-rose-600">
+                            {" "}
+                            · {r.failed_count}
+                          </span>
+                        )}
+                      </td>
+                      <td className="py-2 px-2 text-right">{r.indexed_pass}</td>
+                      <td
+                        className={`py-2 px-2 text-right ${
+                          r.canonical_mismatch ? "text-amber-600" : ""
+                        }`}
+                      >
+                        {r.canonical_mismatch}
+                      </td>
+                      <td className="py-2 px-2 text-right">{r.redirects_ok}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
+
+        {/* Current run summary */}
+        {currentRun && currentResults && (
+          <>
+            <div className="grid gap-3 sm:grid-cols-5">
+              <SummaryCard
+                label="OK"
+                value={currentRun.ok_count}
+                total={currentRun.total}
+              />
+              <SummaryCard
+                label="Falhas API"
+                value={currentRun.failed_count}
+                tone={currentRun.failed_count ? "bad" : undefined}
+              />
+              <SummaryCard
+                label="Canônicas indexadas"
+                value={currentRun.indexed_pass}
+                tone="good"
+              />
+              <SummaryCard
+                label="Canonical divergente"
+                value={currentRun.canonical_mismatch}
+                tone={currentRun.canonical_mismatch ? "warn" : undefined}
+              />
+              <SummaryCard
+                label="301 detectados"
+                value={currentRun.redirects_ok}
+              />
+            </div>
+
+            <div className="rounded-lg border border-border overflow-hidden">
+              <table className="w-full text-sm">
+                <thead className="bg-muted/40 text-xs uppercase tracking-wider text-muted-foreground">
+                  <tr>
+                    <th className="text-left px-3 py-2">URL</th>
+                    <th className="text-left px-3 py-2">Tipo</th>
+                    <th className="text-left px-3 py-2">Veredito</th>
+                    <th className="text-left px-3 py-2">Cobertura</th>
+                    <th className="text-left px-3 py-2">Fetch</th>
+                    <th className="text-left px-3 py-2">Canonical Google</th>
+                    <th className="text-left px-3 py-2">Última crawl</th>
+                    <th className="text-left px-3 py-2">Δ vs anterior</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {currentResults.map((r) => {
+                    const prev = previousByUrl.get(r.url);
+                    const change = diffResult(prev, r);
+                    return (
+                      <tr
+                        key={r.url}
+                        className="border-t border-border align-top"
+                      >
+                        <td className="px-3 py-2 font-mono text-xs break-all max-w-[280px]">
+                          <a
+                            href={r.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="hover:text-gold"
+                          >
+                            {stripOrigin(r.url, currentRun.site_url)}
+                          </a>
+                        </td>
+                        <td className="px-3 py-2">
+                          <KindBadge kind={r.kind} />
+                        </td>
+                        <td className="px-3 py-2">
+                          {r.ok ? (
+                            <VerdictBadge verdict={r.verdict} />
+                          ) : (
+                            <span className="text-rose-600 text-xs">
+                              {r.error}
+                            </span>
+                          )}
+                        </td>
+                        <td className="px-3 py-2 text-xs">
+                          {r.coverageState ?? "—"}
+                        </td>
+                        <td className="px-3 py-2 text-xs">
+                          {r.pageFetchState ?? "—"}
+                        </td>
+                        <td className="px-3 py-2 text-xs font-mono break-all max-w-[260px]">
+                          {r.googleCanonical ? (
+                            <CanonicalCell
+                              declared={r.userCanonical}
+                              google={r.googleCanonical}
+                            />
+                          ) : (
+                            "—"
+                          )}
+                        </td>
+                        <td className="px-3 py-2 text-xs">
+                          {r.lastCrawlTime
+                            ? new Date(r.lastCrawlTime).toLocaleDateString(
+                                "pt-BR",
+                              )
+                            : "—"}
+                        </td>
+                        <td className="px-3 py-2 text-xs">
+                          {prev ? (
+                            change.length === 0 ? (
+                              <span className="text-muted-foreground">=</span>
+                            ) : (
+                              <ul className="space-y-0.5 text-amber-700">
+                                {change.map((c) => (
+                                  <li key={c}>{c}</li>
+                                ))}
+                              </ul>
+                            )
+                          ) : (
+                            <span className="text-muted-foreground">novo</span>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
 }
 
-function placeholderRow(e: UrlEntry, siteUrl: string): AuditResult {
-  const base = siteUrl.replace(/\/+$/, "");
-  return { url: `${base}${e.path}`, kind: e.kind, ok: false };
+function diffResult(prev: AuditResult | undefined, cur: AuditResult): string[] {
+  if (!prev) return [];
+  const out: string[] = [];
+  if (prev.verdict !== cur.verdict)
+    out.push(`veredito: ${prev.verdict ?? "—"} → ${cur.verdict ?? "—"}`);
+  if ((prev.coverageState ?? "") !== (cur.coverageState ?? ""))
+    out.push(`cobertura mudou`);
+  if ((prev.googleCanonical ?? "") !== (cur.googleCanonical ?? ""))
+    out.push(`canonical mudou`);
+  if ((prev.pageFetchState ?? "") !== (cur.pageFetchState ?? ""))
+    out.push(`fetch: ${prev.pageFetchState ?? "—"} → ${cur.pageFetchState ?? "—"}`);
+  if (prev.ok !== cur.ok)
+    out.push(cur.ok ? "voltou a responder" : "falhou agora");
+  return out;
+}
+
+function ScheduleCard({
+  settings,
+  saving,
+  onSave,
+}: {
+  settings: AuditSettings;
+  saving: boolean;
+  onSave: (next: AuditSettings) => void;
+}) {
+  const [siteUrl, setSiteUrl] = useState(settings.site_url ?? "");
+  const [schedule, setSchedule] = useState<AuditSettings["schedule"]>(
+    settings.schedule,
+  );
+  const [enabled, setEnabled] = useState(settings.enabled);
+
+  useEffect(() => {
+    setSiteUrl(settings.site_url ?? "");
+    setSchedule(settings.schedule);
+    setEnabled(settings.enabled);
+  }, [settings]);
+
+  const dirty =
+    siteUrl !== (settings.site_url ?? "") ||
+    schedule !== settings.schedule ||
+    enabled !== settings.enabled;
+
+  return (
+    <div className="rounded-lg border border-border bg-card p-5">
+      <h2 className="text-sm uppercase tracking-[0.18em] text-muted-foreground mb-3">
+        Agendamento automático
+      </h2>
+      <div className="grid gap-3 sm:grid-cols-[1fr_auto_auto_auto] items-end">
+        <label className="text-xs text-muted-foreground">
+          Site verificado (URL completa com /)
+          <input
+            type="url"
+            value={siteUrl}
+            onChange={(e) => setSiteUrl(e.target.value)}
+            placeholder="https://seudominio.com.br/"
+            className="mt-1 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+          />
+        </label>
+        <label className="text-xs text-muted-foreground">
+          Frequência
+          <select
+            value={schedule}
+            onChange={(e) =>
+              setSchedule(e.target.value as AuditSettings["schedule"])
+            }
+            className="mt-1 block rounded-md border border-input bg-background px-3 py-2 text-sm"
+          >
+            <option value="off">Desligado</option>
+            <option value="daily">Diária (04:00 UTC)</option>
+            <option value="weekly">Semanal (seg, 04:30 UTC)</option>
+          </select>
+        </label>
+        <label className="flex items-center gap-2 text-xs">
+          <input
+            type="checkbox"
+            checked={enabled}
+            onChange={(e) => setEnabled(e.target.checked)}
+          />
+          Ativo
+        </label>
+        <button
+          onClick={() =>
+            onSave({
+              site_url: siteUrl || null,
+              schedule,
+              enabled,
+              updated_at: settings.updated_at,
+            })
+          }
+          disabled={!dirty || saving || (enabled && !siteUrl)}
+          className="rounded-md bg-gold px-4 py-2 text-sm font-medium text-background disabled:opacity-50"
+        >
+          {saving ? "Salvando…" : "Salvar"}
+        </button>
+      </div>
+      <p className="mt-3 text-xs text-muted-foreground">
+        Os jobs <code>seo-audit-daily</code> e <code>seo-audit-weekly</code> rodam
+        sempre, mas a execução só prossegue se a frequência configurada acima
+        corresponder. Última alteração:{" "}
+        {new Date(settings.updated_at).toLocaleString("pt-BR")}.
+      </p>
+    </div>
+  );
 }
 
 function stripOrigin(url: string, siteUrl: string) {
