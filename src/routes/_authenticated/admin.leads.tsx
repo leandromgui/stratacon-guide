@@ -64,6 +64,13 @@ function AdminLeads() {
   const [filter, setFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState<LeadStatus | "all">("all");
   const [openId, setOpenId] = useState<string | null>(null);
+  const [overdueOnly, setOverdueOnly] = useState(false);
+  const [now, setNow] = useState(() => Date.now());
+
+  useEffect(() => {
+    const t = setInterval(() => setNow(Date.now()), 60_000);
+    return () => clearInterval(t);
+  }, []);
 
   const refresh = () =>
     supabase
@@ -113,6 +120,7 @@ function AdminLeads() {
 
   const filtered = (leads ?? []).filter((l) => {
     if (statusFilter !== "all" && l.status !== statusFilter) return false;
+    if (overdueOnly && !isOverdue(l, now)) return false;
     if (!filter) return true;
     const q = filter.toLowerCase();
     return (
@@ -123,6 +131,13 @@ function AdminLeads() {
       (l.source_page ?? "").toLowerCase().includes(q)
     );
   });
+
+  const active = (leads ?? []).filter((l) => l.status !== "perdido");
+  const overdue = active
+    .filter((l) => isOverdue(l, now))
+    .sort((a, b) => (a.next_followup_at ?? "").localeCompare(b.next_followup_at ?? ""));
+  const dueSoon = active.filter((l) => isDueSoon(l, now));
+  const missing = active.filter((l) => !l.next_followup_at && l.status !== "qualificado");
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -139,6 +154,22 @@ function AdminLeads() {
       </header>
 
       <div className="mx-auto max-w-7xl px-6 py-8">
+        <FollowupSummary
+          overdue={overdue}
+          dueSoon={dueSoon}
+          missing={missing}
+          now={now}
+          onOpen={(id) => {
+            setOpenId(id);
+            setTimeout(() => document.getElementById(`lead-${id}`)?.scrollIntoView({ behavior: "smooth", block: "center" }), 50);
+          }}
+          onQuickContacted={async (id) => {
+            await updateLead(id, { status: "contatado" });
+          }}
+          onToggleFilter={() => setOverdueOnly((v) => !v)}
+          overdueOnly={overdueOnly}
+        />
+
         <div className="flex flex-wrap gap-3 items-center mb-6">
           <input
             value={filter}
@@ -183,7 +214,7 @@ function AdminLeads() {
             <tbody>
               {filtered.map((l) => (
                 <Fragment key={l.id}>
-                <tr className="border-t border-border align-top">
+            <tr id={`lead-${l.id}`} className={`border-t border-border align-top ${isOverdue(l, now) ? "bg-rose-500/5" : ""}`}>
                   <td className="px-3 py-3 text-xs text-muted-foreground whitespace-nowrap">
                     {new Date(l.created_at).toLocaleString("pt-BR")}
                   </td>
@@ -193,6 +224,15 @@ function AdminLeads() {
                     <div className="text-muted-foreground">{l.whatsapp}</div>
                   </td>
                   <td className="px-3 py-3 text-xs">{l.interest}</td>
+              <td className="px-3 py-3 text-xs whitespace-nowrap">
+                {l.next_followup_at ? (
+                  <span className={isOverdue(l, now) ? "text-rose-600 font-medium" : isDueSoon(l, now) ? "text-amber-600" : "text-muted-foreground"}>
+                    {relativeFromNow(l.next_followup_at, now)}
+                  </span>
+                ) : (
+                  <span className="text-muted-foreground">—</span>
+                )}
+              </td>
                   <td className="px-3 py-3 text-xs text-muted-foreground">
                     <div>{l.source_page ?? "—"}</div>
                     {(l.utm_source || l.utm_campaign) && (
