@@ -115,13 +115,17 @@ function Home() {
               Decisões econômicas seguras exigem leitura técnica do que está sendo declarado.
             </h1>
             <p className="mt-8 max-w-2xl text-lg text-secondary-foreground/75 leading-relaxed">
-              A DCON é uma firma de consultoria contábil, fiscal, tributária e empresarial.
-              Atuamos como o time técnico de empresas que precisam decidir com segurança
-              jurídica, fiscal e patrimonial — em Goiânia e em todo o Brasil.
+              A DCON é uma firma de consultoria contábil, fiscal, tributária e empresarial
+              em Goiânia, com atendimento em todo o Brasil. Conduzimos planejamento
+              tributário, reforma CBS/IBS, recuperação de créditos, holding patrimonial
+              e defesa fiscal pelo <strong className="text-secondary-foreground">Método DCON</strong> em quatro fases auditáveis.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link to="/diagnostico" className="inline-flex items-center bg-gold px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] font-medium text-gold-foreground hover:opacity-90">
                 Solicitar diagnóstico →
+              </Link>
+              <Link to="/metodo" className="inline-flex items-center border border-gold px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] text-gold hover:bg-gold hover:text-gold-foreground">
+                ● Método DCON
               </Link>
               <Link to="/solucoes" className="inline-flex items-center border border-secondary-foreground/30 px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] hover:border-gold hover:text-gold">
                 Ver linhas de serviço
@@ -434,6 +438,9 @@ function Home() {
           <div className="lg:col-span-4 flex flex-wrap gap-3 lg:justify-end">
             <Link to="/diagnostico" className="inline-flex items-center bg-gold px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] text-gold-foreground hover:opacity-90">
               Solicitar diagnóstico →
+            </Link>
+            <Link to="/metodo" className="inline-flex items-center border border-gold px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] text-gold hover:bg-gold hover:text-gold-foreground">
+              ● Método DCON
             </Link>
             <Link to="/contato" className="inline-flex items-center border border-secondary-foreground/30 px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] hover:border-gold hover:text-gold">
               Falar com a DCON
