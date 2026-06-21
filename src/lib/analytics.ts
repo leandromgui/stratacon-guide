@@ -61,7 +61,7 @@ export function trackEvent(payload: AnalyticsPayload): void {
     session_id: getSessionId().slice(0, 80),
     referrer: (document.referrer || "").slice(0, 500) || null,
     user_agent: (navigator.userAgent || "").slice(0, 500),
-    metadata: payload.metadata ?? {},
+    metadata: (payload.metadata ?? {}) as never,
   };
   // Fire-and-forget. Falhas de rede/RLS não devem quebrar a UI.
   void supabase
