@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { isValidElement } from "react";
 import { getCrossLinks } from "../lib/crossLinks";
+import { rememberLastFaqQuestion, trackEvent } from "../lib/analytics";
 
 export interface H3Item {
   title: string;
@@ -308,9 +309,35 @@ export function PageScaffold(p: PageScaffoldProps) {
                 <Eyebrow>Perguntas frequentes</Eyebrow>
                 <h2 className="mt-4 font-display text-3xl tracking-tight">FAQ técnica.</h2>
               </header>
-              <div className="lg:col-span-8 divide-y divide-border border-y border-border">
+              <div
+                className="lg:col-span-8 divide-y divide-border border-y border-border"
+                onClickCapture={(e) => {
+                  const target = e.target as HTMLElement;
+                  const anchor = target.closest("a");
+                  if (!anchor) return;
+                  const details = anchor.closest("details");
+                  const question = details?.dataset.faqQuestion ?? null;
+                  if (question) rememberLastFaqQuestion(question);
+                  trackEvent({
+                    event_name: "faq_cta_click",
+                    faq_question: question,
+                    cta_label: anchor.textContent?.trim().slice(0, 200) ?? null,
+                    cta_target: anchor.getAttribute("href"),
+                  });
+                }}
+              >
                 {p.faq.map((f) => (
-                  <details key={f.q} className="group py-5">
+                  <details
+                    key={f.q}
+                    data-faq-question={f.q}
+                    className="group py-5"
+                    onToggle={(e) => {
+                      const el = e.currentTarget as HTMLDetailsElement;
+                      if (!el.open) return;
+                      rememberLastFaqQuestion(f.q);
+                      trackEvent({ event_name: "faq_open", faq_question: f.q });
+                    }}
+                  >
                     <summary className="cursor-pointer list-none flex items-start justify-between gap-6">
                       <span className="font-display text-[17px] text-foreground">{f.q}</span>
                       <span className="text-gold text-xl leading-none group-open:rotate-45 transition-transform">+</span>
