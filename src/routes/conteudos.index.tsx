@@ -206,6 +206,41 @@ function Page() {
         </div>
       </section>
 
+      {/* Categorias — estrutura H2/H3 para SEO e recorrência */}
+      <section className="mx-auto max-w-7xl px-6 pt-20">
+        <header className="max-w-3xl">
+          <div className="text-[11px] uppercase tracking-[0.24em] text-gold rule-gold">Central de Conteúdo</div>
+          <h2 className="mt-6 font-display text-3xl md:text-4xl tracking-tight">
+            Categorias do editorial DCON
+          </h2>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            Organizamos as publicações por área técnica. Cada categoria reúne guias, análises e
+            estudos que conectam o conteúdo às soluções aplicáveis na sua empresa.
+          </p>
+        </header>
+
+        <div className="mt-12 grid gap-px bg-border border border-border md:grid-cols-2">
+          {categories.map((c) => (
+            <article key={c.slug} id={c.slug} className="bg-card p-8">
+              <h3 className="font-display text-xl tracking-tight">
+                <a href={`#${c.slug}`} className="hover:text-secondary">{c.h2}</a>
+              </h3>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{c.intro}</p>
+              <ul className="mt-6 space-y-4 border-t border-border pt-6">
+                {c.topics.map((t) => (
+                  <li key={t.to}>
+                    <h4 className="text-[15px] font-medium leading-snug">
+                      <Link to={t.to} className="hover:text-secondary">{t.h3}</Link>
+                    </h4>
+                    <p className="mt-1 text-[13px] text-muted-foreground leading-relaxed">{t.desc}</p>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="text-[12px] uppercase tracking-[0.18em] text-muted-foreground mb-6">
           {filtered.length} publicaç{filtered.length === 1 ? "ão" : "ões"}
