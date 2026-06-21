@@ -1,6 +1,6 @@
 export type AuditUrlKind = "canonical" | "redirect";
 
-export type UrlEntry = { path: string; kind: AuditUrlKind; note?: string };
+export type UrlEntry = { path: string; kind: AuditUrlKind; note?: string; target?: string };
 
 export const CANONICAL_PATHS: UrlEntry[] = [
   { path: "/", kind: "canonical" },
@@ -37,17 +37,17 @@ export const CANONICAL_PATHS: UrlEntry[] = [
 ];
 
 export const REDIRECT_PATHS: UrlEntry[] = [
-  { path: "/conteudos/planejamento-tributario", kind: "redirect" },
-  { path: "/conteudos/regularizacao-fiscal", kind: "redirect" },
-  { path: "/conteudos/holding-patrimonio", kind: "redirect" },
-  { path: "/conteudos/dp-esocial", kind: "redirect" },
-  { path: "/conteudos/comercio-icms", kind: "redirect" },
-  { path: "/conteudos/saude-clinicas", kind: "redirect" },
-  { path: "/segmentos/pendencias-fiscais", kind: "redirect" },
-  { path: "/segmentos/simples-nacional", kind: "redirect" },
-  { path: "/segmentos/lucro-presumido", kind: "redirect" },
-  { path: "/segmentos/lucro-real", kind: "redirect" },
-  { path: "/sobre/metodologia", kind: "redirect" },
+  { path: "/conteudos/planejamento-tributario", kind: "redirect", target: "/solucoes/planejamento-tributario" },
+  { path: "/conteudos/regularizacao-fiscal", kind: "redirect", target: "/solucoes/regularizacao-fiscal" },
+  { path: "/conteudos/holding-patrimonio", kind: "redirect", target: "/solucoes/holding-patrimonial" },
+  { path: "/conteudos/dp-esocial", kind: "redirect", target: "/solucoes/departamento-pessoal" },
+  { path: "/conteudos/comercio-icms", kind: "redirect", target: "/segmentos/comercio" },
+  { path: "/conteudos/saude-clinicas", kind: "redirect", target: "/segmentos/medicos-clinicas" },
+  { path: "/segmentos/pendencias-fiscais", kind: "redirect", target: "/solucoes/regularizacao-fiscal" },
+  { path: "/segmentos/simples-nacional", kind: "redirect", target: "/conteudos/regimes-tributarios" },
+  { path: "/segmentos/lucro-presumido", kind: "redirect", target: "/conteudos/regimes-tributarios" },
+  { path: "/segmentos/lucro-real", kind: "redirect", target: "/conteudos/regimes-tributarios" },
+  { path: "/sobre/metodologia", kind: "redirect", target: "/metodo" },
 ];
 
 export const ALL_ENTRIES: UrlEntry[] = [...CANONICAL_PATHS, ...REDIRECT_PATHS];
