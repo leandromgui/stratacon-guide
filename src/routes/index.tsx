@@ -1,12 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 const faqs: Array<[string, string]> = [
-  ["A DCON é uma contabilidade online?", "Não. Somos uma firma técnica de consultoria contábil, fiscal, tributária e empresarial. Atendemos presencialmente em Goiânia e remotamente em todo o Brasil, mas a entrega é consultiva, não transacional."],
-  ["Em quanto tempo o diagnóstico fica pronto?", "Em até 7 dias úteis após o envio da documentação. Entregamos relatório técnico com plano de ação priorizado por risco e impacto."],
-  ["Trabalham com empresas de qualquer regime?", "Sim — Simples Nacional, Lucro Presumido e Lucro Real. Frequentemente o próprio diagnóstico revela que a empresa está no regime errado."],
-  ["Atendem empresas fora de Goiânia?", "Sim. A maior parte do nosso atendimento é remoto, com reuniões técnicas agendadas por vídeo e protocolos auditáveis."],
-  ["Atuam como assessoria contínua ou pontual?", "Ambos. Há clientes em consultoria mensal contínua e projetos pontuais como recuperação de créditos, reestruturação societária e defesa fiscal."],
-  ["Quem assina tecnicamente as entregas?", "Responsável técnico com CRC ativo. Toda recomendação relevante passa por revisão cruzada antes da entrega."],
+  ["A DCON é uma contabilidade online?", "Não. Somos uma firma técnica de consultoria contábil, fiscal, tributária e empresarial. Atendemos presencialmente em Goiânia e remotamente em todo o Brasil, mas a entrega é consultiva — análise técnica, plano de ação e acompanhamento por responsável com CRC ativo — e não meramente transacional."],
+  ["Em quanto tempo o diagnóstico fica pronto?", "Em até 7 dias úteis após o envio da documentação. Entregamos um relatório técnico com mapeamento fiscal, tributário, contábil, trabalhista, societário e patrimonial, mais um plano de ação priorizado por risco, impacto financeiro e prazo de regularização."],
+  ["Quanto custa o diagnóstico técnico da DCON?", "O diagnóstico inicial é apresentado em proposta após uma conversa preliminar de escopo. O valor depende do porte, do número de CNPJs, dos regimes envolvidos e do volume documental. Não cobramos pela conversa inicial nem pela proposta."],
+  ["Trabalham com empresas de qualquer regime tributário?", "Sim — Simples Nacional, Lucro Presumido e Lucro Real. Em muitos casos o próprio diagnóstico revela que a empresa está no regime errado para a operação atual; comparamos cenários antes de qualquer migração e validamos sublimite, Fator R e enquadramento de CNAE."],
+  ["Como funciona a troca de contabilidade para a DCON?", "Conduzimos a transição com plano formal de migração: solicitação técnica ao contador anterior, auditoria de entrada da base recebida, cronograma de assunção de obrigações e revisão dos últimos 5 anos. Não há janela sem responsável técnico — assumimos antes que qualquer prazo vença."],
+  ["A DCON ajuda a recuperar tributos pagos a maior?", "Sim. Fazemos levantamento técnico dos últimos 5 anos em PIS, COFINS, ICMS, INSS e contribuições previdenciárias, com hipóteses como monofásico, alíquota zero, exclusão do ICMS da base, equiparação hospitalar e DIFAL. A recuperação é executada com PER/DCOMP e parecer técnico auditável."],
+  ["Como a DCON conduz a Reforma Tributária (CBS/IBS)?", "Modelamos o impacto da transição 2026–2033 no caixa da empresa, revisamos NCM, CFOP, CST, cClassTrib e contratos, e preparamos o ERP e a apuração assistida para os novos tributos. Para setores específicos (saúde, construção, agro, ISP, e-commerce) aplicamos análise dedicada."],
+  ["Faz sentido constituir uma holding patrimonial?", "Depende do patrimônio, da estrutura familiar e do objetivo (proteção, sucessão, eficiência). Em parte dos casos a recomendação técnica é não constituir — holding sem patrimônio relevante vira custo de manutenção. Avaliamos ITBI, ITCMD e ganho de capital antes de qualquer transferência."],
+  ["Atendem empresas fora de Goiânia?", "Sim. A maior parte do atendimento é remoto, com reuniões técnicas por vídeo, canais auditáveis para documentos e protocolos de revisão cruzada. Mantemos a base operacional em Goiânia e atendemos clientes em todo o Brasil."],
+  ["Atuam como assessoria contínua ou em projetos pontuais?", "Ambos. Há clientes em consultoria mensal contínua (contabilidade, fiscal, DP e governança) e projetos pontuais como recuperação de créditos, reestruturação societária, holding, defesa fiscal e valuation."],
+  ["Quem assina tecnicamente as entregas da DCON?", "Responsável técnico com CRC ativo. Toda recomendação relevante — pareceres, defesas, planejamento, PER/DCOMP e relatórios de diagnóstico — passa por revisão cruzada antes da entrega ao cliente."],
+  ["Como é tratada a confidencialidade das informações?", "Sob sigilo profissional do contador (Código de Ética CFC) e contratos de confidencialidade quando aplicável. Documentos circulam por canais auditáveis com controle de acesso por função e histórico de movimentação."],
 ];
 
 export const Route = createFileRoute("/")({
@@ -399,21 +405,27 @@ function Home() {
           <header className="lg:col-span-4">
             <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Perguntas frequentes</div>
             <h2 className="mt-4 font-display text-3xl md:text-4xl tracking-tight leading-[1.05]">
-              Como funciona uma firma de consultoria contábil.
+              Como funciona a consultoria contábil, tributária e patrimonial da DCON.
             </h2>
+            <p className="mt-5 text-[14px] leading-relaxed text-muted-foreground">
+              Respostas técnicas para as dúvidas mais comuns de sócios e CFOs antes
+              de solicitar o diagnóstico — escopo, prazo, custo, troca de contador,
+              recuperação de créditos, reforma tributária e holding.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/diagnostico" className="inline-flex items-center bg-secondary text-secondary-foreground px-5 py-3 text-[11px] uppercase tracking-[0.18em] hover:bg-primary">
+                Solicitar diagnóstico →
+              </Link>
+              <Link to="/metodo" className="inline-flex items-center border border-gold px-5 py-3 text-[11px] uppercase tracking-[0.18em] text-secondary hover:bg-gold hover:text-gold-foreground">
+                ● Método DCON
+              </Link>
+            </div>
           </header>
           <div className="lg:col-span-8 divide-y divide-border border-y border-border">
-            {[
-              ["A DCON é uma contabilidade online?", "Não. Somos uma firma técnica de consultoria contábil, fiscal, tributária e empresarial. Atendemos presencialmente em Goiânia e remotamente em todo o Brasil, mas a entrega é consultiva, não transacional."],
-              ["Em quanto tempo o diagnóstico fica pronto?", "Em até 7 dias úteis após o envio da documentação. Entregamos relatório técnico com plano de ação priorizado por risco e impacto."],
-              ["Trabalham com empresas de qualquer regime?", "Sim — Simples Nacional, Lucro Presumido e Lucro Real. Frequentemente o próprio diagnóstico revela que a empresa está no regime errado."],
-              ["Atendem empresas fora de Goiânia?", "Sim. A maior parte do nosso atendimento é remoto, com reuniões técnicas agendadas por vídeo e protocolos auditáveis."],
-              ["Atuam como assessoria contínua ou pontual?", "Ambos. Há clientes em consultoria mensal contínua e projetos pontuais como recuperação de créditos, reestruturação societária e defesa fiscal."],
-              ["Quem assina tecnicamente as entregas?", "Responsável técnico com CRC ativo. Toda recomendação relevante passa por revisão cruzada antes da entrega."],
-            ].map(([q, a]) => (
-              <details key={q} className="group py-5">
+            {faqs.map(([q, a], i) => (
+              <details key={q} className="group py-5" open={i === 0}>
                 <summary className="cursor-pointer list-none flex items-start justify-between gap-6">
-                  <span className="font-display text-[17px]">{q}</span>
+                  <h3 className="font-display text-[17px] m-0 font-normal">{q}</h3>
                   <span className="text-gold text-xl leading-none group-open:rotate-45 transition-transform">+</span>
                 </summary>
                 <p className="mt-3 text-muted-foreground text-[14px] leading-relaxed pr-10">{a}</p>
