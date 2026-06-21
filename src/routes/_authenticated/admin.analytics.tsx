@@ -42,21 +42,55 @@ type FilterState =
   | { mode: "quick"; days: QuickRange }
   | { mode: "custom"; start: Date; end: Date };
 
-function startOfDayUtc(d: Date) {
+// Resolve the user's local timezone — filters are anchored to the day
+// boundaries the user actually sees in the dashboard, not to UTC midnight.
+const LOCAL_TZ =
+  typeof Intl !== "undefined"
+    ? Intl.DateTimeFormat().resolvedOptions().timeZone || "local"
+    : "local";
+
+function startOfLocalDay(d: Date) {
   const copy = new Date(d);
   copy.setHours(0, 0, 0, 0);
-  return copy.toISOString();
+  return copy;
 }
 
-function endOfDayUtc(d: Date) {
+function endOfLocalDay(d: Date) {
   const copy = new Date(d);
   copy.setHours(23, 59, 59, 999);
-  return copy.toISOString();
+  return copy;
+}
+
+// Resolve a FilterState to the absolute [start, end] instants used to query
+// the database. Quick ranges are anchored to local-day boundaries (end of
+// today, start of N-1 days ago) so the buttons match the calendar the user
+// sees instead of a rolling 24h*N window measured from "now".
+function resolveRange(f: FilterState): { startISO: string; endISO: string; startLabel: string; endLabel: string } {
+  let start: Date;
+  let end: Date;
+  if (f.mode === "quick") {
+    end = endOfLocalDay(new Date());
+    const s = new Date();
+    s.setDate(s.getDate() - (f.days - 1));
+    start = startOfLocalDay(s);
+  } else {
+    start = startOfLocalDay(f.start);
+    end = endOfLocalDay(f.end);
+  }
+  return {
+    startISO: start.toISOString(),
+    endISO: end.toISOString(),
+    startLabel: format(start, "dd/MM/yyyy"),
+    endLabel: format(end, "dd/MM/yyyy"),
+  };
 }
 
 function periodLabel(f: FilterState) {
-  if (f.mode === "quick") return `últimos ${f.days} dias`;
-  return `${format(f.start, "dd/MM/yyyy")} – ${format(f.end, "dd/MM/yyyy")}`;
+  const r = resolveRange(f);
+  if (f.mode === "quick") {
+    return `últimos ${f.days} dias (${r.startLabel} – ${r.endLabel}, ${LOCAL_TZ})`;
+  }
+  return `${r.startLabel} – ${r.endLabel} (${LOCAL_TZ})`;
 }
 
 function Page() {
@@ -80,14 +114,9 @@ function Page() {
       .select("session_id,last_faq_question,created_at")
       .limit(5000);
 
-    if (filter.mode === "quick") {
-      const since = new Date(Date.now() - filter.days * 24 * 60 * 60 * 1000).toISOString();
-      evQuery = evQuery.gte("created_at", since);
-      ldQuery = ldQuery.gte("created_at", since);
-    } else {
-      evQuery = evQuery.gte("created_at", startOfDayUtc(filter.start)).lte("created_at", endOfDayUtc(filter.end));
-      ldQuery = ldQuery.gte("created_at", startOfDayUtc(filter.start)).lte("created_at", endOfDayUtc(filter.end));
-    }
+    const { startISO, endISO } = resolveRange(filter);
+    evQuery = evQuery.gte("created_at", startISO).lte("created_at", endISO);
+    ldQuery = ldQuery.gte("created_at", startISO).lte("created_at", endISO);
 
     Promise.all([evQuery, ldQuery])
       .then(([ev, ld]) => {
