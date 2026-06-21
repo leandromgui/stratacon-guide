@@ -124,6 +124,27 @@ const results = entries.map((e) => {
 
 const failures = results.filter((r) => r.status === "fail");
 
+function buildSummary() {
+  const byType = {
+    "Rota inexistente": 0,
+    "Aponta para rota com redirect declarado": 0,
+  };
+  for (const f of failures) {
+    for (const r of f.reasons) {
+      if (r in byType) byType[r]++;
+    }
+  }
+  const byStatus = { ok: 0, fail: 0 };
+  for (const r of results) {
+    byStatus[r.status]++;
+  }
+  return {
+    totalFailures: failures.length,
+    byType,
+    byStatus,
+  };
+}
+
 // No dry-run não grava arquivos por padrão (exceto se DRY_RUN_REPORT_JSON estiver setado).
 if (!DRY_RUN) {
   try {
@@ -195,7 +216,7 @@ if (DRY_RUN && DRY_RUN_REPORT_JSON) {
     }));
     fs.writeFileSync(
       DRY_RUN_REPORT_JSON,
-      JSON.stringify(failuresForJson, null, 2) + "\n",
+      JSON.stringify({ summary: buildSummary(), failures: failuresForJson }, null, 2) + "\n",
     );
     console.log(`→ Falhas JSON (dry-run): ${DRY_RUN_REPORT_JSON}`);
   } catch (err) {
