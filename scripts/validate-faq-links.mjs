@@ -10,6 +10,8 @@
  *
  * Modo dry-run: passar --dry-run (ou DRY_RUN=1) para preview sem
  * quebrar o build e sem gravar arquivos.
+ *   → Para ainda gerar o JSON de falhas em dry-run, defina
+ *     FAQ_LINKS_DRY_RUN_REPORT=<caminho>.
  */
 import fs from "node:fs";
 import path from "node:path";
