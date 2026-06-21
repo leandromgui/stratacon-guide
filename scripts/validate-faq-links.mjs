@@ -389,6 +389,33 @@ ${rows}
       highlightBtn.classList.toggle('active');
       highlightBtn.textContent = document.body.classList.contains('highlight-failures') ? 'Falhas destacadas' : 'Destacar falhas';
     });
+
+    document.getElementById('export-csv-btn').addEventListener('click', () => {
+      const table = document.getElementById('failures-table');
+      if (!table) return;
+      const rows = Array.from(table.querySelectorAll('tbody tr')).filter(r => !r.classList.contains('hidden'));
+      if (rows.length === 0) { alert('Nenhuma falha visível para exportar.'); return; }
+      const csv = [];
+      csv.push(['#','Pergunta','Link','Motivo'].join(','));
+      for (const row of rows) {
+        const cells = Array.from(row.cells);
+        const vals = cells.map(c => {
+          let v = c.textContent.replace(/\s+/g, ' ').trim();
+          if (/[\",\n]/.test(v)) v = '"' + v.replace(/"/g, '""') + '"';
+          return v;
+        });
+        csv.push(vals.join(','));
+      }
+      const blob = new Blob(['\uFEFF' + csv.join('\n')], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'faq-falhas.csv';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
   </script>
 </body>
 </html>
