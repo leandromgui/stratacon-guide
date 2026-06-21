@@ -287,7 +287,7 @@ function AdminLeads() {
                 </tr>
                 {openId === l.id && (
                   <tr className="border-t border-border bg-muted/30">
-                    <td colSpan={7} className="px-3 py-4">
+                    <td colSpan={8} className="px-3 py-4">
                       <LeadDetails lead={l} onChange={(patch) => updateLead(l.id, patch)} />
                     </td>
                   </tr>
@@ -296,7 +296,7 @@ function AdminLeads() {
               ))}
               {leads && filtered.length === 0 && (
                 <tr>
-                  <td colSpan={7} className="px-3 py-8 text-center text-sm text-muted-foreground">
+                  <td colSpan={8} className="px-3 py-8 text-center text-sm text-muted-foreground">
                     Nenhum lead encontrado.
                   </td>
                 </tr>
