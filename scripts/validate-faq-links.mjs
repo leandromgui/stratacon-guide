@@ -259,6 +259,7 @@ function buildHtml({ timestamp, mode }) {
       <option value="asc">Ascendente</option>
       <option value="desc">Descendente</option>
     </select>
+    <button id="highlight-btn" type="button">Destacar falhas</button>
   </div>
 
   <h2>Resumo por motivo</h2>
