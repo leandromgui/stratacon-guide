@@ -1,18 +1,66 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
-const faqs: Array<[string, string]> = [
-  ["A DCON é uma contabilidade online?", "Não. Somos uma firma técnica de consultoria contábil, fiscal, tributária e empresarial. Atendemos presencialmente em Goiânia e remotamente em todo o Brasil, mas a entrega é consultiva — análise técnica, plano de ação e acompanhamento por responsável com CRC ativo — e não meramente transacional."],
-  ["Em quanto tempo o diagnóstico fica pronto?", "Em até 7 dias úteis após o envio da documentação. Entregamos um relatório técnico com mapeamento fiscal, tributário, contábil, trabalhista, societário e patrimonial, mais um plano de ação priorizado por risco, impacto financeiro e prazo de regularização."],
-  ["Quanto custa o diagnóstico técnico da DCON?", "O diagnóstico inicial é apresentado em proposta após uma conversa preliminar de escopo. O valor depende do porte, do número de CNPJs, dos regimes envolvidos e do volume documental. Não cobramos pela conversa inicial nem pela proposta."],
-  ["Trabalham com empresas de qualquer regime tributário?", "Sim — Simples Nacional, Lucro Presumido e Lucro Real. Em muitos casos o próprio diagnóstico revela que a empresa está no regime errado para a operação atual; comparamos cenários antes de qualquer migração e validamos sublimite, Fator R e enquadramento de CNAE."],
-  ["Como funciona a troca de contabilidade para a DCON?", "Conduzimos a transição com plano formal de migração: solicitação técnica ao contador anterior, auditoria de entrada da base recebida, cronograma de assunção de obrigações e revisão dos últimos 5 anos. Não há janela sem responsável técnico — assumimos antes que qualquer prazo vença."],
-  ["A DCON ajuda a recuperar tributos pagos a maior?", "Sim. Fazemos levantamento técnico dos últimos 5 anos em PIS, COFINS, ICMS, INSS e contribuições previdenciárias, com hipóteses como monofásico, alíquota zero, exclusão do ICMS da base, equiparação hospitalar e DIFAL. A recuperação é executada com PER/DCOMP e parecer técnico auditável."],
-  ["Como a DCON conduz a Reforma Tributária (CBS/IBS)?", "Modelamos o impacto da transição 2026–2033 no caixa da empresa, revisamos NCM, CFOP, CST, cClassTrib e contratos, e preparamos o ERP e a apuração assistida para os novos tributos. Para setores específicos (saúde, construção, agro, ISP, e-commerce) aplicamos análise dedicada."],
-  ["Faz sentido constituir uma holding patrimonial?", "Depende do patrimônio, da estrutura familiar e do objetivo (proteção, sucessão, eficiência). Em parte dos casos a recomendação técnica é não constituir — holding sem patrimônio relevante vira custo de manutenção. Avaliamos ITBI, ITCMD e ganho de capital antes de qualquer transferência."],
-  ["Atendem empresas fora de Goiânia?", "Sim. A maior parte do atendimento é remoto, com reuniões técnicas por vídeo, canais auditáveis para documentos e protocolos de revisão cruzada. Mantemos a base operacional em Goiânia e atendemos clientes em todo o Brasil."],
-  ["Atuam como assessoria contínua ou em projetos pontuais?", "Ambos. Há clientes em consultoria mensal contínua (contabilidade, fiscal, DP e governança) e projetos pontuais como recuperação de créditos, reestruturação societária, holding, defesa fiscal e valuation."],
-  ["Quem assina tecnicamente as entregas da DCON?", "Responsável técnico com CRC ativo. Toda recomendação relevante — pareceres, defesas, planejamento, PER/DCOMP e relatórios de diagnóstico — passa por revisão cruzada antes da entrega ao cliente."],
-  ["Como é tratada a confidencialidade das informações?", "Sob sigilo profissional do contador (Código de Ética CFC) e contratos de confidencialidade quando aplicável. Documentos circulam por canais auditáveis com controle de acesso por função e histórico de movimentação."],
+const faqs = [
+  {
+    q: "A DCON é uma contabilidade online?",
+    aPlain: "Não. Somos uma firma técnica de consultoria contábil, fiscal, tributária e empresarial. Atendemos presencialmente em Goiânia e remotamente em todo o Brasil, mas a entrega é consultiva — análise técnica, plano de ação e acompanhamento por responsável com CRC ativo — e não meramente transacional.",
+    a: <>Não. Somos uma firma técnica de consultoria contábil, fiscal, tributária e empresarial. Atendemos presencialmente em Goiânia e remotamente em todo o Brasil, mas a entrega é consultiva — análise técnica, plano de ação e acompanhamento por responsável com CRC ativo — e não meramente transacional.</>,
+  },
+  {
+    q: "Em quanto tempo o diagnóstico fica pronto?",
+    aPlain: "Em até 7 dias úteis após o envio da documentação. Entregamos um relatório técnico com mapeamento fiscal, tributário, contábil, trabalhista, societário e patrimonial, mais um plano de ação priorizado por risco, impacto financeiro e prazo de regularização.",
+    a: <>Em até 7 dias úteis após o envio da documentação. Entregamos um relatório técnico com mapeamento fiscal, tributário, contábil, trabalhista, societário e patrimonial, mais um plano de ação priorizado por risco, impacto financeiro e prazo de regularização. <Link to="/diagnostico" className="underline text-gold hover:no-underline">Solicitar diagnóstico →</Link></>,
+  },
+  {
+    q: "Quanto custa o diagnóstico técnico da DCON?",
+    aPlain: "O diagnóstico inicial é apresentado em proposta após uma conversa preliminar de escopo. O valor depende do porte, do número de CNPJs, dos regimes envolvidos e do volume documental. Não cobramos pela conversa inicial nem pela proposta.",
+    a: <>O diagnóstico inicial é apresentado em proposta após uma conversa preliminar de escopo. O valor depende do porte, do número de CNPJs, dos regimes envolvidos e do volume documental. Não cobramos pela conversa inicial nem pela proposta.</>,
+  },
+  {
+    q: "Trabalham com empresas de qualquer regime tributário?",
+    aPlain: "Sim — Simples Nacional, Lucro Presumido e Lucro Real. Em muitos casos o próprio diagnóstico revela que a empresa está no regime errado para a operação atual; comparamos cenários antes de qualquer migração e validamos sublimite, Fator R e enquadramento de CNAE.",
+    a: <>Sim — Simples Nacional, Lucro Presumido e Lucro Real. Em muitos casos o próprio <Link to="/diagnostico" className="underline text-gold hover:no-underline">diagnóstico</Link> revela que a empresa está no regime errado para a operação atual; comparamos cenários antes de qualquer migração e validamos sublimite, Fator R e enquadramento de CNAE.</>,
+  },
+  {
+    q: "Como funciona a troca de contabilidade para a DCON?",
+    aPlain: "Conduzimos a transição com plano formal de migração: solicitação técnica ao contador anterior, auditoria de entrada da base recebida, cronograma de assunção de obrigações e revisão dos últimos 5 anos. Não há janela sem responsável técnico — assumimos antes que qualquer prazo vença.",
+    a: <>Conduzimos a transição com plano formal de migração: solicitação técnica ao contador anterior, auditoria de entrada da base recebida, cronograma de assunção de obrigações e revisão dos últimos 5 anos. Não há janela sem responsável técnico — assumimos antes que qualquer prazo vença. Veja o passo a passo para <Link to="/solucoes/trocar-contabilidade" className="underline text-gold hover:no-underline">trocar de contabilidade →</Link></>,
+  },
+  {
+    q: "A DCON ajuda a recuperar tributos pagos a maior?",
+    aPlain: "Sim. Fazemos levantamento técnico dos últimos 5 anos em PIS, COFINS, ICMS, INSS e contribuições previdenciárias, com hipóteses como monofásico, alíquota zero, exclusão do ICMS da base, equiparação hospitalar e DIFAL. A recuperação é executada com PER/DCOMP e parecer técnico auditável.",
+    a: <>Sim. Fazemos levantamento técnico dos últimos 5 anos em PIS, COFINS, ICMS, INSS e contribuições previdenciárias, com hipóteses como monofásico, alíquota zero, exclusão do ICMS da base, equiparação hospitalar e DIFAL. A recuperação é executada com PER/DCOMP e parecer técnico auditável. <Link to="/solucoes/recuperacao-creditos-tributarios" className="underline text-gold hover:no-underline">Recuperação de créditos →</Link></>,
+  },
+  {
+    q: "Como a DCON conduz a Reforma Tributária (CBS/IBS)?",
+    aPlain: "Modelamos o impacto da transição 2026–2033 no caixa da empresa, revisamos NCM, CFOP, CST, cClassTrib e contratos, e preparamos o ERP e a apuração assistida para os novos tributos. Para setores específicos (saúde, construção, agro, ISP, e-commerce) aplicamos análise dedicada.",
+    a: <>Modelamos o impacto da transição 2026–2033 no caixa da empresa, revisamos NCM, CFOP, CST, cClassTrib e contratos, e preparamos o ERP e a apuração assistida para os novos tributos. Para setores específicos (saúde, construção, agro, ISP, e-commerce) aplicamos análise dedicada. <Link to="/solucoes/reforma-tributaria" className="underline text-gold hover:no-underline">Reforma Tributária →</Link></>,
+  },
+  {
+    q: "Faz sentido constituir uma holding patrimonial?",
+    aPlain: "Depende do patrimônio, da estrutura familiar e do objetivo (proteção, sucessão, eficiência). Em parte dos casos a recomendação técnica é não constituir — holding sem patrimônio relevante vira custo de manutenção. Avaliamos ITBI, ITCMD e ganho de capital antes de qualquer transferência.",
+    a: <>Depende do patrimônio, da estrutura familiar e do objetivo (proteção, sucessão, eficiência). Em parte dos casos a recomendação técnica é não constituir — holding sem patrimônio relevante vira custo de manutenção. Avaliamos ITBI, ITCMD e ganho de capital antes de qualquer transferência. <Link to="/solucoes/holding-patrimonial" className="underline text-gold hover:no-underline">Holding patrimonial →</Link></>,
+  },
+  {
+    q: "Atendem empresas fora de Goiânia?",
+    aPlain: "Sim. A maior parte do atendimento é remoto, com reuniões técnicas por vídeo, canais auditáveis para documentos e protocolos de revisão cruzada. Mantemos a base operacional em Goiânia e atendemos clientes em todo o Brasil.",
+    a: <>Sim. A maior parte do atendimento é remoto, com reuniões técnicas por vídeo, canais auditáveis para documentos e protocolos de revisão cruzada. Mantemos a base operacional em Goiânia e atendemos clientes em todo o Brasil.</>,
+  },
+  {
+    q: "Atuam como assessoria contínua ou em projetos pontuais?",
+    aPlain: "Ambos. Há clientes em consultoria mensal contínua (contabilidade, fiscal, DP e governança) e projetos pontuais como recuperação de créditos, reestruturação societária, holding, defesa fiscal e valuation. Todo trabalho segue o Método DCON de diagnóstico, estruturação, rotina e acompanhamento.",
+    a: <>Ambos. Há clientes em consultoria mensal contínua (contabilidade, fiscal, DP e governança) e projetos pontuais como recuperação de créditos, reestruturação societária, holding, defesa fiscal e valuation. Todo trabalho segue o <Link to="/metodo" className="underline text-gold hover:no-underline">Método DCON</Link> de diagnóstico, estruturação, rotina e acompanhamento.</>,
+  },
+  {
+    q: "Quem assina tecnicamente as entregas da DCON?",
+    aPlain: "Responsável técnico com CRC ativo. Toda recomendação relevante — pareceres, defesas, planejamento, PER/DCOMP e relatórios de diagnóstico — passa por revisão cruzada antes da entrega ao cliente.",
+    a: <>Responsável técnico com CRC ativo. Toda recomendação relevante — pareceres, defesas, planejamento, PER/DCOMP e relatórios de <Link to="/diagnostico" className="underline text-gold hover:no-underline">diagnóstico</Link> — passa por revisão cruzada antes da entrega ao cliente.</>,
+  },
+  {
+    q: "Como é tratada a confidencialidade das informações?",
+    aPlain: "Sob sigilo profissional do contador (Código de Ética CFC) e contratos de confidencialidade quando aplicável. Documentos circulam por canais auditáveis com controle de acesso por função e histórico de movimentação.",
+    a: <>Sob sigilo profissional do contador (Código de Ética CFC) e contratos de confidencialidade quando aplicável. Documentos circulam por canais auditáveis com controle de acesso por função e histórico de movimentação.</>,
+  },
 ];
 
 export const Route = createFileRoute("/")({
