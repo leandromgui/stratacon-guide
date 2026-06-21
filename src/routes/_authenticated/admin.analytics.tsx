@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
 type EventRow = {
@@ -10,6 +10,7 @@ type EventRow = {
   page_path: string | null;
   session_id: string | null;
   created_at: string;
+  metadata: Record<string, unknown> | null;
 };
 
 type LeadRow = {
@@ -44,7 +45,7 @@ function Page() {
     Promise.all([
       supabase
         .from("analytics_events")
-        .select("event_name,faq_question,cta_label,cta_target,page_path,session_id,created_at")
+        .select("event_name,faq_question,cta_label,cta_target,page_path,session_id,created_at,metadata")
         .gte("created_at", since)
         .order("created_at", { ascending: false })
         .limit(5000),
