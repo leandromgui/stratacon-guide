@@ -174,7 +174,7 @@ function buildHtml({ timestamp, mode }) {
   const failureRows = failures
     .map((f, i) => {
       const types = f.reasons.join("; ");
-      return `<tr data-types="${escapeHtml(types)}"><td>${i + 1}</td><td>${escapeHtml(f.question)}</td><td><code>${escapeHtml(f.to)}</code></td><td>${escapeHtml(f.reasons.join("; "))}</td></tr>`;
+      return `<tr data-types="${escapeHtml(types)}" data-path="${escapeHtml(f.to)}"><td>${i + 1}</td><td>${escapeHtml(f.question)}</td><td><code>${escapeHtml(f.to)}</code></td><td>${escapeHtml(f.reasons.join("; "))}</td></tr>`;
     })
     .join("\n");
 
