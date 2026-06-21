@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { HeatmapTracker } from "../components/HeatmapTracker";
 
 const faqPlain = [
   {
@@ -414,10 +415,11 @@ function Page() {
       ]}
     >
       <div className="space-y-20">
-        <AlertBanner />
-        <ChecklistBlock />
-        <GoodPracticeCards />
-        <TrustMicrocopy />
+        <HeatmapTracker pageKey="conteudos/holding-familiar" />
+        <div data-heatmap-section="alerta-inicial"><AlertBanner /></div>
+        <div data-heatmap-section="checklist"><ChecklistBlock /></div>
+        <div data-heatmap-section="boas-praticas"><GoodPracticeCards /></div>
+        <div data-heatmap-section="microcopy-confianca"><TrustMicrocopy /></div>
       </div>
     </PageScaffold>
   );
