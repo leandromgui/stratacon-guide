@@ -30,6 +30,7 @@ export interface PageScaffoldProps {
   risks?: H3Item[];
   documents?: string[];
   faq?: FaqItem[];
+  deliverables?: H3Item[];
 }
 
 function Eyebrow({ children }: { children: ReactNode }) {
@@ -172,6 +173,38 @@ export function PageScaffold(p: PageScaffoldProps) {
                   </li>
                 ))}
               </ol>
+            </div>
+          </section>
+        )}
+
+        {p.deliverables && p.deliverables.length > 0 && (
+          <section className="border-t border-border pt-16">
+            <div className="grid lg:grid-cols-12 gap-10">
+              <header className="lg:col-span-4">
+                <Eyebrow>Entregáveis</Eyebrow>
+                <h2 className="mt-4 font-display text-3xl tracking-tight">
+                  O que você recebe ao final.
+                </h2>
+                <p className="mt-4 text-muted-foreground text-[15px] leading-relaxed">
+                  Material técnico, auditável e arquivado. Tudo o que é recomendado fica
+                  documentado e justificado.
+                </p>
+              </header>
+              <ul className="lg:col-span-8 grid sm:grid-cols-2 gap-px bg-border border border-border">
+                {p.deliverables.map((d, i) => (
+                  <li key={d.title} className="bg-card p-6">
+                    <div className="flex items-baseline gap-3">
+                      <span className="font-display text-gold text-sm">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="font-display text-[17px]">{d.title}</h3>
+                    </div>
+                    <p className="mt-2 text-muted-foreground text-[14px] leading-relaxed pl-8">
+                      {d.body}
+                    </p>
+                  </li>
+                ))}
+              </ul>
             </div>
           </section>
         )}
