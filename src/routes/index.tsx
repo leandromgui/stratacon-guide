@@ -405,21 +405,27 @@ function Home() {
           <header className="lg:col-span-4">
             <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Perguntas frequentes</div>
             <h2 className="mt-4 font-display text-3xl md:text-4xl tracking-tight leading-[1.05]">
-              Como funciona uma firma de consultoria contábil.
+              Como funciona a consultoria contábil, tributária e patrimonial da DCON.
             </h2>
+            <p className="mt-5 text-[14px] leading-relaxed text-muted-foreground">
+              Respostas técnicas para as dúvidas mais comuns de sócios e CFOs antes
+              de solicitar o diagnóstico — escopo, prazo, custo, troca de contador,
+              recuperação de créditos, reforma tributária e holding.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/diagnostico" className="inline-flex items-center bg-secondary text-secondary-foreground px-5 py-3 text-[11px] uppercase tracking-[0.18em] hover:bg-primary">
+                Solicitar diagnóstico →
+              </Link>
+              <Link to="/metodo" className="inline-flex items-center border border-gold px-5 py-3 text-[11px] uppercase tracking-[0.18em] text-secondary hover:bg-gold hover:text-gold-foreground">
+                ● Método DCON
+              </Link>
+            </div>
           </header>
           <div className="lg:col-span-8 divide-y divide-border border-y border-border">
-            {[
-              ["A DCON é uma contabilidade online?", "Não. Somos uma firma técnica de consultoria contábil, fiscal, tributária e empresarial. Atendemos presencialmente em Goiânia e remotamente em todo o Brasil, mas a entrega é consultiva, não transacional."],
-              ["Em quanto tempo o diagnóstico fica pronto?", "Em até 7 dias úteis após o envio da documentação. Entregamos relatório técnico com plano de ação priorizado por risco e impacto."],
-              ["Trabalham com empresas de qualquer regime?", "Sim — Simples Nacional, Lucro Presumido e Lucro Real. Frequentemente o próprio diagnóstico revela que a empresa está no regime errado."],
-              ["Atendem empresas fora de Goiânia?", "Sim. A maior parte do nosso atendimento é remoto, com reuniões técnicas agendadas por vídeo e protocolos auditáveis."],
-              ["Atuam como assessoria contínua ou pontual?", "Ambos. Há clientes em consultoria mensal contínua e projetos pontuais como recuperação de créditos, reestruturação societária e defesa fiscal."],
-              ["Quem assina tecnicamente as entregas?", "Responsável técnico com CRC ativo. Toda recomendação relevante passa por revisão cruzada antes da entrega."],
-            ].map(([q, a]) => (
-              <details key={q} className="group py-5">
+            {faqs.map(([q, a], i) => (
+              <details key={q} className="group py-5" open={i === 0}>
                 <summary className="cursor-pointer list-none flex items-start justify-between gap-6">
-                  <span className="font-display text-[17px]">{q}</span>
+                  <h3 className="font-display text-[17px] m-0 font-normal">{q}</h3>
                   <span className="text-gold text-xl leading-none group-open:rotate-45 transition-transform">+</span>
                 </summary>
                 <p className="mt-3 text-muted-foreground text-[14px] leading-relaxed pr-10">{a}</p>
