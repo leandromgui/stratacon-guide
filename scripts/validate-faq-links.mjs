@@ -380,6 +380,13 @@ ${rows}
     statusSelect.addEventListener('change', apply);
     pathInput.addEventListener('input', apply);
     for (const cb of typeChecks) cb.addEventListener('change', apply);
+
+    const highlightBtn = document.getElementById('highlight-btn');
+    highlightBtn.addEventListener('click', () => {
+      document.body.classList.toggle('highlight-failures');
+      highlightBtn.classList.toggle('active');
+      highlightBtn.textContent = document.body.classList.contains('highlight-failures') ? 'Falhas destacadas' : 'Destacar falhas';
+    });
   </script>
 </body>
 </html>
