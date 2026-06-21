@@ -14,11 +14,11 @@ const entries: SitemapEntry[] = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
   { path: "/diagnostico", changefreq: "monthly", priority: "0.9" },
   { path: "/metodo", changefreq: "monthly", priority: "0.9" },
+  { path: "/temas-estrategicos", changefreq: "monthly", priority: "0.8" },
   { path: "/contato", changefreq: "monthly", priority: "0.7" },
   { path: "/goiania", changefreq: "monthly", priority: "0.7" },
   { path: "/sobre", changefreq: "monthly", priority: "0.7" },
   { path: "/sobre/leandro", changefreq: "monthly", priority: "0.6" },
-  { path: "/sobre/metodologia", changefreq: "monthly", priority: "0.6" },
   // Soluções
   { path: "/solucoes", changefreq: "weekly", priority: "0.9" },
   { path: "/solucoes/contabilidade-empresarial", changefreq: "monthly", priority: "0.8" },
@@ -55,19 +55,9 @@ const entries: SitemapEntry[] = [
   { path: "/segmentos/condominios", changefreq: "monthly", priority: "0.6" },
   { path: "/segmentos/terceiro-setor", changefreq: "monthly", priority: "0.6" },
   { path: "/segmentos/produtor-rural", changefreq: "monthly", priority: "0.7" },
-  { path: "/segmentos/simples-nacional", changefreq: "monthly", priority: "0.7" },
-  { path: "/segmentos/lucro-presumido", changefreq: "monthly", priority: "0.7" },
-  { path: "/segmentos/lucro-real", changefreq: "monthly", priority: "0.7" },
-  { path: "/segmentos/pendencias-fiscais", changefreq: "monthly", priority: "0.7" },
   // Conteúdos
   { path: "/conteudos", changefreq: "weekly", priority: "0.8" },
-  { path: "/conteudos/planejamento-tributario", changefreq: "monthly", priority: "0.7" },
-  { path: "/conteudos/regularizacao-fiscal", changefreq: "monthly", priority: "0.7" },
   { path: "/conteudos/regimes-tributarios", changefreq: "monthly", priority: "0.7" },
-  { path: "/conteudos/holding-patrimonio", changefreq: "monthly", priority: "0.7" },
-  { path: "/conteudos/dp-esocial", changefreq: "monthly", priority: "0.7" },
-  { path: "/conteudos/comercio-icms", changefreq: "monthly", priority: "0.7" },
-  { path: "/conteudos/saude-clinicas", changefreq: "monthly", priority: "0.7" },
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({
