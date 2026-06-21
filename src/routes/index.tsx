@@ -92,7 +92,7 @@ function Home() {
             </div>
             <div className="grid grid-cols-3 gap-6 pt-6 border-t border-secondary-foreground/15">
               {[
-                ["+12", "anos de atuação"],
+                ["+20", "anos de atuação"],
                 ["+500", "empresas atendidas"],
                 ["7d", "diagnóstico"],
               ].map(([n, l]) => (
