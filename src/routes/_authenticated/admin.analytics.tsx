@@ -158,6 +158,28 @@ function Page() {
     return { opens, clicks, leads: leads.length };
   }, [events, leads]);
 
+  const quickDays: QuickRange[] = [7, 30, 90];
+  const [dateStart, setDateStart] = useState<Date | undefined>(undefined);
+  const [dateEnd, setDateEnd] = useState<Date | undefined>(undefined);
+
+  const isQuick = filter.mode === "quick";
+  const activeQuick = isQuick ? filter.days : null;
+
+  function applyQuick(d: QuickRange) {
+    setFilter({ mode: "quick", days: d });
+  }
+
+  function applyCustom() {
+    if (!dateStart || !dateEnd) return;
+    setFilter({ mode: "custom", start: dateStart, end: dateEnd });
+  }
+
+  function clearCustom() {
+    setDateStart(undefined);
+    setDateEnd(undefined);
+    setFilter({ mode: "quick", days: 30 });
+  }
+
   return (
     <div className="mx-auto max-w-7xl px-6 py-12">
       <header className="flex flex-wrap items-end justify-between gap-4">
@@ -166,21 +188,110 @@ function Page() {
           <h1 className="mt-2 font-display text-3xl tracking-tight">FAQ × Leads</h1>
           <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
             Quais perguntas geram mais aberturas, cliques em CTAs do diagnóstico e leads efetivos
-            nos últimos {days} dias.
+            no período: <span className="text-foreground font-medium">{periodLabel(filter)}</span>.
           </p>
         </div>
-        <div className="flex gap-2">
-          {[7, 30, 90].map((d) => (
+        <div className="flex flex-wrap items-center gap-2">
+          {quickDays.map((d) => (
             <button
               key={d}
-              onClick={() => setDays(d)}
+              onClick={() => applyQuick(d)}
               className={`text-[11px] uppercase tracking-[0.16em] border px-3 py-2 ${
-                days === d ? "border-gold text-gold" : "border-border hover:border-gold/60"
+                activeQuick === d ? "border-gold text-gold" : "border-border hover:border-gold/60"
               }`}
             >
               {d} dias
             </button>
           ))}
+
+          <Popover>
+            <PopoverTrigger asChild>
+              <button
+                type="button"
+                className={`text-[11px] uppercase tracking-[0.16em] border px-3 py-2 flex items-center gap-1.5 ${
+                  filter.mode === "custom" ? "border-gold text-gold" : "border-border hover:border-gold/60"
+                }`}
+              >
+                <CalendarIcon className="size-3.5" />
+                {filter.mode === "custom" ? `${format(filter.start, "dd/MM")} – ${format(filter.end, "dd/MM")}` : "Custom"}
+              </button>
+            </PopoverTrigger>
+            <PopoverContent className="w-auto p-3 pointer-events-auto" align="end">
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center gap-2">
+                  <div className="flex flex-col gap-1">
+                    <span className="text-[10px] uppercase tracking-[0.16em] text-muted-foreground">De</span>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <button
+                          type="button"
+                          className={cn(
+                            "text-sm border border-border px-2 py-1.5 min-w-[120px] text-left flex items-center justify-between",
+                            !dateStart && "text-muted-foreground"
+                          )}
+                        >
+                          {dateStart ? format(dateStart, "dd/MM/yyyy") : "Início"}
+                          <CalendarIcon className="size-3.5 text-muted-foreground" />
+                        </button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0 pointer-events-auto" align="start">
+                        <Calendar
+                          mode="single"
+                          selected={dateStart}
+                          onSelect={setDateStart}
+                          initialFocus
+                          className="p-3 pointer-events-auto"
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  </div>
+                  <div className="flex flex-col gap-1">
+                    <span className="text-[10px] uppercase tracking-[0.16em] text-muted-foreground">Até</span>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <button
+                          type="button"
+                          className={cn(
+                            "text-sm border border-border px-2 py-1.5 min-w-[120px] text-left flex items-center justify-between",
+                            !dateEnd && "text-muted-foreground"
+                          )}
+                        >
+                          {dateEnd ? format(dateEnd, "dd/MM/yyyy") : "Fim"}
+                          <CalendarIcon className="size-3.5 text-muted-foreground" />
+                        </button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0 pointer-events-auto" align="start">
+                        <Calendar
+                          mode="single"
+                          selected={dateEnd}
+                          onSelect={setDateEnd}
+                          initialFocus
+                          className="p-3 pointer-events-auto"
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={applyCustom}
+                    disabled={!dateStart || !dateEnd}
+                    className="text-[11px] uppercase tracking-[0.16em] border px-3 py-2 border-gold text-gold hover:bg-gold/10 disabled:opacity-40 disabled:hover:bg-transparent"
+                  >
+                    Aplicar
+                  </button>
+                  <button
+                    type="button"
+                    onClick={clearCustom}
+                    className="text-[11px] uppercase tracking-[0.16em] border px-3 py-2 border-border hover:border-gold/60"
+                  >
+                    Limpar
+                  </button>
+                </div>
+              </div>
+            </PopoverContent>
+          </Popover>
         </div>
       </header>
 
