@@ -207,8 +207,9 @@ function buildHtml({ timestamp, mode }) {
   .card.fail .value { color: #c0392b; }
   .card.ok .value { color: #1e8449; }
   .filters { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 1.5rem; padding: .75rem 1rem; border: 1px solid #8883; border-radius: 8px; }
-  #highlight-btn { padding: .35rem .7rem; border: 1px solid #8885; border-radius: 4px; background: #fff; cursor: pointer; font-size: .85rem; }
+  #highlight-btn, #export-csv-btn { padding: .35rem .7rem; border: 1px solid #8885; border-radius: 4px; background: #fff; cursor: pointer; font-size: .85rem; }
   #highlight-btn.active { background: #c0392b; color: #fff; border-color: #c0392b; }
+  #export-csv-btn { margin-left: .5rem; }
   .highlight-failures tr.fail { background: #ffeaea !important; outline: 2px solid #c0392b; outline-offset: -2px; }
   .highlight-failures #failures-table tbody tr { background: #ffeaea !important; outline: 2px solid #c0392b; outline-offset: -2px; }
   .filters label { font-size: .85rem; }
@@ -260,6 +261,7 @@ function buildHtml({ timestamp, mode }) {
       <option value="desc">Descendente</option>
     </select>
     <button id="highlight-btn" type="button">Destacar falhas</button>
+    <button id="export-csv-btn" type="button">Exportar CSV</button>
   </div>
 
   <h2>Resumo por motivo</h2>
@@ -386,6 +388,33 @@ ${rows}
       document.body.classList.toggle('highlight-failures');
       highlightBtn.classList.toggle('active');
       highlightBtn.textContent = document.body.classList.contains('highlight-failures') ? 'Falhas destacadas' : 'Destacar falhas';
+    });
+
+    document.getElementById('export-csv-btn').addEventListener('click', () => {
+      const table = document.getElementById('failures-table');
+      if (!table) return;
+      const rows = Array.from(table.querySelectorAll('tbody tr')).filter(r => !r.classList.contains('hidden'));
+      if (rows.length === 0) { alert('Nenhuma falha visível para exportar.'); return; }
+      const csv = [];
+      csv.push(['#','Pergunta','Link','Motivo'].join(','));
+      for (const row of rows) {
+        const cells = Array.from(row.cells);
+        const vals = cells.map(c => {
+          let v = c.textContent.replace(/\s+/g, ' ').trim();
+          if (/[\",\n]/.test(v)) v = '"' + v.replace(/"/g, '""') + '"';
+          return v;
+        });
+        csv.push(vals.join(','));
+      }
+      const blob = new Blob(['\uFEFF' + csv.join('\n')], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'faq-falhas.csv';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
     });
   </script>
 </body>
