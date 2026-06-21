@@ -207,6 +207,10 @@ function buildHtml({ timestamp, mode }) {
   .card.fail .value { color: #c0392b; }
   .card.ok .value { color: #1e8449; }
   .filters { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 1.5rem; padding: .75rem 1rem; border: 1px solid #8883; border-radius: 8px; }
+  #highlight-btn { padding: .35rem .7rem; border: 1px solid #8885; border-radius: 4px; background: #fff; cursor: pointer; font-size: .85rem; }
+  #highlight-btn.active { background: #c0392b; color: #fff; border-color: #c0392b; }
+  .highlight-failures tr.fail { background: #ffeaea !important; outline: 2px solid #c0392b; outline-offset: -2px; }
+  .highlight-failures #failures-table tbody tr { background: #ffeaea !important; outline: 2px solid #c0392b; outline-offset: -2px; }
   .filters label { font-size: .85rem; }
   .filters input[type="text"] { padding: .35rem .5rem; border: 1px solid #8885; border-radius: 4px; font-size: .85rem; min-width: 220px; }
   .chip { display: inline-flex; align-items: center; gap: .25rem; padding: .25rem .5rem; border-radius: 999px; border: 1px solid #8884; font-size: .82rem; cursor: pointer; user-select: none; }
