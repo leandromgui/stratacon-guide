@@ -14,9 +14,21 @@ export const Route = createFileRoute("/conteudos/$category")({
   beforeLoad: ({ params }) => {
     if (!getCategory(params.category)) throw notFound();
   },
-  loader: ({ params }) => {
+  loader: ({ params, search }) => {
     const category = getCategory(params.category)!;
-    return { category };
+    const total = category.articles.length;
+    const totalPages = Math.max(1, Math.ceil(total / 6));
+    const current = Math.min(Math.max(1, parsePage(search.p)), totalPages);
+
+    const base = `/conteudos/${category.slug}`;
+    return {
+      category,
+      current,
+      totalPages,
+      canonical: current === 1 ? base : `${base}?p=${current}`,
+      prevUrl: current > 1 ? (current === 2 ? base : `${base}?p=${current - 1}`) : null,
+      nextUrl: current < totalPages ? `${base}?p=${current + 1}` : null,
+    };
   },
   head: ({ params, loaderData }) => {
     const c = loaderData?.category ?? getCategory(params.category);
