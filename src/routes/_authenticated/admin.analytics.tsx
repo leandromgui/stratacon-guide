@@ -36,30 +36,60 @@ export const Route = createFileRoute("/_authenticated/admin/analytics")({
   component: Page,
 });
 
+type QuickRange = 7 | 30 | 90;
+
+type FilterState =
+  | { mode: "quick"; days: QuickRange }
+  | { mode: "custom"; start: Date; end: Date };
+
+function startOfDayUtc(d: Date) {
+  const copy = new Date(d);
+  copy.setHours(0, 0, 0, 0);
+  return copy.toISOString();
+}
+
+function endOfDayUtc(d: Date) {
+  const copy = new Date(d);
+  copy.setHours(23, 59, 59, 999);
+  return copy.toISOString();
+}
+
+function periodLabel(f: FilterState) {
+  if (f.mode === "quick") return `últimos ${f.days} dias`;
+  return `${format(f.start, "dd/MM/yyyy")} – ${format(f.end, "dd/MM/yyyy")}`;
+}
+
 function Page() {
   const [events, setEvents] = useState<EventRow[]>([]);
   const [leads, setLeads] = useState<LeadRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [days, setDays] = useState(30);
+  const [filter, setFilter] = useState<FilterState>({ mode: "quick", days: 30 });
 
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
-    const since = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
-    Promise.all([
-      supabase
-        .from("analytics_events")
-        .select("event_name,faq_question,cta_label,cta_target,page_path,session_id,created_at,metadata")
-        .gte("created_at", since)
-        .order("created_at", { ascending: false })
-        .limit(5000),
-      supabase
-        .from("leads")
-        .select("session_id,last_faq_question,created_at")
-        .gte("created_at", since)
-        .limit(5000),
-    ])
+
+    let evQuery = supabase
+      .from("analytics_events")
+      .select("event_name,faq_question,cta_label,cta_target,page_path,session_id,created_at,metadata")
+      .order("created_at", { ascending: false })
+      .limit(5000);
+    let ldQuery = supabase
+      .from("leads")
+      .select("session_id,last_faq_question,created_at")
+      .limit(5000);
+
+    if (filter.mode === "quick") {
+      const since = new Date(Date.now() - filter.days * 24 * 60 * 60 * 1000).toISOString();
+      evQuery = evQuery.gte("created_at", since);
+      ldQuery = ldQuery.gte("created_at", since);
+    } else {
+      evQuery = evQuery.gte("created_at", startOfDayUtc(filter.start)).lte("created_at", endOfDayUtc(filter.end));
+      ldQuery = ldQuery.gte("created_at", startOfDayUtc(filter.start)).lte("created_at", endOfDayUtc(filter.end));
+    }
+
+    Promise.all([evQuery, ldQuery])
       .then(([ev, ld]) => {
         if (cancelled) return;
         if (ev.error) setError(ev.error.message);
@@ -73,7 +103,7 @@ function Page() {
     return () => {
       cancelled = true;
     };
-  }, [days]);
+  }, [filter]);
 
   const byQuestion = useMemo<Row[]>(() => {
     const map = new Map<string, Row>();
