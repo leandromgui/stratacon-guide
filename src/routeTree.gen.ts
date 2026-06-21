@@ -39,6 +39,7 @@ import { Route as SobreLeandroRouteImport } from './routes/sobre.leandro'
 import { Route as SegmentosTerceiroSetorRouteImport } from './routes/segmentos.terceiro-setor'
 import { Route as SegmentosTecnologiaStartupsRouteImport } from './routes/segmentos.tecnologia-startups'
 import { Route as SegmentosSimplesNacionalRouteImport } from './routes/segmentos.simples-nacional'
+import { Route as SegmentosProvedoresInternetRouteImport } from './routes/segmentos.provedores-internet'
 import { Route as SegmentosProdutorRuralRouteImport } from './routes/segmentos.produtor-rural'
 import { Route as SegmentosPrestadoresServicosRouteImport } from './routes/segmentos.prestadores-servicos'
 import { Route as SegmentosPendenciasFiscaisRouteImport } from './routes/segmentos.pendencias-fiscais'
@@ -227,6 +228,12 @@ const SegmentosSimplesNacionalRoute =
     path: '/segmentos/simples-nacional',
     getParentRoute: () => rootRouteImport,
   } as any)
+const SegmentosProvedoresInternetRoute =
+  SegmentosProvedoresInternetRouteImport.update({
+    id: '/segmentos/provedores-internet',
+    path: '/segmentos/provedores-internet',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SegmentosProdutorRuralRoute = SegmentosProdutorRuralRouteImport.update({
   id: '/segmentos/produtor-rural',
   path: '/segmentos/produtor-rural',
@@ -375,6 +382,7 @@ export interface FileRoutesByFullPath {
   '/segmentos/pendencias-fiscais': typeof SegmentosPendenciasFiscaisRoute
   '/segmentos/prestadores-servicos': typeof SegmentosPrestadoresServicosRoute
   '/segmentos/produtor-rural': typeof SegmentosProdutorRuralRoute
+  '/segmentos/provedores-internet': typeof SegmentosProvedoresInternetRoute
   '/segmentos/simples-nacional': typeof SegmentosSimplesNacionalRoute
   '/segmentos/tecnologia-startups': typeof SegmentosTecnologiaStartupsRoute
   '/segmentos/terceiro-setor': typeof SegmentosTerceiroSetorRoute
@@ -429,6 +437,7 @@ export interface FileRoutesByTo {
   '/segmentos/pendencias-fiscais': typeof SegmentosPendenciasFiscaisRoute
   '/segmentos/prestadores-servicos': typeof SegmentosPrestadoresServicosRoute
   '/segmentos/produtor-rural': typeof SegmentosProdutorRuralRoute
+  '/segmentos/provedores-internet': typeof SegmentosProvedoresInternetRoute
   '/segmentos/simples-nacional': typeof SegmentosSimplesNacionalRoute
   '/segmentos/tecnologia-startups': typeof SegmentosTecnologiaStartupsRoute
   '/segmentos/terceiro-setor': typeof SegmentosTerceiroSetorRoute
@@ -484,6 +493,7 @@ export interface FileRoutesById {
   '/segmentos/pendencias-fiscais': typeof SegmentosPendenciasFiscaisRoute
   '/segmentos/prestadores-servicos': typeof SegmentosPrestadoresServicosRoute
   '/segmentos/produtor-rural': typeof SegmentosProdutorRuralRoute
+  '/segmentos/provedores-internet': typeof SegmentosProvedoresInternetRoute
   '/segmentos/simples-nacional': typeof SegmentosSimplesNacionalRoute
   '/segmentos/tecnologia-startups': typeof SegmentosTecnologiaStartupsRoute
   '/segmentos/terceiro-setor': typeof SegmentosTerceiroSetorRoute
@@ -540,6 +550,7 @@ export interface FileRouteTypes {
     | '/segmentos/pendencias-fiscais'
     | '/segmentos/prestadores-servicos'
     | '/segmentos/produtor-rural'
+    | '/segmentos/provedores-internet'
     | '/segmentos/simples-nacional'
     | '/segmentos/tecnologia-startups'
     | '/segmentos/terceiro-setor'
@@ -594,6 +605,7 @@ export interface FileRouteTypes {
     | '/segmentos/pendencias-fiscais'
     | '/segmentos/prestadores-servicos'
     | '/segmentos/produtor-rural'
+    | '/segmentos/provedores-internet'
     | '/segmentos/simples-nacional'
     | '/segmentos/tecnologia-startups'
     | '/segmentos/terceiro-setor'
@@ -648,6 +660,7 @@ export interface FileRouteTypes {
     | '/segmentos/pendencias-fiscais'
     | '/segmentos/prestadores-servicos'
     | '/segmentos/produtor-rural'
+    | '/segmentos/provedores-internet'
     | '/segmentos/simples-nacional'
     | '/segmentos/tecnologia-startups'
     | '/segmentos/terceiro-setor'
@@ -703,6 +716,7 @@ export interface RootRouteChildren {
   SegmentosPendenciasFiscaisRoute: typeof SegmentosPendenciasFiscaisRoute
   SegmentosPrestadoresServicosRoute: typeof SegmentosPrestadoresServicosRoute
   SegmentosProdutorRuralRoute: typeof SegmentosProdutorRuralRoute
+  SegmentosProvedoresInternetRoute: typeof SegmentosProvedoresInternetRoute
   SegmentosSimplesNacionalRoute: typeof SegmentosSimplesNacionalRoute
   SegmentosTecnologiaStartupsRoute: typeof SegmentosTecnologiaStartupsRoute
   SegmentosTerceiroSetorRoute: typeof SegmentosTerceiroSetorRoute
@@ -940,6 +954,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SegmentosSimplesNacionalRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/segmentos/provedores-internet': {
+      id: '/segmentos/provedores-internet'
+      path: '/segmentos/provedores-internet'
+      fullPath: '/segmentos/provedores-internet'
+      preLoaderRoute: typeof SegmentosProvedoresInternetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/segmentos/produtor-rural': {
       id: '/segmentos/produtor-rural'
       path: '/segmentos/produtor-rural'
@@ -1137,6 +1158,7 @@ const rootRouteChildren: RootRouteChildren = {
   SegmentosPendenciasFiscaisRoute: SegmentosPendenciasFiscaisRoute,
   SegmentosPrestadoresServicosRoute: SegmentosPrestadoresServicosRoute,
   SegmentosProdutorRuralRoute: SegmentosProdutorRuralRoute,
+  SegmentosProvedoresInternetRoute: SegmentosProvedoresInternetRoute,
   SegmentosSimplesNacionalRoute: SegmentosSimplesNacionalRoute,
   SegmentosTecnologiaStartupsRoute: SegmentosTecnologiaStartupsRoute,
   SegmentosTerceiroSetorRoute: SegmentosTerceiroSetorRoute,
