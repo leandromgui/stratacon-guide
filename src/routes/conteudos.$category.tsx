@@ -14,11 +14,11 @@ export const Route = createFileRoute("/conteudos/$category")({
   beforeLoad: ({ params }) => {
     if (!getCategory(params.category)) throw notFound();
   },
-  loader: ({ params, search }) => {
+  loader: ({ params, location }) => {
     const category = getCategory(params.category)!;
     const total = category.articles.length;
     const totalPages = Math.max(1, Math.ceil(total / 6));
-    const current = Math.min(Math.max(1, parsePage(search.p)), totalPages);
+    const current = Math.min(Math.max(1, parsePage((location.search as { p?: unknown }).p)), totalPages);
 
     const base = `/conteudos/${category.slug}`;
     return {
