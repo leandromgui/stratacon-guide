@@ -30,6 +30,30 @@ export function FollowupRulesCard() {
   const [open, setOpen] = useState(false);
   const [savingStatus, setSavingStatus] = useState<Status | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [historyOpen, setHistoryOpen] = useState(false);
+  const [history, setHistory] = useState<HistoryEntry[] | null>(null);
+  const [historyError, setHistoryError] = useState<string | null>(null);
+  const [historyLoading, setHistoryLoading] = useState(false);
+
+  async function loadHistory() {
+    setHistoryLoading(true);
+    setHistoryError(null);
+    const { data, error } = await supabase
+      .from("lead_followup_rules_history" as never)
+      .select("*")
+      .order("created_at", { ascending: false })
+      .limit(100);
+    setHistoryLoading(false);
+    if (error) {
+      setHistoryError(error.message);
+      return;
+    }
+    setHistory((data as unknown as HistoryEntry[]) ?? []);
+  }
+
+  useEffect(() => {
+    if (historyOpen && history === null) void loadHistory();
+  }, [historyOpen, history]);
 
   useEffect(() => {
     supabase
@@ -67,6 +91,8 @@ export function FollowupRulesCard() {
       return;
     }
     setRules((prev) => prev?.map((r) => (r.status === status ? (data as Rule) : r)) ?? null);
+    if (historyOpen) void loadHistory();
+    else setHistory(null);
   }
 
   return (
@@ -178,6 +204,70 @@ export function FollowupRulesCard() {
             Dica: deixe “Perdido” desativado para não reabrir lembretes de leads encerrados. As mudanças aplicam-se a partir
             da próxima alteração de status; leads atuais mantêm a data já agendada.
           </p>
+
+          <div className="mt-5 border-t border-border pt-4">
+            <button
+              onClick={() => setHistoryOpen((v) => !v)}
+              className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground hover:text-foreground transition"
+            >
+              <span>{historyOpen ? "▾" : "▸"}</span>
+              <span>Histórico de alterações</span>
+              {history && <span className="normal-case tracking-normal">({history.length})</span>}
+            </button>
+            {historyOpen && (
+              <div className="mt-3">
+                {historyError && (
+                  <div className="mb-3 border border-destructive/40 bg-destructive/10 text-destructive text-xs p-2 rounded-sm">
+                    {historyError}
+                  </div>
+                )}
+                {historyLoading && <p className="text-xs text-muted-foreground">Carregando…</p>}
+                {!historyLoading && history && history.length === 0 && (
+                  <p className="text-xs text-muted-foreground">Nenhuma alteração registrada.</p>
+                )}
+                {!historyLoading && history && history.length > 0 && (
+                  <ul className="space-y-2 max-h-72 overflow-y-auto pr-1">
+                    {history.map((h) => (
+                      <li
+                        key={h.id}
+                        className="text-xs border border-border rounded-sm px-3 py-2 bg-background/40"
+                      >
+                        <div className="flex items-center justify-between gap-3">
+                          <span className="font-medium">{LABEL[h.status]}</span>
+                          <span className="text-muted-foreground">
+                            {new Date(h.created_at).toLocaleString("pt-BR")}
+                          </span>
+                        </div>
+                        <div className="mt-1 text-muted-foreground space-y-0.5">
+                          {h.prev_suggest_after_hours !== h.new_suggest_after_hours && (
+                            <div>
+                              Sugerir em: <span className="line-through">{h.prev_suggest_after_hours ?? "—"}h</span>{" "}
+                              → <span className="text-foreground">{h.new_suggest_after_hours ?? "—"}h</span>
+                            </div>
+                          )}
+                          {h.prev_remind_after_hours !== h.new_remind_after_hours && (
+                            <div>
+                              Lembrete após: <span className="line-through">{h.prev_remind_after_hours ?? "—"}h</span>{" "}
+                              → <span className="text-foreground">{h.new_remind_after_hours ?? "—"}h</span>
+                            </div>
+                          )}
+                          {h.prev_enabled !== h.new_enabled && (
+                            <div>
+                              Ativa: <span className="line-through">{String(h.prev_enabled ?? "—")}</span>{" "}
+                              → <span className="text-foreground">{String(h.new_enabled)}</span>
+                            </div>
+                          )}
+                          <div className="text-[10px] uppercase tracking-[0.16em] mt-1">
+                            Autor: {h.changed_by ? h.changed_by.slice(0, 8) : "sistema"}
+                          </div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>
@@ -185,3 +275,16 @@ export function FollowupRulesCard() {
 }
 
 export type FollowupRule = Rule;
+
+type HistoryEntry = {
+  id: string;
+  status: Status;
+  prev_suggest_after_hours: number | null;
+  new_suggest_after_hours: number | null;
+  prev_remind_after_hours: number | null;
+  new_remind_after_hours: number | null;
+  prev_enabled: boolean | null;
+  new_enabled: boolean;
+  changed_by: string | null;
+  created_at: string;
+};
