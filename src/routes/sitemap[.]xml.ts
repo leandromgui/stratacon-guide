@@ -57,6 +57,13 @@ const entries: SitemapEntry[] = [
   { path: "/segmentos/produtor-rural", changefreq: "monthly", priority: "0.7" },
   // Conteúdos
   { path: "/conteudos", changefreq: "weekly", priority: "0.8" },
+  // Categorias (rotas dedicadas)
+  { path: "/conteudos/tributario", changefreq: "weekly", priority: "0.8" },
+  { path: "/conteudos/defesa-fiscal", changefreq: "weekly", priority: "0.8" },
+  { path: "/conteudos/patrimonio", changefreq: "weekly", priority: "0.8" },
+  { path: "/conteudos/trabalhista", changefreq: "weekly", priority: "0.8" },
+  { path: "/conteudos/setores", changefreq: "weekly", priority: "0.8" },
+  { path: "/conteudos/governanca", changefreq: "weekly", priority: "0.8" },
   { path: "/conteudos/regimes-tributarios", changefreq: "monthly", priority: "0.7" },
 ];
 
