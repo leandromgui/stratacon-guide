@@ -14,7 +14,7 @@ export interface Section {
   h3?: H3Item[];
 }
 
-export interface FaqItem { q: string; a: string }
+export interface FaqItem { q: string; a: string | ReactNode }
 
 export interface PageScaffoldProps {
   eyebrow?: string;
