@@ -216,7 +216,7 @@ if (DRY_RUN && DRY_RUN_REPORT_JSON) {
     }));
     fs.writeFileSync(
       DRY_RUN_REPORT_JSON,
-      JSON.stringify(failuresForJson, null, 2) + "\n",
+      JSON.stringify({ summary: buildSummary(), failures: failuresForJson }, null, 2) + "\n",
     );
     console.log(`→ Falhas JSON (dry-run): ${DRY_RUN_REPORT_JSON}`);
   } catch (err) {
