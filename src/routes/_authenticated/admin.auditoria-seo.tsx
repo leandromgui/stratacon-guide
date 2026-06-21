@@ -17,6 +17,12 @@ import {
   type AuditSettings,
   type StoredRun,
 } from "@/lib/seo-audit.functions";
+import {
+  buildRecommendations,
+  severityClass,
+  severityLabel,
+  type UrlRecommendations,
+} from "@/lib/seo-audit-recommendations";
 
 export const Route = createFileRoute("/_authenticated/admin/auditoria-seo")({
   head: () => ({
@@ -219,6 +225,23 @@ function AuditoriaSeo() {
     (previousResults ?? []).forEach((r) => m.set(r.url, r));
     return m;
   }, [previousResults]);
+
+  const recommendations = useMemo<UrlRecommendations[]>(() => {
+    if (!currentResults || !currentRun) return [];
+    return buildRecommendations(currentResults, currentRun.site_url);
+  }, [currentResults, currentRun]);
+
+  const recCounts = useMemo(() => {
+    let critical = 0,
+      warning = 0,
+      info = 0;
+    recommendations.forEach((u) => {
+      if (u.worst === "critical") critical++;
+      else if (u.worst === "warning") warning++;
+      else info++;
+    });
+    return { critical, warning, info };
+  }, [recommendations]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
