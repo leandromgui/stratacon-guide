@@ -43,41 +43,46 @@ const mega: MegaItem[] = [
     to: "/solucoes",
     feature: {
       eyebrow: "Linhas de serviço",
-      title: "Da rotina obrigatória às decisões patrimoniais.",
-      body: "Linhas integradas de contabilidade, fiscal, tributária, trabalhista e societária — sob responsabilidade técnica.",
-      cta: { label: "Ver todas as soluções", to: "/solucoes" },
+      title: "Quatro frentes técnicas, um único protocolo.",
+      body: "Compliance & Operação · Estratégia Tributária · Patrimônio & Pessoa Física · Tecnologia & Institucional — conduzidas pelo Método DCON.",
+      cta: { label: "Conhecer o Método DCON", to: "/metodo" },
     },
     columns: [
       {
-        title: "Rotina & operação",
+        title: "Compliance & operação",
         items: [
-          { label: "Contabilidade Empresarial", to: "/solucoes/contabilidade-empresarial" },
-          { label: "Departamento Fiscal", to: "/solucoes/departamento-fiscal" },
-          { label: "Departamento Pessoal", to: "/solucoes/departamento-pessoal" },
-          { label: "BPO Financeiro", to: "/solucoes/bpo-financeiro" },
-          { label: "Tecnologia Contábil", to: "/solucoes/tecnologia-contabil" },
+          { label: "Contabilidade Empresarial", to: "/solucoes/contabilidade-empresarial", desc: "Rotina mensal sob responsabilidade técnica" },
+          { label: "Departamento Fiscal", to: "/solucoes/departamento-fiscal", desc: "Apuração, SPED e obrigações acessórias" },
+          { label: "Departamento Pessoal", to: "/solucoes/departamento-pessoal", desc: "Folha, eSocial, CCT e SST" },
+          { label: "BPO Financeiro", to: "/solucoes/bpo-financeiro", desc: "Contas a pagar/receber e conciliação" },
         ],
       },
       {
-        title: "Tributário & defesas",
+        title: "Estratégia tributária",
         items: [
-          { label: "Planejamento Tributário", to: "/solucoes/planejamento-tributario" },
-          { label: "Reforma Tributária", to: "/solucoes/reforma-tributaria" },
-          { label: "Recuperação de Créditos", to: "/solucoes/recuperacao-creditos-tributarios" },
-          { label: "Defesas Fiscais", to: "/solucoes/defesas-fiscais" },
-          { label: "Regularização Fiscal", to: "/solucoes/regularizacao-fiscal" },
+          { label: "Planejamento Tributário", to: "/solucoes/planejamento-tributario", desc: "Tese, simulação e mudança de regime" },
+          { label: "Reforma Tributária (IBS/CBS)", to: "/solucoes/reforma-tributaria", desc: "Preparação 2026/2027 e ERP" },
+          { label: "Recuperação de Créditos", to: "/solucoes/recuperacao-creditos-tributarios", desc: "Revisão dos últimos 5 anos" },
+          { label: "Defesas Fiscais", to: "/solucoes/defesas-fiscais", desc: "Impugnações e recursos administrativos" },
+          { label: "Regularização Fiscal", to: "/solucoes/regularizacao-fiscal", desc: "Certidões, licitações e crédito" },
         ],
       },
       {
-        title: "Patrimônio & expansão",
+        title: "Patrimônio & pessoa física",
         items: [
-          { label: "Holding e Patrimônio", to: "/solucoes/holding-patrimonial" },
-          { label: "Societário e Legalização", to: "/solucoes/societario-legalizacao" },
-          { label: "Valuation e KPIs", to: "/solucoes/valuation-kpis" },
-          { label: "Pessoa Física e IRPF", to: "/solucoes/pessoa-fisica-irpf" },
-          { label: "Registro de Marca (INPI)", to: "/solucoes/registro-marca-inpi" },
-          { label: "Abrir Empresa", to: "/solucoes/abrir-empresa" },
-          { label: "Trocar de Contabilidade", to: "/solucoes/trocar-contabilidade" },
+          { label: "Holding Patrimonial", to: "/solucoes/holding-patrimonial", desc: "Proteção, sucessão e governança familiar" },
+          { label: "Pessoa Física e IRPF", to: "/solucoes/pessoa-fisica-irpf", desc: "Liberais, sócios e alta renda" },
+          { label: "Valuation e KPIs", to: "/solucoes/valuation-kpis", desc: "Precificação, indicadores e venda" },
+          { label: "Societário e Legalização", to: "/solucoes/societario-legalizacao", desc: "Alterações, ata e governança" },
+        ],
+      },
+      {
+        title: "Tecnologia & institucional",
+        items: [
+          { label: "Tecnologia Contábil", to: "/solucoes/tecnologia-contabil", desc: "ERP, integrações e dados fiscais" },
+          { label: "Abrir Empresa", to: "/solucoes/abrir-empresa", desc: "CNPJ, regime e licenças" },
+          { label: "Trocar de Contabilidade", to: "/solucoes/trocar-contabilidade", desc: "Migração técnica com auditoria" },
+          { label: "Registro de Marca (INPI)", to: "/solucoes/registro-marca-inpi", desc: "Pesquisa, depósito e acompanhamento" },
         ],
       },
     ],
@@ -194,11 +199,21 @@ const mega: MegaItem[] = [
 
 function MegaPanel({ item }: { item: MegaItem }) {
   if (!item.columns) return null;
+  const colCount = item.columns.length;
+  const colsClass =
+    colCount >= 4
+      ? "grid-cols-4"
+      : colCount === 3
+        ? "grid-cols-3"
+        : colCount === 2
+          ? "grid-cols-2"
+          : "grid-cols-1";
+  const wideFeature = colCount >= 4;
   return (
-    <div className="invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 transition-all duration-150 absolute left-1/2 top-full z-40 -translate-x-1/2 w-screen max-w-6xl pt-2">
+    <div className={`invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 transition-all duration-150 absolute left-1/2 top-full z-40 -translate-x-1/2 w-screen ${wideFeature ? "max-w-7xl" : "max-w-6xl"} pt-2`}>
       <div className="bg-background text-foreground border border-border shadow-2xl rounded-sm grid grid-cols-12 overflow-hidden">
         {item.feature && (
-          <div className="col-span-4 bg-secondary text-secondary-foreground p-8 flex flex-col justify-between">
+          <div className={`${wideFeature ? "col-span-3" : "col-span-4"} bg-secondary text-secondary-foreground p-8 flex flex-col justify-between`}>
             <div>
               <div className="text-[10px] uppercase tracking-[0.22em] text-gold mb-3">
                 {item.feature.eyebrow}
@@ -216,9 +231,9 @@ function MegaPanel({ item }: { item: MegaItem }) {
             </Link>
           </div>
         )}
-        <div className="col-span-8 grid grid-cols-3 gap-8 p-8">
+        <div className={`${wideFeature ? "col-span-9" : "col-span-8"} grid ${colsClass} gap-6 p-8`}>
           {item.columns.map((c) => (
-            <div key={c.title}>
+            <div key={c.title} className="min-w-0">
               <div className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground border-b border-border pb-2 mb-3">
                 {c.title}
               </div>
