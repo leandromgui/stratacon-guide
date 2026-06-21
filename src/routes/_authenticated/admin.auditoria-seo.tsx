@@ -204,7 +204,7 @@ function AuditoriaSeo() {
           </div>
           <div className="flex items-center gap-4">
             <Link
-              to="/_authenticated/admin/leads" as any
+              to="/admin/leads"
               className="text-xs uppercase tracking-[0.16em] hover:text-gold"
             >
               Leads

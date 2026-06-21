@@ -69,6 +69,7 @@ import { Route as ConteudosHoldingPatrimonioRouteImport } from './routes/conteud
 import { Route as ConteudosDpEsocialRouteImport } from './routes/conteudos.dp-esocial'
 import { Route as ConteudosComercioIcmsRouteImport } from './routes/conteudos.comercio-icms'
 import { Route as AuthenticatedAdminLeadsRouteImport } from './routes/_authenticated/admin.leads'
+import { Route as AuthenticatedAdminAuditoriaSeoRouteImport } from './routes/_authenticated/admin.auditoria-seo'
 
 const TemasEstrategicosRoute = TemasEstrategicosRouteImport.update({
   id: '/temas-estrategicos',
@@ -394,6 +395,12 @@ const AuthenticatedAdminLeadsRoute = AuthenticatedAdminLeadsRouteImport.update({
   path: '/admin/leads',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedAdminAuditoriaSeoRoute =
+  AuthenticatedAdminAuditoriaSeoRouteImport.update({
+    id: '/admin/auditoria-seo',
+    path: '/admin/auditoria-seo',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -454,6 +461,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/': typeof ConteudosIndexRoute
   '/segmentos/': typeof SegmentosIndexRoute
   '/solucoes/': typeof SolucoesIndexRoute
+  '/admin/auditoria-seo': typeof AuthenticatedAdminAuditoriaSeoRoute
   '/admin/leads': typeof AuthenticatedAdminLeadsRoute
 }
 export interface FileRoutesByTo {
@@ -515,6 +523,7 @@ export interface FileRoutesByTo {
   '/conteudos': typeof ConteudosIndexRoute
   '/segmentos': typeof SegmentosIndexRoute
   '/solucoes': typeof SolucoesIndexRoute
+  '/admin/auditoria-seo': typeof AuthenticatedAdminAuditoriaSeoRoute
   '/admin/leads': typeof AuthenticatedAdminLeadsRoute
 }
 export interface FileRoutesById {
@@ -578,6 +587,7 @@ export interface FileRoutesById {
   '/conteudos/': typeof ConteudosIndexRoute
   '/segmentos/': typeof SegmentosIndexRoute
   '/solucoes/': typeof SolucoesIndexRoute
+  '/_authenticated/admin/auditoria-seo': typeof AuthenticatedAdminAuditoriaSeoRoute
   '/_authenticated/admin/leads': typeof AuthenticatedAdminLeadsRoute
 }
 export interface FileRouteTypes {
@@ -641,6 +651,7 @@ export interface FileRouteTypes {
     | '/conteudos/'
     | '/segmentos/'
     | '/solucoes/'
+    | '/admin/auditoria-seo'
     | '/admin/leads'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -702,6 +713,7 @@ export interface FileRouteTypes {
     | '/conteudos'
     | '/segmentos'
     | '/solucoes'
+    | '/admin/auditoria-seo'
     | '/admin/leads'
   id:
     | '__root__'
@@ -764,6 +776,7 @@ export interface FileRouteTypes {
     | '/conteudos/'
     | '/segmentos/'
     | '/solucoes/'
+    | '/_authenticated/admin/auditoria-seo'
     | '/_authenticated/admin/leads'
   fileRoutesById: FileRoutesById
 }
@@ -1249,14 +1262,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminLeadsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/admin/auditoria-seo': {
+      id: '/_authenticated/admin/auditoria-seo'
+      path: '/admin/auditoria-seo'
+      fullPath: '/admin/auditoria-seo'
+      preLoaderRoute: typeof AuthenticatedAdminAuditoriaSeoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminAuditoriaSeoRoute: typeof AuthenticatedAdminAuditoriaSeoRoute
   AuthenticatedAdminLeadsRoute: typeof AuthenticatedAdminLeadsRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminAuditoriaSeoRoute: AuthenticatedAdminAuditoriaSeoRoute,
   AuthenticatedAdminLeadsRoute: AuthenticatedAdminLeadsRoute,
 }
 
