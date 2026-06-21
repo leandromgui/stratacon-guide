@@ -124,7 +124,7 @@ export function PageScaffold(p: PageScaffoldProps) {
             </p>
             <div className="mt-6 grid grid-cols-3 gap-4 text-center">
               <div>
-                <div className="font-display text-2xl">+12</div>
+                <div className="font-display text-2xl">+20</div>
                 <div className="text-[10px] uppercase tracking-[0.18em] text-secondary-foreground/55">anos</div>
               </div>
               <div>
