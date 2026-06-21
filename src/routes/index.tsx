@@ -102,10 +102,10 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          mainEntity: faqs.map(([q, a]) => ({
+          mainEntity: faqs.map((faq) => ({
             "@type": "Question",
-            name: q,
-            acceptedAnswer: { "@type": "Answer", text: a },
+            name: faq.q,
+            acceptedAnswer: { "@type": "Answer", text: faq.aPlain },
           })),
         }),
       },
