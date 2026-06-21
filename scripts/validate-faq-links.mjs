@@ -167,14 +167,14 @@ function buildHtml({ timestamp, mode }) {
       const icon = r.status === "ok" ? "✓" : "✖";
       const cls = r.status === "ok" ? "ok" : "fail";
       const types = r.reasons.join("; ") || "";
-      return `<tr class="${cls}" data-status="${r.status}" data-types="${escapeHtml(types)}"><td>${icon}</td><td>${escapeHtml(r.question)}</td><td><code>${escapeHtml(r.to)}</code></td><td>${escapeHtml(r.reasons.join("; ") || "—")}</td></tr>`;
+      return `<tr class="${cls}" data-status="${r.status}" data-types="${escapeHtml(types)}" data-path="${escapeHtml(r.to)}"><td>${icon}</td><td>${escapeHtml(r.question)}</td><td><code>${escapeHtml(r.to)}</code></td><td>${escapeHtml(r.reasons.join("; ") || "—")}</td></tr>`;
     })
     .join("\n");
 
   const failureRows = failures
     .map((f, i) => {
       const types = f.reasons.join("; ");
-      return `<tr data-types="${escapeHtml(types)}"><td>${i + 1}</td><td>${escapeHtml(f.question)}</td><td><code>${escapeHtml(f.to)}</code></td><td>${escapeHtml(f.reasons.join("; "))}</td></tr>`;
+      return `<tr data-types="${escapeHtml(types)}" data-path="${escapeHtml(f.to)}"><td>${i + 1}</td><td>${escapeHtml(f.question)}</td><td><code>${escapeHtml(f.to)}</code></td><td>${escapeHtml(f.reasons.join("; "))}</td></tr>`;
     })
     .join("\n");
 
@@ -244,6 +244,17 @@ function buildHtml({ timestamp, mode }) {
     <input type="text" id="filter-path" placeholder="Digite parte do link…" />
     <label style="margin-left:.5rem">Tipo:</label>
     ${typeCheckboxes}
+    <label style="margin-left:.5rem">Ordenar por:</label>
+    <select id="sort-by">
+      <option value="default">Padrão</option>
+      <option value="status">Status</option>
+      <option value="path">Caminho</option>
+      <option value="type">Tipo</option>
+    </select>
+    <select id="sort-dir">
+      <option value="asc">Ascendente</option>
+      <option value="desc">Descendente</option>
+    </select>
   </div>
 
   <h2>Resumo por motivo</h2>
@@ -305,6 +316,61 @@ ${rows}
         // If a table ends up fully hidden, we leave the table itself visible but empty
       }
     }
+
+    const sortBy = document.getElementById('sort-by');
+    const sortDir = document.getElementById('sort-dir');
+
+    function sortTable(tableId, col) {
+      const table = document.getElementById(tableId);
+      if (!table) return;
+      const tbody = table.querySelector('tbody');
+      const dir = sortDir.value === 'desc' ? -1 : 1;
+      const rowsArr = Array.from(tbody.querySelectorAll('tr'));
+      rowsArr.sort((a, b) => {
+        let av, bv;
+        if (col === 'status') {
+          av = a.dataset.status || '';
+          bv = b.dataset.status || '';
+        } else if (col === 'path') {
+          av = (a.dataset.path || '').toLowerCase();
+          bv = (b.dataset.path || '').toLowerCase();
+        } else if (col === 'type') {
+          av = (a.dataset.types || '').toLowerCase();
+          bv = (b.dataset.types || '').toLowerCase();
+        } else {
+          return 0;
+        }
+        if (av < bv) return -1 * dir;
+        if (av > bv) return 1 * dir;
+        return 0;
+      });
+      for (const row of rowsArr) tbody.appendChild(row);
+
+      // renumera a coluna # na tabela de falhas
+      if (tableId === 'failures-table') {
+        let idx = 1;
+        for (const row of tbody.querySelectorAll('tr')) {
+          if (!row.classList.contains('hidden')) {
+            row.cells[0].textContent = idx++;
+          }
+        }
+      }
+    }
+
+    function applySort() {
+      const col = sortBy.value;
+      if (col === 'default') {
+        // reload para restaurar ordem original
+        location.reload();
+        return;
+      }
+      for (const id of ['failures-table', 'all-links-table']) {
+        sortTable(id, col);
+      }
+    }
+
+    sortBy.addEventListener('change', applySort);
+    sortDir.addEventListener('change', applySort);
 
     statusSelect.addEventListener('change', apply);
     pathInput.addEventListener('input', apply);
