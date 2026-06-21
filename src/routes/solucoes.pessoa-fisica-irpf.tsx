@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
+import { MethodBadge } from "../components/MethodBadge";
+import { dconMethod } from "../lib/dconMethod";
 
 const faqs: FAQItem[] = [
   { q: "Devo abrir CNPJ ou continuar como PF?", a: "Depende da atividade, renda, despesas dedutíveis e contratantes. Comparamos PF (Livro Caixa, Carnê-Leão) com CNPJ (Simples, Fator R, pró-labore) antes de qualquer migração." },
@@ -40,6 +42,8 @@ function Page() {
       ctaPrimary={{ label: "Quero comparar PF x CNPJ", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       pillarKey="pessoa-fisica-irpf"
+      method={dconMethod}
+      ctaVariant="opportunity"
       sections={[
         { h2: "PF ou CNPJ", h3: [
           { title: "Comparativo técnico", body: "Livro Caixa, Carnê-Leão, Simples Nacional, Fator R, Anexo III, Anexo V, pró-labore e modelo híbrido — a migração depende de simulação, não apenas da alíquota." },
@@ -61,6 +65,7 @@ function Page() {
         ]},
       ]}
     >
+      <MethodBadge note="IRPF e planejamento PF conduzidos pelo protocolo DCON" />
       <FAQ items={faqs} />
       <LeadCaptureForm page="solucoes" />
     </PageScaffold>
