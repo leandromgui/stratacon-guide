@@ -233,6 +233,27 @@ const HEATMAP_PAGES = [
   { value: "/conteudos/holding-familiar", label: "Holding Familiar" },
 ];
 
+function csvEscape(value: unknown): string {
+  if (value === null || value === undefined) return "";
+  const str = String(value);
+  if (/[",\n\r;]/.test(str)) return `"${str.replace(/"/g, '""')}"`;
+  return str;
+}
+
+function downloadCsv(filename: string, rows: (string | number | null | undefined)[][]) {
+  const csv = rows.map((r) => r.map(csvEscape).join(",")).join("\r\n");
+  // BOM para Excel reconhecer UTF-8 corretamente.
+  const blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
 function HeatmapPanel({ events, loading }: { events: EventRow[]; loading: boolean }) {
   const [page, setPage] = useState(HEATMAP_PAGES[0].value);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -300,6 +321,70 @@ function HeatmapPanel({ events, loading }: { events: EventRow[]; loading: boolea
     }
   }
 
+  function safeSlug(path: string) {
+    return path.replace(/[^a-z0-9]+/gi, "-").replace(/^-+|-+$/g, "") || "pagina";
+  }
+
+  function exportClicksCsv() {
+    const stamp = new Date().toISOString().slice(0, 10);
+    const rows: (string | number | null | undefined)[][] = [
+      [
+        "created_at",
+        "page_path",
+        "session_id",
+        "section",
+        "tag",
+        "x_norm",
+        "y_norm",
+        "page_width",
+        "page_height",
+        "faq_question",
+        "cta_label",
+      ],
+    ];
+    for (const e of pageEvents) {
+      if (e.event_name !== "page_click") continue;
+      const m = (e.metadata as Record<string, unknown> | null) ?? {};
+      rows.push([
+        e.created_at,
+        e.page_path,
+        e.session_id,
+        (m.section as string) ?? "",
+        (m.tag as string) ?? "",
+        typeof m.x === "number" ? m.x : "",
+        typeof m.y === "number" ? m.y : "",
+        typeof m.page_width === "number" ? m.page_width : "",
+        typeof m.page_height === "number" ? m.page_height : "",
+        e.faq_question ?? "",
+        e.cta_label ?? "",
+      ]);
+    }
+    downloadCsv(`heatmap-cliques-${safeSlug(page)}-${stamp}.csv`, rows);
+  }
+
+  function exportScrollCsv() {
+    const stamp = new Date().toISOString().slice(0, 10);
+    const rows: (string | number | null | undefined)[][] = [
+      ["created_at", "page_path", "session_id", "depth_pct"],
+    ];
+    for (const e of pageEvents) {
+      if (e.event_name !== "scroll_depth") continue;
+      const depth = Number((e.metadata as { depth?: number } | null)?.depth);
+      if (!depth) continue;
+      rows.push([e.created_at, e.page_path, e.session_id, depth]);
+    }
+    // Resumo (sessões únicas por marco) ao final, separado por linha em branco.
+    rows.push([]);
+    rows.push(["resumo_depth_pct", "sessoes_unicas", "pct_sessoes"]);
+    for (const s of scrollFunnel) {
+      rows.push([s.depth, s.sessions, `${s.pct.toFixed(2)}%`]);
+    }
+    downloadCsv(`heatmap-scroll-${safeSlug(page)}-${stamp}.csv`, rows);
+  }
+
+  const clicksCount = pageEvents.filter((e) => e.event_name === "page_click").length;
+  const scrollCount = pageEvents.filter((e) => e.event_name === "scroll_depth").length;
+
   return (
     <section className="mt-12">
       <header className="flex flex-wrap items-end justify-between gap-4">
@@ -309,17 +394,37 @@ function HeatmapPanel({ events, loading }: { events: EventRow[]; loading: boolea
             Quais trechos da página recebem mais atenção antes do CTA do diagnóstico.
           </p>
         </div>
-        <select
-          value={page}
-          onChange={(e) => setPage(e.target.value)}
-          className="border border-border bg-card px-3 py-2 text-sm"
-        >
-          {HEATMAP_PAGES.map((p) => (
-            <option key={p.value} value={p.value}>
-              {p.label}
-            </option>
-          ))}
-        </select>
+        <div className="flex flex-wrap items-center gap-2">
+          <select
+            value={page}
+            onChange={(e) => setPage(e.target.value)}
+            className="border border-border bg-card px-3 py-2 text-sm"
+          >
+            {HEATMAP_PAGES.map((p) => (
+              <option key={p.value} value={p.value}>
+                {p.label}
+              </option>
+            ))}
+          </select>
+          <button
+            type="button"
+            onClick={exportClicksCsv}
+            disabled={clicksCount === 0}
+            className="text-[11px] uppercase tracking-[0.16em] border border-border px-3 py-2 hover:border-gold hover:text-gold disabled:opacity-40 disabled:hover:border-border disabled:hover:text-current"
+            title={`Exportar ${clicksCount} cliques`}
+          >
+            ↓ CSV cliques ({clicksCount})
+          </button>
+          <button
+            type="button"
+            onClick={exportScrollCsv}
+            disabled={scrollCount === 0}
+            className="text-[11px] uppercase tracking-[0.16em] border border-border px-3 py-2 hover:border-gold hover:text-gold disabled:opacity-40 disabled:hover:border-border disabled:hover:text-current"
+            title={`Exportar ${scrollCount} eventos de scroll`}
+          >
+            ↓ CSV scroll ({scrollCount})
+          </button>
+        </div>
       </header>
 
       <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border">
