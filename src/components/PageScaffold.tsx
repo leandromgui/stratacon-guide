@@ -317,6 +317,34 @@ export function PageScaffold(p: PageScaffoldProps) {
           </section>
         )}
 
+        {p.relatedLinks && p.relatedLinks.length > 0 && (
+          <section className="border-t border-border pt-16">
+            <div className="grid lg:grid-cols-12 gap-10">
+              <header className="lg:col-span-4">
+                <Eyebrow>Conteúdos relacionados</Eyebrow>
+                <h2 className="mt-4 font-display text-3xl tracking-tight">Continue a leitura.</h2>
+                <p className="mt-4 text-muted-foreground text-[15px] leading-relaxed">
+                  Páginas e materiais técnicos diretamente conectados a este tema.
+                </p>
+              </header>
+              <ul className="lg:col-span-8 grid sm:grid-cols-2 gap-px bg-border border border-border">
+                {p.relatedLinks.map((l) => (
+                  <li key={l.to} className="bg-card">
+                    <Link to={l.to} className="block p-6 hover:bg-muted/40 transition-colors">
+                      {l.eyebrow && (
+                        <div className="text-[10px] uppercase tracking-[0.22em] text-gold mb-2">{l.eyebrow}</div>
+                      )}
+                      <div className="font-display text-[17px] text-card-foreground flex items-baseline gap-2">
+                        {l.label} <span className="text-gold">→</span>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
+
         {(p.intent || p.observation) && (
           <aside className="rounded-sm border border-dashed border-border bg-muted/40 p-6 text-xs text-muted-foreground space-y-2">
             {p.intent && (
