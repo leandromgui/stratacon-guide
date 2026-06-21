@@ -423,3 +423,122 @@ function LeadDetails({ lead, onChange }: { lead: Lead; onChange: (patch: Partial
     </div>
   );
 }
+
+function FollowupSummary({
+  overdue,
+  dueSoon,
+  missing,
+  now,
+  onOpen,
+  onQuickContacted,
+  onToggleFilter,
+  overdueOnly,
+}: {
+  overdue: Lead[];
+  dueSoon: Lead[];
+  missing: Lead[];
+  now: number;
+  onOpen: (id: string) => void;
+  onQuickContacted: (id: string) => Promise<void>;
+  onToggleFilter: () => void;
+  overdueOnly: boolean;
+}) {
+  const [expanded, setExpanded] = useState(true);
+  const visible = overdue.slice(0, 5);
+
+  return (
+    <div className="mb-6 border border-border rounded-sm bg-card">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-border">
+        <div className="flex items-center gap-3">
+          <span className="text-[10px] uppercase tracking-[0.22em] text-gold">Lembretes</span>
+          <h2 className="font-display text-base tracking-tight">Follow-ups</h2>
+          <div className="flex items-center gap-2 text-[11px]">
+            <Badge tone="rose">{overdue.length} vencidos</Badge>
+            <Badge tone="amber">{dueSoon.length} hoje/24h</Badge>
+            <Badge tone="muted">{missing.length} sem data</Badge>
+          </div>
+        </div>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={onToggleFilter}
+            className={`text-[11px] uppercase tracking-[0.16em] px-2 py-1 rounded-sm border ${overdueOnly ? "border-gold text-gold" : "border-border text-muted-foreground hover:text-gold"}`}
+          >
+            {overdueOnly ? "Mostrar todos" : "Filtrar vencidos"}
+          </button>
+          {overdue.length > 0 && (
+            <button
+              onClick={() => setExpanded((v) => !v)}
+              className="text-[11px] uppercase tracking-[0.16em] hover:text-gold"
+            >
+              {expanded ? "Recolher" : "Expandir"}
+            </button>
+          )}
+        </div>
+      </div>
+
+      {overdue.length === 0 ? (
+        <div className="px-4 py-4 text-sm text-muted-foreground">
+          Nenhum follow-up vencido. {missing.length > 0 && `${missing.length} lead(s) ativos ainda não têm data agendada.`}
+        </div>
+      ) : expanded ? (
+        <ul className="divide-y divide-border">
+          {visible.map((l) => (
+            <li key={l.id} className="flex items-center justify-between gap-3 px-4 py-3 text-sm">
+              <div className="min-w-0">
+                <div className="flex items-center gap-2">
+                  <span className={`px-1.5 py-0.5 rounded-sm border text-[10px] ${STATUS_COLOR[l.status]}`}>
+                    {STATUS_LABEL[l.status]}
+                  </span>
+                  <span className="font-medium truncate">{l.name}</span>
+                  <span className="text-xs text-rose-600 whitespace-nowrap">
+                    {relativeFromNow(l.next_followup_at!, now)}
+                  </span>
+                </div>
+                <div className="text-xs text-muted-foreground truncate">
+                  {l.interest} · {l.whatsapp}
+                </div>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <a
+                  href={`https://wa.me/${l.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(`Olá ${l.name.split(" ")[0]}, aqui é da DCON dando sequência ao seu interesse em ${l.interest}.`)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[11px] uppercase tracking-[0.14em] border border-border px-2 py-1 rounded-sm hover:border-gold hover:text-gold"
+                >
+                  WhatsApp
+                </a>
+                <button
+                  onClick={() => onQuickContacted(l.id)}
+                  className="text-[11px] uppercase tracking-[0.14em] border border-border px-2 py-1 rounded-sm hover:border-gold hover:text-gold"
+                >
+                  Contatei agora
+                </button>
+                <button
+                  onClick={() => onOpen(l.id)}
+                  className="text-[11px] uppercase tracking-[0.14em] bg-primary text-primary-foreground px-2 py-1 rounded-sm hover:opacity-90"
+                >
+                  Abrir
+                </button>
+              </div>
+            </li>
+          ))}
+          {overdue.length > visible.length && (
+            <li className="px-4 py-2 text-xs text-muted-foreground">
+              + {overdue.length - visible.length} outros vencidos. Use “Filtrar vencidos” para ver todos.
+            </li>
+          )}
+        </ul>
+      ) : null}
+    </div>
+  );
+}
+
+function Badge({ children, tone }: { children: React.ReactNode; tone: "rose" | "amber" | "muted" }) {
+  const cls =
+    tone === "rose"
+      ? "bg-rose-500/15 text-rose-600 border-rose-500/30"
+      : tone === "amber"
+      ? "bg-amber-500/15 text-amber-600 border-amber-500/30"
+      : "bg-muted text-muted-foreground border-border";
+  return <span className={`px-1.5 py-0.5 rounded-sm border ${cls}`}>{children}</span>;
+}
