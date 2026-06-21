@@ -1,15 +1,61 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
+const faqs: Array<[string, string]> = [
+  ["A DCON é uma contabilidade online?", "Não. Somos uma firma técnica de consultoria contábil, fiscal, tributária e empresarial. Atendemos presencialmente em Goiânia e remotamente em todo o Brasil, mas a entrega é consultiva, não transacional."],
+  ["Em quanto tempo o diagnóstico fica pronto?", "Em até 7 dias úteis após o envio da documentação. Entregamos relatório técnico com plano de ação priorizado por risco e impacto."],
+  ["Trabalham com empresas de qualquer regime?", "Sim — Simples Nacional, Lucro Presumido e Lucro Real. Frequentemente o próprio diagnóstico revela que a empresa está no regime errado."],
+  ["Atendem empresas fora de Goiânia?", "Sim. A maior parte do nosso atendimento é remoto, com reuniões técnicas agendadas por vídeo e protocolos auditáveis."],
+  ["Atuam como assessoria contínua ou pontual?", "Ambos. Há clientes em consultoria mensal contínua e projetos pontuais como recuperação de créditos, reestruturação societária e defesa fiscal."],
+  ["Quem assina tecnicamente as entregas?", "Responsável técnico com CRC ativo. Toda recomendação relevante passa por revisão cruzada antes da entrega."],
+];
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "DCON · Consultoria Contábil, Fiscal e Tributária em Goiânia" },
-      { name: "description", content: "DCON Serviços Contábeis: consultoria contábil, fiscal, tributária e empresarial para empresas que precisam decidir com segurança jurídica e patrimonial." },
-      { property: "og:title", content: "DCON · Consultoria Contábil, Fiscal e Tributária em Goiânia" },
-      { property: "og:description", content: "Firma de consultoria contábil, fiscal e tributária. Goiânia — atendimento em todo o Brasil." },
+      { title: "DCON · Consultoria Contábil, Tributária e Empresarial em Goiânia" },
+      { name: "description", content: "Consultoria contábil, fiscal, tributária e empresarial em Goiânia. Planejamento tributário, reforma CBS/IBS, recuperação de créditos, holding e defesa fiscal sob método auditável — atendimento em todo o Brasil." },
+      { name: "keywords", content: "consultoria contábil Goiânia, planejamento tributário, reforma tributária CBS IBS, recuperação de créditos tributários, holding patrimonial, defesa fiscal, contabilidade consultiva" },
+      { property: "og:title", content: "DCON · Consultoria Contábil, Tributária e Empresarial em Goiânia" },
+      { property: "og:description", content: "Firma de consultoria contábil, fiscal e tributária com Método DCON em 4 fases. Diagnóstico em 7 dias úteis." },
       { property: "og:url", content: "/" },
+      { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AccountingService",
+          name: "DCON Serviços Contábeis",
+          description: "Consultoria contábil, fiscal, tributária e empresarial. Planejamento tributário, reforma CBS/IBS, recuperação de créditos, holding patrimonial e defesa fiscal sob Método DCON.",
+          areaServed: "BR",
+          address: { "@type": "PostalAddress", addressLocality: "Goiânia", addressRegion: "GO", addressCountry: "BR" },
+          url: "/",
+          serviceType: [
+            "Planejamento Tributário",
+            "Reforma Tributária (CBS/IBS)",
+            "Recuperação de Créditos Tributários",
+            "Defesa Fiscal",
+            "Holding Patrimonial e Familiar",
+            "Departamento Pessoal e eSocial",
+            "Valuation e KPIs",
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map(([q, a]) => ({
+            "@type": "Question",
+            name: q,
+            acceptedAnswer: { "@type": "Answer", text: a },
+          })),
+        }),
+      },
+    ],
   }),
   component: Home,
 });
