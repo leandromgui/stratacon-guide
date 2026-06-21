@@ -14,6 +14,8 @@
 import fs from "node:fs";
 import path from "node:path";
 
+const DRY_RUN = process.argv.includes("--dry-run") || process.env.DRY_RUN === "1";
+
 const ROUTES_DIR = "src/routes";
 const HOME_FILE = "src/routes/index.tsx";
 const REDIRECT_FILES = ["src/router.tsx", "src/start.ts", "vite.config.ts"];
