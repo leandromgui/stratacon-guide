@@ -1,4 +1,5 @@
 import { Link, Outlet, useRouterState } from "@tanstack/react-router";
+import { WhatsAppButton } from "./WhatsAppButton";
 import { useEffect, useState } from "react";
 
 type Col = { title: string; items: { label: string; to: string; desc?: string }[] };
@@ -377,6 +378,8 @@ export function SiteLayout() {
       <main className="flex-1">
         <Outlet />
       </main>
+
+      <WhatsAppButton />
 
       {/* Footer */}
       <footer className="mt-24 bg-secondary text-secondary-foreground">
