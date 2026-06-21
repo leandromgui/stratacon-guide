@@ -156,6 +156,16 @@ try {
     REPORT_JSON,
     JSON.stringify({ generatedAt: timestamp, routesCount: routes.size, results }, null, 2),
   );
+
+  const failuresForJson = failures.map((f) => ({
+    Pergunta: f.question,
+    Link: f.to,
+    Motivo: f.reasons.join("; "),
+  }));
+  fs.writeFileSync(
+    REPORT_FAILURES_JSON,
+    JSON.stringify(failuresForJson, null, 2),
+  );
   console.log(`→ Relatório: ${REPORT_PATH}`);
 } catch (err) {
   console.warn(`Aviso: não foi possível gravar relatório (${err.message}).`);
