@@ -5,12 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
+    "prebuild": "node scripts/validate-faq-links.mjs",
+    "prebuild:dev": "node scripts/validate-faq-links.mjs",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "validate:breadcrumbs": "node scripts/validate-breadcrumbs.mjs"
+    "validate:breadcrumbs": "node scripts/validate-breadcrumbs.mjs",
+    "validate:faq-links": "node scripts/validate-faq-links.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
