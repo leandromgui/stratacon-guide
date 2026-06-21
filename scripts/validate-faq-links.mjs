@@ -7,6 +7,9 @@
  *    src/start.ts ou vite.config.ts (uso de `redirect(` / `Redirect`).
  *
  * Falha com exit 1 quando encontra problemas. Rodado no prebuild.
+ *
+ * Modo dry-run: passar --dry-run (ou DRY_RUN=1) para preview sem
+ * quebrar o build e sem gravar arquivos.
  */
 import fs from "node:fs";
 import path from "node:path";
