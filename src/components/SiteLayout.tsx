@@ -378,6 +378,8 @@ export function SiteLayout() {
         <Outlet />
       </main>
 
+      <WhatsAppButton />
+
       {/* Footer */}
       <footer className="mt-24 bg-secondary text-secondary-foreground">
         <div className="border-b border-secondary-foreground/10">
