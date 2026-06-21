@@ -12,6 +12,8 @@ const leadInputSchema = z.object({
   utm_medium: z.string().trim().max(120).optional().nullable(),
   utm_campaign: z.string().trim().max(160).optional().nullable(),
   user_agent: z.string().trim().max(500).optional().nullable(),
+  session_id: z.string().trim().max(80).optional().nullable(),
+  last_faq_question: z.string().trim().max(500).optional().nullable(),
 });
 
 export type LeadInput = z.infer<typeof leadInputSchema>;
@@ -31,6 +33,8 @@ export const submitLead = createServerFn({ method: "POST" })
       utm_medium: data.utm_medium ?? null,
       utm_campaign: data.utm_campaign ?? null,
       user_agent: data.user_agent ?? null,
+      session_id: data.session_id ?? null,
+      last_faq_question: data.last_faq_question ?? null,
     });
     if (error) {
       console.error("[submitLead] insert failed", error);
