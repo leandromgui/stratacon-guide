@@ -58,6 +58,77 @@ const insights: Insight[] = [
 const themes = ["Todos", "Tributário", "Defesa fiscal", "Patrimônio", "Trabalhista", "Setores", "Governança"] as const;
 const kinds = ["Todos", "Análise", "Guia", "Estudo", "Briefing"] as const;
 
+type Category = {
+  slug: string;
+  h2: string;
+  intro: string;
+  topics: { h3: string; to: string; desc: string }[];
+};
+
+const categories: Category[] = [
+  {
+    slug: "tributario",
+    h2: "Tributário",
+    intro: "Regimes, reforma, créditos e decisões fiscais que afetam diretamente o caixa da empresa.",
+    topics: [
+      { h3: "Regimes tributários: Simples, Presumido e Real", to: "/conteudos/regimes-tributarios", desc: "Comparativo prático por margem, folha e operação interestadual." },
+      { h3: "Planejamento tributário lícito", to: "/conteudos/planejamento-tributario", desc: "Critérios técnicos para reduzir carga com segurança jurídica." },
+      { h3: "Reforma tributária (CBS/IBS)", to: "/solucoes/reforma-tributaria", desc: "Cronograma de transição 2026–2033 por regime e setor." },
+      { h3: "Recuperação de créditos tributários", to: "/solucoes/recuperacao-creditos-tributarios", desc: "Levantamento de tributos pagos a maior nos últimos 5 anos." },
+    ],
+  },
+  {
+    slug: "defesa-fiscal",
+    h2: "Defesa fiscal e regularização",
+    intro: "Como conduzir autuações, parcelamentos e transação tributária sem destruir o caixa.",
+    topics: [
+      { h3: "Regularização fiscal sem comprometer o caixa", to: "/conteudos/regularizacao-fiscal", desc: "Parcelamentos, transação tributária e plano de compliance." },
+      { h3: "Defesas fiscais administrativas e judiciais", to: "/solucoes/defesas-fiscais", desc: "Impugnação técnica e quando levar ao contencioso." },
+      { h3: "Pendências fiscais por segmento", to: "/segmentos/pendencias-fiscais", desc: "Roteiro setorial para sair do passivo fiscal." },
+    ],
+  },
+  {
+    slug: "patrimonio",
+    h2: "Patrimônio e sucessão",
+    intro: "Estruturas societárias, holdings e sucessão em vida com base técnica, sem promessa milagrosa.",
+    topics: [
+      { h3: "Holding familiar: tipos, custos e passo a passo", to: "/conteudos/holding-familiar", desc: "Modalidades, ITBI, ITCMD e roteiro de constituição." },
+      { h3: "Holding patrimonial: quando vale", to: "/conteudos/holding-patrimonio", desc: "Estrutura societária, ITCMD e governança familiar." },
+      { h3: "Holding patrimonial (solução DCON)", to: "/solucoes/holding-patrimonial", desc: "Implementação assistida por equipe técnica." },
+    ],
+  },
+  {
+    slug: "trabalhista",
+    h2: "Trabalhista e DP/eSocial",
+    intro: "Desenho correto de vínculos, pró-labore e obrigações acessórias do departamento pessoal.",
+    topics: [
+      { h3: "Departamento Pessoal e eSocial", to: "/conteudos/dp-esocial", desc: "PJ x CLT, pró-labore e obrigações acessórias." },
+      { h3: "Departamento Pessoal (solução)", to: "/solucoes/departamento-pessoal", desc: "Operação de folha sob responsabilidade técnica." },
+    ],
+  },
+  {
+    slug: "setores",
+    h2: "Setores e segmentos",
+    intro: "Particularidades contábeis e fiscais de cada operação — do comércio à saúde e tecnologia.",
+    topics: [
+      { h3: "Saúde, clínicas e PJ médica", to: "/conteudos/saude-clinicas", desc: "Equiparação hospitalar e enquadramento correto." },
+      { h3: "Comércio, ICMS-ST e DIFAL", to: "/conteudos/comercio-icms", desc: "Operação multiestadual sem passivo silencioso." },
+      { h3: "Provedores de internet (ISP)", to: "/segmentos/provedores-internet", desc: "Fust, Funttel, ISS e contabilidade do setor." },
+      { h3: "Tecnologia e startups", to: "/segmentos/tecnologia-startups", desc: "Stock options, investidores e regimes possíveis." },
+    ],
+  },
+  {
+    slug: "governanca",
+    h2: "Governança e gestão",
+    intro: "Indicadores, tecnologia contábil e leitura econômica para a mesa do sócio.",
+    topics: [
+      { h3: "Valuation e KPIs para sócios", to: "/solucoes/valuation-kpis", desc: "Indicadores antes de captação ou M&A." },
+      { h3: "Tecnologia contábil com revisão humana", to: "/solucoes/tecnologia-contabil", desc: "Integração com ERPs e SPED sob supervisão técnica." },
+      { h3: "BPO financeiro", to: "/solucoes/bpo-financeiro", desc: "Rotina financeira terceirizada com governança." },
+    ],
+  },
+];
+
 function Page() {
   const [theme, setTheme] = useState<(typeof themes)[number]>("Todos");
   const [kind, setKind] = useState<(typeof kinds)[number]>("Todos");
@@ -132,6 +203,41 @@ function Page() {
               className="w-full lg:w-72 border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:border-secondary"
             />
           </div>
+        </div>
+      </section>
+
+      {/* Categorias — estrutura H2/H3 para SEO e recorrência */}
+      <section className="mx-auto max-w-7xl px-6 pt-20">
+        <header className="max-w-3xl">
+          <div className="text-[11px] uppercase tracking-[0.24em] text-gold rule-gold">Central de Conteúdo</div>
+          <h2 className="mt-6 font-display text-3xl md:text-4xl tracking-tight">
+            Categorias do editorial DCON
+          </h2>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            Organizamos as publicações por área técnica. Cada categoria reúne guias, análises e
+            estudos que conectam o conteúdo às soluções aplicáveis na sua empresa.
+          </p>
+        </header>
+
+        <div className="mt-12 grid gap-px bg-border border border-border md:grid-cols-2">
+          {categories.map((c) => (
+            <article key={c.slug} id={c.slug} className="bg-card p-8">
+              <h3 className="font-display text-xl tracking-tight">
+                <a href={`#${c.slug}`} className="hover:text-secondary">{c.h2}</a>
+              </h3>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{c.intro}</p>
+              <ul className="mt-6 space-y-4 border-t border-border pt-6">
+                {c.topics.map((t) => (
+                  <li key={t.to}>
+                    <Link to={t.to} className="text-[15px] font-medium leading-snug hover:text-secondary block">
+                      {t.h3}
+                    </Link>
+                    <p className="mt-1 text-[13px] text-muted-foreground leading-relaxed">{t.desc}</p>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
         </div>
       </section>
 
