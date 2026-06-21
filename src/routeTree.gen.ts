@@ -26,6 +26,7 @@ import { Route as SolucoesPlanejamentoTributarioRouteImport } from './routes/sol
 import { Route as SolucoesHoldingPatrimonialRouteImport } from './routes/solucoes.holding-patrimonial'
 import { Route as SolucoesDepartamentoPessoalRouteImport } from './routes/solucoes.departamento-pessoal'
 import { Route as SolucoesDepartamentoFiscalRouteImport } from './routes/solucoes.departamento-fiscal'
+import { Route as SolucoesDefesasFiscaisRouteImport } from './routes/solucoes.defesas-fiscais'
 import { Route as SolucoesContabilidadeEmpresarialRouteImport } from './routes/solucoes.contabilidade-empresarial'
 import { Route as SolucoesBpoFinanceiroRouteImport } from './routes/solucoes.bpo-financeiro'
 import { Route as SolucoesAbrirEmpresaRouteImport } from './routes/solucoes.abrir-empresa'
@@ -151,6 +152,11 @@ const SolucoesDepartamentoFiscalRoute =
     path: '/solucoes/departamento-fiscal',
     getParentRoute: () => rootRouteImport,
   } as any)
+const SolucoesDefesasFiscaisRoute = SolucoesDefesasFiscaisRouteImport.update({
+  id: '/solucoes/defesas-fiscais',
+  path: '/solucoes/defesas-fiscais',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SolucoesContabilidadeEmpresarialRoute =
   SolucoesContabilidadeEmpresarialRouteImport.update({
     id: '/solucoes/contabilidade-empresarial',
@@ -350,6 +356,7 @@ export interface FileRoutesByFullPath {
   '/solucoes/abrir-empresa': typeof SolucoesAbrirEmpresaRoute
   '/solucoes/bpo-financeiro': typeof SolucoesBpoFinanceiroRoute
   '/solucoes/contabilidade-empresarial': typeof SolucoesContabilidadeEmpresarialRoute
+  '/solucoes/defesas-fiscais': typeof SolucoesDefesasFiscaisRoute
   '/solucoes/departamento-fiscal': typeof SolucoesDepartamentoFiscalRoute
   '/solucoes/departamento-pessoal': typeof SolucoesDepartamentoPessoalRoute
   '/solucoes/holding-patrimonial': typeof SolucoesHoldingPatrimonialRoute
@@ -399,6 +406,7 @@ export interface FileRoutesByTo {
   '/solucoes/abrir-empresa': typeof SolucoesAbrirEmpresaRoute
   '/solucoes/bpo-financeiro': typeof SolucoesBpoFinanceiroRoute
   '/solucoes/contabilidade-empresarial': typeof SolucoesContabilidadeEmpresarialRoute
+  '/solucoes/defesas-fiscais': typeof SolucoesDefesasFiscaisRoute
   '/solucoes/departamento-fiscal': typeof SolucoesDepartamentoFiscalRoute
   '/solucoes/departamento-pessoal': typeof SolucoesDepartamentoPessoalRoute
   '/solucoes/holding-patrimonial': typeof SolucoesHoldingPatrimonialRoute
@@ -449,6 +457,7 @@ export interface FileRoutesById {
   '/solucoes/abrir-empresa': typeof SolucoesAbrirEmpresaRoute
   '/solucoes/bpo-financeiro': typeof SolucoesBpoFinanceiroRoute
   '/solucoes/contabilidade-empresarial': typeof SolucoesContabilidadeEmpresarialRoute
+  '/solucoes/defesas-fiscais': typeof SolucoesDefesasFiscaisRoute
   '/solucoes/departamento-fiscal': typeof SolucoesDepartamentoFiscalRoute
   '/solucoes/departamento-pessoal': typeof SolucoesDepartamentoPessoalRoute
   '/solucoes/holding-patrimonial': typeof SolucoesHoldingPatrimonialRoute
@@ -500,6 +509,7 @@ export interface FileRouteTypes {
     | '/solucoes/abrir-empresa'
     | '/solucoes/bpo-financeiro'
     | '/solucoes/contabilidade-empresarial'
+    | '/solucoes/defesas-fiscais'
     | '/solucoes/departamento-fiscal'
     | '/solucoes/departamento-pessoal'
     | '/solucoes/holding-patrimonial'
@@ -549,6 +559,7 @@ export interface FileRouteTypes {
     | '/solucoes/abrir-empresa'
     | '/solucoes/bpo-financeiro'
     | '/solucoes/contabilidade-empresarial'
+    | '/solucoes/defesas-fiscais'
     | '/solucoes/departamento-fiscal'
     | '/solucoes/departamento-pessoal'
     | '/solucoes/holding-patrimonial'
@@ -598,6 +609,7 @@ export interface FileRouteTypes {
     | '/solucoes/abrir-empresa'
     | '/solucoes/bpo-financeiro'
     | '/solucoes/contabilidade-empresarial'
+    | '/solucoes/defesas-fiscais'
     | '/solucoes/departamento-fiscal'
     | '/solucoes/departamento-pessoal'
     | '/solucoes/holding-patrimonial'
@@ -646,6 +658,7 @@ export interface RootRouteChildren {
   SolucoesAbrirEmpresaRoute: typeof SolucoesAbrirEmpresaRoute
   SolucoesBpoFinanceiroRoute: typeof SolucoesBpoFinanceiroRoute
   SolucoesContabilidadeEmpresarialRoute: typeof SolucoesContabilidadeEmpresarialRoute
+  SolucoesDefesasFiscaisRoute: typeof SolucoesDefesasFiscaisRoute
   SolucoesDepartamentoFiscalRoute: typeof SolucoesDepartamentoFiscalRoute
   SolucoesDepartamentoPessoalRoute: typeof SolucoesDepartamentoPessoalRoute
   SolucoesHoldingPatrimonialRoute: typeof SolucoesHoldingPatrimonialRoute
@@ -779,6 +792,13 @@ declare module '@tanstack/react-router' {
       path: '/solucoes/departamento-fiscal'
       fullPath: '/solucoes/departamento-fiscal'
       preLoaderRoute: typeof SolucoesDepartamentoFiscalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/defesas-fiscais': {
+      id: '/solucoes/defesas-fiscais'
+      path: '/solucoes/defesas-fiscais'
+      fullPath: '/solucoes/defesas-fiscais'
+      preLoaderRoute: typeof SolucoesDefesasFiscaisRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solucoes/contabilidade-empresarial': {
@@ -1040,6 +1060,7 @@ const rootRouteChildren: RootRouteChildren = {
   SolucoesAbrirEmpresaRoute: SolucoesAbrirEmpresaRoute,
   SolucoesBpoFinanceiroRoute: SolucoesBpoFinanceiroRoute,
   SolucoesContabilidadeEmpresarialRoute: SolucoesContabilidadeEmpresarialRoute,
+  SolucoesDefesasFiscaisRoute: SolucoesDefesasFiscaisRoute,
   SolucoesDepartamentoFiscalRoute: SolucoesDepartamentoFiscalRoute,
   SolucoesDepartamentoPessoalRoute: SolucoesDepartamentoPessoalRoute,
   SolucoesHoldingPatrimonialRoute: SolucoesHoldingPatrimonialRoute,
