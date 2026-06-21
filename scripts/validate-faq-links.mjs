@@ -23,6 +23,7 @@ const REPORT_DIR = process.env.FAQ_LINKS_REPORT_DIR || "/mnt/documents";
 const REPORT_PATH = path.join(REPORT_DIR, "faq-links-report.md");
 const REPORT_JSON = path.join(REPORT_DIR, "faq-links-report.json");
 const REPORT_FAILURES_JSON = path.join(REPORT_DIR, "faq-links-failures.json");
+const DRY_RUN_REPORT_JSON = process.env.FAQ_LINKS_DRY_RUN_REPORT;
 
 function fileToRoutePath(file) {
   let base = file.replace(/\.tsx?$/, "");
