@@ -141,7 +141,7 @@ export function recommendForResult(
   r: AuditResult,
   siteUrl: string,
 ): Recommendation[] {
-  const out: Recommendation[] = [];
+  const out: Omit<Recommendation, "impact">[] = [];
   const path = pathOf(r.url, siteUrl);
   const entry = entryFor(path);
   const kind = r.kind;
@@ -159,7 +159,7 @@ export function recommendForResult(
         { label: "Abrir no GSC", href: gsc, external: true },
       ],
     });
-    return out;
+    return finalize(out, path, kind);
   }
 
   const fetchState = r.pageFetchState ?? "";
@@ -354,7 +354,17 @@ export function recommendForResult(
     }
   }
 
-  return out;
+  return finalize(out, path, kind);
+}
+
+function finalize(
+  items: Omit<Recommendation, "impact">[],
+  path: string,
+  kind: "canonical" | "redirect",
+): Recommendation[] {
+  return items
+    .map((it) => ({ ...it, impact: scoreItem(it, path, kind) }))
+    .sort((a, b) => b.impact - a.impact);
 }
 
 export function buildRecommendations(
@@ -369,6 +379,7 @@ export function buildRecommendations(
         "info",
       );
       const path = pathOf(r.url, siteUrl);
+      const score = aggregateScore(items);
       return {
         url: r.url,
         path,
@@ -376,11 +387,16 @@ export function buildRecommendations(
         expectedTarget: entryFor(path)?.target,
         worst,
         items,
+        score,
+        priorityLabel: priorityFromScore(score),
       };
     })
     .filter((u) => u.items.length > 0)
     .sort(
-      (a, b) => sevRank[b.worst] - sevRank[a.worst] || a.path.localeCompare(b.path),
+      (a, b) =>
+        b.score - a.score ||
+        sevRank[b.worst] - sevRank[a.worst] ||
+        a.path.localeCompare(b.path),
     );
 }
 
