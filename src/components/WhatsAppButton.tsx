@@ -1,36 +1,47 @@
 import { useRouterState } from "@tanstack/react-router";
 
-const defaultMessage = "Olá, gostaria de conversar com a equipe técnica da DCON.";
+const defaultMessage = "Olá, visitei o site da DCON e gostaria de entender melhor como vocês podem me ajudar.";
 
 const messagesByPath: Record<string, string> = {
-  "/": "Olá, visitei o site da DCON e gostaria de conversar com a equipe técnica.",
-  "/diagnostico": "Olá, gostaria de solicitar um diagnóstico fiscal gratuito.",
-  "/solucoes/trocar-contabilidade": "Olá, gostaria de falar sobre migração de contabilidade com auditoria.",
-  "/solucoes/defesas-fiscais": "Olá, gostaria de conversar sobre defesas fiscais e impugnações.",
-  "/solucoes/planejamento-tributario": "Olá, gostaria de falar sobre planejamento tributário para minha empresa.",
-  "/solucoes/recuperacao-creditos-tributarios": "Olá, gostaria de conversar sobre recuperação de créditos tributários.",
-  "/solucoes/regularizacao-fiscal": "Olá, gostaria de falar sobre regularização fiscal e certidões.",
-  "/solucoes/contabilidade-empresarial": "Olá, gostaria de falar sobre contabilidade empresarial.",
-  "/solucoes/departamento-fiscal": "Olá, gostaria de falar sobre departamento fiscal e SPED.",
-  "/solucoes/departamento-pessoal": "Olá, gostaria de falar sobre departamento pessoal e folha de pagamento.",
-  "/solucoes/bpo-financeiro": "Olá, gostaria de falar sobre BPO financeiro.",
-  "/solucoes/reforma-tributaria": "Olá, gostaria de falar sobre a Reforma Tributária e preparação para 2026/2027.",
-  "/solucoes/holding-patrimonial": "Olá, gostaria de falar sobre holding patrimonial e sucessão familiar.",
-  "/solucoes/pessoa-fisica-irpf": "Olá, gostaria de falar sobre declaração de IRPF para alta renda.",
-  "/solucoes/valuation-kpis": "Olá, gostaria de falar sobre valuation e indicadores da minha empresa.",
-  "/solucoes/societario-legalizacao": "Olá, gostaria de falar sobre societário e legalização.",
-  "/solucoes/tecnologia-contabil": "Olá, gostaria de falar sobre tecnologia contábil e ERP.",
-  "/solucoes/abrir-empresa": "Olá, gostaria de abrir uma empresa com apoio técnico.",
-  "/solucoes/registro-marca-inpi": "Olá, gostaria de falar sobre registro de marca no INPI.",
-  "/segmentos/medicos-clinicas": "Olá, gostaria de falar sobre contabilidade para médicos e clínicas.",
-  "/segmentos/e-commerce": "Olá, gostaria de falar sobre contabilidade para e-commerce.",
-  "/segmentos/holdings": "Olá, gostaria de falar sobre contabilidade para holdings.",
-  "/segmentos/construcao-civil-spe": "Olá, gostaria de falar sobre contabilidade para construção civil e SPEs.",
-  "/segmentos/produtor-rural": "Olá, gostaria de falar sobre contabilidade para produtor rural.",
-  "/segmentos/provedores-internet": "Olá, gostaria de falar sobre contabilidade para provedores de internet.",
-  "/contato": "Olá, vim pelo site e gostaria de conversar com a equipe técnica.",
-  "/sobre": "Olá, gostaria de saber mais sobre a DCON.",
-  "/metodo": "Olá, gostaria de conhecer melhor o Método DCON.",
+  // ─── Home ───
+  "/": "Olá, visitei o site da DCON e gostaria de entender melhor como vocês podem me ajudar.",
+
+  // ─── Diagnóstico ───
+  "/diagnostico": "Olá, quero entender como funciona o diagnóstico fiscal gratuito da DCON e agendar uma análise da minha empresa.",
+
+  // ─── Trocar Contabilidade ───
+  "/solucoes/trocar-contabilidade": "Olá, quero entender como funciona a troca de contabilidade com auditoria e segurança na transição.",
+
+  // ─── Soluções ───
+  "/solucoes/defesas-fiscais": "Olá, quero entender como a DCON estrutura defesas fiscais e impugnações com respaldo técnico.",
+  "/solucoes/planejamento-tributario": "Olá, quero entender como o planejamento tributário da DCON pode reduzir a carga fiscal da minha empresa de forma segura.",
+  "/solucoes/recuperacao-creditos-tributarios": "Olá, quero entender como funciona a recuperação de créditos tributários e se minha empresa tem valores a receber.",
+  "/solucoes/regularizacao-fiscal": "Olá, quero entender como regularizar minha situação fiscal e obter certidões negativas com tranquilidade.",
+  "/solucoes/contabilidade-empresarial": "Olá, quero entender como a contabilidade empresarial da DCON pode organizar as finanças da minha companhia.",
+  "/solucoes/departamento-fiscal": "Olá, quero entender como a DCON cuida do departamento fiscal, SPED e obrigações acessórias da minha empresa.",
+  "/solucoes/departamento-pessoal": "Olá, quero entender como a DCON cuida do departamento pessoal, folha de pagamento e obrigações trabalhistas.",
+  "/solucoes/bpo-financeiro": "Olá, quero entender como o BPO financeiro da DCON pode organizar o fluxo de caixa e a gestão financeira da minha empresa.",
+  "/solucoes/reforma-tributaria": "Olá, quero entender como me preparar para a Reforma Tributária e proteger a saúde fiscal da minha empresa em 2026/2027.",
+  "/solucoes/holding-patrimonial": "Olá, quero entender como estruturar uma holding patrimonial e planejar a sucessão familiar com segurança jurídica.",
+  "/solucoes/pessoa-fisica-irpf": "Olá, quero entender como a DCON pode me ajudar na declaração de IRPF para alta renda e evitar problemas com a Receita.",
+  "/solucoes/valuation-kpis": "Olá, quero entender como o valuation e os indicadores da DCON podem mensurar o valor real da minha empresa.",
+  "/solucoes/societario-legalizacao": "Olá, quero entender como a DCON cuida da parte societária e legalização da minha empresa.",
+  "/solucoes/tecnologia-contabil": "Olá, quero entender como a DCON usa tecnologia contábil e ERP para dar mais eficiência e transparência aos clientes.",
+  "/solucoes/abrir-empresa": "Olá, quero entender como abrir uma empresa com apoio técnico da DCON desde o início.",
+  "/solucoes/registro-marca-inpi": "Olá, quero entender como registrar minha marca no INPI com acompanhamento técnico da DCON.",
+
+  // ─── Setores ───
+  "/segmentos/medicos-clinicas": "Olá, quero entender como a DCON atende médicos e clínicas com contabilidade especializada e planejamento tributário.",
+  "/segmentos/e-commerce": "Olá, quero entender como a DCON atende e-commerce com contabilidade especializada para vendas online.",
+  "/segmentos/holdings": "Olá, quero entender como a DCON atende holdings com contabilidade consolidada e planejamento patrimonial.",
+  "/segmentos/construcao-civil-spe": "Olá, quero entender como a DCON atende construtoras e SPEs com contabilidade especializada do setor.",
+  "/segmentos/produtor-rural": "Olá, quero entender como a DCON atende produtor rural com contabilidade e planejamento tributário do agronegócio.",
+  "/segmentos/provedores-internet": "Olá, quero entender como a DCON atende provedores de internet com contabilidade especializada do setor de telecom.",
+
+  // ─── Outras ───
+  "/contato": "Olá, vim pelo site e gostaria de entender melhor como a DCON pode me ajudar.",
+  "/sobre": "Olá, visitei o site e quero entender melhor a experiência e o diferencial da DCON.",
+  "/metodo": "Olá, quero entender melhor como o Método DCON funciona na prática para empresas como a minha.",
 };
 
 export function WhatsAppButton() {
