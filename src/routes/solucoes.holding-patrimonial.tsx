@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
+import { MethodBadge } from "../components/MethodBadge";
+import { dconMethod } from "../lib/dconMethod";
 
 const faqs: FAQItem[] = [
   { q: "Holding serve para qualquer família?", a: "Não. Holding sem patrimônio relevante é custo sem benefício. A análise prévia confirma se o patrimônio, a estrutura familiar e o objetivo justificam a constituição. Em parte dos casos a recomendação é não constituir." },
@@ -40,6 +42,8 @@ function Page() {
       ctaPrimary={{ label: "Solicitar proposta", to: "/contato" }}
       ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
       pillarKey="holding-patrimonial"
+      method={dconMethod}
+      ctaVariant="opportunity"
       sections={[
         { h2: "Escopo do projeto", lead: "Avaliação técnica antes de qualquer decisão — patrimônio, família, objetivos e impacto tributário modelados em conjunto.", h3: [
           { title: "Estudo prévio de viabilidade", body: "Análise patrimonial, societária e familiar antes de qualquer transferência. Em parte dos casos a recomendação é não constituir." },
@@ -73,6 +77,8 @@ function Page() {
         { title: "ITCMD mal planejado", body: "Doação em vida sem cálculo de ITCMD progressivo pode custar mais que o próprio inventário." },
       ]}
       faq={faqs}
-    />
+    >
+      <MethodBadge note="Holding estruturada pelo protocolo DCON" />
+    </PageScaffold>
   );
 }

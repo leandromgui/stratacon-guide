@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
+import { MethodBadge } from "../components/MethodBadge";
+import { dconMethod } from "../lib/dconMethod";
 
 const faqs: FAQItem[] = [
   { q: "Atendem empresas sem funcionários CLT?", a: "Sim. Conduzimos pró-labore de sócios, distribuição de lucros e PJ contratados, com análise de risco de vínculo e estruturação correta." },
@@ -40,6 +42,8 @@ function Page() {
       ctaPrimary={{ label: "Solicitar proposta", to: "/contato" }}
       ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
       pillarKey="departamento-pessoal"
+      method={dconMethod}
+      ctaVariant="risk"
       sections={[
         { h2: "Escopo do serviço", lead: "Rotina trabalhista completa, do contrato à rescisão, com tratamento técnico do eSocial e foco em prevenção de passivo.", h3: [
           { title: "Admissão e contratos", body: "Documentação, exames ocupacionais, registro e eventos iniciais do eSocial em conformidade com a CLT e CCT aplicável." },
@@ -73,6 +77,8 @@ function Page() {
         { title: "Homologação informal", body: "Rescisão mal calculada ou sem documentação adequada vira reclamatória trabalhista com alto custo." },
       ]}
       faq={faqs}
-    />
+    >
+      <MethodBadge note="Departamento pessoal conduzido pelo protocolo DCON" />
+    </PageScaffold>
   );
 }

@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
+import { MethodBadge } from "../components/MethodBadge";
+import { dconMethod } from "../lib/dconMethod";
 
 const faqs: FAQItem[] = [
   { q: "A DCON substitui meu ERP?", a: "Não. A tecnologia da DCON cruza dados que já existem no seu ERP, nas notas e nas obrigações acessórias para gerar controle, alerta, conferência e decisão." },
@@ -39,6 +41,8 @@ function Page() {
       ctaPrimary={{ label: "Quero cruzar meus dados fiscais e contábeis", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       pillarKey="tecnologia-contabil"
+      method={dconMethod}
+      ctaVariant="opportunity"
       sections={[
         { h2: "Cruzamento fiscal automatizado", h3: [
           { title: "Fontes integradas", body: "XML, NF-e, NFS-e, NFC-e, CT-e, NFCom, SPED, EFD-Contribuições, DCTF, DCTFWeb, MIT, ECF, ECD, PGDAS-D, PER/DCOMP, DARFs, retenções e pagamentos." },
@@ -58,6 +62,7 @@ function Page() {
         ]},
       ]}
     >
+      <MethodBadge note="Tecnologia contábil aplicada pelo protocolo DCON" />
       <FAQ items={faqs} />
       <LeadCaptureForm page="solucoes" />
     </PageScaffold>
