@@ -23,14 +23,9 @@ import { Route as SolucoesValuationKpisRouteImport } from './routes/solucoes.val
 import { Route as SolucoesTrocarContabilidadeRouteImport } from './routes/solucoes.trocar-contabilidade'
 import { Route as SolucoesTecnologiaContabilRouteImport } from './routes/solucoes.tecnologia-contabil'
 import { Route as SolucoesSocietarioLegalizacaoRouteImport } from './routes/solucoes.societario-legalizacao'
-import { Route as SolucoesRegularizacaoFiscalRouteImport } from './routes/solucoes.regularizacao-fiscal'
 import { Route as SolucoesRegistroMarcaInpiRouteImport } from './routes/solucoes.registro-marca-inpi'
 import { Route as SolucoesReformaTributariaRouteImport } from './routes/solucoes.reforma-tributaria'
-import { Route as SolucoesRecuperacaoCreditosTributariosRouteImport } from './routes/solucoes.recuperacao-creditos-tributarios'
-import { Route as SolucoesPlanejamentoTributarioRouteImport } from './routes/solucoes.planejamento-tributario'
 import { Route as SolucoesPessoaFisicaIrpfRouteImport } from './routes/solucoes.pessoa-fisica-irpf'
-import { Route as SolucoesHoldingPatrimonialRouteImport } from './routes/solucoes.holding-patrimonial'
-import { Route as SolucoesDepartamentoPessoalRouteImport } from './routes/solucoes.departamento-pessoal'
 import { Route as SolucoesDepartamentoFiscalRouteImport } from './routes/solucoes.departamento-fiscal'
 import { Route as SolucoesDefesasFiscaisRouteImport } from './routes/solucoes.defesas-fiscais'
 import { Route as SolucoesContabilidadeEmpresarialRouteImport } from './routes/solucoes.contabilidade-empresarial'
@@ -138,12 +133,6 @@ const SolucoesSocietarioLegalizacaoRoute =
     path: '/solucoes/societario-legalizacao',
     getParentRoute: () => rootRouteImport,
   } as any)
-const SolucoesRegularizacaoFiscalRoute =
-  SolucoesRegularizacaoFiscalRouteImport.update({
-    id: '/solucoes/regularizacao-fiscal',
-    path: '/solucoes/regularizacao-fiscal',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 const SolucoesRegistroMarcaInpiRoute =
   SolucoesRegistroMarcaInpiRouteImport.update({
     id: '/solucoes/registro-marca-inpi',
@@ -156,34 +145,10 @@ const SolucoesReformaTributariaRoute =
     path: '/solucoes/reforma-tributaria',
     getParentRoute: () => rootRouteImport,
   } as any)
-const SolucoesRecuperacaoCreditosTributariosRoute =
-  SolucoesRecuperacaoCreditosTributariosRouteImport.update({
-    id: '/solucoes/recuperacao-creditos-tributarios',
-    path: '/solucoes/recuperacao-creditos-tributarios',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const SolucoesPlanejamentoTributarioRoute =
-  SolucoesPlanejamentoTributarioRouteImport.update({
-    id: '/solucoes/planejamento-tributario',
-    path: '/solucoes/planejamento-tributario',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 const SolucoesPessoaFisicaIrpfRoute =
   SolucoesPessoaFisicaIrpfRouteImport.update({
     id: '/solucoes/pessoa-fisica-irpf',
     path: '/solucoes/pessoa-fisica-irpf',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const SolucoesHoldingPatrimonialRoute =
-  SolucoesHoldingPatrimonialRouteImport.update({
-    id: '/solucoes/holding-patrimonial',
-    path: '/solucoes/holding-patrimonial',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const SolucoesDepartamentoPessoalRoute =
-  SolucoesDepartamentoPessoalRouteImport.update({
-    id: '/solucoes/departamento-pessoal',
-    path: '/solucoes/departamento-pessoal',
     getParentRoute: () => rootRouteImport,
   } as any)
 const SolucoesDepartamentoFiscalRoute =
@@ -407,14 +372,9 @@ export interface FileRoutesByFullPath {
   '/solucoes/contabilidade-empresarial': typeof SolucoesContabilidadeEmpresarialRoute
   '/solucoes/defesas-fiscais': typeof SolucoesDefesasFiscaisRoute
   '/solucoes/departamento-fiscal': typeof SolucoesDepartamentoFiscalRoute
-  '/solucoes/departamento-pessoal': typeof SolucoesDepartamentoPessoalRoute
-  '/solucoes/holding-patrimonial': typeof SolucoesHoldingPatrimonialRoute
   '/solucoes/pessoa-fisica-irpf': typeof SolucoesPessoaFisicaIrpfRoute
-  '/solucoes/planejamento-tributario': typeof SolucoesPlanejamentoTributarioRoute
-  '/solucoes/recuperacao-creditos-tributarios': typeof SolucoesRecuperacaoCreditosTributariosRoute
   '/solucoes/reforma-tributaria': typeof SolucoesReformaTributariaRoute
   '/solucoes/registro-marca-inpi': typeof SolucoesRegistroMarcaInpiRoute
-  '/solucoes/regularizacao-fiscal': typeof SolucoesRegularizacaoFiscalRoute
   '/solucoes/societario-legalizacao': typeof SolucoesSocietarioLegalizacaoRoute
   '/solucoes/tecnologia-contabil': typeof SolucoesTecnologiaContabilRoute
   '/solucoes/trocar-contabilidade': typeof SolucoesTrocarContabilidadeRoute
@@ -464,14 +424,9 @@ export interface FileRoutesByTo {
   '/solucoes/contabilidade-empresarial': typeof SolucoesContabilidadeEmpresarialRoute
   '/solucoes/defesas-fiscais': typeof SolucoesDefesasFiscaisRoute
   '/solucoes/departamento-fiscal': typeof SolucoesDepartamentoFiscalRoute
-  '/solucoes/departamento-pessoal': typeof SolucoesDepartamentoPessoalRoute
-  '/solucoes/holding-patrimonial': typeof SolucoesHoldingPatrimonialRoute
   '/solucoes/pessoa-fisica-irpf': typeof SolucoesPessoaFisicaIrpfRoute
-  '/solucoes/planejamento-tributario': typeof SolucoesPlanejamentoTributarioRoute
-  '/solucoes/recuperacao-creditos-tributarios': typeof SolucoesRecuperacaoCreditosTributariosRoute
   '/solucoes/reforma-tributaria': typeof SolucoesReformaTributariaRoute
   '/solucoes/registro-marca-inpi': typeof SolucoesRegistroMarcaInpiRoute
-  '/solucoes/regularizacao-fiscal': typeof SolucoesRegularizacaoFiscalRoute
   '/solucoes/societario-legalizacao': typeof SolucoesSocietarioLegalizacaoRoute
   '/solucoes/tecnologia-contabil': typeof SolucoesTecnologiaContabilRoute
   '/solucoes/trocar-contabilidade': typeof SolucoesTrocarContabilidadeRoute
@@ -522,14 +477,9 @@ export interface FileRoutesById {
   '/solucoes/contabilidade-empresarial': typeof SolucoesContabilidadeEmpresarialRoute
   '/solucoes/defesas-fiscais': typeof SolucoesDefesasFiscaisRoute
   '/solucoes/departamento-fiscal': typeof SolucoesDepartamentoFiscalRoute
-  '/solucoes/departamento-pessoal': typeof SolucoesDepartamentoPessoalRoute
-  '/solucoes/holding-patrimonial': typeof SolucoesHoldingPatrimonialRoute
   '/solucoes/pessoa-fisica-irpf': typeof SolucoesPessoaFisicaIrpfRoute
-  '/solucoes/planejamento-tributario': typeof SolucoesPlanejamentoTributarioRoute
-  '/solucoes/recuperacao-creditos-tributarios': typeof SolucoesRecuperacaoCreditosTributariosRoute
   '/solucoes/reforma-tributaria': typeof SolucoesReformaTributariaRoute
   '/solucoes/registro-marca-inpi': typeof SolucoesRegistroMarcaInpiRoute
-  '/solucoes/regularizacao-fiscal': typeof SolucoesRegularizacaoFiscalRoute
   '/solucoes/societario-legalizacao': typeof SolucoesSocietarioLegalizacaoRoute
   '/solucoes/tecnologia-contabil': typeof SolucoesTecnologiaContabilRoute
   '/solucoes/trocar-contabilidade': typeof SolucoesTrocarContabilidadeRoute
@@ -581,14 +531,9 @@ export interface FileRouteTypes {
     | '/solucoes/contabilidade-empresarial'
     | '/solucoes/defesas-fiscais'
     | '/solucoes/departamento-fiscal'
-    | '/solucoes/departamento-pessoal'
-    | '/solucoes/holding-patrimonial'
     | '/solucoes/pessoa-fisica-irpf'
-    | '/solucoes/planejamento-tributario'
-    | '/solucoes/recuperacao-creditos-tributarios'
     | '/solucoes/reforma-tributaria'
     | '/solucoes/registro-marca-inpi'
-    | '/solucoes/regularizacao-fiscal'
     | '/solucoes/societario-legalizacao'
     | '/solucoes/tecnologia-contabil'
     | '/solucoes/trocar-contabilidade'
@@ -638,14 +583,9 @@ export interface FileRouteTypes {
     | '/solucoes/contabilidade-empresarial'
     | '/solucoes/defesas-fiscais'
     | '/solucoes/departamento-fiscal'
-    | '/solucoes/departamento-pessoal'
-    | '/solucoes/holding-patrimonial'
     | '/solucoes/pessoa-fisica-irpf'
-    | '/solucoes/planejamento-tributario'
-    | '/solucoes/recuperacao-creditos-tributarios'
     | '/solucoes/reforma-tributaria'
     | '/solucoes/registro-marca-inpi'
-    | '/solucoes/regularizacao-fiscal'
     | '/solucoes/societario-legalizacao'
     | '/solucoes/tecnologia-contabil'
     | '/solucoes/trocar-contabilidade'
@@ -695,14 +635,9 @@ export interface FileRouteTypes {
     | '/solucoes/contabilidade-empresarial'
     | '/solucoes/defesas-fiscais'
     | '/solucoes/departamento-fiscal'
-    | '/solucoes/departamento-pessoal'
-    | '/solucoes/holding-patrimonial'
     | '/solucoes/pessoa-fisica-irpf'
-    | '/solucoes/planejamento-tributario'
-    | '/solucoes/recuperacao-creditos-tributarios'
     | '/solucoes/reforma-tributaria'
     | '/solucoes/registro-marca-inpi'
-    | '/solucoes/regularizacao-fiscal'
     | '/solucoes/societario-legalizacao'
     | '/solucoes/tecnologia-contabil'
     | '/solucoes/trocar-contabilidade'
@@ -751,14 +686,9 @@ export interface RootRouteChildren {
   SolucoesContabilidadeEmpresarialRoute: typeof SolucoesContabilidadeEmpresarialRoute
   SolucoesDefesasFiscaisRoute: typeof SolucoesDefesasFiscaisRoute
   SolucoesDepartamentoFiscalRoute: typeof SolucoesDepartamentoFiscalRoute
-  SolucoesDepartamentoPessoalRoute: typeof SolucoesDepartamentoPessoalRoute
-  SolucoesHoldingPatrimonialRoute: typeof SolucoesHoldingPatrimonialRoute
   SolucoesPessoaFisicaIrpfRoute: typeof SolucoesPessoaFisicaIrpfRoute
-  SolucoesPlanejamentoTributarioRoute: typeof SolucoesPlanejamentoTributarioRoute
-  SolucoesRecuperacaoCreditosTributariosRoute: typeof SolucoesRecuperacaoCreditosTributariosRoute
   SolucoesReformaTributariaRoute: typeof SolucoesReformaTributariaRoute
   SolucoesRegistroMarcaInpiRoute: typeof SolucoesRegistroMarcaInpiRoute
-  SolucoesRegularizacaoFiscalRoute: typeof SolucoesRegularizacaoFiscalRoute
   SolucoesSocietarioLegalizacaoRoute: typeof SolucoesSocietarioLegalizacaoRoute
   SolucoesTecnologiaContabilRoute: typeof SolucoesTecnologiaContabilRoute
   SolucoesTrocarContabilidadeRoute: typeof SolucoesTrocarContabilidadeRoute
@@ -868,13 +798,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolucoesSocietarioLegalizacaoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/solucoes/regularizacao-fiscal': {
-      id: '/solucoes/regularizacao-fiscal'
-      path: '/solucoes/regularizacao-fiscal'
-      fullPath: '/solucoes/regularizacao-fiscal'
-      preLoaderRoute: typeof SolucoesRegularizacaoFiscalRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/solucoes/registro-marca-inpi': {
       id: '/solucoes/registro-marca-inpi'
       path: '/solucoes/registro-marca-inpi'
@@ -889,39 +812,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolucoesReformaTributariaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/solucoes/recuperacao-creditos-tributarios': {
-      id: '/solucoes/recuperacao-creditos-tributarios'
-      path: '/solucoes/recuperacao-creditos-tributarios'
-      fullPath: '/solucoes/recuperacao-creditos-tributarios'
-      preLoaderRoute: typeof SolucoesRecuperacaoCreditosTributariosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/solucoes/planejamento-tributario': {
-      id: '/solucoes/planejamento-tributario'
-      path: '/solucoes/planejamento-tributario'
-      fullPath: '/solucoes/planejamento-tributario'
-      preLoaderRoute: typeof SolucoesPlanejamentoTributarioRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/solucoes/pessoa-fisica-irpf': {
       id: '/solucoes/pessoa-fisica-irpf'
       path: '/solucoes/pessoa-fisica-irpf'
       fullPath: '/solucoes/pessoa-fisica-irpf'
       preLoaderRoute: typeof SolucoesPessoaFisicaIrpfRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/solucoes/holding-patrimonial': {
-      id: '/solucoes/holding-patrimonial'
-      path: '/solucoes/holding-patrimonial'
-      fullPath: '/solucoes/holding-patrimonial'
-      preLoaderRoute: typeof SolucoesHoldingPatrimonialRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/solucoes/departamento-pessoal': {
-      id: '/solucoes/departamento-pessoal'
-      path: '/solucoes/departamento-pessoal'
-      fullPath: '/solucoes/departamento-pessoal'
-      preLoaderRoute: typeof SolucoesDepartamentoPessoalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solucoes/departamento-fiscal': {
@@ -1209,15 +1104,9 @@ const rootRouteChildren: RootRouteChildren = {
   SolucoesContabilidadeEmpresarialRoute: SolucoesContabilidadeEmpresarialRoute,
   SolucoesDefesasFiscaisRoute: SolucoesDefesasFiscaisRoute,
   SolucoesDepartamentoFiscalRoute: SolucoesDepartamentoFiscalRoute,
-  SolucoesDepartamentoPessoalRoute: SolucoesDepartamentoPessoalRoute,
-  SolucoesHoldingPatrimonialRoute: SolucoesHoldingPatrimonialRoute,
   SolucoesPessoaFisicaIrpfRoute: SolucoesPessoaFisicaIrpfRoute,
-  SolucoesPlanejamentoTributarioRoute: SolucoesPlanejamentoTributarioRoute,
-  SolucoesRecuperacaoCreditosTributariosRoute:
-    SolucoesRecuperacaoCreditosTributariosRoute,
   SolucoesReformaTributariaRoute: SolucoesReformaTributariaRoute,
   SolucoesRegistroMarcaInpiRoute: SolucoesRegistroMarcaInpiRoute,
-  SolucoesRegularizacaoFiscalRoute: SolucoesRegularizacaoFiscalRoute,
   SolucoesSocietarioLegalizacaoRoute: SolucoesSocietarioLegalizacaoRoute,
   SolucoesTecnologiaContabilRoute: SolucoesTecnologiaContabilRoute,
   SolucoesTrocarContabilidadeRoute: SolucoesTrocarContabilidadeRoute,
