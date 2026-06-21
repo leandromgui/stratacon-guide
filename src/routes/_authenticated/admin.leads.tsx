@@ -94,7 +94,7 @@ function AdminLeads() {
     const wantsContacted =
       patch.status === "contatado" &&
       leads?.find((l) => l.id === id)?.status !== "contatado";
-    const finalPatch: Record<string, unknown> = { ...patch };
+    const finalPatch: Partial<Lead> = { ...patch };
     if (wantsContacted && !patch.last_contact_at) {
       finalPatch.last_contact_at = new Date().toISOString();
     }
