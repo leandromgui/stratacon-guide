@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import { isValidElement } from "react";
 import { getCrossLinks } from "../lib/crossLinks";
 
 export interface H3Item {
@@ -13,7 +14,7 @@ export interface Section {
   h3?: H3Item[];
 }
 
-export interface FaqItem { q: string; a: string }
+export interface FaqItem { q: string; a: string | ReactNode }
 
 export interface PageScaffoldProps {
   eyebrow?: string;

@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 
-const faq = [
+const faqPlain = [
   {
     q: "O que é uma holding familiar?",
     a: "É uma sociedade empresarial constituída para concentrar a titularidade de bens e participações societárias de uma família, organizando sucessão, governança e tributação de forma planejada.",
@@ -25,6 +25,130 @@ const faq = [
   {
     q: "Holding familiar protege contra dívidas e processos?",
     a: "Oferece uma camada adicional de proteção, mas não é blindagem absoluta. Atos de fraude contra credores ou confusão patrimonial podem ser desconsiderados judicialmente. A proteção real vem da constituição feita de boa-fé, antes do surgimento de passivos.",
+  },
+  {
+    q: "Quanto tempo leva para constituir uma holding familiar?",
+    a: "De 15 a 45 dias úteis, dependendo da complexidade patrimonial, da existência de imóveis a integralizar e da agilidade dos cartórios e Junta Comercial. Holdings com múltiplos imóveis em municípios diferentes ou com necessidade de laudos de avaliação podem ultrapassar 60 dias.",
+  },
+  {
+    q: "Qual o risco real de desconsideração da personalidade jurídica?",
+    a: "A desconsideração ocorre quando há fraude contra credores, confusão patrimonial ou abuso de personalidade jurídica. Holdings constituídas de boa-fé, com contabilidade em dia, separação clara de bens e ausência de passivo conhecido têm risco mínimo. O perigo maior está em constituições feitas já com dívidas ou sem controle societário.",
+  },
+  {
+    q: "A holding familiar reduz imposto de renda sobre aluguéis?",
+    a: "Sim, na maioria dos casos. Aluguéis recebidos por pessoa física tributam em até 27,5% via carnê-leão. Na holding em Lucro Presumido, a carga efetiva sobre aluguéis cai para aproximadamente 11% a 16%, dependendo do estado e das deduções permitidas. A diferença justifica a estrutura quando a renda imobiliária é relevante.",
+  },
+  {
+    q: "É possível desfazer uma holding familiar? Quanto custa?",
+    a: "Sim, por dissolução, liquidação e extinção. O custo envolve honorários contábeis e jurídicos, encerramento de obrigações acessórias, eventuais tributos sobre ganho de capital na distribuição final de bens e custas de registro. Em média, o desmonte custa de 30% a 60% do valor gasto na constituição, mas pode gerar economia se a estrutura deixou de fazer sentido.",
+  },
+  {
+    q: "O que acontece se um sócio quiser sair da holding?",
+    a: "Depende das cláusulas do contrato social. Sem regras claras, a saída gera conflito sucessório e pode forçar a dissolução. Um bom acordo de sócios prevê direito de preferência, critérios de avaliação das quotas, prazos de pagamento e regras para entrada de herdeiros. A ausência dessas cláusulas é um dos maiores riscos de holding familiar.",
+  },
+  {
+    q: "Qual o prazo ideal para planejar a sucessão antes de uma doação?",
+    a: "Quanto antes, melhor. Doações feitas em vida com reserva de usufruto precisam ser estruturadas com antecedência para evitar questionamentos de simulação ou fraude. O planejamento ideal começa pelo menos 3 a 5 anos antes do evento sucessório esperado, especialmente quando há patrimônio imobiliário em múltiplos estados.",
+  },
+];
+
+const faq = [
+  ...faqPlain.slice(0, 6),
+  {
+    q: "Quanto tempo leva para constituir uma holding familiar?",
+    a: (
+      <>
+        De 15 a 45 dias úteis, dependendo da complexidade patrimonial, da existência de imóveis a integralizar e da agilidade dos cartórios e Junta Comercial. Holdings com múltiplos imóveis em municípios diferentes ou com necessidade de laudos de avaliação podem ultrapassar 60 dias.
+        <span className="block mt-3">
+          <Link
+            to="/diagnostico"
+            className="text-gold hover:opacity-80 text-[14px] font-medium underline underline-offset-4"
+          >
+            Faça o diagnóstico para saber o prazo exato do seu caso →
+          </Link>
+        </span>
+      </>
+    ),
+  },
+  {
+    q: "Qual o risco real de desconsideração da personalidade jurídica?",
+    a: (
+      <>
+        A desconsideração ocorre quando há fraude contra credores, confusão patrimonial ou abuso de personalidade jurídica. Holdings constituídas de boa-fé, com contabilidade em dia, separação clara de bens e ausência de passivo conhecido têm risco mínimo. O perigo maior está em constituições feitas já com dívidas ou sem controle societário.
+        <span className="block mt-3">
+          <Link
+            to="/diagnostico"
+            className="text-gold hover:opacity-80 text-[14px] font-medium underline underline-offset-4"
+          >
+            Avalie o risco da sua estrutura no diagnóstico →
+          </Link>
+        </span>
+      </>
+    ),
+  },
+  {
+    q: "A holding familiar reduz imposto de renda sobre aluguéis?",
+    a: (
+      <>
+        Sim, na maioria dos casos. Aluguéis recebidos por pessoa física tributam em até 27,5% via carnê-leão. Na holding em Lucro Presumido, a carga efetiva sobre aluguéis cai para aproximadamente 11% a 16%, dependendo do estado e das deduções permitidas. A diferença justifica a estrutura quando a renda imobiliária é relevante.
+        <span className="block mt-3">
+          <Link
+            to="/diagnostico"
+            className="text-gold hover:opacity-80 text-[14px] font-medium underline underline-offset-4"
+          >
+            Simule a economia tributária no seu diagnóstico →
+          </Link>
+        </span>
+      </>
+    ),
+  },
+  {
+    q: "É possível desfazer uma holding familiar? Quanto custa?",
+    a: (
+      <>
+        Sim, por dissolução, liquidação e extinção. O custo envolve honorários contábeis e jurídicos, encerramento de obrigações acessórias, eventuais tributos sobre ganho de capital na distribuição final de bens e custas de registro. Em média, o desmonte custa de 30% a 60% do valor gasto na constituição, mas pode gerar economia se a estrutura deixou de fazer sentido.
+        <span className="block mt-3">
+          <Link
+            to="/diagnostico"
+            className="text-gold hover:opacity-80 text-[14px] font-medium underline underline-offset-4"
+          >
+            Descubra se sua holding ainda é viável no diagnóstico →
+          </Link>
+        </span>
+      </>
+    ),
+  },
+  {
+    q: "O que acontece se um sócio quiser sair da holding?",
+    a: (
+      <>
+        Depende das cláusulas do contrato social. Sem regras claras, a saída gera conflito sucessório e pode forçar a dissolução. Um bom acordo de sócios prevê direito de preferência, critérios de avaliação das quotas, prazos de pagamento e regras para entrada de herdeiros. A ausência dessas cláusulas é um dos maiores riscos de holding familiar.
+        <span className="block mt-3">
+          <Link
+            to="/diagnostico"
+            className="text-gold hover:opacity-80 text-[14px] font-medium underline underline-offset-4"
+          >
+            Revise seu acordo de sócios no diagnóstico →
+          </Link>
+        </span>
+      </>
+    ),
+  },
+  {
+    q: "Qual o prazo ideal para planejar a sucessão antes de uma doação?",
+    a: (
+      <>
+        Quanto antes, melhor. Doações feitas em vida com reserva de usufruto precisam ser estruturadas com antecedência para evitar questionamentos de simulação ou fraude. O planejamento ideal começa pelo menos 3 a 5 anos antes do evento sucessório esperado, especialmente quando há patrimônio imobiliário em múltiplos estados.
+        <span className="block mt-3">
+          <Link
+            to="/diagnostico"
+            className="text-gold hover:opacity-80 text-[14px] font-medium underline underline-offset-4"
+          >
+            Inicie o planejamento sucessório com o diagnóstico →
+          </Link>
+        </span>
+      </>
+    ),
   },
 ];
 
@@ -70,7 +194,7 @@ export const Route = createFileRoute("/conteudos/holding-familiar")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          mainEntity: faq.map((f) => ({
+          mainEntity: faqPlain.map((f) => ({
             "@type": "Question",
             name: f.q,
             acceptedAnswer: { "@type": "Answer", text: f.a },
