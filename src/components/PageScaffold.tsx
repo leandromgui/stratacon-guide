@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import { isValidElement } from "react";
 import { getCrossLinks } from "../lib/crossLinks";
 
 export interface H3Item {
