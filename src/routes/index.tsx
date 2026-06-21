@@ -1,13 +1,12 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Link } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Contabilidade Consultiva em Goiânia | DCON Contábil" },
-      { name: "description", content: "DCON: contabilidade consultiva em Goiânia para empresas que querem decidir com segurança fiscal, tributária e patrimonial. Atendimento presencial e online." },
-      { property: "og:title", content: "Contabilidade Consultiva em Goiânia | DCON Contábil" },
-      { property: "og:description", content: "DCON: contabilidade consultiva em Goiânia para empresas que querem decidir com segurança fiscal, tributária e patrimonial. Atendimento presencial e online." },
+      { title: "DCON · Consultoria Contábil, Fiscal e Tributária em Goiânia" },
+      { name: "description", content: "DCON Serviços Contábeis: consultoria contábil, fiscal, tributária e empresarial para empresas que precisam decidir com segurança jurídica e patrimonial." },
+      { property: "og:title", content: "DCON · Consultoria Contábil, Fiscal e Tributária em Goiânia" },
+      { property: "og:description", content: "Firma de consultoria contábil, fiscal e tributária. Goiânia — atendimento em todo o Brasil." },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -15,129 +14,385 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const blocks: Array<{ h2: string; lead: string; h3: { title: string; body: string }[] }> = [
-  {
-    h2: "Por que sua contabilidade precisa ir além das guias",
-    lead: "Cumprir prazo é o mínimo. Decisão segura exige leitura técnica do que está sendo declarado.",
-    h3: [
-      { title: "Riscos invisíveis", body: "Erro de classificação fiscal, ST e DIFAL costumam aparecer só na autuação." },
-      { title: "O custo do erro fiscal", body: "Multa, juros e perda de oportunidade superam em muito qualquer economia inicial." },
-      { title: "Decisão sem dado é risco", body: "Sem relatório gerencial confiável, o sócio decide no instinto — e paga caro." },
-    ],
-  },
-  {
-    h2: "Como a DCON atua",
-    lead: "Quatro etapas que transformam contabilidade em informação útil para decidir.",
-    h3: [
-      { title: "Diagnóstico técnico", body: "Antes de qualquer entrega, mapeamos o que está exposto." },
-      { title: "Estruturação", body: "Regime, CNAE, sócios e processos ajustados à operação real." },
-      { title: "Rotina auditável", body: "Calendário fiscal, fechamento revisado e relatórios padronizados." },
-      { title: "Acompanhamento consultivo", body: "Reuniões periódicas com leitura do que o número está dizendo." },
-    ],
-  },
-  {
-    h2: "Soluções contábeis, fiscais e tributárias",
-    lead: "Da rotina obrigatória às decisões de maior impacto patrimonial.",
-    h3: [
-      { title: "Contabilidade Empresarial", body: "Escrituração, balanços e relatórios entregues com revisão técnica." },
-      { title: "Planejamento Tributário", body: "Comparativo de regimes com fundamento legal e cenários reais." },
-      { title: "Regularização Fiscal", body: "Saída de pendências com plano e parcelamentos adequados." },
-      { title: "Holding e Patrimônio", body: "Estrutura patrimonial e sucessão dentro da lei." },
-    ],
-  },
-  {
-    h2: "Segmentos atendidos",
-    lead: "Conhecimento específico por vertical — não tratamos todo cliente igual.",
-    h3: [
-      { title: "Médicos e clínicas", body: "PJ médica, sociedade médica e equiparação hospitalar." },
-      { title: "E-commerce", body: "DIFAL, ICMS-ST e operação multiestadual sob controle." },
-      { title: "Construção civil e SPEs", body: "RET, patrimônio de afetação e SPE por obra." },
-      { title: "Holdings", body: "Estrutura patrimonial e familiar com base técnica." },
-      { title: "Tecnologia e startups", body: "SaaS, ISS, equity e Lei do Bem." },
-    ],
-  },
-  {
-    h2: "Diagnóstico fiscal e contábil",
-    lead: "Entrega técnica em até 7 dias úteis com plano de ação acionável.",
-    h3: [
-      { title: "O que avaliamos", body: "Fiscal, contábil, tributário, trabalhista e societário." },
-      { title: "Quando solicitar", body: "Troca de contador, crescimento ou pendência fiscal." },
-      { title: "Como funciona", body: "Coleta, análise técnica e devolutiva consultiva." },
-    ],
-  },
-  {
-    h2: "Conteúdos para empresários",
-    lead: "Material técnico escrito para quem decide, não só para quem opera.",
-    h3: [
-      { title: "Planejamento tributário", body: "Cenários, regimes e estruturas explicados com base." },
-      { title: "Regimes tributários", body: "Simples, Presumido e Real comparados sem floreio." },
-      { title: "Holding e sucessão", body: "O que funciona, o que é mito e o que ninguém te conta." },
-    ],
-  },
-  {
-    h2: "Fale com a DCON",
-    lead: "Atendimento presencial em Goiânia e online em todo o Brasil.",
-    h3: [
-      { title: "Goiânia", body: "Reuniões presenciais com o responsável técnico." },
-      { title: "Atendimento online", body: "Videoconferência agendada para empresas de outras cidades." },
-      { title: "WhatsApp e e-mail", body: "Canais diretos para clientes e novos contatos." },
-    ],
-  },
+const solutions = [
+  { n: "01", h: "Planejamento Tributário", b: "Comparativo de regimes, cenários e estruturas societárias com fundamento legal.", to: "/solucoes/planejamento-tributario" },
+  { n: "02", h: "Reforma Tributária (CBS/IBS)", b: "Modelagem da transição, impacto setorial e adaptação da operação ao novo modelo.", to: "/solucoes/reforma-tributaria" },
+  { n: "03", h: "Defesas Fiscais", b: "Impugnações, recursos e defesas administrativas para autuações federais, estaduais e municipais.", to: "/solucoes/defesas-fiscais" },
+  { n: "04", h: "Recuperação de Créditos", b: "Revisão técnica de tributos pagos a maior nos últimos 5 anos.", to: "/solucoes/recuperacao-creditos-tributarios" },
+  { n: "05", h: "Holding e Patrimônio", b: "Estrutura patrimonial, sucessão e proteção dentro do enquadramento legal.", to: "/solucoes/holding-patrimonial" },
+  { n: "06", h: "Valuation e KPIs", b: "Leitura econômica e indicadores para decisões de M&A, captação e expansão.", to: "/solucoes/valuation-kpis" },
+];
+
+const sectors = [
+  { h: "Médicos e Clínicas", b: "PJ médica, equiparação hospitalar e sociedade entre profissionais.", to: "/segmentos/medicos-clinicas" },
+  { h: "E-commerce", b: "DIFAL, ICMS-ST e operação multiestadual sob controle.", to: "/segmentos/e-commerce" },
+  { h: "Construção Civil e SPEs", b: "RET, patrimônio de afetação e SPE por obra.", to: "/segmentos/construcao-civil-spe" },
+  { h: "Tecnologia e Startups", b: "SaaS, ISS, equity, Lei do Bem e captação.", to: "/segmentos/tecnologia-startups" },
+  { h: "Provedores de Internet", b: "Tributação ISP, Fust, Funttel e regulatório.", to: "/segmentos/provedores-internet" },
+  { h: "Holdings", b: "Estrutura patrimonial e familiar sob método.", to: "/segmentos/holdings" },
+];
+
+const themes = [
+  { tag: "Tributário", h: "Reforma Tributária", b: "O que muda no caixa entre 2026 e 2033.", to: "/solucoes/reforma-tributaria" },
+  { tag: "Defesa", h: "Autuação fiscal", b: "Como conduzir tecnicamente uma impugnação.", to: "/solucoes/defesas-fiscais" },
+  { tag: "Patrimônio", h: "Sucessão e Holding", b: "ITCMD, doação em vida e governança familiar.", to: "/conteudos/holding-patrimonio" },
+  { tag: "Compliance", h: "Regularização Fiscal", b: "Saída de pendências e plano de compliance.", to: "/solucoes/regularizacao-fiscal" },
+];
+
+const method = [
+  { n: "01", h: "Diagnóstico técnico", b: "Mapeamos o que está sendo declarado, pago e registrado. Avaliamos exposição fiscal, contábil, societária e trabalhista." },
+  { n: "02", h: "Estruturação", b: "Regime tributário, CNAE, sócios, distribuição e processos ajustados à operação real, não ao modelo padrão." },
+  { n: "03", h: "Rotina auditável", b: "Calendário fiscal, fechamento revisado, relatórios padronizados e controles internos auditáveis." },
+  { n: "04", h: "Acompanhamento consultivo", b: "Reuniões periódicas com leitura técnica do que o número está dizendo e do que precisa ser decidido." },
 ];
 
 function Home() {
   return (
     <div>
-      <section className="border-b border-border bg-secondary text-secondary-foreground">
-        <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
-          <div className="text-xs uppercase tracking-[0.18em] text-primary mb-6">
-            DCON Serviços Contábeis · Goiânia
+      {/* Hero */}
+      <section className="relative bg-secondary text-secondary-foreground overflow-hidden">
+        <div
+          aria-hidden
+          className="absolute inset-0 opacity-[0.07] pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(var(--color-secondary-foreground) 1px, transparent 1px), linear-gradient(90deg, var(--color-secondary-foreground) 1px, transparent 1px)",
+            backgroundSize: "72px 72px",
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl px-6 pt-24 pb-32 grid lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-8">
+            <div className="text-[11px] uppercase tracking-[0.26em] text-gold rule-gold">
+              Consultoria contábil, fiscal, tributária e empresarial
+            </div>
+            <h1 className="mt-8 font-display text-5xl md:text-7xl font-medium tracking-tight leading-[1.02] max-w-4xl">
+              Decisões econômicas seguras exigem leitura técnica do que está sendo declarado.
+            </h1>
+            <p className="mt-8 max-w-2xl text-lg text-secondary-foreground/75 leading-relaxed">
+              A DCON é uma firma de consultoria contábil, fiscal, tributária e empresarial.
+              Atuamos como o time técnico de empresas que precisam decidir com segurança
+              jurídica, fiscal e patrimonial — em Goiânia e em todo o Brasil.
+            </p>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <Link to="/diagnostico" className="inline-flex items-center bg-gold px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] font-medium text-gold-foreground hover:opacity-90">
+                Solicitar diagnóstico →
+              </Link>
+              <Link to="/solucoes" className="inline-flex items-center border border-secondary-foreground/30 px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] hover:border-gold hover:text-gold">
+                Ver linhas de serviço
+              </Link>
+            </div>
           </div>
-          <h1 className="text-4xl md:text-6xl font-semibold tracking-tight max-w-4xl leading-[1.05]">
-            Contabilidade estratégica para empresas que precisam de segurança fiscal, organização e inteligência tributária.
-          </h1>
-          <p className="mt-8 max-w-2xl text-lg text-secondary-foreground/75">
-            Atuamos como o time técnico que sua empresa precisa para decidir com clareza — fiscal, tributário, societário, trabalhista e contábil.
+          <aside className="lg:col-span-4 lg:border-l lg:border-secondary-foreground/15 lg:pl-10 flex flex-col justify-end gap-6">
+            <div>
+              <div className="text-[10px] uppercase tracking-[0.24em] text-secondary-foreground/55 mb-2">Em foco</div>
+              <Link to="/solucoes/reforma-tributaria" className="font-display text-xl leading-snug hover:text-gold block">
+                Reforma Tributária 2026–2033: o que muda no seu caixa.
+              </Link>
+              <p className="mt-2 text-sm text-secondary-foreground/65">Análise da transição CBS/IBS por setor e regime.</p>
+            </div>
+            <div className="grid grid-cols-3 gap-6 pt-6 border-t border-secondary-foreground/15">
+              {[
+                ["+12", "anos de atuação"],
+                ["+500", "empresas atendidas"],
+                ["7d", "diagnóstico"],
+              ].map(([n, l]) => (
+                <div key={l}>
+                  <div className="font-display text-3xl">{n}</div>
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-secondary-foreground/55 mt-1">{l}</div>
+                </div>
+              ))}
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      {/* Posicionamento */}
+      <section className="mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-12 gap-12">
+        <header className="lg:col-span-5">
+          <div className="text-[11px] uppercase tracking-[0.24em] text-gold">A firma</div>
+          <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight leading-[1.05]">
+            Uma firma técnica, não uma contabilidade online.
+          </h2>
+        </header>
+        <div className="lg:col-span-7 lg:pl-10 lg:border-l lg:border-border space-y-5 text-[16px] leading-relaxed text-foreground/85">
+          <p>
+            A DCON existe para empresários que pararam de tratar contabilidade como
+            custo administrativo. Operamos no ponto em que a contabilidade tradicional
+            para de pensar — a decisão do sócio, do CFO e do conselho.
           </p>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Link to="/diagnostico" className="inline-flex items-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:opacity-90">
-              Solicitar diagnóstico
+          <p>
+            Nossas entregas são conduzidas sob responsabilidade técnica registrada,
+            com revisão cruzada de processos e protocolos auditáveis. Não vendemos
+            preço baixo; entregamos visão tributária, societária, patrimonial e
+            contábil integrada.
+          </p>
+          <div className="pt-4 flex flex-wrap gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+            <span className="rule-gold">CRC ativo</span>
+            <span className="rule-gold">Sigilo profissional</span>
+            <span className="rule-gold">Revisão técnica</span>
+            <span className="rule-gold">Atendimento Brasil</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Linhas de serviço */}
+      <section className="bg-muted/40 border-y border-border">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
+            <div>
+              <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Linhas de serviço</div>
+              <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight max-w-xl leading-[1.05]">
+                Da rotina obrigatória às decisões patrimoniais.
+              </h2>
+            </div>
+            <Link to="/solucoes" className="text-[11px] uppercase tracking-[0.2em] border-b border-gold pb-1 text-secondary hover:text-primary">
+              Ver todas as soluções →
             </Link>
-            <Link to="/solucoes" className="inline-flex items-center rounded-md border border-border/40 px-6 py-3 text-sm font-medium hover:bg-secondary-foreground/5">
-              Conhecer as soluções
+          </div>
+          <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-3">
+            {solutions.map((s) => (
+              <Link key={s.h} to={s.to} className="group bg-card p-8 flex flex-col justify-between hover:bg-secondary hover:text-secondary-foreground transition-colors">
+                <div>
+                  <div className="text-[11px] uppercase tracking-[0.22em] text-gold">{s.n}</div>
+                  <h3 className="mt-3 font-display text-xl leading-snug">{s.h}</h3>
+                  <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground group-hover:text-secondary-foreground/75">{s.b}</p>
+                </div>
+                <div className="mt-8 text-[11px] uppercase tracking-[0.2em] text-secondary group-hover:text-gold">Conhecer →</div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Setores */}
+      <section className="mx-auto max-w-7xl px-6 py-24">
+        <div className="grid lg:grid-cols-12 gap-12 mb-12">
+          <div className="lg:col-span-6">
+            <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Setores atendidos</div>
+            <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight leading-[1.05]">
+              Conhecimento específico por vertical.
+            </h2>
+          </div>
+          <p className="lg:col-span-6 text-[16px] leading-relaxed text-foreground/80 lg:pt-8">
+            Tributação muda por CNAE, por regime e por modelo de operação. Em cada setor
+            que atendemos aplicamos método dedicado, com leitura específica das obrigações
+            principais, acessórias e dos pontos típicos de exposição.
+          </p>
+        </div>
+        <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-3">
+          {sectors.map((s) => (
+            <Link key={s.h} to={s.to} className="group bg-card p-7 hover:bg-secondary hover:text-secondary-foreground transition-colors">
+              <h3 className="font-display text-lg">{s.h}</h3>
+              <p className="mt-2 text-[14px] text-muted-foreground group-hover:text-secondary-foreground/75 leading-relaxed">{s.b}</p>
+              <div className="mt-5 text-[11px] uppercase tracking-[0.2em] text-secondary group-hover:text-gold">Ver setor →</div>
+            </Link>
+          ))}
+        </div>
+        <div className="mt-10 text-center">
+          <Link to="/segmentos" className="text-[12px] uppercase tracking-[0.2em] border-b border-secondary pb-1 hover:text-primary hover:border-primary">
+            Ver todos os setores →
+          </Link>
+        </div>
+      </section>
+
+      {/* Método */}
+      <section className="bg-secondary text-secondary-foreground">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="grid lg:grid-cols-12 gap-12 mb-14">
+            <div className="lg:col-span-5">
+              <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Método DCON</div>
+              <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight leading-[1.05]">
+                Quatro etapas auditáveis para transformar contabilidade em decisão.
+              </h2>
+            </div>
+            <p className="lg:col-span-7 text-[16px] leading-relaxed text-secondary-foreground/75 lg:pt-8">
+              O método DCON é o protocolo aplicado a todo cliente, do diagnóstico inicial à
+              consultoria periódica. Padroniza o que precisa ser previsível e dá espaço técnico
+              para o que precisa ser específico.
+            </p>
+          </div>
+          <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-secondary-foreground/10 border border-secondary-foreground/10">
+            {method.map((m) => (
+              <li key={m.h} className="bg-secondary p-7">
+                <div className="text-[11px] uppercase tracking-[0.22em] text-gold">{m.n}</div>
+                <h3 className="mt-3 font-display text-xl">{m.h}</h3>
+                <p className="mt-3 text-[14px] leading-relaxed text-secondary-foreground/75">{m.b}</p>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-12">
+            <Link to="/sobre/metodologia" className="inline-flex items-center border border-gold px-6 py-3 text-[12px] uppercase tracking-[0.18em] text-gold hover:bg-gold hover:text-gold-foreground">
+              Conhecer o método completo →
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20 space-y-16">
-        {blocks.map((b) => (
-          <article key={b.h2} className="border-l-2 border-primary/60 pl-6">
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">{b.h2}</h2>
-            <p className="mt-3 max-w-3xl text-muted-foreground">{b.lead}</p>
-            <ul className="mt-5 grid gap-3 sm:grid-cols-2 md:grid-cols-3">
-              {b.h3.map((h) => (
-                <li key={h.title} className="rounded-md border border-border bg-card p-4 text-sm">
-                  <h3 className="font-medium">{h.title}</h3>
-                  <p className="mt-1.5 text-muted-foreground text-[13px] leading-relaxed">{h.body}</p>
-                </li>
-              ))}
-            </ul>
-          </article>
-        ))}
+      {/* Diagnóstico em destaque */}
+      <section className="mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-12 gap-12">
+        <div className="lg:col-span-7">
+          <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Diagnóstico DCON</div>
+          <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight leading-[1.05]">
+            Sete dias úteis para mapear o que está fora de controle.
+          </h2>
+          <p className="mt-6 text-[16px] leading-relaxed text-foreground/80 max-w-2xl">
+            Análise técnica integrada do que está sendo pago, declarado e registrado.
+            Entrega com plano de ação priorizado por risco, impacto e prazo.
+          </p>
+          <ul className="mt-8 grid sm:grid-cols-2 gap-x-8 gap-y-3 text-[14px]">
+            {[
+              "Fiscal: SPEDs, ECF, EFD-Reinf, DCTFWeb",
+              "Tributário: regime, CNAE, sublimite, fator R",
+              "Contábil: balanços, ECD, conciliações",
+              "Trabalhista: eSocial, pró-labore, encargos",
+              "Societário: contrato social, distribuição, sócios",
+              "Patrimonial: bens, holding, sucessão",
+            ].map((it) => (
+              <li key={it} className="border-b border-dashed border-border pb-2 flex gap-3">
+                <span className="text-gold">·</span> {it}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Link to="/diagnostico" className="inline-flex items-center bg-secondary text-secondary-foreground px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:bg-primary">
+              Solicitar diagnóstico →
+            </Link>
+            <Link to="/sobre/metodologia" className="inline-flex items-center border border-border px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:border-secondary">
+              Ver metodologia
+            </Link>
+          </div>
+        </div>
+        <aside className="lg:col-span-5 bg-secondary text-secondary-foreground p-10 flex flex-col justify-between">
+          <div>
+            <div className="text-[10px] uppercase tracking-[0.24em] text-gold mb-4">Tecnologia contábil</div>
+            <h3 className="font-display text-2xl leading-snug">
+              Automatização da rotina, decisão sob responsabilidade humana.
+            </h3>
+            <p className="mt-4 text-[14px] text-secondary-foreground/70 leading-relaxed">
+              Integração com SPED, ERPs, plataformas de venda e bancos. Painéis gerenciais
+              entregues sem cobrança do cliente. Toda recomendação técnica passa por revisão
+              do responsável.
+            </p>
+          </div>
+          <ul className="mt-8 grid grid-cols-2 gap-y-3 text-[12px] uppercase tracking-[0.18em] text-secondary-foreground/65">
+            <li>SPED / ECF</li>
+            <li>EFD-Reinf</li>
+            <li>eSocial</li>
+            <li>Painéis BI</li>
+            <li>ERP / Bling</li>
+            <li>Open Finance</li>
+          </ul>
+        </aside>
       </section>
 
-      <section className="border-t border-border bg-accent">
-        <div className="mx-auto max-w-6xl px-6 py-16 flex flex-wrap items-center justify-between gap-6">
+      {/* Riscos */}
+      <section className="bg-muted/40 border-y border-border">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="grid lg:grid-cols-12 gap-12 mb-12">
+            <div className="lg:col-span-5">
+              <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Riscos típicos sob exposição</div>
+              <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight leading-[1.05]">
+                O custo de não saber o que está sendo declarado.
+              </h2>
+            </div>
+            <p className="lg:col-span-7 text-[16px] leading-relaxed text-foreground/80 lg:pt-8">
+              Erros aparecem na autuação, não no balancete. A maioria das empresas que
+              chegam à DCON descobre exposição relevante já no diagnóstico inicial.
+            </p>
+          </div>
+          <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
+            {[
+              ["Classificação fiscal incorreta", "NCM, CST, CFOP e CNAE desalinhados geram autuação retroativa com multa e juros."],
+              ["ICMS-ST e DIFAL", "Operação multiestadual mal apurada acumula passivo silencioso por anos."],
+              ["Pró-labore e distribuição", "Distribuição desproporcional sem fundamento contábil expõe o sócio à desconsideração."],
+              ["Equiparação hospitalar", "Clínicas perdem benefício por enquadramento inadequado de CNAE e estrutura societária."],
+              ["Crédito tributário não aproveitado", "Empresas pagam tributo a maior por anos sem fazer levantamento técnico de créditos."],
+              ["Sucessão sem estrutura", "ITCMD e disputa familiar consomem patrimônio que poderia ser organizado em vida."],
+            ].map(([h, b]) => (
+              <li key={h} className="bg-card p-7">
+                <div className="font-display text-gold text-2xl leading-none">!</div>
+                <h3 className="mt-4 font-display text-lg">{h}</h3>
+                <p className="mt-2 text-[14px] text-muted-foreground leading-relaxed">{b}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Temas estratégicos */}
+      <section className="mx-auto max-w-7xl px-6 py-24">
+        <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
           <div>
-            <div className="text-xs uppercase tracking-[0.18em] text-primary">Próximo passo</div>
-            <h2 className="mt-2 text-2xl md:text-3xl font-semibold tracking-tight max-w-xl">
-              Solicite um diagnóstico fiscal e contábil da sua empresa
+            <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Temas estratégicos</div>
+            <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight max-w-2xl leading-[1.05]">
+              A agenda do CFO e do sócio em 2026.
             </h2>
           </div>
-          <Link to="/diagnostico" className="inline-flex items-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:opacity-90">
-            Solicitar diagnóstico
+          <Link to="/temas-estrategicos" className="text-[11px] uppercase tracking-[0.2em] border-b border-secondary pb-1 hover:text-primary hover:border-primary">
+            Ver agenda completa →
           </Link>
+        </div>
+        <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-4">
+          {themes.map((t) => (
+            <Link key={t.h} to={t.to} className="group bg-card p-7 hover:bg-secondary hover:text-secondary-foreground transition-colors">
+              <div className="text-[10px] uppercase tracking-[0.22em] text-gold">{t.tag}</div>
+              <h3 className="mt-3 font-display text-lg leading-snug">{t.h}</h3>
+              <p className="mt-2 text-[14px] text-muted-foreground group-hover:text-secondary-foreground/75 leading-relaxed">{t.b}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-12 gap-12">
+          <header className="lg:col-span-4">
+            <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Perguntas frequentes</div>
+            <h2 className="mt-4 font-display text-3xl md:text-4xl tracking-tight leading-[1.05]">
+              Como funciona uma firma de consultoria contábil.
+            </h2>
+          </header>
+          <div className="lg:col-span-8 divide-y divide-border border-y border-border">
+            {[
+              ["A DCON é uma contabilidade online?", "Não. Somos uma firma técnica de consultoria contábil, fiscal, tributária e empresarial. Atendemos presencialmente em Goiânia e remotamente em todo o Brasil, mas a entrega é consultiva, não transacional."],
+              ["Em quanto tempo o diagnóstico fica pronto?", "Em até 7 dias úteis após o envio da documentação. Entregamos relatório técnico com plano de ação priorizado por risco e impacto."],
+              ["Trabalham com empresas de qualquer regime?", "Sim — Simples Nacional, Lucro Presumido e Lucro Real. Frequentemente o próprio diagnóstico revela que a empresa está no regime errado."],
+              ["Atendem empresas fora de Goiânia?", "Sim. A maior parte do nosso atendimento é remoto, com reuniões técnicas agendadas por vídeo e protocolos auditáveis."],
+              ["Atuam como assessoria contínua ou pontual?", "Ambos. Há clientes em consultoria mensal contínua e projetos pontuais como recuperação de créditos, reestruturação societária e defesa fiscal."],
+              ["Quem assina tecnicamente as entregas?", "Responsável técnico com CRC ativo. Toda recomendação relevante passa por revisão cruzada antes da entrega."],
+            ].map(([q, a]) => (
+              <details key={q} className="group py-5">
+                <summary className="cursor-pointer list-none flex items-start justify-between gap-6">
+                  <span className="font-display text-[17px]">{q}</span>
+                  <span className="text-gold text-xl leading-none group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <p className="mt-3 text-muted-foreground text-[14px] leading-relaxed pr-10">{a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Closing CTA */}
+      <section className="bg-secondary text-secondary-foreground">
+        <div className="mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-12 gap-12 items-end">
+          <div className="lg:col-span-8">
+            <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Próximo passo</div>
+            <h2 className="mt-4 font-display text-4xl md:text-6xl tracking-tight leading-[1.02] max-w-3xl">
+              Comece pelo diagnóstico técnico da sua empresa.
+            </h2>
+            <p className="mt-6 max-w-xl text-secondary-foreground/75 text-[15px] leading-relaxed">
+              Sem compromisso comercial. Devolutiva técnica conduzida pelo responsável.
+            </p>
+          </div>
+          <div className="lg:col-span-4 flex flex-wrap gap-3 lg:justify-end">
+            <Link to="/diagnostico" className="inline-flex items-center bg-gold px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] text-gold-foreground hover:opacity-90">
+              Solicitar diagnóstico →
+            </Link>
+            <Link to="/contato" className="inline-flex items-center border border-secondary-foreground/30 px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] hover:border-gold hover:text-gold">
+              Falar com a DCON
+            </Link>
+          </div>
         </div>
       </section>
     </div>
