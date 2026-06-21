@@ -10,6 +10,8 @@
  *
  * Modo dry-run: passar --dry-run (ou DRY_RUN=1) para preview sem
  * quebrar o build e sem gravar arquivos.
+ *   → Para ainda gerar o JSON de falhas em dry-run, defina
+ *     FAQ_LINKS_DRY_RUN_REPORT=<caminho>.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -23,6 +25,7 @@ const REPORT_DIR = process.env.FAQ_LINKS_REPORT_DIR || "/mnt/documents";
 const REPORT_PATH = path.join(REPORT_DIR, "faq-links-report.md");
 const REPORT_JSON = path.join(REPORT_DIR, "faq-links-report.json");
 const REPORT_FAILURES_JSON = path.join(REPORT_DIR, "faq-links-failures.json");
+const DRY_RUN_REPORT_JSON = process.env.FAQ_LINKS_DRY_RUN_REPORT;
 
 function fileToRoutePath(file) {
   let base = file.replace(/\.tsx?$/, "");
@@ -121,7 +124,7 @@ const results = entries.map((e) => {
 
 const failures = results.filter((r) => r.status === "fail");
 
-// No dry-run não grava arquivos.
+// No dry-run não grava arquivos por padrão (exceto se DRY_RUN_REPORT_JSON estiver setado).
 if (!DRY_RUN) {
   try {
     fs.mkdirSync(REPORT_DIR, { recursive: true });
@@ -177,6 +180,26 @@ if (!DRY_RUN) {
     console.log(`→ Falhas JSON (automação): ${REPORT_FAILURES_JSON}`);
   } catch (err) {
     console.warn(`Aviso: não foi possível gravar relatório (${err.message}).`);
+  }
+}
+
+// Em dry-run, exporta apenas o JSON de falhas se o usuário solicitou via env.
+if (DRY_RUN && DRY_RUN_REPORT_JSON) {
+  try {
+    const dir = path.dirname(DRY_RUN_REPORT_JSON);
+    fs.mkdirSync(dir, { recursive: true });
+    const failuresForJson = failures.map((f) => ({
+      Pergunta: f.question,
+      Link: f.to,
+      Motivo: f.reasons.join("; "),
+    }));
+    fs.writeFileSync(
+      DRY_RUN_REPORT_JSON,
+      JSON.stringify(failuresForJson, null, 2) + "\n",
+    );
+    console.log(`→ Falhas JSON (dry-run): ${DRY_RUN_REPORT_JSON}`);
+  } catch (err) {
+    console.warn(`Aviso: não foi possível gravar relatório dry-run (${err.message}).`);
   }
 }
 
