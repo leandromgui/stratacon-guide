@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
+import { MethodBadge } from "../components/MethodBadge";
+import { dconMethod } from "../lib/dconMethod";
 
 const faqs: FAQItem[] = [
   { q: "Que tributos podem ser recuperados?", a: "PIS/COFINS (exclusão do ICMS da base, insumos, créditos extemporâneos), INSS sobre verbas indenizatórias, ICMS-ST recolhido a maior, crédito presumido não aproveitado e tributos pagos com erro de base ou alíquota nos últimos 5 anos." },
@@ -39,6 +41,8 @@ function Page() {
       breadcrumbs={[{ label: "Soluções", to: "/solucoes" }, { label: "Recuperação de Créditos", to: "/solucoes/recuperacao-creditos-tributarios" }]}
       ctaPrimary={{ label: "Solicitar análise gratuita", to: "/contato" }}
       ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      ctaVariant="opportunity"
+      method={dconMethod}
       pillarKey="recuperacao-creditos-tributarios"
       sections={[
         { h2: "Escopo da recuperação", lead: "Teses consolidadas trabalhadas com fundamentação auditável para suportar qualquer revisão fiscal.", h3: [
@@ -74,6 +78,8 @@ function Page() {
         { title: "Aderir a transação inadequada", body: "Transação errada compromete o caixa por anos sem necessariamente extinguir o passivo." },
       ]}
       faq={faqs}
-    />
+    >
+      <MethodBadge note="Recuperação conduzida pelo protocolo DCON" />
+    </PageScaffold>
   );
 }
