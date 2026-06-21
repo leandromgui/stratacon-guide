@@ -22,6 +22,7 @@ import { Route as SolucoesTrocarContabilidadeRouteImport } from './routes/soluco
 import { Route as SolucoesTecnologiaContabilRouteImport } from './routes/solucoes.tecnologia-contabil'
 import { Route as SolucoesSocietarioLegalizacaoRouteImport } from './routes/solucoes.societario-legalizacao'
 import { Route as SolucoesRegularizacaoFiscalRouteImport } from './routes/solucoes.regularizacao-fiscal'
+import { Route as SolucoesRegistroMarcaInpiRouteImport } from './routes/solucoes.registro-marca-inpi'
 import { Route as SolucoesReformaTributariaRouteImport } from './routes/solucoes.reforma-tributaria'
 import { Route as SolucoesRecuperacaoCreditosTributariosRouteImport } from './routes/solucoes.recuperacao-creditos-tributarios'
 import { Route as SolucoesPlanejamentoTributarioRouteImport } from './routes/solucoes.planejamento-tributario'
@@ -128,6 +129,12 @@ const SolucoesRegularizacaoFiscalRoute =
   SolucoesRegularizacaoFiscalRouteImport.update({
     id: '/solucoes/regularizacao-fiscal',
     path: '/solucoes/regularizacao-fiscal',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolucoesRegistroMarcaInpiRoute =
+  SolucoesRegistroMarcaInpiRouteImport.update({
+    id: '/solucoes/registro-marca-inpi',
+    path: '/solucoes/registro-marca-inpi',
     getParentRoute: () => rootRouteImport,
   } as any)
 const SolucoesReformaTributariaRoute =
@@ -384,6 +391,7 @@ export interface FileRoutesByFullPath {
   '/solucoes/planejamento-tributario': typeof SolucoesPlanejamentoTributarioRoute
   '/solucoes/recuperacao-creditos-tributarios': typeof SolucoesRecuperacaoCreditosTributariosRoute
   '/solucoes/reforma-tributaria': typeof SolucoesReformaTributariaRoute
+  '/solucoes/registro-marca-inpi': typeof SolucoesRegistroMarcaInpiRoute
   '/solucoes/regularizacao-fiscal': typeof SolucoesRegularizacaoFiscalRoute
   '/solucoes/societario-legalizacao': typeof SolucoesSocietarioLegalizacaoRoute
   '/solucoes/tecnologia-contabil': typeof SolucoesTecnologiaContabilRoute
@@ -437,6 +445,7 @@ export interface FileRoutesByTo {
   '/solucoes/planejamento-tributario': typeof SolucoesPlanejamentoTributarioRoute
   '/solucoes/recuperacao-creditos-tributarios': typeof SolucoesRecuperacaoCreditosTributariosRoute
   '/solucoes/reforma-tributaria': typeof SolucoesReformaTributariaRoute
+  '/solucoes/registro-marca-inpi': typeof SolucoesRegistroMarcaInpiRoute
   '/solucoes/regularizacao-fiscal': typeof SolucoesRegularizacaoFiscalRoute
   '/solucoes/societario-legalizacao': typeof SolucoesSocietarioLegalizacaoRoute
   '/solucoes/tecnologia-contabil': typeof SolucoesTecnologiaContabilRoute
@@ -491,6 +500,7 @@ export interface FileRoutesById {
   '/solucoes/planejamento-tributario': typeof SolucoesPlanejamentoTributarioRoute
   '/solucoes/recuperacao-creditos-tributarios': typeof SolucoesRecuperacaoCreditosTributariosRoute
   '/solucoes/reforma-tributaria': typeof SolucoesReformaTributariaRoute
+  '/solucoes/registro-marca-inpi': typeof SolucoesRegistroMarcaInpiRoute
   '/solucoes/regularizacao-fiscal': typeof SolucoesRegularizacaoFiscalRoute
   '/solucoes/societario-legalizacao': typeof SolucoesSocietarioLegalizacaoRoute
   '/solucoes/tecnologia-contabil': typeof SolucoesTecnologiaContabilRoute
@@ -546,6 +556,7 @@ export interface FileRouteTypes {
     | '/solucoes/planejamento-tributario'
     | '/solucoes/recuperacao-creditos-tributarios'
     | '/solucoes/reforma-tributaria'
+    | '/solucoes/registro-marca-inpi'
     | '/solucoes/regularizacao-fiscal'
     | '/solucoes/societario-legalizacao'
     | '/solucoes/tecnologia-contabil'
@@ -599,6 +610,7 @@ export interface FileRouteTypes {
     | '/solucoes/planejamento-tributario'
     | '/solucoes/recuperacao-creditos-tributarios'
     | '/solucoes/reforma-tributaria'
+    | '/solucoes/registro-marca-inpi'
     | '/solucoes/regularizacao-fiscal'
     | '/solucoes/societario-legalizacao'
     | '/solucoes/tecnologia-contabil'
@@ -652,6 +664,7 @@ export interface FileRouteTypes {
     | '/solucoes/planejamento-tributario'
     | '/solucoes/recuperacao-creditos-tributarios'
     | '/solucoes/reforma-tributaria'
+    | '/solucoes/registro-marca-inpi'
     | '/solucoes/regularizacao-fiscal'
     | '/solucoes/societario-legalizacao'
     | '/solucoes/tecnologia-contabil'
@@ -704,6 +717,7 @@ export interface RootRouteChildren {
   SolucoesPlanejamentoTributarioRoute: typeof SolucoesPlanejamentoTributarioRoute
   SolucoesRecuperacaoCreditosTributariosRoute: typeof SolucoesRecuperacaoCreditosTributariosRoute
   SolucoesReformaTributariaRoute: typeof SolucoesReformaTributariaRoute
+  SolucoesRegistroMarcaInpiRoute: typeof SolucoesRegistroMarcaInpiRoute
   SolucoesRegularizacaoFiscalRoute: typeof SolucoesRegularizacaoFiscalRoute
   SolucoesSocietarioLegalizacaoRoute: typeof SolucoesSocietarioLegalizacaoRoute
   SolucoesTecnologiaContabilRoute: typeof SolucoesTecnologiaContabilRoute
@@ -805,6 +819,13 @@ declare module '@tanstack/react-router' {
       path: '/solucoes/regularizacao-fiscal'
       fullPath: '/solucoes/regularizacao-fiscal'
       preLoaderRoute: typeof SolucoesRegularizacaoFiscalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/registro-marca-inpi': {
+      id: '/solucoes/registro-marca-inpi'
+      path: '/solucoes/registro-marca-inpi'
+      fullPath: '/solucoes/registro-marca-inpi'
+      preLoaderRoute: typeof SolucoesRegistroMarcaInpiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solucoes/reforma-tributaria': {
@@ -1131,6 +1152,7 @@ const rootRouteChildren: RootRouteChildren = {
   SolucoesRecuperacaoCreditosTributariosRoute:
     SolucoesRecuperacaoCreditosTributariosRoute,
   SolucoesReformaTributariaRoute: SolucoesReformaTributariaRoute,
+  SolucoesRegistroMarcaInpiRoute: SolucoesRegistroMarcaInpiRoute,
   SolucoesRegularizacaoFiscalRoute: SolucoesRegularizacaoFiscalRoute,
   SolucoesSocietarioLegalizacaoRoute: SolucoesSocietarioLegalizacaoRoute,
   SolucoesTecnologiaContabilRoute: SolucoesTecnologiaContabilRoute,
