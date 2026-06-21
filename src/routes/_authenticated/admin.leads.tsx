@@ -20,6 +20,31 @@ const STATUS_COLOR: Record<LeadStatus, string> = {
 
 const STATUSES: LeadStatus[] = ["novo", "contatado", "qualificado", "perdido"];
 
+const DUE_SOON_WINDOW_MS = 24 * 60 * 60 * 1000;
+
+function isOverdue(l: Lead, now: number) {
+  if (!l.next_followup_at || l.status === "perdido") return false;
+  return new Date(l.next_followup_at).getTime() < now;
+}
+
+function isDueSoon(l: Lead, now: number) {
+  if (!l.next_followup_at || l.status === "perdido") return false;
+  const t = new Date(l.next_followup_at).getTime();
+  return t >= now && t - now <= DUE_SOON_WINDOW_MS;
+}
+
+function relativeFromNow(iso: string, now: number) {
+  const diff = new Date(iso).getTime() - now;
+  const abs = Math.abs(diff);
+  const min = Math.round(abs / 60000);
+  const past = diff < 0;
+  if (min < 60) return past ? `há ${min} min` : `em ${min} min`;
+  const h = Math.round(min / 60);
+  if (h < 48) return past ? `há ${h} h` : `em ${h} h`;
+  const d = Math.round(h / 24);
+  return past ? `há ${d} d` : `em ${d} d`;
+}
+
 type Lead = {
   id: string;
   name: string;
@@ -64,6 +89,13 @@ function AdminLeads() {
   const [filter, setFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState<LeadStatus | "all">("all");
   const [openId, setOpenId] = useState<string | null>(null);
+  const [overdueOnly, setOverdueOnly] = useState(false);
+  const [now, setNow] = useState(() => Date.now());
+
+  useEffect(() => {
+    const t = setInterval(() => setNow(Date.now()), 60_000);
+    return () => clearInterval(t);
+  }, []);
 
   const refresh = () =>
     supabase
@@ -113,6 +145,7 @@ function AdminLeads() {
 
   const filtered = (leads ?? []).filter((l) => {
     if (statusFilter !== "all" && l.status !== statusFilter) return false;
+    if (overdueOnly && !isOverdue(l, now)) return false;
     if (!filter) return true;
     const q = filter.toLowerCase();
     return (
@@ -123,6 +156,13 @@ function AdminLeads() {
       (l.source_page ?? "").toLowerCase().includes(q)
     );
   });
+
+  const active = (leads ?? []).filter((l) => l.status !== "perdido");
+  const overdue = active
+    .filter((l) => isOverdue(l, now))
+    .sort((a, b) => (a.next_followup_at ?? "").localeCompare(b.next_followup_at ?? ""));
+  const dueSoon = active.filter((l) => isDueSoon(l, now));
+  const missing = active.filter((l) => !l.next_followup_at && l.status !== "qualificado");
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -139,6 +179,22 @@ function AdminLeads() {
       </header>
 
       <div className="mx-auto max-w-7xl px-6 py-8">
+        <FollowupSummary
+          overdue={overdue}
+          dueSoon={dueSoon}
+          missing={missing}
+          now={now}
+          onOpen={(id) => {
+            setOpenId(id);
+            setTimeout(() => document.getElementById(`lead-${id}`)?.scrollIntoView({ behavior: "smooth", block: "center" }), 50);
+          }}
+          onQuickContacted={async (id) => {
+            await updateLead(id, { status: "contatado" });
+          }}
+          onToggleFilter={() => setOverdueOnly((v) => !v)}
+          overdueOnly={overdueOnly}
+        />
+
         <div className="flex flex-wrap gap-3 items-center mb-6">
           <input
             value={filter}
@@ -175,6 +231,7 @@ function AdminLeads() {
                 <th className="text-left px-3 py-3">Nome</th>
                 <th className="text-left px-3 py-3">Contato</th>
                 <th className="text-left px-3 py-3">Interesse</th>
+                <th className="text-left px-3 py-3">Follow-up</th>
                 <th className="text-left px-3 py-3">Origem</th>
                 <th className="text-left px-3 py-3">Status</th>
                 <th className="px-3 py-3"></th>
@@ -183,7 +240,7 @@ function AdminLeads() {
             <tbody>
               {filtered.map((l) => (
                 <Fragment key={l.id}>
-                <tr className="border-t border-border align-top">
+            <tr id={`lead-${l.id}`} className={`border-t border-border align-top ${isOverdue(l, now) ? "bg-rose-500/5" : ""}`}>
                   <td className="px-3 py-3 text-xs text-muted-foreground whitespace-nowrap">
                     {new Date(l.created_at).toLocaleString("pt-BR")}
                   </td>
@@ -193,6 +250,15 @@ function AdminLeads() {
                     <div className="text-muted-foreground">{l.whatsapp}</div>
                   </td>
                   <td className="px-3 py-3 text-xs">{l.interest}</td>
+              <td className="px-3 py-3 text-xs whitespace-nowrap">
+                {l.next_followup_at ? (
+                  <span className={isOverdue(l, now) ? "text-rose-600 font-medium" : isDueSoon(l, now) ? "text-amber-600" : "text-muted-foreground"}>
+                    {relativeFromNow(l.next_followup_at, now)}
+                  </span>
+                ) : (
+                  <span className="text-muted-foreground">—</span>
+                )}
+              </td>
                   <td className="px-3 py-3 text-xs text-muted-foreground">
                     <div>{l.source_page ?? "—"}</div>
                     {(l.utm_source || l.utm_campaign) && (
@@ -221,7 +287,7 @@ function AdminLeads() {
                 </tr>
                 {openId === l.id && (
                   <tr className="border-t border-border bg-muted/30">
-                    <td colSpan={7} className="px-3 py-4">
+                    <td colSpan={8} className="px-3 py-4">
                       <LeadDetails lead={l} onChange={(patch) => updateLead(l.id, patch)} />
                     </td>
                   </tr>
@@ -230,7 +296,7 @@ function AdminLeads() {
               ))}
               {leads && filtered.length === 0 && (
                 <tr>
-                  <td colSpan={7} className="px-3 py-8 text-center text-sm text-muted-foreground">
+                  <td colSpan={8} className="px-3 py-8 text-center text-sm text-muted-foreground">
                     Nenhum lead encontrado.
                   </td>
                 </tr>
@@ -356,4 +422,123 @@ function LeadDetails({ lead, onChange }: { lead: Lead; onChange: (patch: Partial
       </div>
     </div>
   );
+}
+
+function FollowupSummary({
+  overdue,
+  dueSoon,
+  missing,
+  now,
+  onOpen,
+  onQuickContacted,
+  onToggleFilter,
+  overdueOnly,
+}: {
+  overdue: Lead[];
+  dueSoon: Lead[];
+  missing: Lead[];
+  now: number;
+  onOpen: (id: string) => void;
+  onQuickContacted: (id: string) => Promise<void>;
+  onToggleFilter: () => void;
+  overdueOnly: boolean;
+}) {
+  const [expanded, setExpanded] = useState(true);
+  const visible = overdue.slice(0, 5);
+
+  return (
+    <div className="mb-6 border border-border rounded-sm bg-card">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-border">
+        <div className="flex items-center gap-3">
+          <span className="text-[10px] uppercase tracking-[0.22em] text-gold">Lembretes</span>
+          <h2 className="font-display text-base tracking-tight">Follow-ups</h2>
+          <div className="flex items-center gap-2 text-[11px]">
+            <Badge tone="rose">{overdue.length} vencidos</Badge>
+            <Badge tone="amber">{dueSoon.length} hoje/24h</Badge>
+            <Badge tone="muted">{missing.length} sem data</Badge>
+          </div>
+        </div>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={onToggleFilter}
+            className={`text-[11px] uppercase tracking-[0.16em] px-2 py-1 rounded-sm border ${overdueOnly ? "border-gold text-gold" : "border-border text-muted-foreground hover:text-gold"}`}
+          >
+            {overdueOnly ? "Mostrar todos" : "Filtrar vencidos"}
+          </button>
+          {overdue.length > 0 && (
+            <button
+              onClick={() => setExpanded((v) => !v)}
+              className="text-[11px] uppercase tracking-[0.16em] hover:text-gold"
+            >
+              {expanded ? "Recolher" : "Expandir"}
+            </button>
+          )}
+        </div>
+      </div>
+
+      {overdue.length === 0 ? (
+        <div className="px-4 py-4 text-sm text-muted-foreground">
+          Nenhum follow-up vencido. {missing.length > 0 && `${missing.length} lead(s) ativos ainda não têm data agendada.`}
+        </div>
+      ) : expanded ? (
+        <ul className="divide-y divide-border">
+          {visible.map((l) => (
+            <li key={l.id} className="flex items-center justify-between gap-3 px-4 py-3 text-sm">
+              <div className="min-w-0">
+                <div className="flex items-center gap-2">
+                  <span className={`px-1.5 py-0.5 rounded-sm border text-[10px] ${STATUS_COLOR[l.status]}`}>
+                    {STATUS_LABEL[l.status]}
+                  </span>
+                  <span className="font-medium truncate">{l.name}</span>
+                  <span className="text-xs text-rose-600 whitespace-nowrap">
+                    {relativeFromNow(l.next_followup_at!, now)}
+                  </span>
+                </div>
+                <div className="text-xs text-muted-foreground truncate">
+                  {l.interest} · {l.whatsapp}
+                </div>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <a
+                  href={`https://wa.me/${l.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(`Olá ${l.name.split(" ")[0]}, aqui é da DCON dando sequência ao seu interesse em ${l.interest}.`)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[11px] uppercase tracking-[0.14em] border border-border px-2 py-1 rounded-sm hover:border-gold hover:text-gold"
+                >
+                  WhatsApp
+                </a>
+                <button
+                  onClick={() => onQuickContacted(l.id)}
+                  className="text-[11px] uppercase tracking-[0.14em] border border-border px-2 py-1 rounded-sm hover:border-gold hover:text-gold"
+                >
+                  Contatei agora
+                </button>
+                <button
+                  onClick={() => onOpen(l.id)}
+                  className="text-[11px] uppercase tracking-[0.14em] bg-primary text-primary-foreground px-2 py-1 rounded-sm hover:opacity-90"
+                >
+                  Abrir
+                </button>
+              </div>
+            </li>
+          ))}
+          {overdue.length > visible.length && (
+            <li className="px-4 py-2 text-xs text-muted-foreground">
+              + {overdue.length - visible.length} outros vencidos. Use “Filtrar vencidos” para ver todos.
+            </li>
+          )}
+        </ul>
+      ) : null}
+    </div>
+  );
+}
+
+function Badge({ children, tone }: { children: React.ReactNode; tone: "rose" | "amber" | "muted" }) {
+  const cls =
+    tone === "rose"
+      ? "bg-rose-500/15 text-rose-600 border-rose-500/30"
+      : tone === "amber"
+      ? "bg-amber-500/15 text-amber-600 border-amber-500/30"
+      : "bg-muted text-muted-foreground border-border";
+  return <span className={`px-1.5 py-0.5 rounded-sm border ${cls}`}>{children}</span>;
 }
