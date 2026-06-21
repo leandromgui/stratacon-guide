@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 
 const faq = [
@@ -82,6 +82,137 @@ export const Route = createFileRoute("/conteudos/holding-familiar")({
   component: Page,
 });
 
+function AlertBanner() {
+  return (
+    <div className="rounded-sm border border-gold/40 bg-gold/5 p-6">
+      <div className="flex items-start gap-4">
+        <div className="mt-0.5 text-gold text-lg leading-none">!</div>
+        <div>
+          <h3 className="font-display text-[16px]">Atenção: holding sem diagnóstico é aposta, não estratégia</h3>
+          <p className="mt-2 text-muted-foreground text-[14px] leading-relaxed">
+            A constituição de holding familiar exige análise do patrimônio existente, regime de casamento, dívidas e objetivos sucessórios. 
+            Quem pula essa etapa comete os cinco erros mais caros: integralização sem análise de ITBI, doação sem reserva de usufruto, 
+            ignorância do ITCMD estadual, constituição com passivo conhecido e contabilidade irregular. Cada um deles pode anular o benefício 
+            e gerar passivo maior que o problema original.
+          </p>
+          <div className="mt-4">
+            <Link
+              to="/diagnostico"
+              className="inline-flex items-center text-[12px] uppercase tracking-[0.16em] text-gold hover:opacity-80 font-medium"
+            >
+              Solicitar diagnóstico antes de constituir →
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ChecklistBlock() {
+  const items = [
+    "Levantamento completo de bens, dívidas e rendas da família",
+    "Verificação do regime de casamento e regime de bens dos sócios",
+    "Análise prévia do ITBI do município onde os imóveis estão localizados",
+    "Cálculo do ITCMD estadual com base real, não estimativa",
+    "Confirmação de inexistência de passivos conhecidos e processos",
+    "Definição do regime tributário (Presumido × Real) com simulação",
+    "Cláusulas de acordo de sócios: entrada, saída e sucessão de herdeiros",
+    "Reserva de usufruto nas doações de quotas (proteção do controlador)",
+    "Plano de manutenção contábil, fiscal e societária de longo prazo",
+  ];
+  return (
+    <section className="grid lg:grid-cols-12 gap-10">
+      <header className="lg:col-span-4">
+        <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Boas práticas</div>
+        <h2 className="font-display text-2xl md:text-3xl tracking-tight">Checklist: antes de abrir sua holding</h2>
+        <p className="mt-4 text-muted-foreground leading-relaxed text-[15px]">
+          Nove verificações que separam uma holding que gera economia de uma que vira passivo. 
+          Marque cada item com seu contador antes de assinar o contrato social.
+        </p>
+      </header>
+      <ul className="lg:col-span-8 space-y-px bg-border border border-border">
+        {items.map((item, i) => (
+          <li key={i} className="bg-card p-5 flex items-start gap-4">
+            <span className="mt-0.5 inline-flex items-center justify-center w-5 h-5 rounded-sm border border-gold/50 text-gold text-[10px] font-bold shrink-0">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <span className="text-[14px] text-card-foreground leading-relaxed">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+function GoodPracticeCards() {
+  const cards = [
+    {
+      title: "Nunca integralize imóveis sem laudo de avaliação",
+      body: "O laudo justifica o valor de integralização e protege contra questionamentos fiscais futuros. Municípios exigem documentação robusta para reconhecer imunidade de ITBI.",
+    },
+    {
+      title: "Mantenha contabilidade em dia desde o primeiro mês",
+      body: "Holding sem contabilidade regular é alvo fácil de desconsideração de personalidade jurídica. ECD, ECF e atas são a prova de separação patrimonial.",
+    },
+    {
+      title: "Reveja a estrutura a cada mudança familiar relevante",
+      body: "Casamento, divórcio, nascimento ou falecimento de sócio alteram o desenho sucessório. A holding deve ser tão viva quanto a família que representa.",
+    },
+    {
+      title: "Simule o regime tributário antes de escolher",
+      body: "Lucro Presumido nem sempre vence. Em alguns casos, o Lucro Real com planejamento de custos e deduções entrega resultado superior ao longo de 5 anos.",
+    },
+  ];
+  return (
+    <section className="grid lg:grid-cols-12 gap-10">
+      <header className="lg:col-span-4">
+        <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Alertas técnicos</div>
+        <h2 className="font-display text-2xl md:text-3xl tracking-tight">Boas práticas que protegem sua estrutura</h2>
+        <p className="mt-4 text-muted-foreground leading-relaxed text-[15px]">
+          Quatro regras que distinguem holdings que duram gerações de estruturas que viram problema no primeiro inventário.
+        </p>
+      </header>
+      <ul className="lg:col-span-8 grid sm:grid-cols-2 gap-px bg-border border border-border">
+        {cards.map((c) => (
+          <li key={c.title} className="bg-card p-6">
+            <h3 className="font-display text-[17px] text-card-foreground">{c.title}</h3>
+            <p className="mt-2 text-muted-foreground text-[14px] leading-relaxed">{c.body}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+function TrustMicrocopy() {
+  return (
+    <div className="rounded-sm border border-dashed border-border bg-muted/40 p-6 space-y-4">
+      <div className="flex items-start gap-3">
+        <span className="text-gold text-lg leading-none mt-0.5">✓</span>
+        <p className="text-[14px] text-muted-foreground leading-relaxed">
+          <strong className="text-foreground">Diagnóstico sem compromisso.</strong> Receba uma análise preliminar do seu patrimônio, 
+          com simulação tributária e parecer sobre viabilidade de holding, em até 7 dias úteis. Você só avança se o número fizer sentido.
+        </p>
+      </div>
+      <div className="flex items-start gap-3">
+        <span className="text-gold text-lg leading-none mt-0.5">✓</span>
+        <p className="text-[14px] text-muted-foreground leading-relaxed">
+          <strong className="text-foreground">Responsabilidade técnica com CRC ativo.</strong> Todo desenho societário e tributário é 
+          revisado por contador com registro ativo no Conselho Regional de Contabilidade. Não trabalhamos com modelos prontos: cada holding é modelada para o patrimônio real da família.
+        </p>
+      </div>
+      <div className="flex items-start gap-3">
+        <span className="text-gold text-lg leading-none mt-0.5">✓</span>
+        <p className="text-[14px] text-muted-foreground leading-relaxed">
+          <strong className="text-foreground">Atendimento em Goiânia e online em todo o Brasil.</strong> Reuniões presenciais para clientes 
+          locais e videoconferência estruturada para famílias em outros estados. A documentação e o acompanhamento fiscal são 100% digitais.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function Page() {
   return (
     <PageScaffold
@@ -96,6 +227,7 @@ function Page() {
       intent="holding familiar, como abrir holding familiar, holding familiar vale a pena, custos de holding familiar"
       ctaPrimary={{ label: "Solicitar diagnóstico de holding", to: "/diagnostico" }}
       ctaSecondary={{ label: "Ver solução: Holding Patrimonial", to: "/solucoes/holding-patrimonial" }}
+      observation="Este conteúdo tem caráter orientativo e não substitui parecer técnico individualizado. Cada família, patrimônio e estado possui variáveis próprias que alteram o resultado. Recomendamos diagnóstico prévio antes de qualquer decisão societária ou sucessória."
       sections={[
         {
           h2: "O que é uma holding familiar",
@@ -156,6 +288,13 @@ function Page() {
         { eyebrow: "Conteúdo", label: "Regimes Tributários: Simples, Presumido e Real", to: "/conteudos/regimes-tributarios" },
         { eyebrow: "Próximo passo", label: "Solicitar diagnóstico", to: "/diagnostico" },
       ]}
-    />
+    >
+      <div className="space-y-20">
+        <AlertBanner />
+        <ChecklistBlock />
+        <GoodPracticeCards />
+        <TrustMicrocopy />
+      </div>
+    </PageScaffold>
   );
 }
