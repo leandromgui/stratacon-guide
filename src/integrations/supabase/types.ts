@@ -181,6 +181,143 @@ export type Database = {
         }
         Relationships: []
       }
+      seo_audit_results: {
+        Row: {
+          coverage_state: string | null
+          crawled_as: string | null
+          error: string | null
+          google_canonical: string | null
+          id: string
+          indexing_state: string | null
+          kind: string
+          last_crawl_time: string | null
+          ok: boolean
+          page_fetch_state: string | null
+          robots_txt_state: string | null
+          run_id: string
+          url: string
+          user_canonical: string | null
+          verdict: string | null
+        }
+        Insert: {
+          coverage_state?: string | null
+          crawled_as?: string | null
+          error?: string | null
+          google_canonical?: string | null
+          id?: string
+          indexing_state?: string | null
+          kind: string
+          last_crawl_time?: string | null
+          ok: boolean
+          page_fetch_state?: string | null
+          robots_txt_state?: string | null
+          run_id: string
+          url: string
+          user_canonical?: string | null
+          verdict?: string | null
+        }
+        Update: {
+          coverage_state?: string | null
+          crawled_as?: string | null
+          error?: string | null
+          google_canonical?: string | null
+          id?: string
+          indexing_state?: string | null
+          kind?: string
+          last_crawl_time?: string | null
+          ok?: boolean
+          page_fetch_state?: string | null
+          robots_txt_state?: string | null
+          run_id?: string
+          url?: string
+          user_canonical?: string | null
+          verdict?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "seo_audit_results_run_id_fkey"
+            columns: ["run_id"]
+            isOneToOne: false
+            referencedRelation: "seo_audit_runs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      seo_audit_runs: {
+        Row: {
+          canonical_mismatch: number
+          error: string | null
+          failed_count: number
+          finished_at: string | null
+          id: string
+          indexed_pass: number
+          ok_count: number
+          redirects_ok: number
+          site_url: string
+          started_at: string
+          total: number
+          trigger_source: string
+          triggered_by: string | null
+        }
+        Insert: {
+          canonical_mismatch?: number
+          error?: string | null
+          failed_count?: number
+          finished_at?: string | null
+          id?: string
+          indexed_pass?: number
+          ok_count?: number
+          redirects_ok?: number
+          site_url: string
+          started_at?: string
+          total?: number
+          trigger_source?: string
+          triggered_by?: string | null
+        }
+        Update: {
+          canonical_mismatch?: number
+          error?: string | null
+          failed_count?: number
+          finished_at?: string | null
+          id?: string
+          indexed_pass?: number
+          ok_count?: number
+          redirects_ok?: number
+          site_url?: string
+          started_at?: string
+          total?: number
+          trigger_source?: string
+          triggered_by?: string | null
+        }
+        Relationships: []
+      }
+      seo_audit_settings: {
+        Row: {
+          enabled: boolean
+          id: boolean
+          schedule: string
+          site_url: string | null
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          enabled?: boolean
+          id?: boolean
+          schedule?: string
+          site_url?: string | null
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          enabled?: boolean
+          id?: boolean
+          schedule?: string
+          site_url?: string | null
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
