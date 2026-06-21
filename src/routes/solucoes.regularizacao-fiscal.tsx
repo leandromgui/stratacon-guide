@@ -39,6 +39,7 @@ function Page() {
       breadcrumbs={[{ label: "Soluções", to: "/solucoes" }, { label: "Regularização Fiscal", to: "/solucoes/regularizacao-fiscal" }]}
       ctaPrimary={{ label: "Solicitar proposta", to: "/contato" }}
       ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      pillarKey="regularizacao-fiscal"
       sections={[
         { h2: "Escopo do projeto", lead: "Mapeamento completo de débitos, defesas possíveis e plano priorizado por impacto operacional.", h3: [
           { title: "Mapa de débitos consolidado", body: "Levantamento federal (RFB/PGFN), estadual (Sefaz) e municipal (ISS/IPTU/Taxas) em relatório único." },

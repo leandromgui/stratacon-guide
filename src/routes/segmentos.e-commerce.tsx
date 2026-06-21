@@ -31,6 +31,7 @@ function Page() {
       observation="FAQ + comparativos por estado."
       ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      pillarKey="e-commerce"
       sections={[
       { h2: "Particularidades do e-commerce", h3: [{"title":"DIFAL","body":"Diferencial de alíquota entre estados, com regra que muda conforme o destino."},{"title":"ICMS-ST","body":"Substituição tributária no varejo digital — fonte clássica de erro."},{"title":"Marketplace × loja própria","body":"Tributação muda conforme quem é o vendedor jurídico."}] },
       { h2: "Operações típicas", h3: [{"title":"Mercado Livre, Shopee e Amazon","body":"Repasse, retenção e nota fiscal sob regras específicas."},{"title":"Shopify, Nuvemshop e loja própria","body":"Operação direta com cliente final."},{"title":"Logística e estoque","body":"Centros de distribuição em outros estados mudam a tributação."}] },

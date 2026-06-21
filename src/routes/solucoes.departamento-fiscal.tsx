@@ -31,6 +31,7 @@ function Page() {
       observation="Forte gancho para Recuperação de Créditos e Regularização."
       ctaPrimary={{ label: "Solicitar proposta", to: "/contato" }}
       ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      pillarKey="departamento-fiscal"
       sections={[
       { h2: "O que está incluso", h3: [{"title":"Apuração de tributos","body":"PIS, COFINS, ICMS, ISS, IRPJ e CSLL apurados com revisão técnica."},{"title":"SPED Fiscal e Contribuições","body":"Entregas auditadas antes da transmissão para reduzir risco de malha."},{"title":"Obrigações estaduais e municipais","body":"GIA, DESTDA, declarações de ISS conforme o município."},{"title":"Conferência de notas","body":"Validação técnica de CFOP, CST, NCM e base de cálculo."}] },
       { h2: "Para quem é indicado", h3: [{"title":"Comércio e indústria","body":"Operações com ICMS, ST e DIFAL que exigem precisão."},{"title":"Empresas com filiais","body":"Operações multiestaduais com regras tributárias distintas."},{"title":"Empresas que sofreram autuação","body":"Negócios que precisam corrigir rota fiscal antes de crescer."}] },

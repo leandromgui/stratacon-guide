@@ -31,6 +31,7 @@ function Page() {
       observation="ITR, Funrural, LCDPR."
       ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      pillarKey="produtor-rural"
       sections={[
       { h2: "Particularidades tributárias e contábeis", h3: [{"title":"Tributação específica","body":"Regras fiscais que afetam diretamente operações de produtor rural."},{"title":"Obrigações próprias","body":"Acessórias e declarações típicas deste segmento."},{"title":"Risco mais comum","body":"O erro que mais vemos neste tipo de operação."}] },
       { h2: "Riscos comuns no segmento", h3: [{"title":"Enquadramento errado","body":"Regime que parece econômico mas custa mais no fim."},{"title":"Falha de classificação fiscal","body":"CFOP, CST e NCM mal aplicados."},{"title":"Passivo trabalhista","body":"Vínculos mal estruturados que viram dor mais tarde."}] },

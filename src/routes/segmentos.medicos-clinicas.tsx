@@ -31,6 +31,7 @@ function Page() {
       observation="Schema MedicalBusiness-friendly + FAQPage."
       ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      pillarKey="medicos-clinicas"
       sections={[
       { h2: "Particularidades do segmento médico", h3: [{"title":"PJ médica","body":"Quando vale, quando não vale e como estruturar com segurança trabalhista."},{"title":"Equiparação hospitalar","body":"Lucro Presumido com presunção reduzida — para quem cumpre os requisitos."},{"title":"Sociedade médica","body":"Distribuição entre sócios, pró-labore e contratos de cooperação."}] },
       { h2: "Riscos comuns", h3: [{"title":"Pejotização mal feita","body":"Risco trabalhista alto quando o vínculo não está estruturado."},{"title":"Perder a equiparação","body":"Detalhes operacionais que descaracterizam o benefício."},{"title":"ISS mal apurado","body":"Município e código de serviço errados custam caro."}] },

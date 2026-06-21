@@ -39,6 +39,7 @@ function Page() {
       intent="planejamento tributário pessoa física, IRPF profissional liberal, restituição INSS"
       ctaPrimary={{ label: "Quero comparar PF x CNPJ", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      pillarKey="pessoa-fisica-irpf"
       sections={[
         { h2: "PF ou CNPJ", h3: [
           { title: "Comparativo técnico", body: "Livro Caixa, Carnê-Leão, Simples Nacional, Fator R, Anexo III, Anexo V, pró-labore e modelo híbrido — a migração depende de simulação, não apenas da alíquota." },

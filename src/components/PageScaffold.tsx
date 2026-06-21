@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import { getCrossLinks } from "../lib/crossLinks";
 
 export interface H3Item {
   title: string;
@@ -34,6 +35,8 @@ export interface PageScaffoldProps {
   faq?: FaqItem[];
   deliverables?: H3Item[];
   relatedLinks?: { label: string; to: string; eyebrow?: string }[];
+  /** Slug da página-pilar para auto-resolver relatedLinks via src/lib/crossLinks.ts */
+  pillarKey?: string;
 }
 
 function Eyebrow({ children }: { children: ReactNode }) {
@@ -43,6 +46,8 @@ function Eyebrow({ children }: { children: ReactNode }) {
 }
 
 export function PageScaffold(p: PageScaffoldProps) {
+  const resolvedRelated =
+    p.relatedLinks ?? (p.pillarKey ? getCrossLinks(p.pillarKey) : undefined);
   return (
     <div>
       {/* Hero */}
@@ -317,7 +322,7 @@ export function PageScaffold(p: PageScaffoldProps) {
           </section>
         )}
 
-        {p.relatedLinks && p.relatedLinks.length > 0 && (
+        {resolvedRelated && resolvedRelated.length > 0 && (
           <section className="border-t border-border pt-16">
             <div className="grid lg:grid-cols-12 gap-10">
               <header className="lg:col-span-4">
@@ -328,7 +333,7 @@ export function PageScaffold(p: PageScaffoldProps) {
                 </p>
               </header>
               <ul className="lg:col-span-8 grid sm:grid-cols-2 gap-px bg-border border border-border">
-                {p.relatedLinks.map((l) => (
+                {resolvedRelated.map((l) => (
                   <li key={l.to} className="bg-card">
                     <Link to={l.to} className="block p-6 hover:bg-muted/40 transition-colors">
                       {l.eyebrow && (

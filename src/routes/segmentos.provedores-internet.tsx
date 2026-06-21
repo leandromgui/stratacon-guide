@@ -38,6 +38,7 @@ function Page() {
       intent="contabilidade provedor internet, ICMS SVA, NFCom provedor"
       ctaPrimary={{ label: "Revisar SCM, SVA, NFCom e ICMS", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      pillarKey="provedores-internet"
       sections={[
         { h2: "SCM x SVA", h3: [
           { title: "Separação técnica", body: "SCM é serviço de comunicação multimídia. SVA precisa ter autonomia econômica, entrega real, contrato, documentação e cobrança coerente." },

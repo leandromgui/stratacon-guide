@@ -31,6 +31,7 @@ function Page() {
       observation="Alto volume de busca local."
       ctaPrimary={{ label: "Solicitar proposta", to: "/contato" }}
       ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      pillarKey="abrir-empresa"
       sections={[
       { h2: "Etapas", h3: [{"title":"Análise prévia","body":"Conversa antes de qualquer protocolo — para acertar de primeira."},{"title":"Registro","body":"Junta Comercial, CNPJ, inscrições e alvarás."},{"title":"Pós-abertura","body":"Configuração de emissores, certificado digital e rotina inicial."}] },
       { h2: "Escolha do regime", h3: [{"title":"Simples Nacional","body":"Quando faz sentido e quando é cilada."},{"title":"Lucro Presumido","body":"Para serviços com margem maior."},{"title":"Lucro Real","body":"Indicação para faturamentos e margens específicas."}] },

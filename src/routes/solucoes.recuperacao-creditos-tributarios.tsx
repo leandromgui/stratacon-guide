@@ -39,6 +39,7 @@ function Page() {
       breadcrumbs={[{ label: "Soluções", to: "/solucoes" }, { label: "Recuperação de Créditos", to: "/solucoes/recuperacao-creditos-tributarios" }]}
       ctaPrimary={{ label: "Solicitar análise gratuita", to: "/contato" }}
       ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      pillarKey="recuperacao-creditos-tributarios"
       sections={[
         { h2: "Escopo da recuperação", lead: "Teses consolidadas trabalhadas com fundamentação auditável para suportar qualquer revisão fiscal.", h3: [
           { title: "PIS e COFINS", body: "Exclusão do ICMS da base, créditos sobre insumos, frete entre estabelecimentos e créditos extemporâneos." },

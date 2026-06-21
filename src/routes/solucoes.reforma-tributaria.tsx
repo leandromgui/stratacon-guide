@@ -43,12 +43,7 @@ function Page() {
       intent="reforma tributária IBS CBS, preparação Reforma Tributária empresas"
       ctaPrimary={{ label: "Diagnosticar minha empresa para a Reforma", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
-      relatedLinks={[
-        { label: "Método DCON", to: "/metodo", eyebrow: "Como conduzimos" },
-        { label: "Recuperação de Créditos Tributários", to: "/solucoes/recuperacao-creditos-tributarios", eyebrow: "Solução" },
-        { label: "Planejamento Tributário", to: "/solucoes/planejamento-tributario", eyebrow: "Solução" },
-        { label: "Regimes Tributários — análise", to: "/conteudos/regimes-tributarios", eyebrow: "Insight" },
-      ]}
+      pillarKey="reforma-tributaria"
       sections={[
         { h2: "O que já está em vigor em 2026", lead: "2026 é o ano para ajustar ERP, XML, cadastros, NCM, CFOP, CST, cClassTrib, códigos de serviço e rotinas internas.", h3: [
           { title: "Fase de teste CBS/IBS", body: "Documentos fiscais e apuração informativa passam a refletir os novos tributos, em regra sem recolhimento quando as obrigações acessórias são cumpridas." },

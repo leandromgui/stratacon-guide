@@ -31,6 +31,7 @@ function Page() {
       observation="Página-mãe que distribui para Segmentos e Regimes."
       ctaPrimary={{ label: "Solicitar proposta", to: "/contato" }}
       ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      pillarKey="contabilidade-empresarial"
       sections={[
       { h2: "O que está incluso", h3: [{"title":"Escrituração contábil completa","body":"Lançamentos contábeis revisados mensalmente e fechamentos sem pendências acumuladas."},{"title":"Balanço e DRE gerencial","body":"Demonstrações entregues com leitura em linguagem do empresário, não só do contador."},{"title":"Obrigações acessórias","body":"ECD, ECF, DCTF e demais entregas no prazo, com controle ativo de calendário."},{"title":"Suporte técnico permanente","body":"Canal direto com responsável definido para dúvidas contábeis e tributárias."}] },
       { h2: "Para quem é indicado", h3: [{"title":"Empresas com faturamento estabilizado","body":"Negócios que precisam de relatórios confiáveis para decidir."},{"title":"Sócios com governança formal","body":"Empresas onde decisão precisa estar suportada por número auditável."},{"title":"Operações de média e alta complexidade","body":"Múltiplos CNAEs, estoque, filiais ou faturamento por marketplace."}] },

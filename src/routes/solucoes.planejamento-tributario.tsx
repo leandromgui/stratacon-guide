@@ -39,6 +39,7 @@ function Page() {
       breadcrumbs={[{ label: "Soluções", to: "/solucoes" }, { label: "Planejamento Tributário", to: "/solucoes/planejamento-tributario" }]}
       ctaPrimary={{ label: "Solicitar proposta", to: "/contato" }}
       ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      pillarKey="planejamento-tributario"
       sections={[
         { h2: "Escopo do estudo", lead: "O que entra na análise — operação real, estrutura societária e cenários comparados sob fundamento legal.", h3: [
           { title: "Diagnóstico tributário", body: "Mapeamento de faturamento, margem, custos, regime atual e exposição fiscal corrente." },

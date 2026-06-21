@@ -31,6 +31,7 @@ function Page() {
       observation="Ponte direta para Holding."
       ctaPrimary={{ label: "Solicitar proposta", to: "/contato" }}
       ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      pillarKey="societario-legalizacao"
       sections={[
       { h2: "Constituições", h3: [{"title":"Escolha do tipo","body":"LTDA, SLU, S/A ou outros, conforme objetivo do sócio."},{"title":"Enquadramento","body":"CNAE e regime tributário definidos para a operação real."},{"title":"Junta Comercial","body":"Registro e licenças iniciais conduzidos por nós."}] },
       { h2: "Alterações contratuais", h3: [{"title":"Entrada e saída de sócios","body":"Cessão de quotas, valoração e documentação."},{"title":"Mudança de objeto","body":"Ajuste de CNAEs e impactos tributários."},{"title":"Aumento de capital","body":"Integralização e reflexo contábil."}] },

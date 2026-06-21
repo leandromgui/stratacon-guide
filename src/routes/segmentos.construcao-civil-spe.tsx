@@ -31,6 +31,7 @@ function Page() {
       observation="Alto valor por clique; cluster denso."
       ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      pillarKey="construcao-civil-spe"
       sections={[
       { h2: "Particularidades do setor", h3: [{"title":"RET e patrimônio de afetação","body":"Regime especial para incorporações imobiliárias."},{"title":"SPE por obra","body":"Estrutura societária dedicada por empreendimento."},{"title":"INSS na construção","body":"Retenção previdenciária com regras próprias."}] },
       { h2: "Decisões estratégicas", h3: [{"title":"Quando vale RET","body":"Cenário em que a alíquota reduzida compensa as restrições."},{"title":"Habitacional × comercial","body":"Tratamento diferente por tipo de empreendimento."},{"title":"Custos por obra","body":"Apropriação contábil correta para análise por empreendimento."}] },
