@@ -317,6 +317,61 @@ ${rows}
       }
     }
 
+    const sortBy = document.getElementById('sort-by');
+    const sortDir = document.getElementById('sort-dir');
+
+    function sortTable(tableId, col) {
+      const table = document.getElementById(tableId);
+      if (!table) return;
+      const tbody = table.querySelector('tbody');
+      const dir = sortDir.value === 'desc' ? -1 : 1;
+      const rowsArr = Array.from(tbody.querySelectorAll('tr'));
+      rowsArr.sort((a, b) => {
+        let av, bv;
+        if (col === 'status') {
+          av = a.dataset.status || '';
+          bv = b.dataset.status || '';
+        } else if (col === 'path') {
+          av = (a.dataset.path || '').toLowerCase();
+          bv = (b.dataset.path || '').toLowerCase();
+        } else if (col === 'type') {
+          av = (a.dataset.types || '').toLowerCase();
+          bv = (b.dataset.types || '').toLowerCase();
+        } else {
+          return 0;
+        }
+        if (av < bv) return -1 * dir;
+        if (av > bv) return 1 * dir;
+        return 0;
+      });
+      for (const row of rowsArr) tbody.appendChild(row);
+
+      // renumera a coluna # na tabela de falhas
+      if (tableId === 'failures-table') {
+        let idx = 1;
+        for (const row of tbody.querySelectorAll('tr')) {
+          if (!row.classList.contains('hidden')) {
+            row.cells[0].textContent = idx++;
+          }
+        }
+      }
+    }
+
+    function applySort() {
+      const col = sortBy.value;
+      if (col === 'default') {
+        // reload para restaurar ordem original
+        location.reload();
+        return;
+      }
+      for (const id of ['failures-table', 'all-links-table']) {
+        sortTable(id, col);
+      }
+    }
+
+    sortBy.addEventListener('change', applySort);
+    sortDir.addEventListener('change', applySort);
+
     statusSelect.addEventListener('change', apply);
     pathInput.addEventListener('input', apply);
     for (const cb of typeChecks) cb.addEventListener('change', apply);
