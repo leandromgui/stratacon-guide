@@ -17,6 +17,7 @@ const REDIRECT_FILES = ["src/router.tsx", "src/start.ts", "vite.config.ts"];
 const REPORT_DIR = "/mnt/documents";
 const REPORT_PATH = path.join(REPORT_DIR, "faq-links-report.md");
 const REPORT_JSON = path.join(REPORT_DIR, "faq-links-report.json");
+const REPORT_FAILURES_JSON = path.join(REPORT_DIR, "faq-links-failures.json");
 
 function fileToRoutePath(file) {
   let base = file.replace(/\.tsx?$/, "");
