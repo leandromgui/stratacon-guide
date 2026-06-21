@@ -470,13 +470,13 @@ function Home() {
             </div>
           </header>
           <div className="lg:col-span-8 divide-y divide-border border-y border-border">
-            {faqs.map(([q, a], i) => (
-              <details key={q} className="group py-5" open={i === 0}>
+            {faqs.map((faq, i) => (
+              <details key={faq.q} className="group py-5" open={i === 0}>
                 <summary className="cursor-pointer list-none flex items-start justify-between gap-6">
-                  <h3 className="font-display text-[17px] m-0 font-normal">{q}</h3>
+                  <h3 className="font-display text-[17px] m-0 font-normal">{faq.q}</h3>
                   <span className="text-gold text-xl leading-none group-open:rotate-45 transition-transform">+</span>
                 </summary>
-                <p className="mt-3 text-muted-foreground text-[14px] leading-relaxed pr-10">{a}</p>
+                <p className="mt-3 text-muted-foreground text-[14px] leading-relaxed pr-10">{faq.a}</p>
               </details>
             ))}
           </div>
