@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
+import { MethodBadge } from "../components/MethodBadge";
+import { dconMethod } from "../lib/dconMethod";
 
 const faqs: FAQItem[] = [
   { q: "Provedor de internet paga ICMS sobre tudo?", a: "Não. A Súmula 334/STJ trata a não incidência de ICMS sobre serviço de provedor de acesso à internet. Mas a segregação SCM x SVA exige contrato, documentação, fatura, entrega real do SVA e autonomia econômica — não basta nomear receita de SVA." },
@@ -39,6 +41,8 @@ function Page() {
       ctaPrimary={{ label: "Revisar SCM, SVA, NFCom e ICMS", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       pillarKey="provedores-internet"
+      method={dconMethod}
+      ctaVariant="opportunity"
       sections={[
         { h2: "SCM x SVA", h3: [
           { title: "Separação técnica", body: "SCM é serviço de comunicação multimídia. SVA precisa ter autonomia econômica, entrega real, contrato, documentação e cobrança coerente." },
@@ -54,6 +58,7 @@ function Page() {
         ]},
       ]}
     >
+      <MethodBadge note="Provedores conduzidos pelo protocolo DCON" />
       <FAQ items={faqs} />
       <LeadCaptureForm page="segmentos" />
     </PageScaffold>

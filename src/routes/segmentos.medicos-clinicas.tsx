@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { MethodBadge } from "../components/MethodBadge";
+import { dconMethod } from "../lib/dconMethod";
 
 export const Route = createFileRoute("/segmentos/medicos-clinicas")({
   head: () => ({
@@ -32,6 +34,8 @@ function Page() {
       ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       pillarKey="medicos-clinicas"
+      method={dconMethod}
+      ctaVariant="opportunity"
       sections={[
       { h2: "Particularidades do segmento médico", h3: [{"title":"PJ médica","body":"Quando vale, quando não vale e como estruturar com segurança trabalhista."},{"title":"Equiparação hospitalar","body":"Lucro Presumido com presunção reduzida — para quem cumpre os requisitos."},{"title":"Sociedade médica","body":"Distribuição entre sócios, pró-labore e contratos de cooperação."}] },
       { h2: "Riscos comuns", h3: [{"title":"Pejotização mal feita","body":"Risco trabalhista alto quando o vínculo não está estruturado."},{"title":"Perder a equiparação","body":"Detalhes operacionais que descaracterizam o benefício."},{"title":"ISS mal apurado","body":"Município e código de serviço errados custam caro."}] },
@@ -39,6 +43,8 @@ function Page() {
       { h2: "Para quem é indicado", h3: [{"title":"Médico autônomo migrando para PJ","body":"Quem quer sair do carnê-leão com segurança."},{"title":"Clínicas em crescimento","body":"Operações que ultrapassam o Simples e precisam revisar regime."},{"title":"Sócios médicos","body":"Quando dois ou mais profissionais montam estrutura conjunta."}] },
       { h2: "Perguntas frequentes", h3: [{"title":"PJ médica vale mesmo a pena?","body":"Em muitos casos sim, mas precisa estar bem estruturada."},{"title":"Equiparação serve para mim?","body":"Avaliamos no diagnóstico — depende da operação."},{"title":"Atendem fora de Goiânia?","body":"Sim, online em todo o Brasil."}] },
       ]}
-    />
+    >
+      <MethodBadge note="Saúde conduzida pelo protocolo DCON" />
+    </PageScaffold>
   );
 }

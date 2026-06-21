@@ -43,6 +43,8 @@ function Page() {
       { h2: "Como a DCON atua", h3: [{"title":"Estruturação societária","body":"Constituição de SPE e enquadramento no RET."},{"title":"Rotina técnica","body":"Apropriação por obra e fechamento auditável."},{"title":"Acompanhamento estratégico","body":"Revisão por empreendimento e por regime."}] },
       { h2: "Perguntas frequentes", h3: [{"title":"Vale abrir SPE para 1 obra?","body":"Depende do porte e do financiamento."},{"title":"RET serve para reforma?","body":"Não. RET é para incorporação."},{"title":"Atendem obras fora de GO?","body":"Sim, em todo o Brasil."}] },
       ]}
-    />
+    >
+      <MethodBadge note="Construção civil conduzida pelo protocolo DCON" />
+    </PageScaffold>
   );
 }
