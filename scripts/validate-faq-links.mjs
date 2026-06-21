@@ -160,22 +160,35 @@ function escapeHtml(s) {
 
 function buildHtml({ timestamp, mode }) {
   const summary = buildSummary();
+  const allTypes = ["Rota inexistente", "Aponta para rota com redirect declarado"];
+
   const rows = results
     .map((r) => {
       const icon = r.status === "ok" ? "✓" : "✖";
       const cls = r.status === "ok" ? "ok" : "fail";
-      return `<tr class="${cls}"><td>${icon}</td><td>${escapeHtml(r.question)}</td><td><code>${escapeHtml(r.to)}</code></td><td>${escapeHtml(r.reasons.join("; ") || "—")}</td></tr>`;
+      const types = r.reasons.join("; ") || "";
+      return `<tr class="${cls}" data-status="${r.status}" data-types="${escapeHtml(types)}"><td>${icon}</td><td>${escapeHtml(r.question)}</td><td><code>${escapeHtml(r.to)}</code></td><td>${escapeHtml(r.reasons.join("; ") || "—")}</td></tr>`;
     })
     .join("\n");
+
   const failureRows = failures
-    .map(
-      (f, i) =>
-        `<tr><td>${i + 1}</td><td>${escapeHtml(f.question)}</td><td><code>${escapeHtml(f.to)}</code></td><td>${escapeHtml(f.reasons.join("; "))}</td></tr>`,
-    )
+    .map((f, i) => {
+      const types = f.reasons.join("; ");
+      return `<tr data-types="${escapeHtml(types)}"><td>${i + 1}</td><td>${escapeHtml(f.question)}</td><td><code>${escapeHtml(f.to)}</code></td><td>${escapeHtml(f.reasons.join("; "))}</td></tr>`;
+    })
     .join("\n");
+
   const byTypeRows = Object.entries(summary.byType)
     .map(([k, v]) => `<tr><td>${escapeHtml(k)}</td><td>${v}</td></tr>`)
     .join("\n");
+
+  const typeCheckboxes = allTypes
+    .map(
+      (t) =>
+        `<label class="chip"><input type="checkbox" class="filter-type" value="${escapeHtml(t)}" checked /> ${escapeHtml(t)}</label>`
+    )
+    .join(" ");
+
   return `<!doctype html>
 <html lang="pt-BR">
 <head>
@@ -193,11 +206,18 @@ function buildHtml({ timestamp, mode }) {
   .card .value { font-size: 1.6rem; font-weight: 600; }
   .card.fail .value { color: #c0392b; }
   .card.ok .value { color: #1e8449; }
+  .filters { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 1.5rem; padding: .75rem 1rem; border: 1px solid #8883; border-radius: 8px; }
+  .filters label { font-size: .85rem; }
+  .filters input[type="text"] { padding: .35rem .5rem; border: 1px solid #8885; border-radius: 4px; font-size: .85rem; min-width: 220px; }
+  .chip { display: inline-flex; align-items: center; gap: .25rem; padding: .25rem .5rem; border-radius: 999px; border: 1px solid #8884; font-size: .82rem; cursor: pointer; user-select: none; }
+  .chip input { accent-color: #3b82f6; }
+  .chip:has(input:checked) { background: #3b82f60d; border-color: #3b82f6aa; }
   table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; font-size: .92rem; }
   th, td { border-bottom: 1px solid #8883; padding: .5rem .6rem; text-align: left; vertical-align: top; }
   th { background: #8881; }
   tr.fail td:first-child { color: #c0392b; font-weight: 700; }
   tr.ok td:first-child { color: #1e8449; font-weight: 700; }
+  tr.hidden { display: none; }
   code { background: #8882; padding: .1rem .35rem; border-radius: 4px; }
   .empty { padding: 1rem; border: 1px dashed #8884; border-radius: 8px; color: #1e8449; }
 </style>
@@ -213,6 +233,19 @@ function buildHtml({ timestamp, mode }) {
     <div class="card ok"><div class="label">OK</div><div class="value">${summary.byStatus.ok}</div></div>
   </section>
 
+  <div class="filters">
+    <label>Status:</label>
+    <select id="filter-status">
+      <option value="all">Todos</option>
+      <option value="fail">Falha</option>
+      <option value="ok">OK</option>
+    </select>
+    <label style="margin-left:.5rem">Caminho:</label>
+    <input type="text" id="filter-path" placeholder="Digite parte do link…" />
+    <label style="margin-left:.5rem">Tipo:</label>
+    ${typeCheckboxes}
+  </div>
+
   <h2>Resumo por motivo</h2>
   <table>
     <thead><tr><th>Motivo</th><th>Quantidade</th></tr></thead>
@@ -222,15 +255,61 @@ ${byTypeRows}
   </table>
 
   <h2>Falhas</h2>
-  ${failures.length === 0 ? `<div class="empty">✓ Nenhuma falha encontrada.</div>` : `<table><thead><tr><th>#</th><th>Pergunta</th><th>Link</th><th>Motivo</th></tr></thead><tbody>\n${failureRows}\n</tbody></table>`}
+  ${failures.length === 0 ? `<div class="empty">✓ Nenhuma falha encontrada.</div>` : `<table id="failures-table"><thead><tr><th>#</th><th>Pergunta</th><th>Link</th><th>Motivo</th></tr></thead><tbody>\n${failureRows}\n</tbody></table>`}
 
   <h2>Todos os links</h2>
-  <table>
+  <table id="all-links-table">
     <thead><tr><th>Status</th><th>Pergunta</th><th>Link</th><th>Observação</th></tr></thead>
     <tbody>
 ${rows}
     </tbody>
   </table>
+
+  <script>
+    const statusSelect = document.getElementById('filter-status');
+    const pathInput = document.getElementById('filter-path');
+    const typeChecks = document.querySelectorAll('.filter-type');
+
+    function getSelectedTypes() {
+      return Array.from(typeChecks).filter(c => c.checked).map(c => c.value);
+    }
+
+    function matches(row) {
+      const status = statusSelect.value;
+      const pathTerm = pathInput.value.trim().toLowerCase();
+      const selectedTypes = getSelectedTypes();
+      const rowStatus = row.dataset.status || '';
+      const rowTypes = row.dataset.types || '';
+      const rowText = row.textContent.toLowerCase();
+
+      if (status !== 'all' && rowStatus !== status) return false;
+      if (pathTerm && !rowText.includes(pathTerm)) return false;
+      if (selectedTypes.length > 0 && rowTypes) {
+        const rowTypeList = rowTypes.split(';').map(s => s.trim());
+        const hasMatch = selectedTypes.some(t => rowTypeList.includes(t));
+        if (!hasMatch) return false;
+      }
+      return true;
+    }
+
+    function apply() {
+      for (const table of ['failures-table', 'all-links-table']) {
+        const el = document.getElementById(table);
+        if (!el) continue;
+        let visible = 0;
+        for (const row of el.querySelectorAll('tbody tr')) {
+          const show = matches(row);
+          row.classList.toggle('hidden', !show);
+          if (show) visible++;
+        }
+        // If a table ends up fully hidden, we leave the table itself visible but empty
+      }
+    }
+
+    statusSelect.addEventListener('change', apply);
+    pathInput.addEventListener('input', apply);
+    for (const cb of typeChecks) cb.addEventListener('change', apply);
+  </script>
 </body>
 </html>
 `;
