@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TemasEstrategicosRouteImport } from './routes/temas-estrategicos'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as GoianiaRouteImport } from './routes/goiania'
@@ -64,6 +65,11 @@ import { Route as ConteudosHoldingPatrimonioRouteImport } from './routes/conteud
 import { Route as ConteudosDpEsocialRouteImport } from './routes/conteudos.dp-esocial'
 import { Route as ConteudosComercioIcmsRouteImport } from './routes/conteudos.comercio-icms'
 
+const TemasEstrategicosRoute = TemasEstrategicosRouteImport.update({
+  id: '/temas-estrategicos',
+  path: '/temas-estrategicos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
   path: '/sobre',
@@ -367,6 +373,7 @@ export interface FileRoutesByFullPath {
   '/goiania': typeof GoianiaRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRouteWithChildren
+  '/temas-estrategicos': typeof TemasEstrategicosRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
@@ -423,6 +430,7 @@ export interface FileRoutesByTo {
   '/goiania': typeof GoianiaRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRouteWithChildren
+  '/temas-estrategicos': typeof TemasEstrategicosRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
@@ -480,6 +488,7 @@ export interface FileRoutesById {
   '/goiania': typeof GoianiaRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRouteWithChildren
+  '/temas-estrategicos': typeof TemasEstrategicosRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
@@ -538,6 +547,7 @@ export interface FileRouteTypes {
     | '/goiania'
     | '/sitemap.xml'
     | '/sobre'
+    | '/temas-estrategicos'
     | '/conteudos/comercio-icms'
     | '/conteudos/dp-esocial'
     | '/conteudos/holding-patrimonio'
@@ -594,6 +604,7 @@ export interface FileRouteTypes {
     | '/goiania'
     | '/sitemap.xml'
     | '/sobre'
+    | '/temas-estrategicos'
     | '/conteudos/comercio-icms'
     | '/conteudos/dp-esocial'
     | '/conteudos/holding-patrimonio'
@@ -650,6 +661,7 @@ export interface FileRouteTypes {
     | '/goiania'
     | '/sitemap.xml'
     | '/sobre'
+    | '/temas-estrategicos'
     | '/conteudos/comercio-icms'
     | '/conteudos/dp-esocial'
     | '/conteudos/holding-patrimonio'
@@ -707,6 +719,7 @@ export interface RootRouteChildren {
   GoianiaRoute: typeof GoianiaRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreRoute: typeof SobreRouteWithChildren
+  TemasEstrategicosRoute: typeof TemasEstrategicosRoute
   ConteudosComercioIcmsRoute: typeof ConteudosComercioIcmsRoute
   ConteudosDpEsocialRoute: typeof ConteudosDpEsocialRoute
   ConteudosHoldingPatrimonioRoute: typeof ConteudosHoldingPatrimonioRoute
@@ -757,6 +770,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/temas-estrategicos': {
+      id: '/temas-estrategicos'
+      path: '/temas-estrategicos'
+      fullPath: '/temas-estrategicos'
+      preLoaderRoute: typeof TemasEstrategicosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sobre': {
       id: '/sobre'
       path: '/sobre'
@@ -1157,6 +1177,7 @@ const rootRouteChildren: RootRouteChildren = {
   GoianiaRoute: GoianiaRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreRoute: SobreRouteWithChildren,
+  TemasEstrategicosRoute: TemasEstrategicosRoute,
   ConteudosComercioIcmsRoute: ConteudosComercioIcmsRoute,
   ConteudosDpEsocialRoute: ConteudosDpEsocialRoute,
   ConteudosHoldingPatrimonioRoute: ConteudosHoldingPatrimonioRoute,
