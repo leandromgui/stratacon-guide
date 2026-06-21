@@ -214,6 +214,8 @@ function Page() {
           ))}
         </ul>
       </section>
+
+      <HeatmapPanel events={events} loading={loading} />
     </div>
   );
 }
@@ -224,5 +226,181 @@ function Metric({ label, value }: { label: string; value: number }) {
       <div className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{label}</div>
       <div className="mt-2 font-display text-3xl tabular-nums">{value}</div>
     </div>
+  );
+}
+
+const HEATMAP_PAGES = [
+  { value: "/conteudos/holding-familiar", label: "Holding Familiar" },
+];
+
+function HeatmapPanel({ events, loading }: { events: EventRow[]; loading: boolean }) {
+  const [page, setPage] = useState(HEATMAP_PAGES[0].value);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const iframeRef = useRef<HTMLIFrameElement | null>(null);
+  const [iframeSize, setIframeSize] = useState<{ w: number; h: number } | null>(null);
+
+  const pageEvents = useMemo(
+    () => events.filter((e) => e.page_path === page),
+    [events, page],
+  );
+
+  const scrollFunnel = useMemo(() => {
+    const buckets: Record<number, Set<string>> = { 25: new Set(), 50: new Set(), 75: new Set(), 100: new Set() };
+    const sessions = new Set<string>();
+    for (const e of pageEvents) {
+      if (e.session_id) sessions.add(e.session_id);
+      if (e.event_name !== "scroll_depth") continue;
+      const depth = Number((e.metadata as { depth?: number } | null)?.depth);
+      if (!depth || !buckets[depth]) continue;
+      if (e.session_id) buckets[depth].add(e.session_id);
+    }
+    const total = sessions.size || 1;
+    return [25, 50, 75, 100].map((m) => ({
+      depth: m,
+      sessions: buckets[m].size,
+      pct: (buckets[m].size / total) * 100,
+    }));
+  }, [pageEvents]);
+
+  const bySection = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const e of pageEvents) {
+      if (e.event_name !== "page_click") continue;
+      const section = String((e.metadata as { section?: string } | null)?.section ?? "—");
+      map.set(section, (map.get(section) ?? 0) + 1);
+    }
+    return [...map.entries()].sort((a, b) => b[1] - a[1]);
+  }, [pageEvents]);
+
+  const points = useMemo(() => {
+    const arr: { x: number; y: number }[] = [];
+    for (const e of pageEvents) {
+      if (e.event_name !== "page_click") continue;
+      const m = e.metadata as { x?: number; y?: number } | null;
+      if (typeof m?.x === "number" && typeof m?.y === "number") {
+        arr.push({ x: m.x, y: m.y });
+      }
+    }
+    return arr;
+  }, [pageEvents]);
+
+  function onIframeLoad() {
+    const el = iframeRef.current;
+    if (!el) return;
+    try {
+      const doc = el.contentDocument;
+      const w = doc?.documentElement.scrollWidth ?? el.clientWidth;
+      const h = doc?.documentElement.scrollHeight ?? el.clientHeight;
+      setIframeSize({ w, h });
+      el.style.height = `${h}px`;
+    } catch {
+      /* cross-origin — usa altura fixa */
+      setIframeSize({ w: el.clientWidth, h: 4000 });
+      el.style.height = "4000px";
+    }
+  }
+
+  return (
+    <section className="mt-12">
+      <header className="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <h2 className="font-display text-xl tracking-tight">Heatmap de cliques e scroll</h2>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Quais trechos da página recebem mais atenção antes do CTA do diagnóstico.
+          </p>
+        </div>
+        <select
+          value={page}
+          onChange={(e) => setPage(e.target.value)}
+          className="border border-border bg-card px-3 py-2 text-sm"
+        >
+          {HEATMAP_PAGES.map((p) => (
+            <option key={p.value} value={p.value}>
+              {p.label}
+            </option>
+          ))}
+        </select>
+      </header>
+
+      <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border">
+        {scrollFunnel.map((s) => (
+          <div key={s.depth} className="bg-card p-5">
+            <div className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+              Atingiram {s.depth}%
+            </div>
+            <div className="mt-2 font-display text-2xl tabular-nums">{s.sessions}</div>
+            <div className="mt-1 text-xs text-muted-foreground tabular-nums">
+              {s.pct.toFixed(1)}% das sessões
+            </div>
+            <div className="mt-3 h-1.5 bg-muted">
+              <div
+                className="h-full bg-gold"
+                style={{ width: `${Math.min(100, s.pct)}%` }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-8 grid lg:grid-cols-12 gap-6">
+        <div className="lg:col-span-4">
+          <h3 className="font-display text-base tracking-tight">Cliques por seção</h3>
+          <ul className="mt-3 divide-y divide-border border border-border">
+            {bySection.length === 0 && !loading && (
+              <li className="p-3 text-sm text-muted-foreground">Sem cliques registrados.</li>
+            )}
+            {bySection.map(([section, count]) => (
+              <li key={section} className="flex items-center justify-between p-3 text-sm">
+                <span className="truncate pr-3">{section}</span>
+                <span className="tabular-nums text-muted-foreground">{count}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-3 text-xs text-muted-foreground">
+            {points.length} pontos plotados no overlay.
+          </p>
+        </div>
+
+        <div className="lg:col-span-8">
+          <div
+            ref={containerRef}
+            className="relative w-full border border-border bg-card overflow-hidden"
+          >
+            <iframe
+              ref={iframeRef}
+              src={page}
+              title="Página com heatmap"
+              onLoad={onIframeLoad}
+              className="w-full block pointer-events-none"
+              style={{ height: iframeSize?.h ? `${iframeSize.h}px` : "1200px" }}
+            />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              aria-hidden
+              style={{ mixBlendMode: "multiply" }}
+            >
+              {points.map((p, i) => (
+                <span
+                  key={i}
+                  className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full"
+                  style={{
+                    left: `${p.x * 100}%`,
+                    top: `${p.y * 100}%`,
+                    width: 28,
+                    height: 28,
+                    background:
+                      "radial-gradient(circle, rgba(220,38,38,0.55) 0%, rgba(220,38,38,0.18) 55%, rgba(220,38,38,0) 75%)",
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+          <p className="mt-2 text-xs text-muted-foreground">
+            Cada ponto vermelho é um clique normalizado em relação ao tamanho da página. Áreas
+            mais saturadas concentram interesse.
+          </p>
+        </div>
+      </div>
+    </section>
   );
 }
