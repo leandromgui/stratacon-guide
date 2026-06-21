@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
 type LeadStatus = "novo" | "contatado" | "qualificado" | "perdido";
@@ -182,8 +182,8 @@ function AdminLeads() {
             </thead>
             <tbody>
               {filtered.map((l) => (
-                <>
-                <tr key={l.id} className="border-t border-border align-top">
+                <Fragment key={l.id}>
+                <tr className="border-t border-border align-top">
                   <td className="px-3 py-3 text-xs text-muted-foreground whitespace-nowrap">
                     {new Date(l.created_at).toLocaleString("pt-BR")}
                   </td>
@@ -226,7 +226,7 @@ function AdminLeads() {
                     </td>
                   </tr>
                 )}
-                </>
+                </Fragment>
               ))}
               {leads && filtered.length === 0 && (
                 <tr>
