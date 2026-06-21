@@ -261,6 +261,7 @@ function buildHtml({ timestamp, mode }) {
       <option value="desc">Descendente</option>
     </select>
     <button id="highlight-btn" type="button">Destacar falhas</button>
+    <button id="export-csv-btn" type="button">Exportar CSV</button>
   </div>
 
   <h2>Resumo por motivo</h2>
