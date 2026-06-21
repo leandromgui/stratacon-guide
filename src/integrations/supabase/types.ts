@@ -14,6 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
+      analytics_events: {
+        Row: {
+          created_at: string
+          cta_label: string | null
+          cta_target: string | null
+          event_name: string
+          faq_question: string | null
+          id: string
+          metadata: Json
+          page_path: string | null
+          referrer: string | null
+          session_id: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          created_at?: string
+          cta_label?: string | null
+          cta_target?: string | null
+          event_name: string
+          faq_question?: string | null
+          id?: string
+          metadata?: Json
+          page_path?: string | null
+          referrer?: string | null
+          session_id?: string | null
+          user_agent?: string | null
+        }
+        Update: {
+          created_at?: string
+          cta_label?: string | null
+          cta_target?: string | null
+          event_name?: string
+          faq_question?: string | null
+          id?: string
+          metadata?: Json
+          page_path?: string | null
+          referrer?: string | null
+          session_id?: string | null
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
       lead_followup_rules: {
         Row: {
           enabled: boolean
@@ -123,11 +165,13 @@ export type Database = {
           id: string
           interest: string
           last_contact_at: string | null
+          last_faq_question: string | null
           lost_reason: string | null
           name: string
           next_followup_at: string | null
           notes: string | null
           referrer: string | null
+          session_id: string | null
           source_page: string | null
           status: Database["public"]["Enums"]["lead_status"]
           updated_at: string
@@ -144,11 +188,13 @@ export type Database = {
           id?: string
           interest: string
           last_contact_at?: string | null
+          last_faq_question?: string | null
           lost_reason?: string | null
           name: string
           next_followup_at?: string | null
           notes?: string | null
           referrer?: string | null
+          session_id?: string | null
           source_page?: string | null
           status?: Database["public"]["Enums"]["lead_status"]
           updated_at?: string
@@ -165,11 +211,13 @@ export type Database = {
           id?: string
           interest?: string
           last_contact_at?: string | null
+          last_faq_question?: string | null
           lost_reason?: string | null
           name?: string
           next_followup_at?: string | null
           notes?: string | null
           referrer?: string | null
+          session_id?: string | null
           source_page?: string | null
           status?: Database["public"]["Enums"]["lead_status"]
           updated_at?: string
