@@ -1,6 +1,42 @@
+import { useRouterState } from "@tanstack/react-router";
+
+const defaultMessage = "Olá, gostaria de conversar com a equipe técnica da DCON.";
+
+const messagesByPath: Record<string, string> = {
+  "/": "Olá, visitei o site da DCON e gostaria de conversar com a equipe técnica.",
+  "/diagnostico": "Olá, gostaria de solicitar um diagnóstico fiscal gratuito.",
+  "/solucoes/trocar-contabilidade": "Olá, gostaria de falar sobre migração de contabilidade com auditoria.",
+  "/solucoes/defesas-fiscais": "Olá, gostaria de conversar sobre defesas fiscais e impugnações.",
+  "/solucoes/planejamento-tributario": "Olá, gostaria de falar sobre planejamento tributário para minha empresa.",
+  "/solucoes/recuperacao-creditos-tributarios": "Olá, gostaria de conversar sobre recuperação de créditos tributários.",
+  "/solucoes/regularizacao-fiscal": "Olá, gostaria de falar sobre regularização fiscal e certidões.",
+  "/solucoes/contabilidade-empresarial": "Olá, gostaria de falar sobre contabilidade empresarial.",
+  "/solucoes/departamento-fiscal": "Olá, gostaria de falar sobre departamento fiscal e SPED.",
+  "/solucoes/departamento-pessoal": "Olá, gostaria de falar sobre departamento pessoal e folha de pagamento.",
+  "/solucoes/bpo-financeiro": "Olá, gostaria de falar sobre BPO financeiro.",
+  "/solucoes/reforma-tributaria": "Olá, gostaria de falar sobre a Reforma Tributária e preparação para 2026/2027.",
+  "/solucoes/holding-patrimonial": "Olá, gostaria de falar sobre holding patrimonial e sucessão familiar.",
+  "/solucoes/pessoa-fisica-irpf": "Olá, gostaria de falar sobre declaração de IRPF para alta renda.",
+  "/solucoes/valuation-kpis": "Olá, gostaria de falar sobre valuation e indicadores da minha empresa.",
+  "/solucoes/societario-legalizacao": "Olá, gostaria de falar sobre societário e legalização.",
+  "/solucoes/tecnologia-contabil": "Olá, gostaria de falar sobre tecnologia contábil e ERP.",
+  "/solucoes/abrir-empresa": "Olá, gostaria de abrir uma empresa com apoio técnico.",
+  "/solucoes/registro-marca-inpi": "Olá, gostaria de falar sobre registro de marca no INPI.",
+  "/segmentos/medicos-clinicas": "Olá, gostaria de falar sobre contabilidade para médicos e clínicas.",
+  "/segmentos/e-commerce": "Olá, gostaria de falar sobre contabilidade para e-commerce.",
+  "/segmentos/holdings": "Olá, gostaria de falar sobre contabilidade para holdings.",
+  "/segmentos/construcao-civil-spe": "Olá, gostaria de falar sobre contabilidade para construção civil e SPEs.",
+  "/segmentos/produtor-rural": "Olá, gostaria de falar sobre contabilidade para produtor rural.",
+  "/segmentos/provedores-internet": "Olá, gostaria de falar sobre contabilidade para provedores de internet.",
+  "/contato": "Olá, vim pelo site e gostaria de conversar com a equipe técnica.",
+  "/sobre": "Olá, gostaria de saber mais sobre a DCON.",
+  "/metodo": "Olá, gostaria de conhecer melhor o Método DCON.",
+};
+
 export function WhatsAppButton() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
   const message = encodeURIComponent(
-    "Olá, gostaria de conversar com a equipe técnica da DCON."
+    messagesByPath[pathname] ?? defaultMessage
   );
   const href = `https://wa.me/5562992890898?text=${message}`;
 
