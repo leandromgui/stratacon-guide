@@ -164,7 +164,7 @@ try {
   }));
   fs.writeFileSync(
     REPORT_FAILURES_JSON,
-    JSON.stringify(failuresForJson, null, 2),
+    JSON.stringify(failuresForJson, null, 2) + "\n",
   );
   console.log(`→ Relatório MD: ${REPORT_PATH}`);
   console.log(`→ Relatório JSON completo: ${REPORT_JSON}`);
