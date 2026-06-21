@@ -14,6 +14,30 @@ export type Database = {
   }
   public: {
     Tables: {
+      lead_followup_rules: {
+        Row: {
+          enabled: boolean
+          remind_after_hours: number
+          status: Database["public"]["Enums"]["lead_status"]
+          suggest_after_hours: number
+          updated_at: string
+        }
+        Insert: {
+          enabled?: boolean
+          remind_after_hours?: number
+          status: Database["public"]["Enums"]["lead_status"]
+          suggest_after_hours?: number
+          updated_at?: string
+        }
+        Update: {
+          enabled?: boolean
+          remind_after_hours?: number
+          status?: Database["public"]["Enums"]["lead_status"]
+          suggest_after_hours?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       lead_status_history: {
         Row: {
           changed_by: string | null
