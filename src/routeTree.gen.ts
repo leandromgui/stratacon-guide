@@ -17,6 +17,8 @@ import { Route as MetodoRouteImport } from './routes/metodo'
 import { Route as GoianiaRouteImport } from './routes/goiania'
 import { Route as DiagnosticoRouteImport } from './routes/diagnostico'
 import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SolucoesIndexRouteImport } from './routes/solucoes.index'
 import { Route as SegmentosIndexRouteImport } from './routes/segmentos.index'
@@ -66,6 +68,7 @@ import { Route as ConteudosPlanejamentoTributarioRouteImport } from './routes/co
 import { Route as ConteudosHoldingPatrimonioRouteImport } from './routes/conteudos.holding-patrimonio'
 import { Route as ConteudosDpEsocialRouteImport } from './routes/conteudos.dp-esocial'
 import { Route as ConteudosComercioIcmsRouteImport } from './routes/conteudos.comercio-icms'
+import { Route as AuthenticatedAdminLeadsRouteImport } from './routes/_authenticated/admin.leads'
 
 const TemasEstrategicosRoute = TemasEstrategicosRouteImport.update({
   id: '/temas-estrategicos',
@@ -105,6 +108,15 @@ const DiagnosticoRoute = DiagnosticoRouteImport.update({
 const ContatoRoute = ContatoRouteImport.update({
   id: '/contato',
   path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -377,9 +389,15 @@ const ConteudosComercioIcmsRoute = ConteudosComercioIcmsRouteImport.update({
   path: '/conteudos/comercio-icms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAdminLeadsRoute = AuthenticatedAdminLeadsRouteImport.update({
+  id: '/admin/leads',
+  path: '/admin/leads',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/contato': typeof ContatoRoute
   '/diagnostico': typeof DiagnosticoRoute
   '/goiania': typeof GoianiaRoute
@@ -436,9 +454,11 @@ export interface FileRoutesByFullPath {
   '/conteudos/': typeof ConteudosIndexRoute
   '/segmentos/': typeof SegmentosIndexRoute
   '/solucoes/': typeof SolucoesIndexRoute
+  '/admin/leads': typeof AuthenticatedAdminLeadsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/contato': typeof ContatoRoute
   '/diagnostico': typeof DiagnosticoRoute
   '/goiania': typeof GoianiaRoute
@@ -495,10 +515,13 @@ export interface FileRoutesByTo {
   '/conteudos': typeof ConteudosIndexRoute
   '/segmentos': typeof SegmentosIndexRoute
   '/solucoes': typeof SolucoesIndexRoute
+  '/admin/leads': typeof AuthenticatedAdminLeadsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/auth': typeof AuthRoute
   '/contato': typeof ContatoRoute
   '/diagnostico': typeof DiagnosticoRoute
   '/goiania': typeof GoianiaRoute
@@ -555,11 +578,13 @@ export interface FileRoutesById {
   '/conteudos/': typeof ConteudosIndexRoute
   '/segmentos/': typeof SegmentosIndexRoute
   '/solucoes/': typeof SolucoesIndexRoute
+  '/_authenticated/admin/leads': typeof AuthenticatedAdminLeadsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/auth'
     | '/contato'
     | '/diagnostico'
     | '/goiania'
@@ -616,9 +641,11 @@ export interface FileRouteTypes {
     | '/conteudos/'
     | '/segmentos/'
     | '/solucoes/'
+    | '/admin/leads'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/auth'
     | '/contato'
     | '/diagnostico'
     | '/goiania'
@@ -675,9 +702,12 @@ export interface FileRouteTypes {
     | '/conteudos'
     | '/segmentos'
     | '/solucoes'
+    | '/admin/leads'
   id:
     | '__root__'
     | '/'
+    | '/_authenticated'
+    | '/auth'
     | '/contato'
     | '/diagnostico'
     | '/goiania'
@@ -734,10 +764,13 @@ export interface FileRouteTypes {
     | '/conteudos/'
     | '/segmentos/'
     | '/solucoes/'
+    | '/_authenticated/admin/leads'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AuthRoute: typeof AuthRoute
   ContatoRoute: typeof ContatoRoute
   DiagnosticoRoute: typeof DiagnosticoRoute
   GoianiaRoute: typeof GoianiaRoute
@@ -850,6 +883,20 @@ declare module '@tanstack/react-router' {
       path: '/contato'
       fullPath: '/contato'
       preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -1195,8 +1242,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosComercioIcmsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/admin/leads': {
+      id: '/_authenticated/admin/leads'
+      path: '/admin/leads'
+      fullPath: '/admin/leads'
+      preLoaderRoute: typeof AuthenticatedAdminLeadsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
+
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminLeadsRoute: typeof AuthenticatedAdminLeadsRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminLeadsRoute: AuthenticatedAdminLeadsRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
 interface SobreRouteChildren {
   SobreLeandroRoute: typeof SobreLeandroRoute
@@ -1212,6 +1277,8 @@ const SobreRouteWithChildren = SobreRoute._addFileChildren(SobreRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AuthRoute: AuthRoute,
   ContatoRoute: ContatoRoute,
   DiagnosticoRoute: DiagnosticoRoute,
   GoianiaRoute: GoianiaRoute,
