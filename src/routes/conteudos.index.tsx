@@ -229,9 +229,9 @@ function Page() {
               <ul className="mt-6 space-y-4 border-t border-border pt-6">
                 {c.topics.map((t) => (
                   <li key={t.to}>
-                    <h4 className="text-[15px] font-medium leading-snug">
-                      <Link to={t.to} className="hover:text-secondary">{t.h3}</Link>
-                    </h4>
+                    <Link to={t.to} className="text-[15px] font-medium leading-snug hover:text-secondary block">
+                      {t.h3}
+                    </Link>
                     <p className="mt-1 text-[13px] text-muted-foreground leading-relaxed">{t.desc}</p>
                   </li>
                 ))}
