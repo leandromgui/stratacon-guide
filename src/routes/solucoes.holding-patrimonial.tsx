@@ -39,6 +39,7 @@ function Page() {
       breadcrumbs={[{ label: "Soluções", to: "/solucoes" }, { label: "Holding Patrimonial", to: "/solucoes/holding-patrimonial" }]}
       ctaPrimary={{ label: "Solicitar proposta", to: "/contato" }}
       ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      pillarKey="holding-patrimonial"
       sections={[
         { h2: "Escopo do projeto", lead: "Avaliação técnica antes de qualquer decisão — patrimônio, família, objetivos e impacto tributário modelados em conjunto.", h3: [
           { title: "Estudo prévio de viabilidade", body: "Análise patrimonial, societária e familiar antes de qualquer transferência. Em parte dos casos a recomendação é não constituir." },

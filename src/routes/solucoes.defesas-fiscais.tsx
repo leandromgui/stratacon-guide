@@ -39,6 +39,7 @@ function Page() {
       intent="defesa fiscal, impugnação Receita Federal, PRDI PGFN"
       ctaPrimary={{ label: "Recebi intimação e quero revisar", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      pillarKey="defesas-fiscais"
       sections={[
         { h2: "Pessoa jurídica", h3: [
           { title: "Autuação e malha fiscal", body: "Auto de infração, intimação, notificação de lançamento, malha, carta de autorregularização e exclusão do Simples." },

@@ -31,6 +31,7 @@ function Page() {
       observation="Cross-sell natural com Contabilidade Empresarial."
       ctaPrimary={{ label: "Solicitar proposta", to: "/contato" }}
       ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      pillarKey="bpo-financeiro"
       sections={[
       { h2: "Rotinas operadas", h3: [{"title":"Contas a pagar","body":"Agendamento, aprovação e baixa controlados."},{"title":"Contas a receber","body":"Cobrança, baixa e conciliação por cliente."},{"title":"Conciliação bancária","body":"Diária ou semanal, conforme volume."},{"title":"Fluxo de caixa","body":"Visão real e projetada para decisão."}] },
       { h2: "Governança", h3: [{"title":"Alçadas de aprovação","body":"Quem aprova o quê — definido e rastreável."},{"title":"Segregação de função","body":"Quem opera não aprova; quem aprova não paga."},{"title":"Trilha auditável","body":"Tudo registrado para auditoria interna ou externa."}] },

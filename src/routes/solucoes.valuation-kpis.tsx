@@ -38,6 +38,7 @@ function Page() {
       intent="valuation empresa, KPIs contábeis, precificação técnica"
       ctaPrimary={{ label: "Medir valor da minha empresa", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      pillarKey="valuation-kpis"
       sections={[
         { h2: "Valuation", h3: [
           { title: "Métodos", body: "DCF, múltiplos, EBITDA, receita recorrente, LTV, CAC, churn, fluxo de caixa futuro, carteira de clientes e risco." },

@@ -38,6 +38,7 @@ function Page() {
       intent="registro de marca INPI, proteção de marca empresa"
       ctaPrimary={{ label: "Verificar se minha marca está protegida", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      pillarKey="registro-marca-inpi"
       sections={[
         { h2: "CNPJ, domínio e Instagram não substituem INPI", h3: [
           { title: "Camadas distintas", body: "CNPJ identifica a PJ; nome empresarial identifica a sociedade; domínio protege endereço digital; perfil protege usuário na plataforma — só o INPI protege a marca." },

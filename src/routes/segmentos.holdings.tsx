@@ -31,6 +31,7 @@ function Page() {
       observation="Ticket alto, intenção qualificada."
       ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      pillarKey="holdings"
       sections={[
       { h2: "Particularidades da holding", h3: [{"title":"Patrimonial × familiar","body":"Cada tipo serve a um objetivo diferente."},{"title":"Tributação dos aluguéis","body":"Pessoa jurídica versus pessoa física — análise técnica."},{"title":"Distribuição de lucros","body":"Mecânica de pagamento aos sócios."}] },
       { h2: "Riscos e mitos", h3: [{"title":"Não é blindagem mágica","body":"Não protege contra fraude ou má-fé."},{"title":"ITCMD e ITBI","body":"Avaliar antes de qualquer transferência."},{"title":"Estrutura sem patrimônio","body":"Vira custo sem benefício."}] },

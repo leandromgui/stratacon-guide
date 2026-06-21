@@ -39,6 +39,7 @@ function Page() {
       breadcrumbs={[{ label: "Soluções", to: "/solucoes" }, { label: "Departamento Pessoal", to: "/solucoes/departamento-pessoal" }]}
       ctaPrimary={{ label: "Solicitar proposta", to: "/contato" }}
       ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      pillarKey="departamento-pessoal"
       sections={[
         { h2: "Escopo do serviço", lead: "Rotina trabalhista completa, do contrato à rescisão, com tratamento técnico do eSocial e foco em prevenção de passivo.", h3: [
           { title: "Admissão e contratos", body: "Documentação, exames ocupacionais, registro e eventos iniciais do eSocial em conformidade com a CLT e CCT aplicável." },

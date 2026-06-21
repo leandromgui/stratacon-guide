@@ -38,6 +38,7 @@ function Page() {
       intent="tecnologia contábil, automação fiscal, BI contábil"
       ctaPrimary={{ label: "Quero cruzar meus dados fiscais e contábeis", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      pillarKey="tecnologia-contabil"
       sections={[
         { h2: "Cruzamento fiscal automatizado", h3: [
           { title: "Fontes integradas", body: "XML, NF-e, NFS-e, NFC-e, CT-e, NFCom, SPED, EFD-Contribuições, DCTF, DCTFWeb, MIT, ECF, ECD, PGDAS-D, PER/DCOMP, DARFs, retenções e pagamentos." },
