@@ -435,27 +435,26 @@ export function PageScaffold(p: PageScaffoldProps) {
       <section className="bg-secondary text-secondary-foreground">
         <div className="mx-auto max-w-7xl px-6 py-20 grid lg:grid-cols-12 gap-10 items-end">
           <div className="lg:col-span-8">
-            <Eyebrow>Próximo passo</Eyebrow>
+            <Eyebrow>{CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].eyebrow}</Eyebrow>
             <h2 className="mt-4 font-display text-3xl md:text-4xl tracking-tight max-w-2xl">
-              Solicite um diagnóstico técnico da sua empresa.
+              {CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].title}
             </h2>
             <p className="mt-4 max-w-xl text-secondary-foreground/70 text-[15px] leading-relaxed">
-              Entrega em até 7 dias úteis. Análise fiscal, contábil, tributária, trabalhista
-              e societária, com plano de ação acionável.
+              {CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].body}
             </p>
           </div>
           <div className="lg:col-span-4 flex flex-wrap gap-3 lg:justify-end">
             <Link
-              to="/diagnostico"
+              to={CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].primary.to}
               className="inline-flex items-center bg-gold px-6 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-gold-foreground hover:opacity-90"
             >
-              Solicitar diagnóstico →
+              {CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].primary.label} →
             </Link>
             <Link
-              to="/contato"
+              to={CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].secondary.to}
               className="inline-flex items-center border border-secondary-foreground/30 px-6 py-3 text-[12px] uppercase tracking-[0.16em] hover:border-gold hover:text-gold"
             >
-              Falar com a DCON
+              {CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].secondary.label}
             </Link>
           </div>
         </div>
