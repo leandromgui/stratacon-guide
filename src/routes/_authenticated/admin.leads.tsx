@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Fragment, useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { FollowupRulesCard } from "@/components/admin/FollowupRulesCard";
 
 type LeadStatus = "novo" | "contatado" | "qualificado" | "perdido";
 
@@ -179,6 +180,7 @@ function AdminLeads() {
       </header>
 
       <div className="mx-auto max-w-7xl px-6 py-8">
+        <FollowupRulesCard />
         <FollowupSummary
           overdue={overdue}
           dueSoon={dueSoon}
