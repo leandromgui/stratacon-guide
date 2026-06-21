@@ -181,6 +181,26 @@ if (!DRY_RUN) {
   }
 }
 
+// Em dry-run, exporta apenas o JSON de falhas se o usuário solicitou via env.
+if (DRY_RUN && DRY_RUN_REPORT_JSON) {
+  try {
+    const dir = path.dirname(DRY_RUN_REPORT_JSON);
+    fs.mkdirSync(dir, { recursive: true });
+    const failuresForJson = failures.map((f) => ({
+      Pergunta: f.question,
+      Link: f.to,
+      Motivo: f.reasons.join("; "),
+    }));
+    fs.writeFileSync(
+      DRY_RUN_REPORT_JSON,
+      JSON.stringify(failuresForJson, null, 2) + "\n",
+    );
+    console.log(`→ Falhas JSON (dry-run): ${DRY_RUN_REPORT_JSON}`);
+  } catch (err) {
+    console.warn(`Aviso: não foi possível gravar relatório dry-run (${err.message}).`);
+  }
+}
+
 if (failures.length > 0) {
   console.error("\n✖ Validação de links internos do FAQ falhou:");
   for (const f of failures) {
