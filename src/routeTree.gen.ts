@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as GoianiaRouteImport } from './routes/goiania'
 import { Route as DiagnosticoRouteImport } from './routes/diagnostico'
 import { Route as ContatoRouteImport } from './routes/contato'
@@ -17,14 +18,20 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as SolucoesIndexRouteImport } from './routes/solucoes.index'
 import { Route as SegmentosIndexRouteImport } from './routes/segmentos.index'
 import { Route as ConteudosIndexRouteImport } from './routes/conteudos.index'
+import { Route as SolucoesValuationKpisRouteImport } from './routes/solucoes.valuation-kpis'
 import { Route as SolucoesTrocarContabilidadeRouteImport } from './routes/solucoes.trocar-contabilidade'
+import { Route as SolucoesTecnologiaContabilRouteImport } from './routes/solucoes.tecnologia-contabil'
 import { Route as SolucoesSocietarioLegalizacaoRouteImport } from './routes/solucoes.societario-legalizacao'
 import { Route as SolucoesRegularizacaoFiscalRouteImport } from './routes/solucoes.regularizacao-fiscal'
+import { Route as SolucoesRegistroMarcaInpiRouteImport } from './routes/solucoes.registro-marca-inpi'
+import { Route as SolucoesReformaTributariaRouteImport } from './routes/solucoes.reforma-tributaria'
 import { Route as SolucoesRecuperacaoCreditosTributariosRouteImport } from './routes/solucoes.recuperacao-creditos-tributarios'
 import { Route as SolucoesPlanejamentoTributarioRouteImport } from './routes/solucoes.planejamento-tributario'
+import { Route as SolucoesPessoaFisicaIrpfRouteImport } from './routes/solucoes.pessoa-fisica-irpf'
 import { Route as SolucoesHoldingPatrimonialRouteImport } from './routes/solucoes.holding-patrimonial'
 import { Route as SolucoesDepartamentoPessoalRouteImport } from './routes/solucoes.departamento-pessoal'
 import { Route as SolucoesDepartamentoFiscalRouteImport } from './routes/solucoes.departamento-fiscal'
+import { Route as SolucoesDefesasFiscaisRouteImport } from './routes/solucoes.defesas-fiscais'
 import { Route as SolucoesContabilidadeEmpresarialRouteImport } from './routes/solucoes.contabilidade-empresarial'
 import { Route as SolucoesBpoFinanceiroRouteImport } from './routes/solucoes.bpo-financeiro'
 import { Route as SolucoesAbrirEmpresaRouteImport } from './routes/solucoes.abrir-empresa'
@@ -33,6 +40,7 @@ import { Route as SobreLeandroRouteImport } from './routes/sobre.leandro'
 import { Route as SegmentosTerceiroSetorRouteImport } from './routes/segmentos.terceiro-setor'
 import { Route as SegmentosTecnologiaStartupsRouteImport } from './routes/segmentos.tecnologia-startups'
 import { Route as SegmentosSimplesNacionalRouteImport } from './routes/segmentos.simples-nacional'
+import { Route as SegmentosProvedoresInternetRouteImport } from './routes/segmentos.provedores-internet'
 import { Route as SegmentosProdutorRuralRouteImport } from './routes/segmentos.produtor-rural'
 import { Route as SegmentosPrestadoresServicosRouteImport } from './routes/segmentos.prestadores-servicos'
 import { Route as SegmentosPendenciasFiscaisRouteImport } from './routes/segmentos.pendencias-fiscais'
@@ -59,6 +67,11 @@ import { Route as ConteudosComercioIcmsRouteImport } from './routes/conteudos.co
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
   path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GoianiaRoute = GoianiaRouteImport.update({
@@ -96,10 +109,21 @@ const ConteudosIndexRoute = ConteudosIndexRouteImport.update({
   path: '/conteudos/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SolucoesValuationKpisRoute = SolucoesValuationKpisRouteImport.update({
+  id: '/solucoes/valuation-kpis',
+  path: '/solucoes/valuation-kpis',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SolucoesTrocarContabilidadeRoute =
   SolucoesTrocarContabilidadeRouteImport.update({
     id: '/solucoes/trocar-contabilidade',
     path: '/solucoes/trocar-contabilidade',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolucoesTecnologiaContabilRoute =
+  SolucoesTecnologiaContabilRouteImport.update({
+    id: '/solucoes/tecnologia-contabil',
+    path: '/solucoes/tecnologia-contabil',
     getParentRoute: () => rootRouteImport,
   } as any)
 const SolucoesSocietarioLegalizacaoRoute =
@@ -114,6 +138,18 @@ const SolucoesRegularizacaoFiscalRoute =
     path: '/solucoes/regularizacao-fiscal',
     getParentRoute: () => rootRouteImport,
   } as any)
+const SolucoesRegistroMarcaInpiRoute =
+  SolucoesRegistroMarcaInpiRouteImport.update({
+    id: '/solucoes/registro-marca-inpi',
+    path: '/solucoes/registro-marca-inpi',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolucoesReformaTributariaRoute =
+  SolucoesReformaTributariaRouteImport.update({
+    id: '/solucoes/reforma-tributaria',
+    path: '/solucoes/reforma-tributaria',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SolucoesRecuperacaoCreditosTributariosRoute =
   SolucoesRecuperacaoCreditosTributariosRouteImport.update({
     id: '/solucoes/recuperacao-creditos-tributarios',
@@ -124,6 +160,12 @@ const SolucoesPlanejamentoTributarioRoute =
   SolucoesPlanejamentoTributarioRouteImport.update({
     id: '/solucoes/planejamento-tributario',
     path: '/solucoes/planejamento-tributario',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolucoesPessoaFisicaIrpfRoute =
+  SolucoesPessoaFisicaIrpfRouteImport.update({
+    id: '/solucoes/pessoa-fisica-irpf',
+    path: '/solucoes/pessoa-fisica-irpf',
     getParentRoute: () => rootRouteImport,
   } as any)
 const SolucoesHoldingPatrimonialRoute =
@@ -144,6 +186,11 @@ const SolucoesDepartamentoFiscalRoute =
     path: '/solucoes/departamento-fiscal',
     getParentRoute: () => rootRouteImport,
   } as any)
+const SolucoesDefesasFiscaisRoute = SolucoesDefesasFiscaisRouteImport.update({
+  id: '/solucoes/defesas-fiscais',
+  path: '/solucoes/defesas-fiscais',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SolucoesContabilidadeEmpresarialRoute =
   SolucoesContabilidadeEmpresarialRouteImport.update({
     id: '/solucoes/contabilidade-empresarial',
@@ -185,6 +232,12 @@ const SegmentosSimplesNacionalRoute =
   SegmentosSimplesNacionalRouteImport.update({
     id: '/segmentos/simples-nacional',
     path: '/segmentos/simples-nacional',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SegmentosProvedoresInternetRoute =
+  SegmentosProvedoresInternetRouteImport.update({
+    id: '/segmentos/provedores-internet',
+    path: '/segmentos/provedores-internet',
     getParentRoute: () => rootRouteImport,
   } as any)
 const SegmentosProdutorRuralRoute = SegmentosProdutorRuralRouteImport.update({
@@ -312,6 +365,7 @@ export interface FileRoutesByFullPath {
   '/contato': typeof ContatoRoute
   '/diagnostico': typeof DiagnosticoRoute
   '/goiania': typeof GoianiaRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRouteWithChildren
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
@@ -335,6 +389,7 @@ export interface FileRoutesByFullPath {
   '/segmentos/pendencias-fiscais': typeof SegmentosPendenciasFiscaisRoute
   '/segmentos/prestadores-servicos': typeof SegmentosPrestadoresServicosRoute
   '/segmentos/produtor-rural': typeof SegmentosProdutorRuralRoute
+  '/segmentos/provedores-internet': typeof SegmentosProvedoresInternetRoute
   '/segmentos/simples-nacional': typeof SegmentosSimplesNacionalRoute
   '/segmentos/tecnologia-startups': typeof SegmentosTecnologiaStartupsRoute
   '/segmentos/terceiro-setor': typeof SegmentosTerceiroSetorRoute
@@ -343,14 +398,20 @@ export interface FileRoutesByFullPath {
   '/solucoes/abrir-empresa': typeof SolucoesAbrirEmpresaRoute
   '/solucoes/bpo-financeiro': typeof SolucoesBpoFinanceiroRoute
   '/solucoes/contabilidade-empresarial': typeof SolucoesContabilidadeEmpresarialRoute
+  '/solucoes/defesas-fiscais': typeof SolucoesDefesasFiscaisRoute
   '/solucoes/departamento-fiscal': typeof SolucoesDepartamentoFiscalRoute
   '/solucoes/departamento-pessoal': typeof SolucoesDepartamentoPessoalRoute
   '/solucoes/holding-patrimonial': typeof SolucoesHoldingPatrimonialRoute
+  '/solucoes/pessoa-fisica-irpf': typeof SolucoesPessoaFisicaIrpfRoute
   '/solucoes/planejamento-tributario': typeof SolucoesPlanejamentoTributarioRoute
   '/solucoes/recuperacao-creditos-tributarios': typeof SolucoesRecuperacaoCreditosTributariosRoute
+  '/solucoes/reforma-tributaria': typeof SolucoesReformaTributariaRoute
+  '/solucoes/registro-marca-inpi': typeof SolucoesRegistroMarcaInpiRoute
   '/solucoes/regularizacao-fiscal': typeof SolucoesRegularizacaoFiscalRoute
   '/solucoes/societario-legalizacao': typeof SolucoesSocietarioLegalizacaoRoute
+  '/solucoes/tecnologia-contabil': typeof SolucoesTecnologiaContabilRoute
   '/solucoes/trocar-contabilidade': typeof SolucoesTrocarContabilidadeRoute
+  '/solucoes/valuation-kpis': typeof SolucoesValuationKpisRoute
   '/conteudos/': typeof ConteudosIndexRoute
   '/segmentos/': typeof SegmentosIndexRoute
   '/solucoes/': typeof SolucoesIndexRoute
@@ -360,6 +421,7 @@ export interface FileRoutesByTo {
   '/contato': typeof ContatoRoute
   '/diagnostico': typeof DiagnosticoRoute
   '/goiania': typeof GoianiaRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRouteWithChildren
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
@@ -383,6 +445,7 @@ export interface FileRoutesByTo {
   '/segmentos/pendencias-fiscais': typeof SegmentosPendenciasFiscaisRoute
   '/segmentos/prestadores-servicos': typeof SegmentosPrestadoresServicosRoute
   '/segmentos/produtor-rural': typeof SegmentosProdutorRuralRoute
+  '/segmentos/provedores-internet': typeof SegmentosProvedoresInternetRoute
   '/segmentos/simples-nacional': typeof SegmentosSimplesNacionalRoute
   '/segmentos/tecnologia-startups': typeof SegmentosTecnologiaStartupsRoute
   '/segmentos/terceiro-setor': typeof SegmentosTerceiroSetorRoute
@@ -391,14 +454,20 @@ export interface FileRoutesByTo {
   '/solucoes/abrir-empresa': typeof SolucoesAbrirEmpresaRoute
   '/solucoes/bpo-financeiro': typeof SolucoesBpoFinanceiroRoute
   '/solucoes/contabilidade-empresarial': typeof SolucoesContabilidadeEmpresarialRoute
+  '/solucoes/defesas-fiscais': typeof SolucoesDefesasFiscaisRoute
   '/solucoes/departamento-fiscal': typeof SolucoesDepartamentoFiscalRoute
   '/solucoes/departamento-pessoal': typeof SolucoesDepartamentoPessoalRoute
   '/solucoes/holding-patrimonial': typeof SolucoesHoldingPatrimonialRoute
+  '/solucoes/pessoa-fisica-irpf': typeof SolucoesPessoaFisicaIrpfRoute
   '/solucoes/planejamento-tributario': typeof SolucoesPlanejamentoTributarioRoute
   '/solucoes/recuperacao-creditos-tributarios': typeof SolucoesRecuperacaoCreditosTributariosRoute
+  '/solucoes/reforma-tributaria': typeof SolucoesReformaTributariaRoute
+  '/solucoes/registro-marca-inpi': typeof SolucoesRegistroMarcaInpiRoute
   '/solucoes/regularizacao-fiscal': typeof SolucoesRegularizacaoFiscalRoute
   '/solucoes/societario-legalizacao': typeof SolucoesSocietarioLegalizacaoRoute
+  '/solucoes/tecnologia-contabil': typeof SolucoesTecnologiaContabilRoute
   '/solucoes/trocar-contabilidade': typeof SolucoesTrocarContabilidadeRoute
+  '/solucoes/valuation-kpis': typeof SolucoesValuationKpisRoute
   '/conteudos': typeof ConteudosIndexRoute
   '/segmentos': typeof SegmentosIndexRoute
   '/solucoes': typeof SolucoesIndexRoute
@@ -409,6 +478,7 @@ export interface FileRoutesById {
   '/contato': typeof ContatoRoute
   '/diagnostico': typeof DiagnosticoRoute
   '/goiania': typeof GoianiaRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRouteWithChildren
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
@@ -432,6 +502,7 @@ export interface FileRoutesById {
   '/segmentos/pendencias-fiscais': typeof SegmentosPendenciasFiscaisRoute
   '/segmentos/prestadores-servicos': typeof SegmentosPrestadoresServicosRoute
   '/segmentos/produtor-rural': typeof SegmentosProdutorRuralRoute
+  '/segmentos/provedores-internet': typeof SegmentosProvedoresInternetRoute
   '/segmentos/simples-nacional': typeof SegmentosSimplesNacionalRoute
   '/segmentos/tecnologia-startups': typeof SegmentosTecnologiaStartupsRoute
   '/segmentos/terceiro-setor': typeof SegmentosTerceiroSetorRoute
@@ -440,14 +511,20 @@ export interface FileRoutesById {
   '/solucoes/abrir-empresa': typeof SolucoesAbrirEmpresaRoute
   '/solucoes/bpo-financeiro': typeof SolucoesBpoFinanceiroRoute
   '/solucoes/contabilidade-empresarial': typeof SolucoesContabilidadeEmpresarialRoute
+  '/solucoes/defesas-fiscais': typeof SolucoesDefesasFiscaisRoute
   '/solucoes/departamento-fiscal': typeof SolucoesDepartamentoFiscalRoute
   '/solucoes/departamento-pessoal': typeof SolucoesDepartamentoPessoalRoute
   '/solucoes/holding-patrimonial': typeof SolucoesHoldingPatrimonialRoute
+  '/solucoes/pessoa-fisica-irpf': typeof SolucoesPessoaFisicaIrpfRoute
   '/solucoes/planejamento-tributario': typeof SolucoesPlanejamentoTributarioRoute
   '/solucoes/recuperacao-creditos-tributarios': typeof SolucoesRecuperacaoCreditosTributariosRoute
+  '/solucoes/reforma-tributaria': typeof SolucoesReformaTributariaRoute
+  '/solucoes/registro-marca-inpi': typeof SolucoesRegistroMarcaInpiRoute
   '/solucoes/regularizacao-fiscal': typeof SolucoesRegularizacaoFiscalRoute
   '/solucoes/societario-legalizacao': typeof SolucoesSocietarioLegalizacaoRoute
+  '/solucoes/tecnologia-contabil': typeof SolucoesTecnologiaContabilRoute
   '/solucoes/trocar-contabilidade': typeof SolucoesTrocarContabilidadeRoute
+  '/solucoes/valuation-kpis': typeof SolucoesValuationKpisRoute
   '/conteudos/': typeof ConteudosIndexRoute
   '/segmentos/': typeof SegmentosIndexRoute
   '/solucoes/': typeof SolucoesIndexRoute
@@ -459,6 +536,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/diagnostico'
     | '/goiania'
+    | '/sitemap.xml'
     | '/sobre'
     | '/conteudos/comercio-icms'
     | '/conteudos/dp-esocial'
@@ -482,6 +560,7 @@ export interface FileRouteTypes {
     | '/segmentos/pendencias-fiscais'
     | '/segmentos/prestadores-servicos'
     | '/segmentos/produtor-rural'
+    | '/segmentos/provedores-internet'
     | '/segmentos/simples-nacional'
     | '/segmentos/tecnologia-startups'
     | '/segmentos/terceiro-setor'
@@ -490,14 +569,20 @@ export interface FileRouteTypes {
     | '/solucoes/abrir-empresa'
     | '/solucoes/bpo-financeiro'
     | '/solucoes/contabilidade-empresarial'
+    | '/solucoes/defesas-fiscais'
     | '/solucoes/departamento-fiscal'
     | '/solucoes/departamento-pessoal'
     | '/solucoes/holding-patrimonial'
+    | '/solucoes/pessoa-fisica-irpf'
     | '/solucoes/planejamento-tributario'
     | '/solucoes/recuperacao-creditos-tributarios'
+    | '/solucoes/reforma-tributaria'
+    | '/solucoes/registro-marca-inpi'
     | '/solucoes/regularizacao-fiscal'
     | '/solucoes/societario-legalizacao'
+    | '/solucoes/tecnologia-contabil'
     | '/solucoes/trocar-contabilidade'
+    | '/solucoes/valuation-kpis'
     | '/conteudos/'
     | '/segmentos/'
     | '/solucoes/'
@@ -507,6 +592,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/diagnostico'
     | '/goiania'
+    | '/sitemap.xml'
     | '/sobre'
     | '/conteudos/comercio-icms'
     | '/conteudos/dp-esocial'
@@ -530,6 +616,7 @@ export interface FileRouteTypes {
     | '/segmentos/pendencias-fiscais'
     | '/segmentos/prestadores-servicos'
     | '/segmentos/produtor-rural'
+    | '/segmentos/provedores-internet'
     | '/segmentos/simples-nacional'
     | '/segmentos/tecnologia-startups'
     | '/segmentos/terceiro-setor'
@@ -538,14 +625,20 @@ export interface FileRouteTypes {
     | '/solucoes/abrir-empresa'
     | '/solucoes/bpo-financeiro'
     | '/solucoes/contabilidade-empresarial'
+    | '/solucoes/defesas-fiscais'
     | '/solucoes/departamento-fiscal'
     | '/solucoes/departamento-pessoal'
     | '/solucoes/holding-patrimonial'
+    | '/solucoes/pessoa-fisica-irpf'
     | '/solucoes/planejamento-tributario'
     | '/solucoes/recuperacao-creditos-tributarios'
+    | '/solucoes/reforma-tributaria'
+    | '/solucoes/registro-marca-inpi'
     | '/solucoes/regularizacao-fiscal'
     | '/solucoes/societario-legalizacao'
+    | '/solucoes/tecnologia-contabil'
     | '/solucoes/trocar-contabilidade'
+    | '/solucoes/valuation-kpis'
     | '/conteudos'
     | '/segmentos'
     | '/solucoes'
@@ -555,6 +648,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/diagnostico'
     | '/goiania'
+    | '/sitemap.xml'
     | '/sobre'
     | '/conteudos/comercio-icms'
     | '/conteudos/dp-esocial'
@@ -578,6 +672,7 @@ export interface FileRouteTypes {
     | '/segmentos/pendencias-fiscais'
     | '/segmentos/prestadores-servicos'
     | '/segmentos/produtor-rural'
+    | '/segmentos/provedores-internet'
     | '/segmentos/simples-nacional'
     | '/segmentos/tecnologia-startups'
     | '/segmentos/terceiro-setor'
@@ -586,14 +681,20 @@ export interface FileRouteTypes {
     | '/solucoes/abrir-empresa'
     | '/solucoes/bpo-financeiro'
     | '/solucoes/contabilidade-empresarial'
+    | '/solucoes/defesas-fiscais'
     | '/solucoes/departamento-fiscal'
     | '/solucoes/departamento-pessoal'
     | '/solucoes/holding-patrimonial'
+    | '/solucoes/pessoa-fisica-irpf'
     | '/solucoes/planejamento-tributario'
     | '/solucoes/recuperacao-creditos-tributarios'
+    | '/solucoes/reforma-tributaria'
+    | '/solucoes/registro-marca-inpi'
     | '/solucoes/regularizacao-fiscal'
     | '/solucoes/societario-legalizacao'
+    | '/solucoes/tecnologia-contabil'
     | '/solucoes/trocar-contabilidade'
+    | '/solucoes/valuation-kpis'
     | '/conteudos/'
     | '/segmentos/'
     | '/solucoes/'
@@ -604,6 +705,7 @@ export interface RootRouteChildren {
   ContatoRoute: typeof ContatoRoute
   DiagnosticoRoute: typeof DiagnosticoRoute
   GoianiaRoute: typeof GoianiaRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreRoute: typeof SobreRouteWithChildren
   ConteudosComercioIcmsRoute: typeof ConteudosComercioIcmsRoute
   ConteudosDpEsocialRoute: typeof ConteudosDpEsocialRoute
@@ -627,20 +729,27 @@ export interface RootRouteChildren {
   SegmentosPendenciasFiscaisRoute: typeof SegmentosPendenciasFiscaisRoute
   SegmentosPrestadoresServicosRoute: typeof SegmentosPrestadoresServicosRoute
   SegmentosProdutorRuralRoute: typeof SegmentosProdutorRuralRoute
+  SegmentosProvedoresInternetRoute: typeof SegmentosProvedoresInternetRoute
   SegmentosSimplesNacionalRoute: typeof SegmentosSimplesNacionalRoute
   SegmentosTecnologiaStartupsRoute: typeof SegmentosTecnologiaStartupsRoute
   SegmentosTerceiroSetorRoute: typeof SegmentosTerceiroSetorRoute
   SolucoesAbrirEmpresaRoute: typeof SolucoesAbrirEmpresaRoute
   SolucoesBpoFinanceiroRoute: typeof SolucoesBpoFinanceiroRoute
   SolucoesContabilidadeEmpresarialRoute: typeof SolucoesContabilidadeEmpresarialRoute
+  SolucoesDefesasFiscaisRoute: typeof SolucoesDefesasFiscaisRoute
   SolucoesDepartamentoFiscalRoute: typeof SolucoesDepartamentoFiscalRoute
   SolucoesDepartamentoPessoalRoute: typeof SolucoesDepartamentoPessoalRoute
   SolucoesHoldingPatrimonialRoute: typeof SolucoesHoldingPatrimonialRoute
+  SolucoesPessoaFisicaIrpfRoute: typeof SolucoesPessoaFisicaIrpfRoute
   SolucoesPlanejamentoTributarioRoute: typeof SolucoesPlanejamentoTributarioRoute
   SolucoesRecuperacaoCreditosTributariosRoute: typeof SolucoesRecuperacaoCreditosTributariosRoute
+  SolucoesReformaTributariaRoute: typeof SolucoesReformaTributariaRoute
+  SolucoesRegistroMarcaInpiRoute: typeof SolucoesRegistroMarcaInpiRoute
   SolucoesRegularizacaoFiscalRoute: typeof SolucoesRegularizacaoFiscalRoute
   SolucoesSocietarioLegalizacaoRoute: typeof SolucoesSocietarioLegalizacaoRoute
+  SolucoesTecnologiaContabilRoute: typeof SolucoesTecnologiaContabilRoute
   SolucoesTrocarContabilidadeRoute: typeof SolucoesTrocarContabilidadeRoute
+  SolucoesValuationKpisRoute: typeof SolucoesValuationKpisRoute
   ConteudosIndexRoute: typeof ConteudosIndexRoute
   SegmentosIndexRoute: typeof SegmentosIndexRoute
   SolucoesIndexRoute: typeof SolucoesIndexRoute
@@ -653,6 +762,13 @@ declare module '@tanstack/react-router' {
       path: '/sobre'
       fullPath: '/sobre'
       preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/goiania': {
@@ -704,11 +820,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solucoes/valuation-kpis': {
+      id: '/solucoes/valuation-kpis'
+      path: '/solucoes/valuation-kpis'
+      fullPath: '/solucoes/valuation-kpis'
+      preLoaderRoute: typeof SolucoesValuationKpisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/solucoes/trocar-contabilidade': {
       id: '/solucoes/trocar-contabilidade'
       path: '/solucoes/trocar-contabilidade'
       fullPath: '/solucoes/trocar-contabilidade'
       preLoaderRoute: typeof SolucoesTrocarContabilidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/tecnologia-contabil': {
+      id: '/solucoes/tecnologia-contabil'
+      path: '/solucoes/tecnologia-contabil'
+      fullPath: '/solucoes/tecnologia-contabil'
+      preLoaderRoute: typeof SolucoesTecnologiaContabilRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solucoes/societario-legalizacao': {
@@ -725,6 +855,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolucoesRegularizacaoFiscalRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solucoes/registro-marca-inpi': {
+      id: '/solucoes/registro-marca-inpi'
+      path: '/solucoes/registro-marca-inpi'
+      fullPath: '/solucoes/registro-marca-inpi'
+      preLoaderRoute: typeof SolucoesRegistroMarcaInpiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/reforma-tributaria': {
+      id: '/solucoes/reforma-tributaria'
+      path: '/solucoes/reforma-tributaria'
+      fullPath: '/solucoes/reforma-tributaria'
+      preLoaderRoute: typeof SolucoesReformaTributariaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/solucoes/recuperacao-creditos-tributarios': {
       id: '/solucoes/recuperacao-creditos-tributarios'
       path: '/solucoes/recuperacao-creditos-tributarios'
@@ -737,6 +881,13 @@ declare module '@tanstack/react-router' {
       path: '/solucoes/planejamento-tributario'
       fullPath: '/solucoes/planejamento-tributario'
       preLoaderRoute: typeof SolucoesPlanejamentoTributarioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/pessoa-fisica-irpf': {
+      id: '/solucoes/pessoa-fisica-irpf'
+      path: '/solucoes/pessoa-fisica-irpf'
+      fullPath: '/solucoes/pessoa-fisica-irpf'
+      preLoaderRoute: typeof SolucoesPessoaFisicaIrpfRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solucoes/holding-patrimonial': {
@@ -758,6 +909,13 @@ declare module '@tanstack/react-router' {
       path: '/solucoes/departamento-fiscal'
       fullPath: '/solucoes/departamento-fiscal'
       preLoaderRoute: typeof SolucoesDepartamentoFiscalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/defesas-fiscais': {
+      id: '/solucoes/defesas-fiscais'
+      path: '/solucoes/defesas-fiscais'
+      fullPath: '/solucoes/defesas-fiscais'
+      preLoaderRoute: typeof SolucoesDefesasFiscaisRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solucoes/contabilidade-empresarial': {
@@ -814,6 +972,13 @@ declare module '@tanstack/react-router' {
       path: '/segmentos/simples-nacional'
       fullPath: '/segmentos/simples-nacional'
       preLoaderRoute: typeof SegmentosSimplesNacionalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/segmentos/provedores-internet': {
+      id: '/segmentos/provedores-internet'
+      path: '/segmentos/provedores-internet'
+      fullPath: '/segmentos/provedores-internet'
+      preLoaderRoute: typeof SegmentosProvedoresInternetRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/segmentos/produtor-rural': {
@@ -990,6 +1155,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContatoRoute: ContatoRoute,
   DiagnosticoRoute: DiagnosticoRoute,
   GoianiaRoute: GoianiaRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreRoute: SobreRouteWithChildren,
   ConteudosComercioIcmsRoute: ConteudosComercioIcmsRoute,
   ConteudosDpEsocialRoute: ConteudosDpEsocialRoute,
@@ -1013,21 +1179,28 @@ const rootRouteChildren: RootRouteChildren = {
   SegmentosPendenciasFiscaisRoute: SegmentosPendenciasFiscaisRoute,
   SegmentosPrestadoresServicosRoute: SegmentosPrestadoresServicosRoute,
   SegmentosProdutorRuralRoute: SegmentosProdutorRuralRoute,
+  SegmentosProvedoresInternetRoute: SegmentosProvedoresInternetRoute,
   SegmentosSimplesNacionalRoute: SegmentosSimplesNacionalRoute,
   SegmentosTecnologiaStartupsRoute: SegmentosTecnologiaStartupsRoute,
   SegmentosTerceiroSetorRoute: SegmentosTerceiroSetorRoute,
   SolucoesAbrirEmpresaRoute: SolucoesAbrirEmpresaRoute,
   SolucoesBpoFinanceiroRoute: SolucoesBpoFinanceiroRoute,
   SolucoesContabilidadeEmpresarialRoute: SolucoesContabilidadeEmpresarialRoute,
+  SolucoesDefesasFiscaisRoute: SolucoesDefesasFiscaisRoute,
   SolucoesDepartamentoFiscalRoute: SolucoesDepartamentoFiscalRoute,
   SolucoesDepartamentoPessoalRoute: SolucoesDepartamentoPessoalRoute,
   SolucoesHoldingPatrimonialRoute: SolucoesHoldingPatrimonialRoute,
+  SolucoesPessoaFisicaIrpfRoute: SolucoesPessoaFisicaIrpfRoute,
   SolucoesPlanejamentoTributarioRoute: SolucoesPlanejamentoTributarioRoute,
   SolucoesRecuperacaoCreditosTributariosRoute:
     SolucoesRecuperacaoCreditosTributariosRoute,
+  SolucoesReformaTributariaRoute: SolucoesReformaTributariaRoute,
+  SolucoesRegistroMarcaInpiRoute: SolucoesRegistroMarcaInpiRoute,
   SolucoesRegularizacaoFiscalRoute: SolucoesRegularizacaoFiscalRoute,
   SolucoesSocietarioLegalizacaoRoute: SolucoesSocietarioLegalizacaoRoute,
+  SolucoesTecnologiaContabilRoute: SolucoesTecnologiaContabilRoute,
   SolucoesTrocarContabilidadeRoute: SolucoesTrocarContabilidadeRoute,
+  SolucoesValuationKpisRoute: SolucoesValuationKpisRoute,
   ConteudosIndexRoute: ConteudosIndexRoute,
   SegmentosIndexRoute: SegmentosIndexRoute,
   SolucoesIndexRoute: SolucoesIndexRoute,
@@ -1035,13 +1208,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
