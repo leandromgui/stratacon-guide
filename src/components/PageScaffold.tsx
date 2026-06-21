@@ -17,6 +17,45 @@ export interface Section {
 
 export interface FaqItem { q: string; a: string | ReactNode }
 
+export type CtaVariant = "diagnostic" | "risk" | "opportunity" | "institutional";
+
+const CTA_VARIANTS: Record<CtaVariant, {
+  eyebrow: string;
+  title: string;
+  body: string;
+  primary: { label: string; to: string };
+  secondary: { label: string; to: string };
+}> = {
+  diagnostic: {
+    eyebrow: "Próximo passo",
+    title: "Solicite um diagnóstico técnico da sua empresa.",
+    body: "Entrega em até 7 dias úteis. Análise fiscal, contábil, tributária, trabalhista e societária, com plano de ação acionável.",
+    primary: { label: "Solicitar diagnóstico", to: "/diagnostico" },
+    secondary: { label: "Falar com a DCON", to: "/contato" },
+  },
+  risk: {
+    eyebrow: "Reduzir exposição",
+    title: "Solicite uma análise de exposição fiscal e trabalhista.",
+    body: "Mapeamos passivos, prazos e medidas de defesa antes que o risco vire autuação ou execução.",
+    primary: { label: "Solicitar análise de exposição", to: "/diagnostico" },
+    secondary: { label: "Falar com a DCON", to: "/contato" },
+  },
+  opportunity: {
+    eyebrow: "Capturar oportunidade",
+    title: "Solicite um diagnóstico de créditos e regime tributário.",
+    body: "Revisamos os últimos 5 anos e simulamos cenários para identificar créditos recuperáveis e economia tributária.",
+    primary: { label: "Solicitar diagnóstico de créditos", to: "/diagnostico" },
+    secondary: { label: "Falar com consultor DCON", to: "/contato" },
+  },
+  institutional: {
+    eyebrow: "Próximo passo",
+    title: "Fale com a equipe técnica da DCON.",
+    body: "Apresentação institucional, método de trabalho e proposta técnica sob responsabilidade do CRC do escritório.",
+    primary: { label: "Falar com consultor DCON", to: "/contato" },
+    secondary: { label: "Conhecer o Método DCON", to: "/metodo" },
+  },
+};
+
 export interface PageScaffoldProps {
   eyebrow?: string;
   h1: string;
@@ -39,6 +78,8 @@ export interface PageScaffoldProps {
   relatedLinks?: { label: string; to: string; eyebrow?: string }[];
   /** Slug da página-pilar para auto-resolver relatedLinks via src/lib/crossLinks.ts */
   pillarKey?: string;
+  /** Contexto do CTA de fechamento. Default: "diagnostic". */
+  ctaVariant?: CtaVariant;
 }
 
 function Eyebrow({ children }: { children: ReactNode }) {
