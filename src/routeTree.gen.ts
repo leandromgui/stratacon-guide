@@ -20,6 +20,7 @@ import { Route as ConteudosIndexRouteImport } from './routes/conteudos.index'
 import { Route as SolucoesTrocarContabilidadeRouteImport } from './routes/solucoes.trocar-contabilidade'
 import { Route as SolucoesSocietarioLegalizacaoRouteImport } from './routes/solucoes.societario-legalizacao'
 import { Route as SolucoesRegularizacaoFiscalRouteImport } from './routes/solucoes.regularizacao-fiscal'
+import { Route as SolucoesReformaTributariaRouteImport } from './routes/solucoes.reforma-tributaria'
 import { Route as SolucoesRecuperacaoCreditosTributariosRouteImport } from './routes/solucoes.recuperacao-creditos-tributarios'
 import { Route as SolucoesPlanejamentoTributarioRouteImport } from './routes/solucoes.planejamento-tributario'
 import { Route as SolucoesHoldingPatrimonialRouteImport } from './routes/solucoes.holding-patrimonial'
@@ -112,6 +113,12 @@ const SolucoesRegularizacaoFiscalRoute =
   SolucoesRegularizacaoFiscalRouteImport.update({
     id: '/solucoes/regularizacao-fiscal',
     path: '/solucoes/regularizacao-fiscal',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolucoesReformaTributariaRoute =
+  SolucoesReformaTributariaRouteImport.update({
+    id: '/solucoes/reforma-tributaria',
+    path: '/solucoes/reforma-tributaria',
     getParentRoute: () => rootRouteImport,
   } as any)
 const SolucoesRecuperacaoCreditosTributariosRoute =
@@ -348,6 +355,7 @@ export interface FileRoutesByFullPath {
   '/solucoes/holding-patrimonial': typeof SolucoesHoldingPatrimonialRoute
   '/solucoes/planejamento-tributario': typeof SolucoesPlanejamentoTributarioRoute
   '/solucoes/recuperacao-creditos-tributarios': typeof SolucoesRecuperacaoCreditosTributariosRoute
+  '/solucoes/reforma-tributaria': typeof SolucoesReformaTributariaRoute
   '/solucoes/regularizacao-fiscal': typeof SolucoesRegularizacaoFiscalRoute
   '/solucoes/societario-legalizacao': typeof SolucoesSocietarioLegalizacaoRoute
   '/solucoes/trocar-contabilidade': typeof SolucoesTrocarContabilidadeRoute
@@ -396,6 +404,7 @@ export interface FileRoutesByTo {
   '/solucoes/holding-patrimonial': typeof SolucoesHoldingPatrimonialRoute
   '/solucoes/planejamento-tributario': typeof SolucoesPlanejamentoTributarioRoute
   '/solucoes/recuperacao-creditos-tributarios': typeof SolucoesRecuperacaoCreditosTributariosRoute
+  '/solucoes/reforma-tributaria': typeof SolucoesReformaTributariaRoute
   '/solucoes/regularizacao-fiscal': typeof SolucoesRegularizacaoFiscalRoute
   '/solucoes/societario-legalizacao': typeof SolucoesSocietarioLegalizacaoRoute
   '/solucoes/trocar-contabilidade': typeof SolucoesTrocarContabilidadeRoute
@@ -445,6 +454,7 @@ export interface FileRoutesById {
   '/solucoes/holding-patrimonial': typeof SolucoesHoldingPatrimonialRoute
   '/solucoes/planejamento-tributario': typeof SolucoesPlanejamentoTributarioRoute
   '/solucoes/recuperacao-creditos-tributarios': typeof SolucoesRecuperacaoCreditosTributariosRoute
+  '/solucoes/reforma-tributaria': typeof SolucoesReformaTributariaRoute
   '/solucoes/regularizacao-fiscal': typeof SolucoesRegularizacaoFiscalRoute
   '/solucoes/societario-legalizacao': typeof SolucoesSocietarioLegalizacaoRoute
   '/solucoes/trocar-contabilidade': typeof SolucoesTrocarContabilidadeRoute
@@ -495,6 +505,7 @@ export interface FileRouteTypes {
     | '/solucoes/holding-patrimonial'
     | '/solucoes/planejamento-tributario'
     | '/solucoes/recuperacao-creditos-tributarios'
+    | '/solucoes/reforma-tributaria'
     | '/solucoes/regularizacao-fiscal'
     | '/solucoes/societario-legalizacao'
     | '/solucoes/trocar-contabilidade'
@@ -543,6 +554,7 @@ export interface FileRouteTypes {
     | '/solucoes/holding-patrimonial'
     | '/solucoes/planejamento-tributario'
     | '/solucoes/recuperacao-creditos-tributarios'
+    | '/solucoes/reforma-tributaria'
     | '/solucoes/regularizacao-fiscal'
     | '/solucoes/societario-legalizacao'
     | '/solucoes/trocar-contabilidade'
@@ -591,6 +603,7 @@ export interface FileRouteTypes {
     | '/solucoes/holding-patrimonial'
     | '/solucoes/planejamento-tributario'
     | '/solucoes/recuperacao-creditos-tributarios'
+    | '/solucoes/reforma-tributaria'
     | '/solucoes/regularizacao-fiscal'
     | '/solucoes/societario-legalizacao'
     | '/solucoes/trocar-contabilidade'
@@ -638,6 +651,7 @@ export interface RootRouteChildren {
   SolucoesHoldingPatrimonialRoute: typeof SolucoesHoldingPatrimonialRoute
   SolucoesPlanejamentoTributarioRoute: typeof SolucoesPlanejamentoTributarioRoute
   SolucoesRecuperacaoCreditosTributariosRoute: typeof SolucoesRecuperacaoCreditosTributariosRoute
+  SolucoesReformaTributariaRoute: typeof SolucoesReformaTributariaRoute
   SolucoesRegularizacaoFiscalRoute: typeof SolucoesRegularizacaoFiscalRoute
   SolucoesSocietarioLegalizacaoRoute: typeof SolucoesSocietarioLegalizacaoRoute
   SolucoesTrocarContabilidadeRoute: typeof SolucoesTrocarContabilidadeRoute
@@ -723,6 +737,13 @@ declare module '@tanstack/react-router' {
       path: '/solucoes/regularizacao-fiscal'
       fullPath: '/solucoes/regularizacao-fiscal'
       preLoaderRoute: typeof SolucoesRegularizacaoFiscalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/reforma-tributaria': {
+      id: '/solucoes/reforma-tributaria'
+      path: '/solucoes/reforma-tributaria'
+      fullPath: '/solucoes/reforma-tributaria'
+      preLoaderRoute: typeof SolucoesReformaTributariaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solucoes/recuperacao-creditos-tributarios': {
@@ -1025,6 +1046,7 @@ const rootRouteChildren: RootRouteChildren = {
   SolucoesPlanejamentoTributarioRoute: SolucoesPlanejamentoTributarioRoute,
   SolucoesRecuperacaoCreditosTributariosRoute:
     SolucoesRecuperacaoCreditosTributariosRoute,
+  SolucoesReformaTributariaRoute: SolucoesReformaTributariaRoute,
   SolucoesRegularizacaoFiscalRoute: SolucoesRegularizacaoFiscalRoute,
   SolucoesSocietarioLegalizacaoRoute: SolucoesSocietarioLegalizacaoRoute,
   SolucoesTrocarContabilidadeRoute: SolucoesTrocarContabilidadeRoute,
