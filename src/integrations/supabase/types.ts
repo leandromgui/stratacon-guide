@@ -38,6 +38,45 @@ export type Database = {
         }
         Relationships: []
       }
+      lead_followup_rules_history: {
+        Row: {
+          changed_by: string | null
+          created_at: string
+          id: string
+          new_enabled: boolean | null
+          new_remind_after_hours: number | null
+          new_suggest_after_hours: number | null
+          prev_enabled: boolean | null
+          prev_remind_after_hours: number | null
+          prev_suggest_after_hours: number | null
+          status: Database["public"]["Enums"]["lead_status"]
+        }
+        Insert: {
+          changed_by?: string | null
+          created_at?: string
+          id?: string
+          new_enabled?: boolean | null
+          new_remind_after_hours?: number | null
+          new_suggest_after_hours?: number | null
+          prev_enabled?: boolean | null
+          prev_remind_after_hours?: number | null
+          prev_suggest_after_hours?: number | null
+          status: Database["public"]["Enums"]["lead_status"]
+        }
+        Update: {
+          changed_by?: string | null
+          created_at?: string
+          id?: string
+          new_enabled?: boolean | null
+          new_remind_after_hours?: number | null
+          new_suggest_after_hours?: number | null
+          prev_enabled?: boolean | null
+          prev_remind_after_hours?: number | null
+          prev_suggest_after_hours?: number | null
+          status?: Database["public"]["Enums"]["lead_status"]
+        }
+        Relationships: []
+      }
       lead_status_history: {
         Row: {
           changed_by: string | null
