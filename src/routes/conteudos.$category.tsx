@@ -33,17 +33,22 @@ export const Route = createFileRoute("/conteudos/$category")({
   head: ({ params, loaderData }) => {
     const c = loaderData?.category ?? getCategory(params.category);
     if (!c) return { meta: [{ title: "Categoria não encontrada | Insights DCON" }] };
-    const url = `/conteudos/${c.slug}`;
+    const base = `/conteudos/${c.slug}`;
+    const pageUrl = loaderData?.canonical ?? base;
     return {
       meta: [
         { title: c.metaTitle },
         { name: "description", content: c.metaDescription },
         { property: "og:title", content: c.metaTitle },
         { property: "og:description", content: c.metaDescription },
-        { property: "og:url", content: url },
+        { property: "og:url", content: pageUrl },
         { property: "og:type", content: "website" },
       ],
-      links: [{ rel: "canonical", href: url }],
+      links: [
+        { rel: "canonical", href: pageUrl },
+        ...(loaderData?.prevUrl ? [{ rel: "prev", href: loaderData.prevUrl }] : []),
+        ...(loaderData?.nextUrl ? [{ rel: "next", href: loaderData.nextUrl }] : []),
+      ],
       scripts: [
         {
           type: "application/ld+json",
