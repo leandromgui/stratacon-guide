@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TemasEstrategicosRouteImport } from './routes/temas-estrategicos'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as MetodoRouteImport } from './routes/metodo'
 import { Route as GoianiaRouteImport } from './routes/goiania'
 import { Route as DiagnosticoRouteImport } from './routes/diagnostico'
 import { Route as ContatoRouteImport } from './routes/contato'
@@ -78,6 +79,11 @@ const SobreRoute = SobreRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MetodoRoute = MetodoRouteImport.update({
+  id: '/metodo',
+  path: '/metodo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GoianiaRoute = GoianiaRouteImport.update({
@@ -371,6 +377,7 @@ export interface FileRoutesByFullPath {
   '/contato': typeof ContatoRoute
   '/diagnostico': typeof DiagnosticoRoute
   '/goiania': typeof GoianiaRoute
+  '/metodo': typeof MetodoRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRouteWithChildren
   '/temas-estrategicos': typeof TemasEstrategicosRoute
@@ -428,6 +435,7 @@ export interface FileRoutesByTo {
   '/contato': typeof ContatoRoute
   '/diagnostico': typeof DiagnosticoRoute
   '/goiania': typeof GoianiaRoute
+  '/metodo': typeof MetodoRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRouteWithChildren
   '/temas-estrategicos': typeof TemasEstrategicosRoute
@@ -486,6 +494,7 @@ export interface FileRoutesById {
   '/contato': typeof ContatoRoute
   '/diagnostico': typeof DiagnosticoRoute
   '/goiania': typeof GoianiaRoute
+  '/metodo': typeof MetodoRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRouteWithChildren
   '/temas-estrategicos': typeof TemasEstrategicosRoute
@@ -545,6 +554,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/diagnostico'
     | '/goiania'
+    | '/metodo'
     | '/sitemap.xml'
     | '/sobre'
     | '/temas-estrategicos'
@@ -602,6 +612,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/diagnostico'
     | '/goiania'
+    | '/metodo'
     | '/sitemap.xml'
     | '/sobre'
     | '/temas-estrategicos'
@@ -659,6 +670,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/diagnostico'
     | '/goiania'
+    | '/metodo'
     | '/sitemap.xml'
     | '/sobre'
     | '/temas-estrategicos'
@@ -717,6 +729,7 @@ export interface RootRouteChildren {
   ContatoRoute: typeof ContatoRoute
   DiagnosticoRoute: typeof DiagnosticoRoute
   GoianiaRoute: typeof GoianiaRoute
+  MetodoRoute: typeof MetodoRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreRoute: typeof SobreRouteWithChildren
   TemasEstrategicosRoute: typeof TemasEstrategicosRoute
@@ -789,6 +802,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/metodo': {
+      id: '/metodo'
+      path: '/metodo'
+      fullPath: '/metodo'
+      preLoaderRoute: typeof MetodoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/goiania': {
@@ -1175,6 +1195,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContatoRoute: ContatoRoute,
   DiagnosticoRoute: DiagnosticoRoute,
   GoianiaRoute: GoianiaRoute,
+  MetodoRoute: MetodoRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreRoute: SobreRouteWithChildren,
   TemasEstrategicosRoute: TemasEstrategicosRoute,

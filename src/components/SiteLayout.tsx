@@ -25,7 +25,7 @@ const mega: MegaItem[] = [
         items: [
           { label: "Quem somos", to: "/sobre", desc: "História, propósito e posicionamento" },
           { label: "Liderança técnica", to: "/sobre/leandro", desc: "Leandro Matsuoka Guimarães" },
-          { label: "Método DCON", to: "/sobre/metodologia", desc: "Como conduzimos cada cliente" },
+          { label: "Método DCON", to: "/metodo", desc: "Protocolo técnico em 4 fases auditáveis" },
         ],
       },
       {
