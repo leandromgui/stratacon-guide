@@ -379,6 +379,12 @@ export function SiteLayout() {
             >
               Solicitar diagnóstico
             </Link>
+            <Link
+              to="/metodo"
+              className="mt-2 inline-flex w-full justify-center border border-gold px-5 py-3 text-[12px] uppercase tracking-[0.16em] text-gold"
+            >
+              ● Método DCON
+            </Link>
           </div>
         )}
       </header>
