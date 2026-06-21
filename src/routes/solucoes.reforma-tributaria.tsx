@@ -35,11 +35,20 @@ function Page() {
   return (
     <PageScaffold
       eyebrow="Solução"
-      h1="Reforma Tributária para empresas: prepare-se para IBS e CBS"
-      intro="Antes do recolhimento, a Reforma muda o cadastro fiscal, o XML, o contrato, o ERP, a classificação da operação e a simulação de impacto. A DCON conduz esse trabalho com método técnico e responsabilidade documental."
+      h1="Reforma Tributária: prepare a operação para IBS e CBS"
+      lead="Antes do recolhimento, a Reforma já muda o cadastro fiscal, o XML, o contrato e o ERP."
+      intro="Sua empresa pode ainda não pagar IBS e CBS, mas já pode estar emitindo notas erradas e mantendo cadastros fiscais desatualizados. A DCON conduz a preparação com método técnico, parecer fundamentado e auditoria de emissão."
+      audience={["Simples, Presumido e Real", "Comércio, serviços e indústria", "E-commerce e prestadores", "Locadores PF/PJ e holdings", "Empresas com benefícios de ICMS"]}
+      breadcrumbs={[{ label: "Soluções", to: "/solucoes" }, { label: "Reforma Tributária", to: "/solucoes/reforma-tributaria" }]}
       intent="reforma tributária IBS CBS, preparação Reforma Tributária empresas"
       ctaPrimary={{ label: "Diagnosticar minha empresa para a Reforma", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      relatedLinks={[
+        { label: "Método DCON", to: "/metodo", eyebrow: "Como conduzimos" },
+        { label: "Recuperação de Créditos Tributários", to: "/solucoes/recuperacao-creditos-tributarios", eyebrow: "Solução" },
+        { label: "Planejamento Tributário", to: "/solucoes/planejamento-tributario", eyebrow: "Solução" },
+        { label: "Regimes Tributários — análise", to: "/conteudos/regimes-tributarios", eyebrow: "Insight" },
+      ]}
       sections={[
         { h2: "O que já está em vigor em 2026", lead: "2026 é o ano para ajustar ERP, XML, cadastros, NCM, CFOP, CST, cClassTrib, códigos de serviço e rotinas internas.", h3: [
           { title: "Fase de teste CBS/IBS", body: "Documentos fiscais e apuração informativa passam a refletir os novos tributos, em regra sem recolhimento quando as obrigações acessórias são cumpridas." },
