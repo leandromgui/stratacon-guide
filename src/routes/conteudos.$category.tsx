@@ -58,7 +58,7 @@ export const Route = createFileRoute("/conteudos/$category")({
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Início", item: "/" },
               { "@type": "ListItem", position: 2, name: "Insights", item: "/conteudos" },
-              { "@type": "ListItem", position: 3, name: c.name, item: url },
+              { "@type": "ListItem", position: 3, name: c.name, item: pageUrl },
             ],
           }),
         },
@@ -69,7 +69,7 @@ export const Route = createFileRoute("/conteudos/$category")({
             "@type": "CollectionPage",
             name: c.metaTitle,
             description: c.metaDescription,
-            url,
+            url: pageUrl,
             hasPart: c.articles.map((a) => ({
               "@type": "Article",
               headline: a.h2,
