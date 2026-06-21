@@ -1,6 +1,24 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+
+type LeadStatus = "novo" | "contatado" | "qualificado" | "perdido";
+
+const STATUS_LABEL: Record<LeadStatus, string> = {
+  novo: "Novo",
+  contatado: "Contatado",
+  qualificado: "Qualificado",
+  perdido: "Perdido",
+};
+
+const STATUS_COLOR: Record<LeadStatus, string> = {
+  novo: "bg-blue-500/15 text-blue-600 border-blue-500/30",
+  contatado: "bg-amber-500/15 text-amber-600 border-amber-500/30",
+  qualificado: "bg-emerald-500/15 text-emerald-600 border-emerald-500/30",
+  perdido: "bg-rose-500/15 text-rose-600 border-rose-500/30",
+};
+
+const STATUSES: LeadStatus[] = ["novo", "contatado", "qualificado", "perdido"];
 
 type Lead = {
   id: string;
@@ -12,9 +30,21 @@ type Lead = {
   utm_source: string | null;
   utm_medium: string | null;
   utm_campaign: string | null;
-  status: string;
+  status: LeadStatus;
   notes: string | null;
+  lost_reason: string | null;
+  last_contact_at: string | null;
+  next_followup_at: string | null;
   created_at: string;
+};
+
+type HistoryEntry = {
+  id: string;
+  from_status: LeadStatus | null;
+  to_status: LeadStatus;
+  note: string | null;
+  created_at: string;
+  changed_by: string | null;
 };
 
 export const Route = createFileRoute("/_authenticated/admin/leads")({
@@ -32,12 +62,13 @@ function AdminLeads() {
   const [leads, setLeads] = useState<Lead[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [filter, setFilter] = useState("");
-  const [statusFilter, setStatusFilter] = useState<string>("all");
+  const [statusFilter, setStatusFilter] = useState<LeadStatus | "all">("all");
+  const [openId, setOpenId] = useState<string | null>(null);
 
-  useEffect(() => {
+  const refresh = () =>
     supabase
       .from("leads")
-      .select("id, name, email, whatsapp, interest, source_page, utm_source, utm_medium, utm_campaign, status, notes, created_at")
+      .select("id, name, email, whatsapp, interest, source_page, utm_source, utm_medium, utm_campaign, status, notes, lost_reason, last_contact_at, next_followup_at, created_at")
       .order("created_at", { ascending: false })
       .limit(500)
       .then(({ data, error }) => {
@@ -49,6 +80,9 @@ function AdminLeads() {
         }
         setLeads(data as Lead[]);
       });
+
+  useEffect(() => {
+    refresh();
   }, []);
 
   async function signOut() {
@@ -56,13 +90,25 @@ function AdminLeads() {
     navigate({ to: "/auth" });
   }
 
-  async function updateStatus(id: string, status: string) {
-    const { error } = await supabase.from("leads").update({ status }).eq("id", id);
+  async function updateLead(id: string, patch: Partial<Lead>) {
+    const wantsContacted =
+      patch.status === "contatado" &&
+      leads?.find((l) => l.id === id)?.status !== "contatado";
+    const finalPatch: Partial<Lead> = { ...patch };
+    if (wantsContacted && !patch.last_contact_at) {
+      finalPatch.last_contact_at = new Date().toISOString();
+    }
+    const { data, error } = await supabase
+      .from("leads")
+      .update(finalPatch)
+      .eq("id", id)
+      .select("id, name, email, whatsapp, interest, source_page, utm_source, utm_medium, utm_campaign, status, notes, lost_reason, last_contact_at, next_followup_at, created_at")
+      .single();
     if (error) {
       setError(error.message);
       return;
     }
-    setLeads((prev) => prev?.map((l) => (l.id === id ? { ...l, status } : l)) ?? null);
+    setLeads((prev) => prev?.map((l) => (l.id === id ? (data as Lead) : l)) ?? null);
   }
 
   const filtered = (leads ?? []).filter((l) => {
@@ -102,14 +148,13 @@ function AdminLeads() {
           />
           <select
             value={statusFilter}
-            onChange={(e) => setStatusFilter(e.target.value)}
+            onChange={(e) => setStatusFilter(e.target.value as LeadStatus | "all")}
             className="rounded-sm border border-border bg-card px-3 py-2 text-sm"
           >
             <option value="all">Todos os status</option>
-            <option value="novo">Novo</option>
-            <option value="contatado">Contatado</option>
-            <option value="qualificado">Qualificado</option>
-            <option value="descartado">Descartado</option>
+            {STATUSES.map((s) => (
+              <option key={s} value={s}>{STATUS_LABEL[s]}</option>
+            ))}
           </select>
           <span className="text-xs text-muted-foreground">
             {leads ? `${filtered.length} de ${leads.length}` : "carregando…"}
@@ -132,11 +177,13 @@ function AdminLeads() {
                 <th className="text-left px-3 py-3">Interesse</th>
                 <th className="text-left px-3 py-3">Origem</th>
                 <th className="text-left px-3 py-3">Status</th>
+                <th className="px-3 py-3"></th>
               </tr>
             </thead>
             <tbody>
               {filtered.map((l) => (
-                <tr key={l.id} className="border-t border-border align-top">
+                <Fragment key={l.id}>
+                <tr className="border-t border-border align-top">
                   <td className="px-3 py-3 text-xs text-muted-foreground whitespace-nowrap">
                     {new Date(l.created_at).toLocaleString("pt-BR")}
                   </td>
@@ -155,20 +202,35 @@ function AdminLeads() {
                   <td className="px-3 py-3">
                     <select
                       value={l.status}
-                      onChange={(e) => updateStatus(l.id, e.target.value)}
-                      className="rounded-sm border border-border bg-card px-2 py-1 text-xs"
+                      onChange={(e) => updateLead(l.id, { status: e.target.value as LeadStatus })}
+                      className={`rounded-sm border px-2 py-1 text-xs font-medium ${STATUS_COLOR[l.status]}`}
                     >
-                      <option value="novo">Novo</option>
-                      <option value="contatado">Contatado</option>
-                      <option value="qualificado">Qualificado</option>
-                      <option value="descartado">Descartado</option>
+                      {STATUSES.map((s) => (
+                        <option key={s} value={s}>{STATUS_LABEL[s]}</option>
+                      ))}
                     </select>
                   </td>
+                  <td className="px-3 py-3 text-right">
+                    <button
+                      onClick={() => setOpenId(openId === l.id ? null : l.id)}
+                      className="text-xs uppercase tracking-[0.14em] hover:text-gold"
+                    >
+                      {openId === l.id ? "Fechar" : "Detalhes"}
+                    </button>
+                  </td>
                 </tr>
+                {openId === l.id && (
+                  <tr className="border-t border-border bg-muted/30">
+                    <td colSpan={7} className="px-3 py-4">
+                      <LeadDetails lead={l} onChange={(patch) => updateLead(l.id, patch)} />
+                    </td>
+                  </tr>
+                )}
+                </Fragment>
               ))}
               {leads && filtered.length === 0 && (
                 <tr>
-                  <td colSpan={6} className="px-3 py-8 text-center text-sm text-muted-foreground">
+                  <td colSpan={7} className="px-3 py-8 text-center text-sm text-muted-foreground">
                     Nenhum lead encontrado.
                   </td>
                 </tr>
@@ -176,6 +238,121 @@ function AdminLeads() {
             </tbody>
           </table>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function LeadDetails({ lead, onChange }: { lead: Lead; onChange: (patch: Partial<Lead>) => void }) {
+  const [history, setHistory] = useState<HistoryEntry[] | null>(null);
+  const [notes, setNotes] = useState(lead.notes ?? "");
+  const [lostReason, setLostReason] = useState(lead.lost_reason ?? "");
+  const [nextFollowup, setNextFollowup] = useState(
+    lead.next_followup_at ? lead.next_followup_at.slice(0, 16) : "",
+  );
+  const [savedMsg, setSavedMsg] = useState<string | null>(null);
+
+  useEffect(() => {
+    supabase
+      .from("lead_status_history")
+      .select("id, from_status, to_status, note, created_at, changed_by")
+      .eq("lead_id", lead.id)
+      .order("created_at", { ascending: false })
+      .then(({ data }) => setHistory((data as HistoryEntry[]) ?? []));
+  }, [lead.id, lead.status]);
+
+  async function save() {
+    await onChange({
+      notes: notes || null,
+      lost_reason: lostReason || null,
+      next_followup_at: nextFollowup ? new Date(nextFollowup).toISOString() : null,
+    });
+    setSavedMsg("Salvo");
+    setTimeout(() => setSavedMsg(null), 1500);
+  }
+
+  return (
+    <div className="grid gap-6 md:grid-cols-2">
+      <div className="space-y-3">
+        <div>
+          <label className="block text-[10px] uppercase tracking-[0.18em] text-muted-foreground mb-1">
+            Próximo follow-up
+          </label>
+          <input
+            type="datetime-local"
+            value={nextFollowup}
+            onChange={(e) => setNextFollowup(e.target.value)}
+            className="w-full rounded-sm border border-border bg-background px-3 py-2 text-sm"
+          />
+          {lead.last_contact_at && (
+            <p className="text-[11px] text-muted-foreground mt-1">
+              Último contato: {new Date(lead.last_contact_at).toLocaleString("pt-BR")}
+            </p>
+          )}
+        </div>
+        {lead.status === "perdido" && (
+          <div>
+            <label className="block text-[10px] uppercase tracking-[0.18em] text-muted-foreground mb-1">
+              Motivo da perda
+            </label>
+            <input
+              value={lostReason}
+              onChange={(e) => setLostReason(e.target.value)}
+              placeholder="Preço, timing, concorrente, sem fit…"
+              className="w-full rounded-sm border border-border bg-background px-3 py-2 text-sm"
+            />
+          </div>
+        )}
+        <div>
+          <label className="block text-[10px] uppercase tracking-[0.18em] text-muted-foreground mb-1">
+            Notas internas
+          </label>
+          <textarea
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
+            rows={4}
+            className="w-full rounded-sm border border-border bg-background px-3 py-2 text-sm"
+          />
+        </div>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={save}
+            className="bg-primary text-primary-foreground px-4 py-2 text-xs uppercase tracking-[0.14em] hover:opacity-90"
+          >
+            Salvar
+          </button>
+          {savedMsg && <span className="text-xs text-emerald-600">{savedMsg}</span>}
+        </div>
+      </div>
+
+      <div>
+        <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground mb-2">
+          Histórico de status
+        </div>
+        {!history && <p className="text-xs text-muted-foreground">Carregando…</p>}
+        {history && history.length === 0 && (
+          <p className="text-xs text-muted-foreground">
+            Sem alterações registradas. Mude o status para começar o histórico.
+          </p>
+        )}
+        <ol className="space-y-2">
+          {history?.map((h) => (
+            <li key={h.id} className="border-l-2 border-gold/40 pl-3 text-xs">
+              <div className="flex items-center gap-2">
+                <span className={`px-1.5 py-0.5 rounded-sm border ${STATUS_COLOR[h.to_status]}`}>
+                  {STATUS_LABEL[h.to_status]}
+                </span>
+                {h.from_status && (
+                  <span className="text-muted-foreground">← {STATUS_LABEL[h.from_status]}</span>
+                )}
+              </div>
+              <div className="text-muted-foreground mt-0.5">
+                {new Date(h.created_at).toLocaleString("pt-BR")}
+              </div>
+              {h.note && <div className="mt-1">{h.note}</div>}
+            </li>
+          ))}
+        </ol>
       </div>
     </div>
   );

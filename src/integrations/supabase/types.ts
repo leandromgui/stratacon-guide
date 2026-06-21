@@ -14,17 +14,59 @@ export type Database = {
   }
   public: {
     Tables: {
+      lead_status_history: {
+        Row: {
+          changed_by: string | null
+          created_at: string
+          from_status: Database["public"]["Enums"]["lead_status"] | null
+          id: string
+          lead_id: string
+          note: string | null
+          to_status: Database["public"]["Enums"]["lead_status"]
+        }
+        Insert: {
+          changed_by?: string | null
+          created_at?: string
+          from_status?: Database["public"]["Enums"]["lead_status"] | null
+          id?: string
+          lead_id: string
+          note?: string | null
+          to_status: Database["public"]["Enums"]["lead_status"]
+        }
+        Update: {
+          changed_by?: string | null
+          created_at?: string
+          from_status?: Database["public"]["Enums"]["lead_status"] | null
+          id?: string
+          lead_id?: string
+          note?: string | null
+          to_status?: Database["public"]["Enums"]["lead_status"]
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lead_status_history_lead_id_fkey"
+            columns: ["lead_id"]
+            isOneToOne: false
+            referencedRelation: "leads"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       leads: {
         Row: {
+          assigned_to: string | null
           created_at: string
           email: string
           id: string
           interest: string
+          last_contact_at: string | null
+          lost_reason: string | null
           name: string
+          next_followup_at: string | null
           notes: string | null
           referrer: string | null
           source_page: string | null
-          status: string
+          status: Database["public"]["Enums"]["lead_status"]
           updated_at: string
           user_agent: string | null
           utm_campaign: string | null
@@ -33,15 +75,19 @@ export type Database = {
           whatsapp: string
         }
         Insert: {
+          assigned_to?: string | null
           created_at?: string
           email: string
           id?: string
           interest: string
+          last_contact_at?: string | null
+          lost_reason?: string | null
           name: string
+          next_followup_at?: string | null
           notes?: string | null
           referrer?: string | null
           source_page?: string | null
-          status?: string
+          status?: Database["public"]["Enums"]["lead_status"]
           updated_at?: string
           user_agent?: string | null
           utm_campaign?: string | null
@@ -50,15 +96,19 @@ export type Database = {
           whatsapp: string
         }
         Update: {
+          assigned_to?: string | null
           created_at?: string
           email?: string
           id?: string
           interest?: string
+          last_contact_at?: string | null
+          lost_reason?: string | null
           name?: string
+          next_followup_at?: string | null
           notes?: string | null
           referrer?: string | null
           source_page?: string | null
-          status?: string
+          status?: Database["public"]["Enums"]["lead_status"]
           updated_at?: string
           user_agent?: string | null
           utm_campaign?: string | null
@@ -104,6 +154,7 @@ export type Database = {
     }
     Enums: {
       app_role: "admin" | "moderator" | "user"
+      lead_status: "novo" | "contatado" | "qualificado" | "perdido"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -232,6 +283,7 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "moderator", "user"],
+      lead_status: ["novo", "contatado", "qualificado", "perdido"],
     },
   },
 } as const
