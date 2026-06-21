@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { submitLead } from "../lib/leads.functions";
+import { getLastFaqQuestion, getSessionId, trackEvent } from "../lib/analytics";
 
 const schema = z.object({
   name: z.string().trim().min(2, "Informe seu nome").max(100),
@@ -32,6 +33,8 @@ export function LeadCaptureForm({ page }: { page: "solucoes" | "segmentos" | "co
     }
     setStatus("sending");
     const params = new URLSearchParams(window.location.search);
+    const sessionId = getSessionId();
+    const lastFaq = getLastFaqQuestion();
     try {
       const res = await submit({
         data: {
@@ -42,6 +45,8 @@ export function LeadCaptureForm({ page }: { page: "solucoes" | "segmentos" | "co
           utm_medium: params.get("utm_medium"),
           utm_campaign: params.get("utm_campaign"),
           user_agent: navigator.userAgent.slice(0, 500),
+          session_id: sessionId,
+          last_faq_question: lastFaq,
         },
       });
       if (!res.ok) {
@@ -49,6 +54,13 @@ export function LeadCaptureForm({ page }: { page: "solucoes" | "segmentos" | "co
         setErr(res.error);
         return;
       }
+      trackEvent({
+        event_name: "lead_submitted",
+        faq_question: lastFaq,
+        cta_label: parsed.data.interest,
+        cta_target: "/lead",
+        metadata: { page },
+      });
       const msg = `Olá, sou ${parsed.data.name}. Tenho interesse em: ${parsed.data.interest}. E-mail: ${parsed.data.email}. WhatsApp: ${parsed.data.whatsapp}.`;
       const url = `https://wa.me/5562992890898?text=${encodeURIComponent(msg)}`;
       window.open(url, "_blank", "noopener,noreferrer");
