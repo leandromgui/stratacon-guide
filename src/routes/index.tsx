@@ -167,7 +167,7 @@ function Home() {
     <div>
       {/* Hero — fundo interativo com parallax + spotlight */}
       <section className="relative overflow-hidden text-white">
-        <AnimatedHeroBg imageUrl={new URL("../assets/hero-bg.png", import.meta.url).href} />
+        <AnimatedHeroBg imageUrl={heroBg} />
 
         <div className="relative mx-auto max-w-6xl px-6 pt-16 md:pt-24 pb-12 md:pb-16">
           <Reveal as="div" className="flex items-center gap-3 text-gold text-[11px] font-semibold uppercase tracking-[0.22em] border-l-2 border-gold pl-4">
