@@ -37,7 +37,7 @@ export const crossLinks: Record<string, RelatedLink[]> = {
     { label: "Método DCON", to: "/metodo", eyebrow: "Como conduzimos" },
     { label: "Regularização Fiscal", to: "/solucoes/regularizacao-fiscal", eyebrow: "Solução" },
     { label: "Recuperação de Créditos", to: "/solucoes/recuperacao-creditos-tributarios", eyebrow: "Solução" },
-    { label: "Pendências Fiscais — análise", to: "/segmentos/pendencias-fiscais", eyebrow: "Setor" },
+    { label: "PGFN, PRDI e transação", to: "/conteudos/regularizacao-fiscal", eyebrow: "Insight" },
   ],
 
   "regularizacao-fiscal": [
