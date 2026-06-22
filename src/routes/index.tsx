@@ -202,20 +202,20 @@ function Home() {
           <Reveal progress className="mt-12 md:mt-14 border-t border-border pt-4">
             <ScrollFillBar className="mb-6" />
             <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border">
-              <Link to="/sobre" className="group bg-background hover:bg-card p-5 transition-colors">
+              <Link to="/sobre" style={{ ["--panel-accent" as never]: "var(--gold)" }} className="panel-interactive group bg-card hover:bg-background p-5">
                 <div className="text-[10px] uppercase tracking-[0.2em] text-gold">Experiência</div>
                 <div className="mt-1 font-display text-xl">+20 anos</div>
               </Link>
-              <Link to="/sobre" className="group bg-background hover:bg-card p-5 transition-colors">
-                <div className="text-[10px] uppercase tracking-[0.2em] text-gold">Carteira</div>
+              <Link to="/sobre" style={{ ["--panel-accent" as never]: "var(--teal)" }} className="panel-interactive group bg-card hover:bg-background p-5">
+                <div className="text-[10px] uppercase tracking-[0.2em] text-teal">Carteira</div>
                 <div className="mt-1 font-display text-xl">+500 empresas</div>
               </Link>
-              <Link to="/diagnostico" className="group bg-background hover:bg-card p-5 transition-colors">
-                <div className="text-[10px] uppercase tracking-[0.2em] text-gold">Diagnóstico</div>
+              <Link to="/diagnostico" style={{ ["--panel-accent" as never]: "var(--blue)" }} className="panel-interactive group bg-card hover:bg-background p-5">
+                <div className="text-[10px] uppercase tracking-[0.2em] text-blue-accent">Diagnóstico</div>
                 <div className="mt-1 font-display text-xl">7 dias úteis</div>
               </Link>
-              <Link to="/metodo" className="group bg-background hover:bg-card p-5 transition-colors">
-                <div className="text-[10px] uppercase tracking-[0.2em] text-gold">Método DCON</div>
+              <Link to="/metodo" style={{ ["--panel-accent" as never]: "var(--emerald)" }} className="panel-interactive group bg-card hover:bg-background p-5">
+                <div className="text-[10px] uppercase tracking-[0.2em] text-emerald-accent">Método DCON</div>
                 <div className="mt-1 font-display text-xl">4 etapas</div>
               </Link>
             </div>
