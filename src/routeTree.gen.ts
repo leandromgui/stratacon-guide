@@ -68,6 +68,7 @@ import { Route as ConteudosRegimesTributariosRouteImport } from './routes/conteu
 import { Route as ConteudosPlanejamentoTributarioRouteImport } from './routes/conteudos.planejamento-tributario'
 import { Route as ConteudosHoldingPatrimonioRouteImport } from './routes/conteudos.holding-patrimonio'
 import { Route as ConteudosHoldingFamiliarRouteImport } from './routes/conteudos.holding-familiar'
+import { Route as ConteudosGuiaSimplesNacionalRouteImport } from './routes/conteudos.guia-simples-nacional'
 import { Route as ConteudosDpEsocialRouteImport } from './routes/conteudos.dp-esocial'
 import { Route as ConteudosComercioIcmsRouteImport } from './routes/conteudos.comercio-icms'
 import { Route as ConteudosCategoryRouteImport } from './routes/conteudos.$category'
@@ -396,6 +397,12 @@ const ConteudosHoldingFamiliarRoute =
     path: '/conteudos/holding-familiar',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ConteudosGuiaSimplesNacionalRoute =
+  ConteudosGuiaSimplesNacionalRouteImport.update({
+    id: '/conteudos/guia-simples-nacional',
+    path: '/conteudos/guia-simples-nacional',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosDpEsocialRoute = ConteudosDpEsocialRouteImport.update({
   id: '/conteudos/dp-esocial',
   path: '/conteudos/dp-esocial',
@@ -449,6 +456,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/$category': typeof ConteudosCategoryRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
+  '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
@@ -516,6 +524,7 @@ export interface FileRoutesByTo {
   '/conteudos/$category': typeof ConteudosCategoryRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
+  '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
@@ -585,6 +594,7 @@ export interface FileRoutesById {
   '/conteudos/$category': typeof ConteudosCategoryRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
+  '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
@@ -654,6 +664,7 @@ export interface FileRouteTypes {
     | '/conteudos/$category'
     | '/conteudos/comercio-icms'
     | '/conteudos/dp-esocial'
+    | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
     | '/conteudos/holding-patrimonio'
     | '/conteudos/planejamento-tributario'
@@ -721,6 +732,7 @@ export interface FileRouteTypes {
     | '/conteudos/$category'
     | '/conteudos/comercio-icms'
     | '/conteudos/dp-esocial'
+    | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
     | '/conteudos/holding-patrimonio'
     | '/conteudos/planejamento-tributario'
@@ -789,6 +801,7 @@ export interface FileRouteTypes {
     | '/conteudos/$category'
     | '/conteudos/comercio-icms'
     | '/conteudos/dp-esocial'
+    | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
     | '/conteudos/holding-patrimonio'
     | '/conteudos/planejamento-tributario'
@@ -858,6 +871,7 @@ export interface RootRouteChildren {
   ConteudosCategoryRoute: typeof ConteudosCategoryRoute
   ConteudosComercioIcmsRoute: typeof ConteudosComercioIcmsRoute
   ConteudosDpEsocialRoute: typeof ConteudosDpEsocialRoute
+  ConteudosGuiaSimplesNacionalRoute: typeof ConteudosGuiaSimplesNacionalRoute
   ConteudosHoldingFamiliarRoute: typeof ConteudosHoldingFamiliarRoute
   ConteudosHoldingPatrimonioRoute: typeof ConteudosHoldingPatrimonioRoute
   ConteudosPlanejamentoTributarioRoute: typeof ConteudosPlanejamentoTributarioRoute
@@ -1322,6 +1336,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosHoldingFamiliarRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/guia-simples-nacional': {
+      id: '/conteudos/guia-simples-nacional'
+      path: '/conteudos/guia-simples-nacional'
+      fullPath: '/conteudos/guia-simples-nacional'
+      preLoaderRoute: typeof ConteudosGuiaSimplesNacionalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/dp-esocial': {
       id: '/conteudos/dp-esocial'
       path: '/conteudos/dp-esocial'
@@ -1416,6 +1437,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConteudosCategoryRoute: ConteudosCategoryRoute,
   ConteudosComercioIcmsRoute: ConteudosComercioIcmsRoute,
   ConteudosDpEsocialRoute: ConteudosDpEsocialRoute,
+  ConteudosGuiaSimplesNacionalRoute: ConteudosGuiaSimplesNacionalRoute,
   ConteudosHoldingFamiliarRoute: ConteudosHoldingFamiliarRoute,
   ConteudosHoldingPatrimonioRoute: ConteudosHoldingPatrimonioRoute,
   ConteudosPlanejamentoTributarioRoute: ConteudosPlanejamentoTributarioRoute,

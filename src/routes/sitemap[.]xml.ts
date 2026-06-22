@@ -73,6 +73,7 @@ const entries: SitemapEntry[] = [
   { path: "/conteudos/planejamento-tributario", changefreq: "monthly", priority: "0.7" },
   { path: "/conteudos/regularizacao-fiscal", changefreq: "monthly", priority: "0.7" },
   { path: "/conteudos/saude-clinicas", changefreq: "monthly", priority: "0.7" },
+  { path: "/conteudos/guia-simples-nacional", changefreq: "monthly", priority: "0.8" },
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({
