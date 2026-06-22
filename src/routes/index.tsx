@@ -83,7 +83,7 @@ export const Route = createFileRoute("/")({
       { property: "og:image", content: OG_IMAGE_URL },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "DCON · Contabilidade Consultiva — Goiânia, CRC-GO 1202" },
+      { property: "og:image:alt", content: "DCON · Contabilidade Consultiva Técnica — Goiânia, CRC-GO 1202" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: OG_IMAGE_URL },
     ],
@@ -255,7 +255,7 @@ function Home() {
         <header className="lg:col-span-5">
           <div className="text-[11px] uppercase tracking-[0.24em] text-gold">A firma</div>
           <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight leading-[1.05]">
-            Uma firma técnica de contabilidade consultiva.
+            Contabilidade consultiva técnica.
           </h2>
         </header>
         <div className="lg:col-span-7 lg:pl-10 lg:border-l lg:border-border space-y-5 text-[16px] leading-relaxed text-foreground/85">
