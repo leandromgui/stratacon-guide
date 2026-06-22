@@ -8,6 +8,16 @@ const OG_IMAGE_URL = `${SITE_URL}${ogImage}`;
 
 const homeDoc = DOC.home();
 
+// Paleta rotativa para painéis — mais cor sem perder o tom técnico
+const PANEL_ACCENTS = [
+  "var(--gold)",
+  "var(--teal)",
+  "var(--blue)",
+  "var(--emerald)",
+  "var(--amber)",
+  "var(--gold)",
+] as const;
+
 const faqs = [
   {
     q: "A DCON é uma contabilidade online?",
