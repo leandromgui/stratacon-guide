@@ -34,16 +34,17 @@ export const CANONICAL_PATHS: UrlEntry[] = [
   { path: "/segmentos/comercio", kind: "canonical", note: "Comércio/ICMS (canônica unificada)" },
   { path: "/conteudos", kind: "canonical" },
   { path: "/conteudos/regimes-tributarios", kind: "canonical", note: "Regimes (canônica unificada)" },
+  { path: "/conteudos/regularizacao-fiscal", kind: "canonical", note: "PGFN, PRDI e transação tributária" },
+  { path: "/conteudos/respostas-validadas", kind: "canonical", note: "Central de respostas técnicas" },
+  { path: "/conteudos/saude-clinicas", kind: "canonical", note: "Equiparação hospitalar e PJ médica" },
   { path: "/conteudos/holding-familiar", kind: "canonical", note: "Pilar de conteúdo — sucessão e patrimônio" },
 ];
 
 export const REDIRECT_PATHS: UrlEntry[] = [
   { path: "/conteudos/planejamento-tributario", kind: "redirect", target: "/solucoes/planejamento-tributario" },
-  { path: "/conteudos/regularizacao-fiscal", kind: "redirect", target: "/solucoes/regularizacao-fiscal" },
   { path: "/conteudos/holding-patrimonio", kind: "redirect", target: "/solucoes/holding-patrimonial" },
   { path: "/conteudos/dp-esocial", kind: "redirect", target: "/solucoes/departamento-pessoal" },
   { path: "/conteudos/comercio-icms", kind: "redirect", target: "/segmentos/comercio" },
-  { path: "/conteudos/saude-clinicas", kind: "redirect", target: "/segmentos/medicos-clinicas" },
   { path: "/segmentos/pendencias-fiscais", kind: "redirect", target: "/solucoes/regularizacao-fiscal" },
   { path: "/segmentos/simples-nacional", kind: "redirect", target: "/conteudos/regimes-tributarios" },
   { path: "/segmentos/lucro-presumido", kind: "redirect", target: "/conteudos/regimes-tributarios" },
