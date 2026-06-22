@@ -235,3 +235,19 @@
     margin-right: 0.75rem;
   }
 }
+
+/* Keyframes para o fundo animado do hero */
+@keyframes hero-zoom {
+  from { transform: scale(1.06) translate3d(0, 0, 0); }
+  to   { transform: scale(1.11) translate3d(-24px, -10px, 0); }
+}
+
+@keyframes hero-glow {
+  from { opacity: 0.35; transform: translateX(-24px); }
+  to   { opacity: 0.78; transform: translateX(30px); }
+}
+
+@keyframes hero-lines {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 220px 0, 0 220px; }
+}
