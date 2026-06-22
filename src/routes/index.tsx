@@ -287,11 +287,11 @@ function Home() {
           <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-3">
             {solutions.map((s, i) => (
               <Reveal key={s.h} delay={i * 80} y={32}>
-              <Link to={s.to} className="group bg-card p-8 flex flex-col justify-between hover:bg-secondary hover:text-secondary-foreground transition-colors h-full">
+              <Link to={s.to} style={{ ["--panel-accent" as never]: PANEL_ACCENTS[i % PANEL_ACCENTS.length] }} className="panel-interactive group bg-card p-8 flex flex-col justify-between hover:bg-secondary hover:text-secondary-foreground h-full">
                 <div>
-                  <div className="text-[11px] uppercase tracking-[0.22em] text-gold">{s.n}</div>
+                  <div className="text-[11px] uppercase tracking-[0.22em]" style={{ color: PANEL_ACCENTS[i % PANEL_ACCENTS.length] }}>{s.n}</div>
                   <h3 className="mt-3 font-display text-xl leading-snug">{s.h}</h3>
-                  <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground group-hover:text-secondary-foreground/75">{s.b}</p>
+                  <p className="mt-3 text-[14.5px] leading-relaxed text-foreground/75 group-hover:text-secondary-foreground/80">{s.b}</p>
                 </div>
                 <div className="mt-8 text-[11px] uppercase tracking-[0.2em] text-secondary group-hover:text-gold">Conhecer →</div>
               </Link>
@@ -319,10 +319,10 @@ function Home() {
         <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-3">
           {sectors.map((s, i) => (
             <Reveal key={s.h} delay={i * 70} y={28}>
-            <Link to={s.to} className="group bg-card p-7 hover:bg-secondary hover:text-secondary-foreground transition-colors block h-full">
+            <Link to={s.to} style={{ ["--panel-accent" as never]: PANEL_ACCENTS[(i + 1) % PANEL_ACCENTS.length] }} className="panel-interactive group bg-card p-7 hover:bg-secondary hover:text-secondary-foreground block h-full">
               <h3 className="font-display text-lg">{s.h}</h3>
-              <p className="mt-2 text-[14px] text-muted-foreground group-hover:text-secondary-foreground/75 leading-relaxed">{s.b}</p>
-              <div className="mt-5 text-[11px] uppercase tracking-[0.2em] text-secondary group-hover:text-gold">Ver setor →</div>
+              <p className="mt-2 text-[14.5px] text-foreground/70 group-hover:text-secondary-foreground/80 leading-relaxed">{s.b}</p>
+              <div className="mt-5 text-[11px] uppercase tracking-[0.2em]" style={{ color: PANEL_ACCENTS[(i + 1) % PANEL_ACCENTS.length] }}>Ver setor →</div>
             </Link>
             </Reveal>
           ))}
@@ -352,10 +352,10 @@ function Home() {
           </div>
           <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-secondary-foreground/10 border border-secondary-foreground/10">
             {method.map((m, i) => (
-              <Reveal key={m.h} as="li" delay={i * 120} y={24} className="bg-secondary p-7">
-                <div className="text-[11px] uppercase tracking-[0.22em] text-gold">{m.n}</div>
+              <Reveal key={m.h} as="li" delay={i * 120} y={24} className="panel-interactive bg-secondary p-7" style={{ ["--panel-accent" as never]: PANEL_ACCENTS[i % PANEL_ACCENTS.length] }}>
+                <div className="text-[11px] uppercase tracking-[0.22em]" style={{ color: PANEL_ACCENTS[i % PANEL_ACCENTS.length] }}>{m.n}</div>
                 <h3 className="mt-3 font-display text-xl">{m.h}</h3>
-                <p className="mt-3 text-[14px] leading-relaxed text-secondary-foreground/75">{m.b}</p>
+                <p className="mt-3 text-[14.5px] leading-relaxed text-secondary-foreground/80">{m.b}</p>
               </Reveal>
             ))}
           </ol>
@@ -448,10 +448,10 @@ function Home() {
               ["Crédito tributário não aproveitado", "Empresas pagam tributo a maior por anos sem fazer levantamento técnico de créditos."],
               ["Sucessão sem estrutura", "ITCMD e disputa familiar consomem patrimônio que poderia ser organizado em vida."],
             ] as const).map(([h, b], i) => (
-              <Reveal key={h} as="li" delay={i * 80} y={24} className="bg-card p-7">
-                <div className="font-display text-gold text-2xl leading-none">!</div>
+              <Reveal key={h} as="li" delay={i * 80} y={24} className="panel-interactive bg-card p-7" style={{ ["--panel-accent" as never]: PANEL_ACCENTS[(i + 2) % PANEL_ACCENTS.length] }}>
+                <div className="font-display text-2xl leading-none" style={{ color: PANEL_ACCENTS[(i + 2) % PANEL_ACCENTS.length] }}>!</div>
                 <h3 className="mt-4 font-display text-lg">{h}</h3>
-                <p className="mt-2 text-[14px] text-muted-foreground leading-relaxed">{b}</p>
+                <p className="mt-2 text-[14.5px] text-foreground/70 leading-relaxed">{b}</p>
               </Reveal>
             ))}
           </ul>
@@ -474,10 +474,10 @@ function Home() {
         <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-4">
           {themes.map((t, i) => (
             <Reveal key={t.h} delay={i * 90} y={24}>
-            <Link to={t.to} className="group bg-card p-7 hover:bg-secondary hover:text-secondary-foreground transition-colors block h-full">
-              <div className="text-[10px] uppercase tracking-[0.22em] text-gold">{t.tag}</div>
+            <Link to={t.to} style={{ ["--panel-accent" as never]: PANEL_ACCENTS[(i + 3) % PANEL_ACCENTS.length] }} className="panel-interactive group bg-card p-7 hover:bg-secondary hover:text-secondary-foreground block h-full">
+              <div className="text-[10px] uppercase tracking-[0.22em]" style={{ color: PANEL_ACCENTS[(i + 3) % PANEL_ACCENTS.length] }}>{t.tag}</div>
               <h3 className="mt-3 font-display text-lg leading-snug">{t.h}</h3>
-              <p className="mt-2 text-[14px] text-muted-foreground group-hover:text-secondary-foreground/75 leading-relaxed">{t.b}</p>
+              <p className="mt-2 text-[14.5px] text-foreground/70 group-hover:text-secondary-foreground/80 leading-relaxed">{t.b}</p>
             </Link>
             </Reveal>
           ))}
