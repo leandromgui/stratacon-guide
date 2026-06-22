@@ -65,24 +65,24 @@
 
 :root {
   --radius: 0.25rem;
-  /* Off-white paper */
-  --background: oklch(0.975 0.005 85);
-  /* Graphite */
-  --foreground: oklch(0.22 0.015 260);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.015 260);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.015 260);
+  /* Cool light gray — less white, more presence */
+  --background: oklch(0.94 0.005 260);
+  /* Near-black for stronger contrast */
+  --foreground: oklch(0.14 0.015 260);
+  --card: oklch(0.97 0.003 260);
+  --card-foreground: oklch(0.14 0.015 260);
+  --popover: oklch(0.97 0.003 260);
+  --popover-foreground: oklch(0.14 0.015 260);
   /* DCON black primary */
   --primary: #232321;
   --primary-foreground: oklch(0.985 0.005 85);
   /* DCON dark secondary (header/footer) */
   --secondary: oklch(0.18 0.01 90);
   --secondary-foreground: oklch(0.97 0.005 85);
-  --muted: oklch(0.955 0.005 85);
-  --muted-foreground: oklch(0.46 0.015 260);
-  --accent: oklch(0.94 0.012 85);
-  --accent-foreground: oklch(0.22 0.015 260);
+  --muted: oklch(0.90 0.005 260);
+  --muted-foreground: oklch(0.42 0.015 260);
+  --accent: oklch(0.90 0.008 260);
+  --accent-foreground: oklch(0.14 0.015 260);
   /* DCON red accent */
   --gold: #e50536;
   --gold-foreground: oklch(0.985 0.005 85);
@@ -90,8 +90,8 @@
   --whatsapp-foreground: oklch(1 0 0);
   --destructive: oklch(0.55 0.22 27);
   --destructive-foreground: oklch(0.985 0.005 85);
-  --border: oklch(0.89 0.008 260);
-  --input: oklch(0.89 0.008 260);
+  --border: oklch(0.80 0.01 260);
+  --input: oklch(0.80 0.01 260);
   --ring: #232321;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
