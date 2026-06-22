@@ -17,7 +17,7 @@ const mega: MegaItem[] = [
     to: "/sobre",
     feature: {
       eyebrow: "Consultoria contábil, fiscal, tributária e empresarial",
-      title: "Não somos uma contabilidade online.",
+      title: "Somos uma firma técnica de contabilidade consultiva.",
       body: "Atuamos como o time técnico das empresas que precisam decidir com segurança jurídica, fiscal e patrimonial.",
       cta: { label: "Conhecer a firma", to: "/sobre" },
     },
