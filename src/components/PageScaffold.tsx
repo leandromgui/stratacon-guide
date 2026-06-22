@@ -65,6 +65,9 @@ export interface PageScaffoldProps {
   sections: Section[];
   ctaPrimary: { label: string; to: string };
   ctaSecondary?: { label: string; to: string };
+  ctaTertiary?: { label: string; to: string };
+  /** Citação validada do doc DCON, renderizada logo abaixo do hero. */
+  respostaValidada?: string;
   observation?: string;
   intent?: string;
   children?: ReactNode;
