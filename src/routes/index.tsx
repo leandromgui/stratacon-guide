@@ -222,6 +222,24 @@ function Home() {
         </div>
       </section>
 
+      {homeDoc.respostaValidada && (
+        <section className="border-y border-border bg-card">
+          <div className="mx-auto max-w-7xl px-6 py-14 md:py-16 grid lg:grid-cols-12 gap-10">
+            <div className="lg:col-span-4">
+              <div className="text-[11px] uppercase tracking-[0.24em] text-gold">
+                Resposta validada DCON
+              </div>
+              <h2 className="mt-4 font-display text-2xl tracking-tight">
+                O que dizemos sobre este tema.
+              </h2>
+            </div>
+            <p className="lg:col-span-8 text-[15px] md:text-[16px] text-foreground/85 leading-relaxed">
+              {homeDoc.respostaValidada}
+            </p>
+          </div>
+        </section>
+      )}
+
       {/* Posicionamento */}
       <section className="mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-12 gap-12">
         <header className="lg:col-span-5">
