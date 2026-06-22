@@ -5,9 +5,9 @@ export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: [
       { title: "Sobre a DCON | Contabilidade de Autoridade em Goiânia" },
-      { name: "description", content: "Conheça a DCON Serviços Contábeis: escritório de contabilidade consultiva em Goiânia, referência em planejamento tributário e regularização fiscal." },
+      { name: "description", content: "Conheça a DCON Serviços Contábeis: contabilidade consultiva técnica em Goiânia, referência em planejamento tributário e regularização fiscal." },
       { property: "og:title", content: "Sobre a DCON | Contabilidade de Autoridade em Goiânia" },
-      { property: "og:description", content: "Conheça a DCON Serviços Contábeis: escritório de contabilidade consultiva em Goiânia, referência em planejamento tributário e regularização fiscal." },
+      { property: "og:description", content: "Conheça a DCON Serviços Contábeis: contabilidade consultiva técnica em Goiânia, referência em planejamento tributário e regularização fiscal." },
       { property: "og:url", content: "/sobre" },
     ],
     links: [{ rel: "canonical", href: "/sobre" }],
@@ -26,8 +26,8 @@ function Page() {
     <PageScaffold
       eyebrow="Sobre"
       h1="A DCON Serviços Contábeis"
-      intro="Somos um escritório técnico de contabilidade consultiva em Goiânia. Atuamos como o time fiscal, tributário e societário da sua empresa."
-      intent="DCON contabilidade, escritório contábil Goiânia, contabilidade consultiva"
+      intro="Somos uma contabilidade consultiva técnica em Goiânia. Atuamos como o time fiscal, tributário e societário da sua empresa."
+      intent="DCON contabilidade, contabilidade consultiva técnica, escritório contábil Goiânia"
       observation="Página-âncora de E-E-A-T. Linka para Leandro, Metodologia e Soluções."
       ctaPrimary={{ label: "Falar com a DCON", to: "/contato" }}
       ctaSecondary={{ label: "Conhecer a metodologia", to: "/sobre/metodologia" }}
