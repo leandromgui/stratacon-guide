@@ -63,6 +63,7 @@ import { Route as SegmentosConstrucaoCivilSpeRouteImport } from './routes/segmen
 import { Route as SegmentosCondominiosRouteImport } from './routes/segmentos.condominios'
 import { Route as SegmentosComercioRouteImport } from './routes/segmentos.comercio'
 import { Route as ConteudosSaudeClinicasRouteImport } from './routes/conteudos.saude-clinicas'
+import { Route as ConteudosRespostasValidadasRouteImport } from './routes/conteudos.respostas-validadas'
 import { Route as ConteudosRegularizacaoFiscalRouteImport } from './routes/conteudos.regularizacao-fiscal'
 import { Route as ConteudosRegimesTributariosRouteImport } from './routes/conteudos.regimes-tributarios'
 import { Route as ConteudosPlanejamentoTributarioRouteImport } from './routes/conteudos.planejamento-tributario'
@@ -367,6 +368,12 @@ const ConteudosSaudeClinicasRoute = ConteudosSaudeClinicasRouteImport.update({
   path: '/conteudos/saude-clinicas',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConteudosRespostasValidadasRoute =
+  ConteudosRespostasValidadasRouteImport.update({
+    id: '/conteudos/respostas-validadas',
+    path: '/conteudos/respostas-validadas',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosRegularizacaoFiscalRoute =
   ConteudosRegularizacaoFiscalRouteImport.update({
     id: '/conteudos/regularizacao-fiscal',
@@ -462,6 +469,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
   '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
+  '/conteudos/respostas-validadas': typeof ConteudosRespostasValidadasRoute
   '/conteudos/saude-clinicas': typeof ConteudosSaudeClinicasRoute
   '/segmentos/comercio': typeof SegmentosComercioRoute
   '/segmentos/condominios': typeof SegmentosCondominiosRoute
@@ -530,6 +538,7 @@ export interface FileRoutesByTo {
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
   '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
+  '/conteudos/respostas-validadas': typeof ConteudosRespostasValidadasRoute
   '/conteudos/saude-clinicas': typeof ConteudosSaudeClinicasRoute
   '/segmentos/comercio': typeof SegmentosComercioRoute
   '/segmentos/condominios': typeof SegmentosCondominiosRoute
@@ -600,6 +609,7 @@ export interface FileRoutesById {
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
   '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
+  '/conteudos/respostas-validadas': typeof ConteudosRespostasValidadasRoute
   '/conteudos/saude-clinicas': typeof ConteudosSaudeClinicasRoute
   '/segmentos/comercio': typeof SegmentosComercioRoute
   '/segmentos/condominios': typeof SegmentosCondominiosRoute
@@ -670,6 +680,7 @@ export interface FileRouteTypes {
     | '/conteudos/planejamento-tributario'
     | '/conteudos/regimes-tributarios'
     | '/conteudos/regularizacao-fiscal'
+    | '/conteudos/respostas-validadas'
     | '/conteudos/saude-clinicas'
     | '/segmentos/comercio'
     | '/segmentos/condominios'
@@ -738,6 +749,7 @@ export interface FileRouteTypes {
     | '/conteudos/planejamento-tributario'
     | '/conteudos/regimes-tributarios'
     | '/conteudos/regularizacao-fiscal'
+    | '/conteudos/respostas-validadas'
     | '/conteudos/saude-clinicas'
     | '/segmentos/comercio'
     | '/segmentos/condominios'
@@ -807,6 +819,7 @@ export interface FileRouteTypes {
     | '/conteudos/planejamento-tributario'
     | '/conteudos/regimes-tributarios'
     | '/conteudos/regularizacao-fiscal'
+    | '/conteudos/respostas-validadas'
     | '/conteudos/saude-clinicas'
     | '/segmentos/comercio'
     | '/segmentos/condominios'
@@ -877,6 +890,7 @@ export interface RootRouteChildren {
   ConteudosPlanejamentoTributarioRoute: typeof ConteudosPlanejamentoTributarioRoute
   ConteudosRegimesTributariosRoute: typeof ConteudosRegimesTributariosRoute
   ConteudosRegularizacaoFiscalRoute: typeof ConteudosRegularizacaoFiscalRoute
+  ConteudosRespostasValidadasRoute: typeof ConteudosRespostasValidadasRoute
   ConteudosSaudeClinicasRoute: typeof ConteudosSaudeClinicasRoute
   SegmentosComercioRoute: typeof SegmentosComercioRoute
   SegmentosCondominiosRoute: typeof SegmentosCondominiosRoute
@@ -1301,6 +1315,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosSaudeClinicasRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/respostas-validadas': {
+      id: '/conteudos/respostas-validadas'
+      path: '/conteudos/respostas-validadas'
+      fullPath: '/conteudos/respostas-validadas'
+      preLoaderRoute: typeof ConteudosRespostasValidadasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/regularizacao-fiscal': {
       id: '/conteudos/regularizacao-fiscal'
       path: '/conteudos/regularizacao-fiscal'
@@ -1443,6 +1464,7 @@ const rootRouteChildren: RootRouteChildren = {
   ConteudosPlanejamentoTributarioRoute: ConteudosPlanejamentoTributarioRoute,
   ConteudosRegimesTributariosRoute: ConteudosRegimesTributariosRoute,
   ConteudosRegularizacaoFiscalRoute: ConteudosRegularizacaoFiscalRoute,
+  ConteudosRespostasValidadasRoute: ConteudosRespostasValidadasRoute,
   ConteudosSaudeClinicasRoute: ConteudosSaudeClinicasRoute,
   SegmentosComercioRoute: SegmentosComercioRoute,
   SegmentosCondominiosRoute: SegmentosCondominiosRoute,
