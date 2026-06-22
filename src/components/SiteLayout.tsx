@@ -2,6 +2,7 @@ import { Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { CookieBanner } from "./CookieBanner";
 import { useEffect, useState } from "react";
+import dconLogo from "@/assets/dcon-logo.png.asset.json";
 
 type Col = { title: string; items: { label: string; to: string; desc?: string }[] };
 type MegaItem = {
@@ -294,11 +295,12 @@ export function SiteLayout() {
       {/* Main header */}
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-          <Link to="/" className="flex items-baseline gap-2 font-display">
-            <span className="text-2xl font-semibold tracking-tight text-secondary">DCON</span>
-            <span className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-              Serviços Contábeis
-            </span>
+          <Link to="/" className="flex items-center font-display">
+            <img
+              src={dconLogo.url}
+              alt="DCON Serviços Contábeis"
+              className="h-9 w-auto"
+            />
           </Link>
           <nav className="hidden lg:flex items-stretch h-full">
             {mega.map((item) => (
@@ -399,10 +401,11 @@ export function SiteLayout() {
         <div className="border-b border-secondary-foreground/10">
           <div className="mx-auto max-w-7xl px-6 py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-12">
             <div className="lg:col-span-4">
-              <div className="font-display text-2xl">DCON</div>
-              <div className="mt-1 text-[11px] uppercase tracking-[0.24em] text-secondary-foreground/60">
-                Serviços Contábeis
-              </div>
+              <img
+                src={dconLogo.url}
+                alt="DCON Serviços Contábeis"
+                className="h-8 w-auto"
+              />
               <p className="mt-5 text-sm text-secondary-foreground/70 leading-relaxed max-w-sm">
                 Contabilidade consultiva técnica. Atuamos como o time técnico de
                 empresas que precisam decidir com segurança jurídica, fiscal e patrimonial.
