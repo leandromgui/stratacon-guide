@@ -286,7 +286,7 @@ export function SiteLayout() {
           <div className="flex items-center gap-5">
             <Link to="/contato" className="hover:text-gold">contato@dcon.cnt.br</Link>
             <span className="opacity-30">|</span>
-            <Link to="/diagnostico" className="hover:text-gold">Área do Cliente</Link>
+            <Link to="/diagnostico" className="hover:text-gold">Diagnóstico</Link>
             <span className="opacity-30">|</span>
             <span className="text-secondary-foreground/60">PT-BR</span>
           </div>
