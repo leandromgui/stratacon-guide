@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { getDoc } from "../lib/dcon-content";
 import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
 import { MethodBadge } from "../components/MethodBadge";
@@ -31,15 +32,20 @@ export const Route = createFileRoute("/segmentos/provedores-internet")({
   component: Page,
 });
 
+const docDcon = getDoc(14);
+
 function Page() {
   return (
     <PageScaffold
       eyebrow="Segmento"
-      h1="Provedores de internet: SCM, SVA, NFCom e ICMS"
-      intro="Provedor de internet não deve tributar toda receita no automático. É preciso separar tecnicamente SCM, SVA, documentação, nota fiscal e obrigação acessória — com risco e segurança calculados."
+      h1={docDcon.h1}
+      intro={docDcon.fraseComercial}
       intent="contabilidade provedor internet, ICMS SVA, NFCom provedor"
-      ctaPrimary={{ label: "Revisar SCM, SVA, NFCom e ICMS", to: "/diagnostico" }}
-      ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      audience={docDcon.audience}
+      ctaPrimary={docDcon.ctas[0]}
+      ctaSecondary={docDcon.ctas[1]}
+      ctaTertiary={docDcon.ctas[2]}
+      respostaValidada={docDcon.respostaValidada}
       pillarKey="provedores-internet"
       method={dconMethod}
       ctaVariant="opportunity"

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { getDoc } from "../lib/dcon-content";
 
 const faqs = [
   { q: "Quanto tempo leva o Método DCON do início ao fim?", a: "O diagnóstico técnico é entregue em até 7 dias úteis. As fases seguintes (planejamento, execução e governança) seguem cronograma específico de cada empresa, normalmente entre 30 e 90 dias para implementação completa." },
@@ -26,17 +27,21 @@ export const Route = createFileRoute("/metodo")({
   component: Page,
 });
 
+const docDcon = getDoc(19);
+
 function Page() {
   return (
     <PageScaffold
       eyebrow="Método DCON"
-      h1="Método DCON: diagnóstico, planejamento, execução e governança"
+      h1={docDcon.h1}
       lead="Quatro fases auditáveis que transformam contabilidade em decisão técnica."
-      intro="A DCON não vende promessa de economia: vende protocolo. Cada cliente é conduzido por uma sequência documentada que cruza dados, fundamenta cada recomendação e mantém responsabilidade técnica em todas as etapas."
-      audience={["Empresas em crescimento", "Sócios e CFOs", "Departamentos financeiros", "Famílias empresárias"]}
+      intro={docDcon.fraseComercial}
+      audience={docDcon.audience}
       breadcrumbs={[{ label: "Método DCON", to: "/metodo" }]}
-      ctaPrimary={{ label: "Solicitar diagnóstico técnico", to: "/diagnostico" }}
-      ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      ctaPrimary={docDcon.ctas[0]}
+      ctaSecondary={docDcon.ctas[1]}
+      ctaTertiary={docDcon.ctas[2]}
+      respostaValidada={docDcon.respostaValidada}
       sections={[
         {
           h2: "Por que método e não promessa",

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { getDoc } from "../lib/dcon-content";
 
 export const Route = createFileRoute("/diagnostico")({
   head: () => ({
@@ -21,16 +22,21 @@ export const Route = createFileRoute("/diagnostico")({
   component: Page,
 });
 
+const docDcon = getDoc(2);
+
 function Page() {
   return (
     <PageScaffold
       eyebrow="Diagnóstico"
-      h1="Sua empresa está pagando, declarando e registrando corretamente?"
-      intro="Diagnóstico fiscal, tributário, contábil e trabalhista com entrega técnica em até 7 dias úteis e devolutiva consultiva."
+      h1={docDcon.h1}
+      intro={docDcon.fraseComercial}
       intent="diagnóstico fiscal empresa, auditoria contábil preventiva"
       observation="Principal entrada de leads — referenciada em todas as páginas."
-      ctaPrimary={{ label: "Solicitar diagnóstico", to: "/contato" }}
-      ctaSecondary={{ label: "Conhecer a metodologia", to: "/sobre/metodologia" }}
+      audience={docDcon.audience}
+      ctaPrimary={docDcon.ctas[0]}
+      ctaSecondary={docDcon.ctas[1]}
+      ctaTertiary={docDcon.ctas[2]}
+      respostaValidada={docDcon.respostaValidada}
       sections={[
       { h2: "O que avaliamos no diagnóstico", h3: [{"title":"Fiscal","body":"Apurações, SPEDs e classificação fiscal das operações."},{"title":"Contábil","body":"Escrituração, fechamentos e demonstrações."},{"title":"Tributário","body":"Regime, anexo, créditos e cargas efetivas."},{"title":"Trabalhista","body":"Folha, encargos, eSocial e contratos."},{"title":"Societário","body":"Contrato social, sócios e estrutura."}] },
       { h2: "Principais riscos encontrados", h3: [{"title":"Imposto pago a maior","body":"Crédito não aproveitado, regime mal escolhido."},{"title":"Obrigações em atraso","body":"Acessórias não entregues que viram multa em silêncio."},{"title":"Classificação fiscal errada","body":"CFOP, CST e NCM mal aplicados na origem."},{"title":"Risco societário","body":"Cláusulas defasadas para a realidade atual."}] },

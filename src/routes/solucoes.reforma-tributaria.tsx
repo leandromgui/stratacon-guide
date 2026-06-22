@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { getDoc } from "../lib/dcon-content";
 import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
 import { MethodBadge } from "../components/MethodBadge";
@@ -33,18 +34,22 @@ export const Route = createFileRoute("/solucoes/reforma-tributaria")({
   component: Page,
 });
 
+const docDcon = getDoc(4);
+
 function Page() {
   return (
     <PageScaffold
       eyebrow="Solução"
-      h1="Reforma Tributária: prepare a operação para IBS e CBS"
+      h1={docDcon.h1}
       lead="Antes do recolhimento, a Reforma já muda o cadastro fiscal, o XML, o contrato e o ERP."
-      intro="Sua empresa pode ainda não pagar IBS e CBS, mas já pode estar emitindo notas erradas e mantendo cadastros fiscais desatualizados. A DCON conduz a preparação com método técnico, parecer fundamentado e auditoria de emissão."
-      audience={["Simples, Presumido e Real", "Comércio, serviços e indústria", "E-commerce e prestadores", "Locadores PF/PJ e holdings", "Empresas com benefícios de ICMS"]}
+      intro={docDcon.fraseComercial}
+      audience={docDcon.audience}
       breadcrumbs={[{ label: "Soluções", to: "/solucoes" }, { label: "Reforma Tributária", to: "/solucoes/reforma-tributaria" }]}
       intent="reforma tributária IBS CBS, preparação Reforma Tributária empresas"
-      ctaPrimary={{ label: "Diagnosticar minha empresa para a Reforma", to: "/diagnostico" }}
-      ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      ctaPrimary={docDcon.ctas[0]}
+      ctaSecondary={docDcon.ctas[1]}
+      ctaTertiary={docDcon.ctas[2]}
+      respostaValidada={docDcon.respostaValidada}
       ctaVariant="opportunity"
       method={dconMethod}
       pillarKey="reforma-tributaria"

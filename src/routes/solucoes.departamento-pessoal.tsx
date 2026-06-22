@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { getDoc } from "../lib/dcon-content";
 import { faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
@@ -32,15 +33,20 @@ export const Route = createFileRoute("/solucoes/departamento-pessoal")({
   component: Page,
 });
 
+const docDcon = getDoc(11);
+
 function Page() {
   return (
     <PageScaffold
       eyebrow="Soluções · Pessoas e trabalhista"
-      h1="Departamento pessoal técnico, sem passivo trabalhista."
-      intro="Admissão, folha, encargos, eSocial e rescisões conduzidos com revisão técnica e calendário ativo. Não dependemos do cliente lembrar do prazo."
+      h1={docDcon.h1}
+      intro={docDcon.fraseComercial}
       breadcrumbs={[{ label: "Soluções", to: "/solucoes" }, { label: "Departamento Pessoal", to: "/solucoes/departamento-pessoal" }]}
-      ctaPrimary={{ label: "Solicitar proposta", to: "/contato" }}
-      ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      audience={docDcon.audience}
+      ctaPrimary={docDcon.ctas[0]}
+      ctaSecondary={docDcon.ctas[1]}
+      ctaTertiary={docDcon.ctas[2]}
+      respostaValidada={docDcon.respostaValidada}
       pillarKey="departamento-pessoal"
       method={dconMethod}
       ctaVariant="risk"

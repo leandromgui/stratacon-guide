@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { getDoc } from "../lib/dcon-content";
 import { faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
@@ -32,15 +33,20 @@ export const Route = createFileRoute("/solucoes/recuperacao-creditos-tributarios
   component: Page,
 });
 
+const docDcon = getDoc(5);
+
 function Page() {
   return (
     <PageScaffold
       eyebrow="Soluções · Recuperação e contencioso"
-      h1="Recuperação de créditos e contencioso administrativo tributário."
-      intro="Levantamento técnico de tributos pagos a maior nos últimos cinco anos, com fundamento legal e trilha auditável. Condução de impugnação, manifestação de inconformidade, transação e PRDI."
+      h1={docDcon.h1}
+      intro={docDcon.fraseComercial}
       breadcrumbs={[{ label: "Soluções", to: "/solucoes" }, { label: "Recuperação de Créditos", to: "/solucoes/recuperacao-creditos-tributarios" }]}
-      ctaPrimary={{ label: "Solicitar análise gratuita", to: "/contato" }}
-      ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      audience={docDcon.audience}
+      ctaPrimary={docDcon.ctas[0]}
+      ctaSecondary={docDcon.ctas[1]}
+      ctaTertiary={docDcon.ctas[2]}
+      respostaValidada={docDcon.respostaValidada}
       ctaVariant="opportunity"
       method={dconMethod}
       pillarKey="recuperacao-creditos-tributarios"

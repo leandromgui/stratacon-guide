@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { getDoc } from "../lib/dcon-content";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
 
@@ -23,16 +24,21 @@ export const Route = createFileRoute("/solucoes/trocar-contabilidade")({
   component: Page,
 });
 
+const docDcon = getDoc(18);
+
 function Page() {
   return (
     <PageScaffold
       eyebrow="Soluções"
-      h1="Troque de contabilidade com segurança e sem perder prazos"
-      intro="Transição técnica conduzida pela DCON: sem perda de prazo, sem documento solto e com auditoria de entrada."
+      h1={docDcon.h1}
+      intro={docDcon.fraseComercial}
       intent="trocar de contador, como mudar de contabilidade"
       observation="Conversão pura — também é LP."
-      ctaPrimary={{ label: "Solicitar proposta", to: "/contato" }}
-      ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      audience={docDcon.audience}
+      ctaPrimary={docDcon.ctas[0]}
+      ctaSecondary={docDcon.ctas[1]}
+      ctaTertiary={docDcon.ctas[2]}
+      respostaValidada={docDcon.respostaValidada}
       pillarKey="trocar-contabilidade"
       method={dconMethod}
       ctaVariant="institutional"

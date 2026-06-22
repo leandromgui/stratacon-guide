@@ -1,96 +1,95 @@
 ## Objetivo
 
-Integrar as 2.188 linhas de conteúdo validado (`DCON_Arquitetura_Com_Respostas_Validadas_v2.md`, 19 páginas) na nova interface institucional (mega-menu, `PageScaffold` com método/tecnologia/riscos/documentos/entregáveis/FAQ), aplicando otimização Google + AI search.
+Importar `DCON_Arquitetura_Com_Respostas_Validadas_v2.md` como fonte única de verdade do conteúdo e refatorar as 19 páginas correspondentes para espelhar:
 
-## Princípios de organização
+- Hero + H1 + frase de autoridade
+- Bloco "Para quem é" (Cliente que atrai)
+- Conteúdo integral por blocos (H2/H3)
+- Serviço vendido por trás (entregáveis)
+- CTAs sugeridos do doc
+- FAQ a partir da PARTE II — Respostas Validadas (acordeão + `FAQPage` JSON-LD)
 
-1. **Uma página markdown = uma rota canônica** (mapeamento abaixo). Conteúdos longos viram seções densas em `PageScaffold`, não landing pages.
-2. **Padrão editorial fixo por página de solução/setor**:
-   - Hero curto (H1 ≤ 65 char) + parágrafo-resumo de 2–3 frases (extraído pela IA).
-   - "Para quem é" (chips de público).
-   - Escopo / Serviço (sections H2/H3).
-   - Método DCON aplicado (4 passos).
-   - Entregáveis (numerados, com prova técnica).
-   - Riscos endereçados.
-   - Tecnologia e documentos analisados.
-   - FAQ (acordeão + `FAQPage` JSON-LD).
-   - CTA contextual + `LeadCaptureForm`.
-   - Links cruzados (3–5 páginas relacionadas) no corpo.
-3. **H1 curto + subtítulo longo**: o H1 original do doc vira `<p class="lead">`; o H1 visível e o `<title>` ficam ≤ 65 caracteres.
-4. **Schema duplo em toda página**: `BreadcrumbList` + (`Service` | `Article` | `FAQPage`) conforme tipo.
-5. **Tom institucional**: "consultoria contábil, fiscal, tributária e empresarial" — nunca "contabilidade online".
+## Estrutura de execução
 
-## Mapeamento documento → rota → ação
+### Passo 1 — Importar o markdown como fonte
+- Copiar o arquivo para `src/content/dcon-arquitetura.md` (importado via `?raw`).
+- Criar `src/lib/dcon-content.ts` com:
+  - `loadSection(slug)` → extrai uma das 19 páginas da PARTE I por número.
+  - `loadFaq(slug)` → extrai a seção correspondente da PARTE II e converte cada par "Pergunta / Resposta" em `{ q, a }`.
+  - Tipo `DconSection { h1, dor, audience[], blocks[], deliverables[], authority, sales, ctas[] }`.
+- Parser simples por regex sobre os marcadores `## H1 sugerido`, `## Dor principal`, `## Cliente que atrai`, `## Serviço vendido por trás`, `## Frase de autoridade`, `## Frase comercial`, `## Conteúdo integral por blocos`, `## CTAs sugeridos`.
 
-| # | Página doc | Rota | Status | Ação |
-|---|---|---|---|---|
-| 1 | HOME | `/` | reescrita parcial | Reescrever blocos com narrativa do doc; manter layout institucional |
-| 2 | Diagnóstico | `/diagnostico` | existente | Enriquecer com 4 blocos do doc + entregáveis + FAQ |
-| 3 | Planejamento Tributário | `/solucoes/planejamento-tributario` | já com scaffold | Substituir copy pelo conteúdo validado |
-| 4 | Reforma Tributária | `/solucoes/reforma-tributaria` | stub | Conteúdo integral + cronograma CBS/IBS |
-| 5 | Recuperação de Créditos | `/solucoes/recuperacao-creditos-tributarios` | já com scaffold | Substituir copy |
-| 6 | Defesas Fiscais | `/solucoes/defesas-fiscais` | stub | Conteúdo integral + tipos de defesa |
-| 7 | Regularização Fiscal | `/solucoes/regularizacao-fiscal` | já com scaffold | Adicionar certidões/licitações/crédito |
-| 8 | Tecnologia Contábil | `/solucoes/tecnologia-contabil` | stub | Conteúdo integral + stack |
-| 9 | PF / IRPF | `/solucoes/pessoa-fisica-irpf` | stub | Conteúdo integral |
-| 10 | Holding Patrimonial | `/solucoes/holding-patrimonial` | já com scaffold | Substituir copy |
-| 11 | Folha / eSocial / SST | `/solucoes/departamento-pessoal` | já com scaffold | Adicionar CCT, SST, compliance |
-| 12 | Construção Civil | `/segmentos/construcao-civil-spe` | existente | Reescrever |
-| 13 | Produtor Rural | `/segmentos/produtor-rural` | existente | Reescrever |
-| 14 | Provedores de Internet | `/segmentos/provedores-internet` | stub | Conteúdo integral |
-| 15 | Saúde | `/segmentos/medicos-clinicas` | existente | Reescrever |
-| 16 | Valuation / KPIs | `/solucoes/valuation-kpis` | stub | Conteúdo integral |
-| 17 | Registro de Marca INPI | `/solucoes/registro-marca-inpi` | stub | Conteúdo integral |
-| 18 | Trocar de Contador | `/solucoes/trocar-contabilidade` | existente | Reescrever |
-| 19 | Contador Consultivo | `/sobre/metodologia` | existente | Reescrever com método DCON |
+### Passo 2 — Componente de página unificado
+- Estender `PageScaffold` (ou criar `DconPage` que o consome) para receber `section: DconSection` + `faq: FaqItem[]` e renderizar:
+  - Hero (H1 + frase de autoridade como subtítulo).
+  - "Para quem é" (chips).
+  - Corpo Markdown sanitizado (usar `react-markdown` + `remark-gfm` — já viável).
+  - "O que você recebe" (entregáveis numerados).
+  - FAQ acordeão + JSON-LD `FAQPage`.
+  - Bloco de CTAs (botões com as frases-CTA do doc).
+  - `RelatedPages` (mapa de interlinking existente).
+- Manter `metaTitle` / `metaDescription` por rota (não vêm do doc).
 
-## Sugestões de organização que recomendo aplicar
+### Passo 3 — Mapeamento doc → rota (19 páginas)
 
-1. **Reagrupar mega-menu "Soluções" em 4 colunas temáticas** (em vez da lista plana atual):
-   - *Compliance & Operação*: Contabilidade, Departamento Pessoal, Departamento Fiscal, BPO Financeiro.
-   - *Estratégia Tributária*: Planejamento, Reforma Tributária, Recuperação de Créditos, Defesas Fiscais, Regularização.
-   - *Patrimônio & Pessoa Física*: Holding, Sucessão, PF/IRPF, Valuation/KPIs.
-   - *Tecnologia & Institucional*: Tecnologia Contábil, Abrir Empresa, Trocar de Contabilidade, Registro de Marca.
-2. **"Temas Estratégicos" como hub editorial** (não duplicado das soluções): Reforma Tributária, Sucessão Patrimonial, Recuperação de Créditos, Compliance Trabalhista, Setores Regulados. Cada tema agrega 1 página-pilar + N insights de `/conteudos`.
-3. **Padronizar "Segmentos" em 3 grupos visuais**: Serviços profissionais (saúde, odontologia, jurídico), Operações intensivas (construção, agro, indústria, provedores), Comércio & digital (e-commerce, comércio, franquias).
-4. **Criar `/metodo` em destaque** (não enterrado em "Sobre"): página-pilar do Método DCON em 4 fases (Diagnóstico → Planejamento → Execução → Governança), linkada de toda página de solução.
-5. **`/insights` (renomear `/conteudos`)** com filtros por tema + tipo + setor; cada insight linka 2 soluções e 1 segmento relevantes.
-6. **Footer institucional em 5 colunas**: Soluções, Setores, Temas, Insights & Método, Contato/Endereço/CNPJ.
-7. **CTAs contextuais por intenção**, não genéricos:
-   - Páginas de risco (defesas, regularização) → "Solicitar análise de exposição".
-   - Páginas de oportunidade (recuperação, planejamento) → "Solicitar diagnóstico de créditos".
-   - Páginas institucionais → "Falar com consultor DCON".
+| # doc | Rota |
+|---|---|
+| 1 HOME | `/` (apenas Hero + blocos resumidos; FAQ opcional) |
+| 2 Diagnóstico | `/diagnostico` |
+| 3 Planejamento Tributário | `/solucoes/planejamento-tributario` |
+| 4 Reforma Tributária | `/solucoes/reforma-tributaria` |
+| 5 Recuperação de Créditos | `/solucoes/recuperacao-creditos-tributarios` |
+| 6 Defesas Fiscais | `/solucoes/defesas-fiscais` |
+| 7 Regularização Fiscal | `/solucoes/regularizacao-fiscal` |
+| 8 Tecnologia Contábil | `/solucoes/tecnologia-contabil` |
+| 9 PF / IRPF | `/solucoes/pessoa-fisica-irpf` |
+| 10 Holding Patrimonial | `/solucoes/holding-patrimonial` |
+| 11 Folha/eSocial/SST | `/solucoes/departamento-pessoal` |
+| 12 Construção Civil | `/segmentos/construcao-civil-spe` |
+| 13 Produtor Rural | `/segmentos/produtor-rural` |
+| 14 Provedores de Internet | `/segmentos/provedores-internet` |
+| 15 Saúde | `/segmentos/medicos-clinicas` |
+| 16 Valuation / KPIs | `/solucoes/valuation-kpis` |
+| 17 Registro de Marca INPI | `/solucoes/registro-marca-inpi` |
+| 18 Trocar de Contador | `/solucoes/trocar-contabilidade` |
+| 19 Contador Consultivo | `/metodo` |
 
-## Execução proposta — 4 PRs sequenciais
+Observação: o doc tem "PARTE II 18 — Crédito Empresarial" sem PARTE I correspondente; será aproveitado como FAQ adicional em `/solucoes/regularizacao-fiscal` (tema "Certidões, Licitações e Crédito" é convergente).
 
-**PR 1 — Infraestrutura editorial** (sem mudança visível grande)
-- Estender `PageScaffold` com `lead`, `audience[]`, `relatedLinks[]`, `ctaVariant`.
-- Criar helper `loadDocSection(slug)` que lê o markdown por seção (build-time).
-- Criar componente `<MethodBadge />` e `<RelatedPages />`.
-- Reorganizar mega-menu nas 4 colunas temáticas + criar `/metodo`.
+### Passo 4 — Refatorar as 19 rotas
+Cada rota vira:
 
-**PR 2 — Soluções estratégicas (5 páginas, maior impacto SEO)**
-- Reforma Tributária, Defesas Fiscais, Recuperação de Créditos, Planejamento Tributário, Regularização Fiscal.
-- Conteúdo integral do doc + Service/FAQ schema + links cruzados.
+```tsx
+const section = loadSection(11);   // ex.: Folha/eSocial
+const faq     = loadFaq(11);
+export const Route = createFileRoute("/solucoes/departamento-pessoal")({
+  head: () => buildHead({ title, description, faq, canonical }),
+  component: () => <DconPage section={section} faq={faq} related={[...]} />,
+});
+```
 
-**PR 3 — Soluções restantes + PF (7 páginas)**
-- Holding, Departamento Pessoal, Tecnologia Contábil, PF/IRPF, Valuation/KPIs, Registro INPI, Trocar de Contador.
+CTAs: usam exatamente as frases do doc. Botão primário aponta para `/diagnostico`; secundário para `/contato` com `?intent=<slug-cta>` para futura segmentação.
 
-**PR 4 — Segmentos + Home + Método + Insights (6 páginas + hub)**
-- Construção Civil, Produtor Rural, Provedores, Saúde.
-- Reescrita da Home com narrativa institucional do doc.
-- `/metodo` e renomeação `/conteudos` → `/insights` com redirecionamento.
-- Sitemap + rescan SEO.
+### Passo 5 — Validações antes do publish
+- `bun add react-markdown remark-gfm` (única dependência nova).
+- `bun run scripts/validate-breadcrumbs.mjs` e `bun run scripts/validate-faq-links.mjs`.
+- Build local + rota a rota: checar que H1, FAQ e CTAs renderizam em pelo menos 4 amostras (planejamento, reforma, holding, saúde).
+- Rodar `seo_chat--list_findings` ao final.
 
 ## Detalhes técnicos
 
-- O markdown fica em `src/content/dcon-arquitetura.md` (importado como string via Vite `?raw`) e parseado por seção pelo helper. Isso evita hardcode duplicado nas rotas e permite atualizações pontuais.
-- Cada rota declara apenas: `slug do doc`, `H1 curto`, `metaDescription`, `relatedLinks`, `serviceType`, `risks`, `deliverables`, `faq`. O scaffold monta o resto a partir do markdown.
-- Tokens visuais: manter paleta azul-marinho / grafite / off-white / dourado discreto já no `styles.css`. Sem ajustes.
-- SEO: rodar `seo_chat--list_findings` ao final de cada PR; corrigir antes do próximo.
+- **Markdown loader:** `import md from "@/content/dcon-arquitetura.md?raw"`. Parsing roda no build (módulo top-level), zero custo no runtime.
+- **Segurança:** `react-markdown` sem `rehype-raw` (HTML do doc é desprezado) — só renderiza Markdown puro, sem risco XSS.
+- **Tipos:** `loadSection` lança erro em build se uma seção sumir do doc, evitando regressão silenciosa.
+- **HOME:** não troca o layout institucional atual; só substitui o copy do hero, "Dor principal" e os 4 blocos de serviço pela narrativa do doc. FAQ na home fica fora (decisão editorial).
+- **`/metodo`:** integra a seção 19 do doc, preservando o componente `MethodBadge` das 4 fases.
 
-## Confirmações necessárias
+## Entrega
 
-1. Aprovar o reagrupamento do mega-menu em 4 colunas temáticas e a criação de `/metodo` em destaque?
-2. OK renomear `/conteudos` → `/insights` (com redirect 301) ou prefere manter `/conteudos`?
-3. Posso começar pelo **PR 1 (infraestrutura)** já neste turno e seguir para PR 2 em sequência?
+PR único (esta tarefa). Sem publicar ao final — apenas reportar contagem de páginas refatoradas + warnings da auditoria SEO para sua revisão.
+
+## Confirmações antes de começar
+
+1. OK usar **2 CTAs por página** (como no doc) ou quer que eu adicione um 3º CTA padrão "Falar no WhatsApp" em todas?
+2. OK pular FAQ na HOME (só hero + blocos do doc)?
+3. OK seguir agora em PR único (estimo várias edições em sequência)?

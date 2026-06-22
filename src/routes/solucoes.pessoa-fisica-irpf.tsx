@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { getDoc } from "../lib/dcon-content";
 import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
 import { MethodBadge } from "../components/MethodBadge";
@@ -32,15 +33,20 @@ export const Route = createFileRoute("/solucoes/pessoa-fisica-irpf")({
   component: Page,
 });
 
+const docDcon = getDoc(9);
+
 function Page() {
   return (
     <PageScaffold
       eyebrow="Solução"
-      h1="Pessoa física, IRPF e planejamento para alta renda"
-      intro="Pessoa física também precisa de diagnóstico fiscal — principalmente com alta renda, aluguéis, várias fontes pagadoras ou atividade autônoma. A DCON revisa, recupera e organiza."
+      h1={docDcon.h1}
+      intro={docDcon.fraseComercial}
       intent="planejamento tributário pessoa física, IRPF profissional liberal, restituição INSS"
-      ctaPrimary={{ label: "Quero comparar PF x CNPJ", to: "/diagnostico" }}
-      ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      audience={docDcon.audience}
+      ctaPrimary={docDcon.ctas[0]}
+      ctaSecondary={docDcon.ctas[1]}
+      ctaTertiary={docDcon.ctas[2]}
+      respostaValidada={docDcon.respostaValidada}
       pillarKey="pessoa-fisica-irpf"
       method={dconMethod}
       ctaVariant="opportunity"

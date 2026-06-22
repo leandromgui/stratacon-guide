@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { getDoc } from "../lib/dcon-content";
 import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
 import { MethodBadge } from "../components/MethodBadge";
@@ -31,15 +32,20 @@ export const Route = createFileRoute("/solucoes/registro-marca-inpi")({
   component: Page,
 });
 
+const docDcon = getDoc(17);
+
 function Page() {
   return (
     <PageScaffold
       eyebrow="Solução"
-      h1="Registro de marca no INPI: proteja antes que outro registre"
-      intro="Marca não é apenas nome. É ativo intangível, reputação, clientela, posicionamento e valor empresarial. A DCON conduz o registro com estratégia de classe, titularidade e ligação com holding e valuation."
+      h1={docDcon.h1}
+      intro={docDcon.fraseComercial}
       intent="registro de marca INPI, proteção de marca empresa"
-      ctaPrimary={{ label: "Verificar se minha marca está protegida", to: "/diagnostico" }}
-      ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      audience={docDcon.audience}
+      ctaPrimary={docDcon.ctas[0]}
+      ctaSecondary={docDcon.ctas[1]}
+      ctaTertiary={docDcon.ctas[2]}
+      respostaValidada={docDcon.respostaValidada}
       pillarKey="registro-marca-inpi"
       method={dconMethod}
       ctaVariant="opportunity"

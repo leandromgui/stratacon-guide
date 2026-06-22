@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { getDoc } from "../lib/dcon-content";
 import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
 import { MethodBadge } from "../components/MethodBadge";
@@ -31,15 +32,20 @@ export const Route = createFileRoute("/solucoes/valuation-kpis")({
   component: Page,
 });
 
+const docDcon = getDoc(16);
+
 function Page() {
   return (
     <PageScaffold
       eyebrow="Solução"
-      h1="Valuation, KPIs e precificação para crescer com lucro"
-      intro="Empresa que não mede margem, Curva ABC e preço mínimo pode crescer em faturamento e perder dinheiro ao mesmo tempo. A DCON estrutura indicadores e avaliação técnica."
+      h1={docDcon.h1}
+      intro={docDcon.fraseComercial}
       intent="valuation empresa, KPIs contábeis, precificação técnica"
-      ctaPrimary={{ label: "Medir valor da minha empresa", to: "/diagnostico" }}
-      ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      audience={docDcon.audience}
+      ctaPrimary={docDcon.ctas[0]}
+      ctaSecondary={docDcon.ctas[1]}
+      ctaTertiary={docDcon.ctas[2]}
+      respostaValidada={docDcon.respostaValidada}
       pillarKey="valuation-kpis"
       method={dconMethod}
       ctaVariant="opportunity"

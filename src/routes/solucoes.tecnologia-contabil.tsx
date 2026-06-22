@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { getDoc } from "../lib/dcon-content";
 import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
 import { MethodBadge } from "../components/MethodBadge";
@@ -31,15 +32,20 @@ export const Route = createFileRoute("/solucoes/tecnologia-contabil")({
   component: Page,
 });
 
+const docDcon = getDoc(8);
+
 function Page() {
   return (
     <PageScaffold
       eyebrow="Solução"
-      h1="Tecnologia contábil e inteligência fiscal para decidir com segurança"
-      intro="A tecnologia da DCON não substitui o contador. Ela organiza dados para que a análise técnica seja mais precisa, rápida e rastreável."
+      h1={docDcon.h1}
+      intro={docDcon.fraseComercial}
       intent="tecnologia contábil, automação fiscal, BI contábil"
-      ctaPrimary={{ label: "Quero cruzar meus dados fiscais e contábeis", to: "/diagnostico" }}
-      ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      audience={docDcon.audience}
+      ctaPrimary={docDcon.ctas[0]}
+      ctaSecondary={docDcon.ctas[1]}
+      ctaTertiary={docDcon.ctas[2]}
+      respostaValidada={docDcon.respostaValidada}
       pillarKey="tecnologia-contabil"
       method={dconMethod}
       ctaVariant="opportunity"
