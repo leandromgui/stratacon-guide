@@ -86,6 +86,15 @@
   /* DCON red accent */
   --gold: #e50536;
   --gold-foreground: oklch(0.985 0.005 85);
+  /* Paleta complementar — mais cor sem perder o tom técnico */
+  --teal: oklch(0.62 0.12 195);
+  --teal-foreground: oklch(0.99 0.005 200);
+  --blue: oklch(0.55 0.16 255);
+  --blue-foreground: oklch(0.99 0.005 255);
+  --emerald: oklch(0.62 0.13 160);
+  --emerald-foreground: oklch(0.99 0.005 160);
+  --amber: oklch(0.78 0.14 75);
+  --amber-foreground: oklch(0.18 0.02 75);
   --whatsapp: oklch(0.68 0.22 145);
   --whatsapp-foreground: oklch(1 0 0);
   --destructive: oklch(0.55 0.22 27);
@@ -153,8 +162,12 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
     font-feature-settings: "ss01", "cv11";
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, .font-display {
@@ -175,6 +188,40 @@
 
 @utility border-gold {
   border-color: var(--gold);
+}
+
+@utility text-teal { color: var(--teal); }
+@utility bg-teal { background-color: var(--teal); color: var(--teal-foreground); }
+@utility border-teal { border-color: var(--teal); }
+@utility text-blue-accent { color: var(--blue); }
+@utility bg-blue-accent { background-color: var(--blue); color: var(--blue-foreground); }
+@utility border-blue-accent { border-color: var(--blue); }
+@utility text-emerald-accent { color: var(--emerald); }
+@utility bg-emerald-accent { background-color: var(--emerald); color: var(--emerald-foreground); }
+@utility border-emerald-accent { border-color: var(--emerald); }
+@utility text-amber-accent { color: var(--amber); }
+@utility bg-amber-accent { background-color: var(--amber); color: var(--amber-foreground); }
+@utility border-amber-accent { border-color: var(--amber); }
+
+/* Painel interativo: barra de cor topo cresce no hover + leve elevação */
+@utility panel-interactive {
+  position: relative;
+  transition: transform 350ms cubic-bezier(.2,.7,.2,1), box-shadow 350ms ease, background-color 250ms ease;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: var(--panel-accent, var(--gold));
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 500ms cubic-bezier(.2,.7,.2,1);
+  }
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px -28px color-mix(in oklab, var(--panel-accent, var(--gold)) 70%, transparent);
+  }
+  &:hover::before { transform: scaleX(1); }
 }
 
 @utility rule-gold {
