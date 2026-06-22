@@ -168,10 +168,10 @@ function Home() {
         className="relative overflow-hidden text-foreground"
         style={{
           background:
-            "linear-gradient(135deg, color-mix(in oklab, var(--blue) 10%, var(--background)) 0%, var(--background) 55%, color-mix(in oklab, var(--gold) 9%, var(--background)) 100%)",
+            "linear-gradient(135deg, color-mix(in oklab, var(--secondary) 8%, var(--background)) 0%, var(--background) 60%, color-mix(in oklab, var(--gold) 10%, var(--background)) 100%)",
         }}
       >
-        <div className="relative mx-auto max-w-6xl px-6 pt-16 md:pt-24 pb-12 md:pb-16">
+        <div className="relative mx-auto max-w-6xl px-6 pt-16 md:pt-20 pb-10 md:pb-14">
           <Reveal as="div" className="flex items-center gap-3 text-gold text-[11px] font-semibold uppercase tracking-[0.22em] border-l-2 border-gold pl-4">
             Consultoria Contábil e Tributária · Goiânia
           </Reveal>
@@ -194,27 +194,15 @@ function Home() {
             </Link>
           </Reveal>
 
-          {/* Tira de métricas/atalhos clicáveis e compactos */}
-          <Reveal progress className="mt-12 md:mt-14 border-t border-border pt-4">
-            <ScrollFillBar className="mb-6" />
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border">
-              <Link to="/sobre" style={{ ["--panel-accent" as never]: "var(--gold)" }} className="panel-interactive group bg-card hover:bg-background p-5">
-                <div className="text-[10px] uppercase tracking-[0.2em] text-gold">Experiência</div>
-                <div className="mt-1 font-display text-xl">+20 anos</div>
-              </Link>
-              <Link to="/sobre" style={{ ["--panel-accent" as never]: "var(--teal)" }} className="panel-interactive group bg-card hover:bg-background p-5">
-                <div className="text-[10px] uppercase tracking-[0.2em] text-teal">Carteira</div>
-                <div className="mt-1 font-display text-xl">+500 empresas</div>
-              </Link>
-              <Link to="/diagnostico" style={{ ["--panel-accent" as never]: "var(--blue)" }} className="panel-interactive group bg-card hover:bg-background p-5">
-                <div className="text-[10px] uppercase tracking-[0.2em] text-blue-accent">Diagnóstico</div>
-                <div className="mt-1 font-display text-xl">7 dias úteis</div>
-              </Link>
-              <Link to="/metodo" style={{ ["--panel-accent" as never]: "var(--emerald)" }} className="panel-interactive group bg-card hover:bg-background p-5">
-                <div className="text-[10px] uppercase tracking-[0.2em] text-emerald-accent">Método DCON</div>
-                <div className="mt-1 font-display text-xl">4 etapas</div>
-              </Link>
-            </div>
+          {/* Tira compacta de credenciais — texto inline, sem painéis duplicados */}
+          <Reveal delay={320} className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground border-t border-border pt-5">
+            <span><span className="text-gold">●</span> CRC-GO 1202</span>
+            <span className="text-foreground/30">/</span>
+            <span>+20 anos</span>
+            <span className="text-foreground/30">/</span>
+            <span>+500 empresas</span>
+            <span className="text-foreground/30">/</span>
+            <span>Diagnóstico em 7 dias úteis</span>
           </Reveal>
         </div>
       </section>
@@ -242,9 +230,9 @@ function Home() {
           <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-4">
             {[
               { tag: "Diagnóstico", h: "Mapear minha empresa", b: "7 dias úteis · relatório técnico", to: "/diagnostico", color: "var(--gold)" },
-              { tag: "CBS / IBS", h: "Reforma Tributária", b: "Impacto no caixa 2026–2033", to: "/solucoes/reforma-tributaria", color: "var(--blue)" },
-              { tag: "Crédito", h: "Recuperar tributos", b: "Últimos 5 anos · PER/DCOMP", to: "/solucoes/recuperacao-creditos-tributarios", color: "var(--teal)" },
-              { tag: "Patrimônio", h: "Holding e sucessão", b: "ITBI, ITCMD e governança", to: "/solucoes/holding-patrimonial", color: "var(--emerald)" },
+              { tag: "CBS / IBS", h: "Reforma Tributária", b: "Impacto no caixa 2026–2033", to: "/solucoes/reforma-tributaria", color: "var(--secondary)" },
+              { tag: "Crédito", h: "Recuperar tributos", b: "Últimos 5 anos · PER/DCOMP", to: "/solucoes/recuperacao-creditos-tributarios", color: "var(--gold)" },
+              { tag: "Patrimônio", h: "Holding e sucessão", b: "ITBI, ITCMD e governança", to: "/solucoes/holding-patrimonial", color: "var(--secondary)" },
             ].map((c, i) => (
               <Reveal key={c.h} delay={i * 80} y={24}>
                 <Link
