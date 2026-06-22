@@ -482,7 +482,7 @@ export function SiteLayout() {
 
         <div className="mx-auto max-w-7xl px-6 py-6 flex flex-wrap items-center justify-between gap-4 text-[11px] text-secondary-foreground/55">
           <div>
-            © {new Date().getFullYear()} DCON Serviços Contábeis · CRC ativo · Responsabilidade técnica registrada
+            © {new Date().getFullYear()} DCON Serviços Contábeis · CRC-GO 1202 · Responsabilidade técnica registrada
           </div>
           <div className="flex gap-5">
             <Link to="/contato">Política de privacidade</Link>
