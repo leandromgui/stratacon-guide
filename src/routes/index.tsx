@@ -538,6 +538,38 @@ function Home() {
           </div>
         </div>
       </section>
+
+      {/* Mapa / endereço */}
+      <section className="border-t border-border bg-background">
+        <div className="mx-auto max-w-7xl px-6 py-20 grid lg:grid-cols-12 gap-10">
+          <header className="lg:col-span-4">
+            <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Onde estamos</div>
+            <h2 className="font-display text-2xl md:text-3xl tracking-tight">Presença física em Goiânia</h2>
+            <p className="mt-4 text-muted-foreground leading-relaxed text-[15px]">
+              R. 89-A, nº 51 — Setor Sul, Goiânia — GO, 74093-150
+            </p>
+            <a
+              href="https://www.google.com/maps/place/Dcon+Servi%C3%A7os+Cont%C3%A1beis/data=!4m2!3m1!1s0x0:0xd8fc177d850a4b61?sa=X&ved=1t:2428&ictx=111"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 border border-border bg-card px-5 py-3 text-[12px] uppercase tracking-[0.16em] hover:border-gold hover:text-gold transition-colors"
+            >
+              <span>Abrir no Google Maps</span>
+              <span className="text-gold">→</span>
+            </a>
+          </header>
+          <div className="lg:col-span-8 aspect-[16/10] w-full overflow-hidden border border-border bg-card">
+            <iframe
+              title="DCON Serviços Contábeis — R. 89-A, nº 51, Setor Sul, Goiânia"
+              src="https://www.google.com/maps?q=Dcon+Servi%C3%A7os+Cont%C3%A1beis,+R.+89-A,+51+-+Setor+Sul,+Goi%C3%A2nia+-+GO&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="h-full w-full border-0"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
