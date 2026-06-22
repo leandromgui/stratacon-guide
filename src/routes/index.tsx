@@ -163,72 +163,108 @@ function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative bg-secondary text-secondary-foreground overflow-hidden">
-        <div
-          aria-hidden
-          className="absolute inset-0 opacity-[0.07] pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(var(--color-secondary-foreground) 1px, transparent 1px), linear-gradient(90deg, var(--color-secondary-foreground) 1px, transparent 1px)",
-            backgroundSize: "72px 72px",
-          }}
-        />
-        <div className="relative mx-auto max-w-7xl px-6 pt-24 pb-32 grid lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-8">
-            <div className="text-[11px] uppercase tracking-[0.26em] text-gold rule-gold">
-              Consultoria contábil, fiscal, tributária e empresarial
-            </div>
-            <h1 className="mt-8 font-display text-5xl md:text-7xl font-medium tracking-tight leading-[1.02] max-w-4xl">
-              Decisões econômicas seguras exigem leitura técnica do que está sendo declarado.
-            </h1>
-            <p className="mt-8 max-w-2xl text-lg text-secondary-foreground/75 leading-relaxed">
-              A DCON é uma firma de consultoria contábil, fiscal, tributária e empresarial
-              em Goiânia, com atendimento em todo o Brasil. Conduzimos planejamento
-              tributário, reforma CBS/IBS, recuperação de créditos, holding patrimonial
-              e defesa fiscal pelo <strong className="text-secondary-foreground">Método DCON</strong> em quatro fases auditáveis.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <Link
-                to={homeDoc.ctas[0].to}
-                className="inline-flex items-center bg-gold px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] font-medium text-gold-foreground hover:opacity-90"
-              >
-                {homeDoc.ctas[0].label} →
-              </Link>
-              <Link
-                to={homeDoc.ctas[1].to}
-                className="inline-flex items-center border border-gold px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] text-gold hover:bg-gold hover:text-gold-foreground"
-              >
-                {homeDoc.ctas[1].label}
-              </Link>
-              <Link
-                to={homeDoc.ctas[2].to}
-                className="inline-flex items-center border border-secondary-foreground/30 px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] hover:border-gold hover:text-gold"
-              >
-                {homeDoc.ctas[2].label}
-              </Link>
-            </div>
+      <section className="relative bg-background text-foreground overflow-hidden">
+        <div className="relative mx-auto max-w-6xl px-6 pt-20 md:pt-28 pb-20 md:pb-28">
+          <div className="flex items-center gap-3 text-gold text-[11px] font-semibold uppercase tracking-[0.22em] border-l-2 border-gold pl-4">
+            Contabilidade Consultiva Técnica
           </div>
-          <aside className="lg:col-span-4 lg:border-l lg:border-secondary-foreground/15 lg:pl-10 flex flex-col justify-end gap-6">
-            <div>
-              <div className="text-[10px] uppercase tracking-[0.24em] text-secondary-foreground/55 mb-2">Em foco</div>
-              <Link to="/solucoes/reforma-tributaria" className="font-display text-xl leading-snug hover:text-gold block">
-                Reforma Tributária 2026–2033: o que muda no seu caixa.
-              </Link>
-              <p className="mt-2 text-sm text-secondary-foreground/65">Análise da transição CBS/IBS por setor e regime.</p>
+
+          <h1 className="mt-12 md:mt-16 font-display text-4xl md:text-7xl font-light tracking-tight leading-[1.05] max-w-5xl">
+            Decisões econômicas seguras exigem{" "}
+            <span className="font-semibold">leitura técnica</span> do que está sendo declarado.
+          </h1>
+
+          <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-3 border-t border-border">
+            {/* Métrica 01 */}
+            <div className="p-6 border-b md:border-b-0 md:border-r border-border">
+              <span className="block text-gold text-xs font-semibold mb-2 uppercase tracking-wider">
+                Experiência
+              </span>
+              <div className="font-display text-3xl font-medium tracking-tight">+20 anos</div>
+              <p className="text-foreground/45 text-[10px] mt-1 uppercase tracking-[0.18em]">
+                Atuação contínua
+              </p>
             </div>
-            <div className="grid grid-cols-3 gap-6 pt-6 border-t border-secondary-foreground/15">
-              {[
-                ["+20", "anos de atuação"],
-                ["+500", "empresas atendidas"],
-                ["7d", "diagnóstico"],
-              ].map(([n, l]) => (
-                <div key={l}>
-                  <div className="font-display text-3xl">{n}</div>
-                  <div className="text-[10px] uppercase tracking-[0.2em] text-secondary-foreground/55 mt-1">{l}</div>
+
+            {/* Métrica 02 */}
+            <div className="p-6 border-b md:border-b-0 md:border-r border-border">
+              <span className="block text-gold text-xs font-semibold mb-2 uppercase tracking-wider">
+                Carteira
+              </span>
+              <div className="font-display text-3xl font-medium tracking-tight">+500 empresas</div>
+              <p className="text-foreground/45 text-[10px] mt-1 uppercase tracking-[0.18em]">
+                Atendidas pelo Método
+              </p>
+            </div>
+
+            {/* Em foco — vira card vermelho clicável */}
+            <Link
+              to="/solucoes/reforma-tributaria"
+              className="group p-6 border-b md:border-b-0 border-border hover:bg-gold hover:text-gold-foreground transition-colors duration-300"
+            >
+              <span className="block text-gold group-hover:text-gold-foreground/80 text-xs font-semibold mb-2 uppercase tracking-wider transition-colors">
+                Em foco
+              </span>
+              <div className="font-display text-2xl font-medium tracking-tight">
+                Reforma Tributária
+              </div>
+              <p className="text-foreground/45 group-hover:text-gold-foreground/75 text-[10px] mt-1 uppercase tracking-[0.18em] transition-colors">
+                Ciclo 2026—2033
+              </p>
+            </Link>
+
+            {/* CTA 1 */}
+            <Link
+              to={homeDoc.ctas[0].to}
+              className="group p-6 border-b md:border-b-0 md:border-r border-border flex items-center justify-between hover:bg-card transition-colors"
+            >
+              <div>
+                <div className="text-xs text-foreground/50 group-hover:text-foreground/80 transition-colors uppercase tracking-wider">
+                  Diagnóstico
                 </div>
-              ))}
-            </div>
-          </aside>
+                <div className="mt-1 text-base font-medium">{homeDoc.ctas[0].label}</div>
+              </div>
+              <div className="w-8 h-8 rounded-full border border-border flex items-center justify-center group-hover:border-gold transition-colors shrink-0 ml-4">
+                <span className="w-1.5 h-1.5 bg-gold rounded-full" />
+              </div>
+            </Link>
+
+            {/* CTA 2 */}
+            <Link
+              to={homeDoc.ctas[1].to}
+              className="group p-6 border-b md:border-b-0 md:border-r border-border flex items-center justify-between hover:bg-card transition-colors"
+            >
+              <div>
+                <div className="text-xs text-foreground/50 group-hover:text-foreground/80 transition-colors uppercase tracking-wider">
+                  Metodologia
+                </div>
+                <div className="mt-1 text-base font-medium">{homeDoc.ctas[1].label}</div>
+              </div>
+              <div className="w-8 h-8 rounded-full border border-border flex items-center justify-center group-hover:border-gold transition-colors shrink-0 ml-4">
+                <svg className="w-3 h-3 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </Link>
+
+            {/* CTA 3 */}
+            <Link
+              to={homeDoc.ctas[2].to}
+              className="group p-6 flex items-center justify-between hover:bg-card transition-colors"
+            >
+              <div>
+                <div className="text-xs text-foreground/50 group-hover:text-foreground/80 transition-colors uppercase tracking-wider">
+                  Portfólio
+                </div>
+                <div className="mt-1 text-base font-medium">{homeDoc.ctas[2].label}</div>
+              </div>
+              <div className="w-8 h-8 rounded-full border border-border flex items-center justify-center group-hover:border-gold transition-colors shrink-0 ml-4">
+                <svg className="w-3 h-3 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </Link>
+          </div>
         </div>
       </section>
 
