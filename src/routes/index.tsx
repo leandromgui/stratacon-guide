@@ -275,8 +275,9 @@ function Home() {
             </Link>
           </div>
           <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-3">
-            {solutions.map((s) => (
-              <Link key={s.h} to={s.to} className="group bg-card p-8 flex flex-col justify-between hover:bg-secondary hover:text-secondary-foreground transition-colors">
+            {solutions.map((s, i) => (
+              <Reveal key={s.h} delay={i * 80} y={32}>
+              <Link to={s.to} className="group bg-card p-8 flex flex-col justify-between hover:bg-secondary hover:text-secondary-foreground transition-colors h-full">
                 <div>
                   <div className="text-[11px] uppercase tracking-[0.22em] text-gold">{s.n}</div>
                   <h3 className="mt-3 font-display text-xl leading-snug">{s.h}</h3>
@@ -284,6 +285,7 @@ function Home() {
                 </div>
                 <div className="mt-8 text-[11px] uppercase tracking-[0.2em] text-secondary group-hover:text-gold">Conhecer →</div>
               </Link>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -305,12 +307,14 @@ function Home() {
           </p>
         </div>
         <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-3">
-          {sectors.map((s) => (
-            <Link key={s.h} to={s.to} className="group bg-card p-7 hover:bg-secondary hover:text-secondary-foreground transition-colors">
+          {sectors.map((s, i) => (
+            <Reveal key={s.h} delay={i * 70} y={28}>
+            <Link to={s.to} className="group bg-card p-7 hover:bg-secondary hover:text-secondary-foreground transition-colors block h-full">
               <h3 className="font-display text-lg">{s.h}</h3>
               <p className="mt-2 text-[14px] text-muted-foreground group-hover:text-secondary-foreground/75 leading-relaxed">{s.b}</p>
               <div className="mt-5 text-[11px] uppercase tracking-[0.2em] text-secondary group-hover:text-gold">Ver setor →</div>
             </Link>
+            </Reveal>
           ))}
         </div>
         <div className="mt-10 text-center">
@@ -337,12 +341,12 @@ function Home() {
             </p>
           </div>
           <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-secondary-foreground/10 border border-secondary-foreground/10">
-            {method.map((m) => (
-              <li key={m.h} className="bg-secondary p-7">
+            {method.map((m, i) => (
+              <Reveal key={m.h} as="li" delay={i * 120} y={24} className="bg-secondary p-7">
                 <div className="text-[11px] uppercase tracking-[0.22em] text-gold">{m.n}</div>
                 <h3 className="mt-3 font-display text-xl">{m.h}</h3>
                 <p className="mt-3 text-[14px] leading-relaxed text-secondary-foreground/75">{m.b}</p>
-              </li>
+              </Reveal>
             ))}
           </ol>
           <div className="mt-12">
@@ -426,19 +430,19 @@ function Home() {
             </p>
           </div>
           <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
-            {[
+            {([
               ["Classificação fiscal incorreta", "NCM, CST, CFOP e CNAE desalinhados geram autuação retroativa com multa e juros."],
               ["ICMS-ST e DIFAL", "Operação multiestadual mal apurada acumula passivo silencioso por anos."],
               ["Pró-labore e distribuição", "Distribuição desproporcional sem fundamento contábil expõe o sócio à desconsideração."],
               ["Equiparação hospitalar", "Clínicas perdem benefício por enquadramento inadequado de CNAE e estrutura societária."],
               ["Crédito tributário não aproveitado", "Empresas pagam tributo a maior por anos sem fazer levantamento técnico de créditos."],
               ["Sucessão sem estrutura", "ITCMD e disputa familiar consomem patrimônio que poderia ser organizado em vida."],
-            ].map(([h, b]) => (
-              <li key={h} className="bg-card p-7">
+            ] as const).map(([h, b], i) => (
+              <Reveal key={h} as="li" delay={i * 80} y={24} className="bg-card p-7">
                 <div className="font-display text-gold text-2xl leading-none">!</div>
                 <h3 className="mt-4 font-display text-lg">{h}</h3>
                 <p className="mt-2 text-[14px] text-muted-foreground leading-relaxed">{b}</p>
-              </li>
+              </Reveal>
             ))}
           </ul>
         </div>
@@ -458,12 +462,14 @@ function Home() {
           </Link>
         </div>
         <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-4">
-          {themes.map((t) => (
-            <Link key={t.h} to={t.to} className="group bg-card p-7 hover:bg-secondary hover:text-secondary-foreground transition-colors">
+          {themes.map((t, i) => (
+            <Reveal key={t.h} delay={i * 90} y={24}>
+            <Link to={t.to} className="group bg-card p-7 hover:bg-secondary hover:text-secondary-foreground transition-colors block h-full">
               <div className="text-[10px] uppercase tracking-[0.22em] text-gold">{t.tag}</div>
               <h3 className="mt-3 font-display text-lg leading-snug">{t.h}</h3>
               <p className="mt-2 text-[14px] text-muted-foreground group-hover:text-secondary-foreground/75 leading-relaxed">{t.b}</p>
             </Link>
+            </Reveal>
           ))}
         </div>
       </section>
