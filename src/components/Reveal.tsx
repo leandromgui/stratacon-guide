@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ElementType, type ReactNode } from "react";
 
 /**
  * Revela o conteúdo conforme entra na viewport.
@@ -18,7 +18,7 @@ export function Reveal({
   style,
 }: {
   children: ReactNode;
-  as?: keyof JSX.IntrinsicElements;
+  as?: ElementType;
   delay?: number;
   y?: number;
   progress?: boolean;
