@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { DOC } from "../lib/dcon-content";
 import ogImage from "../assets/og-dcon.jpg";
+import { Reveal, ScrollFillBar } from "../components/Reveal";
 
 const SITE_URL = "https://stratacon-guide.lovable.app";
 const OG_IMAGE_URL = `${SITE_URL}${ogImage}`;
