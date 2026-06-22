@@ -156,7 +156,7 @@ const faq = [
 export const Route = createFileRoute("/conteudos/holding-familiar")({
   head: () => ({
     meta: [
-      { title: "Holding Familiar: o que é, tipos, custos e passo a passo | DCON" },
+      { title: "Holding Familiar: tipos, custos e passo a passo | DCON" },
       { name: "description", content: "Guia completo de holding familiar: definição, tipos (patrimonial, pura, mista), custos, passo a passo de constituição e impactos sucessórios. Conteúdo DCON." },
       { property: "og:title", content: "Holding Familiar: o que é, tipos, custos e passo a passo | DCON" },
       { property: "og:description", content: "Guia completo de holding familiar: definição, tipos, custos, passo a passo de constituição e impactos sucessórios." },
