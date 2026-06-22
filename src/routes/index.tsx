@@ -1,4 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { DOC } from "../lib/dcon-content";
+
+const homeDoc = DOC.home();
 
 const faqs = [
   {
@@ -175,14 +178,23 @@ function Home() {
               e defesa fiscal pelo <strong className="text-secondary-foreground">Método DCON</strong> em quatro fases auditáveis.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <Link to="/diagnostico" className="inline-flex items-center bg-gold px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] font-medium text-gold-foreground hover:opacity-90">
-                Solicitar diagnóstico →
+              <Link
+                to={homeDoc.ctas[0].to}
+                className="inline-flex items-center bg-gold px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] font-medium text-gold-foreground hover:opacity-90"
+              >
+                {homeDoc.ctas[0].label} →
               </Link>
-              <Link to="/metodo" className="inline-flex items-center border border-gold px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] text-gold hover:bg-gold hover:text-gold-foreground">
-                ● Método DCON
+              <Link
+                to={homeDoc.ctas[1].to}
+                className="inline-flex items-center border border-gold px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] text-gold hover:bg-gold hover:text-gold-foreground"
+              >
+                {homeDoc.ctas[1].label}
               </Link>
-              <Link to="/solucoes" className="inline-flex items-center border border-secondary-foreground/30 px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] hover:border-gold hover:text-gold">
-                Ver linhas de serviço
+              <Link
+                to={homeDoc.ctas[2].to}
+                className="inline-flex items-center border border-secondary-foreground/30 px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] hover:border-gold hover:text-gold"
+              >
+                {homeDoc.ctas[2].label}
               </Link>
             </div>
           </div>
