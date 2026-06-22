@@ -158,6 +158,14 @@ export function PageScaffold(p: PageScaffoldProps) {
                   {p.ctaSecondary.label}
                 </Link>
               )}
+              {p.ctaTertiary && (
+                <Link
+                  to={p.ctaTertiary.to}
+                  className="inline-flex items-center border border-dashed border-secondary-foreground/30 px-6 py-3 text-[12px] uppercase tracking-[0.16em] hover:border-gold hover:text-gold"
+                >
+                  {p.ctaTertiary.label}
+                </Link>
+              )}
             </div>
           </div>
           <aside className="lg:col-span-4 lg:border-l lg:border-secondary-foreground/15 lg:pl-10 flex flex-col justify-end">
@@ -185,6 +193,24 @@ export function PageScaffold(p: PageScaffoldProps) {
           </aside>
         </div>
       </section>
+
+      {p.respostaValidada && (
+        <section className="border-y border-border bg-card">
+          <div className="mx-auto max-w-7xl px-6 py-14 md:py-16 grid lg:grid-cols-12 gap-10">
+            <div className="lg:col-span-4">
+              <div className="text-[11px] uppercase tracking-[0.24em] text-gold">
+                Resposta validada DCON
+              </div>
+              <h2 className="mt-4 font-display text-2xl tracking-tight">
+                O que dizemos sobre este tema.
+              </h2>
+            </div>
+            <p className="lg:col-span-8 text-[15px] md:text-[16px] text-foreground/85 leading-relaxed">
+              {p.respostaValidada}
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* Sections */}
       <section className="mx-auto max-w-7xl px-6 py-20 md:py-24 space-y-20">
