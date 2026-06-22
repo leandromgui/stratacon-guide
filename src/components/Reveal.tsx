@@ -73,8 +73,15 @@ export function Reveal({
     ...style,
   };
 
-  // @ts-expect-error -- dynamic tag
-  return <Tag ref={ref} className={className} style={mergedStyle}>{children}</Tag>;
+  return (
+    <Tag
+      ref={ref as React.Ref<HTMLElement>}
+      className={className}
+      style={mergedStyle}
+    >
+      {children}
+    </Tag>
+  );
 }
 
 /**
