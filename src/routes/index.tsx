@@ -153,13 +153,6 @@ const sectors = [
   { h: "Holdings", b: "Estrutura patrimonial e familiar sob método.", to: "/segmentos/holdings" },
 ];
 
-const themes = [
-  { tag: "Tributário", h: "Reforma Tributária", b: "O que muda no caixa entre 2026 e 2033.", to: "/solucoes/reforma-tributaria" },
-  { tag: "Defesa", h: "Autuação fiscal", b: "Como conduzir tecnicamente uma impugnação.", to: "/solucoes/defesas-fiscais" },
-  { tag: "Patrimônio", h: "Sucessão e Holding", b: "ITCMD, doação em vida e governança familiar.", to: "/conteudos/holding-patrimonio" },
-  { tag: "Compliance", h: "Regularização Fiscal", b: "Saída de pendências e plano de compliance.", to: "/solucoes/regularizacao-fiscal" },
-];
-
 const method = [
   { n: "01", h: "Diagnóstico técnico", b: "Mapeamos o que está sendo declarado, pago e registrado. Avaliamos exposição fiscal, contábil, societária e trabalhista." },
   { n: "02", h: "Estruturação", b: "Regime tributário, CNAE, sócios, distribuição e processos ajustados à operação real, não ao modelo padrão." },
