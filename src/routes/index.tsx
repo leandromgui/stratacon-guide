@@ -163,109 +163,53 @@ const method = [
 function Home() {
   return (
     <div>
-      {/* Hero */}
+      {/* Hero — enxuto: o que aparece no Google e em respostas de IA */}
       <section className="relative bg-background text-foreground overflow-hidden">
-        <div className="relative mx-auto max-w-6xl px-6 pt-20 md:pt-28 pb-20 md:pb-28">
-          <div className="flex items-center gap-3 text-gold text-[11px] font-semibold uppercase tracking-[0.22em] border-l-2 border-gold pl-4">
-            Contabilidade Consultiva Técnica
-          </div>
+        <div className="relative mx-auto max-w-6xl px-6 pt-16 md:pt-24 pb-12 md:pb-16">
+          <Reveal as="div" className="flex items-center gap-3 text-gold text-[11px] font-semibold uppercase tracking-[0.22em] border-l-2 border-gold pl-4">
+            Consultoria Contábil e Tributária · Goiânia
+          </Reveal>
 
-          <h1 className="mt-12 md:mt-16 font-display text-4xl md:text-7xl font-light tracking-tight leading-[1.05] max-w-5xl">
+          <Reveal as="h1" delay={80} className="mt-8 md:mt-10 font-display text-4xl md:text-6xl font-light tracking-tight leading-[1.05] max-w-4xl">
             Decisões econômicas seguras exigem{" "}
             <span className="font-semibold">leitura técnica</span> do que está sendo declarado.
-          </h1>
+          </Reveal>
 
-          <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-3 border-t border-border">
-            {/* Métrica 01 */}
-            <div className="p-6 border-b md:border-b-0 md:border-r border-border">
-              <span className="block text-gold text-xs font-semibold mb-2 uppercase tracking-wider">
-                Experiência
-              </span>
-              <div className="font-display text-3xl font-medium tracking-tight">+20 anos</div>
-              <p className="text-foreground/45 text-[10px] mt-1 uppercase tracking-[0.18em]">
-                Atuação contínua
-              </p>
+          <Reveal as="p" delay={160} className="mt-6 max-w-2xl text-[15px] md:text-[17px] leading-relaxed text-foreground/75">
+            Diagnóstico técnico em <span className="text-foreground font-medium">7 dias úteis</span>, planejamento tributário, Reforma Tributária (CBS/IBS) e recuperação de créditos sob responsabilidade técnica com CRC ativo.
+          </Reveal>
+
+          <Reveal delay={240} className="mt-8 flex flex-wrap gap-3">
+            <Link to="/diagnostico" className="inline-flex items-center bg-secondary text-secondary-foreground px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:bg-gold hover:text-gold-foreground transition-colors">
+              Solicitar diagnóstico →
+            </Link>
+            <Link to="/solucoes/reforma-tributaria" className="inline-flex items-center border border-border px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:border-gold hover:text-gold transition-colors">
+              ● Reforma Tributária 2026
+            </Link>
+          </Reveal>
+
+          {/* Tira de métricas/atalhos clicáveis e compactos */}
+          <Reveal progress className="mt-12 md:mt-14 border-t border-border pt-4">
+            <ScrollFillBar className="mb-6" />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border">
+              <Link to="/sobre" className="group bg-background hover:bg-card p-5 transition-colors">
+                <div className="text-[10px] uppercase tracking-[0.2em] text-gold">Experiência</div>
+                <div className="mt-1 font-display text-xl">+20 anos</div>
+              </Link>
+              <Link to="/sobre" className="group bg-background hover:bg-card p-5 transition-colors">
+                <div className="text-[10px] uppercase tracking-[0.2em] text-gold">Carteira</div>
+                <div className="mt-1 font-display text-xl">+500 empresas</div>
+              </Link>
+              <Link to="/diagnostico" className="group bg-background hover:bg-card p-5 transition-colors">
+                <div className="text-[10px] uppercase tracking-[0.2em] text-gold">Diagnóstico</div>
+                <div className="mt-1 font-display text-xl">7 dias úteis</div>
+              </Link>
+              <Link to="/metodo" className="group bg-background hover:bg-card p-5 transition-colors">
+                <div className="text-[10px] uppercase tracking-[0.2em] text-gold">Método DCON</div>
+                <div className="mt-1 font-display text-xl">4 etapas</div>
+              </Link>
             </div>
-
-            {/* Métrica 02 */}
-            <div className="p-6 border-b md:border-b-0 md:border-r border-border">
-              <span className="block text-gold text-xs font-semibold mb-2 uppercase tracking-wider">
-                Carteira
-              </span>
-              <div className="font-display text-3xl font-medium tracking-tight">+500 empresas</div>
-              <p className="text-foreground/45 text-[10px] mt-1 uppercase tracking-[0.18em]">
-                Atendidas pelo Método
-              </p>
-            </div>
-
-            {/* Em foco — vira card vermelho clicável */}
-            <Link
-              to="/solucoes/reforma-tributaria"
-              className="group p-6 border-b md:border-b-0 border-border hover:bg-gold hover:text-gold-foreground transition-colors duration-300"
-            >
-              <span className="block text-gold group-hover:text-gold-foreground/80 text-xs font-semibold mb-2 uppercase tracking-wider transition-colors">
-                Em foco
-              </span>
-              <div className="font-display text-2xl font-medium tracking-tight">
-                Reforma Tributária
-              </div>
-              <p className="text-foreground/45 group-hover:text-gold-foreground/75 text-[10px] mt-1 uppercase tracking-[0.18em] transition-colors">
-                Ciclo 2026—2033
-              </p>
-            </Link>
-
-            {/* CTA 1 */}
-            <Link
-              to={homeDoc.ctas[0].to}
-              className="group p-6 border-b md:border-b-0 md:border-r border-border flex items-center justify-between hover:bg-card transition-colors"
-            >
-              <div>
-                <div className="text-xs text-foreground/50 group-hover:text-foreground/80 transition-colors uppercase tracking-wider">
-                  Diagnóstico
-                </div>
-                <div className="mt-1 text-base font-medium">{homeDoc.ctas[0].label}</div>
-              </div>
-              <div className="w-8 h-8 rounded-full border border-border flex items-center justify-center group-hover:border-gold transition-colors shrink-0 ml-4">
-                <span className="w-1.5 h-1.5 bg-gold rounded-full" />
-              </div>
-            </Link>
-
-            {/* CTA 2 */}
-            <Link
-              to={homeDoc.ctas[1].to}
-              className="group p-6 border-b md:border-b-0 md:border-r border-border flex items-center justify-between hover:bg-card transition-colors"
-            >
-              <div>
-                <div className="text-xs text-foreground/50 group-hover:text-foreground/80 transition-colors uppercase tracking-wider">
-                  Metodologia
-                </div>
-                <div className="mt-1 text-base font-medium">{homeDoc.ctas[1].label}</div>
-              </div>
-              <div className="w-8 h-8 rounded-full border border-border flex items-center justify-center group-hover:border-gold transition-colors shrink-0 ml-4">
-                <svg className="w-3 h-3 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-            </Link>
-
-            {/* CTA 3 */}
-            <Link
-              to={homeDoc.ctas[2].to}
-              className="group p-6 flex items-center justify-between hover:bg-card transition-colors"
-            >
-              <div>
-                <div className="text-xs text-foreground/50 group-hover:text-foreground/80 transition-colors uppercase tracking-wider">
-                  Portfólio
-                </div>
-                <div className="mt-1 text-base font-medium">{homeDoc.ctas[2].label}</div>
-              </div>
-              <div className="w-8 h-8 rounded-full border border-border flex items-center justify-center group-hover:border-gold transition-colors shrink-0 ml-4">
-                <svg className="w-3 h-3 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-            </Link>
-          </div>
+          </Reveal>
         </div>
       </section>
 
