@@ -287,8 +287,6 @@ export function SiteLayout() {
             <Link to="/contato" className="hover:text-gold">contato@dcon.cnt.br</Link>
             <span className="opacity-30">|</span>
             <Link to="/diagnostico" className="hover:text-gold">Diagnóstico</Link>
-            <span className="opacity-30">|</span>
-            <span className="text-secondary-foreground/60">PT-BR</span>
           </div>
         </div>
       </div>
