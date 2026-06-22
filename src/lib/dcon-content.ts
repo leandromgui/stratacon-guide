@@ -100,7 +100,8 @@ function ctaFromPhrase(phrase: string, idx: number): DconCta {
 const FALLBACK_CTA: DconCta = { label: "Falar com a equipe DCON", to: "/contato" };
 
 function loadCtas(n: number): DconCta[] {
-  const fromII = PARTE_II.get(n);
+  const iiKey = n >= 18 ? n + 1 : n; // PARTE II tem item extra (18 = Crédito Empresarial)
+  const fromII = PARTE_II.get(iiKey);
   const phrasesII = fromII
     ? fromII
         .split(/^## CTAs\s*$/m)[1]
@@ -119,7 +120,8 @@ function loadCtas(n: number): DconCta[] {
 }
 
 function loadRespostaValidada(n: number): string | undefined {
-  const block = PARTE_II.get(n);
+  const iiKey = n >= 18 ? n + 1 : n;
+  const block = PARTE_II.get(iiKey);
   if (!block) return undefined;
   const candidates = ["Resposta validada para uso no site", "Contexto validado"];
   for (const h of candidates) {
