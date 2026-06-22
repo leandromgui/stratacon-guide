@@ -1,12 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { DOC } from "../lib/dcon-content";
 import ogImage from "../assets/og-dcon.jpg";
 import { Reveal, ScrollFillBar } from "../components/Reveal";
 
 const SITE_URL = "https://stratacon-guide.lovable.app";
 const OG_IMAGE_URL = `${SITE_URL}${ogImage}`;
-
-const homeDoc = DOC.home();
 
 // Paleta rotativa para painéis — mais cor sem perder o tom técnico
 const PANEL_ACCENTS = [
@@ -156,13 +153,6 @@ const sectors = [
   { h: "Holdings", b: "Estrutura patrimonial e familiar sob método.", to: "/segmentos/holdings" },
 ];
 
-const themes = [
-  { tag: "Tributário", h: "Reforma Tributária", b: "O que muda no caixa entre 2026 e 2033.", to: "/solucoes/reforma-tributaria" },
-  { tag: "Defesa", h: "Autuação fiscal", b: "Como conduzir tecnicamente uma impugnação.", to: "/solucoes/defesas-fiscais" },
-  { tag: "Patrimônio", h: "Sucessão e Holding", b: "ITCMD, doação em vida e governança familiar.", to: "/conteudos/holding-patrimonio" },
-  { tag: "Compliance", h: "Regularização Fiscal", b: "Saída de pendências e plano de compliance.", to: "/solucoes/regularizacao-fiscal" },
-];
-
 const method = [
   { n: "01", h: "Diagnóstico técnico", b: "Mapeamos o que está sendo declarado, pago e registrado. Avaliamos exposição fiscal, contábil, societária e trabalhista." },
   { n: "02", h: "Estruturação", b: "Regime tributário, CNAE, sócios, distribuição e processos ajustados à operação real, não ao modelo padrão." },
@@ -174,7 +164,13 @@ function Home() {
   return (
     <div>
       {/* Hero — enxuto: o que aparece no Google e em respostas de IA */}
-      <section className="relative bg-background text-foreground overflow-hidden">
+      <section
+        className="relative overflow-hidden text-foreground"
+        style={{
+          background:
+            "linear-gradient(135deg, color-mix(in oklab, var(--blue) 10%, var(--background)) 0%, var(--background) 55%, color-mix(in oklab, var(--gold) 9%, var(--background)) 100%)",
+        }}
+      >
         <div className="relative mx-auto max-w-6xl px-6 pt-16 md:pt-24 pb-12 md:pb-16">
           <Reveal as="div" className="flex items-center gap-3 text-gold text-[11px] font-semibold uppercase tracking-[0.22em] border-l-2 border-gold pl-4">
             Consultoria Contábil e Tributária · Goiânia
@@ -223,55 +219,55 @@ function Home() {
         </div>
       </section>
 
-      {homeDoc.respostaValidada && (
-        <section className="border-y border-border bg-card">
-          <div className="mx-auto max-w-7xl px-6 py-14 md:py-16 grid lg:grid-cols-12 gap-10">
-            <div className="lg:col-span-4">
-              <div className="text-[11px] uppercase tracking-[0.24em] text-gold">
-                Resposta validada DCON
-              </div>
-              <h2 className="mt-4 font-display text-2xl tracking-tight">
-                O que dizemos sobre este tema.
+      {/* Por onde começar — 4 atalhos grandes coloridos */}
+      <section
+        className="border-y border-border"
+        style={{
+          background:
+            "linear-gradient(180deg, color-mix(in oklab, var(--secondary) 5%, var(--background)) 0%, var(--background) 100%)",
+        }}
+      >
+        <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
+          <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
+            <div>
+              <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Por onde começar</div>
+              <h2 className="mt-3 font-display text-2xl md:text-4xl tracking-tight leading-[1.1]">
+                Escolha o que você precisa agora.
               </h2>
             </div>
-            <p className="lg:col-span-8 text-[15px] md:text-[16px] text-foreground/85 leading-relaxed">
-              {homeDoc.respostaValidada}
+            <p className="text-[13px] text-muted-foreground max-w-sm">
+              Cada bloco abre a página completa com escopo, prazo e responsável técnico.
             </p>
           </div>
-        </section>
-      )}
-
-      {/* Posicionamento */}
-      <section className="mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-12 gap-12">
-        <header className="lg:col-span-5">
-          <div className="text-[11px] uppercase tracking-[0.24em] text-gold">A firma</div>
-          <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight leading-[1.05]">
-            Contabilidade consultiva técnica.
-          </h2>
-        </header>
-        <div className="lg:col-span-7 lg:pl-10 lg:border-l lg:border-border space-y-5 text-[16px] leading-relaxed text-foreground/85">
-          <p>
-            A DCON existe para empresários que pararam de tratar contabilidade como
-            custo administrativo. Operamos no ponto em que a contabilidade tradicional
-            para de pensar — a decisão do sócio, do CFO e do conselho.
-          </p>
-          <p>
-            Nossas entregas são conduzidas sob responsabilidade técnica registrada,
-            com revisão cruzada de processos e protocolos auditáveis. Não vendemos
-            preço baixo; entregamos visão tributária, societária, patrimonial e
-            contábil integrada.
-          </p>
-          <div className="pt-4 flex flex-wrap gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-            <span className="rule-gold">CRC ativo</span>
-            <span className="rule-gold">Sigilo profissional</span>
-            <span className="rule-gold">Revisão técnica</span>
-            <span className="rule-gold">Atendimento Brasil</span>
+          <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-4">
+            {[
+              { tag: "Diagnóstico", h: "Mapear minha empresa", b: "7 dias úteis · relatório técnico", to: "/diagnostico", color: "var(--gold)" },
+              { tag: "CBS / IBS", h: "Reforma Tributária", b: "Impacto no caixa 2026–2033", to: "/solucoes/reforma-tributaria", color: "var(--blue)" },
+              { tag: "Crédito", h: "Recuperar tributos", b: "Últimos 5 anos · PER/DCOMP", to: "/solucoes/recuperacao-creditos-tributarios", color: "var(--teal)" },
+              { tag: "Patrimônio", h: "Holding e sucessão", b: "ITBI, ITCMD e governança", to: "/solucoes/holding-patrimonial", color: "var(--emerald)" },
+            ].map((c, i) => (
+              <Reveal key={c.h} delay={i * 80} y={24}>
+                <Link
+                  to={c.to}
+                  style={{
+                    ["--panel-accent" as never]: c.color,
+                    background: `linear-gradient(180deg, color-mix(in oklab, ${c.color} 10%, var(--card)) 0%, var(--card) 100%)`,
+                  }}
+                  className="panel-interactive group p-7 flex flex-col h-full hover:bg-secondary hover:text-secondary-foreground"
+                >
+                  <div className="text-[10px] uppercase tracking-[0.22em]" style={{ color: c.color }}>{c.tag}</div>
+                  <h3 className="mt-3 font-display text-xl leading-snug">{c.h}</h3>
+                  <p className="mt-2 text-[13.5px] text-foreground/70 group-hover:text-secondary-foreground/80">{c.b}</p>
+                  <div className="mt-6 text-[11px] uppercase tracking-[0.2em]" style={{ color: c.color }}>Abrir →</div>
+                </Link>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Linhas de serviço */}
-      <section className="bg-muted/40 border-y border-border">
+      <section className="bg-muted/60 border-b border-border">
         <div className="mx-auto max-w-7xl px-6 py-24">
           <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
             <div>
@@ -301,20 +297,18 @@ function Home() {
         </div>
       </section>
 
-      {/* Setores */}
-      <section className="mx-auto max-w-7xl px-6 py-24">
-        <div className="grid lg:grid-cols-12 gap-12 mb-12">
-          <div className="lg:col-span-6">
+      {/* Setores — compactos */}
+      <section className="mx-auto max-w-7xl px-6 py-20">
+        <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
+          <div>
             <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Setores atendidos</div>
-            <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight leading-[1.05]">
+            <h2 className="mt-3 font-display text-2xl md:text-4xl tracking-tight leading-[1.1]">
               Conhecimento específico por vertical.
             </h2>
           </div>
-          <p className="lg:col-span-6 text-[16px] leading-relaxed text-foreground/80 lg:pt-8">
-            Tributação muda por CNAE, por regime e por modelo de operação. Em cada setor
-            que atendemos aplicamos método dedicado, com leitura específica das obrigações
-            principais, acessórias e dos pontos típicos de exposição.
-          </p>
+          <Link to="/segmentos" className="text-[11px] uppercase tracking-[0.2em] border-b border-gold pb-1 text-secondary hover:text-primary">
+            Ver todos os setores →
+          </Link>
         </div>
         <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-3">
           {sectors.map((s, i) => (
@@ -327,165 +321,49 @@ function Home() {
             </Reveal>
           ))}
         </div>
-        <div className="mt-10 text-center">
-          <Link to="/segmentos" className="text-[12px] uppercase tracking-[0.2em] border-b border-secondary pb-1 hover:text-primary hover:border-primary">
-            Ver todos os setores →
-          </Link>
-        </div>
       </section>
 
-      {/* Método */}
+      {/* Método — compacto e colorido */}
       <section className="bg-secondary text-secondary-foreground">
-        <div className="mx-auto max-w-7xl px-6 py-24">
-          <div className="grid lg:grid-cols-12 gap-12 mb-14">
-            <div className="lg:col-span-5">
+        <div className="mx-auto max-w-7xl px-6 py-20">
+          <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
+            <div>
               <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Método DCON</div>
-              <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight leading-[1.05]">
-                Quatro etapas auditáveis para transformar contabilidade em decisão.
+              <h2 className="mt-3 font-display text-2xl md:text-4xl tracking-tight leading-[1.1] max-w-2xl">
+                Quatro etapas auditáveis. Clique para expandir.
               </h2>
             </div>
-            <p className="lg:col-span-7 text-[16px] leading-relaxed text-secondary-foreground/75 lg:pt-8">
-              O método DCON é o protocolo aplicado a todo cliente, do diagnóstico inicial à
-              consultoria periódica. Padroniza o que precisa ser previsível e dá espaço técnico
-              para o que precisa ser específico.
-            </p>
+            <Link to="/metodo" className="text-[11px] uppercase tracking-[0.2em] border-b border-gold pb-1 text-gold">
+              Método completo →
+            </Link>
           </div>
           <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-secondary-foreground/10 border border-secondary-foreground/10">
             {method.map((m, i) => (
-              <Reveal key={m.h} as="li" delay={i * 120} y={24} className="panel-interactive bg-secondary p-7" style={{ ["--panel-accent" as never]: PANEL_ACCENTS[i % PANEL_ACCENTS.length] }}>
-                <div className="text-[11px] uppercase tracking-[0.22em]" style={{ color: PANEL_ACCENTS[i % PANEL_ACCENTS.length] }}>{m.n}</div>
-                <h3 className="mt-3 font-display text-xl">{m.h}</h3>
-                <p className="mt-3 text-[14.5px] leading-relaxed text-secondary-foreground/80">{m.b}</p>
+              <Reveal key={m.h} as="li" delay={i * 120} y={24} className="panel-interactive p-6" style={{ ["--panel-accent" as never]: PANEL_ACCENTS[i % PANEL_ACCENTS.length], background: `linear-gradient(180deg, color-mix(in oklab, ${PANEL_ACCENTS[i % PANEL_ACCENTS.length]} 14%, var(--secondary)) 0%, var(--secondary) 100%)` }}>
+                <details className="group">
+                  <summary className="cursor-pointer list-none">
+                    <div className="text-[11px] uppercase tracking-[0.22em]" style={{ color: PANEL_ACCENTS[i % PANEL_ACCENTS.length] }}>{m.n}</div>
+                    <h3 className="mt-2 font-display text-lg flex items-start justify-between gap-3">
+                      <span>{m.h}</span>
+                      <span className="text-gold text-lg leading-none group-open:rotate-45 transition-transform">+</span>
+                    </h3>
+                  </summary>
+                  <p className="mt-3 text-[14px] leading-relaxed text-secondary-foreground/85">{m.b}</p>
+                </details>
               </Reveal>
             ))}
           </ol>
-          <div className="mt-12">
-            <Link to="/metodo" className="inline-flex items-center border border-gold px-6 py-3 text-[12px] uppercase tracking-[0.18em] text-gold hover:bg-gold hover:text-gold-foreground">
-              Conhecer o método completo →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Diagnóstico em destaque */}
-      <section className="mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-12 gap-12">
-        <div className="lg:col-span-7">
-          <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Diagnóstico DCON</div>
-          <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight leading-[1.05]">
-            Sete dias úteis para mapear o que está fora de controle.
-          </h2>
-          <p className="mt-6 text-[16px] leading-relaxed text-foreground/80 max-w-2xl">
-            Análise técnica integrada do que está sendo pago, declarado e registrado.
-            Entrega com plano de ação priorizado por risco, impacto e prazo.
-          </p>
-          <ul className="mt-8 grid sm:grid-cols-2 gap-x-8 gap-y-3 text-[14px]">
-            {[
-              "Fiscal: SPEDs, ECF, EFD-Reinf, DCTFWeb",
-              "Tributário: regime, CNAE, sublimite, fator R",
-              "Contábil: balanços, ECD, conciliações",
-              "Trabalhista: eSocial, pró-labore, encargos",
-              "Societário: contrato social, distribuição, sócios",
-              "Patrimonial: bens, holding, sucessão",
-            ].map((it) => (
-              <li key={it} className="border-b border-dashed border-border pb-2 flex gap-3">
-                <span className="text-gold">·</span> {it}
-              </li>
-            ))}
-          </ul>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Link to="/diagnostico" className="inline-flex items-center bg-secondary text-secondary-foreground px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:bg-primary">
-              Solicitar diagnóstico →
-            </Link>
-            <Link to="/metodo" className="inline-flex items-center border border-border px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:border-secondary">
-              Ver metodologia
-            </Link>
-          </div>
-        </div>
-        <aside className="lg:col-span-5 bg-secondary text-secondary-foreground p-10 flex flex-col justify-between">
-          <div>
-            <div className="text-[10px] uppercase tracking-[0.24em] text-gold mb-4">Tecnologia contábil</div>
-            <h3 className="font-display text-2xl leading-snug">
-              Automatização da rotina, decisão sob responsabilidade humana.
-            </h3>
-            <p className="mt-4 text-[14px] text-secondary-foreground/70 leading-relaxed">
-              Integração com SPED, ERPs, plataformas de venda e bancos. Painéis gerenciais
-              entregues sem cobrança do cliente. Toda recomendação técnica passa por revisão
-              do responsável.
-            </p>
-          </div>
-          <ul className="mt-8 grid grid-cols-2 gap-y-3 text-[12px] uppercase tracking-[0.18em] text-secondary-foreground/65">
-            <li>SPED / ECF</li>
-            <li>EFD-Reinf</li>
-            <li>eSocial</li>
-            <li>Painéis BI</li>
-            <li>ERP / Bling</li>
-            <li>Open Finance</li>
-          </ul>
-        </aside>
-      </section>
-
-      {/* Riscos */}
-      <section className="bg-muted/40 border-y border-border">
-        <div className="mx-auto max-w-7xl px-6 py-24">
-          <div className="grid lg:grid-cols-12 gap-12 mb-12">
-            <div className="lg:col-span-5">
-              <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Riscos típicos sob exposição</div>
-              <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight leading-[1.05]">
-                O custo de não saber o que está sendo declarado.
-              </h2>
-            </div>
-            <p className="lg:col-span-7 text-[16px] leading-relaxed text-foreground/80 lg:pt-8">
-              Erros aparecem na autuação, não no balancete. A maioria das empresas que
-              chegam à DCON descobre exposição relevante já no diagnóstico inicial.
-            </p>
-          </div>
-          <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
-            {([
-              ["Classificação fiscal incorreta", "NCM, CST, CFOP e CNAE desalinhados geram autuação retroativa com multa e juros."],
-              ["ICMS-ST e DIFAL", "Operação multiestadual mal apurada acumula passivo silencioso por anos."],
-              ["Pró-labore e distribuição", "Distribuição desproporcional sem fundamento contábil expõe o sócio à desconsideração."],
-              ["Equiparação hospitalar", "Clínicas perdem benefício por enquadramento inadequado de CNAE e estrutura societária."],
-              ["Crédito tributário não aproveitado", "Empresas pagam tributo a maior por anos sem fazer levantamento técnico de créditos."],
-              ["Sucessão sem estrutura", "ITCMD e disputa familiar consomem patrimônio que poderia ser organizado em vida."],
-            ] as const).map(([h, b], i) => (
-              <Reveal key={h} as="li" delay={i * 80} y={24} className="panel-interactive bg-card p-7" style={{ ["--panel-accent" as never]: PANEL_ACCENTS[(i + 2) % PANEL_ACCENTS.length] }}>
-                <div className="font-display text-2xl leading-none" style={{ color: PANEL_ACCENTS[(i + 2) % PANEL_ACCENTS.length] }}>!</div>
-                <h3 className="mt-4 font-display text-lg">{h}</h3>
-                <p className="mt-2 text-[14.5px] text-foreground/70 leading-relaxed">{b}</p>
-              </Reveal>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* Temas estratégicos */}
-      <section className="mx-auto max-w-7xl px-6 py-24">
-        <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
-          <div>
-            <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Temas estratégicos</div>
-            <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight max-w-2xl leading-[1.05]">
-              A agenda do CFO e do sócio em 2026.
-            </h2>
-          </div>
-          <Link to="/temas-estrategicos" className="text-[11px] uppercase tracking-[0.2em] border-b border-secondary pb-1 hover:text-primary hover:border-primary">
-            Ver agenda completa →
-          </Link>
-        </div>
-        <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-4">
-          {themes.map((t, i) => (
-            <Reveal key={t.h} delay={i * 90} y={24}>
-            <Link to={t.to} style={{ ["--panel-accent" as never]: PANEL_ACCENTS[(i + 3) % PANEL_ACCENTS.length] }} className="panel-interactive group bg-card p-7 hover:bg-secondary hover:text-secondary-foreground block h-full">
-              <div className="text-[10px] uppercase tracking-[0.22em]" style={{ color: PANEL_ACCENTS[(i + 3) % PANEL_ACCENTS.length] }}>{t.tag}</div>
-              <h3 className="mt-3 font-display text-lg leading-snug">{t.h}</h3>
-              <p className="mt-2 text-[14.5px] text-foreground/70 group-hover:text-secondary-foreground/80 leading-relaxed">{t.b}</p>
-            </Link>
-            </Reveal>
-          ))}
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-border">
+      <section
+        className="border-t border-border"
+        style={{
+          background:
+            "linear-gradient(180deg, var(--background) 0%, color-mix(in oklab, var(--gold) 6%, var(--background)) 100%)",
+        }}
+      >
         <div className="mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-12 gap-12">
           <header className="lg:col-span-4">
             <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Perguntas frequentes</div>
@@ -493,9 +371,7 @@ function Home() {
               Como funciona a consultoria contábil, tributária e patrimonial da DCON.
             </h2>
             <p className="mt-5 text-[14px] leading-relaxed text-muted-foreground">
-              Respostas técnicas para as dúvidas mais comuns de sócios e CFOs antes
-              de solicitar o diagnóstico — escopo, prazo, custo, troca de contador,
-              recuperação de créditos, reforma tributária e holding.
+              Clique em uma pergunta para abrir a resposta técnica.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/diagnostico" className="inline-flex items-center bg-secondary text-secondary-foreground px-5 py-3 text-[11px] uppercase tracking-[0.18em] hover:bg-primary">
@@ -507,8 +383,8 @@ function Home() {
             </div>
           </header>
           <div className="lg:col-span-8 divide-y divide-border border-y border-border">
-            {faqs.map((faq, i) => (
-              <details key={faq.q} className="group py-5" open={i === 0}>
+            {faqs.map((faq) => (
+              <details key={faq.q} className="group py-5">
                 <summary className="cursor-pointer list-none flex items-start justify-between gap-6">
                   <h3 className="font-display text-[17px] m-0 font-normal">{faq.q}</h3>
                   <span className="text-gold text-xl leading-none group-open:rotate-45 transition-transform">+</span>
