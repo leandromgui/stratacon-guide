@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { getDoc } from "../lib/dcon-content";
 import { faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
@@ -32,15 +33,20 @@ export const Route = createFileRoute("/solucoes/regularizacao-fiscal")({
   component: Page,
 });
 
+const docDcon = getDoc(7);
+
 function Page() {
   return (
     <PageScaffold
       eyebrow="Soluções · Compliance e saída de crise"
-      h1="Regularização fiscal técnica para empresas com pendências."
-      intro="Diagnóstico federal, estadual e municipal, plano de regularização priorizado por risco e compliance contínuo pós-saneamento."
+      h1={docDcon.h1}
+      intro={docDcon.fraseComercial}
       breadcrumbs={[{ label: "Soluções", to: "/solucoes" }, { label: "Regularização Fiscal", to: "/solucoes/regularizacao-fiscal" }]}
-      ctaPrimary={{ label: "Solicitar proposta", to: "/contato" }}
-      ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      audience={docDcon.audience}
+      ctaPrimary={docDcon.ctas[0]}
+      ctaSecondary={docDcon.ctas[1]}
+      ctaTertiary={docDcon.ctas[2]}
+      respostaValidada={docDcon.respostaValidada}
       ctaVariant="risk"
       method={dconMethod}
       pillarKey="regularizacao-fiscal"

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { getDoc } from "../lib/dcon-content";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
 
@@ -23,16 +24,21 @@ export const Route = createFileRoute("/segmentos/produtor-rural")({
   component: Page,
 });
 
+const docDcon = getDoc(13);
+
 function Page() {
   return (
     <PageScaffold
       eyebrow="Segmento"
-      h1="Contabilidade para produtor rural pessoa física e jurídica"
-      intro="Contabilidade técnica desenhada para a realidade tributária e operacional de produtor rural."
+      h1={docDcon.h1}
+      intro={docDcon.fraseComercial}
       intent="contabilidade produtor rural, contador agronegócio"
       observation="ITR, Funrural, LCDPR."
-      ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
-      ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      audience={docDcon.audience}
+      ctaPrimary={docDcon.ctas[0]}
+      ctaSecondary={docDcon.ctas[1]}
+      ctaTertiary={docDcon.ctas[2]}
+      respostaValidada={docDcon.respostaValidada}
       pillarKey="produtor-rural"
       method={dconMethod}
       ctaVariant="opportunity"

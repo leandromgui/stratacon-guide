@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { getDoc } from "../lib/dcon-content";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
 
@@ -23,16 +24,21 @@ export const Route = createFileRoute("/segmentos/construcao-civil-spe")({
   component: Page,
 });
 
+const docDcon = getDoc(12);
+
 function Page() {
   return (
     <PageScaffold
       eyebrow="Segmento"
-      h1="Contabilidade para construtoras, incorporadoras e SPEs"
-      intro="Contabilidade técnica desenhada para a realidade tributária e operacional de construção civil e spes."
+      h1={docDcon.h1}
+      intro={docDcon.fraseComercial}
       intent="contabilidade construção civil, SPE incorporação, RET 4%"
       observation="Alto valor por clique; cluster denso."
-      ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
-      ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      audience={docDcon.audience}
+      ctaPrimary={docDcon.ctas[0]}
+      ctaSecondary={docDcon.ctas[1]}
+      ctaTertiary={docDcon.ctas[2]}
+      respostaValidada={docDcon.respostaValidada}
       pillarKey="construcao-civil-spe"
       method={dconMethod}
       ctaVariant="opportunity"

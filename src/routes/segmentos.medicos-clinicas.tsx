@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { getDoc } from "../lib/dcon-content";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
 
@@ -23,16 +24,21 @@ export const Route = createFileRoute("/segmentos/medicos-clinicas")({
   component: Page,
 });
 
+const docDcon = getDoc(15);
+
 function Page() {
   return (
     <PageScaffold
       eyebrow="Segmento"
-      h1="Contabilidade especializada para médicos e clínicas"
-      intro="Contabilidade técnica desenhada para a realidade tributária e operacional de médicos e clínicas."
+      h1={docDcon.h1}
+      intro={docDcon.fraseComercial}
       intent="contabilidade para médicos Goiânia, contador para clínica médica"
       observation="Schema MedicalBusiness-friendly + FAQPage."
-      ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
-      ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      audience={docDcon.audience}
+      ctaPrimary={docDcon.ctas[0]}
+      ctaSecondary={docDcon.ctas[1]}
+      ctaTertiary={docDcon.ctas[2]}
+      respostaValidada={docDcon.respostaValidada}
       pillarKey="medicos-clinicas"
       method={dconMethod}
       ctaVariant="opportunity"

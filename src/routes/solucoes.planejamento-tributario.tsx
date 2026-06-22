@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { getDoc } from "../lib/dcon-content";
 import { faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
@@ -32,15 +33,20 @@ export const Route = createFileRoute("/solucoes/planejamento-tributario")({
   component: Page,
 });
 
+const docDcon = getDoc(3);
+
 function Page() {
   return (
     <PageScaffold
       eyebrow="Soluções · Linha tributária"
-      h1="Planejamento tributário com base técnica e segurança jurídica."
-      intro="Estudo comparativo de regimes, estruturas societárias e cenários operacionais. Parecer auditável, sem promessa milagrosa."
+      h1={docDcon.h1}
+      intro={docDcon.fraseComercial}
       breadcrumbs={[{ label: "Soluções", to: "/solucoes" }, { label: "Planejamento Tributário", to: "/solucoes/planejamento-tributario" }]}
-      ctaPrimary={{ label: "Solicitar proposta", to: "/contato" }}
-      ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      audience={docDcon.audience}
+      ctaPrimary={docDcon.ctas[0]}
+      ctaSecondary={docDcon.ctas[1]}
+      ctaTertiary={docDcon.ctas[2]}
+      respostaValidada={docDcon.respostaValidada}
       ctaVariant="opportunity"
       method={dconMethod}
       pillarKey="planejamento-tributario"

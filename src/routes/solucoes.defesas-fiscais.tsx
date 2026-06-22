@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { getDoc } from "../lib/dcon-content";
 import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
 import { MethodBadge } from "../components/MethodBadge";
@@ -32,15 +33,20 @@ export const Route = createFileRoute("/solucoes/defesas-fiscais")({
   component: Page,
 });
 
+const docDcon = getDoc(6);
+
 function Page() {
   return (
     <PageScaffold
       eyebrow="Solução"
-      h1="Defesas fiscais para empresas e pessoas físicas"
-      intro="Cobrança fiscal não deve ser tratada no impulso. Deve ser conferida, calculada e respondida com técnica. A DCON conduz defesa administrativa em PJ e PF com fundamento e documentação."
+      h1={docDcon.h1}
+      intro={docDcon.fraseComercial}
       intent="defesa fiscal, impugnação Receita Federal, PRDI PGFN"
-      ctaPrimary={{ label: "Recebi intimação e quero revisar", to: "/diagnostico" }}
-      ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
+      audience={docDcon.audience}
+      ctaPrimary={docDcon.ctas[0]}
+      ctaSecondary={docDcon.ctas[1]}
+      ctaTertiary={docDcon.ctas[2]}
+      respostaValidada={docDcon.respostaValidada}
       ctaVariant="risk"
       method={dconMethod}
       pillarKey="defesas-fiscais"
