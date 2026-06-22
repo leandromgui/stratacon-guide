@@ -1,5 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { DOC } from "../lib/dcon-content";
+import ogImage from "../assets/og-dcon.jpg";
+
+const SITE_URL = "https://stratacon-guide.lovable.app";
+const OG_IMAGE_URL = `${SITE_URL}${ogImage}`;
 
 const homeDoc = DOC.home();
 
@@ -76,6 +80,12 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "Firma de consultoria contábil, fiscal e tributária com Método DCON em 4 fases. Diagnóstico em 7 dias úteis." },
       { property: "og:url", content: "/" },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: OG_IMAGE_URL },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "DCON · Contabilidade Consultiva — Goiânia, CRC-GO 1202" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: OG_IMAGE_URL },
     ],
     links: [{ rel: "canonical", href: "/" }],
     scripts: [
