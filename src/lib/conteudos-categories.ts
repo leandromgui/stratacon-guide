@@ -40,6 +40,7 @@ export const categories: CategoryDef[] = [
       { h2: "Simples × Presumido × Real: comparativo prático", excerpt: "Como decidir o regime com base em margem, folha e operação interestadual.", to: "/conteudos/regimes-tributarios", kind: "Guia", date: "Mai 2026" },
       { h2: "Reforma tributária: o que muda no caixa entre 2026 e 2033", excerpt: "Cenários de transição CBS/IBS por regime e setor, com cronograma de adaptação.", to: "/solucoes/reforma-tributaria", kind: "Análise", date: "Jun 2026" },
       { h2: "Recuperação de créditos tributários nos últimos 5 anos", excerpt: "Levantamento técnico de tributos pagos a maior e caminhos de restituição.", to: "/solucoes/recuperacao-creditos-tributarios", kind: "Estudo", date: "Abr 2026" },
+      { h2: "Respostas validadas DCON: equiparação, PGFN e créditos", excerpt: "Respostas objetivas sobre temas fiscais, tributários e contábeis recorrentes.", to: "/conteudos/respostas-validadas", kind: "Guia", date: "Jun 2026" },
       { h2: "Planejamento tributário: elisão x evasão", excerpt: "Onde está a fronteira jurídica entre economia legítima e risco de autuação.", to: "/conteudos/planejamento-tributario", kind: "Análise", date: "Abr 2026" },
       { h2: "ICMS-ST e DIFAL para operações interestaduais", excerpt: "Como operar entre estados sem acumular passivo silencioso.", to: "/conteudos/comercio-icms", kind: "Guia", date: "Abr 2026" },
       { h2: "Lucro Real: quando deixa de ser opção e vira obrigação", excerpt: "Critérios objetivos de enquadramento e cuidados na apuração.", to: "/segmentos/lucro-real", kind: "Análise", date: "Mar 2026" },
@@ -69,6 +70,7 @@ export const categories: CategoryDef[] = [
     articles: [
       { h2: "Como conduzir tecnicamente uma autuação", excerpt: "Etapas de impugnação administrativa e quando levar ao contencioso judicial.", to: "/solucoes/defesas-fiscais", kind: "Análise", date: "Mai 2026" },
       { h2: "Sair de uma pendência fiscal sem destruir o caixa", excerpt: "Parcelamentos, transação tributária e plano de compliance.", to: "/conteudos/regularizacao-fiscal", kind: "Guia", date: "Mar 2026" },
+      { h2: "PGFN, PRDI e transação tributária", excerpt: "Como tratar débitos que não aparecem, estão na Receita ou foram inscritos em dívida ativa.", to: "/conteudos/regularizacao-fiscal", kind: "Guia", date: "Jun 2026" },
       { h2: "Pendências fiscais por segmento", excerpt: "Roteiro setorial para sair do passivo fiscal de forma estruturada.", to: "/segmentos/pendencias-fiscais", kind: "Análise", date: "Mar 2026" },
       { h2: "Regularização fiscal — solução DCON", excerpt: "Diagnóstico, negociação e plano de compliance acompanhado.", to: "/solucoes/regularizacao-fiscal", kind: "Briefing", date: "Fev 2026" },
       { h2: "Defesas fiscais — escopo de atuação", excerpt: "Como a DCON atua em impugnações administrativas e judiciais.", to: "/solucoes/defesas-fiscais", kind: "Briefing", date: "Fev 2026" },
@@ -144,6 +146,7 @@ export const categories: CategoryDef[] = [
     ],
     articles: [
       { h2: "PJ médica e equiparação hospitalar", excerpt: "Quem tem direito, riscos do enquadramento errado e roteiro técnico.", to: "/conteudos/saude-clinicas", kind: "Estudo", date: "Mai 2026" },
+      { h2: "Respostas validadas DCON por tema", excerpt: "Equiparação hospitalar, PGFN, construção, agro, folha e IRPF respondidos com critério técnico.", to: "/conteudos/respostas-validadas", kind: "Guia", date: "Jun 2026" },
       { h2: "ICMS-ST e DIFAL no e-commerce", excerpt: "Operação multiestadual sem acumular passivo silencioso.", to: "/conteudos/comercio-icms", kind: "Guia", date: "Abr 2026" },
       { h2: "Provedores de internet: tributação e regulatório", excerpt: "Fust, Funttel, ISS e particularidades contábeis do setor ISP.", to: "/segmentos/provedores-internet", kind: "Análise", date: "Mar 2026" },
       { h2: "Tecnologia e startups", excerpt: "Stock options, investidores e regimes possíveis.", to: "/segmentos/tecnologia-startups", kind: "Análise", date: "Mar 2026" },

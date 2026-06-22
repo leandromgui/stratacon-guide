@@ -38,6 +38,7 @@ type Insight = {
 };
 
 const insights: Insight[] = [
+  { theme: "Tributário", kind: "Guia", h: "Respostas validadas DCON: equiparação, PGFN e créditos", b: "Central de respostas objetivas para dúvidas fiscais, tributárias e contábeis recorrentes.", to: "/conteudos/respostas-validadas", date: "Jun 2026" },
   { theme: "Tributário", kind: "Análise", h: "Reforma Tributária: o que muda no caixa entre 2026 e 2033", b: "Cenários de transição CBS/IBS por regime e setor, com cronograma de adaptação.", to: "/solucoes/reforma-tributaria", date: "Jun 2026" },
   { theme: "Tributário", kind: "Guia", h: "Simples × Presumido × Real: comparativo prático", b: "Como decidir o regime com base em margem, folha e operação interestadual.", to: "/conteudos/regimes-tributarios", date: "Mai 2026" },
   { theme: "Tributário", kind: "Estudo", h: "Recuperação de créditos tributários nos últimos 5 anos", b: "Levantamento técnico de tributos pagos a maior e caminhos de restituição.", to: "/solucoes/recuperacao-creditos-tributarios", date: "Abr 2026" },
@@ -72,6 +73,7 @@ const categories: Category[] = [
     intro: "Regimes, reforma, créditos e decisões fiscais que afetam diretamente o caixa da empresa.",
     topics: [
       { h3: "Regimes tributários: Simples, Presumido e Real", to: "/conteudos/regimes-tributarios", desc: "Comparativo prático por margem, folha e operação interestadual." },
+      { h3: "Respostas validadas DCON", to: "/conteudos/respostas-validadas", desc: "Equiparação hospitalar, PGFN, PRDI, créditos, folha, construção, agro e IRPF em formato de resposta." },
       { h3: "Planejamento tributário lícito", to: "/conteudos/planejamento-tributario", desc: "Critérios técnicos para reduzir carga com segurança jurídica." },
       { h3: "Reforma tributária (CBS/IBS)", to: "/solucoes/reforma-tributaria", desc: "Cronograma de transição 2026–2033 por regime e setor." },
       { h3: "Recuperação de créditos tributários", to: "/solucoes/recuperacao-creditos-tributarios", desc: "Levantamento de tributos pagos a maior nos últimos 5 anos." },
@@ -83,6 +85,7 @@ const categories: Category[] = [
     intro: "Como conduzir autuações, parcelamentos e transação tributária sem destruir o caixa.",
     topics: [
       { h3: "Regularização fiscal sem comprometer o caixa", to: "/conteudos/regularizacao-fiscal", desc: "Parcelamentos, transação tributária e plano de compliance." },
+      { h3: "PGFN, PRDI e transação tributária", to: "/conteudos/regularizacao-fiscal", desc: "Como tratar débitos que não aparecem, estão na Receita ou já foram inscritos." },
       { h3: "Defesas fiscais administrativas e judiciais", to: "/solucoes/defesas-fiscais", desc: "Impugnação técnica e quando levar ao contencioso." },
       { h3: "Pendências fiscais por segmento", to: "/segmentos/pendencias-fiscais", desc: "Roteiro setorial para sair do passivo fiscal." },
     ],

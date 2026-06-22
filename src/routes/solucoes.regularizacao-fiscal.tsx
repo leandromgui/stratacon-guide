@@ -8,6 +8,8 @@ import { dconMethod } from "../lib/dconMethod";
 const faqs: FAQItem[] = [
   { q: "Quanto tempo leva para regularizar uma empresa?", a: "O diagnóstico fica pronto em poucos dias. O plano de regularização varia de semanas a poucos meses conforme o volume de débitos, esferas envolvidas e necessidade de retificação de obrigações acessórias." },
   { q: "Vocês negociam diretamente com a Receita e a PGFN?", a: "Sim. Conduzimos parcelamentos federais, transação tributária na PGFN, parcelamentos estaduais (Sefaz) e municipais (ISS/IPTU), com avaliação técnica de qual instrumento traz mais vantagem." },
+  { q: "Como encaminhar débitos para PGFN?", a: "Primeiro identificamos se o débito está na Receita ou já inscrito em dívida ativa. Débitos não inscritos podem exigir correção de declarações, consolidação, acompanhamento ou providência na Receita; débitos inscritos podem permitir transação, parcelamento ou PRDI. A DCON atua como análise técnica antes de qualquer decisão." },
+  { q: "Meu débito não aparece na PGFN. O que faço?", a: "Não significa que não exista dívida. Pode haver cobrança administrativa na Receita, declaração pendente, suspensão, retificação, consolidação não concluída ou inconsistência cadastral. O próximo passo é mapear origem, exigibilidade, prazo e impacto na certidão." },
   { q: "Tenho dívida muito antiga. Ainda compensa regularizar?", a: "Sim. Em muitos casos há decadência, prescrição ou erro de lançamento que reduz ou extingue o débito. A primeira etapa é justamente conferir o que é exigível antes de pagar." },
   { q: "Preciso parcelar tudo ou posso contestar?", a: "Depende. Parcelar interrompe defesas. Antes de aderir, avaliamos se cabe impugnação, manifestação de inconformidade ou PRDI para débitos inscritos." },
   { q: "Vocês ficam como contadora depois?", a: "Pode ser projeto pontual de regularização ou rotina contínua. Em ambos os casos, deixamos a empresa com calendário fiscal saneado para o problema não voltar." },
@@ -54,6 +56,7 @@ function Page() {
         { h2: "Escopo do projeto", lead: "Mapeamento completo de débitos, defesas possíveis e plano priorizado por impacto operacional.", h3: [
           { title: "Mapa de débitos consolidado", body: "Levantamento federal (RFB/PGFN), estadual (Sefaz) e municipal (ISS/IPTU/Taxas) em relatório único." },
           { title: "Análise de CNDs e certidões", body: "Identificação clara do que impede certidão negativa e do impacto em licitações, financiamentos e contratos." },
+          { title: "Encaminhamento Receita → PGFN", body: "Quando o débito não aparece na PGFN, analisamos se ele ainda está na Receita, se depende de consolidação, declaração, retificação, suspensão ou providência administrativa antes da inscrição." },
           { title: "Risco de bloqueio e protesto", body: "Avaliação de exposição a penhora online, protesto e bloqueio de contas." },
           { title: "Defesas administrativas cabíveis", body: "Impugnação, manifestação de inconformidade e PRDI antes de qualquer pagamento." },
           { title: "Parcelamentos e transação", body: "Federais (Refis, simplificado, transação), estaduais e municipais com avaliação técnica de cada via." },

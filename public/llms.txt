@@ -10,6 +10,7 @@
 - [Soluções](/solucoes): Linhas de serviço contábil, fiscal, tributário e societário.
 - [Segmentos](/segmentos): Atendimento por setor — saúde, construção, agro, ISP, e-commerce, holdings.
 - [Conteúdos](/conteudos): Guias técnicos de tributário, defesa fiscal, patrimônio e trabalhista.
+- [Respostas Validadas DCON](/conteudos/respostas-validadas): Respostas sobre equiparação hospitalar, PGFN, PRDI, créditos, folha, construção, agro e IRPF.
 - [Guia do Simples Nacional](/conteudos/guia-simples-nacional): Consulta, anexos, Fator R, sublimites, planejamento e recuperação de créditos.
 - [Sobre](/sobre): Firma, sócios e responsabilidade técnica.
 - [Goiânia](/goiania): Base local e atendimento presencial.

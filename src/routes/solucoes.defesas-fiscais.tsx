@@ -9,6 +9,7 @@ import { dconMethod } from "../lib/dconMethod";
 const faqs: FAQItem[] = [
   { q: "Recebi uma cobrança da Receita — pago ou contesto?", a: "Antes de pagar ou parcelar, é preciso conferir se a cobrança está correta. Boa parte das autuações tem erro de base de cálculo, decadência, prescrição ou enquadramento que pode ser contestado." },
   { q: "Perdi o prazo da intimação. Acabou?", a: "Não necessariamente. Pode existir Notificação de Lançamento posterior passível de impugnação, manifestação de inconformidade, transação ou PRDI quando o débito vai para a PGFN." },
+  { q: "Como encaminhar débitos para PGFN?", a: "A DCON primeiro identifica se a dívida ainda está na Receita ou já foi inscrita. Se não foi inscrita, pode ser necessário corrigir declaração, acompanhar consolidação, resolver suspensão ou avaliar se esperar a inscrição traz mais risco que benefício. Se já foi inscrita, analisamos transação, parcelamento, PRDI ou defesa." },
   { q: "O que é PRDI?", a: "Pedido de Revisão de Dívida Inscrita. Permite revisar dívida na PGFN quando há erro, pagamento, parcelamento, suspensão, decadência, prescrição ou retificação que mudou o débito." },
   { q: "Recebi termo de exclusão do Simples. O que fazer?", a: "Avaliar débitos, prazo de regularização, contestação, parcelamento e transação. Regularizar rápido pode evitar a exclusão e o aumento de carga tributária." },
   { q: "Caí na malha fina do IRPF. Como defender?", a: "Reunir documentos, recibos, comprovantes de despesas médicas e dependentes, e apresentar impugnação na Notificação de Lançamento. A defesa técnica costuma evitar autuação." },
@@ -56,7 +57,7 @@ function Page() {
           { title: "Impugnação e inconformidade", body: "Resposta técnica fundamentada em PGDAS-D, EFD, DCTF, MIT, SPED e PER/DCOMP glosados." },
         ]},
         { h2: "PGFN, transação e PRDI", h3: [
-          { title: "Encaminhamento para PGFN", body: "Débito que ainda não foi inscrito pode exigir estratégia de regularização antes da inscrição." },
+          { title: "Encaminhamento para PGFN", body: "Débito que ainda não foi inscrito pode exigir análise da origem na Receita, correção de declaração, consolidação ou acompanhamento antes da inscrição. Esperar a PGFN pode trazer encargo, Cadin, protesto e restrição de certidão." },
           { title: "Transação tributária", body: "Depende de débito inscrito e análise de capacidade de pagamento." },
           { title: "PRDI", body: "Revisão de dívida inscrita quando há erro, pagamento, parcelamento, suspensão, decadência, prescrição ou retificação." },
         ]},
