@@ -1,18 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import ogImage from "../assets/og-dcon.jpg";
-import { Reveal, ScrollFillBar } from "../components/Reveal";
+import { Reveal } from "../components/Reveal";
 
 const SITE_URL = "https://stratacon-guide.lovable.app";
 const OG_IMAGE_URL = `${SITE_URL}${ogImage}`;
 
-// Paleta rotativa para painéis — mais cor sem perder o tom técnico
+// Paleta on-brand: preto/grafite + vermelho DCON. Sem cores fora da marca.
 const PANEL_ACCENTS = [
   "var(--gold)",
-  "var(--teal)",
-  "var(--blue)",
-  "var(--emerald)",
-  "var(--amber)",
+  "var(--secondary)",
   "var(--gold)",
+  "var(--secondary)",
+  "var(--gold)",
+  "var(--secondary)",
 ] as const;
 
 const faqs = [
