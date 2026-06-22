@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import ogImage from "../assets/og-dcon.jpg";
+import heroBgAsset from "../assets/hero-bg.png.asset.json";
 import { Reveal } from "../components/Reveal";
+import { InteractiveHeroBg } from "../components/InteractiveHeroBg";
 
 const SITE_URL = "https://stratacon-guide.lovable.app";
 const OG_IMAGE_URL = `${SITE_URL}${ogImage}`;
