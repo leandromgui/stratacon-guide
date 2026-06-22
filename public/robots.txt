@@ -2,3 +2,5 @@ User-agent: *
 Allow: /conteudos
 Disallow: /conteudos/*?p=*
 Allow: /
+
+Sitemap: https://stratacon-guide.lovable.app/sitemap.xml

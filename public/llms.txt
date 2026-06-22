@@ -1,0 +1,44 @@
+# DCON Serviços Contábeis
+
+> Firma de consultoria contábil, fiscal, tributária e empresarial em Goiânia, com atendimento em todo o Brasil. Planejamento tributário, reforma CBS/IBS, recuperação de créditos, holding patrimonial e defesa fiscal sob Método DCON.
+
+## Pages
+
+- [Início](/): Posicionamento, soluções, segmentos e método.
+- [Método DCON](/metodo): Quatro fases auditáveis de diagnóstico, estruturação, rotina e acompanhamento.
+- [Diagnóstico](/diagnostico): Solicitar diagnóstico técnico em até 7 dias úteis.
+- [Soluções](/solucoes): Linhas de serviço contábil, fiscal, tributário e societário.
+- [Segmentos](/segmentos): Atendimento por setor — saúde, construção, agro, ISP, e-commerce, holdings.
+- [Conteúdos](/conteudos): Guias técnicos de tributário, defesa fiscal, patrimônio e trabalhista.
+- [Sobre](/sobre): Firma, sócios e responsabilidade técnica.
+- [Goiânia](/goiania): Base local e atendimento presencial.
+- [Contato](/contato): Falar com a equipe DCON.
+
+## Soluções
+
+- [Planejamento Tributário](/solucoes/planejamento-tributario)
+- [Reforma Tributária (CBS/IBS)](/solucoes/reforma-tributaria)
+- [Recuperação de Créditos](/solucoes/recuperacao-creditos-tributarios)
+- [Defesas Fiscais](/solucoes/defesas-fiscais)
+- [Regularização Fiscal](/solucoes/regularizacao-fiscal)
+- [Holding Patrimonial](/solucoes/holding-patrimonial)
+- [Departamento Pessoal e eSocial](/solucoes/departamento-pessoal)
+- [Tecnologia Contábil](/solucoes/tecnologia-contabil)
+- [Valuation e KPIs](/solucoes/valuation-kpis)
+- [Pessoa Física e IRPF](/solucoes/pessoa-fisica-irpf)
+- [Registro de Marca INPI](/solucoes/registro-marca-inpi)
+- [Trocar de Contabilidade](/solucoes/trocar-contabilidade)
+
+## Segmentos
+
+- [Médicos e Clínicas](/segmentos/medicos-clinicas)
+- [Construção Civil e SPEs](/segmentos/construcao-civil-spe)
+- [Produtor Rural](/segmentos/produtor-rural)
+- [Provedores de Internet](/segmentos/provedores-internet)
+- [E-commerce](/segmentos/e-commerce)
+- [Tecnologia e Startups](/segmentos/tecnologia-startups)
+- [Holdings](/segmentos/holdings)
+
+## Optional
+
+- [Privacidade](/privacidade): Política de privacidade.

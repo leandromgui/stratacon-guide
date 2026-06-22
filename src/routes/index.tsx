@@ -69,8 +69,8 @@ const faqs = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "DCON · Consultoria Contábil, Tributária e Empresarial em Goiânia" },
-      { name: "description", content: "Consultoria contábil, fiscal, tributária e empresarial em Goiânia. Planejamento tributário, reforma CBS/IBS, recuperação de créditos, holding e defesa fiscal sob método auditável — atendimento em todo o Brasil." },
+      { title: "DCON · Consultoria Contábil e Tributária em Goiânia" },
+      { name: "description", content: "Consultoria contábil, fiscal e tributária em Goiânia. Planejamento, reforma CBS/IBS, recuperação de créditos, holding e defesa fiscal sob método auditável." },
       { name: "keywords", content: "consultoria contábil Goiânia, planejamento tributário, reforma tributária CBS IBS, recuperação de créditos tributários, holding patrimonial, defesa fiscal, contabilidade consultiva" },
       { property: "og:title", content: "DCON · Consultoria Contábil, Tributária e Empresarial em Goiânia" },
       { property: "og:description", content: "Firma de consultoria contábil, fiscal e tributária com Método DCON em 4 fases. Diagnóstico em 7 dias úteis." },
