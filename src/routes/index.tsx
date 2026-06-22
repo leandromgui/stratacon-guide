@@ -165,15 +165,11 @@ const method = [
 function Home() {
   return (
     <div>
-      {/* Hero — enxuto: o que aparece no Google e em respostas de IA */}
-      <section
-        className="relative overflow-hidden text-foreground"
-        style={{
-          background:
-            "linear-gradient(135deg, color-mix(in oklab, var(--secondary) 8%, var(--background)) 0%, var(--background) 60%, color-mix(in oklab, var(--gold) 10%, var(--background)) 100%)",
-        }}
-      >
-        <div className="relative mx-auto max-w-6xl px-6 pt-16 md:pt-20 pb-10 md:pb-14">
+      {/* Hero — fundo interativo com parallax + spotlight */}
+      <section className="relative overflow-hidden text-white">
+        <InteractiveHeroBg imageUrl={heroBgAsset.url} />
+
+        <div className="relative mx-auto max-w-6xl px-6 pt-16 md:pt-24 pb-12 md:pb-16">
           <Reveal as="div" className="flex items-center gap-3 text-gold text-[11px] font-semibold uppercase tracking-[0.22em] border-l-2 border-gold pl-4">
             Consultoria Contábil e Tributária · Goiânia
           </Reveal>
@@ -183,27 +179,27 @@ function Home() {
             <span className="font-semibold">leitura técnica</span> do que está sendo declarado.
           </Reveal>
 
-          <Reveal as="p" delay={160} className="mt-6 max-w-2xl text-[15px] md:text-[17px] leading-relaxed text-foreground/75">
-            Diagnóstico técnico em <span className="text-foreground font-medium">7 dias úteis</span>, planejamento tributário, Reforma Tributária (CBS/IBS) e recuperação de créditos sob responsabilidade técnica com CRC ativo.
+          <Reveal as="p" delay={160} className="mt-6 max-w-2xl text-[15px] md:text-[17px] leading-relaxed text-white/70">
+            Diagnóstico técnico em <span className="text-white font-medium">7 dias úteis</span>, planejamento tributário, Reforma Tributária (CBS/IBS) e recuperação de créditos sob responsabilidade técnica com CRC ativo.
           </Reveal>
 
           <Reveal delay={240} className="mt-8 flex flex-wrap gap-3">
-            <Link to="/diagnostico" className="inline-flex items-center bg-secondary text-secondary-foreground px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:bg-gold hover:text-gold-foreground transition-colors">
+            <Link to="/diagnostico" className="inline-flex items-center bg-gold text-gold-foreground px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:opacity-90 transition-opacity">
               Solicitar diagnóstico →
             </Link>
-            <Link to="/solucoes/reforma-tributaria" className="inline-flex items-center border border-border px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:border-gold hover:text-gold transition-colors">
+            <Link to="/solucoes/reforma-tributaria" className="inline-flex items-center border border-white/30 px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:border-gold hover:text-gold transition-colors">
               ● Reforma Tributária 2026
             </Link>
           </Reveal>
 
-          {/* Tira compacta de credenciais — texto inline, sem painéis duplicados */}
-          <Reveal delay={320} className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground border-t border-border pt-5">
+          {/* Tira compacta de credenciais */}
+          <Reveal delay={320} className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.18em] text-white/50 border-t border-white/15 pt-5">
             <span><span className="text-gold">●</span> CRC-GO 1202</span>
-            <span className="text-foreground/30">/</span>
+            <span className="text-white/25">/</span>
             <span>+20 anos</span>
-            <span className="text-foreground/30">/</span>
+            <span className="text-white/25">/</span>
             <span>+500 empresas</span>
-            <span className="text-foreground/30">/</span>
+            <span className="text-white/25">/</span>
             <span>Diagnóstico em 7 dias úteis</span>
           </Reveal>
         </div>
