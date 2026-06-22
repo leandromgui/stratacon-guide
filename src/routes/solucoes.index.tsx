@@ -27,7 +27,7 @@ function Page() {
       eyebrow="Soluções"
       h1="Soluções contábeis para empresas que precisam de segurança, controle e estratégia"
       intro="Da rotina fiscal ao planejamento tributário e reestruturação societária — tudo conduzido por equipe técnica."
-      intent="soluções contábeis empresa, contabilidade consultiva serviços"
+      intent="soluções contábeis empresa, contabilidade consultiva técnica"
       
       ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}

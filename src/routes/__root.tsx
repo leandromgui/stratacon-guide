@@ -78,7 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "DCON Serviços Contábeis · Contabilidade em Goiânia" },
-      { name: "description", content: "Contabilidade consultiva, fiscal e tributária para empresas que precisam de segurança e estratégia. DCON Serviços Contábeis — Goiânia." },
+      { name: "description", content: "Contabilidade consultiva técnica — fiscal, tributária e empresarial — para empresas que precisam de segurança e estratégia. DCON Serviços Contábeis — Goiânia." },
       { name: "author", content: "DCON Serviços Contábeis" },
       { property: "og:site_name", content: "DCON Serviços Contábeis" },
       { property: "og:type", content: "website" },

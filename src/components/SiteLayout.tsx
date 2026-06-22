@@ -16,10 +16,10 @@ const mega: MegaItem[] = [
     label: "A DCON",
     to: "/sobre",
     feature: {
-      eyebrow: "Consultoria contábil, fiscal, tributária e empresarial",
-      title: "Somos uma firma técnica de contabilidade consultiva.",
+      eyebrow: "Contabilidade consultiva técnica",
+      title: "Somos uma contabilidade consultiva técnica.",
       body: "Atuamos como o time técnico das empresas que precisam decidir com segurança jurídica, fiscal e patrimonial.",
-      cta: { label: "Conhecer a firma", to: "/sobre" },
+      cta: { label: "Conhecer a DCON", to: "/sobre" },
     },
     columns: [
       {
@@ -404,8 +404,8 @@ export function SiteLayout() {
                 Serviços Contábeis
               </div>
               <p className="mt-5 text-sm text-secondary-foreground/70 leading-relaxed max-w-sm">
-                Consultoria contábil, fiscal, tributária e empresarial. Atuamos como o
-                time técnico de empresas que precisam decidir com segurança.
+                Contabilidade consultiva técnica. Atuamos como o time técnico de
+                empresas que precisam decidir com segurança jurídica, fiscal e patrimonial.
               </p>
               <div className="mt-6 space-y-1.5 text-sm text-secondary-foreground/75">
                 <div className="text-gold text-[10px] uppercase tracking-[0.22em] mb-2">Goiânia — GO</div>
