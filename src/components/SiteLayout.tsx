@@ -299,7 +299,7 @@ export function SiteLayout() {
             <img
               src={dconLogo.url}
               alt="DCON Serviços Contábeis"
-              className="h-9 w-auto"
+              className="h-11 w-auto"
             />
           </Link>
           <nav className="hidden lg:flex items-stretch h-full">
@@ -404,7 +404,7 @@ export function SiteLayout() {
               <img
                 src={dconLogo.url}
                 alt="DCON Serviços Contábeis"
-                className="h-8 w-auto"
+                className="h-10 w-auto"
               />
               <p className="mt-5 text-sm text-secondary-foreground/70 leading-relaxed max-w-sm">
                 Contabilidade consultiva técnica. Atuamos como o time técnico de
