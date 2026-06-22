@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { SimplesNacionalMiniForm } from "../components/SimplesNacionalMiniForm";
 
 const CANONICAL = "https://stratacon-guide.lovable.app/conteudos/guia-simples-nacional";
 
@@ -141,6 +142,8 @@ function Page() {
         { label: "Simples Nacional — segmento", to: "/segmentos/simples-nacional", eyebrow: "Segmento" },
         { label: "Regimes Tributários — cluster", to: "/conteudos/regimes-tributarios", eyebrow: "Conteúdos" },
       ]}
-    />
+    >
+      <SimplesNacionalMiniForm />
+    </PageScaffold>
   );
 }
