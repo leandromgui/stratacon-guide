@@ -2,6 +2,7 @@ import { Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { CookieBanner } from "./CookieBanner";
 import { useEffect, useState } from "react";
+import dconLogo from "@/assets/dcon-logo.png.asset.json";
 
 type Col = { title: string; items: { label: string; to: string; desc?: string }[] };
 type MegaItem = {
