@@ -33,9 +33,9 @@ function Page() {
       intent="diagnóstico fiscal empresa, auditoria contábil preventiva"
       observation="Principal entrada de leads — referenciada em todas as páginas."
       audience={docDcon.audience}
-      ctaPrimary={docDcon.ctas[0]}
-      ctaSecondary={docDcon.ctas[1]}
-      ctaTertiary={docDcon.ctas[2]}
+      ctaPrimary={{ label: "Solicitar diagnóstico", to: "/contato" }}
+      ctaSecondary={{ label: "Falar com a equipe", to: "/contato" }}
+      ctaTertiary={docDcon.ctas[0]}
       respostaValidada={docDcon.respostaValidada}
       sections={[
       { h2: "O que avaliamos no diagnóstico", h3: [{"title":"Fiscal","body":"Apurações, SPEDs e classificação fiscal das operações."},{"title":"Contábil","body":"Escrituração, fechamentos e demonstrações."},{"title":"Tributário","body":"Regime, anexo, créditos e cargas efetivas."},{"title":"Trabalhista","body":"Folha, encargos, eSocial e contratos."},{"title":"Societário","body":"Contrato social, sócios e estrutura."}] },
