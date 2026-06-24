@@ -29,14 +29,28 @@ function Page() {
       intro="Contabilidade técnica desenhada para a realidade tributária e operacional de empresas familiares."
       intent="contabilidade empresa familiar, sucessão patrimonial"
       observation="Pré-venda de Holding."
-      ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      ctaPrimary={{ label: "Solicitar diagnóstico técnico inicial", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       sections={[
-      { h2: "Particularidades tributárias e contábeis", h3: [{"title":"Tributação específica","body":"Regras fiscais que afetam diretamente operações de empresas familiares."},{"title":"Obrigações próprias","body":"Acessórias e declarações típicas deste segmento."},{"title":"Risco mais comum","body":"O erro que mais vemos neste tipo de operação."}] },
-      { h2: "Riscos comuns no segmento", h3: [{"title":"Enquadramento errado","body":"Regime que parece econômico mas custa mais no fim."},{"title":"Falha de classificação fiscal","body":"CFOP, CST e NCM mal aplicados."},{"title":"Passivo trabalhista","body":"Vínculos mal estruturados que viram dor mais tarde."}] },
-      { h2: "Como a DCON atua neste segmento", h3: [{"title":"Diagnóstico específico","body":"Revisamos a operação real do segmento antes de qualquer mudança."},{"title":"Rotina técnica","body":"Calendário, conferência e relatórios desenhados para o setor."},{"title":"Apoio consultivo","body":"Reuniões com leitura do que o número está dizendo."}] },
-      { h2: "Casos e exemplos", h3: [{"title":"Caso típico 1","body":"[preencher com situação real anonimizada]"},{"title":"Caso típico 2","body":"[preencher com situação real anonimizada]"}] },
-      { h2: "Perguntas frequentes", h3: [{"title":"Atendem só em Goiânia?","body":"Atendemos presencialmente em Goiânia e online em todo o Brasil."},{"title":"Trocar de contador agora vale a pena?","body":"Sim, se a contabilidade atual não dá visão técnica do segmento."},{"title":"Já posso pedir diagnóstico?","body":"Sim, em qualquer fase da operação."}] },
+        { h2: "Governança e separação PF/PJ", lead: "Empresa familiar precisa separar pessoa física, empresa e patrimônio comum antes que a sucessão vire litígio.", h3: [
+          { title: "Acordo de sócios", body: "Regras de entrada e saída de herdeiros, deliberações estratégicas, distribuição de lucros e cláusulas restritivas escritas antes do conflito." },
+          { title: "Pró-labore e distribuição", body: "Definição técnica do pró-labore por sócio e distribuição de lucros coerente com escrituração e regime tributário." },
+          { title: "Mistura PF/PJ", body: "Conta da empresa não é caixa do sócio — mistura gera autuação, desconsideração e disputa entre herdeiros." },
+        ]},
+        { h2: "Sucessão e patrimônio", h3: [
+          { title: "Holding patrimonial", body: "Avaliada como ferramenta quando há propósito, documentação e análise econômica — não como blindagem automática." },
+          { title: "ITBI, ITCMD e ganho de capital", body: "Doação em vida, reserva de usufruto e cláusulas de incomunicabilidade calculadas antes da transferência." },
+          { title: "IRPFM", body: "Sócios com renda anual acima de R$ 600 mil revisam lucros, dividendos, aluguéis e estrutura familiar diante do IRPFM." },
+        ]},
+        { h2: "Profissionalização contábil", h3: [
+          { title: "Demonstrações auditáveis", body: "ECD, ECF, balanço e DRE produzidos como ferramenta de decisão — não apenas para a Receita." },
+          { title: "Painel de gestão familiar", body: "Indicadores mensais entregues em reunião com a família para sustentar decisões patrimoniais e operacionais." },
+        ]},
+        { h2: "Riscos comuns", h3: [
+          { title: "Sócio sem pró-labore", body: "Expõe a empresa à cobrança retroativa de INSS do segurado obrigatório." },
+          { title: "Distribuição sem balanço", body: "Distribuição de lucros sem escrituração regular é reclassificada como pró-labore ou rendimento tributável." },
+          { title: "Sucessão não planejada", body: "Inventário sem holding nem testamento custa mais e amplifica conflito familiar." },
+        ]},
       ]}
     />
   );
