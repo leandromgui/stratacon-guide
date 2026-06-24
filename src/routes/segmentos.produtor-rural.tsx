@@ -43,11 +43,22 @@ function Page() {
       method={dconMethod}
       ctaVariant="opportunity"
       sections={[
-      { h2: "Particularidades tributárias e contábeis", h3: [{"title":"Tributação específica","body":"Regras fiscais que afetam diretamente operações de produtor rural."},{"title":"Obrigações próprias","body":"Acessórias e declarações típicas deste segmento."},{"title":"Risco mais comum","body":"O erro que mais vemos neste tipo de operação."}] },
-      { h2: "Riscos comuns no segmento", h3: [{"title":"Enquadramento errado","body":"Regime que parece econômico mas custa mais no fim."},{"title":"Falha de classificação fiscal","body":"CFOP, CST e NCM mal aplicados."},{"title":"Passivo trabalhista","body":"Vínculos mal estruturados que viram dor mais tarde."}] },
-      { h2: "Como a DCON atua neste segmento", h3: [{"title":"Diagnóstico específico","body":"Revisamos a operação real do segmento antes de qualquer mudança."},{"title":"Rotina técnica","body":"Calendário, conferência e relatórios desenhados para o setor."},{"title":"Apoio consultivo","body":"Reuniões com leitura do que o número está dizendo."}] },
-      { h2: "Casos e exemplos", h3: [{"title":"Caso típico 1","body":"[preencher com situação real anonimizada]"},{"title":"Caso típico 2","body":"[preencher com situação real anonimizada]"}] },
-      { h2: "Perguntas frequentes", h3: [{"title":"Atendem só em Goiânia?","body":"Atendemos presencialmente em Goiânia e online em todo o Brasil."},{"title":"Trocar de contador agora vale a pena?","body":"Sim, se a contabilidade atual não dá visão técnica do segmento."},{"title":"Já posso pedir diagnóstico?","body":"Sim, em qualquer fase da operação."}] },
+        { h2: "Funrural x folha", lead: "Produtor rural não deve escolher Funrural ou folha por costume. A opção errada pode aumentar carga durante todo o ano.", h3: [
+          { title: "Comercialização x folha", body: "Contribuição sobre receita bruta x opção pela folha simuladas anualmente, considerando PF, PJ e safra." },
+          { title: "SENAR, RAT/GILRAT, FAP e terceiros", body: "Folha rural revisada com cada contribuição calculada e aplicada à realidade do negócio." },
+        ]},
+        { h2: "LC 224/2025", h3: [
+          { title: "Impacto na comercialização", body: "Redução linear pode afetar contribuições e benefícios — produtor PF e PJ revisam efeito prático na contribuição sobre comercialização." },
+          { title: "Segurado especial", body: "Exceções aplicáveis quando há enquadramento como segurado especial." },
+        ]},
+        { h2: "eSocial, EFD-Reinf e DCTFWeb", h3: [
+          { title: "Eventos e retenções", body: "Eventos de folha, comercialização, retenções e classificação tributária enviados no prazo." },
+          { title: "Rubricas e recolhimentos", body: "Tratamento técnico de rubricas para evitar incidência indevida e passivo previdenciário." },
+        ]},
+        { h2: "Regularidade e sucessão", h3: [
+          { title: "ITR e LCDPR", body: "Declarações da propriedade e do Livro Caixa Digital do Produtor Rural revisadas para suportar crédito e CND." },
+          { title: "Sucessão patrimonial", body: "Holding rural avaliada como ferramenta quando há propósito, documentação e análise econômica." },
+        ]},
       ]}
     >
       <MethodBadge note="Produtor rural conduzido pelo protocolo DCON" />
