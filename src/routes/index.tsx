@@ -29,14 +29,54 @@ const faqs = [
     a: <>Em até 7 dias úteis após o envio da documentação. Entregamos um relatório técnico com mapeamento fiscal, tributário, contábil, trabalhista, societário e patrimonial, mais um plano de ação priorizado por risco, impacto financeiro e prazo de regularização. <Link to="/diagnostico" className="underline text-gold hover:no-underline">Solicitar diagnóstico →</Link></>,
   },
   {
+    q: "Quanto custa o diagnóstico técnico da DCON?",
+    aPlain: "O diagnóstico inicial é apresentado em proposta após uma conversa preliminar de escopo. O valor depende do porte, do número de CNPJs, dos regimes envolvidos e do volume documental. Não cobramos pela conversa inicial nem pela proposta.",
+    a: <>O diagnóstico inicial é apresentado em proposta após uma conversa preliminar de escopo. O valor depende do porte, do número de CNPJs, dos regimes envolvidos e do volume documental. Não cobramos pela conversa inicial nem pela proposta.</>,
+  },
+  {
+    q: "Trabalham com empresas de qualquer regime tributário?",
+    aPlain: "Sim — Simples Nacional, Lucro Presumido e Lucro Real. Em muitos casos o próprio diagnóstico revela que a empresa está no regime errado para a operação atual; comparamos cenários antes de qualquer migração e validamos sublimite, Fator R e enquadramento de CNAE.",
+    a: <>Sim — Simples Nacional, Lucro Presumido e Lucro Real. Em muitos casos o próprio <Link to="/diagnostico" className="underline text-gold hover:no-underline">diagnóstico</Link> revela que a empresa está no regime errado para a operação atual; comparamos cenários antes de qualquer migração e validamos sublimite, Fator R e enquadramento de CNAE.</>,
+  },
+  {
+    q: "Como funciona a troca de contabilidade para a DCON?",
+    aPlain: "Conduzimos a transição com plano formal de migração: solicitação técnica ao contador anterior, auditoria de entrada da base recebida, cronograma de assunção de obrigações e revisão dos últimos 5 anos. Não há janela sem responsável técnico — assumimos antes que qualquer prazo vença.",
+    a: <>Conduzimos a transição com plano formal de migração: solicitação técnica ao contador anterior, auditoria de entrada da base recebida, cronograma de assunção de obrigações e revisão dos últimos 5 anos. Não há janela sem responsável técnico — assumimos antes que qualquer prazo vença. Veja o passo a passo para <Link to="/solucoes/trocar-contabilidade" className="underline text-gold hover:no-underline">trocar de contabilidade →</Link></>,
+  },
+  {
+    q: "A DCON ajuda a recuperar tributos pagos a maior?",
+    aPlain: "Sim. Fazemos levantamento técnico dos últimos 5 anos em PIS, COFINS, ICMS, INSS e contribuições previdenciárias, com hipóteses como monofásico, alíquota zero, exclusão do ICMS da base, equiparação hospitalar e DIFAL. A recuperação é executada com PER/DCOMP e parecer técnico auditável.",
+    a: <>Sim. Fazemos levantamento técnico dos últimos 5 anos em PIS, COFINS, ICMS, INSS e contribuições previdenciárias, com hipóteses como monofásico, alíquota zero, exclusão do ICMS da base, equiparação hospitalar e DIFAL. A recuperação é executada com PER/DCOMP e parecer técnico auditável. <Link to="/solucoes/recuperacao-creditos-tributarios" className="underline text-gold hover:no-underline">Recuperação de créditos →</Link></>,
+  },
+  {
+    q: "Como a DCON conduz a Reforma Tributária (CBS/IBS)?",
+    aPlain: "Modelamos o impacto da transição 2026–2033 no caixa da empresa, revisamos NCM, CFOP, CST, cClassTrib e contratos, e preparamos o ERP e a apuração assistida para os novos tributos. Para setores específicos (saúde, construção, agro, ISP, e-commerce) aplicamos análise dedicada.",
+    a: <>Modelamos o impacto da transição 2026–2033 no caixa da empresa, revisamos NCM, CFOP, CST, cClassTrib e contratos, e preparamos o ERP e a apuração assistida para os novos tributos. Para setores específicos (saúde, construção, agro, ISP, e-commerce) aplicamos análise dedicada. <Link to="/solucoes/reforma-tributaria" className="underline text-gold hover:no-underline">Reforma Tributária →</Link></>,
+  },
+  {
+    q: "Faz sentido constituir uma holding patrimonial?",
+    aPlain: "Depende do patrimônio, da estrutura familiar e do objetivo (proteção, sucessão, eficiência). Em parte dos casos a recomendação técnica é não constituir — holding sem patrimônio relevante vira custo de manutenção. Avaliamos ITBI, ITCMD e ganho de capital antes de qualquer transferência.",
+    a: <>Depende do patrimônio, da estrutura familiar e do objetivo (proteção, sucessão, eficiência). Em parte dos casos a recomendação técnica é não constituir — holding sem patrimônio relevante vira custo de manutenção. Avaliamos ITBI, ITCMD e ganho de capital antes de qualquer transferência. <Link to="/solucoes/holding-patrimonial" className="underline text-gold hover:no-underline">Holding patrimonial →</Link></>,
+  },
+  {
+    q: "Atendem empresas fora de Goiânia?",
+    aPlain: "Sim. A maior parte do atendimento é remoto, com reuniões técnicas por vídeo, canais auditáveis para documentos e protocolos de revisão cruzada. Mantemos a base operacional em Goiânia e atendemos clientes em todo o Brasil.",
+    a: <>Sim. A maior parte do atendimento é remoto, com reuniões técnicas por vídeo, canais auditáveis para documentos e protocolos de revisão cruzada. Mantemos a base operacional em Goiânia e atendemos clientes em todo o Brasil.</>,
+  },
+  {
+    q: "Atuam como assessoria contínua ou em projetos pontuais?",
+    aPlain: "Ambos. Há clientes em consultoria mensal contínua (contabilidade, fiscal, DP e governança) e projetos pontuais como recuperação de créditos, reestruturação societária, holding, defesa fiscal e valuation. Todo trabalho segue o Método DCON de diagnóstico, estruturação, rotina e acompanhamento.",
+    a: <>Ambos. Há clientes em consultoria mensal contínua (contabilidade, fiscal, DP e governança) e projetos pontuais como recuperação de créditos, reestruturação societária, holding, defesa fiscal e valuation. Todo trabalho segue o <Link to="/metodo" className="underline text-gold hover:no-underline">Método DCON</Link> de diagnóstico, estruturação, rotina e acompanhamento.</>,
+  },
+  {
     q: "Quem assina tecnicamente as entregas da DCON?",
     aPlain: "Responsável técnico com CRC ativo. Toda recomendação relevante — pareceres, defesas, planejamento, PER/DCOMP e relatórios de diagnóstico — passa por revisão cruzada antes da entrega ao cliente.",
     a: <>Responsável técnico com CRC ativo. Toda recomendação relevante — pareceres, defesas, planejamento, PER/DCOMP e relatórios de <Link to="/diagnostico" className="underline text-gold hover:no-underline">diagnóstico</Link> — passa por revisão cruzada antes da entrega ao cliente.</>,
   },
   {
-    q: "A DCON atende empresas fora de Goiânia?",
-    aPlain: "Sim. A maior parte do atendimento é remoto, com reuniões técnicas por vídeo, canais auditáveis para documentos e protocolos de revisão cruzada. Mantemos a base operacional em Goiânia e atendemos clientes em todo o Brasil.",
-    a: <>Sim. A maior parte do atendimento é remoto, com reuniões técnicas por vídeo, canais auditáveis para documentos e protocolos de revisão cruzada. Mantemos a base operacional em Goiânia e atendemos clientes em todo o Brasil.</>,
+    q: "Como é tratada a confidencialidade das informações?",
+    aPlain: "Sob sigilo profissional do contador (Código de Ética CFC) e contratos de confidencialidade quando aplicável. Documentos circulam por canais auditáveis com controle de acesso por função e histórico de movimentação.",
+    a: <>Sob sigilo profissional do contador (Código de Ética CFC) e contratos de confidencialidade quando aplicável. Documentos circulam por canais auditáveis com controle de acesso por função e histórico de movimentação.</>,
   },
 ];
 
@@ -99,18 +139,27 @@ export const Route = createFileRoute("/")({
 
 const solutions = [
   { n: "01", h: "Planejamento Tributário", b: "Comparativo de regimes, cenários e estruturas societárias com fundamento legal.", to: "/solucoes/planejamento-tributario" },
-  { n: "02", h: "Recuperação de Créditos", b: "Revisão técnica dos últimos 5 anos em PIS, COFINS, ICMS, INSS e contribuições, com PER/DCOMP e parecer auditável.", to: "/solucoes/recuperacao-creditos-tributarios" },
-  { n: "03", h: "Defesas e Regularização Fiscal", b: "Impugnações, recursos e plano de regularização para autuações e pendências federais, estaduais e municipais.", to: "/solucoes/defesas-fiscais" },
-  { n: "04", h: "Tecnologia Contábil e Indicadores", b: "Apuração assistida, integração de ERP, KPIs e relatórios padronizados para decisão.", to: "/solucoes/tecnologia-contabil" },
+  { n: "02", h: "Reforma Tributária (CBS/IBS)", b: "Modelagem da transição, impacto setorial e adaptação da operação ao novo modelo.", to: "/solucoes/reforma-tributaria" },
+  { n: "03", h: "Defesas Fiscais", b: "Impugnações, recursos e defesas administrativas para autuações federais, estaduais e municipais.", to: "/solucoes/defesas-fiscais" },
+  { n: "04", h: "Recuperação de Créditos", b: "Revisão técnica de tributos pagos a maior nos últimos 5 anos.", to: "/solucoes/recuperacao-creditos-tributarios" },
+  { n: "05", h: "Holding e Patrimônio", b: "Estrutura patrimonial, sucessão e proteção dentro do enquadramento legal.", to: "/solucoes/holding-patrimonial" },
+  { n: "06", h: "Valuation e KPIs", b: "Leitura econômica e indicadores para decisões de M&A, captação e expansão.", to: "/solucoes/valuation-kpis" },
 ];
 
 const sectors = [
-  { h: "Saúde", b: "PJ médica, equiparação hospitalar, Fator R e sociedade entre profissionais.", to: "/segmentos/medicos-clinicas" },
-  { h: "Construção Civil", b: "RET, patrimônio de afetação, SPE por obra e empreitada total.", to: "/segmentos/construcao-civil-spe" },
-  { h: "Comércio e E-commerce", b: "ICMS-ST, DIFAL, NCM/CFOP/CST e operação multiestadual.", to: "/segmentos/comercio" },
-  { h: "Produtor Rural", b: "Funrural, LCDPR, ITR e sucessão patrimonial rural.", to: "/segmentos/produtor-rural" },
-  { h: "Provedores de Internet", b: "Segregação NFCom/SVA, Fust, Funttel e tributação ISP.", to: "/segmentos/provedores-internet" },
-  { h: "Holdings e Empresas Familiares", b: "Governança, sucessão, ITBI/ITCMD e separação PF/PJ.", to: "/segmentos/empresas-familiares" },
+  { h: "Médicos e Clínicas", b: "PJ médica, equiparação hospitalar e sociedade entre profissionais.", to: "/segmentos/medicos-clinicas" },
+  { h: "E-commerce", b: "DIFAL, ICMS-ST e operação multiestadual sob controle.", to: "/segmentos/e-commerce" },
+  { h: "Construção Civil e SPEs", b: "RET, patrimônio de afetação e SPE por obra.", to: "/segmentos/construcao-civil-spe" },
+  { h: "Tecnologia e Startups", b: "SaaS, ISS, equity, Lei do Bem e captação.", to: "/segmentos/tecnologia-startups" },
+  { h: "Provedores de Internet", b: "Tributação ISP, Fust, Funttel e regulatório.", to: "/segmentos/provedores-internet" },
+  { h: "Holdings", b: "Estrutura patrimonial e familiar sob método.", to: "/segmentos/holdings" },
+];
+
+const method = [
+  { n: "01", h: "Diagnóstico técnico", b: "Mapeamos o que está sendo declarado, pago e registrado. Avaliamos exposição fiscal, contábil, societária e trabalhista." },
+  { n: "02", h: "Estruturação", b: "Regime tributário, CNAE, sócios, distribuição e processos ajustados à operação real, não ao modelo padrão." },
+  { n: "03", h: "Rotina auditável", b: "Calendário fiscal, fechamento revisado, relatórios padronizados e controles internos auditáveis." },
+  { n: "04", h: "Acompanhamento consultivo", b: "Reuniões periódicas com leitura técnica do que o número está dizendo e do que precisa ser decidido." },
 ];
 
 function Home() {
@@ -126,12 +175,12 @@ function Home() {
           </Reveal>
 
           <Reveal as="h1" delay={80} className="mt-8 md:mt-10 font-display text-4xl md:text-6xl font-light tracking-tight leading-[1.05] max-w-4xl">
-            Contabilidade consultiva e tributária para empresas que precisam{" "}
-            <span className="font-semibold">decidir com segurança</span>.
+            Decisões econômicas seguras exigem{" "}
+            <span className="font-semibold">leitura técnica</span> do que está sendo declarado.
           </Reveal>
 
           <Reveal as="p" delay={160} className="mt-6 max-w-2xl text-[15px] md:text-[17px] leading-relaxed text-white/70">
-            A DCON cruza declarações, notas fiscais, folha, SPED, DCTF/MIT, ECF, ECD, certidões e indicadores para identificar riscos, oportunidades e estratégias tributárias com responsabilidade técnica.
+            Diagnóstico técnico em <span className="text-white font-medium">7 dias úteis</span>, planejamento tributário, Reforma Tributária (CBS/IBS) e recuperação de créditos sob responsabilidade técnica com CRC ativo.
           </Reveal>
 
           <Reveal delay={240} className="mt-8 flex flex-wrap gap-3">
@@ -139,7 +188,7 @@ function Home() {
               Solicitar diagnóstico técnico inicial →
             </Link>
             <Link to="/solucoes/reforma-tributaria" className="inline-flex items-center border border-white/30 px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:border-gold hover:text-gold transition-colors">
-              Ver Reforma Tributária 2026 →
+              ● Reforma Tributária 2026
             </Link>
           </Reveal>
 
@@ -156,7 +205,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Escolha o que você precisa agora — 4 atalhos */}
+      {/* Por onde começar — 4 atalhos grandes coloridos */}
       <section
         className="border-y border-border"
         style={{
@@ -167,9 +216,9 @@ function Home() {
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
           <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
             <div>
-              <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Escolha o que você precisa agora</div>
+              <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Por onde começar</div>
               <h2 className="mt-3 font-display text-2xl md:text-4xl tracking-tight leading-[1.1]">
-                Quatro pontos de partida.
+                Escolha o que você precisa agora.
               </h2>
             </div>
             <p className="text-[13px] text-muted-foreground max-w-sm">
@@ -179,9 +228,9 @@ function Home() {
           <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-4">
             {[
               { tag: "Diagnóstico", h: "Mapear minha empresa", b: "7 dias úteis · relatório técnico", to: "/diagnostico", color: "var(--gold)" },
-              { tag: "CBS / IBS", h: "Preparar Reforma Tributária", b: "Impacto no caixa 2026–2033", to: "/solucoes/reforma-tributaria", color: "var(--secondary)" },
+              { tag: "CBS / IBS", h: "Reforma Tributária", b: "Impacto no caixa 2026–2033", to: "/solucoes/reforma-tributaria", color: "var(--secondary)" },
               { tag: "Crédito", h: "Recuperar tributos", b: "Últimos 5 anos · PER/DCOMP", to: "/solucoes/recuperacao-creditos-tributarios", color: "var(--gold)" },
-              { tag: "Patrimônio", h: "Organizar patrimônio", b: "Holding, ITBI, ITCMD e sucessão", to: "/solucoes/holding-patrimonial", color: "var(--secondary)" },
+              { tag: "Patrimônio", h: "Holding e sucessão", b: "ITBI, ITCMD e governança", to: "/solucoes/holding-patrimonial", color: "var(--secondary)" },
             ].map((c, i) => (
               <Reveal key={c.h} delay={i * 80} y={24}>
                 <Link
@@ -203,21 +252,21 @@ function Home() {
         </div>
       </section>
 
-      {/* Soluções principais — 4 linhas */}
+      {/* Linhas de serviço */}
       <section className="bg-muted/60 border-b border-border">
-        <div className="mx-auto max-w-7xl px-6 py-20">
-          <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
             <div>
-              <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Soluções principais</div>
-              <h2 className="mt-3 font-display text-2xl md:text-4xl tracking-tight max-w-xl leading-[1.1]">
-                Quatro frentes consultivas integradas.
+              <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Linhas de serviço</div>
+              <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight max-w-xl leading-[1.05]">
+                Da rotina obrigatória às decisões patrimoniais.
               </h2>
             </div>
             <Link to="/solucoes" className="text-[11px] uppercase tracking-[0.2em] border-b border-gold pb-1 text-secondary hover:text-primary">
               Ver todas as soluções →
             </Link>
           </div>
-          <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-3">
             {solutions.map((s, i) => (
               <Reveal key={s.h} delay={i * 80} y={32}>
               <Link to={s.to} style={{ ["--panel-accent" as never]: PANEL_ACCENTS[i % PANEL_ACCENTS.length] }} className="panel-interactive group bg-card p-8 flex flex-col justify-between hover:bg-secondary hover:text-secondary-foreground h-full">
@@ -234,11 +283,11 @@ function Home() {
         </div>
       </section>
 
-      {/* Setores estratégicos */}
+      {/* Setores — compactos */}
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
           <div>
-            <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Setores estratégicos</div>
+            <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Setores atendidos</div>
             <h2 className="mt-3 font-display text-2xl md:text-4xl tracking-tight leading-[1.1]">
               Conhecimento específico por vertical.
             </h2>
@@ -260,85 +309,40 @@ function Home() {
         </div>
       </section>
 
-      {/* Método DCON resumido */}
+      {/* Método — compacto e colorido */}
       <section className="bg-secondary text-secondary-foreground">
-        <div className="mx-auto max-w-5xl px-6 py-20 md:py-24">
-          <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Método DCON</div>
-          <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight leading-[1.05] max-w-3xl">
-            Quatro etapas auditáveis, do diagnóstico ao acompanhamento.
-          </h2>
-          <p className="mt-6 max-w-3xl text-[15px] md:text-[17px] leading-relaxed text-secondary-foreground/80">
-            O Método DCON organiza a análise em quatro etapas: <span className="text-gold">diagnóstico técnico</span>, <span className="text-gold">cruzamento de dados</span>, <span className="text-gold">plano de ação</span> e <span className="text-gold">acompanhamento consultivo</span>. Cada entrega é baseada em documentação, memória de cálculo e responsabilidade técnica.
-          </p>
-          <div className="mt-10">
-            <Link to="/metodo" className="inline-flex items-center bg-gold text-gold-foreground px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:opacity-90">
-              Conhecer o método →
+        <div className="mx-auto max-w-7xl px-6 py-20">
+          <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
+            <div>
+              <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Método DCON</div>
+              <h2 className="mt-3 font-display text-2xl md:text-4xl tracking-tight leading-[1.1] max-w-2xl">
+                Quatro etapas auditáveis. Clique para expandir.
+              </h2>
+            </div>
+            <Link to="/metodo" className="text-[11px] uppercase tracking-[0.2em] border-b border-gold pb-1 text-gold">
+              Método completo →
             </Link>
           </div>
+          <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-secondary-foreground/10 border border-secondary-foreground/10">
+            {method.map((m, i) => (
+              <Reveal key={m.h} as="li" delay={i * 120} y={24} className="panel-interactive p-6" style={{ ["--panel-accent" as never]: PANEL_ACCENTS[i % PANEL_ACCENTS.length], background: `linear-gradient(180deg, color-mix(in oklab, ${PANEL_ACCENTS[i % PANEL_ACCENTS.length]} 14%, var(--secondary)) 0%, var(--secondary) 100%)` }}>
+                <details className="group">
+                  <summary className="cursor-pointer list-none">
+                    <div className="text-[11px] uppercase tracking-[0.22em]" style={{ color: PANEL_ACCENTS[i % PANEL_ACCENTS.length] }}>{m.n}</div>
+                    <h3 className="mt-2 font-display text-lg flex items-start justify-between gap-3">
+                      <span>{m.h}</span>
+                      <span className="text-gold text-lg leading-none group-open:rotate-45 transition-transform">+</span>
+                    </h3>
+                  </summary>
+                  <p className="mt-3 text-[14px] leading-relaxed text-secondary-foreground/85">{m.b}</p>
+                </details>
+              </Reveal>
+            ))}
+          </ol>
         </div>
       </section>
 
-      {/* Autoridade e prova social */}
-      <section className="border-t border-border bg-background">
-        <div className="mx-auto max-w-7xl px-6 py-20">
-          <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Autoridade técnica</div>
-          <h2 className="mt-3 font-display text-2xl md:text-4xl tracking-tight leading-[1.1] max-w-3xl">
-            Responsabilidade técnica com registro ativo no CRC-GO.
-          </h2>
-          <div className="mt-8 grid lg:grid-cols-12 gap-10 items-start">
-            <div className="lg:col-span-7 space-y-5 text-[15px] leading-relaxed text-foreground/80">
-              <p>
-                A liderança técnica da DCON é conduzida por <span className="text-foreground font-medium">Leandro Matsuoka Guimarães</span>, contador registrado no CRC-GO sob nº 16.395/O-9, sócio da DCON Serviços Contábeis e profissional com atuação consolidada em contabilidade empresarial, consultoria tributária, controladoria, finanças corporativas e reorganização societária.
-              </p>
-              <p>
-                Formado em Ciências Contábeis, bacharel em Direito e pós-graduado em Finanças Corporativas, Leandro reúne uma leitura integrada da empresa — contábil, fiscal, jurídica, financeira, societária e patrimonial — aplicada a planejamento tributário, recuperação de créditos, análise de regimes, regularização, defesas administrativas, SPED, Simples Nacional, Lucro Presumido, Lucro Real, estruturação de holdings e suporte estratégico para decisões de crescimento, sucessão e reorganização.
-              </p>
-              <p>
-                Na DCON, a liderança técnica não se limita à assinatura contábil: o papel do responsável técnico é assegurar que cada entrega tenha método, documentação, fundamento, rastreabilidade e coerência entre a operação real da empresa, as notas fiscais, a escrituração, as obrigações acessórias e as decisões tomadas pela administração.
-              </p>
-              <Link to="/sobre/leandro" className="inline-flex items-center text-[11px] uppercase tracking-[0.2em] border-b border-gold pb-1 text-secondary hover:text-primary">
-                Conhecer o responsável técnico →
-              </Link>
-            </div>
-            <div className="lg:col-span-5 bg-card border border-border p-7">
-              <div className="text-[10px] uppercase tracking-[0.22em] text-gold">Em síntese</div>
-              <ul className="mt-4 space-y-3 text-[13.5px] text-foreground/75">
-                <li><span className="text-gold">●</span> Contador CRC-GO 16.395/O-9, sócio da DCON.</li>
-                <li><span className="text-gold">●</span> Ciências Contábeis, Direito e Finanças Corporativas.</li>
-                <li><span className="text-gold">●</span> Tributário, societário, holding e controladoria.</li>
-                <li><span className="text-gold">●</span> Método, documentação, fundamento e rastreabilidade.</li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-12 grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-4">
-            <div className="bg-card p-7">
-              <div className="text-[10px] uppercase tracking-[0.22em] text-gold">Responsável técnico</div>
-              <h3 className="mt-3 font-display text-lg leading-snug">Leandro Matsuoka Guimarães</h3>
-              <p className="mt-2 text-[13.5px] text-foreground/70">Contador · CRC-GO 16.395/O-9</p>
-            </div>
-            <div className="bg-card p-7">
-              <div className="text-[10px] uppercase tracking-[0.22em] text-gold">Firma</div>
-              <h3 className="mt-3 font-display text-lg leading-snug">DCON Serviços Contábeis</h3>
-              <p className="mt-2 text-[13.5px] text-foreground/70">CRC-GO 1202 · Goiânia/GO</p>
-            </div>
-            <div className="bg-card p-7">
-              <div className="text-[10px] uppercase tracking-[0.22em] text-gold">Cobertura</div>
-              <h3 className="mt-3 font-display text-lg leading-snug">Atendimento nacional</h3>
-              <p className="mt-2 text-[13.5px] text-foreground/70">Reuniões técnicas remotas e base presencial em Goiânia.</p>
-            </div>
-            <div className="bg-card p-7">
-              <div className="text-[10px] uppercase tracking-[0.22em] text-gold">Entrega</div>
-              <h3 className="mt-3 font-display text-lg leading-snug">Diagnóstico em 7 dias úteis</h3>
-              <p className="mt-2 text-[13.5px] text-foreground/70">Relatório técnico com plano de ação priorizado por risco e impacto.</p>
-            </div>
-          </div>
-          <p className="mt-10 max-w-3xl text-[14px] leading-relaxed text-muted-foreground">
-            Toda recomendação relevante — pareceres, defesas, planejamento, PER/DCOMP e relatórios de diagnóstico — passa por revisão cruzada e é assinada por contador com CRC ativo, sob sigilo profissional do Código de Ética do CFC.
-          </p>
-        </div>
-      </section>
-
-      {/* FAQ reduzida */}
+      {/* FAQ */}
       <section
         className="border-t border-border"
         style={{
@@ -346,18 +350,21 @@ function Home() {
             "linear-gradient(180deg, var(--background) 0%, color-mix(in oklab, var(--gold) 6%, var(--background)) 100%)",
         }}
       >
-        <div className="mx-auto max-w-7xl px-6 py-20 grid lg:grid-cols-12 gap-12">
+        <div className="mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-12 gap-12">
           <header className="lg:col-span-4">
             <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Perguntas frequentes</div>
-            <h2 className="mt-4 font-display text-2xl md:text-4xl tracking-tight leading-[1.05]">
-              Quatro respostas rápidas sobre a DCON.
+            <h2 className="mt-4 font-display text-3xl md:text-4xl tracking-tight leading-[1.05]">
+              Como funciona a consultoria contábil, tributária e patrimonial da DCON.
             </h2>
             <p className="mt-5 text-[14px] leading-relaxed text-muted-foreground">
-              Demais perguntas estão em <Link to="/diagnostico" className="underline text-gold hover:no-underline">/diagnostico</Link>, <Link to="/metodo" className="underline text-gold hover:no-underline">/metodo</Link> e nas páginas de solução.
+              Clique em uma pergunta para abrir a resposta técnica.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/diagnostico" className="inline-flex items-center bg-secondary text-secondary-foreground px-5 py-3 text-[11px] uppercase tracking-[0.18em] hover:bg-primary">
                 Solicitar diagnóstico →
+              </Link>
+              <Link to="/metodo" className="inline-flex items-center border border-gold px-5 py-3 text-[11px] uppercase tracking-[0.18em] text-secondary hover:bg-gold hover:text-gold-foreground">
+                ● Método DCON
               </Link>
             </div>
           </header>
@@ -375,36 +382,61 @@ function Home() {
         </div>
       </section>
 
-      {/* Contato final — sem mapa */}
+      {/* Closing CTA */}
       <section className="bg-secondary text-secondary-foreground">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:py-24 grid lg:grid-cols-12 gap-12 items-end">
+        <div className="mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-12 gap-12 items-end">
           <div className="lg:col-span-8">
             <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Próximo passo</div>
-            <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight leading-[1.02] max-w-3xl">
+            <h2 className="mt-4 font-display text-4xl md:text-6xl tracking-tight leading-[1.02] max-w-3xl">
               Comece pelo diagnóstico técnico da sua empresa.
             </h2>
             <p className="mt-6 max-w-xl text-secondary-foreground/75 text-[15px] leading-relaxed">
               Sem compromisso comercial. Devolutiva técnica conduzida pelo responsável.
             </p>
-            <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-[13px] text-secondary-foreground/85">
-              <a href="tel:+5562992890898" className="hover:text-gold transition-colors">
-                <span className="text-gold">●</span> Telefone · (62) 99289-0898
-              </a>
-              <a href="mailto:contato@dcon.cnt.br" className="hover:text-gold transition-colors">
-                <span className="text-gold">●</span> contato@dcon.cnt.br
-              </a>
-              <a href="https://wa.me/5562992890898" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">
-                <span className="text-gold">●</span> WhatsApp · (62) 99289-0898
-              </a>
-            </div>
           </div>
           <div className="lg:col-span-4 flex flex-wrap gap-3 lg:justify-end">
             <Link to="/diagnostico" className="inline-flex items-center bg-gold px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] text-gold-foreground hover:opacity-90">
               Solicitar diagnóstico técnico inicial →
             </Link>
+            <Link to="/metodo" className="inline-flex items-center border border-gold px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] text-gold hover:bg-gold hover:text-gold-foreground">
+              ● Método DCON
+            </Link>
             <Link to="/contato" className="inline-flex items-center border border-secondary-foreground/30 px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] hover:border-gold hover:text-gold">
               Falar com a DCON
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Mapa / endereço */}
+      <section className="border-t border-border bg-background">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16 lg:py-20 grid lg:grid-cols-12 gap-8 lg:gap-10">
+          <header className="lg:col-span-4">
+            <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Onde estamos</div>
+            <h2 className="font-display text-2xl md:text-3xl tracking-tight">Presença física em Goiânia</h2>
+            <p className="mt-4 text-foreground/90 leading-relaxed text-[15px] sm:text-base">
+              R. 89-A, nº 51 — Setor Sul<br className="sm:hidden" />
+              <span className="sm:ml-0"> Goiânia — GO, 74093-150</span>
+            </p>
+            <a
+              href="https://www.google.com/maps/place/Dcon+Servi%C3%A7os+Cont%C3%A1beis/data=!4m2!3m1!1s0x0:0xd8fc177d850a4b61?sa=X&ved=1t:2428&ictx=111"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex w-full sm:w-auto items-center justify-center gap-2 border border-border bg-card px-5 py-3 min-h-[44px] text-[12px] uppercase tracking-[0.16em] hover:border-gold hover:text-gold transition-colors"
+            >
+              <span>Abrir no Google Maps</span>
+              <span className="text-gold" aria-hidden="true">→</span>
+            </a>
+          </header>
+          <div className="lg:col-span-8 aspect-[4/3] sm:aspect-[16/10] w-full overflow-hidden border border-border bg-card">
+            <iframe
+              title="DCON Serviços Contábeis — R. 89-A, nº 51, Setor Sul, Goiânia"
+              src="https://www.google.com/maps?q=Dcon+Servi%C3%A7os+Cont%C3%A1beis,+R.+89-A,+51+-+Setor+Sul,+Goi%C3%A2nia+-+GO&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="h-full w-full border-0"
+              allowFullScreen
+            />
           </div>
         </div>
       </section>
