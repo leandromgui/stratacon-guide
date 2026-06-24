@@ -3,6 +3,9 @@ import type { ReactNode } from "react";
 import { isValidElement } from "react";
 import { getCrossLinks } from "../lib/crossLinks";
 import { rememberLastFaqQuestion, trackEvent } from "../lib/analytics";
+import { AnimatedHeroBg } from "./AnimatedHeroBg";
+import { Reveal } from "./Reveal";
+import heroBg from "../assets/hero-bg.png";
 
 export interface H3Item {
   title: string;
@@ -87,7 +90,9 @@ export interface PageScaffoldProps {
 
 function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <div className="text-[11px] uppercase tracking-[0.24em] text-gold">{children}</div>
+    <div className="text-gold text-[11px] font-semibold uppercase tracking-[0.22em] border-l-2 border-gold pl-4">
+      {children}
+    </div>
   );
 }
 
@@ -97,20 +102,12 @@ export function PageScaffold(p: PageScaffoldProps) {
   return (
     <div>
       {/* Hero */}
-      <section className="relative bg-secondary text-secondary-foreground overflow-hidden">
-        <div
-          aria-hidden
-          className="absolute inset-0 opacity-[0.06] pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(var(--color-secondary-foreground) 1px, transparent 1px), linear-gradient(90deg, var(--color-secondary-foreground) 1px, transparent 1px)",
-            backgroundSize: "64px 64px",
-          }}
-        />
+      <section className="relative overflow-hidden text-white">
+        <AnimatedHeroBg imageUrl={heroBg} />
         <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28 grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-8">
             {p.breadcrumbs && (
-              <nav className="text-[11px] uppercase tracking-[0.2em] text-secondary-foreground/55 mb-6 flex flex-wrap gap-2">
+              <nav className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-6 flex flex-wrap gap-2">
                 <Link to="/" className="hover:text-gold">Início</Link>
                 {p.breadcrumbs.map((b) => (
                   <span key={b.to} className="flex gap-2">
@@ -120,30 +117,34 @@ export function PageScaffold(p: PageScaffoldProps) {
                 ))}
               </nav>
             )}
-            {p.eyebrow && <Eyebrow>{p.eyebrow}</Eyebrow>}
-            <h1 className="mt-5 font-display text-4xl md:text-6xl font-medium tracking-tight leading-[1.05] max-w-3xl">
+            {p.eyebrow && (
+              <Reveal as="div" className="text-gold text-[11px] font-semibold uppercase tracking-[0.22em] border-l-2 border-gold pl-4">
+                {p.eyebrow}
+              </Reveal>
+            )}
+            <Reveal as="h1" delay={80} className="mt-8 md:mt-10 font-display text-4xl md:text-6xl font-light tracking-tight leading-[1.05] max-w-3xl">
               {p.h1}
-            </h1>
+            </Reveal>
             {p.lead && (
-              <p className="mt-6 max-w-2xl text-lg md:text-xl font-display text-secondary-foreground/90 leading-snug">
+              <Reveal as="p" delay={140} className="mt-6 max-w-2xl text-lg md:text-xl font-display text-white/85 leading-snug">
                 {p.lead}
-              </p>
+              </Reveal>
             )}
             {p.intro && (
-              <p className="mt-7 max-w-2xl text-base md:text-lg text-secondary-foreground/75 leading-relaxed">
+              <Reveal as="p" delay={200} className="mt-6 max-w-2xl text-[15px] md:text-[17px] leading-relaxed text-white/70">
                 {p.intro}
-              </p>
+              </Reveal>
             )}
             {p.audience && p.audience.length > 0 && (
-              <ul className="mt-7 flex flex-wrap gap-2 max-w-2xl">
+              <Reveal as="ul" delay={260} className="mt-7 flex flex-wrap gap-2 max-w-2xl">
                 {p.audience.map((a) => (
-                  <li key={a} className="text-[11px] uppercase tracking-[0.16em] border border-secondary-foreground/25 px-3 py-1.5 text-secondary-foreground/75">
+                  <li key={a} className="text-[11px] uppercase tracking-[0.16em] border border-white/25 px-3 py-1.5 text-white/75">
                     {a}
                   </li>
                 ))}
-              </ul>
+              </Reveal>
             )}
-            <div className="mt-9 flex flex-wrap gap-3">
+            <Reveal delay={300} className="mt-9 flex flex-wrap gap-3">
               <Link
                 to={p.ctaPrimary.to}
                 className="inline-flex items-center bg-gold px-6 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-gold-foreground hover:opacity-90"
@@ -153,7 +154,7 @@ export function PageScaffold(p: PageScaffoldProps) {
               {p.ctaSecondary && (
                 <Link
                   to={p.ctaSecondary.to}
-                  className="inline-flex items-center border border-secondary-foreground/30 px-6 py-3 text-[12px] uppercase tracking-[0.16em] hover:border-gold hover:text-gold"
+                  className="inline-flex items-center border border-white/30 px-6 py-3 text-[12px] uppercase tracking-[0.16em] hover:border-gold hover:text-gold transition-colors"
                 >
                   {p.ctaSecondary.label}
                 </Link>
@@ -161,33 +162,42 @@ export function PageScaffold(p: PageScaffoldProps) {
               {p.ctaTertiary && (
                 <Link
                   to={p.ctaTertiary.to}
-                  className="inline-flex items-center border border-dashed border-secondary-foreground/30 px-6 py-3 text-[12px] uppercase tracking-[0.16em] hover:border-gold hover:text-gold"
+                  className="inline-flex items-center border border-dashed border-white/30 px-6 py-3 text-[12px] uppercase tracking-[0.16em] hover:border-gold hover:text-gold transition-colors"
                 >
                   {p.ctaTertiary.label}
                 </Link>
               )}
-            </div>
+            </Reveal>
+            <Reveal delay={360} className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.18em] text-white/50 border-t border-white/15 pt-5">
+              <span><span className="text-gold">●</span> DCON CRC-GO 1202</span>
+              <span className="text-white/25">/</span>
+              <span>Resp. técnico CRC-GO 16.395/O-9</span>
+              <span className="text-white/25">/</span>
+              <span>Atendimento nacional</span>
+              <span className="text-white/25">/</span>
+              <span>Diagnóstico em 7 dias úteis</span>
+            </Reveal>
           </div>
-          <aside className="lg:col-span-4 lg:border-l lg:border-secondary-foreground/15 lg:pl-10 flex flex-col justify-end">
-            <div className="text-[10px] uppercase tracking-[0.24em] text-secondary-foreground/50 mb-3">
+          <aside className="lg:col-span-4 lg:border-l lg:border-white/15 lg:pl-10 flex flex-col justify-end">
+            <div className="text-[10px] uppercase tracking-[0.24em] text-white/50 mb-3">
               Responsabilidade técnica
             </div>
-            <p className="text-sm text-secondary-foreground/75 leading-relaxed">
+            <p className="text-sm text-white/75 leading-relaxed">
               Entregas conduzidas sob supervisão direta do responsável técnico, com CRC
               ativo e revisão cruzada. Atendimento em Goiânia e online em todo o Brasil.
             </p>
             <div className="mt-6 grid grid-cols-3 gap-4 text-center">
               <div>
                 <div className="font-display text-2xl">+20</div>
-                <div className="text-[10px] uppercase tracking-[0.18em] text-secondary-foreground/55">anos</div>
+                <div className="text-[10px] uppercase tracking-[0.18em] text-white/55">anos</div>
               </div>
               <div>
                 <div className="font-display text-2xl">7d</div>
-                <div className="text-[10px] uppercase tracking-[0.18em] text-secondary-foreground/55">diagnóstico</div>
+                <div className="text-[10px] uppercase tracking-[0.18em] text-white/55">diagnóstico</div>
               </div>
               <div>
                 <div className="font-display text-2xl">BR</div>
-                <div className="text-[10px] uppercase tracking-[0.18em] text-secondary-foreground/55">atende</div>
+                <div className="text-[10px] uppercase tracking-[0.18em] text-white/55">atende</div>
               </div>
             </div>
           </aside>
