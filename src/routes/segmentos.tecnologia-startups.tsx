@@ -32,11 +32,31 @@ function Page() {
       ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       sections={[
-      { h2: "Particularidades do setor", h3: [{"title":"SaaS e licenciamento","body":"Tributação de software como serviço."},{"title":"ISS por município","body":"Discussão de local de prestação."},{"title":"Equity e vesting","body":"Reflexos contábeis e tributários para sócios e funcionários."}] },
-      { h2: "Captação e investimento", h3: [{"title":"Mútuo conversível","body":"Tratamento contábil correto."},{"title":"Cap table","body":"Reflexo nas alterações societárias."},{"title":"Due diligence","body":"Contabilidade preparada para auditoria de investidor."}] },
-      { h2: "Como a DCON atua", h3: [{"title":"Diagnóstico inicial","body":"Análise de regime e estrutura para a fase da empresa."},{"title":"Rotina técnica","body":"Fechamento mensal compatível com governança de investidor."},{"title":"Apoio em rodadas","body":"Documentação contábil pronta para due diligence."}] },
-      { h2: "Lei do Bem e incentivos", h3: [{"title":"Lucro Real","body":"Pré-requisito para o benefício."},{"title":"Projetos elegíveis","body":"P&D com documentação adequada."},{"title":"Apuração técnica","body":"Suporte contábil ao benefício fiscal."}] },
-      { h2: "Perguntas frequentes", h3: [{"title":"Simples serve para startup?","body":"Pode servir no início, mas precisa revisão."},{"title":"Como tratar funcionário com equity?","body":"Análise societária e trabalhista combinada."},{"title":"Atendem fora de Goiânia?","body":"Sim, online em todo o Brasil."}] },
+        { h2: "SaaS, ISS e regime tributário", lead: "Em tecnologia, o tributo depende de contrato, licenciamento e local de prestação — a escolha de regime acompanha a fase da empresa.", h3: [
+          { title: "SaaS e licenciamento", body: "Software como serviço, licença de uso e desenvolvimento sob encomenda têm tratamento fiscal distinto — contrato e nota precisam ser coerentes." },
+          { title: "ISS por município", body: "Local da prestação, código de serviço e retenção revisados — sem isso há bitributação ou perda de crédito do tomador." },
+          { title: "Simples, Presumido e Real", body: "Fase, faturamento, folha, margem e necessidade de crédito de PIS/Cofins simulados antes da escolha." },
+        ]},
+        { h2: "Captação, cap table e M&A", h3: [
+          { title: "Mútuo conversível e SAFE", body: "Reconhecimento contábil correto e tratamento tributário do conversível na rodada — sem isso a captação vira receita." },
+          { title: "Cap table e alterações societárias", body: "Cada rodada refletida em contrato social, livros societários e ECD para suportar auditoria de investidor." },
+          { title: "Due diligence", body: "Contabilidade, fiscal, folha, contratos e obrigações acessórias organizados para a janela curta de DD." },
+        ]},
+        { h2: "Equity, vesting e stock options", h3: [
+          { title: "Funcionários CLT com equity", body: "Tratamento trabalhista e tributário do plano de outorga — natureza salarial ou mercantil definida por contrato e governança." },
+          { title: "Sócios e cofundadores", body: "Vesting reverso, cliff e cláusulas de saída escritos antes de o conflito surgir." },
+          { title: "PJ na operação", body: "Risco de vínculo (Lei 11.196/05 e jurisprudência) avaliado antes de contratar dev/produto por CNPJ." },
+        ]},
+        { h2: "Incentivos e exportação de software", h3: [
+          { title: "Lei do Bem", body: "Lucro Real, projetos de P&D elegíveis, documentação técnica e suporte contábil para sustentar o benefício em fiscalização." },
+          { title: "Exportação de serviços", body: "PIS, Cofins, ISS, contrato internacional, invoice, câmbio e resultado no exterior revisados para evitar incidência indevida." },
+        ]},
+        { h2: "Reforma Tributária em tech", h3: [
+          { title: "IBS/CBS em serviços digitais", body: "Documentos fiscais e ERP parametrizados para 2026/2027 — emissor, código de serviço e cadastro de cliente revisados." },
+          { title: "B2B no Simples", body: "Setembro/2026 é mês de decisão — startups B2B simulam competitividade e crédito para clientes antes do regime regular." },
+        ]},
+      ]}
+      sections_legacy={[
       ]}
     />
   );
