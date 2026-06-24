@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TemasEstrategicosRouteImport } from './routes/temas-estrategicos'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ReformaTributaria2026RouteImport } from './routes/reforma-tributaria-2026'
 import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as MetodoRouteImport } from './routes/metodo'
 import { Route as GoianiaRouteImport } from './routes/goiania'
@@ -91,6 +92,11 @@ const SobreRoute = SobreRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReformaTributaria2026Route = ReformaTributaria2026RouteImport.update({
+  id: '/reforma-tributaria-2026',
+  path: '/reforma-tributaria-2026',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacidadeRoute = PrivacidadeRouteImport.update({
@@ -457,6 +463,7 @@ export interface FileRoutesByFullPath {
   '/goiania': typeof GoianiaRoute
   '/metodo': typeof MetodoRoute
   '/privacidade': typeof PrivacidadeRoute
+  '/reforma-tributaria-2026': typeof ReformaTributaria2026Route
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRouteWithChildren
   '/temas-estrategicos': typeof TemasEstrategicosRoute
@@ -526,6 +533,7 @@ export interface FileRoutesByTo {
   '/goiania': typeof GoianiaRoute
   '/metodo': typeof MetodoRoute
   '/privacidade': typeof PrivacidadeRoute
+  '/reforma-tributaria-2026': typeof ReformaTributaria2026Route
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRouteWithChildren
   '/temas-estrategicos': typeof TemasEstrategicosRoute
@@ -597,6 +605,7 @@ export interface FileRoutesById {
   '/goiania': typeof GoianiaRoute
   '/metodo': typeof MetodoRoute
   '/privacidade': typeof PrivacidadeRoute
+  '/reforma-tributaria-2026': typeof ReformaTributaria2026Route
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRouteWithChildren
   '/temas-estrategicos': typeof TemasEstrategicosRoute
@@ -668,6 +677,7 @@ export interface FileRouteTypes {
     | '/goiania'
     | '/metodo'
     | '/privacidade'
+    | '/reforma-tributaria-2026'
     | '/sitemap.xml'
     | '/sobre'
     | '/temas-estrategicos'
@@ -737,6 +747,7 @@ export interface FileRouteTypes {
     | '/goiania'
     | '/metodo'
     | '/privacidade'
+    | '/reforma-tributaria-2026'
     | '/sitemap.xml'
     | '/sobre'
     | '/temas-estrategicos'
@@ -807,6 +818,7 @@ export interface FileRouteTypes {
     | '/goiania'
     | '/metodo'
     | '/privacidade'
+    | '/reforma-tributaria-2026'
     | '/sitemap.xml'
     | '/sobre'
     | '/temas-estrategicos'
@@ -878,6 +890,7 @@ export interface RootRouteChildren {
   GoianiaRoute: typeof GoianiaRoute
   MetodoRoute: typeof MetodoRoute
   PrivacidadeRoute: typeof PrivacidadeRoute
+  ReformaTributaria2026Route: typeof ReformaTributaria2026Route
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreRoute: typeof SobreRouteWithChildren
   TemasEstrategicosRoute: typeof TemasEstrategicosRoute
@@ -956,6 +969,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reforma-tributaria-2026': {
+      id: '/reforma-tributaria-2026'
+      path: '/reforma-tributaria-2026'
+      fullPath: '/reforma-tributaria-2026'
+      preLoaderRoute: typeof ReformaTributaria2026RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacidade': {
@@ -1452,6 +1472,7 @@ const rootRouteChildren: RootRouteChildren = {
   GoianiaRoute: GoianiaRoute,
   MetodoRoute: MetodoRoute,
   PrivacidadeRoute: PrivacidadeRoute,
+  ReformaTributaria2026Route: ReformaTributaria2026Route,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreRoute: SobreRouteWithChildren,
   TemasEstrategicosRoute: TemasEstrategicosRoute,
@@ -1512,3 +1533,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
