@@ -53,14 +53,20 @@ function Page() {
         { h2: "SCM x SVA", h3: [
           { title: "Separação técnica", body: "SCM é serviço de comunicação multimídia. SVA precisa ter autonomia econômica, entrega real, contrato, documentação e cobrança coerente." },
         ]},
+        { h2: "Documentação que sustenta a segregação", h3: [
+          { title: "Contrato e plano comercial", body: "Contrato, plano comercial, fatura, nota fiscal, entrega técnica, preço, suporte e coerência entre operação e tributação." },
+          { title: "Receita segregada", body: "Receitas de SCM e SVA escrituradas e faturadas separadamente — sem mistura no mesmo item da nota." },
+        ]},
         { h2: "Súmula 334/STJ e não incidência", h3: [
           { title: "Linguagem de cautela", body: "Não vendemos como imunidade genérica. A segregação correta depende de documentação, fatura, contrato, nota e efetiva entrega do SVA." },
         ]},
         { h2: "NFCom", h3: [
-          { title: "Validação técnica", body: "Validação da NFCom, códigos, descrição, segregação, contratos e escrituração compatível." },
+          { title: "Modelo documental", body: "Receitas de SCM, receitas de SVA, faturamento, sistema, integração e obrigações acessórias revisadas no padrão NFCom." },
+          { title: "Risco de emissão errada", body: "Erro de emissão pode comprometer a defesa da segregação SCM/SVA em fiscalização." },
         ]},
         { h2: "Recuperação e risco", h3: [
           { title: "Últimos 5 anos", body: "Revisão de ICMS pago indevidamente sobre SVA quando viável, com avaliação do risco de chamar qualquer receita de SVA e do risco de autuação." },
+          { title: "Risco de chamar tudo de SVA", body: "Separar receita apenas por economia fiscal, sem substância e documentação, cria risco maior que o benefício." },
         ]},
       ]}
     >
