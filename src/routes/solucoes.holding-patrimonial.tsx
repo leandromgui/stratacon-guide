@@ -65,6 +65,20 @@ function Page() {
           { title: "Múltiplas operações", body: "Sócio com várias empresas que precisa organizar participações e governança." },
           { title: "Profissionalização familiar", body: "Famílias empresárias que precisam separar pessoa física, empresa e patrimônio comum." },
         ]},
+        { h2: "Quando NÃO faz sentido", lead: "Holding não é milagre tributário — é instrumento. Em parte dos casos a recomendação técnica é não constituir.", h3: [
+          { title: "Patrimônio pequeno", body: "Custo de manutenção, contabilidade e governança maior do que o benefício esperado." },
+          { title: "Ganho de capital latente alto", body: "Imóveis com forte valorização podem disparar tributação relevante na integralização ou venda futura." },
+          { title: "Ausência de finalidade real", body: "Tentativa de blindagem artificial, sem operação ou propósito documentado, é desconsiderada." },
+          { title: "Conflito familiar não resolvido", body: "Sem acordo prévio entre sócios, a holding amplifica disputas em vez de organizá-las." },
+        ]},
+        { h2: "Aluguéis, IBS/CBS e CIB", lead: "PF com muitos imóveis precisa revisar quantidade de imóveis locados, receita anual e enquadramento como contribuinte de IBS/CBS.", h3: [
+          { title: "Limite PF na Reforma", body: "Mais de 3 imóveis locados e receita anual acima de R$ 240 mil entram no radar de IBS/CBS — locação residencial tem redutor de 70%." },
+          { title: "Holding x PF", body: "Comparativo entre tributação na PF (IRPF + IBS/CBS) e na holding (IRPJ/CSLL + IBS/CBS) com cálculo dos redutores e do CIB." },
+        ]},
+        { h2: "IRPFM e custos da estrutura", h3: [
+          { title: "IRPFM", body: "Holding pode integrar planejamento de altas rendas, desde que tenha propósito real e análise de impacto." },
+          { title: "Custos diretos", body: "Abertura, ITBI, ITCMD, ganho de capital, honorários, contabilidade, contratos e manutenção projetados antes da decisão." },
+        ]},
       ]}
       deliverables={[
         { title: "Parecer de viabilidade", body: "Documento técnico com recomendação fundamentada de constituir, postergar ou não constituir." },
