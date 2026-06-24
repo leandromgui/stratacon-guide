@@ -285,6 +285,31 @@ function Home() {
           <h2 className="mt-3 font-display text-2xl md:text-4xl tracking-tight leading-[1.1] max-w-3xl">
             Responsabilidade técnica com registro ativo no CRC-GO.
           </h2>
+          <div className="mt-8 grid lg:grid-cols-12 gap-10 items-start">
+            <div className="lg:col-span-7 space-y-5 text-[15px] leading-relaxed text-foreground/80">
+              <p>
+                A liderança técnica da DCON é conduzida por <span className="text-foreground font-medium">Leandro Matsuoka Guimarães</span>, contador registrado no CRC-GO sob nº 16.395/O-9, sócio da DCON Serviços Contábeis e profissional com atuação consolidada em contabilidade empresarial, consultoria tributária, controladoria, finanças corporativas e reorganização societária.
+              </p>
+              <p>
+                Formado em Ciências Contábeis, bacharel em Direito e pós-graduado em Finanças Corporativas, Leandro reúne uma leitura integrada da empresa — contábil, fiscal, jurídica, financeira, societária e patrimonial — aplicada a planejamento tributário, recuperação de créditos, análise de regimes, regularização, defesas administrativas, SPED, Simples Nacional, Lucro Presumido, Lucro Real, estruturação de holdings e suporte estratégico para decisões de crescimento, sucessão e reorganização.
+              </p>
+              <p>
+                Na DCON, a liderança técnica não se limita à assinatura contábil: o papel do responsável técnico é assegurar que cada entrega tenha método, documentação, fundamento, rastreabilidade e coerência entre a operação real da empresa, as notas fiscais, a escrituração, as obrigações acessórias e as decisões tomadas pela administração.
+              </p>
+              <Link to="/sobre/leandro" className="inline-flex items-center text-[11px] uppercase tracking-[0.2em] border-b border-gold pb-1 text-secondary hover:text-primary">
+                Conhecer o responsável técnico →
+              </Link>
+            </div>
+            <div className="lg:col-span-5 bg-card border border-border p-7">
+              <div className="text-[10px] uppercase tracking-[0.22em] text-gold">Em síntese</div>
+              <ul className="mt-4 space-y-3 text-[13.5px] text-foreground/75">
+                <li><span className="text-gold">●</span> Contador CRC-GO 16.395/O-9, sócio da DCON.</li>
+                <li><span className="text-gold">●</span> Ciências Contábeis, Direito e Finanças Corporativas.</li>
+                <li><span className="text-gold">●</span> Tributário, societário, holding e controladoria.</li>
+                <li><span className="text-gold">●</span> Método, documentação, fundamento e rastreabilidade.</li>
+              </ul>
+            </div>
+          </div>
           <div className="mt-12 grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-4">
             <div className="bg-card p-7">
               <div className="text-[10px] uppercase tracking-[0.22em] text-gold">Responsável técnico</div>
