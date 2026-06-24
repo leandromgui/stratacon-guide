@@ -29,14 +29,27 @@ function Page() {
       intro="Contabilidade técnica desenhada para a realidade tributária e operacional de franquias e redes."
       intent="contabilidade franquia, contabilidade rede de lojas"
       observation="Operações multi-CNPJ."
-      ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      ctaPrimary={{ label: "Solicitar diagnóstico técnico inicial", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       sections={[
-      { h2: "Particularidades tributárias e contábeis", h3: [{"title":"Tributação específica","body":"Regras fiscais que afetam diretamente operações de franquias e redes."},{"title":"Obrigações próprias","body":"Acessórias e declarações típicas deste segmento."},{"title":"Risco mais comum","body":"O erro que mais vemos neste tipo de operação."}] },
-      { h2: "Riscos comuns no segmento", h3: [{"title":"Enquadramento errado","body":"Regime que parece econômico mas custa mais no fim."},{"title":"Falha de classificação fiscal","body":"CFOP, CST e NCM mal aplicados."},{"title":"Passivo trabalhista","body":"Vínculos mal estruturados que viram dor mais tarde."}] },
-      { h2: "Como a DCON atua neste segmento", h3: [{"title":"Diagnóstico específico","body":"Revisamos a operação real do segmento antes de qualquer mudança."},{"title":"Rotina técnica","body":"Calendário, conferência e relatórios desenhados para o setor."},{"title":"Apoio consultivo","body":"Reuniões com leitura do que o número está dizendo."}] },
-      { h2: "Casos e exemplos", h3: [{"title":"Caso típico 1","body":"[preencher com situação real anonimizada]"},{"title":"Caso típico 2","body":"[preencher com situação real anonimizada]"}] },
-      { h2: "Perguntas frequentes", h3: [{"title":"Atendem só em Goiânia?","body":"Atendemos presencialmente em Goiânia e online em todo o Brasil."},{"title":"Trocar de contador agora vale a pena?","body":"Sim, se a contabilidade atual não dá visão técnica do segmento."},{"title":"Já posso pedir diagnóstico?","body":"Sim, em qualquer fase da operação."}] },
+        { h2: "Royalties, fundo de marketing e taxa de franquia", lead: "Contrato de franquia define como cada repasse é tributado — erro de classificação gera incidência indevida e disputa com o franqueador.", h3: [
+          { title: "Royalties e taxa inicial", body: "Tratamento contábil e fiscal correto — diferenciação entre receita do franqueador e despesa dedutível do franqueado." },
+          { title: "Fundo de marketing", body: "Repasse a fundo coletivo escriturado de forma rastreável — não é receita do franqueador nem despesa simples do franqueado." },
+          { title: "Retenções", body: "IRRF, PIS/Cofins/CSLL e ISS revisados em cada repasse contratual." },
+        ]},
+        { h2: "Operação multiunidade", h3: [
+          { title: "Múltiplos CNPJs", body: "Cada loja com CNPJ próprio exige operação real — sem isso, a Receita desconsidera por simulação." },
+          { title: "Sublimite e Simples", body: "Faturamento agregado e sublimite estadual monitorados para evitar mudança automática de regime no meio do ano." },
+          { title: "Padronização contábil", body: "Plano de contas e fechamento mensal idênticos entre unidades para sustentar consolidação e comparação." },
+        ]},
+        { h2: "Folha em rede de unidades", h3: [
+          { title: "CCT por unidade", body: "Convenção coletiva da categoria aplicada a cada localidade — piso, adicionais e benefícios variam por estado." },
+          { title: "Folha cruzada", body: "Folha em uma empresa para outra do mesmo grupo é risco — desconsideração e cobrança previdenciária retroativa." },
+        ]},
+        { h2: "Reforma Tributária em redes", h3: [
+          { title: "IBS/CBS em repasses", body: "Royalties, fundo e taxa de franquia passam a refletir IBS/CBS na nota — revisão de contrato e parametrização do ERP antes de 2027." },
+          { title: "B2B no Simples", body: "Franqueado B2B do Simples precisa simular competitividade e crédito para clientes antes da decisão de regime em setembro/2026." },
+        ]},
       ]}
     />
   );

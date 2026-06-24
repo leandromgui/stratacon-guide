@@ -29,14 +29,28 @@ function Page() {
       intro="Contabilidade técnica desenhada para a realidade tributária e operacional de terceiro setor."
       intent="contabilidade terceiro setor, OSC, OSCIP"
       observation="Imunidade e prestação de contas."
-      ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      ctaPrimary={{ label: "Solicitar diagnóstico técnico inicial", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       sections={[
-      { h2: "Particularidades tributárias e contábeis", h3: [{"title":"Tributação específica","body":"Regras fiscais que afetam diretamente operações de terceiro setor."},{"title":"Obrigações próprias","body":"Acessórias e declarações típicas deste segmento."},{"title":"Risco mais comum","body":"O erro que mais vemos neste tipo de operação."}] },
-      { h2: "Riscos comuns no segmento", h3: [{"title":"Enquadramento errado","body":"Regime que parece econômico mas custa mais no fim."},{"title":"Falha de classificação fiscal","body":"CFOP, CST e NCM mal aplicados."},{"title":"Passivo trabalhista","body":"Vínculos mal estruturados que viram dor mais tarde."}] },
-      { h2: "Como a DCON atua neste segmento", h3: [{"title":"Diagnóstico específico","body":"Revisamos a operação real do segmento antes de qualquer mudança."},{"title":"Rotina técnica","body":"Calendário, conferência e relatórios desenhados para o setor."},{"title":"Apoio consultivo","body":"Reuniões com leitura do que o número está dizendo."}] },
-      { h2: "Casos e exemplos", h3: [{"title":"Caso típico 1","body":"[preencher com situação real anonimizada]"},{"title":"Caso típico 2","body":"[preencher com situação real anonimizada]"}] },
-      { h2: "Perguntas frequentes", h3: [{"title":"Atendem só em Goiânia?","body":"Atendemos presencialmente em Goiânia e online em todo o Brasil."},{"title":"Trocar de contador agora vale a pena?","body":"Sim, se a contabilidade atual não dá visão técnica do segmento."},{"title":"Já posso pedir diagnóstico?","body":"Sim, em qualquer fase da operação."}] },
+        { h2: "Imunidade e isenção — não são automáticas", lead: "OSC, associação e fundação precisam comprovar requisitos a cada ano — falha de documentação faz a Receita reclassificar como entidade tributada.", h3: [
+          { title: "Requisitos do art. 14 do CTN", body: "Não distribuição de superávit, aplicação integral no objeto social e escrituração regular conferidos e documentados." },
+          { title: "Certificação CEBAS, OS, OSCIP, UPF/Utilidade Pública", body: "Validade, renovação e relatórios anuais acompanhados para manter o benefício." },
+        ]},
+        { h2: "Folha, eSocial e SST", h3: [
+          { title: "Cota patronal", body: "Imunidade da cota patronal previdenciária depende de CEBAS válido e escrituração regular — sem isso, INSS é devido normalmente." },
+          { title: "Eventos eSocial e DCTFWeb", body: "Folha, retenções e contribuições enviadas no prazo, com tratamento técnico de inconsistências antes da multa." },
+          { title: "SST e NR-1", body: "PGR, PCMSO, ASO e eventos S-2210/S-2220/S-2240 organizados também para entidades sem fins lucrativos." },
+        ]},
+        { h2: "Prestação de contas a financiadores", h3: [
+          { title: "Convênios e termos de fomento", body: "Plano de trabalho, prestação de contas e rastreabilidade de recursos públicos e privados conduzidos com rigor técnico." },
+          { title: "Demonstrações contábeis ITG 2002", body: "Balanço, DRE, DMPL, DFC e notas explicativas no padrão das entidades sem finalidade de lucro." },
+          { title: "Doações dedutíveis", body: "Comprovação técnica que sustenta dedução do doador e benefício do projeto incentivado (Rouanet, Esporte, FIA, PRONAS, PRONON)." },
+        ]},
+        { h2: "Riscos comuns", h3: [
+          { title: "Distribuição indireta de superávit", body: "Remuneração desproporcional, contratos com partes relacionadas e despesas sem propósito quebram a imunidade retroativamente." },
+          { title: "Atividade econômica não escriturada", body: "Bazar, evento, venda de material e curso pago precisam ser escriturados — a depender do volume, exigem regime tributário próprio." },
+          { title: "Falha em prestação de contas", body: "Reprovação em convênio gera devolução de recurso, inscrição em Cadin e impedimento de novos contratos públicos." },
+        ]},
       ]}
     />
   );

@@ -29,14 +29,26 @@ function Page() {
       intro="Contabilidade técnica desenhada para a realidade tributária e operacional de odontologia."
       intent="contabilidade para dentistas, clínica odontológica"
       observation="Sub-cluster de Saúde."
-      ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      ctaPrimary={{ label: "Solicitar diagnóstico técnico inicial", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       sections={[
-      { h2: "Particularidades tributárias e contábeis", h3: [{"title":"Tributação específica","body":"Regras fiscais que afetam diretamente operações de odontologia."},{"title":"Obrigações próprias","body":"Acessórias e declarações típicas deste segmento."},{"title":"Risco mais comum","body":"O erro que mais vemos neste tipo de operação."}] },
-      { h2: "Riscos comuns no segmento", h3: [{"title":"Enquadramento errado","body":"Regime que parece econômico mas custa mais no fim."},{"title":"Falha de classificação fiscal","body":"CFOP, CST e NCM mal aplicados."},{"title":"Passivo trabalhista","body":"Vínculos mal estruturados que viram dor mais tarde."}] },
-      { h2: "Como a DCON atua neste segmento", h3: [{"title":"Diagnóstico específico","body":"Revisamos a operação real do segmento antes de qualquer mudança."},{"title":"Rotina técnica","body":"Calendário, conferência e relatórios desenhados para o setor."},{"title":"Apoio consultivo","body":"Reuniões com leitura do que o número está dizendo."}] },
-      { h2: "Casos e exemplos", h3: [{"title":"Caso típico 1","body":"[preencher com situação real anonimizada]"},{"title":"Caso típico 2","body":"[preencher com situação real anonimizada]"}] },
-      { h2: "Perguntas frequentes", h3: [{"title":"Atendem só em Goiânia?","body":"Atendemos presencialmente em Goiânia e online em todo o Brasil."},{"title":"Trocar de contador agora vale a pena?","body":"Sim, se a contabilidade atual não dá visão técnica do segmento."},{"title":"Já posso pedir diagnóstico?","body":"Sim, em qualquer fase da operação."}] },
+        { h2: "Fator R, Anexo III e Simples Nacional", lead: "Clínica odontológica decide o anexo do Simples mês a mês — Fator R mal calculado dispara mudança automática para Anexo V.", h3: [
+          { title: "Anexo III x Anexo V", body: "Pró-labore, folha, receita bruta, ISS e margem simulados para sustentar enquadramento no Anexo III." },
+          { title: "Fator R mensal", body: "Cálculo acompanhado mensalmente para evitar surpresa na apuração do PGDAS-D." },
+        ]},
+        { h2: "PF x PJ na odontologia", h3: [
+          { title: "Receita Saúde", body: "Dentista PF: recibo eletrônico, Livro Caixa, Carnê-Leão, despesas dedutíveis e risco de malha revisados." },
+          { title: "Comparativo técnico", body: "PF com IRPF até 27,5% comparado com PJ no Simples — quando atividade, Fator R, ISS e pró-labore permitem." },
+          { title: "Sociedade entre dentistas", body: "Distribuição entre sócios, pró-labore, contratos de cooperação e repasses de convênios escriturados de forma rastreável." },
+        ]},
+        { h2: "Equiparação hospitalar em odontologia", h3: [
+          { title: "Viabilidade técnica", body: "Lucro Presumido com atividades equiparáveis a hospitalares — IRPJ 8% e CSLL 12% apenas sobre receita qualificada, cumpridos os requisitos sanitários e estruturais." },
+          { title: "Segregação de receita", body: "Consultas simples separadas de procedimentos qualificados — sem isso a tese não se sustenta em fiscalização." },
+        ]},
+        { h2: "Folha, eSocial e pejotização", h3: [
+          { title: "Auxiliares e ASB/TSB", body: "Contratação CLT, jornada, adicional de insalubridade e CCT da categoria aplicadas corretamente." },
+          { title: "Dentista PJ na clínica", body: "Risco de vínculo (Lei 11.196/05 e jurisprudência) analisado antes de contratar profissional por CNPJ." },
+        ]},
       ]}
     />
   );

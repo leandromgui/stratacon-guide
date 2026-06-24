@@ -29,14 +29,27 @@ function Page() {
       intro="Contabilidade técnica desenhada para a realidade tributária e operacional de imobiliárias."
       intent="contabilidade imobiliária, administradora de imóveis"
       observation="Ponte para Holding."
-      ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      ctaPrimary={{ label: "Solicitar diagnóstico técnico inicial", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       sections={[
-      { h2: "Particularidades tributárias e contábeis", h3: [{"title":"Tributação específica","body":"Regras fiscais que afetam diretamente operações de imobiliárias."},{"title":"Obrigações próprias","body":"Acessórias e declarações típicas deste segmento."},{"title":"Risco mais comum","body":"O erro que mais vemos neste tipo de operação."}] },
-      { h2: "Riscos comuns no segmento", h3: [{"title":"Enquadramento errado","body":"Regime que parece econômico mas custa mais no fim."},{"title":"Falha de classificação fiscal","body":"CFOP, CST e NCM mal aplicados."},{"title":"Passivo trabalhista","body":"Vínculos mal estruturados que viram dor mais tarde."}] },
-      { h2: "Como a DCON atua neste segmento", h3: [{"title":"Diagnóstico específico","body":"Revisamos a operação real do segmento antes de qualquer mudança."},{"title":"Rotina técnica","body":"Calendário, conferência e relatórios desenhados para o setor."},{"title":"Apoio consultivo","body":"Reuniões com leitura do que o número está dizendo."}] },
-      { h2: "Casos e exemplos", h3: [{"title":"Caso típico 1","body":"[preencher com situação real anonimizada]"},{"title":"Caso típico 2","body":"[preencher com situação real anonimizada]"}] },
-      { h2: "Perguntas frequentes", h3: [{"title":"Atendem só em Goiânia?","body":"Atendemos presencialmente em Goiânia e online em todo o Brasil."},{"title":"Trocar de contador agora vale a pena?","body":"Sim, se a contabilidade atual não dá visão técnica do segmento."},{"title":"Já posso pedir diagnóstico?","body":"Sim, em qualquer fase da operação."}] },
+        { h2: "Comissão de corretagem, DIMOB e Carnê-Leão", lead: "Imobiliária administra dinheiro de terceiros — receita própria e repasse precisam estar escriturados de forma rastreável.", h3: [
+          { title: "Receita de corretagem", body: "Comissão de venda e locação reconhecida pelo regime de competência, separada do repasse ao locador/vendedor." },
+          { title: "DIMOB", body: "Declaração de Informações sobre Atividades Imobiliárias entregue com locadores, locatários, valores e referências corretas." },
+          { title: "Carnê-Leão do locador PF", body: "Orientação técnica ao proprietário PF sobre IRPF, redutores e quando migrar para holding ou PJ." },
+        ]},
+        { h2: "ISS e regime tributário", h3: [
+          { title: "ISS sobre corretagem", body: "Município, código de serviço, retenção e local da prestação revisados — alíquota varia e retenção indevida vira disputa." },
+          { title: "Simples x Presumido", body: "Anexo do Simples (com Fator R) comparado com Lucro Presumido considerando folha, distribuição de lucros e margem real." },
+        ]},
+        { h2: "IBS/CBS em locações", lead: "PF com mais de 3 imóveis locados e receita anual acima de R$ 240 mil entra no radar de IBS/CBS — locação residencial tem redutor de 70%.", h3: [
+          { title: "Locador PF x holding", body: "Comparativo entre tributação na PF (IRPF + IBS/CBS) e na holding (IRPJ/CSLL + IBS/CBS) com cálculo dos redutores e do CIB." },
+          { title: "Contratos e CIB", body: "Contratos antigos revisados para se adequar ao Cadastro Imobiliário Brasileiro e ao novo cenário de emissão de documento fiscal de locação." },
+        ]},
+        { h2: "Riscos comuns", h3: [
+          { title: "Mistura entre receita e repasse", body: "Receita da imobiliária somada ao repasse infla faturamento e pode jogar a empresa em outro regime." },
+          { title: "DIMOB inconsistente", body: "Divergência entre DIMOB, contrato e Carnê-Leão do locador vira malha fiscal para os dois lados." },
+          { title: "Tratamento manual da carteira", body: "Carteira de aluguéis sem sistema gera erro de repasse, multa contratual e perda de comissão." },
+        ]},
       ]}
     />
   );

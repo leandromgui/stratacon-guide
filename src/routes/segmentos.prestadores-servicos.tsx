@@ -29,14 +29,27 @@ function Page() {
       intro="Contabilidade técnica desenhada para a realidade tributária e operacional de prestadores de serviços."
       intent="contabilidade prestadores de serviços, ISS Goiânia"
       observation="ISS e regimes de serviço."
-      ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      ctaPrimary={{ label: "Solicitar diagnóstico técnico inicial", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       sections={[
-      { h2: "Particularidades tributárias e contábeis", h3: [{"title":"Tributação específica","body":"Regras fiscais que afetam diretamente operações de prestadores de serviços."},{"title":"Obrigações próprias","body":"Acessórias e declarações típicas deste segmento."},{"title":"Risco mais comum","body":"O erro que mais vemos neste tipo de operação."}] },
-      { h2: "Riscos comuns no segmento", h3: [{"title":"Enquadramento errado","body":"Regime que parece econômico mas custa mais no fim."},{"title":"Falha de classificação fiscal","body":"CFOP, CST e NCM mal aplicados."},{"title":"Passivo trabalhista","body":"Vínculos mal estruturados que viram dor mais tarde."}] },
-      { h2: "Como a DCON atua neste segmento", h3: [{"title":"Diagnóstico específico","body":"Revisamos a operação real do segmento antes de qualquer mudança."},{"title":"Rotina técnica","body":"Calendário, conferência e relatórios desenhados para o setor."},{"title":"Apoio consultivo","body":"Reuniões com leitura do que o número está dizendo."}] },
-      { h2: "Casos e exemplos", h3: [{"title":"Caso típico 1","body":"[preencher com situação real anonimizada]"},{"title":"Caso típico 2","body":"[preencher com situação real anonimizada]"}] },
-      { h2: "Perguntas frequentes", h3: [{"title":"Atendem só em Goiânia?","body":"Atendemos presencialmente em Goiânia e online em todo o Brasil."},{"title":"Trocar de contador agora vale a pena?","body":"Sim, se a contabilidade atual não dá visão técnica do segmento."},{"title":"Já posso pedir diagnóstico?","body":"Sim, em qualquer fase da operação."}] },
+        { h2: "Regime tributário e Fator R", lead: "Em serviços, a escolha de regime depende de folha, margem, ISS e perfil de clientes — não de costume.", h3: [
+          { title: "Simples x Presumido x Real", body: "Anexo III x Anexo V (Fator R), Presumido com presunção correta e Real para margens baixas com créditos relevantes." },
+          { title: "Pró-labore técnico", body: "Definição com base na realidade societária, regime e distribuição de lucros — sem isso vira INSS retroativo." },
+        ]},
+        { h2: "ISS, retenções e NFS-e Nacional", h3: [
+          { title: "Código de serviço e município", body: "Local da prestação, código de serviço, alíquota e retenção revisados — erro vira disputa entre municípios e bitributação." },
+          { title: "Retenção PCC e IRRF", body: "PIS/Cofins/CSLL e IRRF retidos por tomador PJ conferidos para sustentar PER/DCOMP e evitar perda de crédito." },
+          { title: "NFS-e Nacional", body: "ME e EPP do Simples prestadoras de serviço se preparam para padrão nacional, emissor web ou API, códigos de serviço e IBS/CBS." },
+        ]},
+        { h2: "Reforma Tributária em serviços", h3: [
+          { title: "Decisão de 2027", body: "Setembro/2026 é mês de decisão — empresas B2B do Simples simulam competitividade, crédito para clientes, margem e preço antes do regime regular." },
+          { title: "Lucro Presumido e LC 224/2025", body: "Serviços com presunção 32% têm acréscimo de 10% sobre o excedente de R$ 5 milhões/ano ou R$ 1,25 milhão/trimestre — IRPJ 1T/2026 e CSLL 2T/2026." },
+        ]},
+        { h2: "Riscos comuns", h3: [
+          { title: "Pejotização mal feita", body: "Funcionário PJ que opera como CLT vira passivo trabalhista — FGTS, INSS, férias e 13º retroativos." },
+          { title: "Distribuição sem balanço", body: "Distribuição de lucros sem ECD/ECF regular é reclassificada como pró-labore." },
+          { title: "ISS recolhido no município errado", body: "Tomador retém no município dele, prestador recolhe no dele — sem documentação técnica os dois pagam." },
+        ]},
       ]}
     />
   );

@@ -33,11 +33,24 @@ function Page() {
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       pillarKey="e-commerce"
       sections={[
-      { h2: "Particularidades do e-commerce", h3: [{"title":"DIFAL","body":"Diferencial de alíquota entre estados, com regra que muda conforme o destino."},{"title":"ICMS-ST","body":"Substituição tributária no varejo digital — fonte clássica de erro."},{"title":"Marketplace × loja própria","body":"Tributação muda conforme quem é o vendedor jurídico."}] },
-      { h2: "Operações típicas", h3: [{"title":"Mercado Livre, Shopee e Amazon","body":"Repasse, retenção e nota fiscal sob regras específicas."},{"title":"Shopify, Nuvemshop e loja própria","body":"Operação direta com cliente final."},{"title":"Logística e estoque","body":"Centros de distribuição em outros estados mudam a tributação."}] },
-      { h2: "Riscos comuns", h3: [{"title":"DIFAL não recolhido","body":"Autuação retroativa com juros e multa."},{"title":"ST paga duas vezes","body":"Falha de identificação na nota de entrada."},{"title":"Regime mal escolhido","body":"Simples nem sempre é o mais econômico para e-commerce."}] },
-      { h2: "Como a DCON atua", h3: [{"title":"Diagnóstico fiscal digital","body":"Levantamento por estado, marketplace e tipo de operação."},{"title":"Rotina fiscal saneada","body":"CFOP, CST e NCM revisados antes da apuração."},{"title":"Revisão de regime","body":"Modelagem técnica de Simples × Presumido para o e-commerce."}] },
-      { h2: "Perguntas frequentes", h3: [{"title":"Vendo só por marketplace, preciso de contador?","body":"Sim — a nota é sua, o risco é seu."},{"title":"Atendem operação multiestadual?","body":"Sim, é o nosso dia a dia."},{"title":"Recuperam ST paga a maior?","body":"Avaliamos na rotina e na recuperação."}] },
+        { h2: "ICMS-ST, DIFAL e cadastro fiscal", lead: "No e-commerce o tributo nasce no cadastro de produto e na regra do destino — sem disciplina cadastral, cada venda vira passivo silencioso.", h3: [
+          { title: "ICMS-ST", body: "ST por produto, MVA, convênio estadual e base efetiva — recuperação de ST paga a maior em até 5 anos quando há lastro." },
+          { title: "DIFAL", body: "Partilha entre estados, GNRE, Simples Nacional, consumidor final e autorregularização tratados antes da autuação." },
+          { title: "Marketplace x loja própria", body: "Mercado Livre, Shopee, Amazon, Shopify e Nuvemshop — quem é o vendedor jurídico, quem retém, quem repassa e como a nota é emitida." },
+        ]},
+        { h2: "Logística, estoque e SPED", h3: [
+          { title: "CD em outro estado", body: "Transferência entre estabelecimentos, ICMS de origem e cálculo correto da base impactam preço final e crédito do cliente PJ." },
+          { title: "Estoque conciliado", body: "Estoque físico x escritural conferido — diferença gera presunção de venda sem nota e tributação retroativa." },
+          { title: "Perdas e quebras", body: "Documentação técnica para reconhecer perda dentro da legislação e não pagar imposto sobre mercadoria que não foi vendida." },
+        ]},
+        { h2: "Regime tributário e margem", h3: [
+          { title: "Simples x Presumido x Real", body: "Margem, frete, marketing, taxa de marketplace e crédito de PIS/Cofins simulados antes da escolha — Simples nem sempre é o mais econômico." },
+          { title: "Sublimite estadual", body: "Faturamento monitorado para evitar mudança automática de regime no meio do ano e perda de benefício estadual." },
+        ]},
+        { h2: "Reforma Tributária no e-commerce", h3: [
+          { title: "IBS/CBS na NF-e e NFC-e", body: "Documentos fiscais passam a carregar os novos tributos — a nota pode ser autorizada e ainda assim estar fiscalmente incorreta." },
+          { title: "Decisão de 2027", body: "Setembro/2026 é mês de decisão para B2B do Simples: competitividade, crédito para clientes e preço simulados antes do regime regular de IBS/CBS." },
+        ]},
       ]}
     />
   );
