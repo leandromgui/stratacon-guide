@@ -412,7 +412,9 @@ export function SiteLayout() {
               </p>
               <div className="mt-6 space-y-1.5 text-sm text-secondary-foreground/75">
                 <div className="text-gold text-[10px] uppercase tracking-[0.22em] mb-2">Goiânia — GO</div>
-                <div>contato@dcon.cnt.br</div>
+                <a href="tel:+5562992890898" className="hover:text-gold transition-colors">(62) 99289-0898</a>
+                <a href="mailto:contato@dcon.cnt.br" className="hover:text-gold transition-colors">contato@dcon.cnt.br</a>
+                <a href="https://wa.me/5562992890898" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">WhatsApp · (62) 99289-0898</a>
                 <div>Atendimento presencial e online</div>
               </div>
               <Link
