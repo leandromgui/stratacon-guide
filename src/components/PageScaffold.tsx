@@ -7,6 +7,38 @@ import { AnimatedHeroBg } from "./AnimatedHeroBg";
 import { Reveal } from "./Reveal";
 import heroBg from "../assets/hero-bg.png";
 
+const DIAGNOSTIC_WA_MESSAGE =
+  "Olá, Dcon. Vim pelo site e gostaria de solicitar um diagnostico para a minha empresa.";
+const DIAGNOSTIC_WA_HREF = `https://wa.me/5562992890898?text=${encodeURIComponent(DIAGNOSTIC_WA_MESSAGE)}`;
+
+function CtaLink({
+  to,
+  className,
+  children,
+}: {
+  to: string;
+  className?: string;
+  children: ReactNode;
+}) {
+  if (to === "/diagnostico") {
+    return (
+      <a
+        href={DIAGNOSTIC_WA_HREF}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link to={to} className={className}>
+      {children}
+    </Link>
+  );
+}
+
 export interface H3Item {
   title: string;
   body: string;
