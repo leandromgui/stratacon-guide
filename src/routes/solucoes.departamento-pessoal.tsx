@@ -39,7 +39,8 @@ function Page() {
   return (
     <PageScaffold
       eyebrow="Soluções · Pessoas e trabalhista"
-      h1={docDcon.h1}
+      h1={docDcon.h1 || "Folha, eSocial e compliance trabalhista para reduzir riscos, encargos indevidos e passivos ocultos"}
+      lead="Folha não é apenas calcular salário. É aplicar corretamente CCT, rubricas, encargos, eSocial, DCTFWeb, FGTS Digital, SST e documentação trabalhista."
       intro={docDcon.fraseComercial}
       breadcrumbs={[{ label: "Soluções", to: "/solucoes" }, { label: "Departamento Pessoal", to: "/solucoes/departamento-pessoal" }]}
       audience={docDcon.audience}
@@ -64,6 +65,23 @@ function Page() {
           { title: "Contratação PJ", body: "Análise de viabilidade, risco de vínculo (Lei 11.196/05 e jurisprudência) e desenho contratual seguro." },
           { title: "Distribuição de lucros", body: "Conformidade com escrituração contábil, balanço e regime tributário da empresa." },
           { title: "Estagiários e jovem aprendiz", body: "Enquadramento legal, cotas obrigatórias e gestão de eventos específicos no eSocial." },
+        ]},
+        { h2: "CCT e enquadramento sindical", lead: "Sindicato correto, piso, reajustes, benefícios, adicionais, jornada, banco de horas, vale-alimentação, seguro de vida e multas convencionais conferidos a cada folha.", h3: [
+          { title: "Enquadramento", body: "Atividade econômica preponderante, sindicato patronal e laboral aplicáveis e CNAEs relacionados." },
+          { title: "Aplicação prática", body: "Cláusulas obrigatórias replicadas em contrato, folha e eSocial — sem deixar diferença salarial latente." },
+        ]},
+        { h2: "Rubricas, premiações e ajuda de custo", lead: "Natureza da verba define INSS, FGTS, IRRF, eSocial, DCTFWeb e FGTS Digital. Erro de rubrica vira passivo.", h3: [
+          { title: "Premiações", body: "Critério objetivo, desempenho superior e política documentada — sem isso, premiação vira salário disfarçado." },
+          { title: "Ajuda de custo", body: "Deve corresponder a custo real, despesa comprovada ou política documentada. Ajuda mensal sem custo real é reclassificada como salário." },
+          { title: "Verbas indenizatórias e reembolsos", body: "Tratamento técnico para evitar incidência indevida e proteger o crédito quando ele existe." },
+        ]},
+        { h2: "SST, PGR, PCMSO, LTCAT, PPP e NR-1", lead: "Saúde e segurança no trabalho passaram a integrar o eSocial — riscos ocupacionais e psicossociais entram na rotina.", h3: [
+          { title: "Documentação", body: "PGR, GRO, PCMSO, ASO, LTCAT e PPP organizados e atualizados conforme NR-1." },
+          { title: "Eventos eSocial SST", body: "S-2210, S-2220 e S-2240 enviados no prazo, com responsabilidade compartilhada entre empresa e prestadores." },
+        ]},
+        { h2: "FGTS Digital, processos trabalhistas e Falso Simples", h3: [
+          { title: "FGTS Digital", body: "Recolhimentos decorrentes de acordos, condenações, verbas salariais e diferenças de folha integrados à rotina." },
+          { title: "Falso Simples", body: "Empresa informada como Simples no eSocial/DCTFWeb sem enquadramento correto gera CPP e terceiros indevidos." },
         ]},
       ]}
       deliverables={[

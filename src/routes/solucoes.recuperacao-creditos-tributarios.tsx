@@ -59,6 +59,29 @@ function Page() {
           { title: "IRPJ/CSLL", body: "Revisão de adições, exclusões, prejuízo fiscal, base negativa e benefícios não aproveitados." },
           { title: "Erros de base e alíquota", body: "Tributos recolhidos com base ou alíquota incorreta nos últimos 5 anos." },
         ]},
+        { h2: "PIS/Cofins monofásico", lead: "Perfumaria, cosméticos, bebidas, pneumáticos, autopeças, medicamentos, higiene pessoal e demais produtos com tributação concentrada na cadeia.", h3: [
+          { title: "Análise técnica", body: "NCM, CST, notas fiscais, PGDAS-D, EFD-Contribuições, regime tributário e segregação correta de receitas nos últimos 5 anos." },
+          { title: "Simples Nacional", body: "Segregação correta no PGDAS-D e pedido de restituição quando aplicável." },
+          { title: "Presumido e Real", body: "Pode envolver PER/DCOMP e revisão da EFD-Contribuições." },
+        ]},
+        { h2: "Equiparação hospitalar", lead: "Empresas da saúde no Lucro Presumido podem ter recolhido IRPJ/CSLL com presunção de 32% quando poderiam aplicar presunção reduzida.", h3: [
+          { title: "Presunção reduzida", body: "IRPJ 32% → 8% e CSLL 32% → 12% em receitas qualificadas, cumpridos os requisitos sanitários e assistenciais." },
+          { title: "Segregação", body: "Exclusão de consultas simples, documentação sanitária, estrutura assistencial e viabilidade técnica analisadas antes do pedido." },
+        ]},
+        { h2: "Exportação", h3: [
+          { title: "Produtos e serviços", body: "PIS, Cofins, ICMS, ISS, contrato internacional, invoice, câmbio, DU-E, resultado no exterior e segregação fiscal revisados." },
+        ]},
+        { h2: "Lucro Real — créditos e custos", h3: [
+          { title: "Insumos e estoque", body: "Créditos de insumos, crédito de estoque de PIS/Cofins na migração ao não cumulativo, perdas produtivas, desossa, descartes e margem efetiva." },
+          { title: "Atenção ICMS", body: "Crédito de ICMS sobre estoque não nasce automaticamente da migração de Presumido para Real — depende de legislação estadual e hipótese específica." },
+        ]},
+        { h2: "DIFAL e ISS na construção civil", h3: [
+          { title: "DIFAL", body: "Venda/compra interestadual, consumidor final, Simples Nacional, GNRE, notificações, autorregularização e recolhimento indevido revisados." },
+          { title: "ISS construção civil", body: "Contrato, mão de obra, materiais produzidos fora da obra pelo prestador, jurisprudência do STJ e LC 116 — dedução de materiais é técnica e documentada." },
+        ]},
+        { h2: "Redução linear e alíquota zero", h3: [
+          { title: "CST 06 e 07", body: "Produtos com CST 06 ou 07 precisam ser revisados — alíquota zero pode não gerar efeito integral se o benefício estiver alcançado por redução linear." },
+        ]},
         { h2: "Escopo do contencioso", lead: "Defesa administrativa em PJ e PF quando a cobrança fiscal precisa ser conferida antes de paga.", h3: [
           { title: "Impugnação e recurso", body: "Resposta técnica fundamentada em PGDAS-D, EFD, DCTF, MIT, SPED e PER/DCOMP glosados." },
           { title: "Manifestação de inconformidade", body: "Defesa contra glosa de PER/DCOMP e indeferimento administrativo." },

@@ -61,6 +61,10 @@ function Page() {
           { title: "Transação tributária", body: "Depende de débito inscrito e análise de capacidade de pagamento." },
           { title: "PRDI", body: "Revisão de dívida inscrita quando há erro, pagamento, parcelamento, suspensão, decadência, prescrição ou retificação." },
         ]},
+        { h2: "Malha fiscal PJ e PER/DCOMP", lead: "Cruzamentos ECF x DCTF, EFD-Contribuições x DCTF, PGDAS-D x notas, DCTFWeb, MIT e cartas de autorregularização tratados antes da autuação.", h3: [
+          { title: "Autorregularização", body: "Resposta técnica documentada antes do prazo, com revisão de declarações e fundamentação fiscal." },
+          { title: "PER/DCOMP não homologada", body: "Manifestação de inconformidade com revisão de origem do crédito, memória de cálculo e prazo." },
+        ]},
         { h2: "Pessoa física — malha fina", h3: [
           { title: "Intimação e prazos", body: "Apresentação de documentos, recibos, Livro Caixa, despesas médicas e dependentes na fase administrativa." },
           { title: "Notificação de Lançamento", body: "Segunda oportunidade por impugnação quando o prazo da intimação foi perdido." },

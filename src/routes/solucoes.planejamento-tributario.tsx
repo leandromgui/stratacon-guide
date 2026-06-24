@@ -65,6 +65,20 @@ function Page() {
           { title: "Carga tributária alta", body: "Sensação de pagar imposto demais sem entender qual é a origem técnica." },
           { title: "Reestruturação societária", body: "Entrada ou saída de sócio, M&A, captação ou separação de atividades." },
         ]},
+        { h2: "Pessoa física ou CNPJ", lead: "Profissionais liberais podem estar pagando IRPF de até 27,5% quando uma estrutura PJ bem planejada poderia reduzir a carga.", h3: [
+          { title: "Comparativo PF x PJ", body: "Atividade, Fator R, ISS, pró-labore, clientes PF/PJ e risco de pejotização modelados antes de qualquer migração." },
+          { title: "Lucro Presumido com base correta", body: "Serviços e construção civil precisam revisar percentual de presunção — empreitada total com fornecimento de materiais tem tratamento diferente de mão de obra." },
+          { title: "Lucro Real e margem efetiva", body: "Margem baixa, estoque relevante, insumos, perdas produtivas e créditos de PIS/Cofins podem justificar Lucro Real." },
+        ]},
+        { h2: "IRPFM e altas rendas", lead: "Empresários, sócios, investidores e PF acima de R$ 600 mil/ano devem revisar distribuição de lucros, holding, aluguéis e estrutura patrimonial diante do IRPFM.", h3: [
+          { title: "Distribuição de lucros", body: "Coerência entre escrituração, balanço, regime tributário e estrutura familiar." },
+          { title: "Holding patrimonial", body: "Avaliada como instrumento — não como blindagem automática nem promessa de economia." },
+        ]},
+        { h2: "Manobras fiscais a evitar", lead: "Planejamento legítimo exige propósito negocial, documentação, operação real, memória de cálculo e coerência entre contrato, nota, contabilidade e obrigações acessórias.", h3: [
+          { title: "Estruturas artificiais", body: "Empresa criada só para vender na PJ, parentes em estruturas sem operação real, grupo econômico simulado." },
+          { title: "Créditos sem base", body: "Compensações agressivas e consultorias de crédito sem memória de cálculo viram autuação retroativa." },
+          { title: "Folha cruzada", body: "Folha em empresa do Simples para outra empresa — risco de desconsideração e cobrança previdenciária." },
+        ]},
       ]}
       deliverables={[
         { title: "Parecer técnico fundamentado", body: "Documento com base legal, comparativo numérico, recomendação e justificativa de cada decisão." },
