@@ -126,12 +126,12 @@ function Home() {
           </Reveal>
 
           <Reveal as="h1" delay={80} className="mt-8 md:mt-10 font-display text-4xl md:text-6xl font-light tracking-tight leading-[1.05] max-w-4xl">
-            Decisões econômicas seguras exigem{" "}
-            <span className="font-semibold">leitura técnica</span> do que está sendo declarado.
+            Contabilidade consultiva e tributária para empresas que precisam{" "}
+            <span className="font-semibold">decidir com segurança</span>.
           </Reveal>
 
           <Reveal as="p" delay={160} className="mt-6 max-w-2xl text-[15px] md:text-[17px] leading-relaxed text-white/70">
-            Diagnóstico técnico em <span className="text-white font-medium">7 dias úteis</span>, planejamento tributário, Reforma Tributária (CBS/IBS) e recuperação de créditos sob responsabilidade técnica com CRC ativo.
+            A DCON cruza declarações, notas fiscais, folha, SPED, DCTF/MIT, ECF, ECD, certidões e indicadores para identificar riscos, oportunidades e estratégias tributárias com responsabilidade técnica.
           </Reveal>
 
           <Reveal delay={240} className="mt-8 flex flex-wrap gap-3">
@@ -139,7 +139,7 @@ function Home() {
               Solicitar diagnóstico técnico inicial →
             </Link>
             <Link to="/solucoes/reforma-tributaria" className="inline-flex items-center border border-white/30 px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:border-gold hover:text-gold transition-colors">
-              ● Reforma Tributária 2026
+              Ver Reforma Tributária 2026 →
             </Link>
           </Reveal>
 
@@ -156,7 +156,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Por onde começar — 4 atalhos grandes coloridos */}
+      {/* Escolha o que você precisa agora — 4 atalhos */}
       <section
         className="border-y border-border"
         style={{
@@ -167,9 +167,9 @@ function Home() {
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
           <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
             <div>
-              <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Por onde começar</div>
+              <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Escolha o que você precisa agora</div>
               <h2 className="mt-3 font-display text-2xl md:text-4xl tracking-tight leading-[1.1]">
-                Escolha o que você precisa agora.
+                Quatro pontos de partida.
               </h2>
             </div>
             <p className="text-[13px] text-muted-foreground max-w-sm">
@@ -179,9 +179,9 @@ function Home() {
           <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-4">
             {[
               { tag: "Diagnóstico", h: "Mapear minha empresa", b: "7 dias úteis · relatório técnico", to: "/diagnostico", color: "var(--gold)" },
-              { tag: "CBS / IBS", h: "Reforma Tributária", b: "Impacto no caixa 2026–2033", to: "/solucoes/reforma-tributaria", color: "var(--secondary)" },
+              { tag: "CBS / IBS", h: "Preparar Reforma Tributária", b: "Impacto no caixa 2026–2033", to: "/solucoes/reforma-tributaria", color: "var(--secondary)" },
               { tag: "Crédito", h: "Recuperar tributos", b: "Últimos 5 anos · PER/DCOMP", to: "/solucoes/recuperacao-creditos-tributarios", color: "var(--gold)" },
-              { tag: "Patrimônio", h: "Holding e sucessão", b: "ITBI, ITCMD e governança", to: "/solucoes/holding-patrimonial", color: "var(--secondary)" },
+              { tag: "Patrimônio", h: "Organizar patrimônio", b: "Holding, ITBI, ITCMD e sucessão", to: "/solucoes/holding-patrimonial", color: "var(--secondary)" },
             ].map((c, i) => (
               <Reveal key={c.h} delay={i * 80} y={24}>
                 <Link
@@ -203,21 +203,21 @@ function Home() {
         </div>
       </section>
 
-      {/* Linhas de serviço */}
+      {/* Soluções principais — 4 linhas */}
       <section className="bg-muted/60 border-b border-border">
-        <div className="mx-auto max-w-7xl px-6 py-24">
-          <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
+        <div className="mx-auto max-w-7xl px-6 py-20">
+          <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
             <div>
-              <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Linhas de serviço</div>
-              <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight max-w-xl leading-[1.05]">
-                Da rotina obrigatória às decisões patrimoniais.
+              <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Soluções principais</div>
+              <h2 className="mt-3 font-display text-2xl md:text-4xl tracking-tight max-w-xl leading-[1.1]">
+                Quatro frentes consultivas integradas.
               </h2>
             </div>
             <Link to="/solucoes" className="text-[11px] uppercase tracking-[0.2em] border-b border-gold pb-1 text-secondary hover:text-primary">
               Ver todas as soluções →
             </Link>
           </div>
-          <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-4">
             {solutions.map((s, i) => (
               <Reveal key={s.h} delay={i * 80} y={32}>
               <Link to={s.to} style={{ ["--panel-accent" as never]: PANEL_ACCENTS[i % PANEL_ACCENTS.length] }} className="panel-interactive group bg-card p-8 flex flex-col justify-between hover:bg-secondary hover:text-secondary-foreground h-full">
@@ -234,11 +234,11 @@ function Home() {
         </div>
       </section>
 
-      {/* Setores — compactos */}
+      {/* Setores estratégicos */}
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
           <div>
-            <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Setores atendidos</div>
+            <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Setores estratégicos</div>
             <h2 className="mt-3 font-display text-2xl md:text-4xl tracking-tight leading-[1.1]">
               Conhecimento específico por vertical.
             </h2>
@@ -260,40 +260,60 @@ function Home() {
         </div>
       </section>
 
-      {/* Método — compacto e colorido */}
+      {/* Método DCON resumido */}
       <section className="bg-secondary text-secondary-foreground">
-        <div className="mx-auto max-w-7xl px-6 py-20">
-          <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
-            <div>
-              <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Método DCON</div>
-              <h2 className="mt-3 font-display text-2xl md:text-4xl tracking-tight leading-[1.1] max-w-2xl">
-                Quatro etapas auditáveis. Clique para expandir.
-              </h2>
-            </div>
-            <Link to="/metodo" className="text-[11px] uppercase tracking-[0.2em] border-b border-gold pb-1 text-gold">
-              Método completo →
+        <div className="mx-auto max-w-5xl px-6 py-20 md:py-24">
+          <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Método DCON</div>
+          <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight leading-[1.05] max-w-3xl">
+            Quatro etapas auditáveis, do diagnóstico ao acompanhamento.
+          </h2>
+          <p className="mt-6 max-w-3xl text-[15px] md:text-[17px] leading-relaxed text-secondary-foreground/80">
+            O Método DCON organiza a análise em quatro etapas: <span className="text-gold">diagnóstico técnico</span>, <span className="text-gold">cruzamento de dados</span>, <span className="text-gold">plano de ação</span> e <span className="text-gold">acompanhamento consultivo</span>. Cada entrega é baseada em documentação, memória de cálculo e responsabilidade técnica.
+          </p>
+          <div className="mt-10">
+            <Link to="/metodo" className="inline-flex items-center bg-gold text-gold-foreground px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:opacity-90">
+              Conhecer o método →
             </Link>
           </div>
-          <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-secondary-foreground/10 border border-secondary-foreground/10">
-            {method.map((m, i) => (
-              <Reveal key={m.h} as="li" delay={i * 120} y={24} className="panel-interactive p-6" style={{ ["--panel-accent" as never]: PANEL_ACCENTS[i % PANEL_ACCENTS.length], background: `linear-gradient(180deg, color-mix(in oklab, ${PANEL_ACCENTS[i % PANEL_ACCENTS.length]} 14%, var(--secondary)) 0%, var(--secondary) 100%)` }}>
-                <details className="group">
-                  <summary className="cursor-pointer list-none">
-                    <div className="text-[11px] uppercase tracking-[0.22em]" style={{ color: PANEL_ACCENTS[i % PANEL_ACCENTS.length] }}>{m.n}</div>
-                    <h3 className="mt-2 font-display text-lg flex items-start justify-between gap-3">
-                      <span>{m.h}</span>
-                      <span className="text-gold text-lg leading-none group-open:rotate-45 transition-transform">+</span>
-                    </h3>
-                  </summary>
-                  <p className="mt-3 text-[14px] leading-relaxed text-secondary-foreground/85">{m.b}</p>
-                </details>
-              </Reveal>
-            ))}
-          </ol>
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* Autoridade e prova social */}
+      <section className="border-t border-border bg-background">
+        <div className="mx-auto max-w-7xl px-6 py-20">
+          <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Autoridade técnica</div>
+          <h2 className="mt-3 font-display text-2xl md:text-4xl tracking-tight leading-[1.1] max-w-3xl">
+            Responsabilidade técnica com registro ativo no CRC-GO.
+          </h2>
+          <div className="mt-12 grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-4">
+            <div className="bg-card p-7">
+              <div className="text-[10px] uppercase tracking-[0.22em] text-gold">Responsável técnico</div>
+              <h3 className="mt-3 font-display text-lg leading-snug">Leandro Matsuoka Guimarães</h3>
+              <p className="mt-2 text-[13.5px] text-foreground/70">Contador · CRC-GO 16.395/O-9</p>
+            </div>
+            <div className="bg-card p-7">
+              <div className="text-[10px] uppercase tracking-[0.22em] text-gold">Firma</div>
+              <h3 className="mt-3 font-display text-lg leading-snug">DCON Serviços Contábeis</h3>
+              <p className="mt-2 text-[13.5px] text-foreground/70">CRC-GO 1202 · Goiânia/GO</p>
+            </div>
+            <div className="bg-card p-7">
+              <div className="text-[10px] uppercase tracking-[0.22em] text-gold">Cobertura</div>
+              <h3 className="mt-3 font-display text-lg leading-snug">Atendimento nacional</h3>
+              <p className="mt-2 text-[13.5px] text-foreground/70">Reuniões técnicas remotas e base presencial em Goiânia.</p>
+            </div>
+            <div className="bg-card p-7">
+              <div className="text-[10px] uppercase tracking-[0.22em] text-gold">Entrega</div>
+              <h3 className="mt-3 font-display text-lg leading-snug">Diagnóstico em 7 dias úteis</h3>
+              <p className="mt-2 text-[13.5px] text-foreground/70">Relatório técnico com plano de ação priorizado por risco e impacto.</p>
+            </div>
+          </div>
+          <p className="mt-10 max-w-3xl text-[14px] leading-relaxed text-muted-foreground">
+            Toda recomendação relevante — pareceres, defesas, planejamento, PER/DCOMP e relatórios de diagnóstico — passa por revisão cruzada e é assinada por contador com CRC ativo, sob sigilo profissional do Código de Ética do CFC.
+          </p>
+        </div>
+      </section>
+
+      {/* FAQ reduzida */}
       <section
         className="border-t border-border"
         style={{
@@ -301,21 +321,18 @@ function Home() {
             "linear-gradient(180deg, var(--background) 0%, color-mix(in oklab, var(--gold) 6%, var(--background)) 100%)",
         }}
       >
-        <div className="mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-12 gap-12">
+        <div className="mx-auto max-w-7xl px-6 py-20 grid lg:grid-cols-12 gap-12">
           <header className="lg:col-span-4">
             <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Perguntas frequentes</div>
-            <h2 className="mt-4 font-display text-3xl md:text-4xl tracking-tight leading-[1.05]">
-              Como funciona a consultoria contábil, tributária e patrimonial da DCON.
+            <h2 className="mt-4 font-display text-2xl md:text-4xl tracking-tight leading-[1.05]">
+              Quatro respostas rápidas sobre a DCON.
             </h2>
             <p className="mt-5 text-[14px] leading-relaxed text-muted-foreground">
-              Clique em uma pergunta para abrir a resposta técnica.
+              Demais perguntas estão em <Link to="/diagnostico" className="underline text-gold hover:no-underline">/diagnostico</Link>, <Link to="/metodo" className="underline text-gold hover:no-underline">/metodo</Link> e nas páginas de solução.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/diagnostico" className="inline-flex items-center bg-secondary text-secondary-foreground px-5 py-3 text-[11px] uppercase tracking-[0.18em] hover:bg-primary">
                 Solicitar diagnóstico →
-              </Link>
-              <Link to="/metodo" className="inline-flex items-center border border-gold px-5 py-3 text-[11px] uppercase tracking-[0.18em] text-secondary hover:bg-gold hover:text-gold-foreground">
-                ● Método DCON
               </Link>
             </div>
           </header>
@@ -333,61 +350,36 @@ function Home() {
         </div>
       </section>
 
-      {/* Closing CTA */}
+      {/* Contato final — sem mapa */}
       <section className="bg-secondary text-secondary-foreground">
-        <div className="mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-12 gap-12 items-end">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:py-24 grid lg:grid-cols-12 gap-12 items-end">
           <div className="lg:col-span-8">
             <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Próximo passo</div>
-            <h2 className="mt-4 font-display text-4xl md:text-6xl tracking-tight leading-[1.02] max-w-3xl">
+            <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight leading-[1.02] max-w-3xl">
               Comece pelo diagnóstico técnico da sua empresa.
             </h2>
             <p className="mt-6 max-w-xl text-secondary-foreground/75 text-[15px] leading-relaxed">
               Sem compromisso comercial. Devolutiva técnica conduzida pelo responsável.
             </p>
+            <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-[13px] text-secondary-foreground/85">
+              <a href="tel:+556230000000" className="hover:text-gold transition-colors">
+                <span className="text-gold">●</span> Telefone · (62) 3000-0000
+              </a>
+              <a href="mailto:contato@dconcontabil.com.br" className="hover:text-gold transition-colors">
+                <span className="text-gold">●</span> contato@dconcontabil.com.br
+              </a>
+              <a href="https://wa.me/5562000000000" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">
+                <span className="text-gold">●</span> WhatsApp
+              </a>
+            </div>
           </div>
           <div className="lg:col-span-4 flex flex-wrap gap-3 lg:justify-end">
             <Link to="/diagnostico" className="inline-flex items-center bg-gold px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] text-gold-foreground hover:opacity-90">
               Solicitar diagnóstico técnico inicial →
             </Link>
-            <Link to="/metodo" className="inline-flex items-center border border-gold px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] text-gold hover:bg-gold hover:text-gold-foreground">
-              ● Método DCON
-            </Link>
             <Link to="/contato" className="inline-flex items-center border border-secondary-foreground/30 px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] hover:border-gold hover:text-gold">
               Falar com a DCON
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Mapa / endereço */}
-      <section className="border-t border-border bg-background">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16 lg:py-20 grid lg:grid-cols-12 gap-8 lg:gap-10">
-          <header className="lg:col-span-4">
-            <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Onde estamos</div>
-            <h2 className="font-display text-2xl md:text-3xl tracking-tight">Presença física em Goiânia</h2>
-            <p className="mt-4 text-foreground/90 leading-relaxed text-[15px] sm:text-base">
-              R. 89-A, nº 51 — Setor Sul<br className="sm:hidden" />
-              <span className="sm:ml-0"> Goiânia — GO, 74093-150</span>
-            </p>
-            <a
-              href="https://www.google.com/maps/place/Dcon+Servi%C3%A7os+Cont%C3%A1beis/data=!4m2!3m1!1s0x0:0xd8fc177d850a4b61?sa=X&ved=1t:2428&ictx=111"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex w-full sm:w-auto items-center justify-center gap-2 border border-border bg-card px-5 py-3 min-h-[44px] text-[12px] uppercase tracking-[0.16em] hover:border-gold hover:text-gold transition-colors"
-            >
-              <span>Abrir no Google Maps</span>
-              <span className="text-gold" aria-hidden="true">→</span>
-            </a>
-          </header>
-          <div className="lg:col-span-8 aspect-[4/3] sm:aspect-[16/10] w-full overflow-hidden border border-border bg-card">
-            <iframe
-              title="DCON Serviços Contábeis — R. 89-A, nº 51, Setor Sul, Goiânia"
-              src="https://www.google.com/maps?q=Dcon+Servi%C3%A7os+Cont%C3%A1beis,+R.+89-A,+51+-+Setor+Sul,+Goi%C3%A2nia+-+GO&output=embed"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="h-full w-full border-0"
-              allowFullScreen
-            />
           </div>
         </div>
       </section>
