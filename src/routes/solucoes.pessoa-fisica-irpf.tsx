@@ -66,6 +66,13 @@ function Page() {
         { h2: "Restituição INSS acima do teto", h3: [
           { title: "Várias fontes pagadoras", body: "CLT + pró-labore + contribuinte individual: análise de CNIS e restituição dos últimos 5 anos." },
         ]},
+        { h2: "Pensão alimentícia tributada", h3: [
+          { title: "Retificação dos últimos 5 anos", body: "Quem recebeu pensão e pagou IR pode revisar declarações, retificar e pedir restituição com base nos documentos da obrigação alimentar." },
+        ]},
+        { h2: "IRPFM — altas rendas", lead: "PF com renda anual acima de R$ 600 mil deve revisar lucros e dividendos, aluguéis, investimentos, holding e estrutura familiar diante do IRPFM.", h3: [
+          { title: "Distribuição de lucros", body: "Reorganização da forma e momento de distribuição alinhada à escrituração e ao regime da empresa." },
+          { title: "Holding e patrimônio", body: "Holding avaliada como ferramenta — quando há propósito, documentação e análise econômica — não como blindagem automática." },
+        ]},
         { h2: "e-Financeira, Pix e movimentação", h3: [
           { title: "Origem documentada", body: "Pix não é imposto, mas mistura PF/PJ e renda não declarada podem virar autuação. Organização documental é a melhor defesa." },
         ]},
