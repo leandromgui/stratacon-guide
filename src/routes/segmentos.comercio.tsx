@@ -29,14 +29,26 @@ function Page() {
       intro="Contabilidade técnica desenhada para a realidade tributária e operacional de comércio."
       intent="contabilidade comércio Goiânia, ICMS-ST varejo"
       observation="ICMS-ST e DIFAL."
-      ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      ctaPrimary={{ label: "Solicitar diagnóstico técnico inicial", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       sections={[
-      { h2: "Particularidades tributárias e contábeis", h3: [{"title":"Tributação específica","body":"Regras fiscais que afetam diretamente operações de comércio."},{"title":"Obrigações próprias","body":"Acessórias e declarações típicas deste segmento."},{"title":"Risco mais comum","body":"O erro que mais vemos neste tipo de operação."}] },
-      { h2: "Riscos comuns no segmento", h3: [{"title":"Enquadramento errado","body":"Regime que parece econômico mas custa mais no fim."},{"title":"Falha de classificação fiscal","body":"CFOP, CST e NCM mal aplicados."},{"title":"Passivo trabalhista","body":"Vínculos mal estruturados que viram dor mais tarde."}] },
-      { h2: "Como a DCON atua neste segmento", h3: [{"title":"Diagnóstico específico","body":"Revisamos a operação real do segmento antes de qualquer mudança."},{"title":"Rotina técnica","body":"Calendário, conferência e relatórios desenhados para o setor."},{"title":"Apoio consultivo","body":"Reuniões com leitura do que o número está dizendo."}] },
-      { h2: "Casos e exemplos", h3: [{"title":"Caso típico 1","body":"[preencher com situação real anonimizada]"},{"title":"Caso típico 2","body":"[preencher com situação real anonimizada]"}] },
-      { h2: "Perguntas frequentes", h3: [{"title":"Atendem só em Goiânia?","body":"Atendemos presencialmente em Goiânia e online em todo o Brasil."},{"title":"Trocar de contador agora vale a pena?","body":"Sim, se a contabilidade atual não dá visão técnica do segmento."},{"title":"Já posso pedir diagnóstico?","body":"Sim, em qualquer fase da operação."}] },
+        { h2: "ICMS, ST e DIFAL", lead: "No comércio, o tributo nasce no cadastro do produto — NCM, CST, CFOP e CEST mal aplicados viram autuação ou crédito perdido.", h3: [
+          { title: "ICMS-ST", body: "Substituição tributária revisada por produto, MVA, convênio estadual e base efetiva — ST paga a maior pode ser recuperada nos últimos 5 anos." },
+          { title: "DIFAL", body: "Operações interestaduais para consumidor final exigem GNRE, partilha entre estados e tratamento específico no Simples Nacional." },
+          { title: "Cadastro de mercadorias", body: "NCM, CST, CEST e código de benefício revisados antes da emissão — erro na nota não se corrige na apuração." },
+        ]},
+        { h2: "Regime tributário e margem", h3: [
+          { title: "Simples x Presumido x Real", body: "Margem, estoque, crédito de ICMS, PIS/Cofins e folha simulados antes da escolha — Simples nem sempre é o mais econômico no varejo." },
+          { title: "Benefícios estaduais", body: "Crédito presumido, crédito outorgado e regimes especiais analisados por ato concessivo, prazo e contrapartidas — sem dossiê o benefício vira passivo." },
+        ]},
+        { h2: "Reforma Tributária no comércio", h3: [
+          { title: "Fase de teste 2026", body: "NF-e e NFC-e passam a carregar IBS e CBS — a nota pode ser autorizada e ainda assim estar fiscalmente incorreta." },
+          { title: "Decisão de 2027", body: "Empresas B2B do Simples precisam simular competitividade, crédito para clientes e preço antes de optar pelo regime regular de IBS/CBS." },
+        ]},
+        { h2: "Estoque, perdas e SPED Fiscal", h3: [
+          { title: "Inventário e conciliação", body: "Estoque físico x escritural conciliados — diferença gera presunção de venda sem nota e tributação retroativa." },
+          { title: "Perdas e quebras", body: "Documentação técnica para reconhecer perda dentro da legislação e não pagar imposto sobre mercadoria que não foi vendida." },
+        ]},
       ]}
     />
   );
