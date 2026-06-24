@@ -56,8 +56,7 @@ function Page() {
           { title: "B2B no Simples", body: "Setembro/2026 é mês de decisão — startups B2B simulam competitividade e crédito para clientes antes do regime regular." },
         ]},
       ]}
-      sections_legacy={[
-      ]}
+    />
     />
   );
 }
