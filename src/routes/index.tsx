@@ -99,27 +99,18 @@ export const Route = createFileRoute("/")({
 
 const solutions = [
   { n: "01", h: "Planejamento Tributário", b: "Comparativo de regimes, cenários e estruturas societárias com fundamento legal.", to: "/solucoes/planejamento-tributario" },
-  { n: "02", h: "Reforma Tributária (CBS/IBS)", b: "Modelagem da transição, impacto setorial e adaptação da operação ao novo modelo.", to: "/solucoes/reforma-tributaria" },
-  { n: "03", h: "Defesas Fiscais", b: "Impugnações, recursos e defesas administrativas para autuações federais, estaduais e municipais.", to: "/solucoes/defesas-fiscais" },
-  { n: "04", h: "Recuperação de Créditos", b: "Revisão técnica de tributos pagos a maior nos últimos 5 anos.", to: "/solucoes/recuperacao-creditos-tributarios" },
-  { n: "05", h: "Holding e Patrimônio", b: "Estrutura patrimonial, sucessão e proteção dentro do enquadramento legal.", to: "/solucoes/holding-patrimonial" },
-  { n: "06", h: "Valuation e KPIs", b: "Leitura econômica e indicadores para decisões de M&A, captação e expansão.", to: "/solucoes/valuation-kpis" },
+  { n: "02", h: "Recuperação de Créditos", b: "Revisão técnica dos últimos 5 anos em PIS, COFINS, ICMS, INSS e contribuições, com PER/DCOMP e parecer auditável.", to: "/solucoes/recuperacao-creditos-tributarios" },
+  { n: "03", h: "Defesas e Regularização Fiscal", b: "Impugnações, recursos e plano de regularização para autuações e pendências federais, estaduais e municipais.", to: "/solucoes/defesas-fiscais" },
+  { n: "04", h: "Tecnologia Contábil e Indicadores", b: "Apuração assistida, integração de ERP, KPIs e relatórios padronizados para decisão.", to: "/solucoes/tecnologia-contabil" },
 ];
 
 const sectors = [
-  { h: "Médicos e Clínicas", b: "PJ médica, equiparação hospitalar e sociedade entre profissionais.", to: "/segmentos/medicos-clinicas" },
-  { h: "E-commerce", b: "DIFAL, ICMS-ST e operação multiestadual sob controle.", to: "/segmentos/e-commerce" },
-  { h: "Construção Civil e SPEs", b: "RET, patrimônio de afetação e SPE por obra.", to: "/segmentos/construcao-civil-spe" },
-  { h: "Tecnologia e Startups", b: "SaaS, ISS, equity, Lei do Bem e captação.", to: "/segmentos/tecnologia-startups" },
-  { h: "Provedores de Internet", b: "Tributação ISP, Fust, Funttel e regulatório.", to: "/segmentos/provedores-internet" },
-  { h: "Holdings", b: "Estrutura patrimonial e familiar sob método.", to: "/segmentos/holdings" },
-];
-
-const method = [
-  { n: "01", h: "Diagnóstico técnico", b: "Mapeamos o que está sendo declarado, pago e registrado. Avaliamos exposição fiscal, contábil, societária e trabalhista." },
-  { n: "02", h: "Estruturação", b: "Regime tributário, CNAE, sócios, distribuição e processos ajustados à operação real, não ao modelo padrão." },
-  { n: "03", h: "Rotina auditável", b: "Calendário fiscal, fechamento revisado, relatórios padronizados e controles internos auditáveis." },
-  { n: "04", h: "Acompanhamento consultivo", b: "Reuniões periódicas com leitura técnica do que o número está dizendo e do que precisa ser decidido." },
+  { h: "Saúde", b: "PJ médica, equiparação hospitalar, Fator R e sociedade entre profissionais.", to: "/segmentos/medicos-clinicas" },
+  { h: "Construção Civil", b: "RET, patrimônio de afetação, SPE por obra e empreitada total.", to: "/segmentos/construcao-civil-spe" },
+  { h: "Comércio e E-commerce", b: "ICMS-ST, DIFAL, NCM/CFOP/CST e operação multiestadual.", to: "/segmentos/comercio" },
+  { h: "Produtor Rural", b: "Funrural, LCDPR, ITR e sucessão patrimonial rural.", to: "/segmentos/produtor-rural" },
+  { h: "Provedores de Internet", b: "Segregação NFCom/SVA, Fust, Funttel e tributação ISP.", to: "/segmentos/provedores-internet" },
+  { h: "Holdings e Empresas Familiares", b: "Governança, sucessão, ITBI/ITCMD e separação PF/PJ.", to: "/segmentos/empresas-familiares" },
 ];
 
 function Home() {
