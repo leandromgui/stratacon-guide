@@ -68,6 +68,9 @@ const entries: SitemapEntry[] = [
   { path: "/conteudos/holding-familiar", changefreq: "monthly", priority: "0.7" },
   { path: "/conteudos/respostas-validadas", changefreq: "monthly", priority: "0.8" },
   { path: "/conteudos/guia-simples-nacional", changefreq: "monthly", priority: "0.8" },
+  { path: "/conteudos/saude-clinicas", changefreq: "monthly", priority: "0.7" },
+  { path: "/conteudos/regularizacao-fiscal", changefreq: "monthly", priority: "0.7" },
+  { path: "/reforma-tributaria-2026", changefreq: "monthly", priority: "0.8" },
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({
