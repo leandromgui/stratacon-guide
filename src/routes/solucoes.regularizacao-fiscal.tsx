@@ -68,6 +68,18 @@ function Page() {
           { title: "Calendário ativo", body: "Não dependemos do cliente lembrar de prazo — a equipe técnica conduz." },
           { title: "Reunião de revisão trimestral", body: "Status do plano, novos riscos e oportunidades de economia." },
         ]},
+        { h2: "Licitações e habilitação", lead: "Empresas que disputam contrato público não podem descobrir pendências na hora da habilitação.", h3: [
+          { title: "Documentação técnica", body: "Regularidade fiscal e trabalhista, balanço, DRE, índices contábeis, certidões e seguro de responsabilidade civil revisados." },
+          { title: "Prazo e risco", body: "Prevenção contra inabilitação por documento vencido, índice insuficiente ou pendência cadastral." },
+        ]},
+        { h2: "Crédito empresarial", lead: "Preparação técnica para Pronampe, ProCred, BNDES, bancos, capital de giro e máquinas/equipamentos — sem promessa de aprovação.", h3: [
+          { title: "Pacote documental", body: "Certidões, faturamento, PGDAS-D, DEFIS, DASN-SIMEI, ECF, balanço e DRE organizados para análise bancária." },
+          { title: "Sócios e PF", body: "Documentação pessoal dos sócios alinhada ao pleito de crédito." },
+        ]},
+        { h2: "Obrigações acessórias atrasadas", lead: "Regularizar DCTF, DCTFWeb, MIT, ECF, ECD, EFD-Contribuições, eSocial, EFD-Reinf, PGDAS-D e DEFIS antes que virem bloqueio de certidão.", h3: [
+          { title: "Inventário de pendências", body: "Diagnóstico das obrigações em atraso, multas aplicáveis e prazo para regularização." },
+          { title: "Risco de bloqueio", body: "Pendências acessórias bloqueiam CND e podem suspender o regime tributário." },
+        ]},
       ]}
       deliverables={[
         { title: "Relatório de pendências consolidado", body: "Mapa federal, estadual e municipal com origem, valor atualizado e situação processual de cada débito." },
