@@ -83,6 +83,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "DCON Serviços Contábeis" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "google-site-verification", content: "UcqtKPxeErR6WHA69PJktbmJnfCgiyvU_CL5G6TL2Gc" },
     ],
     links: [
       {
