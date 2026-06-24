@@ -43,11 +43,23 @@ function Page() {
       method={dconMethod}
       ctaVariant="opportunity"
       sections={[
-      { h2: "Particularidades do setor", h3: [{"title":"RET e patrimônio de afetação","body":"Regime especial para incorporações imobiliárias."},{"title":"SPE por obra","body":"Estrutura societária dedicada por empreendimento."},{"title":"INSS na construção","body":"Retenção previdenciária com regras próprias."}] },
-      { h2: "Decisões estratégicas", h3: [{"title":"Quando vale RET","body":"Cenário em que a alíquota reduzida compensa as restrições."},{"title":"Habitacional × comercial","body":"Tratamento diferente por tipo de empreendimento."},{"title":"Custos por obra","body":"Apropriação contábil correta para análise por empreendimento."}] },
-      { h2: "Riscos comuns", h3: [{"title":"Mistura de obras","body":"Não segregar custos e receitas por SPE."},{"title":"Patrimônio de afetação mal formalizado","body":"Comprometer o benefício do RET."},{"title":"Retenção previdenciária errada","body":"Autuação no INSS."}] },
-      { h2: "Como a DCON atua", h3: [{"title":"Estruturação societária","body":"Constituição de SPE e enquadramento no RET."},{"title":"Rotina técnica","body":"Apropriação por obra e fechamento auditável."},{"title":"Acompanhamento estratégico","body":"Revisão por empreendimento e por regime."}] },
-      { h2: "Perguntas frequentes", h3: [{"title":"Vale abrir SPE para 1 obra?","body":"Depende do porte e do financiamento."},{"title":"RET serve para reforma?","body":"Não. RET é para incorporação."},{"title":"Atendem obras fora de GO?","body":"Sim, em todo o Brasil."}] },
+        { h2: "Estrutura jurídica", lead: "Imposto e regularização na construção civil começam no contrato, na estrutura jurídica, no CNO e na forma de comprovação da obra.", h3: [
+          { title: "PF, PJ, SPE e SCP", body: "Construtora, incorporadora, SPE ou SCP — definidas conforme empreendimento, investidores e venda de unidades." },
+          { title: "RET e patrimônio de afetação", body: "Regime especial avaliado por viabilidade, restrições e contratos entre investidores." },
+        ]},
+        { h2: "CNO, Sero e aferição de obra", h3: [
+          { title: "CNO e responsável", body: "Abertura de CNO, responsável pela obra, empreitada total, parcial e dono da obra revisados antes da aferição." },
+          { title: "Aferição indireta x contabilidade regular", body: "Notas fiscais, folha, recolhimentos e certidão de obra trabalhados para evitar pagamento sobre dados errados." },
+          { title: "Pessoa física construtora", body: "PF que constrói deve revisar dados antes da aferição — economia existe quando a aferição considera informações incorretas, mas não é automática." },
+        ]},
+        { h2: "ISS na construção civil", h3: [
+          { title: "Base correta", body: "Mão de obra, materiais, contrato, nota fiscal, legislação municipal, ICMS, jurisprudência do STJ e LC 116 revisados." },
+          { title: "Dedução de materiais", body: "Materiais produzidos pelo prestador fora da obra exigem análise técnica e documental — dedução ampla não é regra automática." },
+        ]},
+        { h2: "Empreitada total e presunção reduzida", h3: [
+          { title: "Lucro Presumido", body: "Construtoras que executam obra por empreitada total com fornecimento de materiais incorporados à obra podem ter IRPJ 8% e CSLL 12% em vez de 32%." },
+          { title: "Documentação", body: "Contrato, nota, comprovação de fornecimento e segregação de receitas sustentam a presunção reduzida em fiscalização." },
+        ]},
       ]}
     >
       <MethodBadge note="Construção civil conduzida pelo protocolo DCON" />
