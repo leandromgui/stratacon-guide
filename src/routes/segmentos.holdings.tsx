@@ -37,11 +37,30 @@ function Page() {
       method={dconMethod}
       ctaVariant="opportunity"
       sections={[
-      { h2: "Particularidades da holding", h3: [{"title":"Patrimonial × familiar","body":"Cada tipo serve a um objetivo diferente."},{"title":"Tributação dos aluguéis","body":"Pessoa jurídica versus pessoa física — análise técnica."},{"title":"Distribuição de lucros","body":"Mecânica de pagamento aos sócios."}] },
-      { h2: "Riscos e mitos", h3: [{"title":"Não é blindagem mágica","body":"Não protege contra fraude ou má-fé."},{"title":"ITCMD e ITBI","body":"Avaliar antes de qualquer transferência."},{"title":"Estrutura sem patrimônio","body":"Vira custo sem benefício."}] },
-      { h2: "Como a DCON atua", h3: [{"title":"Avaliação de viabilidade","body":"Análise patrimonial e familiar antes de constituir."},{"title":"Estruturação técnica","body":"Tipo societário, cláusulas e regime."},{"title":"Operação contínua","body":"Rotina contábil consultiva da holding."}] },
-      { h2: "Para quem é indicado", h3: [{"title":"Famílias com patrimônio relevante","body":"Imóveis, participações e ativos significativos."},{"title":"Sócios com várias empresas","body":"Quando faz sentido concentrar."},{"title":"Sucessão em vista","body":"Quem quer organizar a transição em vida."}] },
-      { h2: "Perguntas frequentes", h3: [{"title":"A partir de quanto vale?","body":"Avaliamos no diagnóstico patrimonial."},{"title":"Cônjuge precisa entrar?","body":"Depende do regime de bens e do objetivo."},{"title":"Holding paga menos imposto sempre?","body":"Não. Depende da operação."}] },
+        { h2: "Quando faz sentido constituir", lead: "Holding não é blindagem automática nem redução garantida de imposto — é instrumento quando há propósito, documentação e contabilidade adequada.", h3: [
+          { title: "Patrimônio relevante", body: "Imóveis, participações societárias e ativos que justifiquem o custo de constituição e manutenção." },
+          { title: "Sucessão em vista", body: "Famílias que querem antecipar a transição em vida e reduzir litígio futuro." },
+          { title: "Múltiplas operações", body: "Sócio com várias empresas que precisa organizar participações e governança." },
+        ]},
+        { h2: "Quando NÃO faz sentido", h3: [
+          { title: "Patrimônio pequeno", body: "Custo de manutenção, contabilidade e governança maior do que o benefício esperado." },
+          { title: "Ganho de capital latente alto", body: "Imóveis muito valorizados podem disparar tributação relevante na integralização ou venda futura." },
+          { title: "Ausência de finalidade real", body: "Tentativa de blindagem artificial, sem operação ou propósito documentado, é desconsiderada." },
+          { title: "Conflito familiar não resolvido", body: "Sem acordo prévio entre sócios, a holding amplifica disputas em vez de organizá-las." },
+        ]},
+        { h2: "Aluguéis, IBS/CBS e CIB", lead: "PF com mais de 3 imóveis locados e receita anual acima de R$ 240 mil entra no radar de IBS/CBS — locação residencial tem redutor de 70%.", h3: [
+          { title: "Holding x PF", body: "Comparativo entre tributação na PF (IRPF + IBS/CBS) e na holding (IRPJ/CSLL + IBS/CBS) com cálculo dos redutores e do CIB." },
+          { title: "Contratos e cadastro", body: "Contratos antigos revisados para se adequar ao Cadastro Imobiliário Brasileiro e à emissão de documento fiscal de locação." },
+        ]},
+        { h2: "IRPFM, ITBI, ITCMD e custos", h3: [
+          { title: "IRPFM", body: "Sócios com renda anual acima de R$ 600 mil revisam distribuição de lucros, holding e estrutura familiar diante do IRPFM." },
+          { title: "ITBI e ganho de capital", body: "Integralização avaliada por município e atividade — em parte dos casos o ITBI torna o custo proibitivo." },
+          { title: "ITCMD", body: "Doação em vida com reserva de usufruto e cláusulas restritivas calculadas antes da transferência." },
+        ]},
+        { h2: "Operação contínua", h3: [
+          { title: "Escrituração e ECD/ECF", body: "Holding com escrituração descuidada perde o benefício tributário e vira passivo silencioso em fiscalização." },
+          { title: "Governança familiar", body: "Acordo de sócios, regras de entrada e saída de herdeiros e reunião familiar estruturada para sustentar decisões patrimoniais." },
+        ]},
       ]}
     >
       <MethodBadge note="Atendimento conduzido pelo protocolo DCON" />
