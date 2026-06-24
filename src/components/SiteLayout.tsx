@@ -153,8 +153,8 @@ const mega: MegaItem[] = [
       {
         title: "Patrimônio & sucessão",
         items: [
-          { label: "Holding Patrimonial", to: "/conteudos/holding-patrimonio" },
-          { label: "ITCMD e doação em vida", to: "/conteudos/holding-patrimonio" },
+          { label: "Holding Patrimonial", to: "/solucoes/holding-patrimonial" },
+          { label: "ITCMD e doação em vida", to: "/solucoes/holding-patrimonial" },
           { label: "Pessoa Física e IRPF", to: "/solucoes/pessoa-fisica-irpf" },
         ],
       },
@@ -163,7 +163,7 @@ const mega: MegaItem[] = [
         items: [
           { label: "Regularização Fiscal", to: "/solucoes/regularizacao-fiscal" },
           { label: "Defesas Fiscais", to: "/solucoes/defesas-fiscais" },
-          { label: "DP e eSocial", to: "/conteudos/dp-esocial" },
+          { label: "DP e eSocial", to: "/solucoes/departamento-pessoal" },
         ],
       },
     ],
@@ -181,18 +181,18 @@ const mega: MegaItem[] = [
       {
         title: "Linhas editoriais",
         items: [
-          { label: "Planejamento Tributário", to: "/conteudos/planejamento-tributario" },
+          { label: "Planejamento Tributário", to: "/solucoes/planejamento-tributario" },
           { label: "Regimes Tributários", to: "/conteudos/regimes-tributarios" },
-          { label: "Regularização Fiscal", to: "/conteudos/regularizacao-fiscal" },
-          { label: "Holding e Patrimônio", to: "/conteudos/holding-patrimonio" },
+          { label: "Regularização Fiscal", to: "/solucoes/regularizacao-fiscal" },
+          { label: "Holding e Patrimônio", to: "/solucoes/holding-patrimonial" },
         ],
       },
       {
         title: "Setoriais",
         items: [
-          { label: "Comércio e ICMS", to: "/conteudos/comercio-icms" },
-          { label: "Saúde e Clínicas", to: "/conteudos/saude-clinicas" },
-          { label: "DP e eSocial", to: "/conteudos/dp-esocial" },
+          { label: "Comércio e ICMS", to: "/segmentos/comercio" },
+          { label: "Saúde e Clínicas", to: "/segmentos/medicos-clinicas" },
+          { label: "DP e eSocial", to: "/solucoes/departamento-pessoal" },
         ],
       },
     ],
@@ -471,10 +471,10 @@ export function SiteLayout() {
               </div>
               <ul className="space-y-2 text-sm text-secondary-foreground/80">
                 <li><Link to="/temas-estrategicos">Temas estratégicos</Link></li>
-                <li><Link to="/conteudos/planejamento-tributario">Planejamento</Link></li>
+                <li><Link to="/solucoes/planejamento-tributario">Planejamento</Link></li>
                 <li><Link to="/conteudos/regimes-tributarios">Regimes</Link></li>
-                <li><Link to="/conteudos/holding-patrimonio">Holding</Link></li>
-                <li><Link to="/conteudos/dp-esocial">DP e eSocial</Link></li>
+                <li><Link to="/solucoes/holding-patrimonial">Holding</Link></li>
+                <li><Link to="/solucoes/departamento-pessoal">DP e eSocial</Link></li>
                 <li><Link to="/conteudos" className="text-gold">Central →</Link></li>
               </ul>
             </div>
@@ -482,13 +482,13 @@ export function SiteLayout() {
         </div>
 
         <div className="mx-auto max-w-7xl px-6 py-6 flex flex-wrap items-center justify-between gap-4 text-[11px] text-secondary-foreground/55">
-          <div>
-            © {new Date().getFullYear()} DCON Serviços Contábeis · CRC-GO 1202 · Responsabilidade técnica registrada
+          <div className="space-y-1">
+            <div>© {new Date().getFullYear()} DCON Serviços Contábeis — CRC-GO 1202</div>
+            <div>Responsável técnico: Leandro Matsuoka Guimarães — CRC-GO 16.395/O-9</div>
           </div>
           <div className="flex gap-5">
-            <Link to="/contato">Política de privacidade</Link>
-            <Link to="/contato">Termos de uso</Link>
-            <Link to="/contato">LGPD</Link>
+            <Link to="/privacidade">Política de privacidade</Link>
+            <Link to="/privacidade">LGPD</Link>
           </div>
         </div>
       </footer>

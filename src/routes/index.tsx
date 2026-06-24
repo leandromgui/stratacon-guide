@@ -185,7 +185,7 @@ function Home() {
 
           <Reveal delay={240} className="mt-8 flex flex-wrap gap-3">
             <Link to="/diagnostico" className="inline-flex items-center bg-gold text-gold-foreground px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:opacity-90 transition-opacity">
-              Solicitar diagnóstico →
+              Solicitar diagnóstico técnico inicial →
             </Link>
             <Link to="/solucoes/reforma-tributaria" className="inline-flex items-center border border-white/30 px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:border-gold hover:text-gold transition-colors">
               ● Reforma Tributária 2026
@@ -194,11 +194,11 @@ function Home() {
 
           {/* Tira compacta de credenciais */}
           <Reveal delay={320} className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.18em] text-white/50 border-t border-white/15 pt-5">
-            <span><span className="text-gold">●</span> CRC-GO 1202</span>
+            <span><span className="text-gold">●</span> DCON CRC-GO 1202</span>
             <span className="text-white/25">/</span>
-            <span>+20 anos</span>
+            <span>Resp. técnico CRC-GO 16.395/O-9</span>
             <span className="text-white/25">/</span>
-            <span>+500 empresas</span>
+            <span>Atendimento nacional</span>
             <span className="text-white/25">/</span>
             <span>Diagnóstico em 7 dias úteis</span>
           </Reveal>
@@ -396,7 +396,7 @@ function Home() {
           </div>
           <div className="lg:col-span-4 flex flex-wrap gap-3 lg:justify-end">
             <Link to="/diagnostico" className="inline-flex items-center bg-gold px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] text-gold-foreground hover:opacity-90">
-              Solicitar diagnóstico →
+              Solicitar diagnóstico técnico inicial →
             </Link>
             <Link to="/metodo" className="inline-flex items-center border border-gold px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] text-gold hover:bg-gold hover:text-gold-foreground">
               ● Método DCON
