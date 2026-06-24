@@ -362,14 +362,14 @@ function Home() {
               Sem compromisso comercial. Devolutiva técnica conduzida pelo responsável.
             </p>
             <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-[13px] text-secondary-foreground/85">
-              <a href="tel:+556230000000" className="hover:text-gold transition-colors">
-                <span className="text-gold">●</span> Telefone · (62) 3000-0000
+              <a href="tel:+5562992890898" className="hover:text-gold transition-colors">
+                <span className="text-gold">●</span> Telefone · (62) 99289-0898
               </a>
-              <a href="mailto:contato@dconcontabil.com.br" className="hover:text-gold transition-colors">
-                <span className="text-gold">●</span> contato@dconcontabil.com.br
+              <a href="mailto:contato@dcon.cnt.br" className="hover:text-gold transition-colors">
+                <span className="text-gold">●</span> contato@dcon.cnt.br
               </a>
-              <a href="https://wa.me/5562000000000" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">
-                <span className="text-gold">●</span> WhatsApp
+              <a href="https://wa.me/5562992890898" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">
+                <span className="text-gold">●</span> WhatsApp · (62) 99289-0898
               </a>
             </div>
           </div>
