@@ -90,11 +90,21 @@ export interface PageScaffoldProps {
 
 function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <div className="text-gold text-[11px] font-semibold uppercase tracking-[0.22em] border-l-2 border-gold pl-4">
+    <div className="text-[11px] uppercase tracking-[0.24em] text-gold">
       {children}
     </div>
   );
 }
+
+// Paleta on-brand alinhada à Home: gold + secondary alternados.
+const PANEL_ACCENTS = [
+  "var(--gold)",
+  "var(--secondary)",
+  "var(--gold)",
+  "var(--secondary)",
+  "var(--gold)",
+  "var(--secondary)",
+] as const;
 
 export function PageScaffold(p: PageScaffoldProps) {
   const resolvedRelated =
@@ -239,13 +249,20 @@ export function PageScaffold(p: PageScaffoldProps) {
             </header>
             {s.h3 && s.h3.length > 0 && (
               <ul className="lg:col-span-8 grid gap-px bg-border sm:grid-cols-2 border border-border">
-                {s.h3.map((h) => (
-                  <li key={h.title} className="bg-card p-6">
-                    <h3 className="font-display text-[17px] text-card-foreground">{h.title}</h3>
-                    <p className="mt-2 text-muted-foreground text-[14px] leading-relaxed">
+                {s.h3.map((h, i) => (
+                  <Reveal
+                    key={h.title}
+                    as="li"
+                    delay={i * 60}
+                    y={24}
+                    className="panel-interactive group bg-card p-6 hover:bg-secondary hover:text-secondary-foreground"
+                    style={{ ["--panel-accent" as never]: PANEL_ACCENTS[i % PANEL_ACCENTS.length] }}
+                  >
+                    <h3 className="font-display text-[17px] text-card-foreground group-hover:text-secondary-foreground">{h.title}</h3>
+                    <p className="mt-2 text-muted-foreground text-[14px] leading-relaxed group-hover:text-secondary-foreground/80">
                       {h.body}
                     </p>
-                  </li>
+                  </Reveal>
                 ))}
               </ul>
             )}
@@ -268,13 +285,20 @@ export function PageScaffold(p: PageScaffoldProps) {
               </header>
               <ol className="lg:col-span-8 grid sm:grid-cols-2 gap-px bg-border border border-border">
                 {p.method.map((m, i) => (
-                  <li key={m.title} className="bg-card p-6">
-                    <div className="text-[11px] uppercase tracking-[0.22em] text-gold">
+                  <Reveal
+                    key={m.title}
+                    as="li"
+                    delay={i * 80}
+                    y={24}
+                    className="panel-interactive group bg-card p-6 hover:bg-secondary hover:text-secondary-foreground"
+                    style={{ ["--panel-accent" as never]: PANEL_ACCENTS[i % PANEL_ACCENTS.length] }}
+                  >
+                    <div className="text-[11px] uppercase tracking-[0.22em]" style={{ color: PANEL_ACCENTS[i % PANEL_ACCENTS.length] }}>
                       Etapa {String(i + 1).padStart(2, "0")}
                     </div>
                     <h3 className="mt-2 font-display text-[17px]">{m.title}</h3>
-                    <p className="mt-2 text-muted-foreground text-[14px] leading-relaxed">{m.body}</p>
-                  </li>
+                    <p className="mt-2 text-muted-foreground text-[14px] leading-relaxed group-hover:text-secondary-foreground/80">{m.body}</p>
+                  </Reveal>
                 ))}
               </ol>
             </div>
@@ -296,17 +320,24 @@ export function PageScaffold(p: PageScaffoldProps) {
               </header>
               <ul className="lg:col-span-8 grid sm:grid-cols-2 gap-px bg-border border border-border">
                 {p.deliverables.map((d, i) => (
-                  <li key={d.title} className="bg-card p-6">
+                  <Reveal
+                    key={d.title}
+                    as="li"
+                    delay={i * 60}
+                    y={24}
+                    className="panel-interactive group bg-card p-6 hover:bg-secondary hover:text-secondary-foreground"
+                    style={{ ["--panel-accent" as never]: PANEL_ACCENTS[i % PANEL_ACCENTS.length] }}
+                  >
                     <div className="flex items-baseline gap-3">
-                      <span className="font-display text-gold text-sm">
+                      <span className="font-display text-sm" style={{ color: PANEL_ACCENTS[i % PANEL_ACCENTS.length] }}>
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <h3 className="font-display text-[17px]">{d.title}</h3>
                     </div>
-                    <p className="mt-2 text-muted-foreground text-[14px] leading-relaxed pl-8">
+                    <p className="mt-2 text-muted-foreground text-[14px] leading-relaxed pl-8 group-hover:text-secondary-foreground/80">
                       {d.body}
                     </p>
-                  </li>
+                  </Reveal>
                 ))}
               </ul>
             </div>
@@ -324,9 +355,13 @@ export function PageScaffold(p: PageScaffoldProps) {
               </header>
               <ul className="lg:col-span-8 grid sm:grid-cols-2 gap-px bg-border border border-border">
                 {p.technology.map((t) => (
-                  <li key={t.title} className="bg-card p-6">
+                  <li
+                    key={t.title}
+                    className="panel-interactive group bg-card p-6 hover:bg-secondary hover:text-secondary-foreground"
+                    style={{ ["--panel-accent" as never]: "var(--gold)" }}
+                  >
                     <h3 className="font-display text-[17px]">{t.title}</h3>
-                    <p className="mt-2 text-muted-foreground text-[14px] leading-relaxed">{t.body}</p>
+                    <p className="mt-2 text-muted-foreground text-[14px] leading-relaxed group-hover:text-secondary-foreground/80">{t.body}</p>
                   </li>
                 ))}
               </ul>
@@ -443,7 +478,11 @@ export function PageScaffold(p: PageScaffoldProps) {
               <ul className="lg:col-span-8 grid sm:grid-cols-2 gap-px bg-border border border-border">
                 {resolvedRelated.map((l) => (
                   <li key={l.to} className="bg-card">
-                    <Link to={l.to} className="block p-6 hover:bg-muted/40 transition-colors">
+                    <Link
+                      to={l.to}
+                      className="panel-interactive group block p-6 hover:bg-secondary hover:text-secondary-foreground"
+                      style={{ ["--panel-accent" as never]: "var(--gold)" }}
+                    >
                       {l.eyebrow && (
                         <div className="text-[10px] uppercase tracking-[0.22em] text-gold mb-2">{l.eyebrow}</div>
                       )}
@@ -472,26 +511,28 @@ export function PageScaffold(p: PageScaffoldProps) {
 
       {/* Closing CTA */}
       <section className="bg-secondary text-secondary-foreground">
-        <div className="mx-auto max-w-7xl px-6 py-20 grid lg:grid-cols-12 gap-10 items-end">
+        <div className="mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-12 gap-12 items-end">
           <div className="lg:col-span-8">
-            <Eyebrow>{CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].eyebrow}</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl md:text-4xl tracking-tight max-w-2xl">
+            <div className="text-[11px] uppercase tracking-[0.24em] text-gold">
+              {CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].eyebrow}
+            </div>
+            <h2 className="mt-4 font-display text-4xl md:text-6xl tracking-tight leading-[1.02] max-w-3xl">
               {CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].title}
             </h2>
-            <p className="mt-4 max-w-xl text-secondary-foreground/70 text-[15px] leading-relaxed">
+            <p className="mt-6 max-w-xl text-secondary-foreground/75 text-[15px] leading-relaxed">
               {CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].body}
             </p>
           </div>
           <div className="lg:col-span-4 flex flex-wrap gap-3 lg:justify-end">
             <Link
               to={CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].primary.to}
-              className="inline-flex items-center bg-gold px-6 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-gold-foreground hover:opacity-90"
+              className="inline-flex items-center bg-gold px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] text-gold-foreground hover:opacity-90"
             >
               {CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].primary.label} →
             </Link>
             <Link
               to={CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].secondary.to}
-              className="inline-flex items-center border border-secondary-foreground/30 px-6 py-3 text-[12px] uppercase tracking-[0.16em] hover:border-gold hover:text-gold"
+              className="inline-flex items-center border border-secondary-foreground/30 px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] hover:border-gold hover:text-gold"
             >
               {CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].secondary.label}
             </Link>
