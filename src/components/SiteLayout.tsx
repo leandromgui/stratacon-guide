@@ -153,8 +153,8 @@ const mega: MegaItem[] = [
       {
         title: "Patrimônio & sucessão",
         items: [
-          { label: "Holding Patrimonial", to: "/conteudos/holding-patrimonio" },
-          { label: "ITCMD e doação em vida", to: "/conteudos/holding-patrimonio" },
+          { label: "Holding Patrimonial", to: "/solucoes/holding-patrimonial" },
+          { label: "ITCMD e doação em vida", to: "/solucoes/holding-patrimonial" },
           { label: "Pessoa Física e IRPF", to: "/solucoes/pessoa-fisica-irpf" },
         ],
       },
@@ -163,7 +163,7 @@ const mega: MegaItem[] = [
         items: [
           { label: "Regularização Fiscal", to: "/solucoes/regularizacao-fiscal" },
           { label: "Defesas Fiscais", to: "/solucoes/defesas-fiscais" },
-          { label: "DP e eSocial", to: "/conteudos/dp-esocial" },
+          { label: "DP e eSocial", to: "/solucoes/departamento-pessoal" },
         ],
       },
     ],
@@ -181,18 +181,18 @@ const mega: MegaItem[] = [
       {
         title: "Linhas editoriais",
         items: [
-          { label: "Planejamento Tributário", to: "/conteudos/planejamento-tributario" },
+          { label: "Planejamento Tributário", to: "/solucoes/planejamento-tributario" },
           { label: "Regimes Tributários", to: "/conteudos/regimes-tributarios" },
-          { label: "Regularização Fiscal", to: "/conteudos/regularizacao-fiscal" },
-          { label: "Holding e Patrimônio", to: "/conteudos/holding-patrimonio" },
+          { label: "Regularização Fiscal", to: "/solucoes/regularizacao-fiscal" },
+          { label: "Holding e Patrimônio", to: "/solucoes/holding-patrimonial" },
         ],
       },
       {
         title: "Setoriais",
         items: [
-          { label: "Comércio e ICMS", to: "/conteudos/comercio-icms" },
-          { label: "Saúde e Clínicas", to: "/conteudos/saude-clinicas" },
-          { label: "DP e eSocial", to: "/conteudos/dp-esocial" },
+          { label: "Comércio e ICMS", to: "/segmentos/comercio" },
+          { label: "Saúde e Clínicas", to: "/segmentos/medicos-clinicas" },
+          { label: "DP e eSocial", to: "/solucoes/departamento-pessoal" },
         ],
       },
     ],
