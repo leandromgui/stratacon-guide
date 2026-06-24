@@ -18,7 +18,6 @@ const entries: SitemapEntry[] = [
   { path: "/goiania", changefreq: "monthly", priority: "0.7" },
   { path: "/sobre", changefreq: "monthly", priority: "0.7" },
   { path: "/sobre/leandro", changefreq: "monthly", priority: "0.6" },
-  { path: "/sobre/metodologia", changefreq: "monthly", priority: "0.6" },
   { path: "/privacidade", changefreq: "yearly", priority: "0.3" },
   // Soluções
   { path: "/solucoes", changefreq: "weekly", priority: "0.9" },
@@ -66,14 +65,8 @@ const entries: SitemapEntry[] = [
   { path: "/conteudos/setores", changefreq: "weekly", priority: "0.8" },
   { path: "/conteudos/governanca", changefreq: "weekly", priority: "0.8" },
   { path: "/conteudos/regimes-tributarios", changefreq: "monthly", priority: "0.7" },
-  { path: "/conteudos/comercio-icms", changefreq: "monthly", priority: "0.7" },
-  { path: "/conteudos/dp-esocial", changefreq: "monthly", priority: "0.7" },
   { path: "/conteudos/holding-familiar", changefreq: "monthly", priority: "0.7" },
-  { path: "/conteudos/holding-patrimonio", changefreq: "monthly", priority: "0.7" },
-  { path: "/conteudos/planejamento-tributario", changefreq: "monthly", priority: "0.7" },
-  { path: "/conteudos/regularizacao-fiscal", changefreq: "monthly", priority: "0.7" },
   { path: "/conteudos/respostas-validadas", changefreq: "monthly", priority: "0.8" },
-  { path: "/conteudos/saude-clinicas", changefreq: "monthly", priority: "0.7" },
   { path: "/conteudos/guia-simples-nacional", changefreq: "monthly", priority: "0.8" },
 ];
 

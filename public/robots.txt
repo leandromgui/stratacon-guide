@@ -1,6 +1,8 @@
 User-agent: *
+Allow: /
 Allow: /conteudos
 Disallow: /conteudos/*?p=*
-Allow: /
+Disallow: /admin/
+Disallow: /auth
 
-Sitemap: https://stratacon-guide.lovable.app/sitemap.xml
+Sitemap: https://dcon.cnt.br/sitemap.xml
