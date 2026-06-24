@@ -7,6 +7,38 @@ import { AnimatedHeroBg } from "./AnimatedHeroBg";
 import { Reveal } from "./Reveal";
 import heroBg from "../assets/hero-bg.png";
 
+const DIAGNOSTIC_WA_MESSAGE =
+  "Olá, Dcon. Vim pelo site e gostaria de solicitar um diagnostico para a minha empresa.";
+const DIAGNOSTIC_WA_HREF = `https://wa.me/5562992890898?text=${encodeURIComponent(DIAGNOSTIC_WA_MESSAGE)}`;
+
+function CtaLink({
+  to,
+  className,
+  children,
+}: {
+  to: string;
+  className?: string;
+  children: ReactNode;
+}) {
+  if (to === "/diagnostico") {
+    return (
+      <a
+        href={DIAGNOSTIC_WA_HREF}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link to={to} className={className}>
+      {children}
+    </Link>
+  );
+}
+
 export interface H3Item {
   title: string;
   body: string;
@@ -155,27 +187,27 @@ export function PageScaffold(p: PageScaffoldProps) {
               </Reveal>
             )}
             <Reveal delay={300} className="mt-9 flex flex-wrap gap-3">
-              <Link
+              <CtaLink
                 to={p.ctaPrimary.to}
                 className="inline-flex items-center bg-gold px-6 py-3 text-[12px] uppercase tracking-[0.16em] font-medium text-gold-foreground hover:opacity-90"
               >
                 {p.ctaPrimary.label} →
-              </Link>
+              </CtaLink>
               {p.ctaSecondary && (
-                <Link
+                <CtaLink
                   to={p.ctaSecondary.to}
                   className="inline-flex items-center border border-white/30 px-6 py-3 text-[12px] uppercase tracking-[0.16em] hover:border-gold hover:text-gold transition-colors"
                 >
                   {p.ctaSecondary.label}
-                </Link>
+                </CtaLink>
               )}
               {p.ctaTertiary && (
-                <Link
+                <CtaLink
                   to={p.ctaTertiary.to}
                   className="inline-flex items-center border border-dashed border-white/30 px-6 py-3 text-[12px] uppercase tracking-[0.16em] hover:border-gold hover:text-gold transition-colors"
                 >
                   {p.ctaTertiary.label}
-                </Link>
+                </CtaLink>
               )}
             </Reveal>
             <Reveal delay={360} className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.18em] text-white/50 border-t border-white/15 pt-5">
@@ -497,16 +529,6 @@ export function PageScaffold(p: PageScaffoldProps) {
           </section>
         )}
 
-        {(p.intent || p.observation) && (
-          <aside className="rounded-sm border border-dashed border-border bg-muted/40 p-6 text-xs text-muted-foreground space-y-2">
-            {p.intent && (
-              <div><span className="font-medium text-foreground">Intenção de busca:</span> {p.intent}</div>
-            )}
-            {p.observation && (
-              <div><span className="font-medium text-foreground">Observação estratégica:</span> {p.observation}</div>
-            )}
-          </aside>
-        )}
       </section>
 
       {/* Closing CTA */}
@@ -524,18 +546,18 @@ export function PageScaffold(p: PageScaffoldProps) {
             </p>
           </div>
           <div className="lg:col-span-4 flex flex-wrap gap-3 lg:justify-end">
-            <Link
+            <CtaLink
               to={CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].primary.to}
               className="inline-flex items-center bg-gold px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] text-gold-foreground hover:opacity-90"
             >
               {CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].primary.label} →
-            </Link>
-            <Link
+            </CtaLink>
+            <CtaLink
               to={CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].secondary.to}
               className="inline-flex items-center border border-secondary-foreground/30 px-7 py-3.5 text-[12px] uppercase tracking-[0.18em] hover:border-gold hover:text-gold"
             >
               {CTA_VARIANTS[p.ctaVariant ?? "diagnostic"].secondary.label}
-            </Link>
+            </CtaLink>
           </div>
         </div>
       </section>
