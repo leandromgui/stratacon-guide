@@ -5,10 +5,10 @@ import { getDoc } from "../lib/dcon-content";
 export const Route = createFileRoute("/diagnostico")({
   head: () => ({
     meta: [
-      { title: "Diagnóstico Contábil Gratuito | DCON Goiânia" },
-      { name: "description", content: "Solicite um diagnóstico contábil, fiscal e tributário gratuito da DCON em Goiânia. Identifique riscos e oportunidades na sua empresa." },
-      { property: "og:title", content: "Diagnóstico Contábil Gratuito | DCON Goiânia" },
-      { property: "og:description", content: "Solicite um diagnóstico contábil, fiscal e tributário gratuito da DCON em Goiânia. Identifique riscos e oportunidades na sua empresa." },
+      { title: "Diagnóstico Técnico Inicial | DCON — CRC-GO 1202" },
+      { name: "description", content: "Diagnóstico fiscal, contábil, tributário e trabalhista da DCON: cruzamento documental, parecer técnico e plano de ação em até 7 dias úteis. Sem compromisso comercial." },
+      { property: "og:title", content: "Diagnóstico Técnico Inicial | DCON Serviços Contábeis" },
+      { property: "og:description", content: "Cruzamento de SPED, DCTF/MIT, ECF/ECD, eSocial, folha e certidões para identificar riscos, oportunidades e caminhos seguros. Análise inicial sem compromisso comercial." },
       { property: "og:url", content: "/diagnostico" },
     ],
     links: [{ rel: "canonical", href: "/diagnostico" }],
@@ -28,22 +28,47 @@ function Page() {
   return (
     <PageScaffold
       eyebrow="Diagnóstico"
-      h1={docDcon.h1}
-      intro={docDcon.fraseComercial}
+      h1="Diagnóstico fiscal, contábil e empresarial para identificar riscos, corrigir falhas e tomar decisões com segurança."
+      intro="Antes de recuperar créditos, mudar de regime, parcelar débitos, responder à Receita ou aplicar uma tese tributária, a DCON revisa dados, documentos e obrigações para identificar o caminho mais seguro."
       intent="diagnóstico fiscal empresa, auditoria contábil preventiva"
       observation="Principal entrada de leads — referenciada em todas as páginas."
       audience={docDcon.audience}
-      ctaPrimary={{ label: "Solicitar diagnóstico", to: "/contato" }}
-      ctaSecondary={{ label: "Falar com a equipe", to: "/contato" }}
+      ctaPrimary={{ label: "Solicitar diagnóstico técnico inicial", to: "/contato" }}
+      ctaSecondary={{ label: "Falar com a equipe técnica", to: "/contato" }}
       ctaTertiary={docDcon.ctas[0]}
       respostaValidada={docDcon.respostaValidada}
       sections={[
-      { h2: "O que avaliamos no diagnóstico", h3: [{"title":"Fiscal","body":"Apurações, SPEDs e classificação fiscal das operações."},{"title":"Contábil","body":"Escrituração, fechamentos e demonstrações."},{"title":"Tributário","body":"Regime, anexo, créditos e cargas efetivas."},{"title":"Trabalhista","body":"Folha, encargos, eSocial e contratos."},{"title":"Societário","body":"Contrato social, sócios e estrutura."}] },
-      { h2: "Principais riscos encontrados", h3: [{"title":"Imposto pago a maior","body":"Crédito não aproveitado, regime mal escolhido."},{"title":"Obrigações em atraso","body":"Acessórias não entregues que viram multa em silêncio."},{"title":"Classificação fiscal errada","body":"CFOP, CST e NCM mal aplicados na origem."},{"title":"Risco societário","body":"Cláusulas defasadas para a realidade atual."}] },
-      { h2: "Quando solicitar", h3: [{"title":"Troca de contador","body":"Antes de assumir ou logo após a transição."},{"title":"Crescimento","body":"Quando a operação ficou maior do que a contabilidade atual."},{"title":"Pendências","body":"Quando há autuação, débito ou bloqueio na conta."}] },
-      { h2: "Como funciona o processo", h3: [{"title":"Coleta de dados","body":"Lista objetiva do que precisamos para iniciar."},{"title":"Análise técnica","body":"Revisão por área com equipe DCON."},{"title":"Devolutiva consultiva","body":"Reunião com o parecer e o plano de ação."}] },
-      { h2: "O que você recebe", h3: [{"title":"Relatório técnico","body":"Documento auditável com achados e fundamento."},{"title":"Plano de ação","body":"Priorização do que tratar primeiro e como."},{"title":"Reunião de devolutiva","body":"Apresentação executiva, em linguagem do empresário."}] },
-      { h2: "Perguntas frequentes", h3: [{"title":"Quanto custa?","body":"Variável conforme porte. Orçamento sob alinhamento."},{"title":"Demora quanto?","body":"Até 7 dias úteis após recebimento dos documentos."},{"title":"Sou obrigado a contratar a DCON depois?","body":"Não. O diagnóstico é entregável independente."}] },
+      { h2: "O que o diagnóstico analisa", h3: [
+        {"title":"Fiscal","body":"Regime, XML de entrada e saída, apuração de PIS, Cofins, ICMS, ISS, IRPJ, CSLL e INSS, SPED Fiscal, EFD-Contribuições, DCTF/DCTFWeb/MIT, PGDAS-D, DEFIS, PER/DCOMP, retenções, benefícios, débitos, parcelamentos, certidões e risco de malha."},
+        {"title":"Contábil","body":"ECD, ECF, balanço, balancete, DRE, lucros distribuídos, pró-labore, conciliações, saldos contábeis, patrimônio e inconsistências entre contábil e fiscal."},
+        {"title":"Trabalhista e previdenciário","body":"Folha, eSocial, EFD-Reinf, DCTFWeb, rubricas, INSS, FGTS, IRRF, FAP, RAT/GILRAT, terceiros, CCT, premiações, ajuda de custo, SST, PGR, PCMSO, LTCAT e PPP."},
+        {"title":"Empresarial","body":"Margem, lucro, precificação, Curva ABC, fluxo de caixa, inadimplência, ticket médio, endividamento, indicadores, valuation e capacidade de pagamento."},
+      ] },
+      { h2: "Como funciona", h3: [
+        {"title":"1. Coleta orientada","body":"A DCON solicita documentos e acessos necessários. A qualidade do diagnóstico depende da qualidade da documentação entregue."},
+        {"title":"2. Cruzamento técnico","body":"As informações são cruzadas entre obrigações acessórias, notas, folha, contabilidade, pagamentos e sistemas."},
+        {"title":"3. Identificação de riscos e oportunidades","body":"Classificamos riscos fiscais, inconsistências, oportunidades de economia, créditos potenciais, problemas de regularidade, falhas de folha e impactos da Reforma."},
+        {"title":"4. Devolutiva técnica","body":"A empresa recebe uma visão clara dos pontos de atenção, prioridades e próximos passos — sem promessa automática."},
+      ] },
+      { h2: "O que o diagnóstico NÃO é", h3: [
+        {"title":"Não é promessa de crédito","body":"Recuperação só após análise documental e memória de cálculo."},
+        {"title":"Não é garantia de economia","body":"Sem viabilidade técnica não há recomendação."},
+        {"title":"Não substitui defesa formal","body":"Defesa exige documentação e prazo próprios."},
+        {"title":"Não é atalho fiscal","body":"Não vendemos manobra: vendemos método e responsabilidade."},
+      ] },
+      { h2: "O que o diagnóstico pode gerar", h3: [
+        {"title":"Plano de regularização","body":"Caminho documentado para resolver pendências."},
+        {"title":"Revisão de regime tributário","body":"Simples, Presumido ou Real com base na operação real."},
+        {"title":"Recuperação de créditos","body":"Com memória de cálculo e PER/DCOMP quando aplicável."},
+        {"title":"Defesa fiscal","body":"Impugnação ou recurso administrativo bem fundamentado."},
+        {"title":"Adequação à Reforma","body":"Preparação para IBS/CBS desde 2026."},
+        {"title":"Reorganização patrimonial","body":"Quando há propósito, documentação e governança."},
+      ] },
+      { h2: "Perguntas frequentes", h3: [
+        {"title":"Quanto custa?","body":"Variável conforme porte, número de CNPJs, regimes envolvidos e volume documental. A conversa preliminar e a proposta não são cobradas."},
+        {"title":"Quanto tempo demora?","body":"Em até 7 dias úteis após o envio da documentação."},
+        {"title":"Sou obrigado a contratar depois?","body":"Não. O diagnóstico é entregável independente, sem compromisso comercial."},
+      ] },
       ]}
     />
   );
