@@ -3,7 +3,6 @@ import { WhatsAppButton } from "./WhatsAppButton";
 import { CookieBanner } from "./CookieBanner";
 import { useEffect, useState } from "react";
 import dconLogo from "@/assets/dcon-logo.png.asset.json";
-import dconLogoWhite from "@/assets/dcon-logo-white.png.asset.json";
 
 type Col = { title: string; items: { label: string; to: string; desc?: string }[] };
 type MegaItem = {
@@ -297,12 +296,12 @@ export function SiteLayout() {
 
       {/* Main header */}
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+        <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-6">
           <Link to="/" className="flex items-center font-display">
             <img
               src={dconLogo.url}
               alt="DCON Serviços Contábeis"
-              className="h-14 w-auto"
+              className="h-20 w-auto"
             />
           </Link>
           <nav className="hidden lg:flex items-stretch h-full">
@@ -405,9 +404,9 @@ export function SiteLayout() {
           <div className="mx-auto max-w-7xl px-6 py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <img
-              src={dconLogoWhite.url}
+              src={dconLogo.url}
                 alt="DCON Serviços Contábeis"
-              className="h-14 w-auto"
+              className="h-20 w-auto"
               />
               <p className="mt-5 text-sm text-secondary-foreground/70 leading-relaxed max-w-sm">
                 Contabilidade consultiva técnica. Atuamos como o time técnico de
