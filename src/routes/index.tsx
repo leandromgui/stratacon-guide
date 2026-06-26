@@ -125,6 +125,8 @@ const method = [
 ];
 
 function Home() {
+  const [showAllSolutions, setShowAllSolutions] = useState(false);
+  const visibleSolutions = showAllSolutions ? solutions : solutions.slice(0, 3);
   return (
     <div>
       {/* Hero — fundo interativo com parallax + spotlight */}
@@ -226,7 +228,7 @@ function Home() {
             </Link>
           </div>
           <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-3">
-            {solutions.map((s, i) => (
+            {visibleSolutions.map((s, i) => (
               <Reveal key={s.h} delay={i * 80} y={32}>
               <Link to={s.to} style={{ ["--panel-accent" as never]: PANEL_ACCENTS[i % PANEL_ACCENTS.length] }} className="panel-interactive group bg-card p-8 flex flex-col justify-between hover:bg-secondary hover:text-secondary-foreground h-full">
                 <div>
@@ -238,6 +240,17 @@ function Home() {
               </Link>
               </Reveal>
             ))}
+          </div>
+          <div className="mt-8 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAllSolutions((v) => !v)}
+              className="inline-flex items-center gap-3 border border-border bg-card px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-secondary hover:border-gold hover:text-gold transition-colors"
+              aria-expanded={showAllSolutions}
+            >
+              <span>{showAllSolutions ? "Mostrar menos" : `Ver mais ${solutions.length - 3} linhas de serviço`}</span>
+              <span className={`text-gold transition-transform ${showAllSolutions ? "rotate-180" : ""}`}>↓</span>
+            </button>
           </div>
         </div>
       </section>
@@ -399,6 +412,7 @@ function Home() {
           </div>
         </div>
       </section>
+      <ClientsCarousel />
     </div>
   );
 }
