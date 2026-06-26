@@ -1,4 +1,4 @@
-import c1 from "@/assets/clients/client-1.jpg.asset.json";
+import c1 from "@/assets/clients/client-1.png.asset.json";
 import c2 from "@/assets/clients/client-2.png.asset.json";
 import c3 from "@/assets/clients/client-3.png.asset.json";
 import c4 from "@/assets/clients/client-4.png.asset.json";
@@ -8,13 +8,26 @@ import c7 from "@/assets/clients/client-7.png.asset.json";
 import c8 from "@/assets/clients/client-8.png.asset.json";
 import c9 from "@/assets/clients/client-9.png.asset.json";
 import c10 from "@/assets/clients/client-10.png.asset.json";
-import c11 from "@/assets/clients/client-11.jpg.asset.json";
+import c11 from "@/assets/clients/client-11.png.asset.json";
 import c12 from "@/assets/clients/client-12.png.asset.json";
 import c13 from "@/assets/clients/client-13.png.asset.json";
 import c14 from "@/assets/clients/client-14.png.asset.json";
-import c15 from "@/assets/clients/client-15.jpg.asset.json";
+import c15 from "@/assets/clients/client-15.png.asset.json";
+import c16 from "@/assets/clients/client-16.png.asset.json";
+import c17 from "@/assets/clients/client-17.png.asset.json";
+import c18 from "@/assets/clients/client-18.png.asset.json";
+import c19 from "@/assets/clients/client-19.png.asset.json";
+import c20 from "@/assets/clients/client-20.png.asset.json";
+import c21 from "@/assets/clients/client-21.png.asset.json";
+import c22 from "@/assets/clients/client-22.png.asset.json";
+import c23 from "@/assets/clients/client-23.png.asset.json";
+import c24 from "@/assets/clients/client-24.png.asset.json";
+import c25 from "@/assets/clients/client-25.png.asset.json";
+import c26 from "@/assets/clients/client-26.png.asset.json";
+import c27 from "@/assets/clients/client-27.png.asset.json";
+import c28 from "@/assets/clients/client-28.png.asset.json";
 
-const logos = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15];
+const logos = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25, c26, c27, c28];
 
 export function ClientsCarousel() {
   const loop = [...logos, ...logos];
