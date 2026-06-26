@@ -183,16 +183,13 @@ function Home() {
                 Escolha o que você precisa agora.
               </h2>
             </div>
-            <p className="text-[13px] text-muted-foreground max-w-sm">
-              Cada bloco abre a página completa com escopo, prazo e responsável técnico.
-            </p>
           </div>
           <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-4">
             {[
-              { tag: "Diagnóstico", h: "Mapear minha empresa", b: "7 dias úteis · relatório técnico", to: "/diagnostico", color: "var(--gold)" },
-              { tag: "CBS / IBS", h: "Reforma Tributária", b: "Impacto no caixa 2026–2033", to: "/solucoes/reforma-tributaria", color: "var(--secondary)" },
-              { tag: "Crédito", h: "Recuperar tributos", b: "Últimos 5 anos · PER/DCOMP", to: "/solucoes/recuperacao-creditos-tributarios", color: "var(--gold)" },
-              { tag: "Patrimônio", h: "Holding e sucessão", b: "ITBI, ITCMD e governança", to: "/solucoes/holding-patrimonial", color: "var(--secondary)" },
+              { tag: "CBS / IBS", h: "Reforma Tributária", b: "Impacto no caixa 2026–2033", to: "/solucoes/reforma-tributaria", color: "var(--gold)" },
+              { tag: "Crédito", h: "Recuperar tributos", b: "Últimos 5 anos · PER/DCOMP", to: "/solucoes/recuperacao-creditos-tributarios", color: "var(--secondary)" },
+              { tag: "Patrimônio", h: "Holding e sucessão", b: "ITBI, ITCMD e governança", to: "/solucoes/holding-patrimonial", color: "var(--gold)" },
+              { tag: "Diagnóstico", h: "Mapear minha empresa", b: "7 dias úteis · relatório técnico", to: "/diagnostico", color: "var(--secondary)" },
             ].map((c, i) => (
               <Reveal key={c.h} delay={i * 80} y={24}>
                 <Link
