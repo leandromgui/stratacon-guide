@@ -285,6 +285,8 @@ export function SiteLayout() {
             </span>
           </div>
           <div className="flex items-center gap-5">
+            <a href="tel:+556232237010" className="hover:text-gold">(62) 3223-7010</a>
+            <span className="opacity-30">|</span>
             <Link to="/contato" className="hover:text-gold">contato@dcon.cnt.br</Link>
             <span className="opacity-30">|</span>
             <Link to="/diagnostico" className="hover:text-gold">Diagnóstico</Link>
@@ -412,6 +414,7 @@ export function SiteLayout() {
               </p>
               <div className="mt-6 space-y-1.5 text-sm text-secondary-foreground/75">
                 <div className="text-gold text-[10px] uppercase tracking-[0.22em] mb-2">Goiânia — GO</div>
+                <a href="tel:+556232237010" className="hover:text-gold transition-colors">(62) 3223-7010</a>
                 <a href="tel:+5562992890898" className="hover:text-gold transition-colors">(62) 99289-0898</a>
                 <a href="mailto:contato@dcon.cnt.br" className="hover:text-gold transition-colors">contato@dcon.cnt.br</a>
                 <a href="https://wa.me/5562992890898" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">WhatsApp · (62) 99289-0898</a>

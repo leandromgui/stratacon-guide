@@ -34,7 +34,7 @@ function Page() {
       sections={[
       { h2: "Solicite uma análise da sua empresa", h3: [{"title":"Diagnóstico fiscal","body":"Revisão técnica de apurações, SPEDs e classificação."},{"title":"Diagnóstico contábil","body":"Análise de escrituração e fechamentos."},{"title":"Diagnóstico tributário","body":"Comparativo de regime e oportunidades."}] },
       { h2: "Atendimento em Goiânia e online", h3: [{"title":"Goiânia","body":"Encontros presenciais em horário comercial."},{"title":"Online","body":"Atendimento remoto em todo o Brasil."},{"title":"Reuniões","body":"Por videoconferência, agendadas com responsável técnico."}] },
-      { h2: "Canais", h3: [{"title":"WhatsApp","body":"(62) 99289-0898 — atendimento direto para clientes e novos contatos."},{"title":"E-mail","body":"contato@dcon.cnt.br"},{"title":"Telefone","body":"(62) 99289-0898"}] },
+      { h2: "Canais", h3: [{"title":"WhatsApp","body":"(62) 99289-0898 — atendimento direto para clientes e novos contatos."},{"title":"E-mail","body":"contato@dcon.cnt.br"},{"title":"Telefone fixo","body":"(62) 3223-7010"},{"title":"Celular","body":"(62) 99289-0898"}] },
       ]}
     >
       <section className="border-t border-border pt-16">
