@@ -251,3 +251,13 @@
   from { background-position: 0 0, 0 0; }
   to   { background-position: 220px 0, 0 220px; }
 }
+
+@keyframes clients-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-clients-marquee {
+  animation: clients-marquee 45s linear infinite;
+}
+.animate-clients-marquee:hover { animation-play-state: paused; }

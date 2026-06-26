@@ -3,6 +3,8 @@ import ogImage from "../assets/og-dcon.jpg";
 import heroBg from "../assets/hero-bg.png";
 import { Reveal } from "../components/Reveal";
 import { AnimatedHeroBg } from "../components/AnimatedHeroBg";
+import { ClientsCarousel } from "../components/ClientsCarousel";
+import { useState } from "react";
 
 const SITE_URL = "https://stratacon-guide.lovable.app";
 const OG_IMAGE_URL = `${SITE_URL}${ogImage}`;
@@ -19,29 +21,9 @@ const PANEL_ACCENTS = [
 
 const faqs = [
   {
-    q: "A DCON é uma contabilidade online?",
-    aPlain: "Não. Somos uma firma técnica de consultoria contábil, fiscal, tributária e empresarial. Atendemos presencialmente em Goiânia e remotamente em todo o Brasil, mas a entrega é consultiva — análise técnica, plano de ação e acompanhamento por responsável com CRC ativo — e não meramente transacional.",
-    a: <>Não. Somos uma firma técnica de consultoria contábil, fiscal, tributária e empresarial. Atendemos presencialmente em Goiânia e remotamente em todo o Brasil, mas a entrega é consultiva — análise técnica, plano de ação e acompanhamento por responsável com CRC ativo — e não meramente transacional.</>,
-  },
-  {
     q: "Em quanto tempo o diagnóstico fica pronto?",
     aPlain: "Em até 7 dias úteis após o envio da documentação. Entregamos um relatório técnico com mapeamento fiscal, tributário, contábil, trabalhista, societário e patrimonial, mais um plano de ação priorizado por risco, impacto financeiro e prazo de regularização.",
     a: <>Em até 7 dias úteis após o envio da documentação. Entregamos um relatório técnico com mapeamento fiscal, tributário, contábil, trabalhista, societário e patrimonial, mais um plano de ação priorizado por risco, impacto financeiro e prazo de regularização. <Link to="/diagnostico" className="underline text-gold hover:no-underline">Solicitar diagnóstico →</Link></>,
-  },
-  {
-    q: "Quanto custa o diagnóstico técnico da DCON?",
-    aPlain: "O diagnóstico inicial é apresentado em proposta após uma conversa preliminar de escopo. O valor depende do porte, do número de CNPJs, dos regimes envolvidos e do volume documental. Não cobramos pela conversa inicial nem pela proposta.",
-    a: <>O diagnóstico inicial é apresentado em proposta após uma conversa preliminar de escopo. O valor depende do porte, do número de CNPJs, dos regimes envolvidos e do volume documental. Não cobramos pela conversa inicial nem pela proposta.</>,
-  },
-  {
-    q: "Trabalham com empresas de qualquer regime tributário?",
-    aPlain: "Sim — Simples Nacional, Lucro Presumido e Lucro Real. Em muitos casos o próprio diagnóstico revela que a empresa está no regime errado para a operação atual; comparamos cenários antes de qualquer migração e validamos sublimite, Fator R e enquadramento de CNAE.",
-    a: <>Sim — Simples Nacional, Lucro Presumido e Lucro Real. Em muitos casos o próprio <Link to="/diagnostico" className="underline text-gold hover:no-underline">diagnóstico</Link> revela que a empresa está no regime errado para a operação atual; comparamos cenários antes de qualquer migração e validamos sublimite, Fator R e enquadramento de CNAE.</>,
-  },
-  {
-    q: "Como funciona a troca de contabilidade para a DCON?",
-    aPlain: "Conduzimos a transição com plano formal de migração: solicitação técnica ao contador anterior, auditoria de entrada da base recebida, cronograma de assunção de obrigações e revisão dos últimos 5 anos. Não há janela sem responsável técnico — assumimos antes que qualquer prazo vença.",
-    a: <>Conduzimos a transição com plano formal de migração: solicitação técnica ao contador anterior, auditoria de entrada da base recebida, cronograma de assunção de obrigações e revisão dos últimos 5 anos. Não há janela sem responsável técnico — assumimos antes que qualquer prazo vença. Veja o passo a passo para <Link to="/solucoes/trocar-contabilidade" className="underline text-gold hover:no-underline">trocar de contabilidade →</Link></>,
   },
   {
     q: "A DCON ajuda a recuperar tributos pagos a maior?",
@@ -57,26 +39,6 @@ const faqs = [
     q: "Faz sentido constituir uma holding patrimonial?",
     aPlain: "Depende do patrimônio, da estrutura familiar e do objetivo (proteção, sucessão, eficiência). Em parte dos casos a recomendação técnica é não constituir — holding sem patrimônio relevante vira custo de manutenção. Avaliamos ITBI, ITCMD e ganho de capital antes de qualquer transferência.",
     a: <>Depende do patrimônio, da estrutura familiar e do objetivo (proteção, sucessão, eficiência). Em parte dos casos a recomendação técnica é não constituir — holding sem patrimônio relevante vira custo de manutenção. Avaliamos ITBI, ITCMD e ganho de capital antes de qualquer transferência. <Link to="/solucoes/holding-patrimonial" className="underline text-gold hover:no-underline">Holding patrimonial →</Link></>,
-  },
-  {
-    q: "Atendem empresas fora de Goiânia?",
-    aPlain: "Sim. A maior parte do atendimento é remoto, com reuniões técnicas por vídeo, canais auditáveis para documentos e protocolos de revisão cruzada. Mantemos a base operacional em Goiânia e atendemos clientes em todo o Brasil.",
-    a: <>Sim. A maior parte do atendimento é remoto, com reuniões técnicas por vídeo, canais auditáveis para documentos e protocolos de revisão cruzada. Mantemos a base operacional em Goiânia e atendemos clientes em todo o Brasil.</>,
-  },
-  {
-    q: "Atuam como assessoria contínua ou em projetos pontuais?",
-    aPlain: "Ambos. Há clientes em consultoria mensal contínua (contabilidade, fiscal, DP e governança) e projetos pontuais como recuperação de créditos, reestruturação societária, holding, defesa fiscal e valuation. Todo trabalho segue o Método DCON de diagnóstico, estruturação, rotina e acompanhamento.",
-    a: <>Ambos. Há clientes em consultoria mensal contínua (contabilidade, fiscal, DP e governança) e projetos pontuais como recuperação de créditos, reestruturação societária, holding, defesa fiscal e valuation. Todo trabalho segue o <Link to="/metodo" className="underline text-gold hover:no-underline">Método DCON</Link> de diagnóstico, estruturação, rotina e acompanhamento.</>,
-  },
-  {
-    q: "Quem assina tecnicamente as entregas da DCON?",
-    aPlain: "Responsável técnico com CRC ativo. Toda recomendação relevante — pareceres, defesas, planejamento, PER/DCOMP e relatórios de diagnóstico — passa por revisão cruzada antes da entrega ao cliente.",
-    a: <>Responsável técnico com CRC ativo. Toda recomendação relevante — pareceres, defesas, planejamento, PER/DCOMP e relatórios de <Link to="/diagnostico" className="underline text-gold hover:no-underline">diagnóstico</Link> — passa por revisão cruzada antes da entrega ao cliente.</>,
-  },
-  {
-    q: "Como é tratada a confidencialidade das informações?",
-    aPlain: "Sob sigilo profissional do contador (Código de Ética CFC) e contratos de confidencialidade quando aplicável. Documentos circulam por canais auditáveis com controle de acesso por função e histórico de movimentação.",
-    a: <>Sob sigilo profissional do contador (Código de Ética CFC) e contratos de confidencialidade quando aplicável. Documentos circulam por canais auditáveis com controle de acesso por função e histórico de movimentação.</>,
   },
 ];
 
@@ -163,6 +125,8 @@ const method = [
 ];
 
 function Home() {
+  const [showAllSolutions, setShowAllSolutions] = useState(false);
+  const visibleSolutions = showAllSolutions ? solutions : solutions.slice(0, 3);
   return (
     <div>
       {/* Hero — fundo interativo com parallax + spotlight */}
@@ -221,16 +185,13 @@ function Home() {
                 Escolha o que você precisa agora.
               </h2>
             </div>
-            <p className="text-[13px] text-muted-foreground max-w-sm">
-              Cada bloco abre a página completa com escopo, prazo e responsável técnico.
-            </p>
           </div>
           <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-4">
             {[
-              { tag: "Diagnóstico", h: "Mapear minha empresa", b: "7 dias úteis · relatório técnico", to: "/diagnostico", color: "var(--gold)" },
-              { tag: "CBS / IBS", h: "Reforma Tributária", b: "Impacto no caixa 2026–2033", to: "/solucoes/reforma-tributaria", color: "var(--secondary)" },
-              { tag: "Crédito", h: "Recuperar tributos", b: "Últimos 5 anos · PER/DCOMP", to: "/solucoes/recuperacao-creditos-tributarios", color: "var(--gold)" },
-              { tag: "Patrimônio", h: "Holding e sucessão", b: "ITBI, ITCMD e governança", to: "/solucoes/holding-patrimonial", color: "var(--secondary)" },
+              { tag: "CBS / IBS", h: "Reforma Tributária", b: "Impacto no caixa 2026–2033", to: "/solucoes/reforma-tributaria", color: "var(--gold)" },
+              { tag: "Crédito", h: "Recuperar tributos", b: "Últimos 5 anos · PER/DCOMP", to: "/solucoes/recuperacao-creditos-tributarios", color: "var(--secondary)" },
+              { tag: "Patrimônio", h: "Holding e sucessão", b: "ITBI, ITCMD e governança", to: "/solucoes/holding-patrimonial", color: "var(--gold)" },
+              { tag: "Diagnóstico", h: "Mapear minha empresa", b: "7 dias úteis · relatório técnico", to: "/diagnostico", color: "var(--secondary)" },
             ].map((c, i) => (
               <Reveal key={c.h} delay={i * 80} y={24}>
                 <Link
@@ -267,7 +228,7 @@ function Home() {
             </Link>
           </div>
           <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-3">
-            {solutions.map((s, i) => (
+            {visibleSolutions.map((s, i) => (
               <Reveal key={s.h} delay={i * 80} y={32}>
               <Link to={s.to} style={{ ["--panel-accent" as never]: PANEL_ACCENTS[i % PANEL_ACCENTS.length] }} className="panel-interactive group bg-card p-8 flex flex-col justify-between hover:bg-secondary hover:text-secondary-foreground h-full">
                 <div>
@@ -279,6 +240,17 @@ function Home() {
               </Link>
               </Reveal>
             ))}
+          </div>
+          <div className="mt-8 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAllSolutions((v) => !v)}
+              className="inline-flex items-center gap-3 border border-border bg-card px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-secondary hover:border-gold hover:text-gold transition-colors"
+              aria-expanded={showAllSolutions}
+            >
+              <span>{showAllSolutions ? "Mostrar menos" : `Ver mais ${solutions.length - 3} linhas de serviço`}</span>
+              <span className={`text-gold transition-transform ${showAllSolutions ? "rotate-180" : ""}`}>↓</span>
+            </button>
           </div>
         </div>
       </section>
@@ -440,6 +412,7 @@ function Home() {
           </div>
         </div>
       </section>
+      <ClientsCarousel />
     </div>
   );
 }
