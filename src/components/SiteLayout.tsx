@@ -3,6 +3,7 @@ import { WhatsAppButton } from "./WhatsAppButton";
 import { CookieBanner } from "./CookieBanner";
 import { useEffect, useState } from "react";
 import dconLogo from "@/assets/dcon-logo.png.asset.json";
+import dconLogoWhite from "@/assets/dcon-logo-white.png.asset.json";
 
 type Col = { title: string; items: { label: string; to: string; desc?: string }[] };
 type MegaItem = {
@@ -301,7 +302,7 @@ export function SiteLayout() {
             <img
               src={dconLogo.url}
               alt="DCON Serviços Contábeis"
-              className="h-11 w-auto"
+              className="h-14 w-auto"
             />
           </Link>
           <nav className="hidden lg:flex items-stretch h-full">
@@ -404,20 +405,19 @@ export function SiteLayout() {
           <div className="mx-auto max-w-7xl px-6 py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <img
-                src={dconLogo.url}
+              src={dconLogoWhite.url}
                 alt="DCON Serviços Contábeis"
-                className="h-10 w-auto"
+              className="h-14 w-auto"
               />
               <p className="mt-5 text-sm text-secondary-foreground/70 leading-relaxed max-w-sm">
                 Contabilidade consultiva técnica. Atuamos como o time técnico de
                 empresas que precisam decidir com segurança jurídica, fiscal e patrimonial.
               </p>
-              <div className="mt-6 space-y-1.5 text-sm text-secondary-foreground/75">
-                <div className="text-gold text-[10px] uppercase tracking-[0.22em] mb-2">Goiânia — GO</div>
-                <a href="tel:+556232237010" className="hover:text-gold transition-colors">(62) 3223-7010</a>
-                <a href="tel:+5562992890898" className="hover:text-gold transition-colors">(62) 99289-0898</a>
-                <a href="mailto:contato@dcon.cnt.br" className="hover:text-gold transition-colors">contato@dcon.cnt.br</a>
-                <a href="https://wa.me/5562992890898" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">WhatsApp · (62) 99289-0898</a>
+              <div className="mt-6 flex flex-col gap-1.5 text-sm text-secondary-foreground/75">
+                <div className="text-gold text-[10px] uppercase tracking-[0.22em] mb-1">Goiânia — GO</div>
+                <a href="tel:+556232237010" className="block hover:text-gold transition-colors">Fixo · (62) 3223-7010</a>
+                <a href="https://wa.me/5562992890898" target="_blank" rel="noopener noreferrer" className="block hover:text-gold transition-colors">WhatsApp · (62) 99289-0898</a>
+                <a href="mailto:contato@dcon.cnt.br" className="block hover:text-gold transition-colors">contato@dcon.cnt.br</a>
                 <div>Atendimento presencial e online</div>
               </div>
               <Link
