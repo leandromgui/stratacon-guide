@@ -296,7 +296,7 @@ export function SiteLayout() {
 
       {/* Main header */}
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+        <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-6">
           <Link to="/" className="flex items-center font-display">
             <img
               src={dconLogo.url}
