@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { buildSeoHead } from "@/lib/seo";
 
-export const Route = createFileRoute("/sobre")({
+export const Route = createFileRoute("/sobre/")({
   head: () => ({
     ...buildSeoHead({
       title: "Sobre a DCON | Contabilidade de Autoridade em Goiânia",
