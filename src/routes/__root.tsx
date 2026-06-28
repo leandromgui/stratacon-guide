@@ -12,25 +12,70 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteLayout } from "../components/SiteLayout";
 
+const SITE_URL = "https://www.dcon.cnt.br";
+const OG_IMAGE = `${SITE_URL}/og-image.png`;
+
+const ORGANIZATION_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "DCON Serviços Contábeis",
+  url: `${SITE_URL}/`,
+  logo: `${SITE_URL}/logo-dcon.png`,
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+55-62-3223-7010",
+      contactType: "customer service",
+      areaServed: "BR",
+      availableLanguage: "Portuguese",
+    },
+    {
+      "@type": "ContactPoint",
+      telephone: "+55-62-99289-0898",
+      contactType: "customer support",
+      areaServed: "BR",
+      availableLanguage: "Portuguese",
+    },
+  ],
+  sameAs: [
+    "https://www.linkedin.com/company/dcon-servicos-contabeis/",
+    "https://www.instagram.com/dconservicoscontabeis/",
+    "https://www.facebook.com/dconservicoscontabeis",
+  ],
+};
+
 function NotFoundComponent() {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const id = window.setTimeout(() => {
+      window.location.href = "/";
+    }, 10000);
+    return () => window.clearTimeout(id);
+  }, []);
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
-        </div>
+    <section className="mx-auto max-w-3xl px-6 py-24 md:py-32 text-center">
+      <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Erro 404</div>
+      <h1 className="mt-6 font-display text-4xl md:text-6xl font-light tracking-tight leading-[1.05]">
+        Página não encontrada — <span className="font-semibold">mas estamos aqui.</span>
+      </h1>
+      <p className="mt-6 text-muted-foreground text-[15px] md:text-[17px] leading-relaxed">
+        O endereço acessado não existe ou foi movido. Você será redirecionado para a página inicial em 10 segundos.
+      </p>
+      <div className="mt-10 flex flex-wrap justify-center gap-3">
+        <Link
+          to="/"
+          className="inline-flex items-center bg-secondary text-secondary-foreground px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:bg-primary"
+        >
+          Voltar para o início
+        </Link>
+        <Link
+          to="/contato"
+          className="inline-flex items-center border border-gold text-gold px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:bg-gold hover:text-gold-foreground"
+        >
+          Solicitar diagnóstico →
+        </Link>
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -80,9 +125,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "DCON Serviços Contábeis · Contabilidade em Goiânia" },
       { name: "description", content: "Contabilidade consultiva técnica — fiscal, tributária e empresarial — para empresas que precisam de segurança e estratégia. DCON Serviços Contábeis — Goiânia." },
       { name: "author", content: "DCON Serviços Contábeis" },
+      { name: "language", content: "pt-BR" },
+      { name: "rating", content: "general" },
+      { name: "revisit-after", content: "7 days" },
+      { name: "geo.region", content: "BR-GO" },
+      { name: "geo.placename", content: "Goiânia, Goiás, Brasil" },
+      { name: "geo.position", content: "-16.699;-49.267" },
+      { name: "ICBM", content: "-16.699, -49.267" },
       { property: "og:site_name", content: "DCON Serviços Contábeis" },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "pt_BR" },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "DCON Serviços Contábeis — Consultoria Contábil e Tributária em Goiânia" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "DCON · Consultoria Contábil e Tributária em Goiânia" },
+      { name: "twitter:description", content: "Contabilidade consultiva técnica para empresas que precisam de segurança fiscal, clareza nos números e decisões mais inteligentes. Goiânia, GO." },
+      { name: "twitter:image", content: OG_IMAGE },
       { name: "google-site-verification", content: "UcqtKPxeErR6WHA69PJktbmJnfCgiyvU_CL5G6TL2Gc" },
     ],
     links: [
@@ -95,8 +155,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com",
       },
       {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
+      {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(ORGANIZATION_JSONLD),
       },
     ],
   }),
