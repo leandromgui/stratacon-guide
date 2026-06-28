@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/contato")({
   head: () => ({
-    meta: [
-      { title: "Fale com a DCON | Contabilidade em Goiânia" },
-      { name: "description", content: "Entre em contato com a DCON Serviços Contábeis em Goiânia. Atendimento presencial e digital. (62) 3223-7010 · WhatsApp (62) 99289-0898 · contato@dcon.cnt.br" },
-      { property: "og:title", content: "Fale com a DCON | Contabilidade em Goiânia" },
-      { property: "og:description", content: "Entre em contato com a DCON Serviços Contábeis em Goiânia. Atendimento presencial e digital. (62) 3223-7010 · WhatsApp (62) 99289-0898 · contato@dcon.cnt.br" },
-      { property: "og:url", content: "https://www.dcon.cnt.br/contato" },
-    ],
-    links: [{ rel: "canonical", href: "https://www.dcon.cnt.br/contato" }],
+    ...buildSeoHead({
+      title: "Fale com a DCON | Contabilidade em Goiânia",
+      description: "Entre em contato com a DCON Serviços Contábeis em Goiânia. Atendimento presencial e digital. (62) 3223-7010 · WhatsApp (62) 99289-0898 · contato@dcon.cnt.br",
+      canonical: "https://www.dcon.cnt.br/contato",
+    }),
     scripts: [
       {
         type: "application/ld+json",

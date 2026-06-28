@@ -3,17 +3,15 @@ import { PageScaffold } from "../components/PageScaffold";
 import { getDoc } from "../lib/dcon-content";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/segmentos/construcao-civil-spe")({
   head: () => ({
-    meta: [
-      { title: "Contabilidade para Construção Civil e SPE | DCON Goiânia" },
-      { name: "description", content: "Contabilidade para construção civil e SPE em Goiânia: RET, patrimônio de afetação, INSS obra e gestão fiscal por incorporação." },
-      { property: "og:title", content: "Contabilidade para Construção Civil e SPE | DCON Goiânia" },
-      { property: "og:description", content: "Contabilidade para construção civil e SPE em Goiânia: RET, patrimônio de afetação, INSS obra e gestão fiscal por incorporação." },
-      { property: "og:url", content: "/segmentos/construcao-civil-spe" },
-    ],
-    links: [{ rel: "canonical", href: "/segmentos/construcao-civil-spe" }],
+    ...buildSeoHead({
+      title: "Contabilidade para Construção Civil e SPE | DCON Goiânia",
+      description: "Contabilidade para construção civil e SPE em Goiânia: RET, patrimônio de afetação, INSS obra e gestão fiscal por incorporação.",
+      canonical: "/segmentos/construcao-civil-spe",
+    }),
     scripts: [
       {
         type: "application/ld+json",

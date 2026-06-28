@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/segmentos/comercio")({
   head: () => ({
-    meta: [
-      { title: "Contabilidade para Comércio em Goiânia | DCON" },
-      { name: "description", content: "Contabilidade para comércio em Goiânia: ICMS, substituição tributária, SPED Fiscal e gestão de estoque com a DCON Contábil." },
-      { property: "og:title", content: "Contabilidade para Comércio em Goiânia | DCON" },
-      { property: "og:description", content: "Contabilidade para comércio em Goiânia: ICMS, substituição tributária, SPED Fiscal e gestão de estoque com a DCON Contábil." },
-      { property: "og:url", content: "/segmentos/comercio" },
-    ],
-    links: [{ rel: "canonical", href: "/segmentos/comercio" }],
+    ...buildSeoHead({
+      title: "Contabilidade para Comércio em Goiânia | DCON",
+      description: "Contabilidade para comércio em Goiânia: ICMS, substituição tributária, SPED Fiscal e gestão de estoque com a DCON Contábil.",
+      canonical: "/segmentos/comercio",
+    }),
     scripts: [
       {
         type: "application/ld+json",

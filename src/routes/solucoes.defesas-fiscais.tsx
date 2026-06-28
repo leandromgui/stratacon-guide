@@ -5,6 +5,7 @@ import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
+import { buildSeoHead } from "@/lib/seo";
 
 const faqs: FAQItem[] = [
   { q: "Recebi uma cobrança da Receita — pago ou contesto?", a: "Antes de pagar ou parcelar, é preciso conferir se a cobrança está correta. Boa parte das autuações tem erro de base de cálculo, decadência, prescrição ou enquadramento que pode ser contestado." },
@@ -17,14 +18,11 @@ const faqs: FAQItem[] = [
 
 export const Route = createFileRoute("/solucoes/defesas-fiscais")({
   head: () => ({
-    meta: [
-      { title: "Defesas Fiscais: Impugnação, PRDI e Transação | DCON" },
-      { name: "description", content: "Antes de pagar ou parcelar uma cobrança fiscal, é preciso saber se ela está correta. Defesa técnica para empresas e pessoas físicas." },
-      { property: "og:title", content: "Defesas Fiscais: Impugnação, PRDI e Transação | DCON" },
-      { property: "og:description", content: "Impugnação, manifestação de inconformidade, defesa em malha fiscal, transação PGFN e PRDI." },
-      { property: "og:url", content: "/solucoes/defesas-fiscais" },
-    ],
-    links: [{ rel: "canonical", href: "/solucoes/defesas-fiscais" }],
+    ...buildSeoHead({
+      title: "Defesas Fiscais: Impugnação, PRDI e Transação | DCON",
+      description: "Antes de pagar ou parcelar uma cobrança fiscal, é preciso saber se ela está correta. Defesa técnica para empresas e pessoas físicas.",
+      canonical: "/solucoes/defesas-fiscais",
+    }),
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"/solucoes"},{"@type":"ListItem","position":3,"name":"Defesas Fiscais","item":"/solucoes/defesas-fiscais"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "Defesas Fiscais", description: "Impugnação, manifestação de inconformidade, defesa em malha fiscal, transação PGFN e PRDI para PJ e PF.", url: "/solucoes/defesas-fiscais" }) },

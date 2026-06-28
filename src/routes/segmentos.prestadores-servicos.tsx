@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/segmentos/prestadores-servicos")({
   head: () => ({
-    meta: [
-      { title: "Contabilidade para Prestadores de Serviço | DCON Goiânia" },
-      { name: "description", content: "Contabilidade para prestadores de serviço em Goiânia: ISS, retenções, fator R e planejamento tributário consultivo com a DCON." },
-      { property: "og:title", content: "Contabilidade para Prestadores de Serviço | DCON Goiânia" },
-      { property: "og:description", content: "Contabilidade para prestadores de serviço em Goiânia: ISS, retenções, fator R e planejamento tributário consultivo com a DCON." },
-      { property: "og:url", content: "/segmentos/prestadores-servicos" },
-    ],
-    links: [{ rel: "canonical", href: "/segmentos/prestadores-servicos" }],
+    ...buildSeoHead({
+      title: "Contabilidade para Prestadores de Serviço | DCON Goiânia",
+      description: "Contabilidade para prestadores de serviço em Goiânia: ISS, retenções, fator R e planejamento tributário consultivo com a DCON.",
+      canonical: "/segmentos/prestadores-servicos",
+    }),
     scripts: [
       {
         type: "application/ld+json",

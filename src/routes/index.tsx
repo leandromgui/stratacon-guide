@@ -5,6 +5,7 @@ import { Reveal } from "../components/Reveal";
 import { AnimatedHeroBg } from "../components/AnimatedHeroBg";
 import { ClientsCarousel } from "../components/ClientsCarousel";
 import { useState } from "react";
+import { buildSeoHead } from "@/lib/seo";
 
 const SITE_URL = "https://www.dcon.cnt.br";
 const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
@@ -64,24 +65,23 @@ const faqs = [
 ];
 
 export const Route = createFileRoute("/")({
-  head: () => ({
+  head: () => {
+    const seo = buildSeoHead({
+      title: "DCON · Consultoria Contábil e Tributária em Goiânia",
+      description: "Contabilidade consultiva técnica em Goiânia, GO. Planejamento tributário, recuperação de créditos, reforma CBS/IBS, holding e diagnóstico fiscal em 7 dias úteis. CRC-GO 1202.",
+      canonical: `${SITE_URL}/`,
+      ogImage: OG_IMAGE_URL,
+    });
+    return ({
     meta: [
-      { title: "DCON · Consultoria Contábil e Tributária em Goiânia" },
-      { name: "description", content: "Contabilidade consultiva técnica em Goiânia, GO. Planejamento tributário, recuperação de créditos, reforma CBS/IBS, holding e diagnóstico fiscal em 7 dias úteis. CRC-GO 1202." },
+      ...seo.meta,
       { name: "keywords", content: "consultoria contábil Goiânia, planejamento tributário, reforma tributária CBS IBS, recuperação de créditos tributários, holding patrimonial, defesa fiscal, contabilidade consultiva" },
-      { property: "og:title", content: "DCON · Consultoria Contábil e Tributária em Goiânia" },
-      { property: "og:description", content: "Contabilidade consultiva técnica em Goiânia, GO. Planejamento tributário, recuperação de créditos, reforma CBS/IBS, holding e diagnóstico fiscal em 7 dias úteis. CRC-GO 1202." },
-      { property: "og:url", content: `${SITE_URL}/` },
-      { property: "og:type", content: "website" },
-      { property: "og:image", content: OG_IMAGE_URL },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { property: "og:image:alt", content: "DCON · Contabilidade Consultiva Técnica — Goiânia, CRC-GO 1202" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: OG_IMAGE_URL },
     ],
     links: [
-      { rel: "canonical", href: `${SITE_URL}/` },
+      ...seo.links,
       { rel: "alternate", hrefLang: "pt-BR", href: `${SITE_URL}/` },
       { rel: "alternate", hrefLang: "x-default", href: `${SITE_URL}/` },
       { rel: "preload", as: "image", href: HERO_BG_URL, fetchPriority: "high" },
@@ -168,7 +168,8 @@ export const Route = createFileRoute("/")({
         }),
       },
     ],
-  }),
+    });
+  },
   component: Home,
 });
 

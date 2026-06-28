@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { SimplesNacionalMiniForm } from "../components/SimplesNacionalMiniForm";
+import { buildSeoHead } from "@/lib/seo";
 
 const CANONICAL = "https://stratacon-guide.lovable.app/conteudos/guia-simples-nacional";
 
@@ -33,15 +34,12 @@ const faq = [
 
 export const Route = createFileRoute("/conteudos/guia-simples-nacional")({
   head: () => ({
-    meta: [
-      { title: "Guia do Simples Nacional para Empresas | DCON" },
-      { name: "description", content: "Guia técnico do Simples Nacional: consulta, anexos, Fator R, sublimites de ICMS, planejamento tributário e recuperação de créditos. Conteúdo DCON." },
-      { property: "og:title", content: "Guia do Simples Nacional para Empresas | DCON" },
-      { property: "og:description", content: "Guia técnico do Simples Nacional: consulta, anexos, Fator R, sublimites de ICMS, planejamento tributário e recuperação de créditos." },
-      { property: "og:type", content: "article" },
-      { property: "og:url", content: CANONICAL },
-    ],
-    links: [{ rel: "canonical", href: CANONICAL }],
+    ...buildSeoHead({
+      title: "Guia do Simples Nacional para Empresas | DCON",
+      description: "Guia técnico do Simples Nacional: consulta, anexos, Fator R, sublimites de ICMS, planejamento tributário e recuperação de créditos. Conteúdo DCON.",
+      canonical: CANONICAL,
+      ogType: "article",
+    }),
     scripts: [
       {
         type: "application/ld+json",

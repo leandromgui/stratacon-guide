@@ -5,6 +5,7 @@ import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
+import { buildSeoHead } from "@/lib/seo";
 
 const faqs: FAQItem[] = [
   { q: "Devo abrir CNPJ ou continuar como PF?", a: "Depende da atividade, renda, despesas dedutíveis e contratantes. Comparamos PF (Livro Caixa, Carnê-Leão) com CNPJ (Simples, Fator R, pró-labore) antes de qualquer migração." },
@@ -16,14 +17,11 @@ const faqs: FAQItem[] = [
 
 export const Route = createFileRoute("/solucoes/pessoa-fisica-irpf")({
   head: () => ({
-    meta: [
-      { title: "IRPF, PF x PJ e Restituição para Alta Renda | DCON" },
-      { name: "description", content: "Você pode estar pagando imposto acima do necessário sem perceber. Planejamento para profissionais liberais, locadores e alta renda." },
-      { property: "og:title", content: "IRPF, PF x PJ e Restituição para Alta Renda | DCON" },
-      { property: "og:description", content: "PF x CNPJ, Carnê-Leão, Receita Saúde, restituição de pensão, INSS acima do teto e malha fina." },
-      { property: "og:url", content: "/solucoes/pessoa-fisica-irpf" },
-    ],
-    links: [{ rel: "canonical", href: "/solucoes/pessoa-fisica-irpf" }],
+    ...buildSeoHead({
+      title: "IRPF, PF x PJ e Restituição para Alta Renda | DCON",
+      description: "Você pode estar pagando imposto acima do necessário sem perceber. Planejamento para profissionais liberais, locadores e alta renda.",
+      canonical: "/solucoes/pessoa-fisica-irpf",
+    }),
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"/solucoes"},{"@type":"ListItem","position":3,"name":"Pessoa Física e IRPF","item":"/solucoes/pessoa-fisica-irpf"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "IRPF e Planejamento PF", description: "Diagnóstico fiscal para pessoa física: PF x CNPJ, IRPF, restituições, malha fina e profissionais liberais.", url: "/solucoes/pessoa-fisica-irpf" }) },

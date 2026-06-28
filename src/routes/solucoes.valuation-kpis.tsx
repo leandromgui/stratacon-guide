@@ -5,6 +5,7 @@ import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
+import { buildSeoHead } from "@/lib/seo";
 
 const faqs: FAQItem[] = [
   { q: "Como se calcula o valuation de uma empresa?", a: "Os métodos mais usados são DCF (fluxo de caixa descontado), múltiplos de EBITDA/receita e avaliação patrimonial. A escolha depende do setor, do estágio e do propósito (venda, entrada/saída de sócio, sucessão)." },
@@ -15,14 +16,11 @@ const faqs: FAQItem[] = [
 
 export const Route = createFileRoute("/solucoes/valuation-kpis")({
   head: () => ({
-    meta: [
-      { title: "Valuation, KPIs e Precificação para Empresas | DCON" },
-      { name: "description", content: "Empresa não vale apenas pelo faturamento. Vale pela capacidade de gerar caixa, sustentar resultado e reduzir riscos." },
-      { property: "og:title", content: "Valuation, KPIs e Precificação para Empresas | DCON" },
-      { property: "og:description", content: "Valuation, DRE gerencial, KPIs, Curva ABC, LTV/CAC, margem e precificação técnica." },
-      { property: "og:url", content: "/solucoes/valuation-kpis" },
-    ],
-    links: [{ rel: "canonical", href: "/solucoes/valuation-kpis" }],
+    ...buildSeoHead({
+      title: "Valuation, KPIs e Precificação para Empresas | DCON",
+      description: "Empresa não vale apenas pelo faturamento. Vale pela capacidade de gerar caixa, sustentar resultado e reduzir riscos.",
+      canonical: "/solucoes/valuation-kpis",
+    }),
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"/solucoes"},{"@type":"ListItem","position":3,"name":"Valuation e KPIs","item":"/solucoes/valuation-kpis"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "Valuation, KPIs e Precificação", description: "Avaliação de empresas, DRE gerencial, indicadores e precificação técnica.", url: "/solucoes/valuation-kpis" }) },

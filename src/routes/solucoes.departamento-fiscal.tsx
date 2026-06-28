@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/solucoes/departamento-fiscal")({
   head: () => ({
-    meta: [
-      { title: "Departamento Fiscal em Goiânia | DCON Contábil" },
-      { name: "description", content: "Departamento fiscal completo: apuração, SPED, ICMS, ISS, PIS e Cofins. Escritório DCON em Goiânia para empresas que exigem precisão tributária." },
-      { property: "og:title", content: "Departamento Fiscal em Goiânia | DCON Contábil" },
-      { property: "og:description", content: "Departamento fiscal completo: apuração, SPED, ICMS, ISS, PIS e Cofins. Escritório DCON em Goiânia para empresas que exigem precisão tributária." },
-      { property: "og:url", content: "/solucoes/departamento-fiscal" },
-    ],
-    links: [{ rel: "canonical", href: "/solucoes/departamento-fiscal" }],
+    ...buildSeoHead({
+      title: "Departamento Fiscal em Goiânia | DCON Contábil",
+      description: "Departamento fiscal completo: apuração, SPED, ICMS, ISS, PIS e Cofins. Escritório DCON em Goiânia para empresas que exigem precisão tributária.",
+      canonical: "/solucoes/departamento-fiscal",
+    }),
     scripts: [
       {
         type: "application/ld+json",

@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/conteudos/regimes-tributarios")({
   head: () => ({
-    meta: [
-      { title: "Simples, Presumido e Lucro Real | Conteúdos DCON" },
-      { name: "description", content: "Como escolher entre Simples Nacional, Lucro Presumido e Lucro Real: guias e análises da DCON para decisões com segurança." },
-      { property: "og:title", content: "Simples, Presumido e Lucro Real | Conteúdos DCON" },
-      { property: "og:description", content: "Como escolher entre Simples Nacional, Lucro Presumido e Lucro Real: guias e análises da DCON para decisões com segurança." },
-      { property: "og:url", content: "/conteudos/regimes-tributarios" },
-    ],
-    links: [{ rel: "canonical", href: "/conteudos/regimes-tributarios" }],
+    ...buildSeoHead({
+      title: "Simples, Presumido e Lucro Real | Conteúdos DCON",
+      description: "Como escolher entre Simples Nacional, Lucro Presumido e Lucro Real: guias e análises da DCON para decisões com segurança.",
+      canonical: "/conteudos/regimes-tributarios",
+    }),
     scripts: [
       {
         type: "application/ld+json",

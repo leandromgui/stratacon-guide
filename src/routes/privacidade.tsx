@@ -1,16 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/privacidade")({
-  head: () => ({
-    meta: [
-      { title: "Política de Privacidade | DCON Serviços Contábeis" },
-      { name: "description", content: "Como a DCON trata dados pessoais, cookies e formulários de contato em conformidade com a LGPD." },
-      { property: "og:title", content: "Política de Privacidade | DCON Serviços Contábeis" },
-      { property: "og:description", content: "Como a DCON trata dados pessoais, cookies e formulários de contato em conformidade com a LGPD." },
-      { property: "og:url", content: "/privacidade" },
-    ],
-    links: [{ rel: "canonical", href: "/privacidade" }],
+  head: () => buildSeoHead({
+      title: "Política de Privacidade | DCON Serviços Contábeis",
+      description: "Como a DCON trata dados pessoais, cookies e formulários de contato em conformidade com a LGPD.",
+      canonical: "/privacidade",
   }),
   component: Page,
 });

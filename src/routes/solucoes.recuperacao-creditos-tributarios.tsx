@@ -4,6 +4,7 @@ import { getDoc } from "../lib/dcon-content";
 import { faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
+import { buildSeoHead } from "@/lib/seo";
 
 const faqs: FAQItem[] = [
   { q: "Que tributos podem ser recuperados?", a: "PIS/COFINS (exclusão do ICMS da base, insumos, créditos extemporâneos), INSS sobre verbas indenizatórias, ICMS-ST recolhido a maior, crédito presumido não aproveitado e tributos pagos com erro de base ou alíquota nos últimos 5 anos." },
@@ -16,14 +17,11 @@ const faqs: FAQItem[] = [
 
 export const Route = createFileRoute("/solucoes/recuperacao-creditos-tributarios")({
   head: () => ({
-    meta: [
-      { title: "Recuperação de Créditos e Contencioso Tributário | DCON" },
-      { name: "description", content: "Levantamento técnico de tributos pagos a maior nos últimos 5 anos e condução de contencioso administrativo. Tese consolidada, trabalho por êxito." },
-      { property: "og:title", content: "Recuperação de Créditos e Contencioso Tributário | DCON" },
-      { property: "og:description", content: "PIS/COFINS, INSS, ICMS-ST e mais. Levantamento técnico auditável e contencioso administrativo." },
-      { property: "og:url", content: "/solucoes/recuperacao-creditos-tributarios" },
-    ],
-    links: [{ rel: "canonical", href: "/solucoes/recuperacao-creditos-tributarios" }],
+    ...buildSeoHead({
+      title: "Recuperação de Créditos e Contencioso Tributário | DCON",
+      description: "Levantamento técnico de tributos pagos a maior nos últimos 5 anos e condução de contencioso administrativo. Tese consolidada, trabalho por êxito.",
+      canonical: "/solucoes/recuperacao-creditos-tributarios",
+    }),
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"/solucoes"},{"@type":"ListItem","position":3,"name":"Recuperação de Créditos","item":"/solucoes/recuperacao-creditos-tributarios"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "Recuperação de Créditos e Contencioso Tributário", description: "Levantamento técnico de tributos pagos a maior nos últimos 5 anos e condução de defesa administrativa.", url: "/solucoes/recuperacao-creditos-tributarios" }) },

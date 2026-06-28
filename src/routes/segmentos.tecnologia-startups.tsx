@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/segmentos/tecnologia-startups")({
   head: () => ({
-    meta: [
-      { title: "Contabilidade para Startups e Tech em Goiânia | DCON" },
-      { name: "description", content: "Contabilidade para empresas de tecnologia e startups em Goiânia: Lei do Bem, stock options, SaaS e regime ideal com a DCON." },
-      { property: "og:title", content: "Contabilidade para Startups e Tech em Goiânia | DCON" },
-      { property: "og:description", content: "Contabilidade para empresas de tecnologia e startups em Goiânia: Lei do Bem, stock options, SaaS e regime ideal com a DCON." },
-      { property: "og:url", content: "/segmentos/tecnologia-startups" },
-    ],
-    links: [{ rel: "canonical", href: "/segmentos/tecnologia-startups" }],
+    ...buildSeoHead({
+      title: "Contabilidade para Startups e Tech em Goiânia | DCON",
+      description: "Contabilidade para empresas de tecnologia e startups em Goiânia: Lei do Bem, stock options, SaaS e regime ideal com a DCON.",
+      canonical: "/segmentos/tecnologia-startups",
+    }),
     scripts: [
       {
         type: "application/ld+json",

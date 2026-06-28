@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/segmentos/")({
   head: () => ({
-    meta: [
-      { title: "Setores Atendidos | Médicos, E-commerce, Construção | DCON" },
-      { name: "description", content: "Contabilidade especializada para médicos e clínicas, e-commerce, construção civil, tecnologia e holdings em Goiânia e em todo o Brasil. DCON." },
-      { property: "og:title", content: "Setores Atendidos | Médicos, E-commerce, Construção | DCON" },
-      { property: "og:description", content: "Contabilidade especializada para médicos e clínicas, e-commerce, construção civil, tecnologia e holdings em Goiânia e em todo o Brasil. DCON." },
-      { property: "og:url", content: "https://www.dcon.cnt.br/segmentos" },
-    ],
-    links: [{ rel: "canonical", href: "https://www.dcon.cnt.br/segmentos" }],
+    ...buildSeoHead({
+      title: "Setores Atendidos | Médicos, E-commerce, Construção | DCON",
+      description: "Contabilidade especializada para médicos e clínicas, e-commerce, construção civil, tecnologia e holdings em Goiânia e em todo o Brasil. DCON.",
+      canonical: "https://www.dcon.cnt.br/segmentos",
+    }),
     scripts: [
       {
         type: "application/ld+json",

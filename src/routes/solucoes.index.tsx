@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/solucoes/")({
   head: () => ({
-    meta: [
-      { title: "Soluções Contábeis e Tributárias | DCON Goiânia" },
-      { name: "description", content: "Planejamento tributário, reforma tributária CBS/IBS, recuperação de créditos, defesa fiscal, holding patrimonial e valuation. DCON Serviços Contábeis — Goiânia, GO." },
-      { property: "og:title", content: "Soluções Contábeis e Tributárias | DCON Goiânia" },
-      { property: "og:description", content: "Planejamento tributário, reforma tributária CBS/IBS, recuperação de créditos, defesa fiscal, holding patrimonial e valuation. DCON Serviços Contábeis — Goiânia, GO." },
-      { property: "og:url", content: "https://www.dcon.cnt.br/solucoes" },
-    ],
-    links: [{ rel: "canonical", href: "https://www.dcon.cnt.br/solucoes" }],
+    ...buildSeoHead({
+      title: "Soluções Contábeis e Tributárias | DCON Goiânia",
+      description: "Planejamento tributário, reforma tributária CBS/IBS, recuperação de créditos, defesa fiscal, holding patrimonial e valuation. DCON Serviços Contábeis — Goiânia, GO.",
+      canonical: "https://www.dcon.cnt.br/solucoes",
+    }),
     scripts: [
       {
         type: "application/ld+json",

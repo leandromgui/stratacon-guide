@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/solucoes/bpo-financeiro")({
   head: () => ({
-    meta: [
-      { title: "BPO Financeiro em Goiânia | DCON Contábil" },
-      { name: "description", content: "BPO financeiro com contas a pagar, conciliação bancária e fluxo de caixa. Terceirize a rotina financeira com segurança junto à DCON em Goiânia." },
-      { property: "og:title", content: "BPO Financeiro em Goiânia | DCON Contábil" },
-      { property: "og:description", content: "BPO financeiro com contas a pagar, conciliação bancária e fluxo de caixa. Terceirize a rotina financeira com segurança junto à DCON em Goiânia." },
-      { property: "og:url", content: "/solucoes/bpo-financeiro" },
-    ],
-    links: [{ rel: "canonical", href: "/solucoes/bpo-financeiro" }],
+    ...buildSeoHead({
+      title: "BPO Financeiro em Goiânia | DCON Contábil",
+      description: "BPO financeiro com contas a pagar, conciliação bancária e fluxo de caixa. Terceirize a rotina financeira com segurança junto à DCON em Goiânia.",
+      canonical: "/solucoes/bpo-financeiro",
+    }),
     scripts: [
       {
         type: "application/ld+json",

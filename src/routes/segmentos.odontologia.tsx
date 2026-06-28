@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/segmentos/odontologia")({
   head: () => ({
-    meta: [
-      { title: "Contabilidade para Dentistas em Goiânia | DCON" },
-      { name: "description", content: "Contabilidade para odontologia em Goiânia: regime tributário ideal, fator R e gestão fiscal para consultórios e clínicas odontológicas." },
-      { property: "og:title", content: "Contabilidade para Dentistas em Goiânia | DCON" },
-      { property: "og:description", content: "Contabilidade para odontologia em Goiânia: regime tributário ideal, fator R e gestão fiscal para consultórios e clínicas odontológicas." },
-      { property: "og:url", content: "/segmentos/odontologia" },
-    ],
-    links: [{ rel: "canonical", href: "/segmentos/odontologia" }],
+    ...buildSeoHead({
+      title: "Contabilidade para Dentistas em Goiânia | DCON",
+      description: "Contabilidade para odontologia em Goiânia: regime tributário ideal, fator R e gestão fiscal para consultórios e clínicas odontológicas.",
+      canonical: "/segmentos/odontologia",
+    }),
     scripts: [
       {
         type: "application/ld+json",

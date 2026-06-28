@@ -5,6 +5,7 @@ import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
+import { buildSeoHead } from "@/lib/seo";
 
 const faqs: FAQItem[] = [
   { q: "A DCON substitui meu ERP?", a: "Não. A tecnologia da DCON cruza dados que já existem no seu ERP, nas notas e nas obrigações acessórias para gerar controle, alerta, conferência e decisão." },
@@ -15,14 +16,11 @@ const faqs: FAQItem[] = [
 
 export const Route = createFileRoute("/solucoes/tecnologia-contabil")({
   head: () => ({
-    meta: [
-      { title: "Tecnologia Contábil, Automação e BI Fiscal | DCON" },
-      { name: "description", content: "Sua empresa já tem dados. Falta transformá-los em controle, alerta e decisão. A DCON cruza fiscal, contábil, folha e financeiro com tecnologia." },
-      { property: "og:title", content: "Tecnologia Contábil, Automação e BI Fiscal | DCON" },
-      { property: "og:description", content: "Cruzamento fiscal, monitoramento de certidões, dashboards, revisão de XML/SPED e tecnologia para a Reforma Tributária." },
-      { property: "og:url", content: "/solucoes/tecnologia-contabil" },
-    ],
-    links: [{ rel: "canonical", href: "/solucoes/tecnologia-contabil" }],
+    ...buildSeoHead({
+      title: "Tecnologia Contábil, Automação e BI Fiscal | DCON",
+      description: "Sua empresa já tem dados. Falta transformá-los em controle, alerta e decisão. A DCON cruza fiscal, contábil, folha e financeiro com tecnologia.",
+      canonical: "/solucoes/tecnologia-contabil",
+    }),
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"/solucoes"},{"@type":"ListItem","position":3,"name":"Tecnologia Contábil","item":"/solucoes/tecnologia-contabil"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "Tecnologia Contábil", description: "Automação, BI fiscal, cruzamentos, dashboards e monitoramento para empresas em todos os regimes.", url: "/solucoes/tecnologia-contabil" }) },
