@@ -1,5 +1,26 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /admin/
 
+# Bots de IAs — permissão explícita
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+# Sitemap
 Sitemap: https://www.dcon.cnt.br/sitemap.xml
