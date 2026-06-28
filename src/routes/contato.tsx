@@ -5,12 +5,12 @@ export const Route = createFileRoute("/contato")({
   head: () => ({
     meta: [
       { title: "Fale com a DCON | Contabilidade em Goiânia" },
-      { name: "description", content: "Solicite uma análise da sua empresa com a DCON. Contabilidade consultiva técnica em Goiânia e atendimento online em todo o Brasil. WhatsApp, e-mail e telefone." },
+      { name: "description", content: "Entre em contato com a DCON Serviços Contábeis em Goiânia. Atendimento presencial e digital. (62) 3223-7010 · WhatsApp (62) 99289-0898 · contato@dcon.cnt.br" },
       { property: "og:title", content: "Fale com a DCON | Contabilidade em Goiânia" },
-      { property: "og:description", content: "Solicite uma análise da sua empresa com a DCON. Contabilidade consultiva técnica em Goiânia e atendimento online em todo o Brasil. WhatsApp, e-mail e telefone." },
-      { property: "og:url", content: "/contato" },
+      { property: "og:description", content: "Entre em contato com a DCON Serviços Contábeis em Goiânia. Atendimento presencial e digital. (62) 3223-7010 · WhatsApp (62) 99289-0898 · contato@dcon.cnt.br" },
+      { property: "og:url", content: "https://www.dcon.cnt.br/contato" },
     ],
-    links: [{ rel: "canonical", href: "/contato" }],
+    links: [{ rel: "canonical", href: "https://www.dcon.cnt.br/contato" }],
     scripts: [
       {
         type: "application/ld+json",

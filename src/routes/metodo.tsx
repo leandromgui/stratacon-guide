@@ -11,13 +11,13 @@ const faqs = [
 export const Route = createFileRoute("/metodo")({
   head: () => ({
     meta: [
-      { title: "Método DCON: diagnóstico, planejamento, execução e governança" },
-      { name: "description", content: "O Método DCON conduz cada cliente em 4 fases auditáveis: diagnóstico técnico, planejamento, execução documentada e governança contínua." },
-      { property: "og:title", content: "Método DCON — 4 fases auditáveis" },
-      { property: "og:description", content: "Protocolo técnico que transforma contabilidade em decisão: diagnóstico, planejamento, execução e governança." },
-      { property: "og:url", content: "/metodo" },
+      { title: "Método DCON — Conformidade Fiscal-Contábil | Goiânia" },
+      { name: "description", content: "Conheça o Método DCON: Diagnóstico → Cruzamento → Parecer → Correção → Monitoramento. Metodologia própria de conformidade fiscal para empresas em Goiânia e Goiás." },
+      { property: "og:title", content: "Método DCON — Conformidade Fiscal-Contábil | Goiânia" },
+      { property: "og:description", content: "Conheça o Método DCON: Diagnóstico → Cruzamento → Parecer → Correção → Monitoramento. Metodologia própria de conformidade fiscal para empresas em Goiânia e Goiás." },
+      { property: "og:url", content: "https://www.dcon.cnt.br/metodo" },
     ],
-    links: [{ rel: "canonical", href: "/metodo" }],
+    links: [{ rel: "canonical", href: "https://www.dcon.cnt.br/metodo" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Método DCON","item":"/metodo"}]}) },
       { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"HowTo","name":"Método DCON","description":"Protocolo técnico de consultoria contábil, fiscal e tributária em 4 fases.","step":[{"@type":"HowToStep","position":1,"name":"Diagnóstico","text":"Cruzamento de documentos fiscais, contábeis, societários e trabalhistas para identificar riscos, créditos e exposições."},{"@type":"HowToStep","position":2,"name":"Planejamento","text":"Plano de ação tributário, patrimonial e operacional com simulações, tese fundamentada e cronograma."},{"@type":"HowToStep","position":3,"name":"Execução","text":"Implementação documentada com parecer técnico, retificações, parametrização de sistemas e treinamento de equipe."},{"@type":"HowToStep","position":4,"name":"Governança","text":"Acompanhamento mensal com indicadores, revisão de teses, auditoria contínua e responsabilidade técnica."}]}) },

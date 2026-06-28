@@ -4,13 +4,13 @@ import { useMemo, useState } from "react";
 export const Route = createFileRoute("/conteudos/")({
   head: () => ({
     meta: [
-      { title: "Insights DCON | Análises Contábeis, Fiscais e Tributárias" },
-      { name: "description", content: "Central de insights da DCON: análises técnicas sobre tributação, regimes, holdings, defesas fiscais e governança para empresas brasileiras." },
-      { property: "og:title", content: "Insights DCON" },
-      { property: "og:description", content: "Análises técnicas para quem decide: tributação, patrimônio, governança e setores." },
-      { property: "og:url", content: "/conteudos" },
+      { title: "Insights Contábeis e Tributários | DCON" },
+      { name: "description", content: "Análises técnicas sobre planejamento tributário, reforma tributária, holding, eSocial e gestão fiscal para empresários e gestores. DCON Serviços Contábeis." },
+      { property: "og:title", content: "Insights Contábeis e Tributários | DCON" },
+      { property: "og:description", content: "Análises técnicas sobre planejamento tributário, reforma tributária, holding, eSocial e gestão fiscal para empresários e gestores. DCON Serviços Contábeis." },
+      { property: "og:url", content: "https://www.dcon.cnt.br/conteudos" },
     ],
-    links: [{ rel: "canonical", href: "/conteudos" }],
+    links: [{ rel: "canonical", href: "https://www.dcon.cnt.br/conteudos" }],
     scripts: [
       {
         type: "application/ld+json",
