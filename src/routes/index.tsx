@@ -6,8 +6,9 @@ import { AnimatedHeroBg } from "../components/AnimatedHeroBg";
 import { ClientsCarousel } from "../components/ClientsCarousel";
 import { useState } from "react";
 
-const SITE_URL = "https://stratacon-guide.lovable.app";
-const OG_IMAGE_URL = `${SITE_URL}${ogImage}`;
+const SITE_URL = "https://www.dcon.cnt.br";
+const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
+const HERO_BG_URL = heroBg;
 
 // Paleta on-brand: preto/grafite + vermelho DCON. Sem cores fora da marca.
 const PANEL_ACCENTS = [
@@ -40,6 +41,26 @@ const faqs = [
     aPlain: "Depende do patrimônio, da estrutura familiar e do objetivo (proteção, sucessão, eficiência). Em parte dos casos a recomendação técnica é não constituir — holding sem patrimônio relevante vira custo de manutenção. Avaliamos ITBI, ITCMD e ganho de capital antes de qualquer transferência.",
     a: <>Depende do patrimônio, da estrutura familiar e do objetivo (proteção, sucessão, eficiência). Em parte dos casos a recomendação técnica é não constituir — holding sem patrimônio relevante vira custo de manutenção. Avaliamos ITBI, ITCMD e ganho de capital antes de qualquer transferência. <Link to="/solucoes/holding-patrimonial" className="underline text-gold hover:no-underline">Holding patrimonial →</Link></>,
   },
+  {
+    q: "Quanto custa a contabilidade da DCON?",
+    aPlain: "Os honorários variam conforme regime tributário, porte e serviços contratados. Atendemos MEI, Simples Nacional, Lucro Presumido e Lucro Real. Solicite um diagnóstico técnico inicial para receber proposta personalizada.",
+    a: <>Os honorários variam conforme regime tributário, porte e serviços contratados. Atendemos MEI, Simples Nacional, Lucro Presumido e Lucro Real. <Link to="/diagnostico" className="underline text-gold hover:no-underline">Solicitar proposta →</Link></>,
+  },
+  {
+    q: "A DCON atende empresas de todo o Brasil?",
+    aPlain: "Sim. Sede em Goiânia, GO, com atendimento digital completo em todo o Brasil. Clientes de outros estados contam com o mesmo nível de consultoria e suporte técnico.",
+    a: <>Sim. Sede em Goiânia, GO, com atendimento digital completo em todo o Brasil. <Link to="/contato" className="underline text-gold hover:no-underline">Falar com a DCON →</Link></>,
+  },
+  {
+    q: "O que é o Método DCON?",
+    aPlain: "Metodologia proprietária de conformidade fiscal-contábil: Diagnóstico → Cruzamento de dados → Parecer técnico → Correção → Monitoramento contínuo. Garante operação com segurança fiscal e previsibilidade.",
+    a: <>Metodologia proprietária em 4 fases auditáveis. <Link to="/metodo" className="underline text-gold hover:no-underline">Conhecer o Método DCON →</Link></>,
+  },
+  {
+    q: "A DCON atende médicos e clínicas?",
+    aPlain: "Sim. Experiência específica com médicos, dentistas, fisioterapeutas e clínicas: equiparação hospitalar, PJ médica, planejamento tributário e departamento pessoal para o setor de saúde.",
+    a: <>Sim. Análise de equiparação hospitalar, PJ médica e planejamento tributário para o setor. <Link to="/segmentos/medicos-clinicas" className="underline text-gold hover:no-underline">Médicos e clínicas →</Link></>,
+  },
 ];
 
 export const Route = createFileRoute("/")({
@@ -59,7 +80,12 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: OG_IMAGE_URL },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      { rel: "canonical", href: `${SITE_URL}/` },
+      { rel: "alternate", hrefLang: "pt-BR", href: `${SITE_URL}/` },
+      { rel: "alternate", hrefLang: "x-default", href: `${SITE_URL}/` },
+      { rel: "preload", as: "image", href: HERO_BG_URL, fetchPriority: "high" },
+    ],
     scripts: [
       {
         type: "application/ld+json",
@@ -67,19 +93,66 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "AccountingService",
           name: "DCON Serviços Contábeis",
-          description: "Consultoria contábil, fiscal, tributária e empresarial. Planejamento tributário, reforma CBS/IBS, recuperação de créditos, holding patrimonial e defesa fiscal sob Método DCON.",
-          areaServed: "BR",
-          address: { "@type": "PostalAddress", addressLocality: "Goiânia", addressRegion: "GO", addressCountry: "BR" },
-          url: "/",
+          alternateName: "DCON",
+          description: "Escritório de contabilidade consultiva em Goiânia, GO. Especializado em conformidade fiscal-contábil, planejamento tributário, recuperação de créditos, reforma tributária CBS/IBS, holding patrimonial, departamento pessoal e valuation. Método DCON: Diagnóstico, Cruzamento, Parecer, Correção e Monitoramento.",
+          url: `${SITE_URL}/`,
+          logo: `${SITE_URL}/logo-dcon.png`,
+          image: OG_IMAGE_URL,
+          telephone: "+55-62-3223-7010",
+          email: "contato@dcon.cnt.br",
+          foundingDate: "2005",
+          numberOfEmployees: { "@type": "QuantitativeValue", value: 11 },
+          areaServed: [
+            { "@type": "City", name: "Goiânia", addressRegion: "GO", addressCountry: "BR" },
+            { "@type": "State", name: "Goiás", addressCountry: "BR" },
+          ],
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Rua 89-A, 51",
+            addressLocality: "Goiânia",
+            addressRegion: "GO",
+            postalCode: "74093-150",
+            addressCountry: "BR",
+          },
+          geo: { "@type": "GeoCoordinates", latitude: "-16.699", longitude: "-49.267" },
+          openingHoursSpecification: [{
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            opens: "08:00",
+            closes: "18:00",
+          }],
+          sameAs: [
+            "https://www.linkedin.com/company/dcon-servicos-contabeis/",
+            "https://www.instagram.com/dconservicoscontabeis/",
+            "https://www.facebook.com/dconservicoscontabeis",
+          ],
+          founder: {
+            "@type": "Person",
+            name: "Leandro Matsuoka Guimarães",
+            jobTitle: "Contador responsável",
+            identifier: "CRC-GO 16.395/O-9",
+          },
+          hasCredential: {
+            "@type": "EducationalOccupationalCredential",
+            name: "CRC-GO 1202",
+            credentialCategory: "Registro no Conselho Regional de Contabilidade de Goiás",
+          },
           serviceType: [
             "Planejamento Tributário",
+            "Contabilidade Recorrente",
             "Reforma Tributária (CBS/IBS)",
             "Recuperação de Créditos Tributários",
-            "Defesa Fiscal",
+            "Defesa Fiscal e Administrativa",
             "Holding Patrimonial e Familiar",
             "Departamento Pessoal e eSocial",
+            "BPO Financeiro",
             "Valuation e KPIs",
+            "Abertura e Encerramento de Empresas",
+            "Conformidade SPED ECD/ECF",
           ],
+          priceRange: "$$",
+          paymentAccepted: "PIX, Boleto, Transferência bancária",
+          currenciesAccepted: "BRL",
         }),
       },
       {

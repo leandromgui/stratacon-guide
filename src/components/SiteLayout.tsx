@@ -412,13 +412,26 @@ export function SiteLayout() {
                 Contabilidade consultiva técnica. Atuamos como o time técnico de
                 empresas que precisam decidir com segurança jurídica, fiscal e patrimonial.
               </p>
-              <div className="mt-6 flex flex-col gap-1.5 text-sm text-secondary-foreground/75">
+              <address
+                itemScope
+                itemType="https://schema.org/PostalAddress"
+                className="mt-6 not-italic flex flex-col gap-1.5 text-sm text-secondary-foreground/75"
+              >
                 <div className="text-gold text-[10px] uppercase tracking-[0.22em] mb-1">Goiânia — GO</div>
-                <a href="tel:+556232237010" className="block hover:text-gold transition-colors">Fixo · (62) 3223-7010</a>
+                <div>
+                  <span itemProp="streetAddress">Rua 89-A, 51</span> —{" "}
+                  <span>Setor Sul</span>
+                </div>
+                <div>
+                  CEP <span itemProp="postalCode">74093-150</span> ·{" "}
+                  <span itemProp="addressLocality">Goiânia</span>,{" "}
+                  <span itemProp="addressRegion">GO</span>
+                </div>
+                <a href="tel:+556232237010" className="block hover:text-gold transition-colors mt-2">Fixo · (62) 3223-7010</a>
                 <a href="https://wa.me/5562992890898" target="_blank" rel="noopener noreferrer" className="block hover:text-gold transition-colors">WhatsApp · (62) 99289-0898</a>
                 <a href="mailto:contato@dcon.cnt.br" className="block hover:text-gold transition-colors">contato@dcon.cnt.br</a>
-                <div>Atendimento presencial e online</div>
-              </div>
+                <div className="mt-1">Atendimento presencial e online</div>
+              </address>
               <Link
                 to="/diagnostico"
                 className="mt-7 inline-flex items-center gap-2 border-b border-gold pb-1 text-[11px] uppercase tracking-[0.2em] text-gold"
