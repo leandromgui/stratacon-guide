@@ -5,12 +5,12 @@ export const Route = createFileRoute("/solucoes/")({
   head: () => ({
     meta: [
       { title: "Soluções Contábeis e Tributárias | DCON Goiânia" },
-      { name: "description", content: "Contabilidade, fiscal, departamento pessoal, planejamento tributário e holding. Soluções DCON para empresas em Goiânia e em todo o Brasil." },
+      { name: "description", content: "Planejamento tributário, reforma tributária CBS/IBS, recuperação de créditos, defesa fiscal, holding patrimonial e valuation. DCON Serviços Contábeis — Goiânia, GO." },
       { property: "og:title", content: "Soluções Contábeis e Tributárias | DCON Goiânia" },
-      { property: "og:description", content: "Contabilidade, fiscal, departamento pessoal, planejamento tributário e holding. Soluções DCON para empresas em Goiânia e em todo o Brasil." },
-      { property: "og:url", content: "/solucoes" },
+      { property: "og:description", content: "Planejamento tributário, reforma tributária CBS/IBS, recuperação de créditos, defesa fiscal, holding patrimonial e valuation. DCON Serviços Contábeis — Goiânia, GO." },
+      { property: "og:url", content: "https://www.dcon.cnt.br/solucoes" },
     ],
-    links: [{ rel: "canonical", href: "/solucoes" }],
+    links: [{ rel: "canonical", href: "https://www.dcon.cnt.br/solucoes" }],
     scripts: [
       {
         type: "application/ld+json",
