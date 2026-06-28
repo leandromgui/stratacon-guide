@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/solucoes/societario-legalizacao")({
   head: () => ({
-    meta: [
-      { title: "Societário e Legalização de Empresas | DCON Goiânia" },
-      { name: "description", content: "Alterações contratuais, abertura, baixa e regularização societária em Goiânia. Estruturação societária consultiva com a DCON Contábil." },
-      { property: "og:title", content: "Societário e Legalização de Empresas | DCON Goiânia" },
-      { property: "og:description", content: "Alterações contratuais, abertura, baixa e regularização societária em Goiânia. Estruturação societária consultiva com a DCON Contábil." },
-      { property: "og:url", content: "/solucoes/societario-legalizacao" },
-    ],
-    links: [{ rel: "canonical", href: "/solucoes/societario-legalizacao" }],
+    ...buildSeoHead({
+      title: "Societário e Legalização de Empresas | DCON Goiânia",
+      description: "Alterações contratuais, abertura, baixa e regularização societária em Goiânia. Estruturação societária consultiva com a DCON Contábil.",
+      canonical: "/solucoes/societario-legalizacao",
+    }),
     scripts: [
       {
         type: "application/ld+json",

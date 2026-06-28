@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/solucoes/contabilidade-empresarial")({
   head: () => ({
-    meta: [
-      { title: "Contabilidade Empresarial em Goiânia | DCON" },
-      { name: "description", content: "Contabilidade empresarial consultiva em Goiânia com relatórios gerenciais, fechamento auditável e leitura técnica para decisões seguras." },
-      { property: "og:title", content: "Contabilidade Empresarial em Goiânia | DCON" },
-      { property: "og:description", content: "Contabilidade empresarial consultiva em Goiânia com relatórios gerenciais, fechamento auditável e leitura técnica para decisões seguras." },
-      { property: "og:url", content: "/solucoes/contabilidade-empresarial" },
-    ],
-    links: [{ rel: "canonical", href: "/solucoes/contabilidade-empresarial" }],
+    ...buildSeoHead({
+      title: "Contabilidade Empresarial em Goiânia | DCON",
+      description: "Contabilidade empresarial consultiva em Goiânia com relatórios gerenciais, fechamento auditável e leitura técnica para decisões seguras.",
+      canonical: "/solucoes/contabilidade-empresarial",
+    }),
     scripts: [
       {
         type: "application/ld+json",

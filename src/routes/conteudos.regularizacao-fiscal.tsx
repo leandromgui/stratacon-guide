@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
+import { buildSeoHead } from "@/lib/seo";
 
 const faqs: FAQItem[] = [
   {
@@ -31,15 +32,11 @@ const faqs: FAQItem[] = [
 
 export const Route = createFileRoute("/conteudos/regularizacao-fiscal")({
   head: () => ({
-    meta: [
-      { title: "Débitos PGFN, PRDI e Transação | Insights DCON" },
-      { name: "description", content: "Como encaminhar débitos para PGFN, quando usar PRDI, transação tributária e regularização fiscal com análise técnica da DCON." },
-      { property: "og:title", content: "Débitos PGFN, PRDI e Transação | DCON" },
-      { property: "og:description", content: "Respostas sobre débitos que não aparecem na PGFN, inscrição em dívida ativa, PRDI e transação tributária." },
-      { property: "og:url", content: "/conteudos/regularizacao-fiscal" },
-      { property: "og:type", content: "article" },
-    ],
-    links: [{ rel: "canonical", href: "/conteudos/regularizacao-fiscal" }],
+    ...buildSeoHead({
+      title: "Débitos PGFN, PRDI e Transação | Insights DCON",
+      description: "Como encaminhar débitos para PGFN, quando usar PRDI, transação tributária e regularização fiscal com análise técnica da DCON.",
+      canonical: "/conteudos/regularizacao-fiscal",
+    }),
     scripts: [
       {
         type: "application/ld+json",

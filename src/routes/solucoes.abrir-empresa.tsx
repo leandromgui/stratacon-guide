@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/solucoes/abrir-empresa")({
   head: () => ({
-    meta: [
-      { title: "Abrir Empresa em Goiânia | DCON Contabilidade" },
-      { name: "description", content: "Abertura de empresa em Goiânia com a DCON: definição de CNAE, regime tributário, contrato social e legalização completa em todos os órgãos." },
-      { property: "og:title", content: "Abrir Empresa em Goiânia | DCON Contabilidade" },
-      { property: "og:description", content: "Abertura de empresa em Goiânia com a DCON: definição de CNAE, regime tributário, contrato social e legalização completa em todos os órgãos." },
-      { property: "og:url", content: "/solucoes/abrir-empresa" },
-    ],
-    links: [{ rel: "canonical", href: "/solucoes/abrir-empresa" }],
+    ...buildSeoHead({
+      title: "Abrir Empresa em Goiânia | DCON Contabilidade",
+      description: "Abertura de empresa em Goiânia com a DCON: definição de CNAE, regime tributário, contrato social e legalização completa em todos os órgãos.",
+      canonical: "/solucoes/abrir-empresa",
+    }),
     scripts: [
       {
         type: "application/ld+json",

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
+import { buildSeoHead } from "@/lib/seo";
 
 const faqs: FAQItem[] = [
   {
@@ -86,15 +87,11 @@ const faqEquiparacao: FAQItem[] = [
 
 export const Route = createFileRoute("/conteudos/saude-clinicas")({
   head: () => ({
-    meta: [
-      { title: "Equiparação Hospitalar para Clínicas | Insights DCON" },
-      { name: "description", content: "Quando analisar equiparação hospitalar, PJ médica, Fator R e regime tributário para clínicas, com respostas técnicas da DCON." },
-      { property: "og:title", content: "Equiparação Hospitalar para Clínicas | DCON" },
-      { property: "og:description", content: "Respostas sobre quando fazer equiparação hospitalar, quais documentos analisar e como a DCON atua tecnicamente." },
-      { property: "og:url", content: "/conteudos/saude-clinicas" },
-      { property: "og:type", content: "article" },
-    ],
-    links: [{ rel: "canonical", href: "/conteudos/saude-clinicas" }],
+    ...buildSeoHead({
+      title: "Equiparação Hospitalar para Clínicas | Insights DCON",
+      description: "Quando analisar equiparação hospitalar, PJ médica, Fator R e regime tributário para clínicas, com respostas técnicas da DCON.",
+      canonical: "/conteudos/saude-clinicas",
+    }),
     scripts: [
       {
         type: "application/ld+json",

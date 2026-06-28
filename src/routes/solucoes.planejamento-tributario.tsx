@@ -4,6 +4,7 @@ import { getDoc } from "../lib/dcon-content";
 import { faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
+import { buildSeoHead } from "@/lib/seo";
 
 const faqs: FAQItem[] = [
   { q: "Planejamento tributário garante economia?", a: "Não prometemos número antes do estudo. Modelamos cenários conservadores e realistas com fundamento legal. Quando há margem segura para reduzir carga, mostramos quanto, como e em qual prazo." },
@@ -16,14 +17,11 @@ const faqs: FAQItem[] = [
 
 export const Route = createFileRoute("/solucoes/planejamento-tributario")({
   head: () => ({
-    meta: [
-      { title: "Planejamento Tributário | DCON Consultoria Contábil" },
-      { name: "description", content: "Estudo comparativo de regimes e estruturas societárias com fundamento legal. Parecer técnico auditável, sem promessa milagrosa." },
-      { property: "og:title", content: "Planejamento Tributário | DCON Consultoria" },
-      { property: "og:description", content: "Estudo comparativo de regimes e estruturas societárias com fundamento legal." },
-      { property: "og:url", content: "/solucoes/planejamento-tributario" },
-    ],
-    links: [{ rel: "canonical", href: "/solucoes/planejamento-tributario" }],
+    ...buildSeoHead({
+      title: "Planejamento Tributário | DCON Consultoria Contábil",
+      description: "Estudo comparativo de regimes e estruturas societárias com fundamento legal. Parecer técnico auditável, sem promessa milagrosa.",
+      canonical: "/solucoes/planejamento-tributario",
+    }),
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"/solucoes"},{"@type":"ListItem","position":3,"name":"Planejamento Tributário","item":"/solucoes/planejamento-tributario"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "Planejamento Tributário", description: "Estudo técnico comparativo de regimes e estruturas societárias para reduzir carga tributária com segurança jurídica.", url: "/solucoes/planejamento-tributario" }) },

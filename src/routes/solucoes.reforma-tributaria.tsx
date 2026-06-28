@@ -5,6 +5,7 @@ import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
+import { buildSeoHead } from "@/lib/seo";
 
 const faqs: FAQItem[] = [
   { q: "O que muda em 2026 com a Reforma Tributária?", a: "2026 é fase de teste de CBS e IBS. As notas fiscais e a apuração informativa já passam a refletir os novos tributos, em regra sem recolhimento quando as obrigações acessórias são cumpridas. É o ano de ajustar ERP, XML, cadastros, NCM, CFOP, CST, cClassTrib, códigos de serviço e rotinas internas." },
@@ -17,14 +18,11 @@ const faqs: FAQItem[] = [
 
 export const Route = createFileRoute("/solucoes/reforma-tributaria")({
   head: () => ({
-    meta: [
-      { title: "Reforma Tributária: IBS, CBS e Transição | DCON" },
-      { name: "description", content: "Sua empresa pode não pagar IBS/CBS ainda, mas já pode emitir notas erradas. A DCON prepara ERP, XML, cadastros e simulações para 2026/2027." },
-      { property: "og:title", content: "Reforma Tributária: IBS, CBS e Transição | DCON" },
-      { property: "og:description", content: "Diagnóstico de IBS/CBS, revisão de XML, parametrização de ERP, Simples 2027, NFS-e Nacional e LC 224/2025." },
-      { property: "og:url", content: "/solucoes/reforma-tributaria" },
-    ],
-    links: [{ rel: "canonical", href: "/solucoes/reforma-tributaria" }],
+    ...buildSeoHead({
+      title: "Reforma Tributária: IBS, CBS e Transição | DCON",
+      description: "Sua empresa pode não pagar IBS/CBS ainda, mas já pode emitir notas erradas. A DCON prepara ERP, XML, cadastros e simulações para 2026/2027.",
+      canonical: "/solucoes/reforma-tributaria",
+    }),
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"/solucoes"},{"@type":"ListItem","position":3,"name":"Reforma Tributária","item":"/solucoes/reforma-tributaria"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "Reforma Tributária — IBS e CBS", description: "Diagnóstico, revisão de notas, parametrização de ERP e simulações de IBS/CBS para empresas em todos os regimes.", url: "/solucoes/reforma-tributaria" }) },

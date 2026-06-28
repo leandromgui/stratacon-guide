@@ -5,6 +5,7 @@ import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
+import { buildSeoHead } from "@/lib/seo";
 
 const faqs: FAQItem[] = [
   { q: "Provedor de internet paga ICMS sobre tudo?", a: "Não. A Súmula 334/STJ trata a não incidência de ICMS sobre serviço de provedor de acesso à internet. Mas a segregação SCM x SVA exige contrato, documentação, fatura, entrega real do SVA e autonomia econômica — não basta nomear receita de SVA." },
@@ -15,14 +16,11 @@ const faqs: FAQItem[] = [
 
 export const Route = createFileRoute("/segmentos/provedores-internet")({
   head: () => ({
-    meta: [
-      { title: "Contabilidade para Provedores: SCM, SVA, NFCom e ICMS | DCON" },
-      { name: "description", content: "Seu provedor pode estar pagando ICMS sobre receitas de SVA que não são telecomunicação. Revisão técnica de SCM, SVA, NFCom e ICMS pela DCON." },
-      { property: "og:title", content: "Contabilidade para Provedores: SCM, SVA, NFCom e ICMS | DCON" },
-      { property: "og:description", content: "Segregação de receitas SCM/SVA, NFCom, ICMS, ISS, recuperação dos últimos 5 anos e defesa Sefaz." },
-      { property: "og:url", content: "/segmentos/provedores-internet" },
-    ],
-    links: [{ rel: "canonical", href: "/segmentos/provedores-internet" }],
+    ...buildSeoHead({
+      title: "Contabilidade para Provedores: SCM, SVA, NFCom e ICMS | DCON",
+      description: "Seu provedor pode estar pagando ICMS sobre receitas de SVA que não são telecomunicação. Revisão técnica de SCM, SVA, NFCom e ICMS pela DCON.",
+      canonical: "/segmentos/provedores-internet",
+    }),
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Segmentos","item":"/segmentos"},{"@type":"ListItem","position":3,"name":"Provedores de Internet","item":"/segmentos/provedores-internet"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "Contabilidade para Provedores de Internet", description: "Revisão de SCM/SVA, NFCom, ICMS, ISS e recuperação fiscal para ISPs.", url: "/segmentos/provedores-internet" }) },

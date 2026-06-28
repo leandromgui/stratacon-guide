@@ -1,16 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/conteudos/")({
   head: () => ({
-    meta: [
-      { title: "Insights Contábeis e Tributários | DCON" },
-      { name: "description", content: "Análises técnicas sobre planejamento tributário, reforma tributária, holding, eSocial e gestão fiscal para empresários e gestores. DCON Serviços Contábeis." },
-      { property: "og:title", content: "Insights Contábeis e Tributários | DCON" },
-      { property: "og:description", content: "Análises técnicas sobre planejamento tributário, reforma tributária, holding, eSocial e gestão fiscal para empresários e gestores. DCON Serviços Contábeis." },
-      { property: "og:url", content: "https://www.dcon.cnt.br/conteudos" },
-    ],
-    links: [{ rel: "canonical", href: "https://www.dcon.cnt.br/conteudos" }],
+    ...buildSeoHead({
+      title: "Insights Contábeis e Tributários | DCON",
+      description: "Análises técnicas sobre planejamento tributário, reforma tributária, holding, eSocial e gestão fiscal para empresários e gestores. DCON Serviços Contábeis.",
+      canonical: "https://www.dcon.cnt.br/conteudos",
+    }),
     scripts: [
       {
         type: "application/ld+json",

@@ -3,17 +3,15 @@ import { PageScaffold } from "../components/PageScaffold";
 import { getDoc } from "../lib/dcon-content";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/segmentos/produtor-rural")({
   head: () => ({
-    meta: [
-      { title: "Contabilidade para Produtor Rural | DCON Goiânia" },
-      { name: "description", content: "Contabilidade para produtor rural em Goiás: Funrural, ITR, livro caixa do produtor e planejamento sucessório com a DCON." },
-      { property: "og:title", content: "Contabilidade para Produtor Rural | DCON Goiânia" },
-      { property: "og:description", content: "Contabilidade para produtor rural em Goiás: Funrural, ITR, livro caixa do produtor e planejamento sucessório com a DCON." },
-      { property: "og:url", content: "/segmentos/produtor-rural" },
-    ],
-    links: [{ rel: "canonical", href: "/segmentos/produtor-rural" }],
+    ...buildSeoHead({
+      title: "Contabilidade para Produtor Rural | DCON Goiânia",
+      description: "Contabilidade para produtor rural em Goiás: Funrural, ITR, livro caixa do produtor e planejamento sucessório com a DCON.",
+      canonical: "/segmentos/produtor-rural",
+    }),
     scripts: [
       {
         type: "application/ld+json",

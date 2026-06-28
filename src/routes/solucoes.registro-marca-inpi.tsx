@@ -5,6 +5,7 @@ import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
+import { buildSeoHead } from "@/lib/seo";
 
 const faqs: FAQItem[] = [
   { q: "Meu CNPJ já protege minha marca?", a: "Não. CNPJ identifica a pessoa jurídica; nome empresarial identifica a sociedade; domínio protege endereço digital; perfil em rede social protege usuário na plataforma. A proteção nacional da marca no ramo de atividade depende de registro no INPI." },
@@ -15,14 +16,11 @@ const faqs: FAQItem[] = [
 
 export const Route = createFileRoute("/solucoes/registro-marca-inpi")({
   head: () => ({
-    meta: [
-      { title: "Registro de Marca no INPI: Proteção e Valuation | DCON" },
-      { name: "description", content: "Você pode estar investindo em uma marca que ainda não é juridicamente sua. Registro no INPI com estratégia de classe, titularidade e ativo intangível." },
-      { property: "og:title", content: "Registro de Marca no INPI: Proteção e Valuation | DCON" },
-      { property: "og:description", content: "Diagnóstico de marca, consulta de viabilidade, estratégia de titularidade, classes e conexão com holding e valuation." },
-      { property: "og:url", content: "/solucoes/registro-marca-inpi" },
-    ],
-    links: [{ rel: "canonical", href: "/solucoes/registro-marca-inpi" }],
+    ...buildSeoHead({
+      title: "Registro de Marca no INPI: Proteção e Valuation | DCON",
+      description: "Você pode estar investindo em uma marca que ainda não é juridicamente sua. Registro no INPI com estratégia de classe, titularidade e ativo intangível.",
+      canonical: "/solucoes/registro-marca-inpi",
+    }),
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"/solucoes"},{"@type":"ListItem","position":3,"name":"Registro de Marca INPI","item":"/solucoes/registro-marca-inpi"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "Registro de Marca no INPI", description: "Diagnóstico, viabilidade, estratégia de titularidade e classes — proteção de marca como ativo intangível.", url: "/solucoes/registro-marca-inpi" }) },

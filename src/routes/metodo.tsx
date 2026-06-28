@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { getDoc } from "../lib/dcon-content";
+import { buildSeoHead } from "@/lib/seo";
 
 const faqs = [
   { q: "Quanto tempo leva o Método DCON do início ao fim?", a: "O diagnóstico técnico é entregue em até 7 dias úteis. As fases seguintes (planejamento, execução e governança) seguem cronograma específico de cada empresa, normalmente entre 30 e 90 dias para implementação completa." },
@@ -10,14 +11,11 @@ const faqs = [
 
 export const Route = createFileRoute("/metodo")({
   head: () => ({
-    meta: [
-      { title: "Método DCON — Conformidade Fiscal-Contábil | Goiânia" },
-      { name: "description", content: "Conheça o Método DCON: Diagnóstico → Cruzamento → Parecer → Correção → Monitoramento. Metodologia própria de conformidade fiscal para empresas em Goiânia e Goiás." },
-      { property: "og:title", content: "Método DCON — Conformidade Fiscal-Contábil | Goiânia" },
-      { property: "og:description", content: "Conheça o Método DCON: Diagnóstico → Cruzamento → Parecer → Correção → Monitoramento. Metodologia própria de conformidade fiscal para empresas em Goiânia e Goiás." },
-      { property: "og:url", content: "https://www.dcon.cnt.br/metodo" },
-    ],
-    links: [{ rel: "canonical", href: "https://www.dcon.cnt.br/metodo" }],
+    ...buildSeoHead({
+      title: "Método DCON — Conformidade Fiscal-Contábil | Goiânia",
+      description: "Conheça o Método DCON: Diagnóstico → Cruzamento → Parecer → Correção → Monitoramento. Metodologia própria de conformidade fiscal para empresas em Goiânia e Goiás.",
+      canonical: "https://www.dcon.cnt.br/metodo",
+    }),
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Método DCON","item":"/metodo"}]}) },
       { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"HowTo","name":"Método DCON","description":"Protocolo técnico de consultoria contábil, fiscal e tributária em 4 fases.","step":[{"@type":"HowToStep","position":1,"name":"Diagnóstico","text":"Cruzamento de documentos fiscais, contábeis, societários e trabalhistas para identificar riscos, créditos e exposições."},{"@type":"HowToStep","position":2,"name":"Planejamento","text":"Plano de ação tributário, patrimonial e operacional com simulações, tese fundamentada e cronograma."},{"@type":"HowToStep","position":3,"name":"Execução","text":"Implementação documentada com parecer técnico, retificações, parametrização de sistemas e treinamento de equipe."},{"@type":"HowToStep","position":4,"name":"Governança","text":"Acompanhamento mensal com indicadores, revisão de teses, auditoria contínua e responsabilidade técnica."}]}) },

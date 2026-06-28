@@ -4,6 +4,7 @@ import { getDoc } from "../lib/dcon-content";
 import { faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
+import { buildSeoHead } from "@/lib/seo";
 
 const faqs: FAQItem[] = [
   { q: "Holding serve para qualquer família?", a: "Não. Holding sem patrimônio relevante é custo sem benefício. A análise prévia confirma se o patrimônio, a estrutura familiar e o objetivo justificam a constituição. Em parte dos casos a recomendação é não constituir." },
@@ -16,14 +17,11 @@ const faqs: FAQItem[] = [
 
 export const Route = createFileRoute("/solucoes/holding-patrimonial")({
   head: () => ({
-    meta: [
-      { title: "Holding Patrimonial e Familiar | DCON Consultoria" },
-      { name: "description", content: "Estruturação técnica de holding patrimonial e familiar: proteção, sucessão e eficiência tributária com fundamento jurídico-contábil." },
-      { property: "og:title", content: "Holding Patrimonial e Familiar | DCON" },
-      { property: "og:description", content: "Estruturação, governança e operação contábil da holding patrimonial e familiar." },
-      { property: "og:url", content: "/solucoes/holding-patrimonial" },
-    ],
-    links: [{ rel: "canonical", href: "/solucoes/holding-patrimonial" }],
+    ...buildSeoHead({
+      title: "Holding Patrimonial e Familiar | DCON Consultoria",
+      description: "Estruturação técnica de holding patrimonial e familiar: proteção, sucessão e eficiência tributária com fundamento jurídico-contábil.",
+      canonical: "/solucoes/holding-patrimonial",
+    }),
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"/solucoes"},{"@type":"ListItem","position":3,"name":"Holding Patrimonial","item":"/solucoes/holding-patrimonial"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "Holding Patrimonial e Familiar", description: "Estudo prévio, constituição técnica e operação contábil de holding patrimonial e familiar.", url: "/solucoes/holding-patrimonial" }) },

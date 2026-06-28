@@ -3,17 +3,15 @@ import { PageScaffold } from "../components/PageScaffold";
 import { getDoc } from "../lib/dcon-content";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/solucoes/trocar-contabilidade")({
   head: () => ({
-    meta: [
-      { title: "Trocar de Contabilidade em Goiânia | DCON" },
-      { name: "description", content: "Migração assistida da sua contabilidade para a DCON em Goiânia: diagnóstico, transição sem rupturas e rotina auditável desde o primeiro mês." },
-      { property: "og:title", content: "Trocar de Contabilidade em Goiânia | DCON" },
-      { property: "og:description", content: "Migração assistida da sua contabilidade para a DCON em Goiânia: diagnóstico, transição sem rupturas e rotina auditável desde o primeiro mês." },
-      { property: "og:url", content: "/solucoes/trocar-contabilidade" },
-    ],
-    links: [{ rel: "canonical", href: "/solucoes/trocar-contabilidade" }],
+    ...buildSeoHead({
+      title: "Trocar de Contabilidade em Goiânia | DCON",
+      description: "Migração assistida da sua contabilidade para a DCON em Goiânia: diagnóstico, transição sem rupturas e rotina auditável desde o primeiro mês.",
+      canonical: "/solucoes/trocar-contabilidade",
+    }),
     scripts: [
       {
         type: "application/ld+json",

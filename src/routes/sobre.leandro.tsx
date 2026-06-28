@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/sobre/leandro")({
   head: () => ({
-    meta: [
-      { title: "Leandro Matsuoka Guimarães | Contador Estrategista em Goiânia" },
-      { name: "description", content: "Leandro Matsuoka Guimarães, CRC-GO nº 16.395/O-9, sócio da DCON: contador em Goiânia especialista em planejamento tributário, recuperação de créditos, finanças corporativas e estruturação societária." },
-      { property: "og:title", content: "Leandro Matsuoka Guimarães | Contador Estrategista em Goiânia" },
-      { property: "og:description", content: "Leandro Matsuoka Guimarães, CRC-GO nº 16.395/O-9, sócio da DCON: contador em Goiânia especialista em planejamento tributário, recuperação de créditos, finanças corporativas e estruturação societária." },
-      { property: "og:url", content: "/sobre/leandro" },
-    ],
-    links: [{ rel: "canonical", href: "/sobre/leandro" }],
+    ...buildSeoHead({
+      title: "Leandro Matsuoka Guimarães | Contador Estrategista em Goiânia",
+      description: "Leandro Matsuoka Guimarães, CRC-GO nº 16.395/O-9, sócio da DCON: contador em Goiânia especialista em planejamento tributário, recuperação de créditos, finanças corporativas e estruturação societária.",
+      canonical: "/sobre/leandro",
+    }),
     scripts: [
       {
         type: "application/ld+json",

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
+import { buildSeoHead } from "@/lib/seo";
 
 const answers: FAQItem[] = [
   { q: "Quando fazer a análise de equiparação hospitalar?", a: "Quando a empresa da saúde está no Lucro Presumido e possui receitas, estrutura, licença, documentação e segregação suficientes para sustentar presunção reduzida de IRPJ/CSLL. Não vale automaticamente para consultas simples; a DCON atua como análise técnica de viabilidade, risco e documentação." },
@@ -45,15 +46,11 @@ const sections = [
 
 export const Route = createFileRoute("/conteudos/respostas-validadas")({
   head: () => ({
-    meta: [
-      { title: "Respostas Validadas DCON | Insights Técnicos" },
-      { name: "description", content: "Respostas validadas DCON sobre equiparação hospitalar, PGFN, PRDI, Simples, créditos, folha, construção, agro e IRPF." },
-      { property: "og:title", content: "Respostas Validadas DCON" },
-      { property: "og:description", content: "Central de respostas técnicas para decisões fiscais, contábeis, tributárias e empresariais." },
-      { property: "og:url", content: "/conteudos/respostas-validadas" },
-      { property: "og:type", content: "article" },
-    ],
-    links: [{ rel: "canonical", href: "/conteudos/respostas-validadas" }],
+    ...buildSeoHead({
+      title: "Respostas Validadas DCON | Insights Técnicos",
+      description: "Respostas validadas DCON sobre equiparação hospitalar, PGFN, PRDI, Simples, créditos, folha, construção, agro e IRPF.",
+      canonical: "/conteudos/respostas-validadas",
+    }),
     scripts: [
       {
         type: "application/ld+json",

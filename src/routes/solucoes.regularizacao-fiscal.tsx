@@ -4,6 +4,7 @@ import { getDoc } from "../lib/dcon-content";
 import { faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
+import { buildSeoHead } from "@/lib/seo";
 
 const faqs: FAQItem[] = [
   { q: "Quanto tempo leva para regularizar uma empresa?", a: "O diagnóstico fica pronto em poucos dias. O plano de regularização varia de semanas a poucos meses conforme o volume de débitos, esferas envolvidas e necessidade de retificação de obrigações acessórias." },
@@ -18,14 +19,11 @@ const faqs: FAQItem[] = [
 
 export const Route = createFileRoute("/solucoes/regularizacao-fiscal")({
   head: () => ({
-    meta: [
-      { title: "Regularização Fiscal de Empresas | DCON Consultoria" },
-      { name: "description", content: "Diagnóstico de pendências federais, estaduais e municipais. Plano técnico de regularização, parcelamentos e transação tributária com a DCON." },
-      { property: "og:title", content: "Regularização Fiscal de Empresas | DCON" },
-      { property: "og:description", content: "Saída técnica de pendências fiscais com plano auditável e compliance pós-regularização." },
-      { property: "og:url", content: "/solucoes/regularizacao-fiscal" },
-    ],
-    links: [{ rel: "canonical", href: "/solucoes/regularizacao-fiscal" }],
+    ...buildSeoHead({
+      title: "Regularização Fiscal de Empresas | DCON Consultoria",
+      description: "Diagnóstico de pendências federais, estaduais e municipais. Plano técnico de regularização, parcelamentos e transação tributária com a DCON.",
+      canonical: "/solucoes/regularizacao-fiscal",
+    }),
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"/solucoes"},{"@type":"ListItem","position":3,"name":"Regularização Fiscal","item":"/solucoes/regularizacao-fiscal"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "Regularização Fiscal", description: "Diagnóstico técnico de pendências fiscais nas três esferas, plano de regularização, parcelamentos e compliance.", url: "/solucoes/regularizacao-fiscal" }) },

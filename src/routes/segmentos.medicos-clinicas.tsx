@@ -4,6 +4,7 @@ import { getDoc } from "../lib/dcon-content";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
 import { faqJsonLd, type FAQItem } from "../components/FAQ";
+import { buildSeoHead } from "@/lib/seo";
 
 const faqs: FAQItem[] = [
   { q: "Quando fazer análise de equiparação hospitalar?", a: "Quando a clínica está no Lucro Presumido, tem receitas potencialmente qualificadas e consegue comprovar atividade, licença, estrutura, documentação e segregação de receitas. A DCON analisa viabilidade; não aplica tese automática." },
@@ -14,14 +15,11 @@ const faqs: FAQItem[] = [
 
 export const Route = createFileRoute("/segmentos/medicos-clinicas")({
   head: () => ({
-    meta: [
-      { title: "Contabilidade para Médicos e Clínicas em Goiânia | DCON" },
-      { name: "description", content: "Contabilidade para médicos e clínicas em Goiânia: enquadramento ideal, fator R, equiparação hospitalar e planejamento tributário com a DCON." },
-      { property: "og:title", content: "Contabilidade para Médicos e Clínicas em Goiânia | DCON" },
-      { property: "og:description", content: "Contabilidade para médicos e clínicas em Goiânia: enquadramento ideal, fator R, equiparação hospitalar e planejamento tributário com a DCON." },
-      { property: "og:url", content: "/segmentos/medicos-clinicas" },
-    ],
-    links: [{ rel: "canonical", href: "/segmentos/medicos-clinicas" }],
+    ...buildSeoHead({
+      title: "Contabilidade para Médicos e Clínicas em Goiânia | DCON",
+      description: "Contabilidade para médicos e clínicas em Goiânia: enquadramento ideal, fator R, equiparação hospitalar e planejamento tributário com a DCON.",
+      canonical: "/segmentos/medicos-clinicas",
+    }),
     scripts: [
       {
         type: "application/ld+json",

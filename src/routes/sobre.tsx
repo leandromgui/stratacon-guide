@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/sobre")({
   head: () => ({
-    meta: [
-      { title: "Sobre a DCON | Contabilidade de Autoridade em Goiânia" },
-      { name: "description", content: "Conheça a DCON Serviços Contábeis: contabilidade consultiva técnica em Goiânia, referência em planejamento tributário e regularização fiscal." },
-      { property: "og:title", content: "Sobre a DCON | Contabilidade de Autoridade em Goiânia" },
-      { property: "og:description", content: "Conheça a DCON Serviços Contábeis: contabilidade consultiva técnica em Goiânia, referência em planejamento tributário e regularização fiscal." },
-      { property: "og:url", content: "/sobre" },
-    ],
-    links: [{ rel: "canonical", href: "/sobre" }],
+    ...buildSeoHead({
+      title: "Sobre a DCON | Contabilidade de Autoridade em Goiânia",
+      description: "Conheça a DCON Serviços Contábeis: contabilidade consultiva técnica em Goiânia, referência em planejamento tributário e regularização fiscal.",
+      canonical: "/sobre",
+    }),
     scripts: [
       {
         type: "application/ld+json",

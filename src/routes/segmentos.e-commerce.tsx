@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/segmentos/e-commerce")({
   head: () => ({
-    meta: [
-      { title: "Contabilidade para E-commerce em Goiânia | DCON" },
-      { name: "description", content: "Contabilidade para e-commerce em Goiânia: ICMS-ST, DIFAL, marketplaces e conciliação de gateways. Especialistas DCON em lojas virtuais." },
-      { property: "og:title", content: "Contabilidade para E-commerce em Goiânia | DCON" },
-      { property: "og:description", content: "Contabilidade para e-commerce em Goiânia: ICMS-ST, DIFAL, marketplaces e conciliação de gateways. Especialistas DCON em lojas virtuais." },
-      { property: "og:url", content: "/segmentos/e-commerce" },
-    ],
-    links: [{ rel: "canonical", href: "/segmentos/e-commerce" }],
+    ...buildSeoHead({
+      title: "Contabilidade para E-commerce em Goiânia | DCON",
+      description: "Contabilidade para e-commerce em Goiânia: ICMS-ST, DIFAL, marketplaces e conciliação de gateways. Especialistas DCON em lojas virtuais.",
+      canonical: "/segmentos/e-commerce",
+    }),
     scripts: [
       {
         type: "application/ld+json",

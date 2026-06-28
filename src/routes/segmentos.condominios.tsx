@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/segmentos/condominios")({
   head: () => ({
-    meta: [
-      { title: "Contabilidade para Condomínios | DCON Goiânia" },
-      { name: "description", content: "Contabilidade para condomínios em Goiânia: folha de funcionários, prestação de contas e obrigações acessórias com a DCON." },
-      { property: "og:title", content: "Contabilidade para Condomínios | DCON Goiânia" },
-      { property: "og:description", content: "Contabilidade para condomínios em Goiânia: folha de funcionários, prestação de contas e obrigações acessórias com a DCON." },
-      { property: "og:url", content: "/segmentos/condominios" },
-    ],
-    links: [{ rel: "canonical", href: "/segmentos/condominios" }],
+    ...buildSeoHead({
+      title: "Contabilidade para Condomínios | DCON Goiânia",
+      description: "Contabilidade para condomínios em Goiânia: folha de funcionários, prestação de contas e obrigações acessórias com a DCON.",
+      canonical: "/segmentos/condominios",
+    }),
     scripts: [
       {
         type: "application/ld+json",

@@ -1,17 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { getDoc } from "../lib/dcon-content";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/diagnostico")({
   head: () => ({
-    meta: [
-      { title: "Diagnóstico Técnico Inicial | DCON — CRC-GO 1202" },
-      { name: "description", content: "Diagnóstico fiscal, contábil, tributário e trabalhista da DCON: cruzamento documental, parecer técnico e plano de ação em até 7 dias úteis. Sem compromisso comercial." },
-      { property: "og:title", content: "Diagnóstico Técnico Inicial | DCON Serviços Contábeis" },
-      { property: "og:description", content: "Cruzamento de SPED, DCTF/MIT, ECF/ECD, eSocial, folha e certidões para identificar riscos, oportunidades e caminhos seguros. Análise inicial sem compromisso comercial." },
-      { property: "og:url", content: "/diagnostico" },
-    ],
-    links: [{ rel: "canonical", href: "/diagnostico" }],
+    ...buildSeoHead({
+      title: "Diagnóstico Técnico Inicial | DCON — CRC-GO 1202",
+      description: "Diagnóstico fiscal, contábil, tributário e trabalhista da DCON: cruzamento documental, parecer técnico e plano de ação em até 7 dias úteis. Sem compromisso comercial.",
+      canonical: "/diagnostico",
+    }),
     scripts: [
       {
         type: "application/ld+json",

@@ -4,6 +4,7 @@ import { getDoc } from "../lib/dcon-content";
 import { faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { MethodBadge } from "../components/MethodBadge";
 import { dconMethod } from "../lib/dconMethod";
+import { buildSeoHead } from "@/lib/seo";
 
 const faqs: FAQItem[] = [
   { q: "Atendem empresas sem funcionários CLT?", a: "Sim. Conduzimos pró-labore de sócios, distribuição de lucros e PJ contratados, com análise de risco de vínculo e estruturação correta." },
@@ -16,14 +17,11 @@ const faqs: FAQItem[] = [
 
 export const Route = createFileRoute("/solucoes/departamento-pessoal")({
   head: () => ({
-    meta: [
-      { title: "Departamento Pessoal e eSocial | DCON Consultoria" },
-      { name: "description", content: "Folha, eSocial, admissões, rescisões e encargos com revisão técnica. Departamento pessoal para empresas que não aceitam passivo trabalhista." },
-      { property: "og:title", content: "Departamento Pessoal e eSocial | DCON" },
-      { property: "og:description", content: "Departamento pessoal completo com calendário ativo, revisão técnica e eSocial sob controle." },
-      { property: "og:url", content: "/solucoes/departamento-pessoal" },
-    ],
-    links: [{ rel: "canonical", href: "/solucoes/departamento-pessoal" }],
+    ...buildSeoHead({
+      title: "Departamento Pessoal e eSocial | DCON Consultoria",
+      description: "Folha, eSocial, admissões, rescisões e encargos com revisão técnica. Departamento pessoal para empresas que não aceitam passivo trabalhista.",
+      canonical: "/solucoes/departamento-pessoal",
+    }),
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"/solucoes"},{"@type":"ListItem","position":3,"name":"Departamento Pessoal","item":"/solucoes/departamento-pessoal"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "Departamento Pessoal e eSocial", description: "Folha, eSocial, admissões, rescisões e encargos com revisão técnica e calendário ativo.", url: "/solucoes/departamento-pessoal" }) },

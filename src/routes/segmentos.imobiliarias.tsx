@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/segmentos/imobiliarias")({
   head: () => ({
-    meta: [
-      { title: "Contabilidade para Imobiliárias em Goiânia | DCON" },
-      { name: "description", content: "Contabilidade para imobiliárias em Goiânia: comissões, locação, intermediação e definição do regime tributário ideal com a DCON." },
-      { property: "og:title", content: "Contabilidade para Imobiliárias em Goiânia | DCON" },
-      { property: "og:description", content: "Contabilidade para imobiliárias em Goiânia: comissões, locação, intermediação e definição do regime tributário ideal com a DCON." },
-      { property: "og:url", content: "/segmentos/imobiliarias" },
-    ],
-    links: [{ rel: "canonical", href: "/segmentos/imobiliarias" }],
+    ...buildSeoHead({
+      title: "Contabilidade para Imobiliárias em Goiânia | DCON",
+      description: "Contabilidade para imobiliárias em Goiânia: comissões, locação, intermediação e definição do regime tributário ideal com a DCON.",
+      canonical: "/segmentos/imobiliarias",
+    }),
     scripts: [
       {
         type: "application/ld+json",

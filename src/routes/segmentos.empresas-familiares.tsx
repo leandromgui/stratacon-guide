@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/segmentos/empresas-familiares")({
   head: () => ({
-    meta: [
-      { title: "Contabilidade para Empresas Familiares | DCON Goiânia" },
-      { name: "description", content: "Contabilidade para empresas familiares em Goiânia: sucessão, governança, holding e profissionalização da gestão com a DCON." },
-      { property: "og:title", content: "Contabilidade para Empresas Familiares | DCON Goiânia" },
-      { property: "og:description", content: "Contabilidade para empresas familiares em Goiânia: sucessão, governança, holding e profissionalização da gestão com a DCON." },
-      { property: "og:url", content: "/segmentos/empresas-familiares" },
-    ],
-    links: [{ rel: "canonical", href: "/segmentos/empresas-familiares" }],
+    ...buildSeoHead({
+      title: "Contabilidade para Empresas Familiares | DCON Goiânia",
+      description: "Contabilidade para empresas familiares em Goiânia: sucessão, governança, holding e profissionalização da gestão com a DCON.",
+      canonical: "/segmentos/empresas-familiares",
+    }),
     scripts: [
       {
         type: "application/ld+json",
