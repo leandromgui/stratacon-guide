@@ -10,7 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TemasEstrategicosRouteImport } from './routes/temas-estrategicos'
-import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ReformaTributaria2026RouteImport } from './routes/reforma-tributaria-2026'
 import { Route as PrivacidadeRouteImport } from './routes/privacidade'
@@ -22,6 +21,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SolucoesIndexRouteImport } from './routes/solucoes.index'
+import { Route as SobreIndexRouteImport } from './routes/sobre.index'
 import { Route as SegmentosIndexRouteImport } from './routes/segmentos.index'
 import { Route as InsightsIndexRouteImport } from './routes/insights.index'
 import { Route as ConteudosIndexRouteImport } from './routes/conteudos.index'
@@ -84,11 +84,6 @@ const TemasEstrategicosRoute = TemasEstrategicosRouteImport.update({
   path: '/temas-estrategicos',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SobreRoute = SobreRouteImport.update({
-  id: '/sobre',
-  path: '/sobre',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -141,6 +136,11 @@ const IndexRoute = IndexRouteImport.update({
 const SolucoesIndexRoute = SolucoesIndexRouteImport.update({
   id: '/solucoes/',
   path: '/solucoes/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreIndexRoute = SobreIndexRouteImport.update({
+  id: '/sobre/',
+  path: '/sobre/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SegmentosIndexRoute = SegmentosIndexRouteImport.update({
@@ -257,14 +257,14 @@ const SolucoesAbrirEmpresaRoute = SolucoesAbrirEmpresaRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const SobreMetodologiaRoute = SobreMetodologiaRouteImport.update({
-  id: '/metodologia',
-  path: '/metodologia',
-  getParentRoute: () => SobreRoute,
+  id: '/sobre/metodologia',
+  path: '/sobre/metodologia',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const SobreLeandroRoute = SobreLeandroRouteImport.update({
-  id: '/leandro',
-  path: '/leandro',
-  getParentRoute: () => SobreRoute,
+  id: '/sobre/leandro',
+  path: '/sobre/leandro',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const SegmentosTerceiroSetorRoute = SegmentosTerceiroSetorRouteImport.update({
   id: '/segmentos/terceiro-setor',
@@ -465,7 +465,6 @@ export interface FileRoutesByFullPath {
   '/privacidade': typeof PrivacidadeRoute
   '/reforma-tributaria-2026': typeof ReformaTributaria2026Route
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/sobre': typeof SobreRouteWithChildren
   '/temas-estrategicos': typeof TemasEstrategicosRoute
   '/conteudos/$category': typeof ConteudosCategoryRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
@@ -519,6 +518,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/': typeof ConteudosIndexRoute
   '/insights/': typeof InsightsIndexRoute
   '/segmentos/': typeof SegmentosIndexRoute
+  '/sobre/': typeof SobreIndexRoute
   '/solucoes/': typeof SolucoesIndexRoute
   '/admin/analytics': typeof AuthenticatedAdminAnalyticsRoute
   '/admin/auditoria-seo': typeof AuthenticatedAdminAuditoriaSeoRoute
@@ -535,7 +535,6 @@ export interface FileRoutesByTo {
   '/privacidade': typeof PrivacidadeRoute
   '/reforma-tributaria-2026': typeof ReformaTributaria2026Route
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/sobre': typeof SobreRouteWithChildren
   '/temas-estrategicos': typeof TemasEstrategicosRoute
   '/conteudos/$category': typeof ConteudosCategoryRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
@@ -589,6 +588,7 @@ export interface FileRoutesByTo {
   '/conteudos': typeof ConteudosIndexRoute
   '/insights': typeof InsightsIndexRoute
   '/segmentos': typeof SegmentosIndexRoute
+  '/sobre': typeof SobreIndexRoute
   '/solucoes': typeof SolucoesIndexRoute
   '/admin/analytics': typeof AuthenticatedAdminAnalyticsRoute
   '/admin/auditoria-seo': typeof AuthenticatedAdminAuditoriaSeoRoute
@@ -607,7 +607,6 @@ export interface FileRoutesById {
   '/privacidade': typeof PrivacidadeRoute
   '/reforma-tributaria-2026': typeof ReformaTributaria2026Route
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/sobre': typeof SobreRouteWithChildren
   '/temas-estrategicos': typeof TemasEstrategicosRoute
   '/conteudos/$category': typeof ConteudosCategoryRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
@@ -661,6 +660,7 @@ export interface FileRoutesById {
   '/conteudos/': typeof ConteudosIndexRoute
   '/insights/': typeof InsightsIndexRoute
   '/segmentos/': typeof SegmentosIndexRoute
+  '/sobre/': typeof SobreIndexRoute
   '/solucoes/': typeof SolucoesIndexRoute
   '/_authenticated/admin/analytics': typeof AuthenticatedAdminAnalyticsRoute
   '/_authenticated/admin/auditoria-seo': typeof AuthenticatedAdminAuditoriaSeoRoute
@@ -679,7 +679,6 @@ export interface FileRouteTypes {
     | '/privacidade'
     | '/reforma-tributaria-2026'
     | '/sitemap.xml'
-    | '/sobre'
     | '/temas-estrategicos'
     | '/conteudos/$category'
     | '/conteudos/comercio-icms'
@@ -733,6 +732,7 @@ export interface FileRouteTypes {
     | '/conteudos/'
     | '/insights/'
     | '/segmentos/'
+    | '/sobre/'
     | '/solucoes/'
     | '/admin/analytics'
     | '/admin/auditoria-seo'
@@ -749,7 +749,6 @@ export interface FileRouteTypes {
     | '/privacidade'
     | '/reforma-tributaria-2026'
     | '/sitemap.xml'
-    | '/sobre'
     | '/temas-estrategicos'
     | '/conteudos/$category'
     | '/conteudos/comercio-icms'
@@ -803,6 +802,7 @@ export interface FileRouteTypes {
     | '/conteudos'
     | '/insights'
     | '/segmentos'
+    | '/sobre'
     | '/solucoes'
     | '/admin/analytics'
     | '/admin/auditoria-seo'
@@ -820,7 +820,6 @@ export interface FileRouteTypes {
     | '/privacidade'
     | '/reforma-tributaria-2026'
     | '/sitemap.xml'
-    | '/sobre'
     | '/temas-estrategicos'
     | '/conteudos/$category'
     | '/conteudos/comercio-icms'
@@ -874,6 +873,7 @@ export interface FileRouteTypes {
     | '/conteudos/'
     | '/insights/'
     | '/segmentos/'
+    | '/sobre/'
     | '/solucoes/'
     | '/_authenticated/admin/analytics'
     | '/_authenticated/admin/auditoria-seo'
@@ -892,7 +892,6 @@ export interface RootRouteChildren {
   PrivacidadeRoute: typeof PrivacidadeRoute
   ReformaTributaria2026Route: typeof ReformaTributaria2026Route
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  SobreRoute: typeof SobreRouteWithChildren
   TemasEstrategicosRoute: typeof TemasEstrategicosRoute
   ConteudosCategoryRoute: typeof ConteudosCategoryRoute
   ConteudosComercioIcmsRoute: typeof ConteudosComercioIcmsRoute
@@ -924,6 +923,8 @@ export interface RootRouteChildren {
   SegmentosSimplesNacionalRoute: typeof SegmentosSimplesNacionalRoute
   SegmentosTecnologiaStartupsRoute: typeof SegmentosTecnologiaStartupsRoute
   SegmentosTerceiroSetorRoute: typeof SegmentosTerceiroSetorRoute
+  SobreLeandroRoute: typeof SobreLeandroRoute
+  SobreMetodologiaRoute: typeof SobreMetodologiaRoute
   SolucoesAbrirEmpresaRoute: typeof SolucoesAbrirEmpresaRoute
   SolucoesBpoFinanceiroRoute: typeof SolucoesBpoFinanceiroRoute
   SolucoesContabilidadeEmpresarialRoute: typeof SolucoesContabilidadeEmpresarialRoute
@@ -944,6 +945,7 @@ export interface RootRouteChildren {
   ConteudosIndexRoute: typeof ConteudosIndexRoute
   InsightsIndexRoute: typeof InsightsIndexRoute
   SegmentosIndexRoute: typeof SegmentosIndexRoute
+  SobreIndexRoute: typeof SobreIndexRoute
   SolucoesIndexRoute: typeof SolucoesIndexRoute
   ApiPublicHooksSeoAuditRunRoute: typeof ApiPublicHooksSeoAuditRunRoute
 }
@@ -955,13 +957,6 @@ declare module '@tanstack/react-router' {
       path: '/temas-estrategicos'
       fullPath: '/temas-estrategicos'
       preLoaderRoute: typeof TemasEstrategicosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sobre': {
-      id: '/sobre'
-      path: '/sobre'
-      fullPath: '/sobre'
-      preLoaderRoute: typeof SobreRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -1039,6 +1034,13 @@ declare module '@tanstack/react-router' {
       path: '/solucoes'
       fullPath: '/solucoes/'
       preLoaderRoute: typeof SolucoesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre/': {
+      id: '/sobre/'
+      path: '/sobre'
+      fullPath: '/sobre/'
+      preLoaderRoute: typeof SobreIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/segmentos/': {
@@ -1183,17 +1185,17 @@ declare module '@tanstack/react-router' {
     }
     '/sobre/metodologia': {
       id: '/sobre/metodologia'
-      path: '/metodologia'
+      path: '/sobre/metodologia'
       fullPath: '/sobre/metodologia'
       preLoaderRoute: typeof SobreMetodologiaRouteImport
-      parentRoute: typeof SobreRoute
+      parentRoute: typeof rootRouteImport
     }
     '/sobre/leandro': {
       id: '/sobre/leandro'
-      path: '/leandro'
+      path: '/sobre/leandro'
       fullPath: '/sobre/leandro'
       preLoaderRoute: typeof SobreLeandroRouteImport
-      parentRoute: typeof SobreRoute
+      parentRoute: typeof rootRouteImport
     }
     '/segmentos/terceiro-setor': {
       id: '/segmentos/terceiro-setor'
@@ -1451,18 +1453,6 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
 const AuthenticatedRouteRouteWithChildren =
   AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
-interface SobreRouteChildren {
-  SobreLeandroRoute: typeof SobreLeandroRoute
-  SobreMetodologiaRoute: typeof SobreMetodologiaRoute
-}
-
-const SobreRouteChildren: SobreRouteChildren = {
-  SobreLeandroRoute: SobreLeandroRoute,
-  SobreMetodologiaRoute: SobreMetodologiaRoute,
-}
-
-const SobreRouteWithChildren = SobreRoute._addFileChildren(SobreRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
@@ -1474,7 +1464,6 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacidadeRoute: PrivacidadeRoute,
   ReformaTributaria2026Route: ReformaTributaria2026Route,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  SobreRoute: SobreRouteWithChildren,
   TemasEstrategicosRoute: TemasEstrategicosRoute,
   ConteudosCategoryRoute: ConteudosCategoryRoute,
   ConteudosComercioIcmsRoute: ConteudosComercioIcmsRoute,
@@ -1506,6 +1495,8 @@ const rootRouteChildren: RootRouteChildren = {
   SegmentosSimplesNacionalRoute: SegmentosSimplesNacionalRoute,
   SegmentosTecnologiaStartupsRoute: SegmentosTecnologiaStartupsRoute,
   SegmentosTerceiroSetorRoute: SegmentosTerceiroSetorRoute,
+  SobreLeandroRoute: SobreLeandroRoute,
+  SobreMetodologiaRoute: SobreMetodologiaRoute,
   SolucoesAbrirEmpresaRoute: SolucoesAbrirEmpresaRoute,
   SolucoesBpoFinanceiroRoute: SolucoesBpoFinanceiroRoute,
   SolucoesContabilidadeEmpresarialRoute: SolucoesContabilidadeEmpresarialRoute,
@@ -1527,19 +1518,10 @@ const rootRouteChildren: RootRouteChildren = {
   ConteudosIndexRoute: ConteudosIndexRoute,
   InsightsIndexRoute: InsightsIndexRoute,
   SegmentosIndexRoute: SegmentosIndexRoute,
+  SobreIndexRoute: SobreIndexRoute,
   SolucoesIndexRoute: SolucoesIndexRoute,
   ApiPublicHooksSeoAuditRunRoute: ApiPublicHooksSeoAuditRunRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
