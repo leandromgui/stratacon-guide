@@ -500,7 +500,7 @@ export function SiteLayout() {
 
         <div className="mx-auto max-w-7xl px-6 py-6 flex flex-wrap items-center justify-between gap-4 text-[11px] text-secondary-foreground/55">
           <div className="space-y-1">
-            <div>© {new Date().getFullYear()} DCON Serviços Contábeis — CRC-GO 1202</div>
+            <div>© {new Date().getFullYear()} DCON Serviços Contábeis — CRC-GO 1202/O-5</div>
             <div>Responsável técnico: Leandro Matsuoka Guimarães — CRC-GO 16.395/O-9</div>
           </div>
           <div className="flex gap-5">

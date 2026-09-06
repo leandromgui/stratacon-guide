@@ -6,7 +6,7 @@ import { buildSeoHead } from "@/lib/seo";
 export const Route = createFileRoute("/diagnostico")({
   head: () => ({
     ...buildSeoHead({
-      title: "Diagnóstico Técnico Inicial | DCON — CRC-GO 1202",
+      title: "Diagnóstico Técnico Inicial | DCON — CRC-GO 1202/O-5",
       description: "Diagnóstico fiscal, contábil, tributário e trabalhista da DCON: cruzamento documental, parecer técnico e plano de ação em até 7 dias úteis. Sem compromisso comercial.",
       canonical: "/diagnostico",
     }),

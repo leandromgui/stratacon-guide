@@ -143,6 +143,7 @@ export function CategoryHub({ category, page }: Props) {
                 <Link
                   to="/conteudos/$category"
                   params={{ category: c.slug }}
+                  search={{ p: 1 }}
                   className="block border border-border p-5 hover:border-secondary"
                 >
                   <div className="text-[10px] uppercase tracking-[0.22em] text-gold">Categoria</div>

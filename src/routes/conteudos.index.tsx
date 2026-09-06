@@ -227,6 +227,7 @@ function Page() {
                 <Link
                   to="/conteudos/$category"
                   params={{ category: c.slug }}
+                  search={{ p: 1 }}
                   className="hover:text-secondary"
                 >
                   {c.h2}
@@ -247,6 +248,7 @@ function Page() {
                 <Link
                   to="/conteudos/$category"
                   params={{ category: c.slug }}
+                  search={{ p: 1 }}
                   className="text-[11px] uppercase tracking-[0.18em] text-secondary hover:text-gold"
                 >
                   Ver categoria completa →
