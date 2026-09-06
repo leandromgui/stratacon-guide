@@ -221,12 +221,12 @@ function Home() {
             Diagnóstico técnico em <span className="text-white font-medium">7 dias úteis</span>, planejamento tributário, Reforma Tributária (CBS/IBS) e recuperação de créditos sob responsabilidade técnica com CRC ativo.
           </Reveal>
 
-          <Reveal delay={240} className="mt-8 flex flex-wrap gap-3">
-            <Link to="/diagnostico" className="inline-flex items-center bg-gold text-gold-foreground px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:opacity-90 transition-opacity">
+          <Reveal delay={240} className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
+            <Link to="/diagnostico" className="inline-flex items-center bg-gold text-gold-foreground px-8 py-4 text-[13px] font-medium uppercase tracking-[0.18em] shadow-lg hover:opacity-90 transition-opacity">
               Solicitar diagnóstico técnico inicial →
             </Link>
-            <Link to="/solucoes/reforma-tributaria" className="inline-flex items-center border border-white/30 px-6 py-3 text-[12px] uppercase tracking-[0.18em] hover:border-gold hover:text-gold transition-colors">
-              ● Reforma Tributária 2026
+            <Link to="/solucoes/reforma-tributaria" className="text-[11px] uppercase tracking-[0.18em] text-white/60 underline decoration-white/25 underline-offset-4 hover:text-gold hover:decoration-gold transition-colors">
+              Reforma Tributária 2026
             </Link>
           </Reveal>
 
