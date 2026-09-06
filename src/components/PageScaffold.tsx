@@ -230,8 +230,8 @@ export function PageScaffold(p: PageScaffoldProps) {
             </p>
             <div className="mt-6 grid grid-cols-3 gap-4 text-center">
               <div>
-                <div className="font-display text-2xl">+20</div>
-                <div className="text-[10px] uppercase tracking-[0.18em] text-white/55">anos</div>
+                <div className="font-display text-2xl">2004</div>
+                <div className="text-[10px] uppercase tracking-[0.18em] text-white/55">desde</div>
               </div>
               <div>
                 <div className="font-display text-2xl">7d</div>
