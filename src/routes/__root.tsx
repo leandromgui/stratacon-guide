@@ -10,6 +10,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { initGoogleAnalytics } from "../lib/gtag";
 import { SiteLayout } from "../components/SiteLayout";
 
 const SITE_URL = "https://www.dcon.cnt.br";
@@ -193,6 +194,10 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    initGoogleAnalytics();
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
