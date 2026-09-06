@@ -68,7 +68,7 @@ export const Route = createFileRoute("/")({
   head: () => {
     const seo = buildSeoHead({
       title: "DCON · Consultoria Contábil e Tributária em Goiânia",
-      description: "Contabilidade consultiva técnica em Goiânia, GO. Planejamento tributário, recuperação de créditos, reforma CBS/IBS, holding e diagnóstico fiscal em 7 dias úteis. CRC-GO 1202.",
+      description: "Contabilidade consultiva técnica em Goiânia, GO. Planejamento tributário, recuperação de créditos, reforma CBS/IBS, holding e diagnóstico fiscal em 7 dias úteis. CRC-GO 1202/O-5.",
       canonical: `${SITE_URL}/`,
       ogImage: OG_IMAGE_URL,
     });
@@ -78,7 +78,7 @@ export const Route = createFileRoute("/")({
       { name: "keywords", content: "consultoria contábil Goiânia, planejamento tributário, reforma tributária CBS IBS, recuperação de créditos tributários, holding patrimonial, defesa fiscal, contabilidade consultiva" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "DCON · Contabilidade Consultiva Técnica — Goiânia, CRC-GO 1202" },
+      { property: "og:image:alt", content: "DCON · Contabilidade Consultiva Técnica — Goiânia, CRC-GO 1202/O-5" },
     ],
     links: [
       ...seo.links,
@@ -134,7 +134,7 @@ export const Route = createFileRoute("/")({
           },
           hasCredential: {
             "@type": "EducationalOccupationalCredential",
-            name: "CRC-GO 1202",
+            name: "CRC-GO 1202/O-5",
             credentialCategory: "Registro no Conselho Regional de Contabilidade de Goiás",
           },
           serviceType: [
@@ -232,7 +232,7 @@ function Home() {
 
           {/* Tira compacta de credenciais */}
           <Reveal delay={320} className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.18em] text-white/50 border-t border-white/15 pt-5">
-            <span><span className="text-gold">●</span> DCON CRC-GO 1202</span>
+            <span><span className="text-gold">●</span> DCON CRC-GO 1202/O-5</span>
             <span className="text-white/25">/</span>
             <span>Resp. técnico CRC-GO 16.395/O-9</span>
             <span className="text-white/25">/</span>

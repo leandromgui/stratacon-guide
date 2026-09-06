@@ -211,7 +211,7 @@ export function PageScaffold(p: PageScaffoldProps) {
               )}
             </Reveal>
             <Reveal delay={360} className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.18em] text-white/50 border-t border-white/15 pt-5">
-              <span><span className="text-gold">●</span> DCON CRC-GO 1202</span>
+              <span><span className="text-gold">●</span> DCON CRC-GO 1202/O-5</span>
               <span className="text-white/25">/</span>
               <span>Resp. técnico CRC-GO 16.395/O-9</span>
               <span className="text-white/25">/</span>
