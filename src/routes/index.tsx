@@ -382,10 +382,10 @@ function Home() {
           </div>
           <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-secondary-foreground/10 border border-secondary-foreground/10">
             {method.map((m, i) => (
-              <Reveal key={m.h} as="li" delay={i * 120} y={24} className="panel-interactive p-6" style={{ ["--panel-accent" as never]: PANEL_ACCENTS[i % PANEL_ACCENTS.length], background: `linear-gradient(180deg, color-mix(in oklab, ${PANEL_ACCENTS[i % PANEL_ACCENTS.length]} 14%, var(--secondary)) 0%, var(--secondary) 100%)` }}>
+              <Reveal key={m.h} as="li" delay={i * 120} y={24} className="panel-interactive p-6" style={{ ["--panel-accent" as never]: "var(--gold)", background: `linear-gradient(180deg, color-mix(in oklab, var(--gold) ${i % 2 === 0 ? 14 : 7}%, var(--secondary)) 0%, var(--secondary) 100%)` }}>
                 <details className="group">
                   <summary className="cursor-pointer list-none">
-                    <div className="text-[11px] uppercase tracking-[0.22em]" style={{ color: PANEL_ACCENTS[i % PANEL_ACCENTS.length] }}>{m.n}</div>
+                    <div className="text-[11px] uppercase tracking-[0.22em] text-gold">{m.n}</div>
                     <h3 className="mt-2 font-display text-lg flex items-start justify-between gap-3">
                       <span>{m.h}</span>
                       <span className="text-gold text-lg leading-none group-open:rotate-45 transition-transform">+</span>
@@ -396,6 +396,7 @@ function Home() {
               </Reveal>
             ))}
           </ol>
+
         </div>
       </section>
 
