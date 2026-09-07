@@ -67,15 +67,6 @@ const JSONLD = {
   ],
 };
 
-const BREADCRUMB_JSONLD = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Início", item: `${SITE_URL}/` },
-    { "@type": "ListItem", position: 2, name: "Contador em Goiânia", item: `${SITE_URL}/contador-em-goiania` },
-  ],
-};
-
 export const Route = createFileRoute("/contador-em-goiania")({
   head: () => ({
     ...buildSeoHead({
@@ -86,7 +77,14 @@ export const Route = createFileRoute("/contador-em-goiania")({
     }),
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(JSONLD) },
-      { type: "application/ld+json", children: JSON.stringify(BREADCRUMB_JSONLD) },
+      { type: "application/ld+json", children: JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Início", item: "https://www.dcon.cnt.br/" },
+    { "@type": "ListItem", position: 2, name: "Contador em Goiânia", item: "https://www.dcon.cnt.br/contador-em-goiania" },
+  ],
+}) },
     ],
   }),
   component: Page,
