@@ -100,8 +100,12 @@ export function FollowupRulesCard() {
     triggerDownload(blob, `historico-regras-followup-${stamp()}.csv`);
   }
 
-  function exportPdf() {
+  async function exportPdf() {
     const rows = buildRows();
+    const [{ default: jsPDF }, { default: autoTable }] = await Promise.all([
+      import("jspdf"),
+      import("jspdf-autotable"),
+    ]);
     const doc = new jsPDF({ orientation: "landscape" });
     doc.setFontSize(14);
     doc.text("Histórico de alterações — Regras de follow-up", 14, 16);
