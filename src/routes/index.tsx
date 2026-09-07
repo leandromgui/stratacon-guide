@@ -62,7 +62,18 @@ const faqs = [
     aPlain: "Sim. Experiência específica com médicos, dentistas, fisioterapeutas e clínicas: equiparação hospitalar, PJ médica, planejamento tributário e departamento pessoal para o setor de saúde.",
     a: <>Sim. Análise de equiparação hospitalar, PJ médica e planejamento tributário para o setor. <Link to="/segmentos/medicos-clinicas" className="underline text-gold hover:no-underline">Médicos e clínicas →</Link></>,
   },
+  {
+    q: "Dá para trocar de contador no meio do ano fiscal sem multa ou burocracia?",
+    aPlain: "Sim. A transição pode ser feita em qualquer mês do ano fiscal, sem multa e sem burocracia. Antes da migração efetiva fazemos o levantamento técnico do histórico fiscal e contábil, para garantir continuidade das obrigações sem exposição a risco.",
+    a: <>Sim. A transição pode ser feita em qualquer mês do ano fiscal, sem multa e sem burocracia. Antes da migração efetiva fazemos o levantamento técnico do histórico fiscal e contábil, para garantir continuidade das obrigações sem exposição a risco. <Link to="/solucoes/trocar-contabilidade" className="underline text-gold hover:no-underline">Como trocar de contabilidade →</Link></>,
+  },
+  {
+    q: "Como funciona a cobrança da DCON?",
+    aPlain: "O valor varia conforme o diagnóstico técnico inicial da empresa: porte, regime tributário, volume de operações e complexidade das obrigações. Não trabalhamos com tabela fixa genérica — a proposta é apresentada depois do diagnóstico.",
+    a: <>O valor varia conforme o diagnóstico técnico inicial da empresa: porte, regime tributário, volume de operações e complexidade das obrigações. Não trabalhamos com tabela fixa genérica — a proposta é apresentada depois do diagnóstico. <Link to="/diagnostico" className="underline text-gold hover:no-underline">Solicitar diagnóstico →</Link></>,
+  },
 ];
+
 
 export const Route = createFileRoute("/")({
   head: () => {
@@ -243,6 +254,23 @@ function Home() {
         </div>
       </section>
 
+      {/* Faixa de resultados — números já usados no site */}
+      <section className="border-b border-border bg-secondary text-secondary-foreground">
+        <div className="mx-auto max-w-6xl px-6 py-7 grid grid-cols-1 sm:grid-cols-3 gap-y-5 sm:gap-x-8 divide-y sm:divide-y-0 sm:divide-x divide-secondary-foreground/15">
+          {[
+            { n: "+300", l: "empresas atendidas" },
+            { n: "Desde 2004", l: "20+ anos de atuação" },
+            { n: "CRC-GO 1202/O-5", l: "registro ativo" },
+          ].map((s) => (
+            <div key={s.l} className="pt-5 sm:pt-0 sm:px-8 first:sm:pl-0 last:sm:pr-0">
+              <div className="font-display text-xl md:text-2xl tracking-tight text-gold">{s.n}</div>
+              <div className="mt-1 text-[11px] uppercase tracking-[0.18em] text-secondary-foreground/60">{s.l}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+
       {/* Por onde começar — 4 atalhos grandes coloridos */}
       <section
         className="border-y border-border"
@@ -371,10 +399,10 @@ function Home() {
           </div>
           <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-secondary-foreground/10 border border-secondary-foreground/10">
             {method.map((m, i) => (
-              <Reveal key={m.h} as="li" delay={i * 120} y={24} className="panel-interactive p-6" style={{ ["--panel-accent" as never]: PANEL_ACCENTS[i % PANEL_ACCENTS.length], background: `linear-gradient(180deg, color-mix(in oklab, ${PANEL_ACCENTS[i % PANEL_ACCENTS.length]} 14%, var(--secondary)) 0%, var(--secondary) 100%)` }}>
+              <Reveal key={m.h} as="li" delay={i * 120} y={24} className="panel-interactive p-6" style={{ ["--panel-accent" as never]: "var(--gold)", background: `linear-gradient(180deg, color-mix(in oklab, var(--gold) ${i % 2 === 0 ? 14 : 7}%, var(--secondary)) 0%, var(--secondary) 100%)` }}>
                 <details className="group">
                   <summary className="cursor-pointer list-none">
-                    <div className="text-[11px] uppercase tracking-[0.22em]" style={{ color: PANEL_ACCENTS[i % PANEL_ACCENTS.length] }}>{m.n}</div>
+                    <div className="text-[11px] uppercase tracking-[0.22em] text-gold">{m.n}</div>
                     <h3 className="mt-2 font-display text-lg flex items-start justify-between gap-3">
                       <span>{m.h}</span>
                       <span className="text-gold text-lg leading-none group-open:rotate-45 transition-transform">+</span>
@@ -385,6 +413,7 @@ function Home() {
               </Reveal>
             ))}
           </ol>
+
         </div>
       </section>
 

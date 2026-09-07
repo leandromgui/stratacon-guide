@@ -1,3 +1,4 @@
+import { useState } from "react";
 import c1 from "@/assets/clients/client-1.png.asset.json";
 import c2 from "@/assets/clients/client-2.png.asset.json";
 import c3 from "@/assets/clients/client-3.png.asset.json";
@@ -30,7 +31,12 @@ import c28 from "@/assets/clients/client-28.png.asset.json";
 const logos = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25, c26, c27, c28];
 
 export function ClientsCarousel() {
-  const loop = [...logos, ...logos];
+  // Logos cujo arquivo falhou ao carregar são removidos do carrossel,
+  // evitando cards brancos vazios sem quebrar o layout.
+  const [failed, setFailed] = useState<Record<string, boolean>>({});
+  const valid = logos.filter((l) => !failed[l.url]);
+  const loop = [...valid, ...valid];
+
   return (
     <section className="border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
@@ -53,18 +59,19 @@ export function ClientsCarousel() {
             {loop.map((logo, i) => (
               <div
                 key={i}
-                aria-hidden={i >= logos.length ? true : undefined}
+                aria-hidden={i >= valid.length ? true : undefined}
                 className="shrink-0 flex items-center justify-center bg-white border border-border rounded-sm"
                 style={{ width: 200, height: 110 }}
               >
                 <img
                   src={logo.url}
                   alt={
-                    i >= logos.length
+                    i >= valid.length
                       ? ""
-                      : `Logotipo de empresa cliente da DCON Serviços Contábeis (${i + 1} de ${logos.length})`
+                      : `Logotipo de empresa cliente da DCON Serviços Contábeis (${(i % valid.length) + 1} de ${valid.length})`
                   }
                   loading="lazy"
+                  onError={() => setFailed((prev) => ({ ...prev, [logo.url]: true }))}
                   className="max-h-[72px] max-w-[160px] object-contain"
                 />
               </div>
