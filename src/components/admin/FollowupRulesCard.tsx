@@ -295,7 +295,7 @@ export function FollowupRulesCard() {
                     Exportar CSV
                   </button>
                   <button
-                    onClick={exportPdf}
+                    onClick={() => void exportPdf()}
                     disabled={!history || history.length === 0}
                     className="text-[11px] uppercase tracking-[0.16em] border border-border px-3 py-1 rounded-sm hover:bg-muted disabled:opacity-40"
                   >
