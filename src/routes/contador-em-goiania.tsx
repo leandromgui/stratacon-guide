@@ -116,36 +116,6 @@ function Page() {
             },
           ],
         },
-        {
-          h2: "Serviços do contador DCON em Goiânia",
-          lead: "Cada frente abaixo tem página própria, com escopo, entregáveis e prazos.",
-          h3: [
-            {
-              title: "Planejamento tributário",
-              body: "Comparativo de regimes, simulação e tese documentada — detalhado em /solucoes/planejamento-tributario.",
-            },
-            {
-              title: "Departamento fiscal",
-              body: "Apuração, SPED e obrigações acessórias sob revisão cruzada — /solucoes/departamento-fiscal.",
-            },
-            {
-              title: "Recuperação de créditos",
-              body: "Revisão dos últimos 5 anos para identificar tributo pago indevidamente — /solucoes/recuperacao-creditos-tributarios.",
-            },
-            {
-              title: "Regularização fiscal",
-              body: "Certidões, parcelamentos e retificações para liberar crédito e licitação — /solucoes/regularizacao-fiscal.",
-            },
-            {
-              title: "Trocar de contabilidade",
-              body: "Migração auditada, sem ruído com o escritório anterior — /solucoes/trocar-contabilidade.",
-            },
-            {
-              title: "Abrir empresa em Goiânia",
-              body: "CNPJ, alvará, inscrição municipal e escolha de regime — /solucoes/abrir-empresa.",
-            },
-          ],
-        },
       ]}
       method={[
         {
