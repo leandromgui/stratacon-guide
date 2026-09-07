@@ -95,7 +95,7 @@ export interface PageScaffoldProps {
   eyebrow?: string;
   h1: string;
   lead?: string;
-  intro?: string;
+  intro?: ReactNode;
   audience?: string[];
   sections: Section[];
   ctaPrimary: { label: string; to: string };
