@@ -27,6 +27,7 @@ function Page() {
       intro="Contabilidade técnica desenhada para a realidade tributária e operacional de franquias e redes."
       intent="contabilidade franquia, contabilidade rede de lojas"
       observation="Operações multi-CNPJ."
+      pillarKey="franquias-redes"
       ctaPrimary={{ label: "Solicitar diagnóstico técnico inicial", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       sections={[

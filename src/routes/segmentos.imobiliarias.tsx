@@ -27,6 +27,7 @@ function Page() {
       intro="Contabilidade técnica desenhada para a realidade tributária e operacional de imobiliárias."
       intent="contabilidade imobiliária, administradora de imóveis"
       observation="Ponte para Holding."
+      pillarKey="imobiliarias"
       ctaPrimary={{ label: "Solicitar diagnóstico técnico inicial", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       sections={[

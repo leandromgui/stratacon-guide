@@ -27,6 +27,7 @@ function Page() {
       intro="Contabilidade técnica desenhada para a realidade tributária e operacional de empresas familiares."
       intent="contabilidade empresa familiar, sucessão patrimonial"
       observation="Pré-venda de Holding."
+      pillarKey="empresas-familiares"
       ctaPrimary={{ label: "Solicitar diagnóstico técnico inicial", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       sections={[

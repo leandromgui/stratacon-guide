@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
-import { buildSeoHead } from "@/lib/seo";
+import { buildSeoHead, SITE_URL } from "@/lib/seo";
+import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
 
 export const Route = createFileRoute("/sobre/leandro")({
   head: () => ({
@@ -12,7 +13,32 @@ export const Route = createFileRoute("/sobre/leandro")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Sobre", "item": "/sobre"}, {"@type": "ListItem", "position": 3, "name": "Leandro Matsuoka Guimarães", "item": "/sobre/leandro"}]}),
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            LEANDRO_PERSON_JSONLD,
+            {
+              "@type": "ProfilePage",
+              "@id": `${SITE_URL}/sobre/leandro#page`,
+              url: `${SITE_URL}/sobre/leandro`,
+              name: "Leandro Matsuoka Guimarães — responsável técnico da DCON",
+              mainEntity: { "@id": `${SITE_URL}/sobre/leandro#leandro` },
+              author: { "@id": `${SITE_URL}/sobre/leandro#leandro` },
+            },
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Início", item: "/" },
+            { "@type": "ListItem", position: 2, name: "Sobre", item: "/sobre" },
+            { "@type": "ListItem", position: 3, name: "Leandro Matsuoka Guimarães", item: "/sobre/leandro" },
+          ],
+        }),
       },
     ],
   }),

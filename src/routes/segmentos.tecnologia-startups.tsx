@@ -27,6 +27,7 @@ function Page() {
       intro="Contabilidade técnica desenhada para a realidade tributária e operacional de tecnologia e startups."
       intent="contabilidade startup, contabilidade SaaS, Lei do Bem"
       observation="Cluster forte para captação."
+      pillarKey="tecnologia-startups"
       ctaPrimary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       sections={[

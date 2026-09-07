@@ -53,12 +53,17 @@ export function ClientsCarousel() {
             {loop.map((logo, i) => (
               <div
                 key={i}
+                aria-hidden={i >= logos.length ? true : undefined}
                 className="shrink-0 flex items-center justify-center bg-white border border-border rounded-sm"
                 style={{ width: 200, height: 110 }}
               >
                 <img
                   src={logo.url}
-                  alt="Cliente DCON"
+                  alt={
+                    i >= logos.length
+                      ? ""
+                      : `Logotipo de empresa cliente da DCON Serviços Contábeis (${i + 1} de ${logos.length})`
+                  }
                   loading="lazy"
                   className="max-h-[72px] max-w-[160px] object-contain"
                 />

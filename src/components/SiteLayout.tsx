@@ -35,6 +35,8 @@ const mega: MegaItem[] = [
         title: "Atendimento",
         items: [
           { label: "Goiânia e online", to: "/goiania", desc: "Presencial e remoto, todo o Brasil" },
+          { label: "Contador em Goiânia", to: "/contador-em-goiania", desc: "Atuação consultiva e Método DCON" },
+          { label: "Escritório em Goiânia", to: "/escritorio-de-contabilidade-em-goiania", desc: "Equipe, estrutura e endereço" },
           { label: "Contato institucional", to: "/contato", desc: "Fale com a equipe técnica" },
           { label: "Diagnóstico", to: "/diagnostico", desc: "Entrega em até 7 dias úteis" },
         ],
@@ -300,7 +302,7 @@ export function SiteLayout() {
           <Link to="/" className="flex items-center font-display">
             <img
               src={dconLogo.url}
-              alt="DCON Serviços Contábeis"
+              alt="DCON Serviços Contábeis — logotipo"
               className="h-20 w-auto"
             />
           </Link>
@@ -405,7 +407,7 @@ export function SiteLayout() {
             <div className="lg:col-span-4">
               <img
               src={dconLogo.url}
-                alt="DCON Serviços Contábeis"
+                alt="DCON Serviços Contábeis — logotipo"
               className="h-20 w-auto"
               />
               <p className="mt-5 text-sm text-secondary-foreground/70 leading-relaxed max-w-sm">

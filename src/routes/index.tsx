@@ -473,6 +473,17 @@ function Home() {
               <span>Abrir no Google Maps</span>
               <span className="text-gold" aria-hidden="true">→</span>
             </a>
+            <p className="mt-6 text-[14px] leading-relaxed text-muted-foreground">
+              Saiba como atuamos como{" "}
+              <Link to="/contador-em-goiania" className="text-gold underline underline-offset-4 hover:no-underline">
+                contador em Goiânia
+              </Link>{" "}
+              ou conheça a estrutura do nosso{" "}
+              <Link to="/escritorio-de-contabilidade-em-goiania" className="text-gold underline underline-offset-4 hover:no-underline">
+                escritório de contabilidade em Goiânia
+              </Link>
+              .
+            </p>
           </header>
           <div className="lg:col-span-8 aspect-[4/3] sm:aspect-[16/10] w-full overflow-hidden border border-border bg-card">
             <iframe
