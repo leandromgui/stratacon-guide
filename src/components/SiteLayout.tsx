@@ -302,7 +302,7 @@ export function SiteLayout() {
           <Link to="/" className="flex items-center font-display">
             <img
               src={dconLogo.url}
-              alt="DCON Serviços Contábeis"
+              alt="DCON Serviços Contábeis — logotipo"
               className="h-20 w-auto"
             />
           </Link>
@@ -407,7 +407,7 @@ export function SiteLayout() {
             <div className="lg:col-span-4">
               <img
               src={dconLogo.url}
-                alt="DCON Serviços Contábeis"
+                alt="DCON Serviços Contábeis — logotipo"
               className="h-20 w-auto"
               />
               <p className="mt-5 text-sm text-secondary-foreground/70 leading-relaxed max-w-sm">
