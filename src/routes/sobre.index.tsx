@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
-import { buildSeoHead } from "@/lib/seo";
+import { buildSeoHead, SITE_URL } from "@/lib/seo";
+import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
 
 export const Route = createFileRoute("/sobre/")({
   head: () => ({
@@ -12,7 +13,28 @@ export const Route = createFileRoute("/sobre/")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Sobre", "item": "/sobre"}]}),
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            LEANDRO_PERSON_JSONLD,
+            {
+              "@type": "AboutPage",
+              "@id": `${SITE_URL}/sobre#page`,
+              url: `${SITE_URL}/sobre`,
+              name: "Sobre a DCON Serviços Contábeis",
+              about: { "@id": `${SITE_URL}/#organization` },
+              author: { "@id": `${SITE_URL}/sobre/leandro#leandro` },
+              reviewedBy: { "@id": `${SITE_URL}/sobre/leandro#leandro` },
+            },
+            {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Início", item: `${SITE_URL}/` },
+                { "@type": "ListItem", position: 2, name: "Sobre", item: `${SITE_URL}/sobre` },
+              ],
+            },
+          ],
+        }),
       },
     ],
   }),
