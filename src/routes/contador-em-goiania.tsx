@@ -1,6 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { buildSeoHead, SITE_URL } from "@/lib/seo";
+
+const SERVICES = [
+  { label: "Planejamento tributário", to: "/solucoes/planejamento-tributario", body: "Comparativo de regimes, simulação e tese documentada antes de qualquer mudança." },
+  { label: "Departamento fiscal", to: "/solucoes/departamento-fiscal", body: "Apuração, SPED e obrigações acessórias sob revisão cruzada." },
+  { label: "Recuperação de créditos", to: "/solucoes/recuperacao-creditos-tributarios", body: "Revisão dos últimos 5 anos para identificar tributo pago indevidamente." },
+  { label: "Regularização fiscal", to: "/solucoes/regularizacao-fiscal", body: "Certidões, parcelamentos e retificações para liberar crédito e licitação." },
+  { label: "Trocar de contabilidade", to: "/solucoes/trocar-contabilidade", body: "Migração auditada, sem ruído com o escritório anterior." },
+  { label: "Abrir empresa em Goiânia", to: "/solucoes/abrir-empresa", body: "CNPJ, alvará, inscrição municipal e escolha do regime inicial." },
+] as const;
 
 const FAQ = [
   {
@@ -173,6 +182,6 @@ function Page() {
           </ul>
         </div>
       </section>
-    />
+    </PageScaffold>
   );
 }
