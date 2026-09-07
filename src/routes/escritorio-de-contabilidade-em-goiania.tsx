@@ -94,8 +94,8 @@ export const Route = createFileRoute("/escritorio-de-contabilidade-em-goiania")(
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Início", item: "https://www.dcon.cnt.br/" },
-    { "@type": "ListItem", position: 2, name: "Escritório de contabilidade em Goiânia", item: "https://www.dcon.cnt.br/escritorio-de-contabilidade-em-goiania" },
+    { "@type": "ListItem", position: 1, name: "Início", item: "/" },
+    { "@type": "ListItem", position: 2, name: "Escritório de contabilidade em Goiânia", item: "/escritorio-de-contabilidade-em-goiania" },
   ],
 }) },
     ],

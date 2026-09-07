@@ -34,9 +34,9 @@ export const Route = createFileRoute("/sobre/leandro")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "https://www.dcon.cnt.br/" },
-            { "@type": "ListItem", position: 2, name: "Sobre", item: "https://www.dcon.cnt.br/sobre" },
-            { "@type": "ListItem", position: 3, name: "Leandro Matsuoka Guimarães", item: "https://www.dcon.cnt.br/sobre/leandro" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "/" },
+            { "@type": "ListItem", position: 2, name: "Sobre", item: "/sobre" },
+            { "@type": "ListItem", position: 3, name: "Leandro Matsuoka Guimarães", item: "/sobre/leandro" },
           ],
         }),
       },
