@@ -67,8 +67,8 @@ const faqs = [
 export const Route = createFileRoute("/")({
   head: () => {
     const seo = buildSeoHead({
-      title: "DCON · Consultoria Contábil e Tributária em Goiânia",
-      description: "Contabilidade consultiva técnica em Goiânia, GO. Planejamento tributário, recuperação de créditos, reforma CBS/IBS, holding e diagnóstico fiscal em 7 dias úteis. CRC-GO 1202/O-5.",
+      title: "DCON | Contador Tributarista e Consultoria Tributária em Goiânia",
+      description: "Consultoria tributária estratégica em Goiânia. Planejamento tributário, recuperação de créditos, defesas fiscais e reforma CBS/IBS com responsabilidade técnica CRC-GO 1202/O-5.",
       canonical: `${SITE_URL}/`,
       ogImage: OG_IMAGE_URL,
     });
@@ -213,8 +213,8 @@ function Home() {
           </Reveal>
 
           <Reveal as="h1" delay={80} className="mt-8 md:mt-10 font-display text-4xl md:text-6xl font-light tracking-tight leading-[1.05] max-w-4xl">
-            Decisões econômicas seguras exigem{" "}
-            <span className="font-semibold">leitura técnica</span> do que está sendo declarado.
+            Consultoria tributária em Goiânia com{" "}
+            <span className="font-semibold">leitura técnica</span> do que sua empresa declara.
           </Reveal>
 
           <Reveal as="p" delay={160} className="mt-6 max-w-2xl text-[15px] md:text-[17px] leading-relaxed text-white/70">

@@ -18,8 +18,8 @@ const faqs: FAQItem[] = [
 export const Route = createFileRoute("/solucoes/planejamento-tributario")({
   head: () => ({
     ...buildSeoHead({
-      title: "Planejamento Tributário | DCON Consultoria Contábil",
-      description: "Estudo comparativo de regimes e estruturas societárias com fundamento legal. Parecer técnico auditável, sem promessa milagrosa.",
+      title: "Planejamento Tributário em Goiânia | Contador Tributarista - DCON",
+      description: "Planejamento tributário em Goiânia com estudo comparativo de regimes, fundação legal e parecer técnico auditável. Reduza impostos com segurança jurídica.",
       canonical: "/solucoes/planejamento-tributario",
     }),
     scripts: [
@@ -37,7 +37,7 @@ function Page() {
   return (
     <PageScaffold
       eyebrow="Soluções · Linha tributária"
-      h1={docDcon.h1}
+      h1="Planejamento Tributário em Goiânia"
       intro={docDcon.fraseComercial}
       breadcrumbs={[{ label: "Soluções", to: "/solucoes" }, { label: "Planejamento Tributário", to: "/solucoes/planejamento-tributario" }]}
       audience={docDcon.audience}
