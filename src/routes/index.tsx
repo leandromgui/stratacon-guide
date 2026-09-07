@@ -254,6 +254,23 @@ function Home() {
         </div>
       </section>
 
+      {/* Faixa de resultados — números já usados no site */}
+      <section className="border-b border-border bg-secondary text-secondary-foreground">
+        <div className="mx-auto max-w-6xl px-6 py-7 grid grid-cols-1 sm:grid-cols-3 gap-y-5 sm:gap-x-8 divide-y sm:divide-y-0 sm:divide-x divide-secondary-foreground/15">
+          {[
+            { n: "+300", l: "empresas atendidas" },
+            { n: "Desde 2004", l: "20+ anos de atuação" },
+            { n: "CRC-GO 1202/O-5", l: "registro ativo" },
+          ].map((s) => (
+            <div key={s.l} className="pt-5 sm:pt-0 sm:px-8 first:sm:pl-0 last:sm:pr-0">
+              <div className="font-display text-xl md:text-2xl tracking-tight text-gold">{s.n}</div>
+              <div className="mt-1 text-[11px] uppercase tracking-[0.18em] text-secondary-foreground/60">{s.l}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+
       {/* Por onde começar — 4 atalhos grandes coloridos */}
       <section
         className="border-y border-border"
