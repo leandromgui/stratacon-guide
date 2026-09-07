@@ -16,6 +16,8 @@ const entries: SitemapEntry[] = [
   { path: "/temas-estrategicos", changefreq: "monthly", priority: "0.8" },
   { path: "/contato", changefreq: "monthly", priority: "0.7" },
   { path: "/goiania", changefreq: "monthly", priority: "0.7" },
+  { path: "/contador-em-goiania", changefreq: "monthly", priority: "0.9" },
+  { path: "/escritorio-de-contabilidade-em-goiania", changefreq: "monthly", priority: "0.9" },
   { path: "/sobre", changefreq: "monthly", priority: "0.7" },
   { path: "/sobre/leandro", changefreq: "monthly", priority: "0.6" },
   { path: "/privacidade", changefreq: "yearly", priority: "0.3" },

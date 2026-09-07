@@ -19,6 +19,7 @@ const OG_IMAGE = `${SITE_URL}/og-image.png`;
 const ORGANIZATION_JSONLD = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
   name: "DCON Serviços Contábeis",
   url: `${SITE_URL}/`,
   logo: `${SITE_URL}/logo-dcon.png`,

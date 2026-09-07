@@ -35,6 +35,8 @@ const mega: MegaItem[] = [
         title: "Atendimento",
         items: [
           { label: "Goiânia e online", to: "/goiania", desc: "Presencial e remoto, todo o Brasil" },
+          { label: "Contador em Goiânia", to: "/contador-em-goiania", desc: "Atuação consultiva e Método DCON" },
+          { label: "Escritório em Goiânia", to: "/escritorio-de-contabilidade-em-goiania", desc: "Equipe, estrutura e endereço" },
           { label: "Contato institucional", to: "/contato", desc: "Fale com a equipe técnica" },
           { label: "Diagnóstico", to: "/diagnostico", desc: "Entrega em até 7 dias úteis" },
         ],
