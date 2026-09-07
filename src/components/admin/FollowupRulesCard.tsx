@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import jsPDF from "jspdf";
-import autoTable from "jspdf-autotable";
 
 type Status = "novo" | "contatado" | "qualificado" | "perdido";
 
@@ -102,8 +100,12 @@ export function FollowupRulesCard() {
     triggerDownload(blob, `historico-regras-followup-${stamp()}.csv`);
   }
 
-  function exportPdf() {
+  async function exportPdf() {
     const rows = buildRows();
+    const [{ default: jsPDF }, { default: autoTable }] = await Promise.all([
+      import("jspdf"),
+      import("jspdf-autotable"),
+    ]);
     const doc = new jsPDF({ orientation: "landscape" });
     doc.setFontSize(14);
     doc.text("Histórico de alterações — Regras de follow-up", 14, 16);
@@ -293,7 +295,7 @@ export function FollowupRulesCard() {
                     Exportar CSV
                   </button>
                   <button
-                    onClick={exportPdf}
+                    onClick={() => void exportPdf()}
                     disabled={!history || history.length === 0}
                     className="text-[11px] uppercase tracking-[0.16em] border border-border px-3 py-1 rounded-sm hover:bg-muted disabled:opacity-40"
                   >

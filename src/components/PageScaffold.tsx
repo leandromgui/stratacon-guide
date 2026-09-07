@@ -5,7 +5,7 @@ import { getCrossLinks } from "../lib/crossLinks";
 import { rememberLastFaqQuestion, trackEvent } from "../lib/analytics";
 import { AnimatedHeroBg } from "./AnimatedHeroBg";
 import { Reveal } from "./Reveal";
-import heroBg from "../assets/hero-bg.png";
+import heroBg from "../assets/hero-bg.webp";
 
 const DIAGNOSTIC_WA_MESSAGE =
   "Olá, Dcon. Vim pelo site e gostaria de solicitar um diagnostico para a minha empresa.";

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import ogImage from "../assets/og-dcon.jpg";
-import heroBg from "../assets/hero-bg.png";
+import heroBg from "../assets/hero-bg.webp";
 import { Reveal } from "../components/Reveal";
 import { AnimatedHeroBg } from "../components/AnimatedHeroBg";
 import { ClientsCarousel } from "../components/ClientsCarousel";
