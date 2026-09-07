@@ -27,6 +27,7 @@ function Page() {
       intro="Contabilidade técnica desenhada para a realidade tributária e operacional de terceiro setor."
       intent="contabilidade terceiro setor, OSC, OSCIP"
       observation="Imunidade e prestação de contas."
+      pillarKey="terceiro-setor"
       ctaPrimary={{ label: "Solicitar diagnóstico técnico inicial", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       sections={[

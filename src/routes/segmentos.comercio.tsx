@@ -27,6 +27,7 @@ function Page() {
       intro="Contabilidade técnica desenhada para a realidade tributária e operacional de comércio."
       intent="contabilidade comércio Goiânia, ICMS-ST varejo"
       observation="ICMS-ST e DIFAL."
+      pillarKey="comercio"
       ctaPrimary={{ label: "Solicitar diagnóstico técnico inicial", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       sections={[

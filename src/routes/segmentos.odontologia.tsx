@@ -27,6 +27,7 @@ function Page() {
       intro="Contabilidade técnica desenhada para a realidade tributária e operacional de odontologia."
       intent="contabilidade para dentistas, clínica odontológica"
       observation="Sub-cluster de Saúde."
+      pillarKey="odontologia"
       ctaPrimary={{ label: "Solicitar diagnóstico técnico inicial", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       sections={[

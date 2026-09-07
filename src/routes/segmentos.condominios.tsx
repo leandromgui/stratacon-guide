@@ -27,6 +27,7 @@ function Page() {
       intro="Contabilidade técnica desenhada para a realidade tributária e operacional de condomínios."
       intent="contabilidade condomínio Goiânia, prestação de contas"
       observation="Nicho local."
+      pillarKey="condominios"
       ctaPrimary={{ label: "Solicitar diagnóstico técnico inicial", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       sections={[

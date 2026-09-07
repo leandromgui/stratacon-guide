@@ -27,6 +27,7 @@ function Page() {
       intro="Contabilidade técnica desenhada para a realidade tributária e operacional de prestadores de serviços."
       intent="contabilidade prestadores de serviços, ISS Goiânia"
       observation="ISS e regimes de serviço."
+      pillarKey="prestadores-servicos"
       ctaPrimary={{ label: "Solicitar diagnóstico técnico inicial", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
       sections={[
