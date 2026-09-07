@@ -258,7 +258,7 @@ function Home() {
       <section className="border-b border-border bg-secondary text-secondary-foreground">
         <div className="mx-auto max-w-6xl px-6 py-7 grid grid-cols-1 sm:grid-cols-3 gap-y-5 sm:gap-x-8 divide-y sm:divide-y-0 sm:divide-x divide-secondary-foreground/15">
           {[
-            { n: "+300", l: "empresas atendidas" },
+            { n: "+700", l: "clientes" },
             { n: "Desde 2004", l: "20+ anos de atuação" },
             { n: "CRC-GO 1202/O-5", l: "registro ativo" },
           ].map((s) => (

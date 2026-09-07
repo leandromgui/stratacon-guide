@@ -59,7 +59,7 @@ function Page() {
         {
           h2: "Formação e atuação",
           h3: [
-            { title: "Registro profissional", body: "Contador registrado no CRC-GO sob nº 16.395/O-9, sócio da DCON Serviços Contábeis, com atuação consolidada em contabilidade empresarial, consultoria tributária, controladoria, finanças corporativas e reorganização societária." },
+            { title: "Registro profissional", body: "Contador registrado no CRC-GO sob nº 16.395/O-9, sócio da DCON Serviços Contábeis, com 20+ anos de atuação técnica consolidada em contabilidade empresarial, consultoria tributária, controladoria, finanças corporativas e reorganização societária." },
             { title: "Graduação e especializações", body: "Formado em Ciências Contábeis, bacharel em Direito e pós-graduado em Finanças Corporativas. Formação multidisciplinar que permite uma leitura integrada da empresa: contábil, fiscal, jurídica, financeira, societária e patrimonial." },
             { title: "Trajetória empresarial", body: "Experiência prática com gestão de empresas, não apenas escrituração. Atuação técnica envolve planejamento tributário, recuperação de créditos, análise de regimes fiscais, regularização de empresas, defesas administrativas, SPED, Simples Nacional, Lucro Presumido, Lucro Real, estruturação de holdings, indicadores empresariais e suporte estratégico para decisões de crescimento, sucessão e reorganização." },
           ],

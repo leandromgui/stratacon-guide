@@ -83,7 +83,7 @@ const JSONLD = {
 export const Route = createFileRoute("/escritorio-de-contabilidade-em-goiania")({
   head: () => ({
     ...buildSeoHead({
-      title: "Escritório de Contabilidade em Goiânia - DCON | 300+ Clientes",
+      title: "Escritório de Contabilidade em Goiânia - DCON | +700 Clientes",
       description:
         "Escritório de contabilidade em Goiânia com equipe especializada em compliance, tributação e auditoria fiscal. Conheça a DCON Contábil.",
       canonical: "/escritorio-de-contabilidade-em-goiania",
@@ -109,7 +109,7 @@ function Page() {
       eyebrow="Estrutura institucional"
       h1="Escritório de Contabilidade em Goiânia"
       lead="Estrutura departamentalizada, endereço físico no Setor Sul e responsabilidade técnica registrada — não um contador isolado atendendo por aplicativo."
-      intro="A DCON Serviços Contábeis foi fundada em novembro de 2004 e atua sob CRC-GO 1202/O-5, com mais de 300 empresas atendidas e uma equipe de 11 profissionais divididos entre contábil, fiscal, departamento pessoal, compliance e tecnologia. Esta página descreve a estrutura da firma: quem faz o quê, como o trabalho é revisado e onde estamos."
+      intro="A DCON Serviços Contábeis foi fundada em novembro de 2004 e atua sob CRC-GO 1202/O-5, com mais de 700 clientes atendidos e uma equipe de 11 profissionais divididos entre contábil, fiscal, departamento pessoal, compliance e tecnologia. Esta página descreve a estrutura da firma: quem faz o quê, como o trabalho é revisado e onde estamos."
       breadcrumbs={[
         { label: "Escritório de contabilidade em Goiânia", to: "/escritorio-de-contabilidade-em-goiania" },
       ]}
@@ -133,7 +133,7 @@ function Page() {
             { title: "Fundada em novembro de 2004", body: "Mais de duas décadas de operação contínua em Goiânia, com histórico de clientes de longa permanência." },
             { title: "DCON — CRC-GO 1202/O-5", body: "Registro do escritório no Conselho Regional de Contabilidade de Goiás, ativo e verificável." },
             { title: "Responsável técnico CRC-GO 16.395/O-9", body: "Leandro Matsuoka Guimarães responde tecnicamente pelas entregas da firma." },
-            { title: "Mais de 300 empresas atendidas", body: "Saúde, comércio, construção civil, serviços, tecnologia, provedores, holdings e produtor rural." },
+            { title: "Mais de 700 clientes atendidos", body: "Saúde, comércio, construção civil, serviços, tecnologia, provedores, holdings e produtor rural." },
           ],
         },
         {

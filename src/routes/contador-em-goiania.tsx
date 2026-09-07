@@ -72,7 +72,7 @@ export const Route = createFileRoute("/contador-em-goiania")({
     ...buildSeoHead({
       title: "Contador em Goiânia | Contabilidade Consultiva - DCON",
       description:
-        "Contador em Goiânia com 17+ anos de experiência. Consultoria tributária, planejamento fiscal e Método DCON. Atendimento para +300 empresas. Fale conosco.",
+        "Contador em Goiânia com 20+ anos de experiência. Consultoria tributária, planejamento fiscal e Método DCON. Atendimento para +700 clientes. Fale conosco.",
       canonical: "/contador-em-goiania",
     }),
     scripts: [
@@ -96,7 +96,7 @@ function Page() {
       eyebrow="Goiânia"
       h1="Contador em Goiânia — Contabilidade Consultiva para Empresas"
       lead="Um contador que responde tecnicamente pelo que assina — e explica o impacto de cada decisão antes dela virar imposto pago a mais."
-      intro={<>A DCON Serviços Contábeis atua em Goiânia desde 2004, sob CRC-GO 1202/O-5, com responsabilidade técnica de Leandro Matsuoka Guimarães (CRC-GO 16.395/O-9). A diferença entre uma contabilidade operacional e uma contabilidade consultiva aparece no mesmo lugar: a operacional entrega a guia calculada; a consultiva mostra por que aquele valor existe, se ele está correto e o que pode ser feito legalmente para reduzi-lo. Embora atuem como <Link to="/solucoes/planejamento-tributario" className="text-gold underline underline-offset-4 hover:no-underline">contador tributarista</Link>, o foco da DCON está na consultoria tributária estratégica: leitura técnica, parecer fundamentado e decisão antecipada.</>}
+      intro={<>A DCON Serviços Contábeis atua em Goiânia desde 2004 — 20+ anos de atuação —, sob CRC-GO 1202/O-5, com responsabilidade técnica de Leandro Matsuoka Guimarães (CRC-GO 16.395/O-9). A diferença entre uma contabilidade operacional e uma contabilidade consultiva aparece no mesmo lugar: a operacional entrega a guia calculada; a consultiva mostra por que aquele valor existe, se ele está correto e o que pode ser feito legalmente para reduzi-lo. Embora atuem como <Link to="/solucoes/planejamento-tributario" className="text-gold underline underline-offset-4 hover:no-underline">contador tributarista</Link>, o foco da DCON está na consultoria tributária estratégica: leitura técnica, parecer fundamentado e decisão antecipada.</>}
       breadcrumbs={[{ label: "Contador em Goiânia", to: "/contador-em-goiania" }]}
       ctaPrimary={{ label: "Solicitar diagnóstico técnico inicial", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
