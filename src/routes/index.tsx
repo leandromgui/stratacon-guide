@@ -62,7 +62,18 @@ const faqs = [
     aPlain: "Sim. Experiência específica com médicos, dentistas, fisioterapeutas e clínicas: equiparação hospitalar, PJ médica, planejamento tributário e departamento pessoal para o setor de saúde.",
     a: <>Sim. Análise de equiparação hospitalar, PJ médica e planejamento tributário para o setor. <Link to="/segmentos/medicos-clinicas" className="underline text-gold hover:no-underline">Médicos e clínicas →</Link></>,
   },
+  {
+    q: "Dá para trocar de contador no meio do ano fiscal sem multa ou burocracia?",
+    aPlain: "Sim. A transição pode ser feita em qualquer mês do ano fiscal, sem multa e sem burocracia. Antes da migração efetiva fazemos o levantamento técnico do histórico fiscal e contábil, para garantir continuidade das obrigações sem exposição a risco.",
+    a: <>Sim. A transição pode ser feita em qualquer mês do ano fiscal, sem multa e sem burocracia. Antes da migração efetiva fazemos o levantamento técnico do histórico fiscal e contábil, para garantir continuidade das obrigações sem exposição a risco. <Link to="/solucoes/trocar-contabilidade" className="underline text-gold hover:no-underline">Como trocar de contabilidade →</Link></>,
+  },
+  {
+    q: "Como funciona a cobrança da DCON?",
+    aPlain: "O valor varia conforme o diagnóstico técnico inicial da empresa: porte, regime tributário, volume de operações e complexidade das obrigações. Não trabalhamos com tabela fixa genérica — a proposta é apresentada depois do diagnóstico.",
+    a: <>O valor varia conforme o diagnóstico técnico inicial da empresa: porte, regime tributário, volume de operações e complexidade das obrigações. Não trabalhamos com tabela fixa genérica — a proposta é apresentada depois do diagnóstico. <Link to="/diagnostico" className="underline text-gold hover:no-underline">Solicitar diagnóstico →</Link></>,
+  },
 ];
+
 
 export const Route = createFileRoute("/")({
   head: () => {
