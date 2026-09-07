@@ -50,7 +50,7 @@ function Page() {
     <PageScaffold
       eyebrow="Sobre"
       h1="A DCON Serviços Contábeis"
-      intro="Somos uma contabilidade consultiva técnica em Goiânia. Atuamos como o time fiscal, tributário e societário da sua empresa."
+      intro="Somos uma contabilidade consultiva técnica em Goiânia, com 20+ anos de atuação desde 2004. Atuamos como o time fiscal, tributário e societário da sua empresa."
       intent="DCON contabilidade, contabilidade consultiva técnica, escritório contábil Goiânia"
       observation="Página-âncora de E-E-A-T. Linka para Leandro, Metodologia e Soluções."
       ctaPrimary={{ label: "Falar com a DCON", to: "/contato" }}
