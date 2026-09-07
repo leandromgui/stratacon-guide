@@ -147,6 +147,32 @@ function Page() {
         { label: "Planejamento Tributário", to: "/solucoes/planejamento-tributario", eyebrow: "Solução" },
       ]}
       ctaVariant="diagnostic"
+    >
+      <section className="border-t border-border pt-16">
+        <div className="grid lg:grid-cols-12 gap-10">
+          <header className="lg:col-span-4">
+            <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Serviços</div>
+            <h2 className="mt-4 font-display text-3xl tracking-tight">
+              O que o contador DCON faz na prática.
+            </h2>
+            <p className="mt-4 text-muted-foreground text-[15px] leading-relaxed">
+              Cada frente tem página própria, com escopo, entregáveis e prazos.
+            </p>
+          </header>
+          <ul className="lg:col-span-8 grid gap-px bg-border sm:grid-cols-2 border border-border">
+            {SERVICES.map((s) => (
+              <li key={s.to} className="bg-card">
+                <Link to={s.to} className="block p-6 hover:bg-secondary hover:text-secondary-foreground transition-colors group">
+                  <h3 className="font-display text-[17px]">{s.label}</h3>
+                  <p className="mt-2 text-muted-foreground text-[14px] leading-relaxed group-hover:text-secondary-foreground/80">
+                    {s.body}
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
     />
   );
 }
