@@ -15,6 +15,7 @@ import { Route as ReformaTributaria2026RouteImport } from './routes/reforma-trib
 import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as MetodoRouteImport } from './routes/metodo'
 import { Route as GoianiaRouteImport } from './routes/goiania'
+import { Route as EscritorioDeContabilidadeEmGoianiaRouteImport } from './routes/escritorio-de-contabilidade-em-goiania'
 import { Route as DiagnosticoRouteImport } from './routes/diagnostico'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as ContadorEmGoianiaRouteImport } from './routes/contador-em-goiania'
@@ -110,6 +111,12 @@ const GoianiaRoute = GoianiaRouteImport.update({
   path: '/goiania',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EscritorioDeContabilidadeEmGoianiaRoute =
+  EscritorioDeContabilidadeEmGoianiaRouteImport.update({
+    id: '/escritorio-de-contabilidade-em-goiania',
+    path: '/escritorio-de-contabilidade-em-goiania',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const DiagnosticoRoute = DiagnosticoRouteImport.update({
   id: '/diagnostico',
   path: '/diagnostico',
@@ -467,6 +474,7 @@ export interface FileRoutesByFullPath {
   '/contador-em-goiania': typeof ContadorEmGoianiaRoute
   '/contato': typeof ContatoRoute
   '/diagnostico': typeof DiagnosticoRoute
+  '/escritorio-de-contabilidade-em-goiania': typeof EscritorioDeContabilidadeEmGoianiaRoute
   '/goiania': typeof GoianiaRoute
   '/metodo': typeof MetodoRoute
   '/privacidade': typeof PrivacidadeRoute
@@ -538,6 +546,7 @@ export interface FileRoutesByTo {
   '/contador-em-goiania': typeof ContadorEmGoianiaRoute
   '/contato': typeof ContatoRoute
   '/diagnostico': typeof DiagnosticoRoute
+  '/escritorio-de-contabilidade-em-goiania': typeof EscritorioDeContabilidadeEmGoianiaRoute
   '/goiania': typeof GoianiaRoute
   '/metodo': typeof MetodoRoute
   '/privacidade': typeof PrivacidadeRoute
@@ -611,6 +620,7 @@ export interface FileRoutesById {
   '/contador-em-goiania': typeof ContadorEmGoianiaRoute
   '/contato': typeof ContatoRoute
   '/diagnostico': typeof DiagnosticoRoute
+  '/escritorio-de-contabilidade-em-goiania': typeof EscritorioDeContabilidadeEmGoianiaRoute
   '/goiania': typeof GoianiaRoute
   '/metodo': typeof MetodoRoute
   '/privacidade': typeof PrivacidadeRoute
@@ -684,6 +694,7 @@ export interface FileRouteTypes {
     | '/contador-em-goiania'
     | '/contato'
     | '/diagnostico'
+    | '/escritorio-de-contabilidade-em-goiania'
     | '/goiania'
     | '/metodo'
     | '/privacidade'
@@ -755,6 +766,7 @@ export interface FileRouteTypes {
     | '/contador-em-goiania'
     | '/contato'
     | '/diagnostico'
+    | '/escritorio-de-contabilidade-em-goiania'
     | '/goiania'
     | '/metodo'
     | '/privacidade'
@@ -827,6 +839,7 @@ export interface FileRouteTypes {
     | '/contador-em-goiania'
     | '/contato'
     | '/diagnostico'
+    | '/escritorio-de-contabilidade-em-goiania'
     | '/goiania'
     | '/metodo'
     | '/privacidade'
@@ -900,6 +913,7 @@ export interface RootRouteChildren {
   ContadorEmGoianiaRoute: typeof ContadorEmGoianiaRoute
   ContatoRoute: typeof ContatoRoute
   DiagnosticoRoute: typeof DiagnosticoRoute
+  EscritorioDeContabilidadeEmGoianiaRoute: typeof EscritorioDeContabilidadeEmGoianiaRoute
   GoianiaRoute: typeof GoianiaRoute
   MetodoRoute: typeof MetodoRoute
   PrivacidadeRoute: typeof PrivacidadeRoute
@@ -1005,6 +1019,13 @@ declare module '@tanstack/react-router' {
       path: '/goiania'
       fullPath: '/goiania'
       preLoaderRoute: typeof GoianiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/escritorio-de-contabilidade-em-goiania': {
+      id: '/escritorio-de-contabilidade-em-goiania'
+      path: '/escritorio-de-contabilidade-em-goiania'
+      fullPath: '/escritorio-de-contabilidade-em-goiania'
+      preLoaderRoute: typeof EscritorioDeContabilidadeEmGoianiaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/diagnostico': {
@@ -1480,6 +1501,8 @@ const rootRouteChildren: RootRouteChildren = {
   ContadorEmGoianiaRoute: ContadorEmGoianiaRoute,
   ContatoRoute: ContatoRoute,
   DiagnosticoRoute: DiagnosticoRoute,
+  EscritorioDeContabilidadeEmGoianiaRoute:
+    EscritorioDeContabilidadeEmGoianiaRoute,
   GoianiaRoute: GoianiaRoute,
   MetodoRoute: MetodoRoute,
   PrivacidadeRoute: PrivacidadeRoute,
