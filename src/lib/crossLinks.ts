@@ -238,33 +238,9 @@ export const crossLinks: Record<string, RelatedLink[]> = {
     { label: "Método DCON", to: "/metodo", eyebrow: "Como conduzimos" },
   ],
 
-  "simples-nacional": [
-    { label: "Planejamento Tributário", to: "/solucoes/planejamento-tributario", eyebrow: "Solução" },
-    { label: "Reforma Tributária (IBS/CBS)", to: "/solucoes/reforma-tributaria", eyebrow: "Solução" },
-    { label: "Contador em Goiânia", to: "/contador-em-goiania", eyebrow: "Atendimento local" },
-    { label: "Guia do Simples Nacional", to: "/conteudos/guia-simples-nacional", eyebrow: "Insight" },
-  ],
 
-  "lucro-presumido": [
-    { label: "Planejamento Tributário", to: "/solucoes/planejamento-tributario", eyebrow: "Solução" },
-    { label: "Recuperação de Créditos", to: "/solucoes/recuperacao-creditos-tributarios", eyebrow: "Solução" },
-    { label: "Lucro Real", to: "/segmentos/lucro-real", eyebrow: "Regime relacionado" },
-    { label: "Regimes tributários — análise", to: "/conteudos/regimes-tributarios", eyebrow: "Insight" },
-  ],
 
-  "lucro-real": [
-    { label: "Planejamento Tributário", to: "/solucoes/planejamento-tributario", eyebrow: "Solução" },
-    { label: "Reforma Tributária (IBS/CBS)", to: "/solucoes/reforma-tributaria", eyebrow: "Solução" },
-    { label: "Lucro Presumido", to: "/segmentos/lucro-presumido", eyebrow: "Regime relacionado" },
-    { label: "Regimes tributários — análise", to: "/conteudos/regimes-tributarios", eyebrow: "Insight" },
-  ],
 
-  "pendencias-fiscais": [
-    { label: "Regularização Fiscal", to: "/solucoes/regularizacao-fiscal", eyebrow: "Solução" },
-    { label: "Defesas Fiscais", to: "/solucoes/defesas-fiscais", eyebrow: "Solução" },
-    { label: "Diagnóstico Fiscal e Contábil", to: "/diagnostico", eyebrow: "Primeiro passo" },
-    { label: "PGFN, PRDI e transação", to: "/conteudos/regularizacao-fiscal", eyebrow: "Insight" },
-  ],
 };
 
 export function getCrossLinks(key: string): RelatedLink[] | undefined {
