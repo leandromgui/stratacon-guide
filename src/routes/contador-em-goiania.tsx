@@ -64,18 +64,15 @@ const JSONLD = {
         acceptedAnswer: { "@type": "Answer", text: f.a },
       })),
     },
-    {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Início", item: `${SITE_URL}/` },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Contador em Goiânia",
-          item: `${SITE_URL}/contador-em-goiania`,
-        },
-      ],
-    },
+  ],
+};
+
+const BREADCRUMB_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Início", item: `${SITE_URL}/` },
+    { "@type": "ListItem", position: 2, name: "Contador em Goiânia", item: `${SITE_URL}/contador-em-goiania` },
   ],
 };
 
@@ -87,7 +84,10 @@ export const Route = createFileRoute("/contador-em-goiania")({
         "Contador em Goiânia com 17+ anos de experiência. Consultoria tributária, planejamento fiscal e Método DCON. Atendimento para +300 empresas. Fale conosco.",
       canonical: "/contador-em-goiania",
     }),
-    scripts: [{ type: "application/ld+json", children: JSON.stringify(JSONLD) }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(JSONLD) },
+      { type: "application/ld+json", children: JSON.stringify(BREADCRUMB_JSONLD) },
+    ],
   }),
   component: Page,
 });
