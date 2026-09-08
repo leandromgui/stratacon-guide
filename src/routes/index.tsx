@@ -260,7 +260,7 @@ function Home() {
           {[
             { n: "+700", l: "clientes" },
             { n: "Desde 2004", l: "20+ anos de atuação" },
-            { n: "+R$ 4,5M", l: "recuperados" },
+            { n: "+R$ 11,5M", l: "recuperados" },
           ].map((s) => (
             <div key={s.l} className="pt-5 sm:pt-0 sm:px-8 first:sm:pl-0 last:sm:pr-0">
               <div className="font-display text-xl md:text-2xl tracking-tight text-gold">{s.n}</div>
