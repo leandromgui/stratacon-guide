@@ -70,6 +70,10 @@ function Page() {
         { h2: "Pensão alimentícia tributada", h3: [
           { title: "Restituição administrativa", body: "Quem declarou pensão como rendimento tributável pode retificar os últimos 5 anos e pedir restituição quando cabível." },
         ]},
+        { h2: "Exclusão do Simples Nacional — prazo de 20 dias úteis", lead: "Receber Termo de Exclusão do Simples exige ação rápida: pode haver pagamento, parcelamento, contestação, regularização, transação ou defesa.", h3: [
+          { title: "Prazo de impugnação", body: "O prazo para impugnar é de 20 dias úteis, contado da ciência do termo (Receita Federal)." },
+          { title: "Caminhos possíveis", body: "Avaliação técnica entre pagamento, parcelamento, contestação, regularização, transação ou defesa administrativa, conforme a origem e a situação do débito." },
+        ]},
         { h2: "Termo de Exclusão do Simples e Falso Simples", h3: [
           { title: "Termo de Exclusão", body: "Contestação no prazo, parcelamento e manutenção do regime para evitar aumento de carga." },
           { title: "Falso Simples", body: "Empresa informada como Simples no eSocial sem enquadramento correto pode gerar CPP e terceiros em DCTFWeb." },
