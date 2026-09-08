@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { buildSeoHead, SITE_URL } from "@/lib/seo";
 import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
+import leandroFoto from "@/assets/equipe/leandro.jpg.asset.json";
 
 export const Route = createFileRoute("/sobre/leandro")({
   head: () => ({
@@ -89,6 +90,33 @@ function Page() {
           ],
         },
       ]}
-    />
+    >
+      <section className="border-t border-border pt-16">
+        <div className="grid lg:grid-cols-12 gap-10 items-start">
+          <div className="lg:col-span-5 overflow-hidden border border-border bg-card">
+            <img
+              src={leandroFoto.url}
+              alt="Leandro Matsuoka Guimarães, responsável técnico da DCON, trabalhando em notebook no escritório em Goiânia"
+              width={1200}
+              height={1600}
+              loading="lazy"
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="lg:col-span-7">
+            <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Responsável técnico</div>
+            <h2 className="mt-4 font-display text-3xl tracking-tight">
+              Leandro Matsuoka Guimarães
+            </h2>
+            <p className="mt-4 text-muted-foreground text-[15px] leading-relaxed">
+              Contador registrado no CRC-GO sob nº 16.395/O-9 e sócio da DCON Serviços Contábeis
+              (CRC-GO 1202/O-5). Formado em Ciências Contábeis, bacharel em Direito e pós-graduado
+              em Finanças Corporativas, conduz pessoalmente os pareceres, teses e revisões técnicas
+              da firma.
+            </p>
+          </div>
+        </div>
+      </section>
+    </PageScaffold>
   );
 }

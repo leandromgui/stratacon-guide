@@ -1,6 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { buildSeoHead, SITE_URL } from "@/lib/seo";
+import fachada from "@/assets/escritorio/fachada.jpg.asset.json";
+import salaReuniao from "@/assets/escritorio/sala-reuniao.jpg.asset.json";
+import recepcao from "@/assets/escritorio/recepcao.jpg.asset.json";
+
+const FOTOS = [
+  { src: fachada.url, alt: "Fachada do escritório da DCON Serviços Contábeis com letreiro e estacionamento próprio em Goiânia" },
+  { src: salaReuniao.url, alt: "Sala de reunião da DCON com mesa para seis lugares, televisor e iluminação em trilho" },
+  { src: recepcao.url, alt: "Área de recepção e copa da DCON com painel ripado de madeira e televisor" },
+];
 
 const DEPARTMENTS = [
   { label: "Departamento contábil", to: "/solucoes/contabilidade-empresarial", body: "Escrituração, fechamento mensal, balanços e notas explicativas com revisão analítica." },
@@ -183,6 +192,34 @@ function Page() {
       </section>
 
       <section className="border-t border-border pt-16">
+        <div className="grid lg:grid-cols-12 gap-10">
+          <header className="lg:col-span-4">
+            <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Estrutura</div>
+            <h2 className="mt-4 font-display text-3xl tracking-tight">
+              O escritório por dentro.
+            </h2>
+            <p className="mt-4 text-muted-foreground text-[15px] leading-relaxed">
+              Sede própria no Setor Sul, com sala de reunião para atendimento presencial agendado e
+              estacionamento no local.
+            </p>
+          </header>
+          <ul className="lg:col-span-8 grid gap-px bg-border sm:grid-cols-3 border border-border">
+            {FOTOS.map((f) => (
+              <li key={f.src} className="bg-card">
+                <img
+                  src={f.src}
+                  alt={f.alt}
+                  loading="lazy"
+                  className="aspect-[3/4] h-full w-full object-cover"
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="border-t border-border pt-16">
+
         <div className="grid lg:grid-cols-12 gap-10">
           <header className="lg:col-span-4">
             <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Onde estamos</div>
