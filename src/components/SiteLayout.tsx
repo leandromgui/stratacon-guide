@@ -2,7 +2,7 @@ import { Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { CookieBanner } from "./CookieBanner";
 import { useEffect, useState } from "react";
-import dconLogo from "@/assets/dcon-logo.png.asset.json";
+import dconLogo from "@/assets/dcon-logo-oficial.png.asset.json";
 
 type Col = { title: string; items: { label: string; to: string; desc?: string }[] };
 type MegaItem = {
@@ -405,11 +405,13 @@ export function SiteLayout() {
         <div className="border-b border-secondary-foreground/10">
           <div className="mx-auto max-w-7xl px-6 py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-12">
             <div className="lg:col-span-4">
-              <img
-              src={dconLogo.url}
-                alt="DCON Serviços Contábeis — logotipo"
-              className="h-20 w-auto"
-              />
+              <span className="inline-flex items-center rounded-lg bg-white px-4 py-3 shadow-sm">
+                <img
+                  src={dconLogo.url}
+                  alt="DCON Serviços Contábeis — logotipo"
+                  className="h-16 w-auto"
+                />
+              </span>
               <p className="mt-5 text-sm text-secondary-foreground/70 leading-relaxed max-w-sm">
                 Contabilidade consultiva técnica. Atuamos como o time técnico de
                 empresas que precisam decidir com segurança jurídica, fiscal e patrimonial.
