@@ -1,6 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { buildSeoHead, SITE_URL } from "@/lib/seo";
+import fachada from "@/assets/escritorio/fachada.jpg.asset.json";
+import salaReuniao from "@/assets/escritorio/sala-reuniao.jpg.asset.json";
+import recepcao from "@/assets/escritorio/recepcao.jpg.asset.json";
+
+const FOTOS = [
+  { src: fachada.url, alt: "Fachada do escritório da DCON Serviços Contábeis com letreiro e estacionamento próprio em Goiânia" },
+  { src: salaReuniao.url, alt: "Sala de reunião da DCON com mesa para seis lugares, televisor e iluminação em trilho" },
+  { src: recepcao.url, alt: "Área de recepção e copa da DCON com painel ripado de madeira e televisor" },
+];
 
 const DEPARTMENTS = [
   { label: "Departamento contábil", to: "/solucoes/contabilidade-empresarial", body: "Escrituração, fechamento mensal, balanços e notas explicativas com revisão analítica." },
