@@ -74,6 +74,15 @@ function Page() {
           { title: "Pacote documental", body: "Certidões, faturamento, PGDAS-D, DEFIS, DASN-SIMEI, ECF, balanço e DRE organizados para análise bancária." },
           { title: "Sócios e PF", body: "Documentação pessoal dos sócios alinhada ao pleito de crédito." },
         ]},
+        { h2: "LC 236/2026: novas regras nacionais do processo administrativo fiscal", lead: "A Lei Complementar 236, de 4 de setembro de 2026, alterou o Código Tributário Nacional para criar regras gerais nacionais de processo administrativo fiscal, válidas para União, Estados e Municípios. Entrou em vigor na data da publicação. Base legal: LC 236/2026, alterando a Lei 5.172/1966 (CTN).", h3: [
+          { title: "Teto de multa (art. 113-A)", body: "Até 75% em regra geral; até 100% em caso de fraude, sonegação ou conluio doloso; até 150% em caso de reincidência." },
+          { title: "Reduções por antecipação de pagamento (art. 142, §5º)", body: "50% no pagamento integral no prazo de impugnação; 40% no parcelamento no prazo; 30% no pagamento após o prazo, mas antes da dívida ativa; 20% no parcelamento após o prazo, mas antes da dívida ativa — com percentuais maiores para quem participa de programa de conformidade." },
+          { title: "Prazos processuais unificados (art. 208-D)", body: "Impugnação, recurso voluntário e recurso especial em 20 dias úteis; embargos de declaração em 5 dias úteis; suspensão dos prazos entre 20 de dezembro e 20 de janeiro." },
+          { title: "Inscrição em dívida ativa (art. 201, §3º)", body: "Prazo de 90 dias úteis em regra, até 120 para contribuinte com bom histórico, reduzido a 60 para baixo recolhimento." },
+          { title: "Duplo grau municipal", body: "Municípios com mais de 100 mil habitantes passam a ser obrigados a garantir duplo grau de jurisdição no contencioso administrativo." },
+          { title: "Súmulas vinculantes (art. 208-G)", body: "Súmulas vinculantes do STF e do STJ passam a vincular também o processo administrativo." },
+          { title: "Adaptação de Estados e Municípios", body: "Estados e Municípios têm 2 anos para adaptar sua legislação própria; se não adaptarem, a LC 236/2026 vale diretamente." },
+        ]},
         { h2: "Obrigações acessórias atrasadas", lead: "Regularizar DCTF, DCTFWeb, MIT, ECF, ECD, EFD-Contribuições, eSocial, EFD-Reinf, PGDAS-D e DEFIS antes que virem bloqueio de certidão.", h3: [
           { title: "Inventário de pendências", body: "Diagnóstico das obrigações em atraso, multas aplicáveis e prazo para regularização." },
           { title: "Risco de bloqueio", body: "Pendências acessórias bloqueiam CND e podem suspender o regime tributário." },
