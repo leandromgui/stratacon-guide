@@ -138,7 +138,7 @@ function Page() {
         { label: "Planejamento Tributário", to: "/solucoes/planejamento-tributario", eyebrow: "Solução" },
         { label: "Recuperação de Créditos Tributários", to: "/solucoes/recuperacao-creditos-tributarios", eyebrow: "Solução" },
         { label: "Simples Nacional — segmento", to: "/segmentos/simples-nacional", eyebrow: "Segmento" },
-        { label: "Regimes Tributários — cluster", to: "/conteudos/regimes-tributarios", eyebrow: "Conteúdos" },
+        { label: "Lucro Presumido — LC 224/2025", to: "/segmentos/lucro-presumido", eyebrow: "Regime" },
       ]}
     >
       <SimplesNacionalMiniForm />

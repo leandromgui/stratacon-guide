@@ -16,7 +16,7 @@ export const crossLinks: Record<string, RelatedLink[]> = {
     { label: "Método DCON", to: "/metodo", eyebrow: "Como conduzimos" },
     { label: "Recuperação de Créditos Tributários", to: "/solucoes/recuperacao-creditos-tributarios", eyebrow: "Solução" },
     { label: "Planejamento Tributário", to: "/solucoes/planejamento-tributario", eyebrow: "Solução" },
-    { label: "Regimes Tributários — análise", to: "/conteudos/regimes-tributarios", eyebrow: "Insight" },
+    { label: "Simples Nacional — obrigações 2026", to: "/segmentos/simples-nacional", eyebrow: "Regime" },
   ],
 
   "planejamento-tributario": [

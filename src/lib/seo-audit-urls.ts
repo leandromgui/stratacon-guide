@@ -30,6 +30,8 @@ export const CANONICAL_PATHS: UrlEntry[] = [
   { path: "/solucoes/abrir-empresa", kind: "canonical" },
   { path: "/solucoes/trocar-contabilidade", kind: "canonical" },
   { path: "/segmentos", kind: "canonical" },
+  { path: "/segmentos/simples-nacional", kind: "canonical", note: "Regime — Simples Nacional" },
+  { path: "/segmentos/lucro-presumido", kind: "canonical", note: "Regime — Lucro Presumido" },
   { path: "/segmentos/medicos-clinicas", kind: "canonical", note: "Saúde (canônica unificada)" },
   { path: "/segmentos/comercio", kind: "canonical", note: "Comércio/ICMS (canônica unificada)" },
   { path: "/conteudos", kind: "canonical" },
@@ -46,8 +48,6 @@ export const REDIRECT_PATHS: UrlEntry[] = [
   { path: "/conteudos/dp-esocial", kind: "redirect", target: "/solucoes/departamento-pessoal" },
   { path: "/conteudos/comercio-icms", kind: "redirect", target: "/segmentos/comercio" },
   { path: "/segmentos/pendencias-fiscais", kind: "redirect", target: "/solucoes/regularizacao-fiscal" },
-  { path: "/segmentos/simples-nacional", kind: "redirect", target: "/conteudos/regimes-tributarios" },
-  { path: "/segmentos/lucro-presumido", kind: "redirect", target: "/conteudos/regimes-tributarios" },
   { path: "/segmentos/lucro-real", kind: "redirect", target: "/conteudos/regimes-tributarios" },
   { path: "/sobre/metodologia", kind: "redirect", target: "/metodo" },
 ];
