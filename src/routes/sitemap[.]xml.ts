@@ -57,6 +57,8 @@ const entries: SitemapEntry[] = [
   { path: "/segmentos/condominios", changefreq: "monthly", priority: "0.6" },
   { path: "/segmentos/terceiro-setor", changefreq: "monthly", priority: "0.6" },
   { path: "/segmentos/produtor-rural", changefreq: "monthly", priority: "0.7" },
+  { path: "/segmentos/simples-nacional", changefreq: "monthly", priority: "0.9" },
+  { path: "/segmentos/lucro-presumido", changefreq: "monthly", priority: "0.9" },
   // Conteúdos
   { path: "/conteudos", changefreq: "weekly", priority: "0.8" },
   // Categorias (rotas dedicadas)
