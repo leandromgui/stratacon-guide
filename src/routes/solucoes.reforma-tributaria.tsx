@@ -52,6 +52,11 @@ function Page() {
       method={dconMethod}
       pillarKey="reforma-tributaria"
       sections={[
+        { h2: "Cronograma real de 2026 (EC 132/2023 e LC 214/2025)", lead: "Em 2026 há fase de teste da CBS e do IBS. Base legal: EC 132/2023 e LC 214/2025.", h3: [
+          { title: "A partir de 03/08/2026", body: "Para empresas do regime regular, não é permitida emissão de documentos fiscais eletrônicos sem preenchimento dos campos de IBS e CBS, conforme o Comitê Gestor do IBS (CGIBS)." },
+          { title: "Alíquota teste de 1%", body: "A alíquota teste total é de 1%, sendo 0,1% de IBS e 0,9% de CBS, no período de teste de 2026." },
+          { title: "NFS-e Nacional e Simples Nacional", body: "A Resolução CGSN nº 191/2026 prorrogou a obrigatoriedade da NFS-e Nacional para ME e EPP do Simples Nacional para 01/11/2026. As regras de CBS/IBS para optantes do Simples passam a produzir efeitos a partir de 01/01/2027, e a opção pelo Simples Nacional para 2027 deve ser feita entre 01/09/2026 e 30/09/2026." },
+        ]},
         { h2: "O que já está em vigor em 2026", lead: "2026 é o ano para ajustar ERP, XML, cadastros, NCM, CFOP, CST, cClassTrib, códigos de serviço e rotinas internas.", h3: [
           { title: "Fase de teste CBS/IBS", body: "Documentos fiscais e apuração informativa passam a refletir os novos tributos, em regra sem recolhimento quando as obrigações acessórias são cumpridas." },
           { title: "Auditoria de emissão fiscal", body: "A nota pode ser autorizada e ainda assim estar fiscalmente incorreta. A DCON revisa NF-e, NFC-e, NFS-e, CT-e, NFCom, NF3e e BP-e." },
