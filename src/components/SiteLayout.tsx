@@ -303,7 +303,7 @@ export function SiteLayout() {
             <img
               src={dconLogo.url}
               alt="DCON Serviços Contábeis — logotipo"
-              className="h-20 w-auto"
+              className="h-9 w-auto"
             />
           </Link>
           <nav className="hidden lg:flex items-stretch h-full">
@@ -405,11 +405,11 @@ export function SiteLayout() {
         <div className="border-b border-secondary-foreground/10">
           <div className="mx-auto max-w-7xl px-6 py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-12">
             <div className="lg:col-span-4">
-              <span className="inline-flex items-center rounded-lg bg-white px-4 py-3 shadow-sm">
+              <span className="inline-flex items-center rounded-lg bg-white px-3 py-2 shadow-sm">
                 <img
                   src={dconLogo.url}
                   alt="DCON Serviços Contábeis — logotipo"
-                  className="h-16 w-auto"
+                  className="h-8 w-auto"
                 />
               </span>
               <p className="mt-5 text-sm text-secondary-foreground/70 leading-relaxed max-w-sm">
