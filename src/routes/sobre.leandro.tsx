@@ -109,10 +109,10 @@ function Page() {
               Leandro Matsuoka Guimarães
             </h2>
             <p className="mt-4 text-muted-foreground text-[15px] leading-relaxed">
-              Contador registrado no CRC-GO sob nº 16.395/O-9 e sócio da DCON Serviços Contábeis
-              (CRC-GO 1202/O-5). Formado em Ciências Contábeis, bacharel em Direito e pós-graduado
-              em Finanças Corporativas, conduz pessoalmente os pareceres, teses e revisões técnicas
-              da firma.
+              Contador registrado no CRC-GO sob nº 16.395/O-9, sócio-diretor da DCON Serviços
+              Contábeis (CRC-GO 1202/O-5). Bacharel em Direito e pós-graduado em Finanças
+              Corporativas e Controladoria, responde tecnicamente por todos os pareceres,
+              diagnósticos e entregas do escritório.
             </p>
           </div>
         </div>
