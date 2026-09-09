@@ -74,6 +74,7 @@ const entries: SitemapEntry[] = [
   { path: "/conteudos/guia-simples-nacional", changefreq: "monthly", priority: "0.8" },
   { path: "/conteudos/saude-clinicas", changefreq: "monthly", priority: "0.7" },
   { path: "/conteudos/regularizacao-fiscal", changefreq: "monthly", priority: "0.7" },
+  { path: "/conteudos/lc-236-2026-processo-administrativo-fiscal", changefreq: "monthly", priority: "0.8" },
   { path: "/reforma-tributaria-2026", changefreq: "monthly", priority: "0.8" },
 ];
 

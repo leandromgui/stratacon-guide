@@ -70,6 +70,7 @@ import { Route as ConteudosRespostasValidadasRouteImport } from './routes/conteu
 import { Route as ConteudosRegularizacaoFiscalRouteImport } from './routes/conteudos.regularizacao-fiscal'
 import { Route as ConteudosRegimesTributariosRouteImport } from './routes/conteudos.regimes-tributarios'
 import { Route as ConteudosPlanejamentoTributarioRouteImport } from './routes/conteudos.planejamento-tributario'
+import { Route as ConteudosLc2362026ProcessoAdministrativoFiscalRouteImport } from './routes/conteudos.lc-236-2026-processo-administrativo-fiscal'
 import { Route as ConteudosHoldingPatrimonioRouteImport } from './routes/conteudos.holding-patrimonio'
 import { Route as ConteudosHoldingFamiliarRouteImport } from './routes/conteudos.holding-familiar'
 import { Route as ConteudosGuiaSimplesNacionalRouteImport } from './routes/conteudos.guia-simples-nacional'
@@ -411,6 +412,12 @@ const ConteudosPlanejamentoTributarioRoute =
     path: '/conteudos/planejamento-tributario',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ConteudosLc2362026ProcessoAdministrativoFiscalRoute =
+  ConteudosLc2362026ProcessoAdministrativoFiscalRouteImport.update({
+    id: '/conteudos/lc-236-2026-processo-administrativo-fiscal',
+    path: '/conteudos/lc-236-2026-processo-administrativo-fiscal',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosHoldingPatrimonioRoute =
   ConteudosHoldingPatrimonioRouteImport.update({
     id: '/conteudos/holding-patrimonio',
@@ -487,6 +494,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
+  '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
   '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
@@ -559,6 +567,7 @@ export interface FileRoutesByTo {
   '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
+  '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
   '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
@@ -633,6 +642,7 @@ export interface FileRoutesById {
   '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
+  '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
   '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
@@ -707,6 +717,7 @@ export interface FileRouteTypes {
     | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
     | '/conteudos/holding-patrimonio'
+    | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
     | '/conteudos/planejamento-tributario'
     | '/conteudos/regimes-tributarios'
     | '/conteudos/regularizacao-fiscal'
@@ -779,6 +790,7 @@ export interface FileRouteTypes {
     | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
     | '/conteudos/holding-patrimonio'
+    | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
     | '/conteudos/planejamento-tributario'
     | '/conteudos/regimes-tributarios'
     | '/conteudos/regularizacao-fiscal'
@@ -852,6 +864,7 @@ export interface FileRouteTypes {
     | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
     | '/conteudos/holding-patrimonio'
+    | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
     | '/conteudos/planejamento-tributario'
     | '/conteudos/regimes-tributarios'
     | '/conteudos/regularizacao-fiscal'
@@ -926,6 +939,7 @@ export interface RootRouteChildren {
   ConteudosGuiaSimplesNacionalRoute: typeof ConteudosGuiaSimplesNacionalRoute
   ConteudosHoldingFamiliarRoute: typeof ConteudosHoldingFamiliarRoute
   ConteudosHoldingPatrimonioRoute: typeof ConteudosHoldingPatrimonioRoute
+  ConteudosLc2362026ProcessoAdministrativoFiscalRoute: typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   ConteudosPlanejamentoTributarioRoute: typeof ConteudosPlanejamentoTributarioRoute
   ConteudosRegimesTributariosRoute: typeof ConteudosRegimesTributariosRoute
   ConteudosRegularizacaoFiscalRoute: typeof ConteudosRegularizacaoFiscalRoute
@@ -1406,6 +1420,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosPlanejamentoTributarioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/lc-236-2026-processo-administrativo-fiscal': {
+      id: '/conteudos/lc-236-2026-processo-administrativo-fiscal'
+      path: '/conteudos/lc-236-2026-processo-administrativo-fiscal'
+      fullPath: '/conteudos/lc-236-2026-processo-administrativo-fiscal'
+      preLoaderRoute: typeof ConteudosLc2362026ProcessoAdministrativoFiscalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/holding-patrimonio': {
       id: '/conteudos/holding-patrimonio'
       path: '/conteudos/holding-patrimonio'
@@ -1515,6 +1536,8 @@ const rootRouteChildren: RootRouteChildren = {
   ConteudosGuiaSimplesNacionalRoute: ConteudosGuiaSimplesNacionalRoute,
   ConteudosHoldingFamiliarRoute: ConteudosHoldingFamiliarRoute,
   ConteudosHoldingPatrimonioRoute: ConteudosHoldingPatrimonioRoute,
+  ConteudosLc2362026ProcessoAdministrativoFiscalRoute:
+    ConteudosLc2362026ProcessoAdministrativoFiscalRoute,
   ConteudosPlanejamentoTributarioRoute: ConteudosPlanejamentoTributarioRoute,
   ConteudosRegimesTributariosRoute: ConteudosRegimesTributariosRoute,
   ConteudosRegularizacaoFiscalRoute: ConteudosRegularizacaoFiscalRoute,
