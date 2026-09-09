@@ -68,6 +68,7 @@ export const categories: CategoryDef[] = [
       { h3: "Compliance pós-regularização", body: "Como evitar reincidência depois de sair do passivo fiscal." },
     ],
     articles: [
+      { h2: "LC 236/2026: as novas regras nacionais do processo administrativo fiscal", excerpt: "Teto de multa, reduções por antecipação, prazos processuais unificados, inscrição em dívida ativa, duplo grau e súmulas vinculantes.", to: "/conteudos/lc-236-2026-processo-administrativo-fiscal", kind: "Análise", date: "Set 2026" },
       { h2: "Como conduzir tecnicamente uma autuação", excerpt: "Etapas de impugnação administrativa e quando levar ao contencioso judicial.", to: "/solucoes/defesas-fiscais", kind: "Análise", date: "Mai 2026" },
       { h2: "Sair de uma pendência fiscal sem destruir o caixa", excerpt: "Parcelamentos, transação tributária e plano de compliance.", to: "/conteudos/regularizacao-fiscal", kind: "Guia", date: "Mar 2026" },
       { h2: "PGFN, PRDI e transação tributária", excerpt: "Como tratar débitos que não aparecem, estão na Receita ou foram inscritos em dívida ativa.", to: "/conteudos/regularizacao-fiscal", kind: "Guia", date: "Jun 2026" },
