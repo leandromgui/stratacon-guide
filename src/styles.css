@@ -252,6 +252,34 @@
   to   { background-position: 220px 0, 0 220px; }
 }
 
+/* Rede de nós do hero — animação leve apenas de opacidade/deslocamento sutil */
+@keyframes node-net-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-14px, 10px, 0); }
+}
+
+@keyframes node-net-pulse {
+  0%, 100% { opacity: 0.25; }
+  50%      { opacity: 1; }
+}
+
+.node-net {
+  opacity: 0.55;
+  mix-blend-mode: screen;
+  will-change: transform;
+  animation: node-net-drift 26s ease-in-out infinite alternate;
+}
+
+.node-net-dot { animation: node-net-pulse 6s ease-in-out infinite; }
+.node-net-dot-1 { animation-duration: 7.5s; animation-delay: -1.2s; }
+.node-net-dot-2 { animation-duration: 9s; animation-delay: -2.4s; }
+.node-net-dot-3 { animation-duration: 8s; animation-delay: -3.6s; }
+.node-net-dot-4 { animation-duration: 10.5s; animation-delay: -4.8s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .node-net, .node-net-dot { animation: none; }
+}
+
 @keyframes clients-marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }

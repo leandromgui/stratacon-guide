@@ -3,6 +3,7 @@ import ogImage from "../assets/og-dcon.jpg";
 import heroBg from "../assets/hero-bg.webp";
 import { Reveal } from "../components/Reveal";
 import { AnimatedHeroBg } from "../components/AnimatedHeroBg";
+import { NodeNetworkBg } from "../components/NodeNetworkBg";
 import { ClientsCarousel } from "../components/ClientsCarousel";
 import { useState } from "react";
 import { buildSeoHead } from "@/lib/seo";
@@ -217,6 +218,7 @@ function Home() {
       {/* Hero — fundo interativo com parallax + spotlight */}
       <section className="relative overflow-hidden text-white">
         <AnimatedHeroBg imageUrl={heroBg} />
+        <NodeNetworkBg />
 
         <div className="relative mx-auto max-w-6xl px-6 pt-16 md:pt-24 pb-12 md:pb-16">
           <Reveal as="div" className="flex items-center gap-3 text-gold text-[11px] font-semibold uppercase tracking-[0.22em] border-l-2 border-gold pl-4">
