@@ -12,6 +12,10 @@ export const Route = createFileRoute("/conteudos/$category")({
     p: parsePage(search.p),
   }),
   beforeLoad: ({ params }) => {
+    // Artigos individuais têm rota própria; nunca devem ser tratados como categoria.
+    if (isArticleSlug(params.category)) {
+      throw redirect({ href: `/conteudos/${params.category}`, reloadDocument: true });
+    }
     if (!getCategory(params.category)) throw notFound();
   },
   loader: ({ params, location }) => {
