@@ -2,6 +2,7 @@ import { Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { CookieBanner } from "./CookieBanner";
 import { useEffect, useState } from "react";
+import { Instagram, Linkedin } from "lucide-react";
 import dconLogo from "@/assets/dcon-logo-oficial.png.asset.json";
 
 type Col = { title: string; items: { label: string; to: string; desc?: string }[] };
@@ -435,6 +436,24 @@ export function SiteLayout() {
                 <a href="https://wa.me/5562992890898" target="_blank" rel="noopener noreferrer" className="block hover:text-gold transition-colors">WhatsApp · (62) 99289-0898</a>
                 <a href="mailto:contato@dcon.cnt.br" className="block hover:text-gold transition-colors">contato@dcon.cnt.br</a>
                 <div className="mt-1">Atendimento presencial e online</div>
+                <div className="mt-4 flex flex-wrap items-center gap-4">
+                  <a
+                    href="https://instagram.com/dconservicoscontabeis"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm text-secondary-foreground/75 hover:text-gold transition-colors"
+                  >
+                    <Instagram size={18} aria-hidden="true" /> Instagram
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/company/14976647"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm text-secondary-foreground/75 hover:text-gold transition-colors"
+                  >
+                    <Linkedin size={18} aria-hidden="true" /> LinkedIn
+                  </a>
+                </div>
               </address>
               <Link
                 to="/diagnostico"
