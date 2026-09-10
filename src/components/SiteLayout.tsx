@@ -2,6 +2,7 @@ import { Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { CookieBanner } from "./CookieBanner";
 import { useEffect, useState } from "react";
+import { Instagram, Linkedin } from "lucide-react";
 import dconLogo from "@/assets/dcon-logo-oficial.png.asset.json";
 
 type Col = { title: string; items: { label: string; to: string; desc?: string }[] };
