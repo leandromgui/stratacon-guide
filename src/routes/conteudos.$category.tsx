@@ -1,6 +1,6 @@
-import { createFileRoute, notFound } from "@tanstack/react-router";
+import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
 import { CategoryHub } from "@/components/CategoryHub";
-import { categories, getCategory } from "@/lib/conteudos-categories";
+import { categories, getCategory, isArticleSlug } from "@/lib/conteudos-categories";
 
 function parsePage(raw: unknown): number {
   const n = typeof raw === "string" ? parseInt(raw, 10) : typeof raw === "number" ? raw : NaN;
@@ -12,6 +12,10 @@ export const Route = createFileRoute("/conteudos/$category")({
     p: parsePage(search.p),
   }),
   beforeLoad: ({ params }) => {
+    // Artigos individuais têm rota própria; nunca devem ser tratados como categoria.
+    if (isArticleSlug(params.category)) {
+      throw redirect({ href: `/conteudos/${params.category}`, reloadDocument: true });
+    }
     if (!getCategory(params.category)) throw notFound();
   },
   loader: ({ params, location }) => {

@@ -193,3 +193,16 @@ export const categories: CategoryDef[] = [
 export function getCategory(slug: string): CategoryDef | undefined {
   return categories.find((c) => c.slug === slug);
 }
+/** Slugs de artigos individuais publicados sob /conteudos/... (não são categorias). */
+export const articleSlugs: string[] = Array.from(
+  new Set(
+    categories
+      .flatMap((c) => c.articles.map((a) => a.to))
+      .filter((to) => to.startsWith("/conteudos/"))
+      .map((to) => to.replace("/conteudos/", "").split("?")[0]),
+  ),
+).filter((slug) => slug.length > 0 && !getCategory(slug));
+
+export function isArticleSlug(slug: string): boolean {
+  return articleSlugs.includes(slug);
+}
