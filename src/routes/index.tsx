@@ -73,6 +73,51 @@ const faqs = [
     aPlain: "O valor varia conforme o diagnóstico técnico inicial da empresa: porte, regime tributário, volume de operações e complexidade das obrigações. Não trabalhamos com tabela fixa genérica — a proposta é apresentada depois do diagnóstico.",
     a: <>O valor varia conforme o diagnóstico técnico inicial da empresa: porte, regime tributário, volume de operações e complexidade das obrigações. Não trabalhamos com tabela fixa genérica — a proposta é apresentada depois do diagnóstico. <Link to="/diagnostico" className="underline text-gold hover:no-underline">Solicitar diagnóstico →</Link></>,
   },
+  {
+    q: "Minha empresa tem pendências fiscais ou CNPJ irregular — a DCON também regulariza isso?",
+    aPlain: "Sim. Regularização fiscal é uma das frentes da DCON — o processo começa com o mesmo diagnóstico técnico que orienta qualquer novo cliente: mapear certidões, débitos, declarações em atraso e pendências cadastrais antes de definir o caminho de regularização junto aos órgãos competentes.",
+    a: <>Sim. Regularização fiscal é uma das frentes da DCON — o processo começa com o mesmo diagnóstico técnico que orienta qualquer novo cliente: mapear certidões, débitos, declarações em atraso e pendências cadastrais antes de definir o caminho de regularização junto aos órgãos competentes. <Link to="/solucoes/regularizacao-fiscal" className="underline text-gold hover:no-underline">Regularização fiscal →</Link></>,
+  },
+  {
+    q: "A DCON atende empresas de que porte?",
+    aPlain: "A DCON atua com empresas de diferentes portes nos regimes Simples Nacional, Lucro Presumido e Lucro Real. O critério não é o tamanho da empresa, e sim a complexidade da operação — negócios que precisam de leitura técnica real sobre o que declaram, não apenas cumprimento de obrigações acessórias.",
+    a: <>A DCON atua com empresas de diferentes portes nos regimes Simples Nacional, Lucro Presumido e Lucro Real. O critério não é o tamanho da empresa, e sim a complexidade da operação — negócios que precisam de leitura técnica real sobre o que declaram, não apenas cumprimento de obrigações acessórias.</>,
+  },
+  {
+    q: "Preciso trocar toda minha equipe interna para contratar a DCON?",
+    aPlain: "Não. A DCON pode atuar como responsabilidade técnica e camada de revisão sobre uma equipe interna já existente, ou assumir a rotina completa — depende do que o diagnóstico técnico indicar como mais adequado para a estrutura da sua empresa.",
+    a: <>Não. A DCON pode atuar como responsabilidade técnica e camada de revisão sobre uma equipe interna já existente, ou assumir a rotina completa — depende do que o diagnóstico técnico indicar como mais adequado para a estrutura da sua empresa.</>,
+  },
+  {
+    q: "Médicos e clínicas têm vantagem tributária especial?",
+    aPlain: "Em alguns casos, sim. Empresas da saúde no Lucro Presumido podem ter direito à equiparação hospitalar, com redução da presunção de IRPJ e CSLL — mas isso depende de requisitos específicos (estrutura societária, atividades vinculadas à Anvisa, documentação) e não se aplica a consultas isoladas. Veja os detalhes na página de Recuperação de Créditos Tributários.",
+    a: <>Em alguns casos, sim. Empresas da saúde no Lucro Presumido podem ter direito à equiparação hospitalar, com redução da presunção de IRPJ e CSLL — mas isso depende de requisitos específicos (estrutura societária, atividades vinculadas à Anvisa, documentação) e não se aplica a consultas isoladas. <Link to="/solucoes/recuperacao-creditos-tributarios" className="underline text-gold hover:no-underline">Recuperação de Créditos Tributários →</Link></>,
+  },
+  {
+    q: "Recebi um auto de infração — o que fazer nas próximas 48h?",
+    aPlain: "O prazo para impugnação é de 20 dias úteis (regra unificada nacionalmente pela LC 236/2026). O primeiro passo é técnico, não burocrático: entender a origem da autuação antes de decidir entre impugnar, parcelar ou pagar com redução. Quanto antes esse diagnóstico for feito, mais opções ficam disponíveis.",
+    a: <>O prazo para impugnação é de 20 dias úteis (regra unificada nacionalmente pela LC 236/2026). O primeiro passo é técnico, não burocrático: entender a origem da autuação antes de decidir entre impugnar, parcelar ou pagar com redução. Quanto antes esse diagnóstico for feito, mais opções ficam disponíveis. <Link to="/solucoes/defesas-fiscais" className="underline text-gold hover:no-underline">Defesas fiscais →</Link></>,
+  },
+  {
+    q: "Como funciona a migração do Simples Nacional com a Reforma Tributária?",
+    aPlain: "As regras de CBS/IBS para optantes do Simples Nacional passam a produzir efeitos a partir de 01/01/2027. A opção pelo Simples para 2027 deve ser feita entre 01/09 e 30/09/2026. Já a NFS-e Nacional se torna obrigatória para ME e EPP do Simples a partir de 01/11/2026.",
+    a: <>As regras de CBS/IBS para optantes do Simples Nacional passam a produzir efeitos a partir de 01/01/2027. A opção pelo Simples para 2027 deve ser feita entre 01/09 e 30/09/2026. Já a NFS-e Nacional se torna obrigatória para ME e EPP do Simples a partir de 01/11/2026. <Link to="/segmentos/simples-nacional" className="underline text-gold hover:no-underline">Simples Nacional →</Link></>,
+  },
+  {
+    q: "O diagnóstico técnico tem algum custo?",
+    aPlain: "O diagnóstico específico de recuperação de créditos tributários é gratuito. Para as demais frentes (planejamento tributário, regularização fiscal, defesas fiscais, entre outras), o escopo e o investimento são definidos após a análise inicial da situação da empresa.",
+    a: <>O diagnóstico específico de recuperação de créditos tributários é gratuito. Para as demais frentes (planejamento tributário, regularização fiscal, defesas fiscais, entre outras), o escopo e o investimento são definidos após a análise inicial da situação da empresa. <Link to="/diagnostico" className="underline text-gold hover:no-underline">Solicitar diagnóstico →</Link></>,
+  },
+  {
+    q: "Quem assina tecnicamente os pareceres e diagnósticos da DCON?",
+    aPlain: "Leandro Matsuoka Guimarães, contador registrado no CRC-GO sob nº 16.395/O-9, responde tecnicamente por todos os pareceres, diagnósticos e entregas do escritório.",
+    a: <>Leandro Matsuoka Guimarães, contador registrado no CRC-GO sob nº 16.395/O-9, responde tecnicamente por todos os pareceres, diagnósticos e entregas do escritório. <Link to="/sobre/leandro" className="underline text-gold hover:no-underline">Liderança técnica →</Link></>,
+  },
+  {
+    q: "A DCON atende presencialmente ou só remoto?",
+    aPlain: "Ambos. A DCON tem sede própria em Goiânia (Setor Sul) com atendimento presencial agendado, além de atendimento online em todo o Brasil.",
+    a: <>Ambos. A DCON tem sede própria em Goiânia (Setor Sul) com atendimento presencial agendado, além de atendimento online em todo o Brasil.</>,
+  },
 ];
 
 
