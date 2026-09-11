@@ -13,7 +13,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { initGoogleAnalytics } from "../lib/gtag";
 import { SiteLayout } from "../components/SiteLayout";
 
-const SITE_URL = "https://www.dcon.cnt.br";
+const SITE_URL = "https://dcon.cnt.br";
 const OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 const ORGANIZATION_JSONLD = {

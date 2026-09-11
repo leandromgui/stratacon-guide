@@ -8,7 +8,7 @@ import { ClientsCarousel } from "../components/ClientsCarousel";
 import { useState } from "react";
 import { buildSeoHead } from "@/lib/seo";
 
-const SITE_URL = "https://www.dcon.cnt.br";
+const SITE_URL = "https://dcon.cnt.br";
 const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
 const HERO_BG_URL = heroBg;
 
