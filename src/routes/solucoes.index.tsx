@@ -7,7 +7,7 @@ export const Route = createFileRoute("/solucoes/")({
     ...buildSeoHead({
       title: "Soluções Contábeis e Tributárias | DCON Goiânia",
       description: "Planejamento tributário, reforma tributária CBS/IBS, recuperação de créditos, defesa fiscal, holding patrimonial e valuation. DCON Serviços Contábeis — Goiânia, GO.",
-      canonical: "https://www.dcon.cnt.br/solucoes",
+      canonical: "https://dcon.cnt.br/solucoes",
     }),
     scripts: [
       {

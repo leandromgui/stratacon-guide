@@ -7,7 +7,7 @@ export const Route = createFileRoute("/contato")({
     ...buildSeoHead({
       title: "Fale com a DCON | Contabilidade em Goiânia",
       description: "Entre em contato com a DCON Serviços Contábeis em Goiânia. Atendimento presencial e digital. (62) 3223-7010 · WhatsApp (62) 99289-0898 · contato@dcon.cnt.br",
-      canonical: "https://www.dcon.cnt.br/contato",
+      canonical: "https://dcon.cnt.br/contato",
     }),
     scripts: [
       {

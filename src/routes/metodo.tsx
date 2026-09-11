@@ -14,7 +14,7 @@ export const Route = createFileRoute("/metodo")({
     ...buildSeoHead({
       title: "Método DCON — Conformidade Fiscal-Contábil | Goiânia",
       description: "Conheça o Método DCON: Diagnóstico → Cruzamento → Parecer → Correção → Monitoramento. Metodologia própria de conformidade fiscal para empresas em Goiânia e Goiás.",
-      canonical: "https://www.dcon.cnt.br/metodo",
+      canonical: "https://dcon.cnt.br/metodo",
     }),
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Método DCON","item":"/metodo"}]}) },

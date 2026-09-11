@@ -23,4 +23,4 @@ User-agent: Googlebot
 Allow: /
 
 # Sitemap
-Sitemap: https://www.dcon.cnt.br/sitemap.xml
+Sitemap: https://dcon.cnt.br/sitemap.xml

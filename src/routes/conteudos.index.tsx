@@ -7,7 +7,7 @@ export const Route = createFileRoute("/conteudos/")({
     ...buildSeoHead({
       title: "Insights Contábeis e Tributários | DCON",
       description: "Análises técnicas sobre planejamento tributário, reforma tributária, holding, eSocial e gestão fiscal para empresários e gestores. DCON Serviços Contábeis.",
-      canonical: "https://www.dcon.cnt.br/conteudos",
+      canonical: "https://dcon.cnt.br/conteudos",
     }),
     scripts: [
       {
