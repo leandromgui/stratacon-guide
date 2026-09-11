@@ -3,7 +3,7 @@ import { PageScaffold } from "../components/PageScaffold";
 import { SimplesNacionalMiniForm } from "../components/SimplesNacionalMiniForm";
 import { buildSeoHead } from "@/lib/seo";
 
-const CANONICAL = "https://stratacon-guide.lovable.app/conteudos/guia-simples-nacional";
+const CANONICAL = "https://dcon.cnt.br/conteudos/guia-simples-nacional";
 
 const faq = [
   {
@@ -47,8 +47,8 @@ export const Route = createFileRoute("/conteudos/guia-simples-nacional")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "https://stratacon-guide.lovable.app/" },
-            { "@type": "ListItem", position: 2, name: "Conteúdos", item: "https://stratacon-guide.lovable.app/conteudos" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://dcon.cnt.br/" },
+            { "@type": "ListItem", position: 2, name: "Conteúdos", item: "https://dcon.cnt.br/conteudos" },
             { "@type": "ListItem", position: 3, name: "Guia do Simples Nacional", item: CANONICAL },
           ],
         }),
