@@ -123,7 +123,7 @@ function loadRespostaValidada(n: number): string | undefined {
   const iiKey = n >= 18 ? n + 1 : n;
   const block = PARTE_II.get(iiKey);
   if (!block) return undefined;
-  const candidates = ["Resposta validada para uso no site", "Contexto validado"];
+  const candidates = ["Resposta validada para uso no site", "Resposta validada"];
   for (const h of candidates) {
     const v = getField(block, h);
     if (v) {
