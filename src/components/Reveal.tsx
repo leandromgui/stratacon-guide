@@ -44,8 +44,11 @@ export function Reveal({
     );
     io.observe(el);
 
-    // Rede de segurança: nunca deixar um bloco preso invisível.
-    const safety = window.setTimeout(() => setVisible(true), 1600);
+    // Rede de segurança: se o bloco já está na tela e não foi revelado, revela.
+    const safety = window.setInterval(() => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < (window.innerHeight || 0) && rect.bottom > 0) setVisible(true);
+    }, 600);
 
     let raf = 0;
     function onScroll() {
