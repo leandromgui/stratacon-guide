@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TemasEstrategicosRouteImport } from './routes/temas-estrategicos'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ServicosRouteImport } from './routes/servicos'
 import { Route as ReformaTributaria2026RouteImport } from './routes/reforma-tributaria-2026'
 import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as MetodoRouteImport } from './routes/metodo'
@@ -19,6 +20,7 @@ import { Route as EscritorioDeContabilidadeEmGoianiaRouteImport } from './routes
 import { Route as DiagnosticoRouteImport } from './routes/diagnostico'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as ContadorEmGoianiaRouteImport } from './routes/contador-em-goiania'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
@@ -92,6 +94,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicosRoute = ServicosRouteImport.update({
+  id: '/servicos',
+  path: '/servicos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReformaTributaria2026Route = ReformaTributaria2026RouteImport.update({
   id: '/reforma-tributaria-2026',
   path: '/reforma-tributaria-2026',
@@ -131,6 +138,11 @@ const ContatoRoute = ContatoRouteImport.update({
 const ContadorEmGoianiaRoute = ContadorEmGoianiaRouteImport.update({
   id: '/contador-em-goiania',
   path: '/contador-em-goiania',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -478,6 +490,7 @@ const ApiPublicHooksSeoAuditRunRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/blog': typeof BlogRoute
   '/contador-em-goiania': typeof ContadorEmGoianiaRoute
   '/contato': typeof ContatoRoute
   '/diagnostico': typeof DiagnosticoRoute
@@ -486,6 +499,7 @@ export interface FileRoutesByFullPath {
   '/metodo': typeof MetodoRoute
   '/privacidade': typeof PrivacidadeRoute
   '/reforma-tributaria-2026': typeof ReformaTributaria2026Route
+  '/servicos': typeof ServicosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/temas-estrategicos': typeof TemasEstrategicosRoute
   '/conteudos/$category': typeof ConteudosCategoryRoute
@@ -551,6 +565,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/blog': typeof BlogRoute
   '/contador-em-goiania': typeof ContadorEmGoianiaRoute
   '/contato': typeof ContatoRoute
   '/diagnostico': typeof DiagnosticoRoute
@@ -559,6 +574,7 @@ export interface FileRoutesByTo {
   '/metodo': typeof MetodoRoute
   '/privacidade': typeof PrivacidadeRoute
   '/reforma-tributaria-2026': typeof ReformaTributaria2026Route
+  '/servicos': typeof ServicosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/temas-estrategicos': typeof TemasEstrategicosRoute
   '/conteudos/$category': typeof ConteudosCategoryRoute
@@ -626,6 +642,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
+  '/blog': typeof BlogRoute
   '/contador-em-goiania': typeof ContadorEmGoianiaRoute
   '/contato': typeof ContatoRoute
   '/diagnostico': typeof DiagnosticoRoute
@@ -634,6 +651,7 @@ export interface FileRoutesById {
   '/metodo': typeof MetodoRoute
   '/privacidade': typeof PrivacidadeRoute
   '/reforma-tributaria-2026': typeof ReformaTributaria2026Route
+  '/servicos': typeof ServicosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/temas-estrategicos': typeof TemasEstrategicosRoute
   '/conteudos/$category': typeof ConteudosCategoryRoute
@@ -701,6 +719,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/auth'
+    | '/blog'
     | '/contador-em-goiania'
     | '/contato'
     | '/diagnostico'
@@ -709,6 +728,7 @@ export interface FileRouteTypes {
     | '/metodo'
     | '/privacidade'
     | '/reforma-tributaria-2026'
+    | '/servicos'
     | '/sitemap.xml'
     | '/temas-estrategicos'
     | '/conteudos/$category'
@@ -774,6 +794,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/auth'
+    | '/blog'
     | '/contador-em-goiania'
     | '/contato'
     | '/diagnostico'
@@ -782,6 +803,7 @@ export interface FileRouteTypes {
     | '/metodo'
     | '/privacidade'
     | '/reforma-tributaria-2026'
+    | '/servicos'
     | '/sitemap.xml'
     | '/temas-estrategicos'
     | '/conteudos/$category'
@@ -848,6 +870,7 @@ export interface FileRouteTypes {
     | '/'
     | '/_authenticated'
     | '/auth'
+    | '/blog'
     | '/contador-em-goiania'
     | '/contato'
     | '/diagnostico'
@@ -856,6 +879,7 @@ export interface FileRouteTypes {
     | '/metodo'
     | '/privacidade'
     | '/reforma-tributaria-2026'
+    | '/servicos'
     | '/sitemap.xml'
     | '/temas-estrategicos'
     | '/conteudos/$category'
@@ -923,6 +947,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
+  BlogRoute: typeof BlogRoute
   ContadorEmGoianiaRoute: typeof ContadorEmGoianiaRoute
   ContatoRoute: typeof ContatoRoute
   DiagnosticoRoute: typeof DiagnosticoRoute
@@ -931,6 +956,7 @@ export interface RootRouteChildren {
   MetodoRoute: typeof MetodoRoute
   PrivacidadeRoute: typeof PrivacidadeRoute
   ReformaTributaria2026Route: typeof ReformaTributaria2026Route
+  ServicosRoute: typeof ServicosRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TemasEstrategicosRoute: typeof TemasEstrategicosRoute
   ConteudosCategoryRoute: typeof ConteudosCategoryRoute
@@ -1007,6 +1033,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/servicos': {
+      id: '/servicos'
+      path: '/servicos'
+      fullPath: '/servicos'
+      preLoaderRoute: typeof ServicosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/reforma-tributaria-2026': {
       id: '/reforma-tributaria-2026'
       path: '/reforma-tributaria-2026'
@@ -1061,6 +1094,13 @@ declare module '@tanstack/react-router' {
       path: '/contador-em-goiania'
       fullPath: '/contador-em-goiania'
       preLoaderRoute: typeof ContadorEmGoianiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -1519,6 +1559,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AuthRoute: AuthRoute,
+  BlogRoute: BlogRoute,
   ContadorEmGoianiaRoute: ContadorEmGoianiaRoute,
   ContatoRoute: ContatoRoute,
   DiagnosticoRoute: DiagnosticoRoute,
@@ -1528,6 +1569,7 @@ const rootRouteChildren: RootRouteChildren = {
   MetodoRoute: MetodoRoute,
   PrivacidadeRoute: PrivacidadeRoute,
   ReformaTributaria2026Route: ReformaTributaria2026Route,
+  ServicosRoute: ServicosRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TemasEstrategicosRoute: TemasEstrategicosRoute,
   ConteudosCategoryRoute: ConteudosCategoryRoute,
