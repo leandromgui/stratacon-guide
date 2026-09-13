@@ -296,6 +296,9 @@ export function PageScaffold(p: PageScaffoldProps) {
                     </p>
                   </Reveal>
                 ))}
+                {s.h3.length % 2 === 1 && (
+                  <li aria-hidden className="hidden sm:block bg-background" />
+                )}
               </ul>
             )}
           </article>
@@ -332,6 +335,9 @@ export function PageScaffold(p: PageScaffoldProps) {
                     <p className="mt-2 text-muted-foreground text-[14px] leading-relaxed group-hover:text-secondary-foreground/80">{m.body}</p>
                   </Reveal>
                 ))}
+                {p.method.length % 2 === 1 && (
+                  <li aria-hidden className="hidden sm:block bg-background" />
+                )}
               </ol>
             </div>
           </section>
@@ -371,6 +377,9 @@ export function PageScaffold(p: PageScaffoldProps) {
                     </p>
                   </Reveal>
                 ))}
+                {p.deliverables.length % 2 === 1 && (
+                  <li aria-hidden className="hidden sm:block bg-background" />
+                )}
               </ul>
             </div>
           </section>
@@ -396,6 +405,9 @@ export function PageScaffold(p: PageScaffoldProps) {
                     <p className="mt-2 text-muted-foreground text-[14px] leading-relaxed group-hover:text-secondary-foreground/80">{t.body}</p>
                   </li>
                 ))}
+                {p.technology.length % 2 === 1 && (
+                  <li aria-hidden className="hidden sm:block bg-background" />
+                )}
               </ul>
             </div>
           </section>
@@ -524,6 +536,9 @@ export function PageScaffold(p: PageScaffoldProps) {
                     </Link>
                   </li>
                 ))}
+                {resolvedRelated.length % 2 === 1 && (
+                  <li aria-hidden className="hidden sm:block bg-background" />
+                )}
               </ul>
             </div>
           </section>
