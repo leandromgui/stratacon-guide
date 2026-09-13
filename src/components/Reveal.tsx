@@ -32,13 +32,20 @@ export function Reveal({
     const el = ref.current;
     if (!el || typeof window === "undefined") return;
 
+    // Acessibilidade: sem animação, o conteúdo aparece imediatamente.
+    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) setVisible(true);
+
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) if (e.isIntersecting) setVisible(true);
       },
-      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" },
+      { threshold: 0, rootMargin: "200px 0px 0px 0px" },
     );
     io.observe(el);
+
+    // Rede de segurança: nunca deixar um bloco preso invisível.
+    const safety = window.setTimeout(() => setVisible(true), 1600);
 
     let raf = 0;
     function onScroll() {
@@ -59,6 +66,7 @@ export function Reveal({
     }
     return () => {
       io.disconnect();
+      window.clearTimeout(safety);
       if (progress) window.removeEventListener("scroll", onScroll);
       if (raf) window.cancelAnimationFrame(raf);
     };

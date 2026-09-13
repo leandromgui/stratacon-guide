@@ -245,7 +245,7 @@ function MegaPanel({ item }: { item: MegaItem }) {
               </div>
               <ul className="space-y-2.5">
                 {c.items.map((it) => (
-                  <li key={it.to}>
+                  <li key={`${it.label}-${it.to}`}>
                     <Link
                       to={it.to}
                       className="group/i block text-sm leading-tight hover:text-primary"
@@ -367,7 +367,7 @@ export function SiteLayout() {
                         </div>
                         <ul className="space-y-1.5">
                           {c.items.map((it) => (
-                            <li key={it.to}>
+                            <li key={`${it.label}-${it.to}`}>
                               <Link to={it.to} className="text-sm">{it.label}</Link>
                             </li>
                           ))}
