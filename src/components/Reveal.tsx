@@ -69,7 +69,7 @@ export function Reveal({
     }
     return () => {
       io.disconnect();
-      window.clearTimeout(safety);
+      window.clearInterval(safety);
       if (progress) window.removeEventListener("scroll", onScroll);
       if (raf) window.cancelAnimationFrame(raf);
     };
