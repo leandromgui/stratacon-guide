@@ -88,7 +88,7 @@ function Page() {
     <PageScaffold
       eyebrow={`Reforma tributária · ${PUBLISHED}`}
       h1={H1}
-      intro="Empresas do Simples Nacional enfrentam, pela primeira vez, uma decisão que vai além de \"qual regime paga menos imposto\". A partir de 2027, será preciso escolher como recolher o IBS e a CBS: se mantidos dentro da guia única do DAS (Simples \"puro\") ou se apurados por fora, pelas regras do regime regular (Simples \"híbrido\"). Essa escolha impacta não apenas a sua carga tributária e o fluxo de caixa, mas também os créditos que seus clientes empresariais conseguem aproveitar, um fator que pode definir negociações comerciais."
+      intro="Empresas do Simples Nacional enfrentam, pela primeira vez, uma decisão que vai além de 'qual regime paga menos imposto?'. A partir de 2027, será preciso escolher como recolher o IBS e a CBS: se mantidos dentro da guia única do DAS (Simples 'puro') ou se apurados por fora, pelas regras do regime regular (Simples 'híbrido'). Essa escolha impacta não apenas a sua carga tributária e o fluxo de caixa, mas também os créditos que seus clientes empresariais conseguem aproveitar, um fator que pode definir negociações comerciais."
       breadcrumbs={[
         { label: "Insights", to: "/conteudos" },
         { label: "Simples Puro ou Híbrido em 2027", to: SLUG },
@@ -128,7 +128,7 @@ function Page() {
           h3: [
             {
               title: "A pergunta estratégica",
-              body: "A pergunta estratégica não é apenas \"em qual opção pago menos imposto?\", mas também: \"quanto de crédito minha empresa gera para o meu cliente?\".",
+              body: "A pergunta estratégica não é apenas 'em qual opção pago menos imposto?', mas também: 'quanto de crédito minha empresa gera para o meu cliente?'.",
             },
             {
               title: "Negócios B2C",
