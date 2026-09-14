@@ -68,6 +68,7 @@ import { Route as SegmentosConstrucaoCivilSpeRouteImport } from './routes/segmen
 import { Route as SegmentosCondominiosRouteImport } from './routes/segmentos.condominios'
 import { Route as SegmentosComercioRouteImport } from './routes/segmentos.comercio'
 import { Route as ConteudosSplitPaymentAdiado2028OQueMudaRouteImport } from './routes/conteudos.split-payment-adiado-2028-o-que-muda'
+import { Route as ConteudosSimplesPuroOuHibrido2027ComoDecidirRouteImport } from './routes/conteudos.simples-puro-ou-hibrido-2027-como-decidir'
 import { Route as ConteudosSaudeClinicasRouteImport } from './routes/conteudos.saude-clinicas'
 import { Route as ConteudosRespostasValidadasRouteImport } from './routes/conteudos.respostas-validadas'
 import { Route as ConteudosRegularizacaoFiscalRouteImport } from './routes/conteudos.regularizacao-fiscal'
@@ -402,6 +403,12 @@ const ConteudosSplitPaymentAdiado2028OQueMudaRoute =
     path: '/conteudos/split-payment-adiado-2028-o-que-muda',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute =
+  ConteudosSimplesPuroOuHibrido2027ComoDecidirRouteImport.update({
+    id: '/conteudos/simples-puro-ou-hibrido-2027-como-decidir',
+    path: '/conteudos/simples-puro-ou-hibrido-2027-como-decidir',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosSaudeClinicasRoute = ConteudosSaudeClinicasRouteImport.update({
   id: '/conteudos/saude-clinicas',
   path: '/conteudos/saude-clinicas',
@@ -521,6 +528,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
   '/conteudos/respostas-validadas': typeof ConteudosRespostasValidadasRoute
   '/conteudos/saude-clinicas': typeof ConteudosSaudeClinicasRoute
+  '/conteudos/simples-puro-ou-hibrido-2027-como-decidir': typeof ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute
   '/conteudos/split-payment-adiado-2028-o-que-muda': typeof ConteudosSplitPaymentAdiado2028OQueMudaRoute
   '/segmentos/comercio': typeof SegmentosComercioRoute
   '/segmentos/condominios': typeof SegmentosCondominiosRoute
@@ -597,6 +605,7 @@ export interface FileRoutesByTo {
   '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
   '/conteudos/respostas-validadas': typeof ConteudosRespostasValidadasRoute
   '/conteudos/saude-clinicas': typeof ConteudosSaudeClinicasRoute
+  '/conteudos/simples-puro-ou-hibrido-2027-como-decidir': typeof ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute
   '/conteudos/split-payment-adiado-2028-o-que-muda': typeof ConteudosSplitPaymentAdiado2028OQueMudaRoute
   '/segmentos/comercio': typeof SegmentosComercioRoute
   '/segmentos/condominios': typeof SegmentosCondominiosRoute
@@ -675,6 +684,7 @@ export interface FileRoutesById {
   '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
   '/conteudos/respostas-validadas': typeof ConteudosRespostasValidadasRoute
   '/conteudos/saude-clinicas': typeof ConteudosSaudeClinicasRoute
+  '/conteudos/simples-puro-ou-hibrido-2027-como-decidir': typeof ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute
   '/conteudos/split-payment-adiado-2028-o-que-muda': typeof ConteudosSplitPaymentAdiado2028OQueMudaRoute
   '/segmentos/comercio': typeof SegmentosComercioRoute
   '/segmentos/condominios': typeof SegmentosCondominiosRoute
@@ -753,6 +763,7 @@ export interface FileRouteTypes {
     | '/conteudos/regularizacao-fiscal'
     | '/conteudos/respostas-validadas'
     | '/conteudos/saude-clinicas'
+    | '/conteudos/simples-puro-ou-hibrido-2027-como-decidir'
     | '/conteudos/split-payment-adiado-2028-o-que-muda'
     | '/segmentos/comercio'
     | '/segmentos/condominios'
@@ -829,6 +840,7 @@ export interface FileRouteTypes {
     | '/conteudos/regularizacao-fiscal'
     | '/conteudos/respostas-validadas'
     | '/conteudos/saude-clinicas'
+    | '/conteudos/simples-puro-ou-hibrido-2027-como-decidir'
     | '/conteudos/split-payment-adiado-2028-o-que-muda'
     | '/segmentos/comercio'
     | '/segmentos/condominios'
@@ -906,6 +918,7 @@ export interface FileRouteTypes {
     | '/conteudos/regularizacao-fiscal'
     | '/conteudos/respostas-validadas'
     | '/conteudos/saude-clinicas'
+    | '/conteudos/simples-puro-ou-hibrido-2027-como-decidir'
     | '/conteudos/split-payment-adiado-2028-o-que-muda'
     | '/segmentos/comercio'
     | '/segmentos/condominios'
@@ -984,6 +997,7 @@ export interface RootRouteChildren {
   ConteudosRegularizacaoFiscalRoute: typeof ConteudosRegularizacaoFiscalRoute
   ConteudosRespostasValidadasRoute: typeof ConteudosRespostasValidadasRoute
   ConteudosSaudeClinicasRoute: typeof ConteudosSaudeClinicasRoute
+  ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute: typeof ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute
   ConteudosSplitPaymentAdiado2028OQueMudaRoute: typeof ConteudosSplitPaymentAdiado2028OQueMudaRoute
   SegmentosComercioRoute: typeof SegmentosComercioRoute
   SegmentosCondominiosRoute: typeof SegmentosCondominiosRoute
@@ -1446,6 +1460,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosSplitPaymentAdiado2028OQueMudaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/simples-puro-ou-hibrido-2027-como-decidir': {
+      id: '/conteudos/simples-puro-ou-hibrido-2027-como-decidir'
+      path: '/conteudos/simples-puro-ou-hibrido-2027-como-decidir'
+      fullPath: '/conteudos/simples-puro-ou-hibrido-2027-como-decidir'
+      preLoaderRoute: typeof ConteudosSimplesPuroOuHibrido2027ComoDecidirRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/saude-clinicas': {
       id: '/conteudos/saude-clinicas'
       path: '/conteudos/saude-clinicas'
@@ -1606,6 +1627,8 @@ const rootRouteChildren: RootRouteChildren = {
   ConteudosRegularizacaoFiscalRoute: ConteudosRegularizacaoFiscalRoute,
   ConteudosRespostasValidadasRoute: ConteudosRespostasValidadasRoute,
   ConteudosSaudeClinicasRoute: ConteudosSaudeClinicasRoute,
+  ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute:
+    ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute,
   ConteudosSplitPaymentAdiado2028OQueMudaRoute:
     ConteudosSplitPaymentAdiado2028OQueMudaRoute,
   SegmentosComercioRoute: SegmentosComercioRoute,
