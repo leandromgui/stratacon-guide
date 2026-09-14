@@ -81,6 +81,9 @@ const entries: SitemapEntry[] = [
   { path: "/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/reforma-tributaria-formacao-preco-margem", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/despesas-que-geram-credito-ibs-cbs", changefreq: "monthly", priority: "0.9" },
+  { path: "/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026", changefreq: "monthly", priority: "0.9" },
+
+
 
 
 
