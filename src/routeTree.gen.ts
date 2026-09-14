@@ -79,6 +79,7 @@ import { Route as ConteudosHoldingPatrimonioRouteImport } from './routes/conteud
 import { Route as ConteudosHoldingFamiliarRouteImport } from './routes/conteudos.holding-familiar'
 import { Route as ConteudosGuiaSimplesNacionalRouteImport } from './routes/conteudos.guia-simples-nacional'
 import { Route as ConteudosDpEsocialRouteImport } from './routes/conteudos.dp-esocial'
+import { Route as ConteudosCronogramaReformaTributaria20262033RouteImport } from './routes/conteudos.cronograma-reforma-tributaria-2026-2033'
 import { Route as ConteudosComercioIcmsRouteImport } from './routes/conteudos.comercio-icms'
 import { Route as ConteudosCategoryRouteImport } from './routes/conteudos.$category'
 import { Route as AuthenticatedAdminLeadsRouteImport } from './routes/_authenticated/admin.leads'
@@ -467,6 +468,12 @@ const ConteudosDpEsocialRoute = ConteudosDpEsocialRouteImport.update({
   path: '/conteudos/dp-esocial',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConteudosCronogramaReformaTributaria20262033Route =
+  ConteudosCronogramaReformaTributaria20262033RouteImport.update({
+    id: '/conteudos/cronograma-reforma-tributaria-2026-2033',
+    path: '/conteudos/cronograma-reforma-tributaria-2026-2033',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosComercioIcmsRoute = ConteudosComercioIcmsRouteImport.update({
   id: '/conteudos/comercio-icms',
   path: '/conteudos/comercio-icms',
@@ -518,6 +525,7 @@ export interface FileRoutesByFullPath {
   '/temas-estrategicos': typeof TemasEstrategicosRoute
   '/conteudos/$category': typeof ConteudosCategoryRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
+  '/conteudos/cronograma-reforma-tributaria-2026-2033': typeof ConteudosCronogramaReformaTributaria20262033Route
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
   '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
@@ -595,6 +603,7 @@ export interface FileRoutesByTo {
   '/temas-estrategicos': typeof TemasEstrategicosRoute
   '/conteudos/$category': typeof ConteudosCategoryRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
+  '/conteudos/cronograma-reforma-tributaria-2026-2033': typeof ConteudosCronogramaReformaTributaria20262033Route
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
   '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
@@ -674,6 +683,7 @@ export interface FileRoutesById {
   '/temas-estrategicos': typeof TemasEstrategicosRoute
   '/conteudos/$category': typeof ConteudosCategoryRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
+  '/conteudos/cronograma-reforma-tributaria-2026-2033': typeof ConteudosCronogramaReformaTributaria20262033Route
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
   '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
@@ -753,6 +763,7 @@ export interface FileRouteTypes {
     | '/temas-estrategicos'
     | '/conteudos/$category'
     | '/conteudos/comercio-icms'
+    | '/conteudos/cronograma-reforma-tributaria-2026-2033'
     | '/conteudos/dp-esocial'
     | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
@@ -830,6 +841,7 @@ export interface FileRouteTypes {
     | '/temas-estrategicos'
     | '/conteudos/$category'
     | '/conteudos/comercio-icms'
+    | '/conteudos/cronograma-reforma-tributaria-2026-2033'
     | '/conteudos/dp-esocial'
     | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
@@ -908,6 +920,7 @@ export interface FileRouteTypes {
     | '/temas-estrategicos'
     | '/conteudos/$category'
     | '/conteudos/comercio-icms'
+    | '/conteudos/cronograma-reforma-tributaria-2026-2033'
     | '/conteudos/dp-esocial'
     | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
@@ -987,6 +1000,7 @@ export interface RootRouteChildren {
   TemasEstrategicosRoute: typeof TemasEstrategicosRoute
   ConteudosCategoryRoute: typeof ConteudosCategoryRoute
   ConteudosComercioIcmsRoute: typeof ConteudosComercioIcmsRoute
+  ConteudosCronogramaReformaTributaria20262033Route: typeof ConteudosCronogramaReformaTributaria20262033Route
   ConteudosDpEsocialRoute: typeof ConteudosDpEsocialRoute
   ConteudosGuiaSimplesNacionalRoute: typeof ConteudosGuiaSimplesNacionalRoute
   ConteudosHoldingFamiliarRoute: typeof ConteudosHoldingFamiliarRoute
@@ -1537,6 +1551,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosDpEsocialRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/cronograma-reforma-tributaria-2026-2033': {
+      id: '/conteudos/cronograma-reforma-tributaria-2026-2033'
+      path: '/conteudos/cronograma-reforma-tributaria-2026-2033'
+      fullPath: '/conteudos/cronograma-reforma-tributaria-2026-2033'
+      preLoaderRoute: typeof ConteudosCronogramaReformaTributaria20262033RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/comercio-icms': {
       id: '/conteudos/comercio-icms'
       path: '/conteudos/comercio-icms'
@@ -1616,6 +1637,8 @@ const rootRouteChildren: RootRouteChildren = {
   TemasEstrategicosRoute: TemasEstrategicosRoute,
   ConteudosCategoryRoute: ConteudosCategoryRoute,
   ConteudosComercioIcmsRoute: ConteudosComercioIcmsRoute,
+  ConteudosCronogramaReformaTributaria20262033Route:
+    ConteudosCronogramaReformaTributaria20262033Route,
   ConteudosDpEsocialRoute: ConteudosDpEsocialRoute,
   ConteudosGuiaSimplesNacionalRoute: ConteudosGuiaSimplesNacionalRoute,
   ConteudosHoldingFamiliarRoute: ConteudosHoldingFamiliarRoute,
