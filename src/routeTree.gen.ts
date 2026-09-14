@@ -81,6 +81,7 @@ import { Route as ConteudosHoldingPatrimonioRouteImport } from './routes/conteud
 import { Route as ConteudosHoldingFamiliarRouteImport } from './routes/conteudos.holding-familiar'
 import { Route as ConteudosGuiaSimplesNacionalRouteImport } from './routes/conteudos.guia-simples-nacional'
 import { Route as ConteudosDpEsocialRouteImport } from './routes/conteudos.dp-esocial'
+import { Route as ConteudosDespesasQueGeramCreditoIbsCbsRouteImport } from './routes/conteudos.despesas-que-geram-credito-ibs-cbs'
 import { Route as ConteudosCronogramaReformaTributaria20262033RouteImport } from './routes/conteudos.cronograma-reforma-tributaria-2026-2033'
 import { Route as ConteudosComercioIcmsRouteImport } from './routes/conteudos.comercio-icms'
 import { Route as ConteudosCategoryRouteImport } from './routes/conteudos.$category'
@@ -482,6 +483,12 @@ const ConteudosDpEsocialRoute = ConteudosDpEsocialRouteImport.update({
   path: '/conteudos/dp-esocial',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConteudosDespesasQueGeramCreditoIbsCbsRoute =
+  ConteudosDespesasQueGeramCreditoIbsCbsRouteImport.update({
+    id: '/conteudos/despesas-que-geram-credito-ibs-cbs',
+    path: '/conteudos/despesas-que-geram-credito-ibs-cbs',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosCronogramaReformaTributaria20262033Route =
   ConteudosCronogramaReformaTributaria20262033RouteImport.update({
     id: '/conteudos/cronograma-reforma-tributaria-2026-2033',
@@ -540,6 +547,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/$category': typeof ConteudosCategoryRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/cronograma-reforma-tributaria-2026-2033': typeof ConteudosCronogramaReformaTributaria20262033Route
+  '/conteudos/despesas-que-geram-credito-ibs-cbs': typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
   '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
@@ -620,6 +628,7 @@ export interface FileRoutesByTo {
   '/conteudos/$category': typeof ConteudosCategoryRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/cronograma-reforma-tributaria-2026-2033': typeof ConteudosCronogramaReformaTributaria20262033Route
+  '/conteudos/despesas-que-geram-credito-ibs-cbs': typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
   '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
@@ -702,6 +711,7 @@ export interface FileRoutesById {
   '/conteudos/$category': typeof ConteudosCategoryRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/cronograma-reforma-tributaria-2026-2033': typeof ConteudosCronogramaReformaTributaria20262033Route
+  '/conteudos/despesas-que-geram-credito-ibs-cbs': typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
   '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
@@ -784,6 +794,7 @@ export interface FileRouteTypes {
     | '/conteudos/$category'
     | '/conteudos/comercio-icms'
     | '/conteudos/cronograma-reforma-tributaria-2026-2033'
+    | '/conteudos/despesas-que-geram-credito-ibs-cbs'
     | '/conteudos/dp-esocial'
     | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
@@ -864,6 +875,7 @@ export interface FileRouteTypes {
     | '/conteudos/$category'
     | '/conteudos/comercio-icms'
     | '/conteudos/cronograma-reforma-tributaria-2026-2033'
+    | '/conteudos/despesas-que-geram-credito-ibs-cbs'
     | '/conteudos/dp-esocial'
     | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
@@ -945,6 +957,7 @@ export interface FileRouteTypes {
     | '/conteudos/$category'
     | '/conteudos/comercio-icms'
     | '/conteudos/cronograma-reforma-tributaria-2026-2033'
+    | '/conteudos/despesas-que-geram-credito-ibs-cbs'
     | '/conteudos/dp-esocial'
     | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
@@ -1027,6 +1040,7 @@ export interface RootRouteChildren {
   ConteudosCategoryRoute: typeof ConteudosCategoryRoute
   ConteudosComercioIcmsRoute: typeof ConteudosComercioIcmsRoute
   ConteudosCronogramaReformaTributaria20262033Route: typeof ConteudosCronogramaReformaTributaria20262033Route
+  ConteudosDespesasQueGeramCreditoIbsCbsRoute: typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
   ConteudosDpEsocialRoute: typeof ConteudosDpEsocialRoute
   ConteudosGuiaSimplesNacionalRoute: typeof ConteudosGuiaSimplesNacionalRoute
   ConteudosHoldingFamiliarRoute: typeof ConteudosHoldingFamiliarRoute
@@ -1593,6 +1607,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosDpEsocialRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/despesas-que-geram-credito-ibs-cbs': {
+      id: '/conteudos/despesas-que-geram-credito-ibs-cbs'
+      path: '/conteudos/despesas-que-geram-credito-ibs-cbs'
+      fullPath: '/conteudos/despesas-que-geram-credito-ibs-cbs'
+      preLoaderRoute: typeof ConteudosDespesasQueGeramCreditoIbsCbsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/cronograma-reforma-tributaria-2026-2033': {
       id: '/conteudos/cronograma-reforma-tributaria-2026-2033'
       path: '/conteudos/cronograma-reforma-tributaria-2026-2033'
@@ -1681,6 +1702,8 @@ const rootRouteChildren: RootRouteChildren = {
   ConteudosComercioIcmsRoute: ConteudosComercioIcmsRoute,
   ConteudosCronogramaReformaTributaria20262033Route:
     ConteudosCronogramaReformaTributaria20262033Route,
+  ConteudosDespesasQueGeramCreditoIbsCbsRoute:
+    ConteudosDespesasQueGeramCreditoIbsCbsRoute,
   ConteudosDpEsocialRoute: ConteudosDpEsocialRoute,
   ConteudosGuiaSimplesNacionalRoute: ConteudosGuiaSimplesNacionalRoute,
   ConteudosHoldingFamiliarRoute: ConteudosHoldingFamiliarRoute,
