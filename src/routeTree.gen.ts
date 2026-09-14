@@ -74,6 +74,7 @@ import { Route as ConteudosRespostasValidadasRouteImport } from './routes/conteu
 import { Route as ConteudosRegularizacaoFiscalRouteImport } from './routes/conteudos.regularizacao-fiscal'
 import { Route as ConteudosRegimesTributariosRouteImport } from './routes/conteudos.regimes-tributarios'
 import { Route as ConteudosReformaTributariaFormacaoPrecoMargemRouteImport } from './routes/conteudos.reforma-tributaria-formacao-preco-margem'
+import { Route as ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRouteImport } from './routes/conteudos.prazo-opcao-regime-regular-ibs-cbs-simples'
 import { Route as ConteudosPlanejamentoTributarioRouteImport } from './routes/conteudos.planejamento-tributario'
 import { Route as ConteudosLc2362026ProcessoAdministrativoFiscalRouteImport } from './routes/conteudos.lc-236-2026-processo-administrativo-fiscal'
 import { Route as ConteudosHoldingPatrimonioRouteImport } from './routes/conteudos.holding-patrimonio'
@@ -440,6 +441,12 @@ const ConteudosReformaTributariaFormacaoPrecoMargemRoute =
     path: '/conteudos/reforma-tributaria-formacao-preco-margem',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute =
+  ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRouteImport.update({
+    id: '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples',
+    path: '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosPlanejamentoTributarioRoute =
   ConteudosPlanejamentoTributarioRouteImport.update({
     id: '/conteudos/planejamento-tributario',
@@ -539,6 +546,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
   '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
+  '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
   '/conteudos/reforma-tributaria-formacao-preco-margem': typeof ConteudosReformaTributariaFormacaoPrecoMargemRoute
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
   '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
@@ -618,6 +626,7 @@ export interface FileRoutesByTo {
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
   '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
+  '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
   '/conteudos/reforma-tributaria-formacao-preco-margem': typeof ConteudosReformaTributariaFormacaoPrecoMargemRoute
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
   '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
@@ -699,6 +708,7 @@ export interface FileRoutesById {
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
   '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
+  '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
   '/conteudos/reforma-tributaria-formacao-preco-margem': typeof ConteudosReformaTributariaFormacaoPrecoMargemRoute
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
   '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
@@ -780,6 +790,7 @@ export interface FileRouteTypes {
     | '/conteudos/holding-patrimonio'
     | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
     | '/conteudos/planejamento-tributario'
+    | '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
     | '/conteudos/reforma-tributaria-formacao-preco-margem'
     | '/conteudos/regimes-tributarios'
     | '/conteudos/regularizacao-fiscal'
@@ -859,6 +870,7 @@ export interface FileRouteTypes {
     | '/conteudos/holding-patrimonio'
     | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
     | '/conteudos/planejamento-tributario'
+    | '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
     | '/conteudos/reforma-tributaria-formacao-preco-margem'
     | '/conteudos/regimes-tributarios'
     | '/conteudos/regularizacao-fiscal'
@@ -939,6 +951,7 @@ export interface FileRouteTypes {
     | '/conteudos/holding-patrimonio'
     | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
     | '/conteudos/planejamento-tributario'
+    | '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
     | '/conteudos/reforma-tributaria-formacao-preco-margem'
     | '/conteudos/regimes-tributarios'
     | '/conteudos/regularizacao-fiscal'
@@ -1020,6 +1033,7 @@ export interface RootRouteChildren {
   ConteudosHoldingPatrimonioRoute: typeof ConteudosHoldingPatrimonioRoute
   ConteudosLc2362026ProcessoAdministrativoFiscalRoute: typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   ConteudosPlanejamentoTributarioRoute: typeof ConteudosPlanejamentoTributarioRoute
+  ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute: typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
   ConteudosReformaTributariaFormacaoPrecoMargemRoute: typeof ConteudosReformaTributariaFormacaoPrecoMargemRoute
   ConteudosRegimesTributariosRoute: typeof ConteudosRegimesTributariosRoute
   ConteudosRegularizacaoFiscalRoute: typeof ConteudosRegularizacaoFiscalRoute
@@ -1530,6 +1544,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosReformaTributariaFormacaoPrecoMargemRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': {
+      id: '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
+      path: '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
+      fullPath: '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
+      preLoaderRoute: typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/planejamento-tributario': {
       id: '/conteudos/planejamento-tributario'
       path: '/conteudos/planejamento-tributario'
@@ -1667,6 +1688,8 @@ const rootRouteChildren: RootRouteChildren = {
   ConteudosLc2362026ProcessoAdministrativoFiscalRoute:
     ConteudosLc2362026ProcessoAdministrativoFiscalRoute,
   ConteudosPlanejamentoTributarioRoute: ConteudosPlanejamentoTributarioRoute,
+  ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute:
+    ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute,
   ConteudosReformaTributariaFormacaoPrecoMargemRoute:
     ConteudosReformaTributariaFormacaoPrecoMargemRoute,
   ConteudosRegimesTributariosRoute: ConteudosRegimesTributariosRoute,
