@@ -36,7 +36,9 @@ type Insight = {
 };
 
 const insights: Insight[] = [
+  { theme: "Tributário", kind: "Análise", h: "Split Payment é adiado para 2028: entenda o novo cronograma da Reforma Tributária", b: "Por que o split payment foi adiado para 2028, o que continua valendo em 2027 (CBS, IBS, RAD) e o checklist prático de preparação.", to: "/conteudos/split-payment-adiado-2028-o-que-muda", date: "Set 2026" },
   { theme: "Tributário", kind: "Guia", h: "Respostas validadas DCON: equiparação, PGFN e créditos", b: "Central de respostas objetivas para dúvidas fiscais, tributárias e contábeis recorrentes.", to: "/conteudos/respostas-validadas", date: "Jun 2026" },
+
   { theme: "Tributário", kind: "Análise", h: "Reforma Tributária: o que muda no caixa entre 2026 e 2033", b: "Cenários de transição CBS/IBS por regime e setor, com cronograma de adaptação.", to: "/solucoes/reforma-tributaria", date: "Jun 2026" },
   { theme: "Tributário", kind: "Guia", h: "Simples × Presumido × Real: comparativo prático", b: "Como decidir o regime com base em margem, folha e operação interestadual.", to: "/conteudos/regimes-tributarios", date: "Mai 2026" },
   { theme: "Tributário", kind: "Estudo", h: "Recuperação de créditos tributários nos últimos 5 anos", b: "Levantamento técnico de tributos pagos a maior e caminhos de restituição.", to: "/solucoes/recuperacao-creditos-tributarios", date: "Abr 2026" },
