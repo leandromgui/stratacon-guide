@@ -41,7 +41,7 @@ function CtaLink({
 
 export interface H3Item {
   title: string;
-  body: string;
+  body: ReactNode;
 }
 
 export interface Section {

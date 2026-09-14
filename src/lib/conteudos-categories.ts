@@ -37,6 +37,7 @@ export const categories: CategoryDef[] = [
       { h3: "Recuperação de créditos", body: "Levantamento de tributos pagos a maior nos últimos 5 anos e caminhos administrativos ou judiciais de restituição." },
     ],
     articles: [
+      { h2: "Cronograma da Reforma Tributária: o que muda a cada ano, de 2026 a 2033", excerpt: "Entenda ano a ano o cronograma da Reforma Tributária, de 2026 a 2033: teste, CBS plena, split payment, transição de ICMS/ISS e sistema pleno.", to: "/conteudos/cronograma-reforma-tributaria-2026-2033", kind: "Análise", date: "Set 2026" },
       { h2: "Split Payment é adiado para 2028: novo cronograma da Reforma Tributária", excerpt: "O que continua valendo em 2027 (CBS, IBS, RAD), o cronograma revisado e o checklist prático de preparação.", to: "/conteudos/split-payment-adiado-2028-o-que-muda", kind: "Análise", date: "Set 2026" },
       { h2: "Simples Puro ou Híbrido em 2027: como decidir o recolhimento de IBS e CBS", excerpt: "Diferença entre Simples puro e híbrido, prazos de opção e checklist para decidir com segurança.", to: "/conteudos/simples-puro-ou-hibrido-2027-como-decidir", kind: "Análise", date: "Set 2026" },
       { h2: "Simples × Presumido × Real: comparativo prático", excerpt: "Como decidir o regime com base em margem, folha e operação interestadual.", to: "/conteudos/regimes-tributarios", kind: "Guia", date: "Mai 2026" },
