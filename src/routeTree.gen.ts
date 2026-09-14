@@ -77,6 +77,7 @@ import { Route as ConteudosReformaTributariaFormacaoPrecoMargemRouteImport } fro
 import { Route as ConteudosReformaTributariaClinicasMedicasOQueMudaRouteImport } from './routes/conteudos.reforma-tributaria-clinicas-medicas-o-que-muda'
 import { Route as ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRouteImport } from './routes/conteudos.prazo-opcao-regime-regular-ibs-cbs-simples'
 import { Route as ConteudosPlanejamentoTributarioRouteImport } from './routes/conteudos.planejamento-tributario'
+import { Route as ConteudosLucroRealReformaTributariaCreditosControlesRouteImport } from './routes/conteudos.lucro-real-reforma-tributaria-creditos-controles'
 import { Route as ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRouteImport } from './routes/conteudos.lucro-presumido-reforma-tributaria-riscos-oportunidades'
 import { Route as ConteudosLc2362026ProcessoAdministrativoFiscalRouteImport } from './routes/conteudos.lc-236-2026-processo-administrativo-fiscal'
 import { Route as ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026RouteImport } from './routes/conteudos.ibs-cbs-nota-fiscal-obrigatorio-agosto-2026'
@@ -463,6 +464,12 @@ const ConteudosPlanejamentoTributarioRoute =
     path: '/conteudos/planejamento-tributario',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ConteudosLucroRealReformaTributariaCreditosControlesRoute =
+  ConteudosLucroRealReformaTributariaCreditosControlesRouteImport.update({
+    id: '/conteudos/lucro-real-reforma-tributaria-creditos-controles',
+    path: '/conteudos/lucro-real-reforma-tributaria-creditos-controles',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRoute =
   ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRouteImport.update(
     {
@@ -578,6 +585,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026': typeof ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route
   '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades': typeof ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRoute
+  '/conteudos/lucro-real-reforma-tributaria-creditos-controles': typeof ConteudosLucroRealReformaTributariaCreditosControlesRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
   '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda': typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRoute
@@ -662,6 +670,7 @@ export interface FileRoutesByTo {
   '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026': typeof ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route
   '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades': typeof ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRoute
+  '/conteudos/lucro-real-reforma-tributaria-creditos-controles': typeof ConteudosLucroRealReformaTributariaCreditosControlesRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
   '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda': typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRoute
@@ -748,6 +757,7 @@ export interface FileRoutesById {
   '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026': typeof ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route
   '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades': typeof ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRoute
+  '/conteudos/lucro-real-reforma-tributaria-creditos-controles': typeof ConteudosLucroRealReformaTributariaCreditosControlesRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
   '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda': typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRoute
@@ -834,6 +844,7 @@ export interface FileRouteTypes {
     | '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026'
     | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
     | '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades'
+    | '/conteudos/lucro-real-reforma-tributaria-creditos-controles'
     | '/conteudos/planejamento-tributario'
     | '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
     | '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda'
@@ -918,6 +929,7 @@ export interface FileRouteTypes {
     | '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026'
     | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
     | '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades'
+    | '/conteudos/lucro-real-reforma-tributaria-creditos-controles'
     | '/conteudos/planejamento-tributario'
     | '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
     | '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda'
@@ -1003,6 +1015,7 @@ export interface FileRouteTypes {
     | '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026'
     | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
     | '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades'
+    | '/conteudos/lucro-real-reforma-tributaria-creditos-controles'
     | '/conteudos/planejamento-tributario'
     | '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
     | '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda'
@@ -1089,6 +1102,7 @@ export interface RootRouteChildren {
   ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route: typeof ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route
   ConteudosLc2362026ProcessoAdministrativoFiscalRoute: typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRoute: typeof ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRoute
+  ConteudosLucroRealReformaTributariaCreditosControlesRoute: typeof ConteudosLucroRealReformaTributariaCreditosControlesRoute
   ConteudosPlanejamentoTributarioRoute: typeof ConteudosPlanejamentoTributarioRoute
   ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute: typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
   ConteudosReformaTributariaClinicasMedicasOQueMudaRoute: typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRoute
@@ -1623,6 +1637,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosPlanejamentoTributarioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/lucro-real-reforma-tributaria-creditos-controles': {
+      id: '/conteudos/lucro-real-reforma-tributaria-creditos-controles'
+      path: '/conteudos/lucro-real-reforma-tributaria-creditos-controles'
+      fullPath: '/conteudos/lucro-real-reforma-tributaria-creditos-controles'
+      preLoaderRoute: typeof ConteudosLucroRealReformaTributariaCreditosControlesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades': {
       id: '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades'
       path: '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades'
@@ -1779,6 +1800,8 @@ const rootRouteChildren: RootRouteChildren = {
     ConteudosLc2362026ProcessoAdministrativoFiscalRoute,
   ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRoute:
     ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRoute,
+  ConteudosLucroRealReformaTributariaCreditosControlesRoute:
+    ConteudosLucroRealReformaTributariaCreditosControlesRoute,
   ConteudosPlanejamentoTributarioRoute: ConteudosPlanejamentoTributarioRoute,
   ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute:
     ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute,
