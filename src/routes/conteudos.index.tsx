@@ -36,6 +36,7 @@ type Insight = {
 };
 
 const insights: Insight[] = [
+  { theme: "Tributário", kind: "Análise", h: "Lucro Real na Reforma Tributária: créditos, controles e risco fiscal", b: "Empresas do Lucro Real já operam no regime não cumulativo de PIS/Cofins. Entenda por que a transição para a CBS tende a ser mais previsível, mas exige mais controle.", to: "/conteudos/lucro-real-reforma-tributaria-creditos-controles", date: "Set 2026" },
   { theme: "Tributário", kind: "Análise", h: "Lucro Presumido na Reforma Tributária: riscos e oportunidades", b: "Entenda como a CBS substitui o PIS/Cofins cumulativo no Lucro Presumido, por que prestadores de serviço sentem mais o impacto, e o que a LC 224/2025 já mudou.", to: "/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades", date: "Set 2026" },
   { theme: "Tributário", kind: "Análise", h: "Cronograma da Reforma Tributária: o que muda a cada ano, de 2026 a 2033", b: "Entenda ano a ano o cronograma da Reforma Tributária, de 2026 a 2033: teste, CBS plena, split payment, transição de ICMS/ISS e sistema pleno.", to: "/conteudos/cronograma-reforma-tributaria-2026-2033", date: "Set 2026" },
   { theme: "Tributário", kind: "Análise", h: "Split Payment é adiado para 2028: entenda o novo cronograma da Reforma Tributária", b: "Por que o split payment foi adiado para 2028, o que continua valendo em 2027 (CBS, IBS, RAD) e o checklist prático de preparação.", to: "/conteudos/split-payment-adiado-2028-o-que-muda", date: "Set 2026" },

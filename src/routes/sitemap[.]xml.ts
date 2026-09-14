@@ -84,9 +84,7 @@ const entries: SitemapEntry[] = [
   { path: "/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades", changefreq: "monthly", priority: "0.9" },
-
-
-
+  { path: "/conteudos/lucro-real-reforma-tributaria-creditos-controles", changefreq: "monthly", priority: "0.9" },
 
 
 
