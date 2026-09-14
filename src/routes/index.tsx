@@ -4,7 +4,6 @@ import heroBg from "../assets/hero-bg.webp";
 import { Reveal } from "../components/Reveal";
 import { AnimatedHeroBg } from "../components/AnimatedHeroBg";
 import { NodeNetworkBg } from "../components/NodeNetworkBg";
-import { ClientsCarousel } from "../components/ClientsCarousel";
 import { useState } from "react";
 import { buildSeoHead } from "@/lib/seo";
 
@@ -573,7 +572,6 @@ function Home() {
           </div>
         </div>
       </section>
-      <ClientsCarousel />
     </div>
   );
 }
