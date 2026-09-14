@@ -36,6 +36,7 @@ type Insight = {
 };
 
 const insights: Insight[] = [
+  { theme: "Tributário", kind: "Análise", h: "Auditoria de Fornecedores para Preservar Créditos de IBS e CBS", b: "Na não cumulatividade do IBS/CBS, o crédito da sua empresa depende da regularidade fiscal do fornecedor. Veja como auditar sua cadeia para não perder crédito.", to: "/conteudos/auditoria-fornecedores-creditos-ibs-cbs", date: "Set 2026" },
   { theme: "Tributário", kind: "Análise", h: "Lucro Real na Reforma Tributária: créditos, controles e risco fiscal", b: "Empresas do Lucro Real já operam no regime não cumulativo de PIS/Cofins. Entenda por que a transição para a CBS tende a ser mais previsível, mas exige mais controle.", to: "/conteudos/lucro-real-reforma-tributaria-creditos-controles", date: "Set 2026" },
   { theme: "Tributário", kind: "Análise", h: "Lucro Presumido na Reforma Tributária: riscos e oportunidades", b: "Entenda como a CBS substitui o PIS/Cofins cumulativo no Lucro Presumido, por que prestadores de serviço sentem mais o impacto, e o que a LC 224/2025 já mudou.", to: "/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades", date: "Set 2026" },
   { theme: "Tributário", kind: "Análise", h: "Cronograma da Reforma Tributária: o que muda a cada ano, de 2026 a 2033", b: "Entenda ano a ano o cronograma da Reforma Tributária, de 2026 a 2033: teste, CBS plena, split payment, transição de ICMS/ISS e sistema pleno.", to: "/conteudos/cronograma-reforma-tributaria-2026-2033", date: "Set 2026" },
