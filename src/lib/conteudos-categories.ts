@@ -37,7 +37,9 @@ export const categories: CategoryDef[] = [
       { h3: "Recuperação de créditos", body: "Levantamento de tributos pagos a maior nos últimos 5 anos e caminhos administrativos ou judiciais de restituição." },
     ],
     articles: [
+      { h2: "Split Payment é adiado para 2028: novo cronograma da Reforma Tributária", excerpt: "O que continua valendo em 2027 (CBS, IBS, RAD), o cronograma revisado e o checklist prático de preparação.", to: "/conteudos/split-payment-adiado-2028-o-que-muda", kind: "Análise", date: "Set 2026" },
       { h2: "Simples × Presumido × Real: comparativo prático", excerpt: "Como decidir o regime com base em margem, folha e operação interestadual.", to: "/conteudos/regimes-tributarios", kind: "Guia", date: "Mai 2026" },
+
       { h2: "Reforma tributária: o que muda no caixa entre 2026 e 2033", excerpt: "Cenários de transição CBS/IBS por regime e setor, com cronograma de adaptação.", to: "/solucoes/reforma-tributaria", kind: "Análise", date: "Jun 2026" },
       { h2: "Recuperação de créditos tributários nos últimos 5 anos", excerpt: "Levantamento técnico de tributos pagos a maior e caminhos de restituição.", to: "/solucoes/recuperacao-creditos-tributarios", kind: "Estudo", date: "Abr 2026" },
       { h2: "Respostas validadas DCON: equiparação, PGFN e créditos", excerpt: "Respostas objetivas sobre temas fiscais, tributários e contábeis recorrentes.", to: "/conteudos/respostas-validadas", kind: "Guia", date: "Jun 2026" },
