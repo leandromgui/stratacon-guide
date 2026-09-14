@@ -73,6 +73,7 @@ import { Route as ConteudosSaudeClinicasRouteImport } from './routes/conteudos.s
 import { Route as ConteudosRespostasValidadasRouteImport } from './routes/conteudos.respostas-validadas'
 import { Route as ConteudosRegularizacaoFiscalRouteImport } from './routes/conteudos.regularizacao-fiscal'
 import { Route as ConteudosRegimesTributariosRouteImport } from './routes/conteudos.regimes-tributarios'
+import { Route as ConteudosReformaTributariaFormacaoPrecoMargemRouteImport } from './routes/conteudos.reforma-tributaria-formacao-preco-margem'
 import { Route as ConteudosPlanejamentoTributarioRouteImport } from './routes/conteudos.planejamento-tributario'
 import { Route as ConteudosLc2362026ProcessoAdministrativoFiscalRouteImport } from './routes/conteudos.lc-236-2026-processo-administrativo-fiscal'
 import { Route as ConteudosHoldingPatrimonioRouteImport } from './routes/conteudos.holding-patrimonio'
@@ -433,6 +434,12 @@ const ConteudosRegimesTributariosRoute =
     path: '/conteudos/regimes-tributarios',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ConteudosReformaTributariaFormacaoPrecoMargemRoute =
+  ConteudosReformaTributariaFormacaoPrecoMargemRouteImport.update({
+    id: '/conteudos/reforma-tributaria-formacao-preco-margem',
+    path: '/conteudos/reforma-tributaria-formacao-preco-margem',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosPlanejamentoTributarioRoute =
   ConteudosPlanejamentoTributarioRouteImport.update({
     id: '/conteudos/planejamento-tributario',
@@ -532,6 +539,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
   '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
+  '/conteudos/reforma-tributaria-formacao-preco-margem': typeof ConteudosReformaTributariaFormacaoPrecoMargemRoute
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
   '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
   '/conteudos/respostas-validadas': typeof ConteudosRespostasValidadasRoute
@@ -610,6 +618,7 @@ export interface FileRoutesByTo {
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
   '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
+  '/conteudos/reforma-tributaria-formacao-preco-margem': typeof ConteudosReformaTributariaFormacaoPrecoMargemRoute
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
   '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
   '/conteudos/respostas-validadas': typeof ConteudosRespostasValidadasRoute
@@ -690,6 +699,7 @@ export interface FileRoutesById {
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
   '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
+  '/conteudos/reforma-tributaria-formacao-preco-margem': typeof ConteudosReformaTributariaFormacaoPrecoMargemRoute
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
   '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
   '/conteudos/respostas-validadas': typeof ConteudosRespostasValidadasRoute
@@ -770,6 +780,7 @@ export interface FileRouteTypes {
     | '/conteudos/holding-patrimonio'
     | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
     | '/conteudos/planejamento-tributario'
+    | '/conteudos/reforma-tributaria-formacao-preco-margem'
     | '/conteudos/regimes-tributarios'
     | '/conteudos/regularizacao-fiscal'
     | '/conteudos/respostas-validadas'
@@ -848,6 +859,7 @@ export interface FileRouteTypes {
     | '/conteudos/holding-patrimonio'
     | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
     | '/conteudos/planejamento-tributario'
+    | '/conteudos/reforma-tributaria-formacao-preco-margem'
     | '/conteudos/regimes-tributarios'
     | '/conteudos/regularizacao-fiscal'
     | '/conteudos/respostas-validadas'
@@ -927,6 +939,7 @@ export interface FileRouteTypes {
     | '/conteudos/holding-patrimonio'
     | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
     | '/conteudos/planejamento-tributario'
+    | '/conteudos/reforma-tributaria-formacao-preco-margem'
     | '/conteudos/regimes-tributarios'
     | '/conteudos/regularizacao-fiscal'
     | '/conteudos/respostas-validadas'
@@ -1007,6 +1020,7 @@ export interface RootRouteChildren {
   ConteudosHoldingPatrimonioRoute: typeof ConteudosHoldingPatrimonioRoute
   ConteudosLc2362026ProcessoAdministrativoFiscalRoute: typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   ConteudosPlanejamentoTributarioRoute: typeof ConteudosPlanejamentoTributarioRoute
+  ConteudosReformaTributariaFormacaoPrecoMargemRoute: typeof ConteudosReformaTributariaFormacaoPrecoMargemRoute
   ConteudosRegimesTributariosRoute: typeof ConteudosRegimesTributariosRoute
   ConteudosRegularizacaoFiscalRoute: typeof ConteudosRegularizacaoFiscalRoute
   ConteudosRespostasValidadasRoute: typeof ConteudosRespostasValidadasRoute
@@ -1509,6 +1523,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosRegimesTributariosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/reforma-tributaria-formacao-preco-margem': {
+      id: '/conteudos/reforma-tributaria-formacao-preco-margem'
+      path: '/conteudos/reforma-tributaria-formacao-preco-margem'
+      fullPath: '/conteudos/reforma-tributaria-formacao-preco-margem'
+      preLoaderRoute: typeof ConteudosReformaTributariaFormacaoPrecoMargemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/planejamento-tributario': {
       id: '/conteudos/planejamento-tributario'
       path: '/conteudos/planejamento-tributario'
@@ -1646,6 +1667,8 @@ const rootRouteChildren: RootRouteChildren = {
   ConteudosLc2362026ProcessoAdministrativoFiscalRoute:
     ConteudosLc2362026ProcessoAdministrativoFiscalRoute,
   ConteudosPlanejamentoTributarioRoute: ConteudosPlanejamentoTributarioRoute,
+  ConteudosReformaTributariaFormacaoPrecoMargemRoute:
+    ConteudosReformaTributariaFormacaoPrecoMargemRoute,
   ConteudosRegimesTributariosRoute: ConteudosRegimesTributariosRoute,
   ConteudosRegularizacaoFiscalRoute: ConteudosRegularizacaoFiscalRoute,
   ConteudosRespostasValidadasRoute: ConteudosRespostasValidadasRoute,
