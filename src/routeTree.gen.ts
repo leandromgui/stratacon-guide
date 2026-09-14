@@ -77,6 +77,7 @@ import { Route as ConteudosReformaTributariaFormacaoPrecoMargemRouteImport } fro
 import { Route as ConteudosReformaTributariaClinicasMedicasOQueMudaRouteImport } from './routes/conteudos.reforma-tributaria-clinicas-medicas-o-que-muda'
 import { Route as ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRouteImport } from './routes/conteudos.prazo-opcao-regime-regular-ibs-cbs-simples'
 import { Route as ConteudosPlanejamentoTributarioRouteImport } from './routes/conteudos.planejamento-tributario'
+import { Route as ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRouteImport } from './routes/conteudos.lucro-presumido-reforma-tributaria-riscos-oportunidades'
 import { Route as ConteudosLc2362026ProcessoAdministrativoFiscalRouteImport } from './routes/conteudos.lc-236-2026-processo-administrativo-fiscal'
 import { Route as ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026RouteImport } from './routes/conteudos.ibs-cbs-nota-fiscal-obrigatorio-agosto-2026'
 import { Route as ConteudosHoldingPatrimonioRouteImport } from './routes/conteudos.holding-patrimonio'
@@ -462,6 +463,14 @@ const ConteudosPlanejamentoTributarioRoute =
     path: '/conteudos/planejamento-tributario',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRoute =
+  ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRouteImport.update(
+    {
+      id: '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades',
+      path: '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades',
+      getParentRoute: () => rootRouteImport,
+    } as any,
+  )
 const ConteudosLc2362026ProcessoAdministrativoFiscalRoute =
   ConteudosLc2362026ProcessoAdministrativoFiscalRouteImport.update({
     id: '/conteudos/lc-236-2026-processo-administrativo-fiscal',
@@ -568,6 +577,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
   '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026': typeof ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route
   '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
+  '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades': typeof ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
   '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda': typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRoute
@@ -651,6 +661,7 @@ export interface FileRoutesByTo {
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
   '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026': typeof ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route
   '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
+  '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades': typeof ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
   '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda': typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRoute
@@ -736,6 +747,7 @@ export interface FileRoutesById {
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
   '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026': typeof ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route
   '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
+  '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades': typeof ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
   '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda': typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRoute
@@ -821,6 +833,7 @@ export interface FileRouteTypes {
     | '/conteudos/holding-patrimonio'
     | '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026'
     | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
+    | '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades'
     | '/conteudos/planejamento-tributario'
     | '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
     | '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda'
@@ -904,6 +917,7 @@ export interface FileRouteTypes {
     | '/conteudos/holding-patrimonio'
     | '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026'
     | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
+    | '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades'
     | '/conteudos/planejamento-tributario'
     | '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
     | '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda'
@@ -988,6 +1002,7 @@ export interface FileRouteTypes {
     | '/conteudos/holding-patrimonio'
     | '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026'
     | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
+    | '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades'
     | '/conteudos/planejamento-tributario'
     | '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
     | '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda'
@@ -1073,6 +1088,7 @@ export interface RootRouteChildren {
   ConteudosHoldingPatrimonioRoute: typeof ConteudosHoldingPatrimonioRoute
   ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route: typeof ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route
   ConteudosLc2362026ProcessoAdministrativoFiscalRoute: typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
+  ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRoute: typeof ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRoute
   ConteudosPlanejamentoTributarioRoute: typeof ConteudosPlanejamentoTributarioRoute
   ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute: typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
   ConteudosReformaTributariaClinicasMedicasOQueMudaRoute: typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRoute
@@ -1607,6 +1623,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosPlanejamentoTributarioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades': {
+      id: '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades'
+      path: '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades'
+      fullPath: '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades'
+      preLoaderRoute: typeof ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/lc-236-2026-processo-administrativo-fiscal': {
       id: '/conteudos/lc-236-2026-processo-administrativo-fiscal'
       path: '/conteudos/lc-236-2026-processo-administrativo-fiscal'
@@ -1754,6 +1777,8 @@ const rootRouteChildren: RootRouteChildren = {
     ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route,
   ConteudosLc2362026ProcessoAdministrativoFiscalRoute:
     ConteudosLc2362026ProcessoAdministrativoFiscalRoute,
+  ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRoute:
+    ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRoute,
   ConteudosPlanejamentoTributarioRoute: ConteudosPlanejamentoTributarioRoute,
   ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute:
     ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute,

@@ -36,6 +36,7 @@ type Insight = {
 };
 
 const insights: Insight[] = [
+  { theme: "Tributário", kind: "Análise", h: "Lucro Presumido na Reforma Tributária: riscos e oportunidades", b: "Entenda como a CBS substitui o PIS/Cofins cumulativo no Lucro Presumido, por que prestadores de serviço sentem mais o impacto, e o que a LC 224/2025 já mudou.", to: "/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades", date: "Set 2026" },
   { theme: "Tributário", kind: "Análise", h: "Cronograma da Reforma Tributária: o que muda a cada ano, de 2026 a 2033", b: "Entenda ano a ano o cronograma da Reforma Tributária, de 2026 a 2033: teste, CBS plena, split payment, transição de ICMS/ISS e sistema pleno.", to: "/conteudos/cronograma-reforma-tributaria-2026-2033", date: "Set 2026" },
   { theme: "Tributário", kind: "Análise", h: "Split Payment é adiado para 2028: entenda o novo cronograma da Reforma Tributária", b: "Por que o split payment foi adiado para 2028, o que continua valendo em 2027 (CBS, IBS, RAD) e o checklist prático de preparação.", to: "/conteudos/split-payment-adiado-2028-o-que-muda", date: "Set 2026" },
   { theme: "Tributário", kind: "Análise", h: "Simples Puro ou Híbrido em 2027: como decidir o recolhimento de IBS e CBS", b: "Diferença entre Simples puro e híbrido para IBS e CBS em 2027, prazos de opção e checklist para decidir com segurança.", to: "/conteudos/simples-puro-ou-hibrido-2027-como-decidir", date: "Set 2026" },
