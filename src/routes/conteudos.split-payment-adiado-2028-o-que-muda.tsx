@@ -88,7 +88,6 @@ function Page() {
     <PageScaffold
       eyebrow={`Reforma tributária · ${PUBLISHED}`}
       h1={H1}
-      lead="Não, o split payment obrigatório não entra em vigor em janeiro de 2027. Sua implementação foi adiada para 2028, de forma gradual e focada inicialmente em operações entre empresas (B2B)."
       intro="Não, o split payment obrigatório não entra em vigor em janeiro de 2027. Sua implementação foi adiada para 2028, de forma gradual e focada inicialmente em operações entre empresas (B2B). Isso não significa, porém, uma pausa na Reforma Tributária: a cobrança da CBS e do IBS segue o cronograma original a partir de 1º de janeiro de 2027, e a adequação dos sistemas fiscais e documentos eletrônicos continua sendo prioridade inadiável."
       breadcrumbs={[
         { label: "Insights", to: "/conteudos" },
