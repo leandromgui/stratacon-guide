@@ -42,6 +42,8 @@ const insights: Insight[] = [
   { theme: "Tributário", kind: "Análise", h: "Prazo e Regras para Optar pelo Regime Regular de IBS e CBS no Simples Nacional", b: "Empresas do Simples que não optarem pelo regime regular de IBS/CBS até 30 de setembro de 2026 ficam automaticamente no Simples Puro. Entenda as regras.", to: "/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples", date: "Set 2026" },
   { theme: "Tributário", kind: "Análise", h: "Reforma Tributária e Formação de Preço: por que seu mark-up precisa ser refeito", b: "Por que somar IBS/CBS ao preço antigo não basta, como calcular a alíquota efetiva e os riscos reais para a margem.", to: "/conteudos/reforma-tributaria-formacao-preco-margem", date: "Set 2026" },
   { theme: "Tributário", kind: "Análise", h: "Quais Despesas Geram Crédito de IBS e CBS", b: "Entenda a regra geral de crédito de IBS/CBS vinculado à atividade econômica, o que a lei exclui expressamente e por que folha de pagamento não gera crédito.", to: "/conteudos/despesas-que-geram-credito-ibs-cbs", date: "Set 2026" },
+  { theme: "Tributário", kind: "Análise", h: "IBS e CBS na Nota Fiscal: obrigatório desde 3 de agosto de 2026", b: "Desde 3 de agosto de 2026 o preenchimento de IBS e CBS na nota fiscal eletrônica é obrigatório. Entenda o que muda e como evitar rejeição de documentos.", to: "/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026", date: "Set 2026" },
+
 
   { theme: "Tributário", kind: "Guia", h: "Respostas validadas DCON: equiparação, PGFN e créditos", b: "Central de respostas objetivas para dúvidas fiscais, tributárias e contábeis recorrentes.", to: "/conteudos/respostas-validadas", date: "Jun 2026" },
 

@@ -43,6 +43,8 @@ export const categories: CategoryDef[] = [
       { h2: "Prazo e Regras para Optar pelo Regime Regular de IBS e CBS no Simples Nacional", excerpt: "Empresas do Simples que não optarem pelo regime regular de IBS/CBS até 30 de setembro de 2026 ficam automaticamente no Simples Puro. Entenda as regras.", to: "/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples", kind: "Análise", date: "Set 2026" },
       { h2: "Reforma Tributária e Formação de Preço: por que seu mark-up precisa ser refeito", excerpt: "Por que somar IBS/CBS ao preço antigo não basta, como calcular a alíquota efetiva e os riscos reais para a margem.", to: "/conteudos/reforma-tributaria-formacao-preco-margem", kind: "Análise", date: "Set 2026" },
       { h2: "Quais Despesas Geram Crédito de IBS e CBS", excerpt: "Entenda a regra geral de crédito de IBS/CBS vinculado à atividade econômica, o que a lei exclui expressamente e por que folha de pagamento não gera crédito.", to: "/conteudos/despesas-que-geram-credito-ibs-cbs", kind: "Análise", date: "Set 2026" },
+      { h2: "IBS e CBS na Nota Fiscal: obrigatório desde 3 de agosto de 2026", excerpt: "Desde 3 de agosto de 2026 o preenchimento de IBS e CBS na nota fiscal eletrônica é obrigatório. Entenda o que muda e como evitar rejeição de documentos.", to: "/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026", kind: "Análise", date: "Set 2026" },
+
 
       { h2: "Simples × Presumido × Real: comparativo prático", excerpt: "Como decidir o regime com base em margem, folha e operação interestadual.", to: "/conteudos/regimes-tributarios", kind: "Guia", date: "Mai 2026" },
 

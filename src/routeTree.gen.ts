@@ -77,6 +77,7 @@ import { Route as ConteudosReformaTributariaFormacaoPrecoMargemRouteImport } fro
 import { Route as ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRouteImport } from './routes/conteudos.prazo-opcao-regime-regular-ibs-cbs-simples'
 import { Route as ConteudosPlanejamentoTributarioRouteImport } from './routes/conteudos.planejamento-tributario'
 import { Route as ConteudosLc2362026ProcessoAdministrativoFiscalRouteImport } from './routes/conteudos.lc-236-2026-processo-administrativo-fiscal'
+import { Route as ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026RouteImport } from './routes/conteudos.ibs-cbs-nota-fiscal-obrigatorio-agosto-2026'
 import { Route as ConteudosHoldingPatrimonioRouteImport } from './routes/conteudos.holding-patrimonio'
 import { Route as ConteudosHoldingFamiliarRouteImport } from './routes/conteudos.holding-familiar'
 import { Route as ConteudosGuiaSimplesNacionalRouteImport } from './routes/conteudos.guia-simples-nacional'
@@ -460,6 +461,12 @@ const ConteudosLc2362026ProcessoAdministrativoFiscalRoute =
     path: '/conteudos/lc-236-2026-processo-administrativo-fiscal',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route =
+  ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026RouteImport.update({
+    id: '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026',
+    path: '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosHoldingPatrimonioRoute =
   ConteudosHoldingPatrimonioRouteImport.update({
     id: '/conteudos/holding-patrimonio',
@@ -552,6 +559,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
+  '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026': typeof ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route
   '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
@@ -633,6 +641,7 @@ export interface FileRoutesByTo {
   '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
+  '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026': typeof ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route
   '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
@@ -716,6 +725,7 @@ export interface FileRoutesById {
   '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
+  '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026': typeof ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route
   '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
@@ -799,6 +809,7 @@ export interface FileRouteTypes {
     | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
     | '/conteudos/holding-patrimonio'
+    | '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026'
     | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
     | '/conteudos/planejamento-tributario'
     | '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
@@ -880,6 +891,7 @@ export interface FileRouteTypes {
     | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
     | '/conteudos/holding-patrimonio'
+    | '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026'
     | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
     | '/conteudos/planejamento-tributario'
     | '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
@@ -962,6 +974,7 @@ export interface FileRouteTypes {
     | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
     | '/conteudos/holding-patrimonio'
+    | '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026'
     | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
     | '/conteudos/planejamento-tributario'
     | '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
@@ -1045,6 +1058,7 @@ export interface RootRouteChildren {
   ConteudosGuiaSimplesNacionalRoute: typeof ConteudosGuiaSimplesNacionalRoute
   ConteudosHoldingFamiliarRoute: typeof ConteudosHoldingFamiliarRoute
   ConteudosHoldingPatrimonioRoute: typeof ConteudosHoldingPatrimonioRoute
+  ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route: typeof ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route
   ConteudosLc2362026ProcessoAdministrativoFiscalRoute: typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   ConteudosPlanejamentoTributarioRoute: typeof ConteudosPlanejamentoTributarioRoute
   ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute: typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
@@ -1579,6 +1593,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosLc2362026ProcessoAdministrativoFiscalRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026': {
+      id: '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026'
+      path: '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026'
+      fullPath: '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026'
+      preLoaderRoute: typeof ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/holding-patrimonio': {
       id: '/conteudos/holding-patrimonio'
       path: '/conteudos/holding-patrimonio'
@@ -1708,6 +1729,8 @@ const rootRouteChildren: RootRouteChildren = {
   ConteudosGuiaSimplesNacionalRoute: ConteudosGuiaSimplesNacionalRoute,
   ConteudosHoldingFamiliarRoute: ConteudosHoldingFamiliarRoute,
   ConteudosHoldingPatrimonioRoute: ConteudosHoldingPatrimonioRoute,
+  ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route:
+    ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route,
   ConteudosLc2362026ProcessoAdministrativoFiscalRoute:
     ConteudosLc2362026ProcessoAdministrativoFiscalRoute,
   ConteudosPlanejamentoTributarioRoute: ConteudosPlanejamentoTributarioRoute,
