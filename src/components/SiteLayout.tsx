@@ -402,7 +402,7 @@ export function SiteLayout() {
       <CookieBanner />
 
       {/* Footer */}
-      <footer className="mt-24 bg-secondary text-secondary-foreground">
+      <footer className="bg-secondary text-secondary-foreground">
         <div className="border-b border-secondary-foreground/10">
           <div className="mx-auto max-w-7xl px-6 py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-12">
             <div className="lg:col-span-4">
