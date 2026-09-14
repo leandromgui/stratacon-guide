@@ -78,6 +78,7 @@ const entries: SitemapEntry[] = [
   { path: "/conteudos/split-payment-adiado-2028-o-que-muda", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/simples-puro-ou-hibrido-2027-como-decidir", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/cronograma-reforma-tributaria-2026-2033", changefreq: "monthly", priority: "0.9" },
+  { path: "/conteudos/reforma-tributaria-formacao-preco-margem", changefreq: "monthly", priority: "0.9" },
 
   { path: "/reforma-tributaria-2026", changefreq: "monthly", priority: "0.8" },
 ];
