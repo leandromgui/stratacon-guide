@@ -75,6 +75,7 @@ import { Route as ConteudosRegularizacaoFiscalRouteImport } from './routes/conte
 import { Route as ConteudosRegimesTributariosRouteImport } from './routes/conteudos.regimes-tributarios'
 import { Route as ConteudosReformaTributariaFormacaoPrecoMargemRouteImport } from './routes/conteudos.reforma-tributaria-formacao-preco-margem'
 import { Route as ConteudosReformaTributariaClinicasMedicasOQueMudaRouteImport } from './routes/conteudos.reforma-tributaria-clinicas-medicas-o-que-muda'
+import { Route as ConteudosPrestadoresServicosReformaTributariaPoucosCreditosRouteImport } from './routes/conteudos.prestadores-servicos-reforma-tributaria-poucos-creditos'
 import { Route as ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRouteImport } from './routes/conteudos.prazo-opcao-regime-regular-ibs-cbs-simples'
 import { Route as ConteudosPlanejamentoTributarioRouteImport } from './routes/conteudos.planejamento-tributario'
 import { Route as ConteudosLucroRealReformaTributariaCreditosControlesRouteImport } from './routes/conteudos.lucro-real-reforma-tributaria-creditos-controles'
@@ -453,6 +454,14 @@ const ConteudosReformaTributariaClinicasMedicasOQueMudaRoute =
     path: '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ConteudosPrestadoresServicosReformaTributariaPoucosCreditosRoute =
+  ConteudosPrestadoresServicosReformaTributariaPoucosCreditosRouteImport.update(
+    {
+      id: '/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos',
+      path: '/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos',
+      getParentRoute: () => rootRouteImport,
+    } as any,
+  )
 const ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute =
   ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRouteImport.update({
     id: '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples',
@@ -596,6 +605,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/lucro-real-reforma-tributaria-creditos-controles': typeof ConteudosLucroRealReformaTributariaCreditosControlesRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
+  '/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos': typeof ConteudosPrestadoresServicosReformaTributariaPoucosCreditosRoute
   '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda': typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRoute
   '/conteudos/reforma-tributaria-formacao-preco-margem': typeof ConteudosReformaTributariaFormacaoPrecoMargemRoute
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
@@ -682,6 +692,7 @@ export interface FileRoutesByTo {
   '/conteudos/lucro-real-reforma-tributaria-creditos-controles': typeof ConteudosLucroRealReformaTributariaCreditosControlesRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
+  '/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos': typeof ConteudosPrestadoresServicosReformaTributariaPoucosCreditosRoute
   '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda': typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRoute
   '/conteudos/reforma-tributaria-formacao-preco-margem': typeof ConteudosReformaTributariaFormacaoPrecoMargemRoute
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
@@ -770,6 +781,7 @@ export interface FileRoutesById {
   '/conteudos/lucro-real-reforma-tributaria-creditos-controles': typeof ConteudosLucroRealReformaTributariaCreditosControlesRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
+  '/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos': typeof ConteudosPrestadoresServicosReformaTributariaPoucosCreditosRoute
   '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda': typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRoute
   '/conteudos/reforma-tributaria-formacao-preco-margem': typeof ConteudosReformaTributariaFormacaoPrecoMargemRoute
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
@@ -858,6 +870,7 @@ export interface FileRouteTypes {
     | '/conteudos/lucro-real-reforma-tributaria-creditos-controles'
     | '/conteudos/planejamento-tributario'
     | '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
+    | '/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos'
     | '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda'
     | '/conteudos/reforma-tributaria-formacao-preco-margem'
     | '/conteudos/regimes-tributarios'
@@ -944,6 +957,7 @@ export interface FileRouteTypes {
     | '/conteudos/lucro-real-reforma-tributaria-creditos-controles'
     | '/conteudos/planejamento-tributario'
     | '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
+    | '/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos'
     | '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda'
     | '/conteudos/reforma-tributaria-formacao-preco-margem'
     | '/conteudos/regimes-tributarios'
@@ -1031,6 +1045,7 @@ export interface FileRouteTypes {
     | '/conteudos/lucro-real-reforma-tributaria-creditos-controles'
     | '/conteudos/planejamento-tributario'
     | '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
+    | '/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos'
     | '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda'
     | '/conteudos/reforma-tributaria-formacao-preco-margem'
     | '/conteudos/regimes-tributarios'
@@ -1119,6 +1134,7 @@ export interface RootRouteChildren {
   ConteudosLucroRealReformaTributariaCreditosControlesRoute: typeof ConteudosLucroRealReformaTributariaCreditosControlesRoute
   ConteudosPlanejamentoTributarioRoute: typeof ConteudosPlanejamentoTributarioRoute
   ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute: typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
+  ConteudosPrestadoresServicosReformaTributariaPoucosCreditosRoute: typeof ConteudosPrestadoresServicosReformaTributariaPoucosCreditosRoute
   ConteudosReformaTributariaClinicasMedicasOQueMudaRoute: typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRoute
   ConteudosReformaTributariaFormacaoPrecoMargemRoute: typeof ConteudosReformaTributariaFormacaoPrecoMargemRoute
   ConteudosRegimesTributariosRoute: typeof ConteudosRegimesTributariosRoute
@@ -1637,6 +1653,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos': {
+      id: '/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos'
+      path: '/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos'
+      fullPath: '/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos'
+      preLoaderRoute: typeof ConteudosPrestadoresServicosReformaTributariaPoucosCreditosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': {
       id: '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
       path: '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
@@ -1828,6 +1851,8 @@ const rootRouteChildren: RootRouteChildren = {
   ConteudosPlanejamentoTributarioRoute: ConteudosPlanejamentoTributarioRoute,
   ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute:
     ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute,
+  ConteudosPrestadoresServicosReformaTributariaPoucosCreditosRoute:
+    ConteudosPrestadoresServicosReformaTributariaPoucosCreditosRoute,
   ConteudosReformaTributariaClinicasMedicasOQueMudaRoute:
     ConteudosReformaTributariaClinicasMedicasOQueMudaRoute,
   ConteudosReformaTributariaFormacaoPrecoMargemRoute:
