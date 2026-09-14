@@ -80,6 +80,9 @@ const entries: SitemapEntry[] = [
   { path: "/conteudos/cronograma-reforma-tributaria-2026-2033", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/reforma-tributaria-formacao-preco-margem", changefreq: "monthly", priority: "0.9" },
+  { path: "/conteudos/despesas-que-geram-credito-ibs-cbs", changefreq: "monthly", priority: "0.9" },
+
+
 
   { path: "/reforma-tributaria-2026", changefreq: "monthly", priority: "0.8" },
 ];
