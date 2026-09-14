@@ -82,6 +82,9 @@ const entries: SitemapEntry[] = [
   { path: "/conteudos/reforma-tributaria-formacao-preco-margem", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/despesas-que-geram-credito-ibs-cbs", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026", changefreq: "monthly", priority: "0.9" },
+  { path: "/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda", changefreq: "monthly", priority: "0.9" },
+
+
 
 
 

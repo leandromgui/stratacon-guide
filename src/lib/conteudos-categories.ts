@@ -44,6 +44,8 @@ export const categories: CategoryDef[] = [
       { h2: "Reforma Tributária e Formação de Preço: por que seu mark-up precisa ser refeito", excerpt: "Por que somar IBS/CBS ao preço antigo não basta, como calcular a alíquota efetiva e os riscos reais para a margem.", to: "/conteudos/reforma-tributaria-formacao-preco-margem", kind: "Análise", date: "Set 2026" },
       { h2: "Quais Despesas Geram Crédito de IBS e CBS", excerpt: "Entenda a regra geral de crédito de IBS/CBS vinculado à atividade econômica, o que a lei exclui expressamente e por que folha de pagamento não gera crédito.", to: "/conteudos/despesas-que-geram-credito-ibs-cbs", kind: "Análise", date: "Set 2026" },
       { h2: "IBS e CBS na Nota Fiscal: obrigatório desde 3 de agosto de 2026", excerpt: "Desde 3 de agosto de 2026 o preenchimento de IBS e CBS na nota fiscal eletrônica é obrigatório. Entenda o que muda e como evitar rejeição de documentos.", to: "/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026", kind: "Análise", date: "Set 2026" },
+      { h2: "Reforma Tributária para Clínicas Médicas: o que muda (e o que NÃO muda)", excerpt: "Entenda a redução de 60% na alíquota de IBS/CBS para saúde, por que a folha de pagamento limita os créditos, e por que a equiparação hospitalar continua separada da reforma.", to: "/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda", kind: "Análise", date: "Set 2026" },
+
 
 
       { h2: "Simples × Presumido × Real: comparativo prático", excerpt: "Como decidir o regime com base em margem, folha e operação interestadual.", to: "/conteudos/regimes-tributarios", kind: "Guia", date: "Mai 2026" },

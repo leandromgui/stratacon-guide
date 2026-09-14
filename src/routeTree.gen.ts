@@ -74,6 +74,7 @@ import { Route as ConteudosRespostasValidadasRouteImport } from './routes/conteu
 import { Route as ConteudosRegularizacaoFiscalRouteImport } from './routes/conteudos.regularizacao-fiscal'
 import { Route as ConteudosRegimesTributariosRouteImport } from './routes/conteudos.regimes-tributarios'
 import { Route as ConteudosReformaTributariaFormacaoPrecoMargemRouteImport } from './routes/conteudos.reforma-tributaria-formacao-preco-margem'
+import { Route as ConteudosReformaTributariaClinicasMedicasOQueMudaRouteImport } from './routes/conteudos.reforma-tributaria-clinicas-medicas-o-que-muda'
 import { Route as ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRouteImport } from './routes/conteudos.prazo-opcao-regime-regular-ibs-cbs-simples'
 import { Route as ConteudosPlanejamentoTributarioRouteImport } from './routes/conteudos.planejamento-tributario'
 import { Route as ConteudosLc2362026ProcessoAdministrativoFiscalRouteImport } from './routes/conteudos.lc-236-2026-processo-administrativo-fiscal'
@@ -443,6 +444,12 @@ const ConteudosReformaTributariaFormacaoPrecoMargemRoute =
     path: '/conteudos/reforma-tributaria-formacao-preco-margem',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ConteudosReformaTributariaClinicasMedicasOQueMudaRoute =
+  ConteudosReformaTributariaClinicasMedicasOQueMudaRouteImport.update({
+    id: '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda',
+    path: '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute =
   ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRouteImport.update({
     id: '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples',
@@ -563,6 +570,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
+  '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda': typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRoute
   '/conteudos/reforma-tributaria-formacao-preco-margem': typeof ConteudosReformaTributariaFormacaoPrecoMargemRoute
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
   '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
@@ -645,6 +653,7 @@ export interface FileRoutesByTo {
   '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
+  '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda': typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRoute
   '/conteudos/reforma-tributaria-formacao-preco-margem': typeof ConteudosReformaTributariaFormacaoPrecoMargemRoute
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
   '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
@@ -729,6 +738,7 @@ export interface FileRoutesById {
   '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
+  '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda': typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRoute
   '/conteudos/reforma-tributaria-formacao-preco-margem': typeof ConteudosReformaTributariaFormacaoPrecoMargemRoute
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
   '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
@@ -813,6 +823,7 @@ export interface FileRouteTypes {
     | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
     | '/conteudos/planejamento-tributario'
     | '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
+    | '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda'
     | '/conteudos/reforma-tributaria-formacao-preco-margem'
     | '/conteudos/regimes-tributarios'
     | '/conteudos/regularizacao-fiscal'
@@ -895,6 +906,7 @@ export interface FileRouteTypes {
     | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
     | '/conteudos/planejamento-tributario'
     | '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
+    | '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda'
     | '/conteudos/reforma-tributaria-formacao-preco-margem'
     | '/conteudos/regimes-tributarios'
     | '/conteudos/regularizacao-fiscal'
@@ -978,6 +990,7 @@ export interface FileRouteTypes {
     | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
     | '/conteudos/planejamento-tributario'
     | '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
+    | '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda'
     | '/conteudos/reforma-tributaria-formacao-preco-margem'
     | '/conteudos/regimes-tributarios'
     | '/conteudos/regularizacao-fiscal'
@@ -1062,6 +1075,7 @@ export interface RootRouteChildren {
   ConteudosLc2362026ProcessoAdministrativoFiscalRoute: typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   ConteudosPlanejamentoTributarioRoute: typeof ConteudosPlanejamentoTributarioRoute
   ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute: typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
+  ConteudosReformaTributariaClinicasMedicasOQueMudaRoute: typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRoute
   ConteudosReformaTributariaFormacaoPrecoMargemRoute: typeof ConteudosReformaTributariaFormacaoPrecoMargemRoute
   ConteudosRegimesTributariosRoute: typeof ConteudosRegimesTributariosRoute
   ConteudosRegularizacaoFiscalRoute: typeof ConteudosRegularizacaoFiscalRoute
@@ -1572,6 +1586,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosReformaTributariaFormacaoPrecoMargemRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda': {
+      id: '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda'
+      path: '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda'
+      fullPath: '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda'
+      preLoaderRoute: typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': {
       id: '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
       path: '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
@@ -1736,6 +1757,8 @@ const rootRouteChildren: RootRouteChildren = {
   ConteudosPlanejamentoTributarioRoute: ConteudosPlanejamentoTributarioRoute,
   ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute:
     ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute,
+  ConteudosReformaTributariaClinicasMedicasOQueMudaRoute:
+    ConteudosReformaTributariaClinicasMedicasOQueMudaRoute,
   ConteudosReformaTributariaFormacaoPrecoMargemRoute:
     ConteudosReformaTributariaFormacaoPrecoMargemRoute,
   ConteudosRegimesTributariosRoute: ConteudosRegimesTributariosRoute,
