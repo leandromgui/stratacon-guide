@@ -88,6 +88,7 @@ import { Route as ConteudosDpEsocialRouteImport } from './routes/conteudos.dp-es
 import { Route as ConteudosDespesasQueGeramCreditoIbsCbsRouteImport } from './routes/conteudos.despesas-que-geram-credito-ibs-cbs'
 import { Route as ConteudosCronogramaReformaTributaria20262033RouteImport } from './routes/conteudos.cronograma-reforma-tributaria-2026-2033'
 import { Route as ConteudosComercioIcmsRouteImport } from './routes/conteudos.comercio-icms'
+import { Route as ConteudosAuditoriaFornecedoresCreditosIbsCbsRouteImport } from './routes/conteudos.auditoria-fornecedores-creditos-ibs-cbs'
 import { Route as ConteudosCategoryRouteImport } from './routes/conteudos.$category'
 import { Route as AuthenticatedAdminLeadsRouteImport } from './routes/_authenticated/admin.leads'
 import { Route as AuthenticatedAdminAuditoriaSeoRouteImport } from './routes/_authenticated/admin.auditoria-seo'
@@ -530,6 +531,12 @@ const ConteudosComercioIcmsRoute = ConteudosComercioIcmsRouteImport.update({
   path: '/conteudos/comercio-icms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute =
+  ConteudosAuditoriaFornecedoresCreditosIbsCbsRouteImport.update({
+    id: '/conteudos/auditoria-fornecedores-creditos-ibs-cbs',
+    path: '/conteudos/auditoria-fornecedores-creditos-ibs-cbs',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosCategoryRoute = ConteudosCategoryRouteImport.update({
   id: '/conteudos/$category',
   path: '/conteudos/$category',
@@ -575,6 +582,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/temas-estrategicos': typeof TemasEstrategicosRoute
   '/conteudos/$category': typeof ConteudosCategoryRoute
+  '/conteudos/auditoria-fornecedores-creditos-ibs-cbs': typeof ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/cronograma-reforma-tributaria-2026-2033': typeof ConteudosCronogramaReformaTributaria20262033Route
   '/conteudos/despesas-que-geram-credito-ibs-cbs': typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
@@ -660,6 +668,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/temas-estrategicos': typeof TemasEstrategicosRoute
   '/conteudos/$category': typeof ConteudosCategoryRoute
+  '/conteudos/auditoria-fornecedores-creditos-ibs-cbs': typeof ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/cronograma-reforma-tributaria-2026-2033': typeof ConteudosCronogramaReformaTributaria20262033Route
   '/conteudos/despesas-que-geram-credito-ibs-cbs': typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
@@ -747,6 +756,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/temas-estrategicos': typeof TemasEstrategicosRoute
   '/conteudos/$category': typeof ConteudosCategoryRoute
+  '/conteudos/auditoria-fornecedores-creditos-ibs-cbs': typeof ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/cronograma-reforma-tributaria-2026-2033': typeof ConteudosCronogramaReformaTributaria20262033Route
   '/conteudos/despesas-que-geram-credito-ibs-cbs': typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
@@ -834,6 +844,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/temas-estrategicos'
     | '/conteudos/$category'
+    | '/conteudos/auditoria-fornecedores-creditos-ibs-cbs'
     | '/conteudos/comercio-icms'
     | '/conteudos/cronograma-reforma-tributaria-2026-2033'
     | '/conteudos/despesas-que-geram-credito-ibs-cbs'
@@ -919,6 +930,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/temas-estrategicos'
     | '/conteudos/$category'
+    | '/conteudos/auditoria-fornecedores-creditos-ibs-cbs'
     | '/conteudos/comercio-icms'
     | '/conteudos/cronograma-reforma-tributaria-2026-2033'
     | '/conteudos/despesas-que-geram-credito-ibs-cbs'
@@ -1005,6 +1017,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/temas-estrategicos'
     | '/conteudos/$category'
+    | '/conteudos/auditoria-fornecedores-creditos-ibs-cbs'
     | '/conteudos/comercio-icms'
     | '/conteudos/cronograma-reforma-tributaria-2026-2033'
     | '/conteudos/despesas-que-geram-credito-ibs-cbs'
@@ -1092,6 +1105,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TemasEstrategicosRoute: typeof TemasEstrategicosRoute
   ConteudosCategoryRoute: typeof ConteudosCategoryRoute
+  ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute: typeof ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute
   ConteudosComercioIcmsRoute: typeof ConteudosComercioIcmsRoute
   ConteudosCronogramaReformaTributaria20262033Route: typeof ConteudosCronogramaReformaTributaria20262033Route
   ConteudosDespesasQueGeramCreditoIbsCbsRoute: typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
@@ -1714,6 +1728,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosComercioIcmsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/auditoria-fornecedores-creditos-ibs-cbs': {
+      id: '/conteudos/auditoria-fornecedores-creditos-ibs-cbs'
+      path: '/conteudos/auditoria-fornecedores-creditos-ibs-cbs'
+      fullPath: '/conteudos/auditoria-fornecedores-creditos-ibs-cbs'
+      preLoaderRoute: typeof ConteudosAuditoriaFornecedoresCreditosIbsCbsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/$category': {
       id: '/conteudos/$category'
       path: '/conteudos/$category'
@@ -1785,6 +1806,8 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TemasEstrategicosRoute: TemasEstrategicosRoute,
   ConteudosCategoryRoute: ConteudosCategoryRoute,
+  ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute:
+    ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute,
   ConteudosComercioIcmsRoute: ConteudosComercioIcmsRoute,
   ConteudosCronogramaReformaTributaria20262033Route:
     ConteudosCronogramaReformaTributaria20262033Route,
