@@ -43,7 +43,7 @@ export const Route = createFileRoute("/conteudos/split-payment-adiado-2028-o-que
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "Início", item: "/" },
             { "@type": "ListItem", position: 2, name: "Insights", item: "/conteudos" },
-            { "@type": "ListItem", position: 3, name: "Split Payment adiado para 2028", item: SLUG },
+            { "@type": "ListItem", position: 3, name: "Split Payment adiado para 2028", item: "/conteudos/split-payment-adiado-2028-o-que-muda" },
           ],
         }),
       },
