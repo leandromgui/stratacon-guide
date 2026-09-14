@@ -70,6 +70,7 @@ import { Route as SegmentosComercioRouteImport } from './routes/segmentos.comerc
 import { Route as ConteudosSplitPaymentAdiado2028OQueMudaRouteImport } from './routes/conteudos.split-payment-adiado-2028-o-que-muda'
 import { Route as ConteudosSimplesPuroOuHibrido2027ComoDecidirRouteImport } from './routes/conteudos.simples-puro-ou-hibrido-2027-como-decidir'
 import { Route as ConteudosSaudeClinicasRouteImport } from './routes/conteudos.saude-clinicas'
+import { Route as ConteudosRevisaoContratosIbsCbsClausulasEssenciaisRouteImport } from './routes/conteudos.revisao-contratos-ibs-cbs-clausulas-essenciais'
 import { Route as ConteudosRespostasValidadasRouteImport } from './routes/conteudos.respostas-validadas'
 import { Route as ConteudosRegularizacaoFiscalRouteImport } from './routes/conteudos.regularizacao-fiscal'
 import { Route as ConteudosRegimesTributariosRouteImport } from './routes/conteudos.regimes-tributarios'
@@ -424,6 +425,12 @@ const ConteudosSaudeClinicasRoute = ConteudosSaudeClinicasRouteImport.update({
   path: '/conteudos/saude-clinicas',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConteudosRevisaoContratosIbsCbsClausulasEssenciaisRoute =
+  ConteudosRevisaoContratosIbsCbsClausulasEssenciaisRouteImport.update({
+    id: '/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais',
+    path: '/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosRespostasValidadasRoute =
   ConteudosRespostasValidadasRouteImport.update({
     id: '/conteudos/respostas-validadas',
@@ -611,6 +618,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
   '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
   '/conteudos/respostas-validadas': typeof ConteudosRespostasValidadasRoute
+  '/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais': typeof ConteudosRevisaoContratosIbsCbsClausulasEssenciaisRoute
   '/conteudos/saude-clinicas': typeof ConteudosSaudeClinicasRoute
   '/conteudos/simples-puro-ou-hibrido-2027-como-decidir': typeof ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute
   '/conteudos/split-payment-adiado-2028-o-que-muda': typeof ConteudosSplitPaymentAdiado2028OQueMudaRoute
@@ -698,6 +706,7 @@ export interface FileRoutesByTo {
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
   '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
   '/conteudos/respostas-validadas': typeof ConteudosRespostasValidadasRoute
+  '/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais': typeof ConteudosRevisaoContratosIbsCbsClausulasEssenciaisRoute
   '/conteudos/saude-clinicas': typeof ConteudosSaudeClinicasRoute
   '/conteudos/simples-puro-ou-hibrido-2027-como-decidir': typeof ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute
   '/conteudos/split-payment-adiado-2028-o-que-muda': typeof ConteudosSplitPaymentAdiado2028OQueMudaRoute
@@ -787,6 +796,7 @@ export interface FileRoutesById {
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
   '/conteudos/regularizacao-fiscal': typeof ConteudosRegularizacaoFiscalRoute
   '/conteudos/respostas-validadas': typeof ConteudosRespostasValidadasRoute
+  '/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais': typeof ConteudosRevisaoContratosIbsCbsClausulasEssenciaisRoute
   '/conteudos/saude-clinicas': typeof ConteudosSaudeClinicasRoute
   '/conteudos/simples-puro-ou-hibrido-2027-como-decidir': typeof ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute
   '/conteudos/split-payment-adiado-2028-o-que-muda': typeof ConteudosSplitPaymentAdiado2028OQueMudaRoute
@@ -876,6 +886,7 @@ export interface FileRouteTypes {
     | '/conteudos/regimes-tributarios'
     | '/conteudos/regularizacao-fiscal'
     | '/conteudos/respostas-validadas'
+    | '/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais'
     | '/conteudos/saude-clinicas'
     | '/conteudos/simples-puro-ou-hibrido-2027-como-decidir'
     | '/conteudos/split-payment-adiado-2028-o-que-muda'
@@ -963,6 +974,7 @@ export interface FileRouteTypes {
     | '/conteudos/regimes-tributarios'
     | '/conteudos/regularizacao-fiscal'
     | '/conteudos/respostas-validadas'
+    | '/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais'
     | '/conteudos/saude-clinicas'
     | '/conteudos/simples-puro-ou-hibrido-2027-como-decidir'
     | '/conteudos/split-payment-adiado-2028-o-que-muda'
@@ -1051,6 +1063,7 @@ export interface FileRouteTypes {
     | '/conteudos/regimes-tributarios'
     | '/conteudos/regularizacao-fiscal'
     | '/conteudos/respostas-validadas'
+    | '/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais'
     | '/conteudos/saude-clinicas'
     | '/conteudos/simples-puro-ou-hibrido-2027-como-decidir'
     | '/conteudos/split-payment-adiado-2028-o-que-muda'
@@ -1140,6 +1153,7 @@ export interface RootRouteChildren {
   ConteudosRegimesTributariosRoute: typeof ConteudosRegimesTributariosRoute
   ConteudosRegularizacaoFiscalRoute: typeof ConteudosRegularizacaoFiscalRoute
   ConteudosRespostasValidadasRoute: typeof ConteudosRespostasValidadasRoute
+  ConteudosRevisaoContratosIbsCbsClausulasEssenciaisRoute: typeof ConteudosRevisaoContratosIbsCbsClausulasEssenciaisRoute
   ConteudosSaudeClinicasRoute: typeof ConteudosSaudeClinicasRoute
   ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute: typeof ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute
   ConteudosSplitPaymentAdiado2028OQueMudaRoute: typeof ConteudosSplitPaymentAdiado2028OQueMudaRoute
@@ -1618,6 +1632,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosSaudeClinicasRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais': {
+      id: '/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais'
+      path: '/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais'
+      fullPath: '/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais'
+      preLoaderRoute: typeof ConteudosRevisaoContratosIbsCbsClausulasEssenciaisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/respostas-validadas': {
       id: '/conteudos/respostas-validadas'
       path: '/conteudos/respostas-validadas'
@@ -1860,6 +1881,8 @@ const rootRouteChildren: RootRouteChildren = {
   ConteudosRegimesTributariosRoute: ConteudosRegimesTributariosRoute,
   ConteudosRegularizacaoFiscalRoute: ConteudosRegularizacaoFiscalRoute,
   ConteudosRespostasValidadasRoute: ConteudosRespostasValidadasRoute,
+  ConteudosRevisaoContratosIbsCbsClausulasEssenciaisRoute:
+    ConteudosRevisaoContratosIbsCbsClausulasEssenciaisRoute,
   ConteudosSaudeClinicasRoute: ConteudosSaudeClinicasRoute,
   ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute:
     ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute,
