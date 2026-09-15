@@ -37,6 +37,18 @@ const FAQ = [
     q: "Como funciona a estrutura de atendimento por empresa?",
     a: "Cada cliente tem um responsável de conta, um calendário fiscal próprio e um cronograma de fechamento. Reuniões periódicas revisam regime, indicadores e decisões societárias.",
   },
+  {
+    q: "Qual a localização exata do escritório?",
+    a: "R. 89-A, nº 51, Setor Sul, Goiânia — GO, CEP 74093-150, com sala de reunião para atendimento presencial agendado e estacionamento no local.",
+  },
+  {
+    q: "O escritório atende empresas de outras cidades e estados?",
+    a: "Sim. Além do atendimento presencial em Goiânia e região metropolitana, a DCON atende remotamente empresas de todo o Brasil, com o mesmo responsável de conta e calendário fiscal controlado.",
+  },
+  {
+    q: "Como funciona a troca de escritório de contabilidade?",
+    a: "A transição começa com um diagnóstico de entrada que identifica pendências deixadas pelo escritório anterior antes da migração. A partir daí, a DCON conduz a transferência de documentos, senhas e obrigações sem interromper a rotina fiscal da empresa.",
+  },
 ];
 
 const JSONLD = {
