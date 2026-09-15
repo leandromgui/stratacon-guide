@@ -148,18 +148,38 @@ const categories: Category[] = [
   },
 ];
 
+/** Normaliza para busca: minúsculas, sem acentos e sem espaços extras. */
+function norm(s: string) {
+  return s
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function Page() {
   const [theme, setTheme] = useState<(typeof themes)[number]>("Todos");
   const [kind, setKind] = useState<(typeof kinds)[number]>("Todos");
   const [q, setQ] = useState("");
+  const resultsRef = useRef<HTMLElement | null>(null);
+
+  const hasFilter = theme !== "Todos" || kind !== "Todos" || q.trim() !== "";
 
   const filtered = useMemo(() => {
-    return insights.filter((i) =>
-      (theme === "Todos" || i.theme === theme) &&
-      (kind === "Todos" || i.kind === kind) &&
-      (q === "" || (i.h + " " + i.b).toLowerCase().includes(q.toLowerCase()))
-    );
+    const terms = norm(q).split(" ").filter(Boolean);
+    return insights.filter((i) => {
+      if (theme !== "Todos" && i.theme !== theme) return false;
+      if (kind !== "Todos" && i.kind !== kind) return false;
+      if (terms.length === 0) return true;
+      const haystack = norm(`${i.h} ${i.b} ${i.theme} ${i.kind}`);
+      return terms.every((t) => haystack.includes(t));
+    });
   }, [theme, kind, q]);
+
+  const scrollToResults = () => {
+    resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <div>
