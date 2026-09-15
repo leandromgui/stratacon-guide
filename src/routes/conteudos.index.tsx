@@ -283,7 +283,7 @@ function Page() {
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{c.intro}</p>
               <ul className="mt-6 space-y-4 border-t border-border pt-6">
                 {c.topics.map((t) => (
-                  <li key={t.to}>
+                  <li key={`${c.slug}-${t.h3}`}>
                     <Link to={t.to} className="text-[15px] font-medium leading-snug hover:text-secondary block">
                       {t.h3}
                     </Link>
@@ -306,18 +306,31 @@ function Page() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20">
-        <div className="text-[12px] uppercase tracking-[0.18em] text-muted-foreground mb-6">
-          {filtered.length} publicaç{filtered.length === 1 ? "ão" : "ões"}
+      <section ref={resultsRef} id="publicacoes" className="mx-auto max-w-7xl px-6 py-20 scroll-mt-32">
+        <div className="mb-6 flex flex-wrap items-center gap-4">
+          <div className="text-[12px] uppercase tracking-[0.18em] text-muted-foreground">
+            {filtered.length} publicaç{filtered.length === 1 ? "ão" : "ões"}
+            {q.trim() !== "" && <> para “{q.trim()}”</>}
+          </div>
+          {hasFilter && (
+            <button
+              type="button"
+              onClick={() => { setTheme("Todos"); setKind("Todos"); setQ(""); }}
+              className="text-[11px] uppercase tracking-[0.16em] px-3 py-1.5 border border-border hover:border-secondary"
+            >
+              Limpar filtros
+            </button>
+          )}
         </div>
         {filtered.length === 0 ? (
           <div className="border border-dashed border-border p-10 text-center text-muted-foreground">
-            Nenhuma publicação para esse filtro. Ajuste os critérios acima.
+            Nenhuma publicação encontrada
+            {q.trim() !== "" && <> para “{q.trim()}”</>}. Ajuste os critérios acima ou limpe os filtros.
           </div>
         ) : (
           <div className="grid gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-3">
             {filtered.map((i) => (
-              <Link key={i.h} to={i.to} className="group bg-card p-7 flex flex-col justify-between hover:bg-secondary hover:text-secondary-foreground transition-colors">
+              <Link key={`${i.h}-${i.to}`} to={i.to} className="group bg-card p-7 flex flex-col justify-between hover:bg-secondary hover:text-secondary-foreground transition-colors">
                 <div>
                   <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.22em] text-gold">
                     <span>{i.kind}</span>
