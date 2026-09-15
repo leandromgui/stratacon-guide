@@ -214,7 +214,7 @@ function Page() {
             {themes.map((t) => (
               <button
                 key={t}
-                onClick={() => setTheme(t)}
+                onClick={() => { setTheme(t); scrollToResults(); }}
                 className={`text-[11px] uppercase tracking-[0.16em] px-3 py-1.5 border ${theme === t ? "bg-secondary text-secondary-foreground border-secondary" : "border-border hover:border-secondary"}`}
               >
                 {t}
@@ -226,21 +226,30 @@ function Page() {
             {kinds.map((k) => (
               <button
                 key={k}
-                onClick={() => setKind(k)}
+                onClick={() => { setKind(k); scrollToResults(); }}
                 className={`text-[11px] uppercase tracking-[0.16em] px-3 py-1.5 border ${kind === k ? "bg-gold text-gold-foreground border-gold" : "border-border hover:border-gold"}`}
               >
                 {k}
               </button>
             ))}
           </div>
-          <div className="lg:ml-auto">
+          <div className="lg:ml-auto flex items-center gap-3">
             <input
               type="search"
               value={q}
               onChange={(e) => setQ(e.target.value)}
+              onKeyDown={(e) => { if (e.key === "Enter") scrollToResults(); }}
+              aria-label="Buscar no editorial"
               placeholder="Buscar no editorial…"
               className="w-full lg:w-72 border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:border-secondary"
             />
+            <button
+              type="button"
+              onClick={scrollToResults}
+              className="whitespace-nowrap text-[11px] uppercase tracking-[0.16em] px-3 py-2 border border-border hover:border-secondary"
+            >
+              Buscar
+            </button>
           </div>
         </div>
       </section>
