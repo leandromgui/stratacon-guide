@@ -13,16 +13,16 @@ const SERVICES = [
 
 const FAQ = [
   {
-    q: "Quanto custa um contador em Goiânia?",
-    a: "O honorário depende do regime tributário, do volume de notas, da folha de pagamento e do nível de consultoria contratado. Uma empresa de serviços no Simples Nacional tem custo bem diferente de um comércio no Lucro Real com ICMS-ST. Na DCON o valor é definido após o diagnóstico técnico inicial, com escopo escrito: o que está incluído, quais entregas são mensais e quais são pontuais.",
+    q: "A DCON atende só Goiânia ou todo o Brasil?",
+    a: "A sede fica em Goiânia (Setor Sul), com atendimento presencial local e remoto para empresas de todo o Brasil.",
   },
   {
-    q: "Como trocar de contador sem burocracia?",
-    a: "A troca é feita por transferência de responsabilidade técnica: solicitamos os arquivos digitais (balanços, SPED, folha, procurações), conferimos o que foi entregue nos últimos períodos, apontamos pendências e assumimos as obrigações a partir de uma competência definida. Você não precisa negociar com o contador anterior — conduzimos a migração e a auditoria de abertura.",
+    q: "Dá para trocar de contador no meio do ano fiscal?",
+    a: "Sim, o processo de transição inclui diagnóstico de entrada para identificar pendências do contador anterior antes da migração.",
   },
   {
-    q: "Vocês atendem MEI, Simples Nacional e Lucro Presumido em Goiânia?",
-    a: "Atendemos Simples Nacional, Lucro Presumido e Lucro Real, com comparativo de regimes antes de qualquer mudança. Para MEI, o foco é orientar o momento correto de migrar para ME/EPP antes do desenquadramento por faturamento ou por contratação de funcionário.",
+    q: "Como faço para agendar um diagnóstico inicial?",
+    a: "Pelo formulário do site ou WhatsApp, o diagnóstico técnico inicial leva 7 dias úteis.",
   },
 ];
 
@@ -96,7 +96,7 @@ function Page() {
       eyebrow="Goiânia"
       h1="Contador em Goiânia — Contabilidade Consultiva para Empresas"
       lead="Um contador que responde tecnicamente pelo que assina — e explica o impacto de cada decisão antes dela virar imposto pago a mais."
-      intro={<>A DCON Serviços Contábeis atua em Goiânia desde 2004 — 20+ anos de atuação —, sob CRC-GO 1202/O-5, com responsabilidade técnica de Leandro Matsuoka Guimarães (CRC-GO 16.395/O-9). A diferença entre uma contabilidade operacional e uma contabilidade consultiva aparece no mesmo lugar: a operacional entrega a guia calculada; a consultiva mostra por que aquele valor existe, se ele está correto e o que pode ser feito legalmente para reduzi-lo. Embora atuem como <Link to="/solucoes/planejamento-tributario" className="text-gold underline underline-offset-4 hover:no-underline">contador tributarista</Link>, o foco da DCON está na consultoria tributária estratégica: leitura técnica, parecer fundamentado e decisão antecipada.</>}
+      intro="A DCON atua em Goiânia desde 2004, mais de 20 anos acompanhando empresas locais em decisões contábeis, tributárias e patrimoniais. Nosso escritório fica no Setor Sul, com atendimento presencial e também remoto para empresas de todo o Brasil. Hoje, mais de 700 clientes confiam na condução técnica da DCON, com R$ 11,5 milhões em créditos tributários recuperados nos últimos 5 anos."
       breadcrumbs={[{ label: "Contador em Goiânia", to: "/contador-em-goiania" }]}
       ctaPrimary={{ label: "Solicitar diagnóstico técnico inicial", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
@@ -123,6 +123,31 @@ function Page() {
             },
           ],
         },
+        {
+          h2: "Como funciona o Método DCON",
+          lead: "Todo trabalho segue quatro etapas auditáveis: Diagnóstico técnico (levantamento real da situação fiscal e contábil da empresa), Estruturação (correção de regime, créditos e pendências identificadas), Rotina auditável (execução mensal com revisão técnica constante) e Acompanhamento consultivo (leitura estratégica contínua, não só entrega de obrigação). Cada etapa tem responsável técnico nominal, com CRC ativo.",
+        },
+        {
+          h2: "Presença em Goiânia",
+          lead: "Endereço: Rua 89-A, nº 51, Setor Sul, Goiânia/GO, CEP 74093-150. Atendimento presencial e online, com avaliação 5,0 (17 avaliações) no Google. Responsável técnico: Leandro Matsuoka Guimarães, CRC-GO 16.395/O-9. Empresa: CRC-GO 1202/O-5.",
+        },
+        {
+          h2: "Perguntas frequentes",
+          h3: [
+            {
+              title: "A DCON atende só Goiânia ou todo o Brasil?",
+              body: "A sede fica em Goiânia (Setor Sul), com atendimento presencial local e remoto para empresas de todo o Brasil.",
+            },
+            {
+              title: "Dá para trocar de contador no meio do ano fiscal?",
+              body: "Sim, o processo de transição inclui diagnóstico de entrada para identificar pendências do contador anterior antes da migração.",
+            },
+            {
+              title: "Como faço para agendar um diagnóstico inicial?",
+              body: "Pelo formulário do site ou WhatsApp, o diagnóstico técnico inicial leva 7 dias úteis.",
+            },
+          ],
+        },
       ]}
       method={[
         {
@@ -146,7 +171,7 @@ function Page() {
           body: "Acompanhamento mensal com indicadores e revisão de teses sob responsabilidade técnica permanente.",
         },
       ]}
-      faq={FAQ}
+      
       relatedLinks={[
         { label: "Escritório de contabilidade em Goiânia", to: "/escritorio-de-contabilidade-em-goiania", eyebrow: "Estrutura" },
         { label: "Liderança técnica: Leandro Matsuoka", to: "/sobre/leandro", eyebrow: "Responsável técnico" },
