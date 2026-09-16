@@ -99,10 +99,16 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
+        // O servidor redireciona (301) URLs sem barra final para a versão com
+        // barra final. O sitemap precisa listar a forma canônica final para
+        // evitar que o Googlebot passe por um redirect desnecessário.
+        const withTrailingSlash = (path: string) =>
+          path.endsWith("/") ? path : `${path}/`;
+
         const urls = entries.map((e) =>
           [
             `  <url>`,
-            `    <loc>${BASE_URL}${e.path}</loc>`,
+            `    <loc>${BASE_URL}${withTrailingSlash(e.path)}</loc>`,
             e.changefreq ? `    <changefreq>${e.changefreq}</changefreq>` : null,
             e.priority ? `    <priority>${e.priority}</priority>` : null,
             `  </url>`,
