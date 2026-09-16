@@ -42,6 +42,8 @@ function CtaLink({
 export interface H3Item {
   title: string;
   body: ReactNode;
+  /** CTA opcional renderizado como botão dentro do card. */
+  cta?: { label: string; to: string };
 }
 
 export interface Section {

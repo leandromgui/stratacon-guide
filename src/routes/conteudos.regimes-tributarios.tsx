@@ -37,7 +37,7 @@ function Page() {
         { title: "Lucro Presumido", body: "Percentuais de presunção, PIS/Cofins cumulativo e a LC 224/2025 em /segmentos/lucro-presumido." },
         { title: "Lucro Real", body: "Comparação de margem efetiva e aproveitamento de créditos com apuração pelo resultado." },
       ] },
-      { h2: "Página de destino recomendada", h3: [{"title":"Solução relacionada: Simples Nacional","body":"Cada artigo direciona o leitor para a página do regime correspondente."},{"title":"CTA padrão do cluster","body":"Solicitar diagnóstico fiscal e contábil."}] },
+      { h2: "Página de destino recomendada", h3: [{"title":"Solução relacionada: Simples Nacional","body":"Cada artigo direciona o leitor para a página do regime correspondente."},{"title":"Próximo passo","body":"Diagnóstico fiscal, contábil e tributário para revisar regime, créditos e riscos da empresa.","cta":{"label":"Solicitar diagnóstico","to":"/diagnostico"}}] },
       ]}
     />
   );
