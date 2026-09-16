@@ -42,6 +42,8 @@ function CtaLink({
 export interface H3Item {
   title: string;
   body: ReactNode;
+  /** CTA opcional renderizado como botão dentro do card. */
+  cta?: { label: string; to: string };
 }
 
 export interface Section {
@@ -294,6 +296,14 @@ export function PageScaffold(p: PageScaffoldProps) {
                     <p className="mt-2 text-muted-foreground text-[14px] leading-relaxed group-hover:text-secondary-foreground/80">
                       {h.body}
                     </p>
+                    {h.cta && (
+                      <CtaLink
+                        to={h.cta.to}
+                        className="mt-4 inline-flex items-center bg-gold px-5 py-2.5 text-[12px] uppercase tracking-[0.16em] font-medium text-gold-foreground hover:opacity-90"
+                      >
+                        {h.cta.label} →
+                      </CtaLink>
+                    )}
                   </Reveal>
                 ))}
                 {s.h3.length % 2 === 1 && (
