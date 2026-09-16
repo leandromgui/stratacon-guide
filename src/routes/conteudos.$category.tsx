@@ -25,13 +25,14 @@ export const Route = createFileRoute("/conteudos/$category")({
     const current = Math.min(Math.max(1, parsePage((location.search as { p?: unknown }).p)), totalPages);
 
     const base = `/conteudos/${category.slug}`;
+    const canonical = `https://dcon.cnt.br${current === 1 ? base : `${base}?p=${current}`}`;
     return {
       category,
       current,
       totalPages,
-      canonical: current === 1 ? base : `${base}?p=${current}`,
-      prevUrl: current > 1 ? (current === 2 ? base : `${base}?p=${current - 1}`) : null,
-      nextUrl: current < totalPages ? `${base}?p=${current + 1}` : null,
+      canonical,
+      prevUrl: current > 1 ? `https://dcon.cnt.br${current === 2 ? base : `${base}?p=${current - 1}`}` : null,
+      nextUrl: current < totalPages ? `https://dcon.cnt.br${base}?p=${current + 1}` : null,
     };
   },
   head: ({ params, loaderData }) => {
