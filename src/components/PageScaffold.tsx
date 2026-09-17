@@ -56,7 +56,7 @@ export interface Section {
 
 export interface FaqItem { q: string; a: string | ReactNode }
 
-export type CtaVariant = "diagnostic" | "risk" | "opportunity" | "institutional";
+export type CtaVariant = "diagnostic" | "risk" | "opportunity" | "institutional" | "changeAccountant";
 
 const CTA_VARIANTS: Record<CtaVariant, {
   eyebrow: string;
@@ -92,6 +92,13 @@ const CTA_VARIANTS: Record<CtaVariant, {
     body: "Apresentação institucional, método de trabalho e proposta técnica sob responsabilidade do CRC do escritório.",
     primary: { label: "Falar com consultor DCON", to: "/contato" },
     secondary: { label: "Conhecer o Método DCON", to: "/metodo" },
+  },
+  changeAccountant: {
+    eyebrow: "Próximo passo",
+    title: "Troque de contador com segurança.",
+    body: "Diagnóstico de entrada, transição assistida e rotina auditável desde o primeiro mês.",
+    primary: { label: "Trocar de Contador", to: "/diagnostico" },
+    secondary: { label: "Falar com a DCON", to: "/contato" },
   },
 };
 
