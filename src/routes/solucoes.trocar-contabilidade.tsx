@@ -39,7 +39,7 @@ function Page() {
       respostaValidada={docDcon.respostaValidada}
       pillarKey="trocar-contabilidade"
       method={dconMethod}
-      ctaVariant="institutional"
+      ctaVariant="changeAccountant"
       sections={[
       { h2: "Quando trocar", h3: [{"title":"Falta de comunicação","body":"Quando você só recebe guia e nunca recebe análise."},{"title":"Erros recorrentes","body":"Multas, atrasos e retrabalho que viraram rotina."},{"title":"Crescimento da empresa","body":"Operação ficou maior do que o contador suporta."}] },
       { h2: "Riscos da troca mal feita", h3: [{"title":"Perder prazo","body":"Janela entre contadores onde obrigação não é entregue."},{"title":"Documento solto","body":"Base sem entrega completa do anterior."},{"title":"Erro herdado","body":"Adotar problema do contador anterior sem revisar."}] },
