@@ -44,6 +44,8 @@ export interface H3Item {
   body: ReactNode;
   /** CTA opcional renderizado como botão dentro do card. */
   cta?: { label: string; to: string };
+  /** Link opcional que torna todo o card clicável. */
+  link?: { to: string };
 }
 
 export interface Section {
