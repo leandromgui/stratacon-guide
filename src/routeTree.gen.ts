@@ -69,6 +69,7 @@ import { Route as SegmentosCondominiosRouteImport } from './routes/segmentos.con
 import { Route as SegmentosComercioRouteImport } from './routes/segmentos.comercio'
 import { Route as ConteudosSplitPaymentAdiado2028OQueMudaRouteImport } from './routes/conteudos.split-payment-adiado-2028-o-que-muda'
 import { Route as ConteudosSimplesPuroOuHibrido2027ComoDecidirRouteImport } from './routes/conteudos.simples-puro-ou-hibrido-2027-como-decidir'
+import { Route as ConteudosSimplesNacionalVaiAcabar2027RouteImport } from './routes/conteudos.simples-nacional-vai-acabar-2027'
 import { Route as ConteudosSaudeClinicasRouteImport } from './routes/conteudos.saude-clinicas'
 import { Route as ConteudosRevisaoContratosIbsCbsClausulasEssenciaisRouteImport } from './routes/conteudos.revisao-contratos-ibs-cbs-clausulas-essenciais'
 import { Route as ConteudosRespostasValidadasRouteImport } from './routes/conteudos.respostas-validadas'
@@ -420,6 +421,12 @@ const ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute =
     path: '/conteudos/simples-puro-ou-hibrido-2027-como-decidir',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ConteudosSimplesNacionalVaiAcabar2027Route =
+  ConteudosSimplesNacionalVaiAcabar2027RouteImport.update({
+    id: '/conteudos/simples-nacional-vai-acabar-2027',
+    path: '/conteudos/simples-nacional-vai-acabar-2027',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosSaudeClinicasRoute = ConteudosSaudeClinicasRouteImport.update({
   id: '/conteudos/saude-clinicas',
   path: '/conteudos/saude-clinicas',
@@ -620,6 +627,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/respostas-validadas': typeof ConteudosRespostasValidadasRoute
   '/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais': typeof ConteudosRevisaoContratosIbsCbsClausulasEssenciaisRoute
   '/conteudos/saude-clinicas': typeof ConteudosSaudeClinicasRoute
+  '/conteudos/simples-nacional-vai-acabar-2027': typeof ConteudosSimplesNacionalVaiAcabar2027Route
   '/conteudos/simples-puro-ou-hibrido-2027-como-decidir': typeof ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute
   '/conteudos/split-payment-adiado-2028-o-que-muda': typeof ConteudosSplitPaymentAdiado2028OQueMudaRoute
   '/segmentos/comercio': typeof SegmentosComercioRoute
@@ -708,6 +716,7 @@ export interface FileRoutesByTo {
   '/conteudos/respostas-validadas': typeof ConteudosRespostasValidadasRoute
   '/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais': typeof ConteudosRevisaoContratosIbsCbsClausulasEssenciaisRoute
   '/conteudos/saude-clinicas': typeof ConteudosSaudeClinicasRoute
+  '/conteudos/simples-nacional-vai-acabar-2027': typeof ConteudosSimplesNacionalVaiAcabar2027Route
   '/conteudos/simples-puro-ou-hibrido-2027-como-decidir': typeof ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute
   '/conteudos/split-payment-adiado-2028-o-que-muda': typeof ConteudosSplitPaymentAdiado2028OQueMudaRoute
   '/segmentos/comercio': typeof SegmentosComercioRoute
@@ -798,6 +807,7 @@ export interface FileRoutesById {
   '/conteudos/respostas-validadas': typeof ConteudosRespostasValidadasRoute
   '/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais': typeof ConteudosRevisaoContratosIbsCbsClausulasEssenciaisRoute
   '/conteudos/saude-clinicas': typeof ConteudosSaudeClinicasRoute
+  '/conteudos/simples-nacional-vai-acabar-2027': typeof ConteudosSimplesNacionalVaiAcabar2027Route
   '/conteudos/simples-puro-ou-hibrido-2027-como-decidir': typeof ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute
   '/conteudos/split-payment-adiado-2028-o-que-muda': typeof ConteudosSplitPaymentAdiado2028OQueMudaRoute
   '/segmentos/comercio': typeof SegmentosComercioRoute
@@ -888,6 +898,7 @@ export interface FileRouteTypes {
     | '/conteudos/respostas-validadas'
     | '/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais'
     | '/conteudos/saude-clinicas'
+    | '/conteudos/simples-nacional-vai-acabar-2027'
     | '/conteudos/simples-puro-ou-hibrido-2027-como-decidir'
     | '/conteudos/split-payment-adiado-2028-o-que-muda'
     | '/segmentos/comercio'
@@ -976,6 +987,7 @@ export interface FileRouteTypes {
     | '/conteudos/respostas-validadas'
     | '/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais'
     | '/conteudos/saude-clinicas'
+    | '/conteudos/simples-nacional-vai-acabar-2027'
     | '/conteudos/simples-puro-ou-hibrido-2027-como-decidir'
     | '/conteudos/split-payment-adiado-2028-o-que-muda'
     | '/segmentos/comercio'
@@ -1065,6 +1077,7 @@ export interface FileRouteTypes {
     | '/conteudos/respostas-validadas'
     | '/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais'
     | '/conteudos/saude-clinicas'
+    | '/conteudos/simples-nacional-vai-acabar-2027'
     | '/conteudos/simples-puro-ou-hibrido-2027-como-decidir'
     | '/conteudos/split-payment-adiado-2028-o-que-muda'
     | '/segmentos/comercio'
@@ -1155,6 +1168,7 @@ export interface RootRouteChildren {
   ConteudosRespostasValidadasRoute: typeof ConteudosRespostasValidadasRoute
   ConteudosRevisaoContratosIbsCbsClausulasEssenciaisRoute: typeof ConteudosRevisaoContratosIbsCbsClausulasEssenciaisRoute
   ConteudosSaudeClinicasRoute: typeof ConteudosSaudeClinicasRoute
+  ConteudosSimplesNacionalVaiAcabar2027Route: typeof ConteudosSimplesNacionalVaiAcabar2027Route
   ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute: typeof ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute
   ConteudosSplitPaymentAdiado2028OQueMudaRoute: typeof ConteudosSplitPaymentAdiado2028OQueMudaRoute
   SegmentosComercioRoute: typeof SegmentosComercioRoute
@@ -1625,6 +1639,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosSimplesPuroOuHibrido2027ComoDecidirRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/simples-nacional-vai-acabar-2027': {
+      id: '/conteudos/simples-nacional-vai-acabar-2027'
+      path: '/conteudos/simples-nacional-vai-acabar-2027'
+      fullPath: '/conteudos/simples-nacional-vai-acabar-2027'
+      preLoaderRoute: typeof ConteudosSimplesNacionalVaiAcabar2027RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/saude-clinicas': {
       id: '/conteudos/saude-clinicas'
       path: '/conteudos/saude-clinicas'
@@ -1884,6 +1905,8 @@ const rootRouteChildren: RootRouteChildren = {
   ConteudosRevisaoContratosIbsCbsClausulasEssenciaisRoute:
     ConteudosRevisaoContratosIbsCbsClausulasEssenciaisRoute,
   ConteudosSaudeClinicasRoute: ConteudosSaudeClinicasRoute,
+  ConteudosSimplesNacionalVaiAcabar2027Route:
+    ConteudosSimplesNacionalVaiAcabar2027Route,
   ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute:
     ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute,
   ConteudosSplitPaymentAdiado2028OQueMudaRoute:
