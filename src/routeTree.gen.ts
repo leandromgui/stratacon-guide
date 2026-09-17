@@ -93,6 +93,7 @@ import { Route as ConteudosDespesasQueGeramCreditoIbsCbsRouteImport } from './ro
 import { Route as ConteudosCronogramaReformaTributaria20262033RouteImport } from './routes/conteudos.cronograma-reforma-tributaria-2026-2033'
 import { Route as ConteudosComercioIcmsRouteImport } from './routes/conteudos.comercio-icms'
 import { Route as ConteudosAuditoriaFornecedoresCreditosIbsCbsRouteImport } from './routes/conteudos.auditoria-fornecedores-creditos-ibs-cbs'
+import { Route as ConteudosAluguelSoftwareServicosCreditoIbsCbsRouteImport } from './routes/conteudos.aluguel-software-servicos-credito-ibs-cbs'
 import { Route as ConteudosCategoryRouteImport } from './routes/conteudos.$category'
 import { Route as AuthenticatedAdminLeadsRouteImport } from './routes/_authenticated/admin.leads'
 import { Route as AuthenticatedAdminAuditoriaSeoRouteImport } from './routes/_authenticated/admin.auditoria-seo'
@@ -567,6 +568,12 @@ const ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute =
     path: '/conteudos/auditoria-fornecedores-creditos-ibs-cbs',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ConteudosAluguelSoftwareServicosCreditoIbsCbsRoute =
+  ConteudosAluguelSoftwareServicosCreditoIbsCbsRouteImport.update({
+    id: '/conteudos/aluguel-software-servicos-credito-ibs-cbs',
+    path: '/conteudos/aluguel-software-servicos-credito-ibs-cbs',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosCategoryRoute = ConteudosCategoryRouteImport.update({
   id: '/conteudos/$category',
   path: '/conteudos/$category',
@@ -612,6 +619,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/temas-estrategicos': typeof TemasEstrategicosRoute
   '/conteudos/$category': typeof ConteudosCategoryRoute
+  '/conteudos/aluguel-software-servicos-credito-ibs-cbs': typeof ConteudosAluguelSoftwareServicosCreditoIbsCbsRoute
   '/conteudos/auditoria-fornecedores-creditos-ibs-cbs': typeof ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/cronograma-reforma-tributaria-2026-2033': typeof ConteudosCronogramaReformaTributaria20262033Route
@@ -702,6 +710,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/temas-estrategicos': typeof TemasEstrategicosRoute
   '/conteudos/$category': typeof ConteudosCategoryRoute
+  '/conteudos/aluguel-software-servicos-credito-ibs-cbs': typeof ConteudosAluguelSoftwareServicosCreditoIbsCbsRoute
   '/conteudos/auditoria-fornecedores-creditos-ibs-cbs': typeof ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/cronograma-reforma-tributaria-2026-2033': typeof ConteudosCronogramaReformaTributaria20262033Route
@@ -794,6 +803,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/temas-estrategicos': typeof TemasEstrategicosRoute
   '/conteudos/$category': typeof ConteudosCategoryRoute
+  '/conteudos/aluguel-software-servicos-credito-ibs-cbs': typeof ConteudosAluguelSoftwareServicosCreditoIbsCbsRoute
   '/conteudos/auditoria-fornecedores-creditos-ibs-cbs': typeof ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/cronograma-reforma-tributaria-2026-2033': typeof ConteudosCronogramaReformaTributaria20262033Route
@@ -886,6 +896,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/temas-estrategicos'
     | '/conteudos/$category'
+    | '/conteudos/aluguel-software-servicos-credito-ibs-cbs'
     | '/conteudos/auditoria-fornecedores-creditos-ibs-cbs'
     | '/conteudos/comercio-icms'
     | '/conteudos/cronograma-reforma-tributaria-2026-2033'
@@ -976,6 +987,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/temas-estrategicos'
     | '/conteudos/$category'
+    | '/conteudos/aluguel-software-servicos-credito-ibs-cbs'
     | '/conteudos/auditoria-fornecedores-creditos-ibs-cbs'
     | '/conteudos/comercio-icms'
     | '/conteudos/cronograma-reforma-tributaria-2026-2033'
@@ -1067,6 +1079,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/temas-estrategicos'
     | '/conteudos/$category'
+    | '/conteudos/aluguel-software-servicos-credito-ibs-cbs'
     | '/conteudos/auditoria-fornecedores-creditos-ibs-cbs'
     | '/conteudos/comercio-icms'
     | '/conteudos/cronograma-reforma-tributaria-2026-2033'
@@ -1159,6 +1172,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TemasEstrategicosRoute: typeof TemasEstrategicosRoute
   ConteudosCategoryRoute: typeof ConteudosCategoryRoute
+  ConteudosAluguelSoftwareServicosCreditoIbsCbsRoute: typeof ConteudosAluguelSoftwareServicosCreditoIbsCbsRoute
   ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute: typeof ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute
   ConteudosComercioIcmsRoute: typeof ConteudosComercioIcmsRoute
   ConteudosCronogramaReformaTributaria20262033Route: typeof ConteudosCronogramaReformaTributaria20262033Route
@@ -1821,6 +1835,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosAuditoriaFornecedoresCreditosIbsCbsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/aluguel-software-servicos-credito-ibs-cbs': {
+      id: '/conteudos/aluguel-software-servicos-credito-ibs-cbs'
+      path: '/conteudos/aluguel-software-servicos-credito-ibs-cbs'
+      fullPath: '/conteudos/aluguel-software-servicos-credito-ibs-cbs'
+      preLoaderRoute: typeof ConteudosAluguelSoftwareServicosCreditoIbsCbsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/$category': {
       id: '/conteudos/$category'
       path: '/conteudos/$category'
@@ -1892,6 +1913,8 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TemasEstrategicosRoute: TemasEstrategicosRoute,
   ConteudosCategoryRoute: ConteudosCategoryRoute,
+  ConteudosAluguelSoftwareServicosCreditoIbsCbsRoute:
+    ConteudosAluguelSoftwareServicosCreditoIbsCbsRoute,
   ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute:
     ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute,
   ConteudosComercioIcmsRoute: ConteudosComercioIcmsRoute,
