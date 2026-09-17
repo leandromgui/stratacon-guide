@@ -285,29 +285,56 @@ export function PageScaffold(p: PageScaffoldProps) {
             </header>
             {s.h3 && s.h3.length > 0 && (
               <ul className="lg:col-span-8 grid gap-px bg-border sm:grid-cols-2 border border-border">
-                {s.h3.map((h, i) => (
-                  <Reveal
-                    key={h.title}
-                    as="li"
-                    delay={i * 60}
-                    y={24}
-                    className="panel-interactive group bg-card p-6 hover:bg-secondary hover:text-secondary-foreground"
-                    style={{ ["--panel-accent" as never]: PANEL_ACCENTS[i % PANEL_ACCENTS.length] }}
-                  >
-                    <h3 className="font-display text-[17px] text-card-foreground group-hover:text-secondary-foreground">{h.title}</h3>
-                    <p className="mt-2 text-muted-foreground text-[14px] leading-relaxed group-hover:text-secondary-foreground/80">
-                      {h.body}
-                    </p>
-                    {h.cta && (
-                      <CtaLink
-                        to={h.cta.to}
-                        className="mt-4 inline-flex items-center bg-gold px-5 py-2.5 text-[12px] uppercase tracking-[0.16em] font-medium text-gold-foreground hover:opacity-90"
-                      >
-                        {h.cta.label} →
-                      </CtaLink>
-                    )}
-                  </Reveal>
-                ))}
+                {s.h3.map((h, i) => {
+                  const accent = PANEL_ACCENTS[i % PANEL_ACCENTS.length];
+                  const cardBody = (
+                    <>
+                      <div className="flex flex-col h-full">
+                        <div>
+                          <h3 className="font-display text-[17px] text-card-foreground group-hover:text-secondary-foreground">{h.title}</h3>
+                          <p className="mt-2 text-muted-foreground text-[14px] leading-relaxed group-hover:text-secondary-foreground/80">
+                            {h.body}
+                          </p>
+                        </div>
+                        {h.link ? (
+                          <div className="mt-auto pt-4 text-[11px] uppercase tracking-[0.2em] text-secondary group-hover:text-gold transition-colors">
+                            Abrir →
+                          </div>
+                        ) : h.cta ? (
+                          <div className="mt-4">
+                            <CtaLink
+                              to={h.cta.to}
+                              className="inline-flex items-center bg-gold px-5 py-2.5 text-[12px] uppercase tracking-[0.16em] font-medium text-gold-foreground hover:opacity-90"
+                            >
+                              {h.cta.label} →
+                            </CtaLink>
+                          </div>
+                        ) : null}
+                      </div>
+                    </>
+                  );
+                  return (
+                    <Reveal
+                      key={h.title}
+                      as="li"
+                      delay={i * 60}
+                      y={24}
+                      className="panel-interactive group bg-card hover:bg-secondary hover:text-secondary-foreground"
+                      style={{ ["--panel-accent" as never]: accent }}
+                    >
+                      {h.link ? (
+                        <CtaLink
+                          to={h.link.to}
+                          className="block p-6 cursor-pointer"
+                        >
+                          {cardBody}
+                        </CtaLink>
+                      ) : (
+                        <div className="p-6">{cardBody}</div>
+                      )}
+                    </Reveal>
+                  );
+                })}
                 {s.h3.length % 2 === 1 && (
                   <li aria-hidden className="hidden sm:block bg-background" />
                 )}
