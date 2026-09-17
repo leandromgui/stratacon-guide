@@ -87,6 +87,7 @@ import { Route as ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026RouteImport } fr
 import { Route as ConteudosHoldingPatrimonioRouteImport } from './routes/conteudos.holding-patrimonio'
 import { Route as ConteudosHoldingFamiliarRouteImport } from './routes/conteudos.holding-familiar'
 import { Route as ConteudosGuiaSimplesNacionalRouteImport } from './routes/conteudos.guia-simples-nacional'
+import { Route as ConteudosFolhaPagamentoCreditoIbsCbsRouteImport } from './routes/conteudos.folha-pagamento-credito-ibs-cbs'
 import { Route as ConteudosDpEsocialRouteImport } from './routes/conteudos.dp-esocial'
 import { Route as ConteudosDespesasQueGeramCreditoIbsCbsRouteImport } from './routes/conteudos.despesas-que-geram-credito-ibs-cbs'
 import { Route as ConteudosCronogramaReformaTributaria20262033RouteImport } from './routes/conteudos.cronograma-reforma-tributaria-2026-2033'
@@ -532,6 +533,12 @@ const ConteudosGuiaSimplesNacionalRoute =
     path: '/conteudos/guia-simples-nacional',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ConteudosFolhaPagamentoCreditoIbsCbsRoute =
+  ConteudosFolhaPagamentoCreditoIbsCbsRouteImport.update({
+    id: '/conteudos/folha-pagamento-credito-ibs-cbs',
+    path: '/conteudos/folha-pagamento-credito-ibs-cbs',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosDpEsocialRoute = ConteudosDpEsocialRouteImport.update({
   id: '/conteudos/dp-esocial',
   path: '/conteudos/dp-esocial',
@@ -610,6 +617,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/cronograma-reforma-tributaria-2026-2033': typeof ConteudosCronogramaReformaTributaria20262033Route
   '/conteudos/despesas-que-geram-credito-ibs-cbs': typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
+  '/conteudos/folha-pagamento-credito-ibs-cbs': typeof ConteudosFolhaPagamentoCreditoIbsCbsRoute
   '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
@@ -699,6 +707,7 @@ export interface FileRoutesByTo {
   '/conteudos/cronograma-reforma-tributaria-2026-2033': typeof ConteudosCronogramaReformaTributaria20262033Route
   '/conteudos/despesas-que-geram-credito-ibs-cbs': typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
+  '/conteudos/folha-pagamento-credito-ibs-cbs': typeof ConteudosFolhaPagamentoCreditoIbsCbsRoute
   '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
@@ -790,6 +799,7 @@ export interface FileRoutesById {
   '/conteudos/cronograma-reforma-tributaria-2026-2033': typeof ConteudosCronogramaReformaTributaria20262033Route
   '/conteudos/despesas-que-geram-credito-ibs-cbs': typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
+  '/conteudos/folha-pagamento-credito-ibs-cbs': typeof ConteudosFolhaPagamentoCreditoIbsCbsRoute
   '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
@@ -881,6 +891,7 @@ export interface FileRouteTypes {
     | '/conteudos/cronograma-reforma-tributaria-2026-2033'
     | '/conteudos/despesas-que-geram-credito-ibs-cbs'
     | '/conteudos/dp-esocial'
+    | '/conteudos/folha-pagamento-credito-ibs-cbs'
     | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
     | '/conteudos/holding-patrimonio'
@@ -970,6 +981,7 @@ export interface FileRouteTypes {
     | '/conteudos/cronograma-reforma-tributaria-2026-2033'
     | '/conteudos/despesas-que-geram-credito-ibs-cbs'
     | '/conteudos/dp-esocial'
+    | '/conteudos/folha-pagamento-credito-ibs-cbs'
     | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
     | '/conteudos/holding-patrimonio'
@@ -1060,6 +1072,7 @@ export interface FileRouteTypes {
     | '/conteudos/cronograma-reforma-tributaria-2026-2033'
     | '/conteudos/despesas-que-geram-credito-ibs-cbs'
     | '/conteudos/dp-esocial'
+    | '/conteudos/folha-pagamento-credito-ibs-cbs'
     | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
     | '/conteudos/holding-patrimonio'
@@ -1151,6 +1164,7 @@ export interface RootRouteChildren {
   ConteudosCronogramaReformaTributaria20262033Route: typeof ConteudosCronogramaReformaTributaria20262033Route
   ConteudosDespesasQueGeramCreditoIbsCbsRoute: typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
   ConteudosDpEsocialRoute: typeof ConteudosDpEsocialRoute
+  ConteudosFolhaPagamentoCreditoIbsCbsRoute: typeof ConteudosFolhaPagamentoCreditoIbsCbsRoute
   ConteudosGuiaSimplesNacionalRoute: typeof ConteudosGuiaSimplesNacionalRoute
   ConteudosHoldingFamiliarRoute: typeof ConteudosHoldingFamiliarRoute
   ConteudosHoldingPatrimonioRoute: typeof ConteudosHoldingPatrimonioRoute
@@ -1765,6 +1779,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosGuiaSimplesNacionalRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/folha-pagamento-credito-ibs-cbs': {
+      id: '/conteudos/folha-pagamento-credito-ibs-cbs'
+      path: '/conteudos/folha-pagamento-credito-ibs-cbs'
+      fullPath: '/conteudos/folha-pagamento-credito-ibs-cbs'
+      preLoaderRoute: typeof ConteudosFolhaPagamentoCreditoIbsCbsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/dp-esocial': {
       id: '/conteudos/dp-esocial'
       path: '/conteudos/dp-esocial'
@@ -1879,6 +1900,8 @@ const rootRouteChildren: RootRouteChildren = {
   ConteudosDespesasQueGeramCreditoIbsCbsRoute:
     ConteudosDespesasQueGeramCreditoIbsCbsRoute,
   ConteudosDpEsocialRoute: ConteudosDpEsocialRoute,
+  ConteudosFolhaPagamentoCreditoIbsCbsRoute:
+    ConteudosFolhaPagamentoCreditoIbsCbsRoute,
   ConteudosGuiaSimplesNacionalRoute: ConteudosGuiaSimplesNacionalRoute,
   ConteudosHoldingFamiliarRoute: ConteudosHoldingFamiliarRoute,
   ConteudosHoldingPatrimonioRoute: ConteudosHoldingPatrimonioRoute,
