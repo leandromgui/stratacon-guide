@@ -72,18 +72,18 @@ function Page() {
         {
           h2: "Atuação em Goiânia e região metropolitana",
           h3: [
-            { title: "Atendimento presencial", body: "Reuniões na capital, com responsável técnico." },
-            { title: "Atendimento remoto", body: "Suporte para empresas em Aparecida, Senador Canedo e demais cidades." },
-            { title: "Empresas em transição", body: "Quem quer trocar de contabilidade local com segurança." },
+            { title: "Atendimento presencial", body: "Reuniões na capital, com responsável técnico.", link: { to: "/escritorio-de-contabilidade-em-goiania" } },
+            { title: "Atendimento remoto", body: "Suporte para empresas em Aparecida, Senador Canedo e demais cidades.", link: { to: "/contador-em-goiania" } },
+            { title: "Empresas em transição", body: "Quem quer trocar de contabilidade local com segurança.", link: { to: "/solucoes/trocar-contabilidade" } },
           ],
         },
         {
           h2: "Setores fortes em Goiânia",
           h3: [
-            { title: "Saúde", body: "Clínicas, médicos e operações com plano de saúde como cliente PJ." },
-            { title: "Comércio e atacado", body: "Operações com ICMS-ST e DIFAL." },
-            { title: "Construção civil", body: "Construtoras, SPEs e incorporadoras." },
-            { title: "Serviços e tecnologia", body: "ISS goianiense, SaaS e operações digitais." },
+            { title: "Saúde", body: "Clínicas, médicos e operações com plano de saúde como cliente PJ.", link: { to: "/segmentos/medicos-clinicas" } },
+            { title: "Comércio e atacado", body: "Operações com ICMS-ST e DIFAL.", link: { to: "/segmentos/comercio" } },
+            { title: "Construção civil", body: "Construtoras, SPEs e incorporadoras.", link: { to: "/segmentos/construcao-civil-spe" } },
+            { title: "Serviços e tecnologia", body: "ISS goianiense, SaaS e operações digitais.", link: { to: "/segmentos/tecnologia-startups" } },
           ],
         },
         {
@@ -97,7 +97,7 @@ function Page() {
         {
           h2: "Como funciona o Método DCON",
           lead: "Todo trabalho segue quatro etapas auditáveis, cada uma com responsável técnico nominal e CRC ativo.",
-          h3: dconMethod,
+          h3: dconMethod.map((m) => ({ ...m, link: { to: "/metodo" } })),
         },
         {
           h2: "Presença em Goiânia",
