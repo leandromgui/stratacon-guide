@@ -79,6 +79,7 @@ const entries: SitemapEntry[] = [
   { path: "/conteudos/simples-puro-ou-hibrido-2027-como-decidir", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/simples-nacional-vai-acabar-2027", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/folha-pagamento-credito-ibs-cbs", changefreq: "monthly", priority: "0.9" },
+  { path: "/conteudos/aluguel-software-servicos-credito-ibs-cbs", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/cronograma-reforma-tributaria-2026-2033", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/reforma-tributaria-formacao-preco-margem", changefreq: "monthly", priority: "0.9" },
