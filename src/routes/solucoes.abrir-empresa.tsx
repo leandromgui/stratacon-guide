@@ -24,18 +24,22 @@ function Page() {
     <PageScaffold
       eyebrow="Soluções"
       h1="Abrir empresa com enquadramento e estrutura corretos desde o início"
-      intro="Abrir empresa é o passo mais barato de errar — e o mais caro de não consertar. Conduzimos com base técnica."
+      intro="Uma empresa bem estruturada comeca pelo contrato social. Abrir uma empresa vai muito alem de obter um CNPJ e preencher um contrato social padrao. As decisoes tomadas na constituicao definem como a sociedade funcionara e podem evitar conflitos, prejuizos e paralisacoes no futuro. Na DCON, a abertura e analisada considerando nao apenas as exigencias cadastrais e tributarias, mas tambem os principais riscos societarios do negocio."
       intent="abrir empresa Goiânia, como abrir CNPJ"
       observation="Alto volume de busca local."
-      ctaPrimary={{ label: "Solicitar proposta", to: "/contato" }}
-      ctaSecondary={{ label: "Solicitar diagnóstico", to: "/diagnostico" }}
+      ctaPrimary={{ label: "Solicitar diagnostico para abertura da empresa", to: "/diagnostico" }}
       pillarKey="abrir-empresa"
       sections={[
-      { h2: "Etapas", h3: [{"title":"Análise prévia","body":"Conversa antes de qualquer protocolo — para acertar de primeira."},{"title":"Registro","body":"Junta Comercial, CNPJ, inscrições e alvarás."},{"title":"Pós-abertura","body":"Configuração de emissores, certificado digital e rotina inicial."}] },
-      { h2: "Escolha do regime", h3: [{"title":"Simples Nacional","body":"Quando faz sentido e quando é cilada."},{"title":"Lucro Presumido","body":"Para serviços com margem maior."},{"title":"Lucro Real","body":"Indicação para faturamentos e margens específicas."}] },
-      { h2: "CNAE certo", h3: [{"title":"Operação real","body":"CNAE precisa refletir o que a empresa faz, não o que parece."},{"title":"Impacto tributário","body":"CNAE define alíquota, anexo e até retenção."},{"title":"Licenças exigidas","body":"Algumas atividades exigem alvará específico."}] },
-      { h2: "Documentação", h3: [{"title":"Pessoa física dos sócios","body":"Documentos pessoais e endereço."},{"title":"Endereço empresarial","body":"Comprovação aceita pelo município."},{"title":"Atividade","body":"Definição clara de objeto social."}] },
-      { h2: "Pós-abertura", h3: [{"title":"Certificado digital","body":"Emissão e instalação."},{"title":"Emissor de NF","body":"Configuração do município/estado."},{"title":"Rotina inicial","body":"Primeira folha, primeira apuração e calendário."}] },
+      { h2: "Pontos que precisam ser definidos desde o inicio", h3: [
+        { title: "Falecimento de um dos socios", body: "O contrato deve estabelecer o que acontecera com as quotas: se serao liquidadas, adquiridas pelos socios remanescentes ou se podera ocorrer o ingresso dos herdeiros. Tambem e importante definir como sera calculado e pago o valor devido." },
+        { title: "Retirada de um socio", body: "E necessario prever o procedimento de saida, o prazo de comunicacao e a forma de apuracao dos haveres. Sem criterios claros, podem surgir divergencias sobre o valor da participacao e as condicoes de pagamento." },
+        { title: "Venda ou transferencia de quotas", body: "Os demais socios terao preferencia na aquisicao? Um terceiro podera entrar na sociedade sem a concordancia de todos? Essas regras ajudam a preservar o controle e a identidade do negocio." },
+        { title: "Impasse entre os socios", body: "Sociedades com participacoes iguais podem enfrentar bloqueios em decisoes importantes. Por isso, e recomendavel prever criterios de desempate e mecanismos para solucionar impasses sem comprometer a operacao." },
+        { title: "Poderes dos administradores", body: "Quem podera movimentar contas bancarias, contratar emprestimos, prestar garantias, vender bens ou assumir obrigacoes em nome da empresa? A definicao adequada dos poderes protege tanto a sociedade quanto os proprios socios." },
+        { title: "Distribuicao de lucros e responsabilidades", body: "Tambem devem ser avaliadas as regras para distribuicao de resultados, realizacao de aportes, aprovacao de contas e responsabilidades de cada socio na administracao." },
+      ] },
+      { h2: "Contrato padrao nem sempre protege o negocio", lead: "Muitos conflitos societarios comecam em situacoes que poderiam ter sido previstas na abertura. Quando o contrato e generico ou omisso, o problema costuma aparecer no pior momento: na saida de um socio, em uma divergencia entre administradores ou durante uma sucessao familiar. A DCON identifica os riscos, orienta a estrutura contabil, tributaria e societaria adequada e coordena, quando necessaria, a formalizacao juridica com profissional habilitado." },
+      { h2: "Abra sua empresa com uma estrutura pensada para o presente e para o futuro." },
       ]}
     />
   );
