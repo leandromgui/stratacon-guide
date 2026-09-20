@@ -1,6 +1,6 @@
 # Roadmap de tarefas
 
-1. Configurar o roteador para gerar barra final em todos os links internos.
-2. Corrigir os poucos links HTML internos que não passam pelo roteador.
-3. Validar a home e cinco páginas internas por fetch real.
-4. Publicar ao final e registrar a contagem exata de links corrigidos.
+1. Expandir a página de abertura de empresa com o conteúdo societário e CTA único.
+2. Adicionar o bloco de autoridade técnica à home.
+3. Atualizar o crédito de revisão técnica nos 21 artigos publicados.
+4. Validar conteúdo, apresentação e contagem; publicar ao final.
