@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { buildSeoHead } from "@/lib/seo";
+import { TechnicalReview } from "../components/TechnicalReview";
 
 const faqs: FAQItem[] = [
   {
@@ -214,6 +215,7 @@ function Page() {
           </div>
         </div>
       </section>
+      <TechnicalReview />
     </PageScaffold>
   );
 }
