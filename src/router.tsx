@@ -1,9 +1,6 @@
 import { QueryClient } from "@tanstack/react-query";
 import { createRouter } from "@tanstack/react-router";
-import type { TrailingSlashOption } from "@tanstack/router-core";
 import { routeTree } from "./routeTree.gen";
-
-const trailingSlash: TrailingSlashOption = "always";
 
 export const getRouter = () => {
   const queryClient = new QueryClient();
@@ -11,7 +8,8 @@ export const getRouter = () => {
   const router = createRouter({
     routeTree,
     context: { queryClient },
-    trailingSlash,
+    // Keep existing route literals type-safe while emitting canonical slash URLs.
+    trailingSlash: "always" as "never",
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
   });
