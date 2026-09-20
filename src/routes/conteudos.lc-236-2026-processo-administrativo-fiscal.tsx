@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { buildSeoHead, SITE_URL } from "@/lib/seo";
+import { TechnicalReview } from "../components/TechnicalReview";
 import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
 
 export const Route = createFileRoute("/conteudos/lc-236-2026-processo-administrativo-fiscal")({
@@ -200,6 +201,7 @@ function Page() {
           ))}
         </ul>
       </section>
+      <TechnicalReview />
     </PageScaffold>
   );
 }

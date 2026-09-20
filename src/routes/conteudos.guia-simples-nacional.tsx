@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { SimplesNacionalMiniForm } from "../components/SimplesNacionalMiniForm";
 import { buildSeoHead } from "@/lib/seo";
+import { TechnicalReview } from "../components/TechnicalReview";
 
 const CANONICAL = "https://dcon.cnt.br/conteudos/guia-simples-nacional";
 
@@ -142,6 +143,7 @@ function Page() {
       ]}
     >
       <SimplesNacionalMiniForm />
+      <TechnicalReview />
     </PageScaffold>
   );
 }

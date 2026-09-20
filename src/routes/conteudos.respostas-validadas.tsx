@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
 import { buildSeoHead } from "@/lib/seo";
+import { TechnicalReview } from "../components/TechnicalReview";
 
 const answers: FAQItem[] = [
   { q: "Quando fazer a análise de equiparação hospitalar?", a: "Quando a empresa da saúde está no Lucro Presumido e possui receitas, estrutura, licença, documentação e segregação suficientes para sustentar presunção reduzida de IRPJ/CSLL. Não vale automaticamente para consultas simples; a DCON atua como análise técnica de viabilidade, risco e documentação." },
@@ -91,6 +92,8 @@ function Page() {
         { label: "Diagnóstico DCON", to: "/diagnostico", eyebrow: "Próximo passo" },
         { label: "Defesas Fiscais", to: "/solucoes/defesas-fiscais", eyebrow: "Solução" },
       ]}
-    />
+    >
+      <TechnicalReview />
+    </PageScaffold>
   );
 }
