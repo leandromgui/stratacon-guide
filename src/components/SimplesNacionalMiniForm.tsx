@@ -214,7 +214,7 @@ export function SimplesNacionalMiniForm() {
                   Contábeis a tratar meus dados pessoais (nome, e-mail, WhatsApp) e os dados da empresa
                   informados acima com a finalidade exclusiva de retornar com o diagnóstico solicitado,
                   conforme a{" "}
-                  <a href="/privacidade" className="underline hover:text-gold" target="_blank" rel="noopener noreferrer">
+                  <a href="/privacidade/" className="underline hover:text-gold" target="_blank" rel="noopener noreferrer">
                     Política de Privacidade
                   </a>
                   . Posso revogar este consentimento a qualquer momento.

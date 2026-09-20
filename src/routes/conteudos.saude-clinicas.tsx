@@ -202,13 +202,13 @@ function Page() {
             Diagnóstico em até 7 dias úteis, sem custo inicial. Parecer técnico de viabilidade, segregação de receitas, cálculo de impacto e plano de recuperação retroativa quando há lastro documental. Sigilo sob CRC.
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
-            <a href="/diagnostico" className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
+            <a href="/diagnostico/" className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
               Solicitar análise da clínica →
             </a>
-            <a href="/contato" className="inline-flex items-center justify-center rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground hover:bg-muted transition-colors">
+            <a href="/contato/" className="inline-flex items-center justify-center rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground hover:bg-muted transition-colors">
               Falar com a equipe técnica
             </a>
-            <a href="/segmentos/medicos-clinicas" className="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-primary hover:underline">
+            <a href="/segmentos/medicos-clinicas/" className="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-primary hover:underline">
               Ver contabilidade para médicos
             </a>
           </div>

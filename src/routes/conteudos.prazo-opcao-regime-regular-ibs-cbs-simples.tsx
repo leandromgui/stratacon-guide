@@ -144,7 +144,7 @@ function Page() {
                 <>
                   Recolher fora do DAS pode exigir desembolso antes do recebimento do cliente enquanto o split payment não opera (adiado para{" "}
                   <a
-                    href="/conteudos/split-payment-adiado-2028-o-que-muda"
+                    href="/conteudos/split-payment-adiado-2028-o-que-muda/"
                     className="underline decoration-gold/50 hover:text-foreground"
                   >
                     2028
