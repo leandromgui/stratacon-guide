@@ -144,7 +144,7 @@ function Page() {
                 <>
                   Recolher fora do DAS pode exigir desembolso antes do recebimento do cliente enquanto o split payment não opera (adiado para{" "}
                   <a
-                    href="/conteudos/split-payment-adiado-2028-o-que-muda"
+                    href="/conteudos/split-payment-adiado-2028-o-que-muda/"
                     className="underline decoration-gold/50 hover:text-foreground"
                   >
                     2028
@@ -205,7 +205,7 @@ function Page() {
             ); Comitê Gestor do Simples Nacional (CGSN) — Resolução nº 186/2026.
           </p>
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-            Autor: <a href="/sobre/leandro" className="underline decoration-gold/50 hover:text-foreground">Leandro Matsuoka Guimarães</a> · Publicado em {PUBLISHED}.
+            Autor: <a href="/sobre/leandro/" className="underline decoration-gold/50 hover:text-foreground">Leandro Matsuoka Guimarães</a> · Publicado em {PUBLISHED}.
           </p>
         </div>
       </section>

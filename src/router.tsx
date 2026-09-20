@@ -8,6 +8,8 @@ export const getRouter = () => {
   const router = createRouter({
     routeTree,
     context: { queryClient },
+    // Keep existing route literals type-safe while emitting canonical slash URLs.
+    trailingSlash: "always" as "never",
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
   });
