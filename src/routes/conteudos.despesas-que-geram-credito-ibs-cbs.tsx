@@ -178,9 +178,7 @@ function Page() {
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
             Fonte oficial: Receita Federal do Brasil — Lei Complementar nº 214/2025.
           </p>
-          <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-            Autor: <a href="/sobre/leandro/" className="underline decoration-gold/50 hover:text-foreground">Leandro Matsuoka Guimarães</a> · Publicado em {PUBLISHED}.
-          </p>
+          <TechnicalReview />
         </div>
       </section>
     </PageScaffold>

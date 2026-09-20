@@ -190,9 +190,7 @@ function Page() {
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
             Fonte oficial: Receita Federal do Brasil / Comitê Gestor do IBS.
           </p>
-          <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-            Autor: <a href="/sobre/leandro/" className="underline decoration-gold/50 hover:text-foreground">Leandro Matsuoka Guimarães</a> · Publicado em {PUBLISHED}.
-          </p>
+          <TechnicalReview />
         </div>
       </section>
     </PageScaffold>
