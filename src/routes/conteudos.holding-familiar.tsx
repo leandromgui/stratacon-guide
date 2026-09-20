@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { HeatmapTracker } from "../components/HeatmapTracker";
 import { buildSeoHead } from "@/lib/seo";
+import { TechnicalReview } from "../components/TechnicalReview";
 
 const faqPlain = [
   {
@@ -417,6 +418,7 @@ function Page() {
         <div data-heatmap-section="checklist"><ChecklistBlock /></div>
         <div data-heatmap-section="boas-praticas"><GoodPracticeCards /></div>
         <div data-heatmap-section="microcopy-confianca"><TrustMicrocopy /></div>
+        <TechnicalReview />
       </div>
     </PageScaffold>
   );

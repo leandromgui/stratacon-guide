@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { buildSeoHead, SITE_URL } from "@/lib/seo";
 import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
+import { TechnicalReview } from "../components/TechnicalReview";
 
 const SLUG = "/conteudos/split-payment-adiado-2028-o-que-muda";
 const H1 =
@@ -230,9 +231,7 @@ function Page() {
               https://www.cgibs.gov.br/split-payment
             </a>
           </p>
-          <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-            Autor: <a href="/sobre/leandro/" className="underline decoration-gold/50 hover:text-foreground">Leandro Matsuoka Guimarães</a> · Publicado em {PUBLISHED}.
-          </p>
+          <TechnicalReview />
         </div>
       </section>
     </PageScaffold>

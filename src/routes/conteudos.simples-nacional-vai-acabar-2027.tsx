@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { buildSeoHead, SITE_URL } from "@/lib/seo";
 import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
+import { TechnicalReview } from "../components/TechnicalReview";
 
 const SLUG = "/conteudos/simples-nacional-vai-acabar-2027";
 const H1 = "Simples Nacional vai acabar em 2027? O que realmente muda";
@@ -176,9 +177,7 @@ function Page() {
             </a>
             ); Comitê Gestor do Simples Nacional (CGSN) — Resolução nº 186/2026.
           </p>
-          <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-            Autor: <a href="/sobre/leandro/" className="underline decoration-gold/50 hover:text-foreground">Leandro Matsuoka Guimarães</a> · Publicado em {PUBLISHED}.
-          </p>
+          <TechnicalReview />
         </div>
       </section>
     </PageScaffold>

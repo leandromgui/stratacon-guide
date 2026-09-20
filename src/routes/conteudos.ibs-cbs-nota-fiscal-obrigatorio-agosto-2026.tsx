@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { buildSeoHead, SITE_URL } from "@/lib/seo";
 import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
+import { TechnicalReview } from "../components/TechnicalReview";
 
 const SLUG = "/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026";
 const H1 = "IBS e CBS na Nota Fiscal: obrigatório desde 3 de agosto de 2026";
@@ -169,9 +170,7 @@ function Page() {
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
             Fontes oficiais: Receita Federal do Brasil / Comitê Gestor do IBS.
           </p>
-          <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-            Autor: <a href="/sobre/leandro/" className="underline decoration-gold/50 hover:text-foreground">Leandro Matsuoka Guimarães</a> · Publicado em {PUBLISHED}.
-          </p>
+          <TechnicalReview />
         </div>
       </section>
     </PageScaffold>
