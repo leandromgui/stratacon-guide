@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { buildSeoHead, SITE_URL } from "@/lib/seo";
 import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
+import { TechnicalReview } from "../components/TechnicalReview";
 
 const SLUG = "/conteudos/simples-nacional-vai-acabar-2027";
 const H1 = "Simples Nacional vai acabar em 2027? O que realmente muda";

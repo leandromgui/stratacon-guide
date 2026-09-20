@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { buildSeoHead, SITE_URL } from "@/lib/seo";
 import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
+import { TechnicalReview } from "../components/TechnicalReview";
 
 const SLUG = "/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais";
 const H1 = "Revisão de Contratos para IBS e CBS: cláusulas essenciais";

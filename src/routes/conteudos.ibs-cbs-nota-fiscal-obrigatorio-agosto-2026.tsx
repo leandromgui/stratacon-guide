@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { buildSeoHead, SITE_URL } from "@/lib/seo";
 import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
+import { TechnicalReview } from "../components/TechnicalReview";
 
 const SLUG = "/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026";
 const H1 = "IBS e CBS na Nota Fiscal: obrigatório desde 3 de agosto de 2026";

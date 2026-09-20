@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { buildSeoHead, SITE_URL } from "@/lib/seo";
 import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
+import { TechnicalReview } from "../components/TechnicalReview";
 
 const SLUG = "/conteudos/cronograma-reforma-tributaria-2026-2033";
 const H1 = "Cronograma da Reforma Tributária: o que muda a cada ano, de 2026 a 2033";
@@ -166,13 +167,7 @@ function Page() {
           <p className="text-[15px] leading-relaxed text-foreground/90">
             Emenda Constitucional nº 132/2023. Lei Complementar nº 214/2025, arts. 344, 347, 348 e parágrafo 1º.
           </p>
-          <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-            Autor:{" "}
-            <a href="/sobre/leandro/" className="underline decoration-gold/50 hover:text-foreground">
-              Leandro Matsuoka Guimarães
-            </a>{" "}
-            · Publicado em {PUBLISHED}.
-          </p>
+          <TechnicalReview />
         </div>
       </section>
     </PageScaffold>
