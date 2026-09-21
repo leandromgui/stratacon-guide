@@ -197,6 +197,67 @@ function Page() {
             },
           ],
         },
+        {
+          h2: "Ainda é necessário ingressar com mandado de segurança?",
+          h3: [
+            {
+              title: "Reconhecimento administrativo dos percentuais reduzidos",
+              body: "Historicamente, muitas empresas recorreram ao mandado de segurança porque existiam divergências entre a interpretação judicial e as restrições adotadas pela administração tributária. A Súmula nº 213 do STJ reconhece que o mandado de segurança é instrumento adequado para a declaração do direito à compensação tributária. Atualmente, entretanto, a Receita Federal reconhece administrativamente a aplicação dos percentuais reduzidos quando os requisitos legais e regulamentares estão presentes. Isso aparece na IN RFB nº 1.700/2017, na Solução de Consulta Cosit nº 147/2023, na Solução de Consulta Disit/SRRF03 nº 3.005/2025 e, mais recentemente, na IN RFB nº 2.343/2026.",
+            },
+            {
+              title: "Quando a via administrativa pode ser suficiente",
+              body: "Assim, quando a operação está compreendida no entendimento administrativo vigente, a empresa pode revisar suas apurações e buscar a recuperação pela via administrativa, sem que o mandado de segurança seja necessariamente a primeira medida.",
+            },
+            {
+              title: "Quando a via judicial ainda pode ser avaliada",
+              body: "Isso não significa que a via judicial tenha deixado de existir. Ela pode continuar sendo avaliada quando houver divergência sobre a natureza da atividade, a Receita adotar interpretação contrária ao caso concreto, existir discussão sobre períodos anteriores, a operação não estiver claramente contemplada pelas normas administrativas, houver restrição indevida à utilização do crédito, ou for necessário declarar judicialmente determinado direito. A definição entre via administrativa e judicial deve ser feita depois do diagnóstico técnico e documental.",
+            },
+          ],
+        },
+        {
+          h2: "Recuperar tributos não é apenas transmitir um PER/DCOMP",
+          h3: [
+            {
+              title: "O PER/DCOMP não cria o crédito",
+              body: "O PER/DCOMP é o instrumento utilizado para formalizar pedidos de restituição ou declarações de compensação perante a Receita Federal. Ele não cria o crédito tributário. O crédito precisa existir antes da transmissão e deve ser demonstrável por meio das apurações, declarações, pagamentos e documentos que sustentam o enquadramento.",
+            },
+            {
+              title: "Fundamento legal da compensação",
+              body: "Segundo o artigo 170 do Código Tributário Nacional, a compensação pressupõe créditos líquidos e certos do contribuinte contra a Fazenda Pública. Na esfera federal, o artigo 74 da Lei nº 9.430/1996 determina que o contribuinte pode utilizar crédito passível de restituição ou ressarcimento para compensar débitos próprios, a compensação é formalizada por declaração, o débito é extinto sob condição resolutória de posterior homologação, a Receita dispõe de cinco anos, contados da entrega da declaração de compensação, para homologá-la, a declaração de compensação também constitui confissão de dívida quanto aos débitos informados, e se a compensação não for homologada, o contribuinte será intimado para pagar os débitos indevidamente compensados, sem prejuízo da possibilidade de contestação administrativa.",
+            },
+            {
+              title: "O que diferencia a aprovação",
+              body: "Transmitir o PER/DCOMP não equivale a obter homologação definitiva do crédito.",
+            },
+          ],
+        },
+        {
+          h2: "Existem dois prazos de cinco anos - e eles não são a mesma coisa",
+          lead: "Esse ponto merece destaque porque gera muita confusão.",
+          h3: [
+            {
+              title: "Prazo para pedir a recuperação",
+              body: "O artigo 168 do CTN estabelece, em regra, prazo de cinco anos para pleitear a restituição do pagamento indevido ou realizado a maior. Esse prazo está relacionado à formação e à recuperação do crédito.",
+            },
+            {
+              title: "Prazo para a Receita homologar a compensação",
+              body: "O parágrafo 5º do artigo 74 da Lei nº 9.430/1996 concede à Receita Federal cinco anos, contados da entrega da declaração de compensação, para analisar e homologar a operação. Esse segundo prazo começa depois da transmissão do PER/DCOMP. Assim, uma empresa pode ter recuperado créditos referentes a períodos anteriores e continuar sujeita à fiscalização da compensação durante os cinco anos seguintes à entrega de cada declaração. O que protege a empresa durante esse período não é simplesmente o protocolo do PER/DCOMP. É a qualidade da auditoria, da apuração e do dossiê documental.",
+            },
+          ],
+        },
+        {
+          h2: "O que o STJ diz sobre a prova do crédito?",
+          h3: [
+            {
+              title: "Tema Repetitivo nº 118",
+              body: "No Tema Repetitivo nº 118, o Superior Tribunal de Justiça diferencia duas situações. Na declaração abstrata do direito, quando o mandado de segurança busca apenas declarar que determinada espécie de crédito pode ser compensada, sem quantificar valores, pode ser suficiente comprovar que o contribuinte ocupa a posição de credor tributário. No reconhecimento de valores específicos, quando o pedido envolve parcelas determinadas, quantificação do crédito, liquidez e certeza dos valores, e reconhecimento de recolhimentos específicos, é necessária prova suficiente dos pagamentos e dos elementos concretos da apuração. A ausência dessa prova compromete a demonstração do direito líquido e certo. O entendimento é importante para a recuperação administrativa porque demonstra uma diferença fundamental.",
+            },
+            {
+              title: "Existência da tese não substitui a prova",
+              body: "A existência jurídica de uma tese não comprova, sozinha, a existência, a liquidez e o valor do crédito de uma empresa específica. No REsp nº 1.715.256/SP, o STJ ainda ressaltou que os comprovantes e valores podem ser verificados posteriormente pela Receita durante a fiscalização administrativa da compensação. No EREsp nº 1.770.495/RS, a Primeira Seção também esclareceu que, mesmo quando o direito é reconhecido judicialmente, a quantificação dos créditos pode permanecer sujeita à apuração posterior pelo contribuinte e pelo Fisco na esfera administrativa. Além disso, a Súmula nº 460 do STJ estabelece que o mandado de segurança não serve para convalidar compensação tributária já realizada pelo contribuinte. Em outras palavras: nem a existência de uma tese, nem uma decisão declaratória, nem a transmissão do PER/DCOMP substituem a prova contábil, fiscal e documental do crédito utilizado.",
+            },
+          ],
+        },
       ]}
       relatedLinks={[
         { eyebrow: "Segmento", label: "Médicos e Clínicas", to: "/segmentos/medicos-clinicas" },
