@@ -149,6 +149,54 @@ function Page() {
             },
           ],
         },
+        {
+          h2: "O que a Solução de Consulta nº 3.005/2025 confirma?",
+          h3: [
+            {
+              title: "Base legal e percentuais confirmados",
+              body: "A Solução de Consulta Disit/SRRF03 nº 3.005, de 21 de janeiro de 2025, vinculada à Solução de Consulta Cosit nº 147/2023, confirma a aplicação dos percentuais de 8% para determinação da base do IRPJ e 12% para determinação da base da CSLL. O entendimento administrativo exige que a receita decorra de serviços hospitalares ou de auxílio diagnóstico e terapia e que a prestadora esteja organizada, de direito e de fato, como sociedade empresária, cumpra as normas da Agência Nacional de Vigilância Sanitária, e consiga demonstrar a natureza dos serviços efetivamente prestados.",
+            },
+            {
+              title: "Requisitos cumulativos",
+              body: "A própria solução estabelece que o descumprimento desses requisitos implica aplicação do percentual de 32%. Portanto, não basta incluir um CNAE, alterar uma cláusula do contrato social ou utilizar uma descrição genérica na nota fiscal. A operação real precisa confirmar o enquadramento.",
+            },
+          ],
+        },
+        {
+          h2: "O STJ analisa a atividade, e não apenas o local do atendimento",
+          h3: [
+            {
+              title: "Tema Repetitivo nº 217",
+              body: "No Tema Repetitivo nº 217, o Superior Tribunal de Justiça estabeleceu que a expressão \"serviços hospitalares\" deve ser interpretada de forma objetiva, considerando a atividade efetivamente desenvolvida pelo contribuinte. De acordo com o STJ, são hospitalares os serviços vinculados às atividades normalmente desenvolvidas por hospitais e voltados diretamente à promoção da saúde. Eles podem, mas não precisam necessariamente, ser realizados dentro de um estabelecimento hospitalar. O Tribunal também excluiu as simples consultas médicas dessa conceituação.",
+            },
+            {
+              title: "Três premissas do STJ",
+              body: "A decisão reforça três premissas: primeiro, o nome da empresa não determina o direito; segundo, o local onde o serviço é executado não deve ser analisado isoladamente; terceiro, a natureza efetiva do serviço e a responsabilidade assumida pela empresa são elementos centrais do enquadramento.",
+            },
+          ],
+        },
+        {
+          h2: "Quando a equiparação hospitalar não se aplica automaticamente?",
+          lead: "Mesmo após a IN RFB nº 2.343/2026, permanecem situações de exclusão ou elevado risco.",
+          h3: [
+            {
+              title: "Sociedade simples e empresário individual",
+              body: "A regulamentação administrativa continua afastando a aplicação para pessoa jurídica organizada como sociedade simples e para empresário individual. Além do registro formal, a empresa deve funcionar de fato como sociedade empresária, com organização dos fatores de produção, gestão, responsabilidade operacional e estrutura compatível com sua atividade.",
+            },
+            {
+              title: "Consultas médicas simples",
+              body: "Receitas provenientes de consultas médicas simples continuam submetidas, em regra, ao percentual de 32%. Se a empresa realiza consultas e procedimentos elegíveis, as receitas precisam ser segregadas.",
+            },
+            {
+              title: "Cessão de mão de obra médica",
+              body: "A redução não se aplica quando a operação consiste apenas em disponibilizar profissionais para uma unidade hospitalar, sem que a empresa seja diretamente responsável pelo atendimento ao paciente, pela organização do serviço, pela execução do procedimento, pelos protocolos aplicáveis e pelos riscos inerentes à atividade. O contrato, a nota fiscal e a realidade operacional precisam demonstrar algo além da simples disponibilização de profissionais.",
+            },
+            {
+              title: "Ausência de conformidade sanitária",
+              body: "A empresa deve comprovar o atendimento às normas sanitárias aplicáveis à sua atividade. Dependendo do serviço, devem ser analisados alvará sanitário, licença de funcionamento, responsável técnico, registros nos conselhos profissionais, protocolos operacionais, estrutura física, contratos com unidades hospitalares, exigências da vigilância sanitária local, e atividades previstas na RDC Anvisa nº 50/2002.",
+            },
+          ],
+        },
       ]}
       relatedLinks={[
         { eyebrow: "Segmento", label: "Médicos e Clínicas", to: "/segmentos/medicos-clinicas" },
