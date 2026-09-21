@@ -11,7 +11,7 @@ const META_DESCRIPTION =
 
 const faq: { q: string; a: string }[] = [];
 
-export const Route = createFileRoute(SLUG)({
+export const Route = createFileRoute("/segmentos/equiparacao-hospitalar-recuperacao-irpj-csll")({
   head: () => ({
     ...buildSeoHead({
       title: META_TITLE,
