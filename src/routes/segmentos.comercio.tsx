@@ -49,6 +49,20 @@ function Page() {
           { title: "Perdas e quebras", body: "Documentação técnica para reconhecer perda dentro da legislação e não pagar imposto sobre mercadoria que não foi vendida." },
         ]},
       ]}
-    />
+    >
+      <section className="border-t border-border pt-8">
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          Se você é atacadista ou distribuidor, veja nossa{" "}
+          <a
+            href="/segmentos/atacadistas-distribuidores/"
+            className="underline decoration-gold/50 hover:text-foreground"
+          >
+            análise aprofundada específica sobre benefícios fiscais em Goiás
+          </a>
+          .
+        </p>
+      </section>
+    </PageScaffold>
+
   );
 }

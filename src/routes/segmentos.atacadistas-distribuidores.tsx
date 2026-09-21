@@ -126,7 +126,70 @@ function Page() {
           h2: "A revisao precisa alcancar PIS, COFINS, IPI e nao apenas ICMS",
           lead: "Uma revisao fiscal limitada ao ICMS pode deixar oportunidades e riscos relevantes de fora. No atacado, a classificacao do produto tambem pode alterar o tratamento de PIS, COFINS, IPI, PIS-Importacao, COFINS-Importacao, tributacao monofasica, aliquota zero, suspensao e creditos permitidos ou vedados. Nos produtos sujeitos a tributacao monofasica, a carga de PIS e COFINS e concentrada em uma etapa anterior da cadeia - o atacadista pode ter receita submetida a aliquota zero, mas isso nao significa que toda compra gere credito. Erros frequentes incluem tributar novamente uma receita monofasica, deixar de segregar receitas, aproveitar credito vedado e classificar produto comum como monofasico. A aliquota zero tambem depende do enquadramento exato na norma, validando NCM, descricao, composicao, destinacao e periodo de vigencia.",
         },
+        {
+          h2: "Reforma Tributaria - alguns atacadistas podem ter vantagem competitiva",
+          lead: "A Reforma Tributaria nao deve ser analisada apenas pela aliquota nominal de IBS e CBS. Para distribuidores, o efeito dependera de composicao do estoque, produtos vendidos, perfil dos fornecedores, perfil dos clientes, volume de creditos, aliquota das saidas, produtos com reducao ou aliquota zero, regime tributario, impacto do split payment e capacidade de recuperar saldos credores. A Lei Complementar no 214/2025 preve regimes diferenciados e reducoes vinculadas a listas e classificacoes fiscais. Entre os grupos relevantes para atacadistas: produtos da cesta basica com aliquota zero, alimentos com reducao de 60%, produtos de higiene pessoal e limpeza com reducao de 60%, produtos agropecuarios in natura com reducao de 60%, insumos agropecuarios e aquicolas com reducao de 60%, medicamentos, dispositivos medicos e produtos de saude menstrual. A lista aplicavel deve ser confirmada pela descricao e pela NCM previstas nos respectivos anexos.",
+          h3: [
+            {
+              title: "Saida reduzida com manutencao de creditos - onde pode surgir vantagem",
+              body: "Um dos pontos mais relevantes esta na combinacao entre creditos sobre as aquisicoes e tributacao reduzida nas saidas. O art. 47, paragrafo 10, da LC no 214/2025 determina que as operacoes sujeitas a aliquota reduzida, em regra, nao acarretam estorno parcial ou integral dos creditos apropriados, salvo previsao expressa em sentido contrario. A lei tambem estabelece, no art. 52, a manutencao dos creditos anteriores nas operacoes sujeitas a aliquota zero. Isso pode beneficiar distribuidores que adquiram bens e servicos tributados, tenham despesas operacionais relevantes, vendam produtos com reducao ou aliquota zero, e consigam documentar e aproveitar corretamente os creditos. Entretanto, na saida com aliquota zero, o adquirente de um produto comprado nao recebe credito sobre aquela aquisicao, porque nao houve debito na operacao.",
+            },
+          ],
+        },
+        {
+          h2: "Simples Nacional, modelo hibrido, Presumido ou Real",
+          lead: 'A Reforma Tributaria amplia a necessidade de comparar regimes. No Simples com IBS e CBS dentro do regime, o optante nao se apropria de creditos amplos, mas o modelo pode ser mais simples. No Simples com IBS e CBS no regime regular (denominado didaticamente de "hibrido", conforme o art. 41, paragrafo 3o, da LC no 214/2025), a empresa ingressa na sistematica regular de debitos e creditos, aumentando o potencial de credito para clientes mas tambem a complexidade. O Lucro Presumido pode continuar competitivo quando a margem efetiva e superior a presumida. O Lucro Real tende a merecer atencao especial quando existem margens liquidas reduzidas, prejuizos, despesas operacionais expressivas e grande volume de aquisicoes tributadas. Nenhuma escolha deve ser feita por uma unica aliquota.',
+        },
+        {
+          h2: "O novo risco de glosa de creditos",
+          lead: "Atacadistas normalmente acumulam grande volume de creditos fiscais. Isso transforma a qualidade documental em ativo financeiro. Os principais riscos de glosa envolvem nota fiscal inidonea, fornecedor irregular, mercadoria nao recebida, operacao simulada, NCM divergente, credito tomado em duplicidade, credito sobre item vedado, erro de CST, CFOP ou base, falta de estorno, mercadoria de uso ou consumo, beneficio incompativel, documento cancelado, devolucao nao ajustada e divergencia entre estoque e escrituracao. Na nova sistematica, o art. 47 da LC no 214/2025 condiciona a apropriacao dos creditos, em regra, a extincao dos debitos da operacao e a comprovacao por documento fiscal eletronico idoneo. Com isso, o risco fiscal do fornecedor passa a afetar mais diretamente o comprador. A gestao de fornecedores devera considerar regularidade cadastral, emissao correta do documento, destaque do IBS e da CBS, pagamento ou extincao do debito, cancelamentos e conciliacao entre pedido, recebimento, nota e pagamento.",
+        },
+        {
+          h2: "Revisao de contratos comerciais",
+          lead: "A Reforma Tributaria e a mudanca da sistematica de creditos exigem revisao dos contratos com fornecedores e clientes, avaliando preco com ou sem tributos, repasse de aumento ou reducao de carga, responsabilidade por classificacao fiscal, obrigacao de emitir documento idoneo, tratamento de descontos, bonificacoes, verbas comerciais, devolucoes, indenizacao por erro tributario do fornecedor, split payment e retencoes. Bonificacoes, verbas de propaganda, descontos condicionais e incondicionais precisam ser classificados corretamente - o nome usado no contrato nao determina, sozinho, o tratamento tributario.",
+        },
+        {
+          h2: "O ERP precisa refletir a operacao real",
+          lead: "Nao adianta encontrar um beneficio correto se o ERP nao consegue aplica-lo de forma consistente. A revisao deve alcancar cadastro completo dos produtos, descricao tecnica, NCM, CEST, GTIN, origem, tributacao de entrada e saida, regras por estado e por cliente, devolucoes, transferencias, bonificacoes, calculo de creditos e integracao com SPED. Uma NCM correta com CST incorreto continua gerando erro. Um beneficio correto aplicado ao cliente errado tambem pode gerar autuacao.",
+        },
+        {
+          h2: "Conclusao",
+          lead: "Atacadistas e distribuidores nao devem analisar tributacao apenas pelo faturamento ou pelo CNAE. Empresas com margens reduzidas precisam simular o Lucro Real. Empresas com milhares de produtos precisam revisar NCM, CEST e tratamentos fiscais. Empresas que utilizam beneficios em Goias precisam calcular PROTEGE, creditos estornados, obrigacoes e custos de manutencao. Economia sem documentacao pode se transformar em glosa, autuacao e perda de margem.",
+          h3: [
+            {
+              title: "Solicitar diagnostico fiscal para atacadistas e distribuidores",
+              body: "O diagnostico cobre comparacao entre regimes tributarios, revisao de NCM e CEST, revisao de ICMS e ICMS-ST, validacao de PROTEGE e TARE, identificacao de riscos de glosa, impactos de IBS e CBS, revisao de contratos e auditoria de parametrizacoes do ERP.",
+            },
+          ],
+        },
       ]}
+      faq={[
+        {
+          q: "Lucro Real e sempre melhor para atacadistas com margem baixa?",
+          a: "Nao. A margem baixa torna o Lucro Real uma alternativa prioritaria de simulacao, mas a decisao depende de PIS, COFINS, creditos, despesas, estoque, prejuizos e custo de conformidade.",
+        },
+        {
+          q: "A revisao de NCM pode reduzir ICMS?",
+          a: "Pode revelar isencao, reducao de base, diferimento, credito outorgado ou outro tratamento aplicavel. Contudo, a NCM sozinha nao cria o beneficio.",
+        },
+        {
+          q: "Todo beneficio de Goias exige PROTEGE?",
+          a: "Nao. A contribuicao depende da legislacao especifica do beneficio ou incentivo. E necessario validar cada hipotese.",
+        },
+        {
+          q: "TARE e um beneficio fiscal?",
+          a: "Nao necessariamente. O TARE e um instrumento que formaliza condicoes de um regime especial autorizado pela legislacao.",
+        },
+        {
+          q: "Produtos com aliquota reduzida de IBS e CBS mantem creditos?",
+          a: "Em regra, a LC no 214/2025 determina que a saida com aliquota reduzida nao provoca estorno dos creditos das aquisicoes, salvo previsao expressa em contrario.",
+        },
+        {
+          q: "Uma NCM errada pode gerar recuperacao de credito, incluindo risco de glosa?",
+          a: "Pode existir recuperacao se houver pagamento indevido, mas a correcao tambem pode revelar imposto recolhido a menor - e a NCM divergente e uma das principais causas de glosa de credito na nova sistematica de IBS e CBS. Por isso, a revisao precisa medir oportunidade e passivo antes de alterar o cadastro.",
+        },
+      ]}
+
     >
       <section className="grid lg:grid-cols-12 gap-10">
         <header className="lg:col-span-4">
@@ -146,6 +209,16 @@ function Page() {
           </p>
         </div>
       </section>
+
+      <section className="border-t border-border pt-8">
+        <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Fontes</div>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          Decreto-Lei no 1.598/1977; Lei no 9.249/1995; Lei no 10.637/2002; Lei no 10.833/2003; Lei Complementar no
+          87/1996; Lei Complementar no 24/1975; Lei Complementar no 160/2017; Decreto no 4.852/1997 (RCTE-GO, Anexo IX);
+          Lei estadual no 14.469/2003 (PROTEGE Goias); Lei Complementar no 214/2025, arts. 41, 47 e 52.
+        </p>
+      </section>
+
     </PageScaffold>
   );
 }

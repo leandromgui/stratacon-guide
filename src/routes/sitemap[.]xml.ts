@@ -46,6 +46,7 @@ const entries: SitemapEntry[] = [
   { path: "/segmentos/odontologia", changefreq: "monthly", priority: "0.7" },
   { path: "/segmentos/e-commerce", changefreq: "monthly", priority: "0.8" },
   { path: "/segmentos/comercio", changefreq: "monthly", priority: "0.7" },
+  { path: "/segmentos/atacadistas-distribuidores", changefreq: "monthly", priority: "0.8" },
   { path: "/segmentos/prestadores-servicos", changefreq: "monthly", priority: "0.7" },
   { path: "/segmentos/construcao-civil-spe", changefreq: "monthly", priority: "0.8" },
   { path: "/segmentos/tecnologia-startups", changefreq: "monthly", priority: "0.8" },
