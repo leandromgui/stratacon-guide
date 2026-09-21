@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { buildSeoHead, SITE_URL } from "@/lib/seo";
 import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
-import { TechnicalReview } from "../components/TechnicalReview";
 
 const SLUG = "/conteudos/aluguel-software-servicos-credito-ibs-cbs";
 const H1 = "Aluguel, Software e Serviços: Quando Há Crédito de IBS e CBS";
@@ -165,7 +164,13 @@ function Page() {
             </a>
             ); Lei Complementar nº 214/2025.
           </p>
-          <TechnicalReview />
+          <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+          Revisao tecnica:{" "}
+          <a href="/sobre/leandro/" className="underline decoration-gold/50 hover:text-foreground">
+            Leandro Matsuoka Guimaraes
+          </a>
+          , socio-fundador e diretor tecnico da DCON. Contador com 22 anos de experiencia, bacharel em Direito e pos-graduado em Controladoria e Financas Corporativas. CRC-GO 16.395/O-9.
+        </p>
         </div>
       </section>
     </PageScaffold>
