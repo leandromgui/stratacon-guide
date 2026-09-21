@@ -157,7 +157,7 @@ function Page() {
             },
             {
               title: "Conferir se o documento fiscal reflete a operação",
-              body: "verificar se o documento fiscal corresponde corretamente a operação realizada.",
+              body: "verificar se o documento fiscal corresponde corretamente à operação realizada.",
             },
             {
               title: "Manter conciliação entre pagamento e nota fiscal",

@@ -21,7 +21,7 @@ const faq = [
   },
   {
     q: "Toda empresa de saúde terá redução?",
-    a: "Não necessariamente sobre todas as receitas - e preciso verificar o serviço na NBS, o Anexo III e a natureza de cada receita.",
+    a: "Não necessariamente sobre todas as receitas - é preciso verificar o serviço na NBS, o Anexo III e a natureza de cada receita.",
   },
   {
     q: "O CNAE comprova o direito a redução?",
@@ -91,7 +91,7 @@ function Page() {
     <PageScaffold
       eyebrow={`Reforma tributária · ${PUBLISHED}`}
       h1={H1}
-      intro="A reforma tributária estabeleceu uma alíquota-padrão para o IBS e a CBS, mas também criou regimes diferenciados para atividades consideradas socialmente relevantes, essenciais ou merecedoras de tratamento específico. Empresas com saídas tributadas por alíquota reduzida podem continuar aproveitando os créditos efetivamente cobrados nas entradas. Quanto maior a proporção de compras tributadas em relação a receita, maior a possibilidade de redução da carga líquida ou formação de saldo credor. Mas a expressão 'crédito integral' precisa ser usada com precisão: o crédito corresponde ao IBS e a CBS efetivamente destacados e extintos na operação anterior, e não a um crédito teórico calculado pela alíquota-padrão. A regra geral está nos arts. 47 a 52 da Lei Complementar nº 214/2025."
+      intro="A reforma tributária estabeleceu uma alíquota-padrão para o IBS e a CBS, mas também criou regimes diferenciados para atividades consideradas socialmente relevantes, essenciais ou merecedoras de tratamento específico. Empresas com saídas tributadas por alíquota reduzida podem continuar aproveitando os créditos efetivamente cobrados nas entradas. Quanto maior a proporção de compras tributadas em relação à receita, maior a possibilidade de redução da carga líquida ou formação de saldo credor. Mas a expressão 'crédito integral' precisa ser usada com precisão: o crédito corresponde ao IBS e à CBS efetivamente destacados e extintos na operação anterior, e não a um crédito teórico calculado pela alíquota-padrão. A regra geral está nos arts. 47 a 52 da Lei Complementar nº 214/2025."
       breadcrumbs={[
         { label: "Insights", to: "/conteudos" },
         { label: H1, to: SLUG },
@@ -108,7 +108,7 @@ function Page() {
           h2: "Profissões com redução de 30%",
           lead: "A legislação também prevê redução de 30% das alíquotas de IBS e CBS para determinadas profissões intelectuais fiscalizadas por conselho profissional.",
           h3: [
-            { title: "Profissões abrangidas", body: "administradores, advogados, arquitetos e urbanistas, assistentes sociais, bibliotecários, biólogos, contabilistas, economistas, profissionais de educação física, engenheiros e agronomos, estatísticos, médicos veterinarios e zootecnistas, museologos, químicos, profissionais de relações publicas, técnicos industriais e técnicos agrícolas." },
+            { title: "Profissões abrangidas", body: "administradores, advogados, arquitetos e urbanistas, assistentes sociais, bibliotecários, biólogos, contabilistas, economistas, profissionais de educação física, engenheiros e agrônomos, estatísticos, médicos veterinários e zootecnistas, museólogos, químicos, profissionais de relações públicas, técnicos industriais e técnicos agrícolas." },
             { title: "Alíquota aplicavel", body: "Nesse caso, a empresa aplicará 70% da alíquota-padrão." },
             { title: "Requisitos para pessoas jurídicas", body: "A sociedade deverá observar requisitos cumulativos, entre eles sócios com habilitações relacionadas ao objeto da sociedade, fiscalização pelo conselho profissional, ausência de pessoa juridica no quadro societário, exercício apenas das atividades profissionais habilitadas, e prestação direta dos serviços pelos sócios." },
             { title: "Base legal", body: "Essas condições estao detalhadas no art. 127 da LC 214/2025." },

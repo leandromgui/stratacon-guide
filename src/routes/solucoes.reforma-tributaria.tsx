@@ -75,7 +75,7 @@ const contentGroups: ContentGroup[] = [
     ],
   },
   {
-    title: "Regimes Tributarios",
+    title: "Regimes Tributários",
     links: [
       { label: "Lucro Presumido na Reforma Tributária: riscos e oportunidades", to: "/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades" },
     ],
