@@ -87,6 +87,7 @@ import { Route as ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026RouteImport } fr
 import { Route as ConteudosHoldingPatrimonioRouteImport } from './routes/conteudos.holding-patrimonio'
 import { Route as ConteudosHoldingFamiliarRouteImport } from './routes/conteudos.holding-familiar'
 import { Route as ConteudosGuiaSimplesNacionalRouteImport } from './routes/conteudos.guia-simples-nacional'
+import { Route as ConteudosGlosaCreditoIbsCbsCausasComoEvitarRouteImport } from './routes/conteudos.glosa-credito-ibs-cbs-causas-como-evitar'
 import { Route as ConteudosFolhaPagamentoCreditoIbsCbsRouteImport } from './routes/conteudos.folha-pagamento-credito-ibs-cbs'
 import { Route as ConteudosDpEsocialRouteImport } from './routes/conteudos.dp-esocial'
 import { Route as ConteudosDespesasQueGeramCreditoIbsCbsRouteImport } from './routes/conteudos.despesas-que-geram-credito-ibs-cbs'
@@ -534,6 +535,12 @@ const ConteudosGuiaSimplesNacionalRoute =
     path: '/conteudos/guia-simples-nacional',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ConteudosGlosaCreditoIbsCbsCausasComoEvitarRoute =
+  ConteudosGlosaCreditoIbsCbsCausasComoEvitarRouteImport.update({
+    id: '/conteudos/glosa-credito-ibs-cbs-causas-como-evitar',
+    path: '/conteudos/glosa-credito-ibs-cbs-causas-como-evitar',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosFolhaPagamentoCreditoIbsCbsRoute =
   ConteudosFolhaPagamentoCreditoIbsCbsRouteImport.update({
     id: '/conteudos/folha-pagamento-credito-ibs-cbs',
@@ -626,6 +633,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/despesas-que-geram-credito-ibs-cbs': typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
   '/conteudos/folha-pagamento-credito-ibs-cbs': typeof ConteudosFolhaPagamentoCreditoIbsCbsRoute
+  '/conteudos/glosa-credito-ibs-cbs-causas-como-evitar': typeof ConteudosGlosaCreditoIbsCbsCausasComoEvitarRoute
   '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
@@ -717,6 +725,7 @@ export interface FileRoutesByTo {
   '/conteudos/despesas-que-geram-credito-ibs-cbs': typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
   '/conteudos/folha-pagamento-credito-ibs-cbs': typeof ConteudosFolhaPagamentoCreditoIbsCbsRoute
+  '/conteudos/glosa-credito-ibs-cbs-causas-como-evitar': typeof ConteudosGlosaCreditoIbsCbsCausasComoEvitarRoute
   '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
@@ -810,6 +819,7 @@ export interface FileRoutesById {
   '/conteudos/despesas-que-geram-credito-ibs-cbs': typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
   '/conteudos/folha-pagamento-credito-ibs-cbs': typeof ConteudosFolhaPagamentoCreditoIbsCbsRoute
+  '/conteudos/glosa-credito-ibs-cbs-causas-como-evitar': typeof ConteudosGlosaCreditoIbsCbsCausasComoEvitarRoute
   '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
@@ -903,6 +913,7 @@ export interface FileRouteTypes {
     | '/conteudos/despesas-que-geram-credito-ibs-cbs'
     | '/conteudos/dp-esocial'
     | '/conteudos/folha-pagamento-credito-ibs-cbs'
+    | '/conteudos/glosa-credito-ibs-cbs-causas-como-evitar'
     | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
     | '/conteudos/holding-patrimonio'
@@ -994,6 +1005,7 @@ export interface FileRouteTypes {
     | '/conteudos/despesas-que-geram-credito-ibs-cbs'
     | '/conteudos/dp-esocial'
     | '/conteudos/folha-pagamento-credito-ibs-cbs'
+    | '/conteudos/glosa-credito-ibs-cbs-causas-como-evitar'
     | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
     | '/conteudos/holding-patrimonio'
@@ -1086,6 +1098,7 @@ export interface FileRouteTypes {
     | '/conteudos/despesas-que-geram-credito-ibs-cbs'
     | '/conteudos/dp-esocial'
     | '/conteudos/folha-pagamento-credito-ibs-cbs'
+    | '/conteudos/glosa-credito-ibs-cbs-causas-como-evitar'
     | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
     | '/conteudos/holding-patrimonio'
@@ -1179,6 +1192,7 @@ export interface RootRouteChildren {
   ConteudosDespesasQueGeramCreditoIbsCbsRoute: typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
   ConteudosDpEsocialRoute: typeof ConteudosDpEsocialRoute
   ConteudosFolhaPagamentoCreditoIbsCbsRoute: typeof ConteudosFolhaPagamentoCreditoIbsCbsRoute
+  ConteudosGlosaCreditoIbsCbsCausasComoEvitarRoute: typeof ConteudosGlosaCreditoIbsCbsCausasComoEvitarRoute
   ConteudosGuiaSimplesNacionalRoute: typeof ConteudosGuiaSimplesNacionalRoute
   ConteudosHoldingFamiliarRoute: typeof ConteudosHoldingFamiliarRoute
   ConteudosHoldingPatrimonioRoute: typeof ConteudosHoldingPatrimonioRoute
@@ -1793,6 +1807,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosGuiaSimplesNacionalRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/glosa-credito-ibs-cbs-causas-como-evitar': {
+      id: '/conteudos/glosa-credito-ibs-cbs-causas-como-evitar'
+      path: '/conteudos/glosa-credito-ibs-cbs-causas-como-evitar'
+      fullPath: '/conteudos/glosa-credito-ibs-cbs-causas-como-evitar'
+      preLoaderRoute: typeof ConteudosGlosaCreditoIbsCbsCausasComoEvitarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/folha-pagamento-credito-ibs-cbs': {
       id: '/conteudos/folha-pagamento-credito-ibs-cbs'
       path: '/conteudos/folha-pagamento-credito-ibs-cbs'
@@ -1925,6 +1946,8 @@ const rootRouteChildren: RootRouteChildren = {
   ConteudosDpEsocialRoute: ConteudosDpEsocialRoute,
   ConteudosFolhaPagamentoCreditoIbsCbsRoute:
     ConteudosFolhaPagamentoCreditoIbsCbsRoute,
+  ConteudosGlosaCreditoIbsCbsCausasComoEvitarRoute:
+    ConteudosGlosaCreditoIbsCbsCausasComoEvitarRoute,
   ConteudosGuiaSimplesNacionalRoute: ConteudosGuiaSimplesNacionalRoute,
   ConteudosHoldingFamiliarRoute: ConteudosHoldingFamiliarRoute,
   ConteudosHoldingPatrimonioRoute: ConteudosHoldingPatrimonioRoute,
