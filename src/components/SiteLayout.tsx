@@ -116,6 +116,8 @@ const mega: MegaItem[] = [
         items: [
           { label: "E-commerce", to: "/segmentos/e-commerce" },
           { label: "Comércio Varejista", to: "/segmentos/comercio" },
+          { label: "Atacadistas e Distribuidores", to: "/segmentos/atacadistas-distribuidores" },
+
           { label: "Tecnologia e Startups", to: "/segmentos/tecnologia-startups" },
           { label: "Provedores de Internet", to: "/segmentos/provedores-internet" },
           { label: "Franquias e Redes", to: "/segmentos/franquias-redes" },
