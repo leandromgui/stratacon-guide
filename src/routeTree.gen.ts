@@ -67,6 +67,7 @@ import { Route as SegmentosECommerceRouteImport } from './routes/segmentos.e-com
 import { Route as SegmentosConstrucaoCivilSpeRouteImport } from './routes/segmentos.construcao-civil-spe'
 import { Route as SegmentosCondominiosRouteImport } from './routes/segmentos.condominios'
 import { Route as SegmentosComercioRouteImport } from './routes/segmentos.comercio'
+import { Route as SegmentosAtacadistasDistribuidoresRouteImport } from './routes/segmentos.atacadistas-distribuidores'
 import { Route as ConteudosSplitPaymentAdiado2028OQueMudaRouteImport } from './routes/conteudos.split-payment-adiado-2028-o-que-muda'
 import { Route as ConteudosSimplesPuroOuHibrido2027ComoDecidirRouteImport } from './routes/conteudos.simples-puro-ou-hibrido-2027-como-decidir'
 import { Route as ConteudosSimplesNacionalVaiAcabar2027RouteImport } from './routes/conteudos.simples-nacional-vai-acabar-2027'
@@ -413,6 +414,12 @@ const SegmentosComercioRoute = SegmentosComercioRouteImport.update({
   path: '/segmentos/comercio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SegmentosAtacadistasDistribuidoresRoute =
+  SegmentosAtacadistasDistribuidoresRouteImport.update({
+    id: '/segmentos/atacadistas-distribuidores',
+    path: '/segmentos/atacadistas-distribuidores',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosSplitPaymentAdiado2028OQueMudaRoute =
   ConteudosSplitPaymentAdiado2028OQueMudaRouteImport.update({
     id: '/conteudos/split-payment-adiado-2028-o-que-muda',
@@ -662,6 +669,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/simples-nacional-vai-acabar-2027': typeof ConteudosSimplesNacionalVaiAcabar2027Route
   '/conteudos/simples-puro-ou-hibrido-2027-como-decidir': typeof ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute
   '/conteudos/split-payment-adiado-2028-o-que-muda': typeof ConteudosSplitPaymentAdiado2028OQueMudaRoute
+  '/segmentos/atacadistas-distribuidores': typeof SegmentosAtacadistasDistribuidoresRoute
   '/segmentos/comercio': typeof SegmentosComercioRoute
   '/segmentos/condominios': typeof SegmentosCondominiosRoute
   '/segmentos/construcao-civil-spe': typeof SegmentosConstrucaoCivilSpeRoute
@@ -755,6 +763,7 @@ export interface FileRoutesByTo {
   '/conteudos/simples-nacional-vai-acabar-2027': typeof ConteudosSimplesNacionalVaiAcabar2027Route
   '/conteudos/simples-puro-ou-hibrido-2027-como-decidir': typeof ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute
   '/conteudos/split-payment-adiado-2028-o-que-muda': typeof ConteudosSplitPaymentAdiado2028OQueMudaRoute
+  '/segmentos/atacadistas-distribuidores': typeof SegmentosAtacadistasDistribuidoresRoute
   '/segmentos/comercio': typeof SegmentosComercioRoute
   '/segmentos/condominios': typeof SegmentosCondominiosRoute
   '/segmentos/construcao-civil-spe': typeof SegmentosConstrucaoCivilSpeRoute
@@ -850,6 +859,7 @@ export interface FileRoutesById {
   '/conteudos/simples-nacional-vai-acabar-2027': typeof ConteudosSimplesNacionalVaiAcabar2027Route
   '/conteudos/simples-puro-ou-hibrido-2027-como-decidir': typeof ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute
   '/conteudos/split-payment-adiado-2028-o-que-muda': typeof ConteudosSplitPaymentAdiado2028OQueMudaRoute
+  '/segmentos/atacadistas-distribuidores': typeof SegmentosAtacadistasDistribuidoresRoute
   '/segmentos/comercio': typeof SegmentosComercioRoute
   '/segmentos/condominios': typeof SegmentosCondominiosRoute
   '/segmentos/construcao-civil-spe': typeof SegmentosConstrucaoCivilSpeRoute
@@ -945,6 +955,7 @@ export interface FileRouteTypes {
     | '/conteudos/simples-nacional-vai-acabar-2027'
     | '/conteudos/simples-puro-ou-hibrido-2027-como-decidir'
     | '/conteudos/split-payment-adiado-2028-o-que-muda'
+    | '/segmentos/atacadistas-distribuidores'
     | '/segmentos/comercio'
     | '/segmentos/condominios'
     | '/segmentos/construcao-civil-spe'
@@ -1038,6 +1049,7 @@ export interface FileRouteTypes {
     | '/conteudos/simples-nacional-vai-acabar-2027'
     | '/conteudos/simples-puro-ou-hibrido-2027-como-decidir'
     | '/conteudos/split-payment-adiado-2028-o-que-muda'
+    | '/segmentos/atacadistas-distribuidores'
     | '/segmentos/comercio'
     | '/segmentos/condominios'
     | '/segmentos/construcao-civil-spe'
@@ -1132,6 +1144,7 @@ export interface FileRouteTypes {
     | '/conteudos/simples-nacional-vai-acabar-2027'
     | '/conteudos/simples-puro-ou-hibrido-2027-como-decidir'
     | '/conteudos/split-payment-adiado-2028-o-que-muda'
+    | '/segmentos/atacadistas-distribuidores'
     | '/segmentos/comercio'
     | '/segmentos/condominios'
     | '/segmentos/construcao-civil-spe'
@@ -1227,6 +1240,7 @@ export interface RootRouteChildren {
   ConteudosSimplesNacionalVaiAcabar2027Route: typeof ConteudosSimplesNacionalVaiAcabar2027Route
   ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute: typeof ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute
   ConteudosSplitPaymentAdiado2028OQueMudaRoute: typeof ConteudosSplitPaymentAdiado2028OQueMudaRoute
+  SegmentosAtacadistasDistribuidoresRoute: typeof SegmentosAtacadistasDistribuidoresRoute
   SegmentosComercioRoute: typeof SegmentosComercioRoute
   SegmentosCondominiosRoute: typeof SegmentosCondominiosRoute
   SegmentosConstrucaoCivilSpeRoute: typeof SegmentosConstrucaoCivilSpeRoute
@@ -1681,6 +1695,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SegmentosComercioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/segmentos/atacadistas-distribuidores': {
+      id: '/segmentos/atacadistas-distribuidores'
+      path: '/segmentos/atacadistas-distribuidores'
+      fullPath: '/segmentos/atacadistas-distribuidores'
+      preLoaderRoute: typeof SegmentosAtacadistasDistribuidoresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/split-payment-adiado-2028-o-que-muda': {
       id: '/conteudos/split-payment-adiado-2028-o-que-muda'
       path: '/conteudos/split-payment-adiado-2028-o-que-muda'
@@ -2003,6 +2024,8 @@ const rootRouteChildren: RootRouteChildren = {
     ConteudosSimplesPuroOuHibrido2027ComoDecidirRoute,
   ConteudosSplitPaymentAdiado2028OQueMudaRoute:
     ConteudosSplitPaymentAdiado2028OQueMudaRoute,
+  SegmentosAtacadistasDistribuidoresRoute:
+    SegmentosAtacadistasDistribuidoresRoute,
   SegmentosComercioRoute: SegmentosComercioRoute,
   SegmentosCondominiosRoute: SegmentosCondominiosRoute,
   SegmentosConstrucaoCivilSpeRoute: SegmentosConstrucaoCivilSpeRoute,
