@@ -62,6 +62,7 @@ import { Route as SegmentosLucroPresumidoRouteImport } from './routes/segmentos.
 import { Route as SegmentosImobiliariasRouteImport } from './routes/segmentos.imobiliarias'
 import { Route as SegmentosHoldingsRouteImport } from './routes/segmentos.holdings'
 import { Route as SegmentosFranquiasRedesRouteImport } from './routes/segmentos.franquias-redes'
+import { Route as SegmentosEquiparacaoHospitalarRecuperacaoIrpjCsllRouteImport } from './routes/segmentos.equiparacao-hospitalar-recuperacao-irpj-csll'
 import { Route as SegmentosEmpresasFamiliaresRouteImport } from './routes/segmentos.empresas-familiares'
 import { Route as SegmentosECommerceRouteImport } from './routes/segmentos.e-commerce'
 import { Route as SegmentosConstrucaoCivilSpeRouteImport } from './routes/segmentos.construcao-civil-spe'
@@ -387,6 +388,12 @@ const SegmentosFranquiasRedesRoute = SegmentosFranquiasRedesRouteImport.update({
   path: '/segmentos/franquias-redes',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SegmentosEquiparacaoHospitalarRecuperacaoIrpjCsllRoute =
+  SegmentosEquiparacaoHospitalarRecuperacaoIrpjCsllRouteImport.update({
+    id: '/segmentos/equiparacao-hospitalar-recuperacao-irpj-csll',
+    path: '/segmentos/equiparacao-hospitalar-recuperacao-irpj-csll',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SegmentosEmpresasFamiliaresRoute =
   SegmentosEmpresasFamiliaresRouteImport.update({
     id: '/segmentos/empresas-familiares',
@@ -675,6 +682,7 @@ export interface FileRoutesByFullPath {
   '/segmentos/construcao-civil-spe': typeof SegmentosConstrucaoCivilSpeRoute
   '/segmentos/e-commerce': typeof SegmentosECommerceRoute
   '/segmentos/empresas-familiares': typeof SegmentosEmpresasFamiliaresRoute
+  '/segmentos/equiparacao-hospitalar-recuperacao-irpj-csll': typeof SegmentosEquiparacaoHospitalarRecuperacaoIrpjCsllRoute
   '/segmentos/franquias-redes': typeof SegmentosFranquiasRedesRoute
   '/segmentos/holdings': typeof SegmentosHoldingsRoute
   '/segmentos/imobiliarias': typeof SegmentosImobiliariasRoute
@@ -769,6 +777,7 @@ export interface FileRoutesByTo {
   '/segmentos/construcao-civil-spe': typeof SegmentosConstrucaoCivilSpeRoute
   '/segmentos/e-commerce': typeof SegmentosECommerceRoute
   '/segmentos/empresas-familiares': typeof SegmentosEmpresasFamiliaresRoute
+  '/segmentos/equiparacao-hospitalar-recuperacao-irpj-csll': typeof SegmentosEquiparacaoHospitalarRecuperacaoIrpjCsllRoute
   '/segmentos/franquias-redes': typeof SegmentosFranquiasRedesRoute
   '/segmentos/holdings': typeof SegmentosHoldingsRoute
   '/segmentos/imobiliarias': typeof SegmentosImobiliariasRoute
@@ -865,6 +874,7 @@ export interface FileRoutesById {
   '/segmentos/construcao-civil-spe': typeof SegmentosConstrucaoCivilSpeRoute
   '/segmentos/e-commerce': typeof SegmentosECommerceRoute
   '/segmentos/empresas-familiares': typeof SegmentosEmpresasFamiliaresRoute
+  '/segmentos/equiparacao-hospitalar-recuperacao-irpj-csll': typeof SegmentosEquiparacaoHospitalarRecuperacaoIrpjCsllRoute
   '/segmentos/franquias-redes': typeof SegmentosFranquiasRedesRoute
   '/segmentos/holdings': typeof SegmentosHoldingsRoute
   '/segmentos/imobiliarias': typeof SegmentosImobiliariasRoute
@@ -961,6 +971,7 @@ export interface FileRouteTypes {
     | '/segmentos/construcao-civil-spe'
     | '/segmentos/e-commerce'
     | '/segmentos/empresas-familiares'
+    | '/segmentos/equiparacao-hospitalar-recuperacao-irpj-csll'
     | '/segmentos/franquias-redes'
     | '/segmentos/holdings'
     | '/segmentos/imobiliarias'
@@ -1055,6 +1066,7 @@ export interface FileRouteTypes {
     | '/segmentos/construcao-civil-spe'
     | '/segmentos/e-commerce'
     | '/segmentos/empresas-familiares'
+    | '/segmentos/equiparacao-hospitalar-recuperacao-irpj-csll'
     | '/segmentos/franquias-redes'
     | '/segmentos/holdings'
     | '/segmentos/imobiliarias'
@@ -1150,6 +1162,7 @@ export interface FileRouteTypes {
     | '/segmentos/construcao-civil-spe'
     | '/segmentos/e-commerce'
     | '/segmentos/empresas-familiares'
+    | '/segmentos/equiparacao-hospitalar-recuperacao-irpj-csll'
     | '/segmentos/franquias-redes'
     | '/segmentos/holdings'
     | '/segmentos/imobiliarias'
@@ -1246,6 +1259,7 @@ export interface RootRouteChildren {
   SegmentosConstrucaoCivilSpeRoute: typeof SegmentosConstrucaoCivilSpeRoute
   SegmentosECommerceRoute: typeof SegmentosECommerceRoute
   SegmentosEmpresasFamiliaresRoute: typeof SegmentosEmpresasFamiliaresRoute
+  SegmentosEquiparacaoHospitalarRecuperacaoIrpjCsllRoute: typeof SegmentosEquiparacaoHospitalarRecuperacaoIrpjCsllRoute
   SegmentosFranquiasRedesRoute: typeof SegmentosFranquiasRedesRoute
   SegmentosHoldingsRoute: typeof SegmentosHoldingsRoute
   SegmentosImobiliariasRoute: typeof SegmentosImobiliariasRoute
@@ -1660,6 +1674,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SegmentosFranquiasRedesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/segmentos/equiparacao-hospitalar-recuperacao-irpj-csll': {
+      id: '/segmentos/equiparacao-hospitalar-recuperacao-irpj-csll'
+      path: '/segmentos/equiparacao-hospitalar-recuperacao-irpj-csll'
+      fullPath: '/segmentos/equiparacao-hospitalar-recuperacao-irpj-csll'
+      preLoaderRoute: typeof SegmentosEquiparacaoHospitalarRecuperacaoIrpjCsllRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/segmentos/empresas-familiares': {
       id: '/segmentos/empresas-familiares'
       path: '/segmentos/empresas-familiares'
@@ -2031,6 +2052,8 @@ const rootRouteChildren: RootRouteChildren = {
   SegmentosConstrucaoCivilSpeRoute: SegmentosConstrucaoCivilSpeRoute,
   SegmentosECommerceRoute: SegmentosECommerceRoute,
   SegmentosEmpresasFamiliaresRoute: SegmentosEmpresasFamiliaresRoute,
+  SegmentosEquiparacaoHospitalarRecuperacaoIrpjCsllRoute:
+    SegmentosEquiparacaoHospitalarRecuperacaoIrpjCsllRoute,
   SegmentosFranquiasRedesRoute: SegmentosFranquiasRedesRoute,
   SegmentosHoldingsRoute: SegmentosHoldingsRoute,
   SegmentosImobiliariasRoute: SegmentosImobiliariasRoute,
