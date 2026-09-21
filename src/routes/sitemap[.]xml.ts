@@ -43,6 +43,7 @@ const entries: SitemapEntry[] = [
   // Segmentos
   { path: "/segmentos", changefreq: "weekly", priority: "0.8" },
   { path: "/segmentos/medicos-clinicas", changefreq: "monthly", priority: "0.8" },
+  { path: "/segmentos/equiparacao-hospitalar-recuperacao-irpj-csll", changefreq: "monthly", priority: "0.8" },
   { path: "/segmentos/odontologia", changefreq: "monthly", priority: "0.7" },
   { path: "/segmentos/e-commerce", changefreq: "monthly", priority: "0.8" },
   { path: "/segmentos/comercio", changefreq: "monthly", priority: "0.7" },
