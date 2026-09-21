@@ -383,8 +383,7 @@ function Page() {
             {
               title: "Solicitar uma análise técnica da sua empresa",
               body: "Sua empresa pode ter receitas enquadráveis nos percentuais reduzidos de IRPJ e CSLL ou valores pagos indevidamente em períodos anteriores. A DCON realiza a análise da atividade, dos contratos, da estrutura societária, da documentação sanitária, das notas fiscais, das apurações e das obrigações fiscais antes da utilização do crédito. Atendimento em Goiânia e consultoria tributária para empresas da saúde em todo o Brasil.",
-              cta: "Solicitar uma análise técnica da sua empresa",
-              link: "/diagnostico",
+              cta: { label: "Solicitar uma análise técnica da sua empresa", to: "/diagnostico" },
             },
           ],
         },
