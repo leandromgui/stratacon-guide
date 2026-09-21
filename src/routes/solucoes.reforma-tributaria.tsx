@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import type { ReactNode } from "react";
 import { PageScaffold } from "../components/PageScaffold";
 import { getDoc } from "../lib/dcon-content";
 import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
@@ -31,6 +32,146 @@ export const Route = createFileRoute("/solucoes/reforma-tributaria")({
   }),
   component: Page,
 });
+
+interface ContentLink {
+  label: string;
+  to: string;
+  external?: boolean;
+}
+
+interface ContentGroup {
+  title: string;
+  links: ContentLink[];
+}
+
+const featured: ContentLink[] = [
+  { label: "IBS e CBS com Aliquota Reduzida: Setores Beneficiados e Creditos", to: "/conteudos/ibs-cbs-aliquota-reduzida-setores-beneficiados", external: true },
+  { label: "Simples Nacional Puro ou Hibrido: Qual Escolher em 2027?", to: "/conteudos/simples-puro-ou-hibrido-2027-como-decidir" },
+  { label: "Lucro Real na Reforma Tributaria: Creditos, Glosas e Contratos", to: "/conteudos/lucro-real-reforma-tributaria-creditos-controles" },
+];
+
+const contentGroups: ContentGroup[] = [
+  {
+    title: "Simples Nacional",
+    links: [
+      { label: "Simples Nacional vai acabar em 2027? O que realmente muda", to: "/conteudos/simples-nacional-vai-acabar-2027" },
+      { label: "Prazo para Optar pelo Regime Regular de IBS/CBS no Simples", to: "/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples" },
+    ],
+  },
+  {
+    title: "Creditos de IBS e CBS",
+    links: [
+      { label: "Quais Despesas Geram Credito de IBS e CBS", to: "/conteudos/despesas-que-geram-credito-ibs-cbs" },
+      { label: "Folha de Pagamento Gera Credito de IBS e CBS?", to: "/conteudos/folha-pagamento-credito-ibs-cbs" },
+      { label: "Aluguel, Software e Servicos: Quando Ha Credito", to: "/conteudos/aluguel-software-servicos-credito-ibs-cbs" },
+    ],
+  },
+  {
+    title: "Riscos e Glosas",
+    links: [
+      { label: "Auditoria de Fornecedores para Preservar Creditos", to: "/conteudos/auditoria-fornecedores-creditos-ibs-cbs" },
+      { label: "Glosa de Credito de IBS e CBS: Principais Causas e Como Evitar", to: "/conteudos/glosa-credito-ibs-cbs-causas-como-evitar" },
+    ],
+  },
+  {
+    title: "Regimes Tributarios",
+    links: [
+      { label: "Lucro Presumido na Reforma Tributaria: riscos e oportunidades", to: "/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades" },
+    ],
+  },
+  {
+    title: "Operacional e Prazos",
+    links: [
+      { label: "IBS e CBS na Nota Fiscal: obrigatorio desde agosto/2026", to: "/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026" },
+      { label: "Split Payment e Adiado para 2028", to: "/conteudos/split-payment-adiado-2028-o-que-muda" },
+      { label: "Cronograma da Reforma Tributaria 2026-2033", to: "/conteudos/cronograma-reforma-tributaria-2026-2033" },
+      { label: "Reforma Tributaria e Formacao de Preco", to: "/conteudos/reforma-tributaria-formacao-preco-margem" },
+    ],
+  },
+  {
+    title: "Por Setor",
+    links: [
+      { label: "Reforma Tributaria para Clinicas Medicas", to: "/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda" },
+      { label: "Prestadores de Servicos na Reforma", to: "/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos" },
+    ],
+  },
+  {
+    title: "Contratos",
+    links: [
+      { label: "Revisao de Contratos para IBS e CBS: Clausulas Essenciais", to: "/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais" },
+    ],
+  },
+];
+
+function ContentLinkRenderer({ link }: { link: ContentLink }): ReactNode {
+  const className = "text-[15px] text-foreground/90 hover:text-gold transition-colors underline decoration-gold/30 underline-offset-4";
+  if (link.external) {
+    return (
+      <a href={`${link.to}/`} className={className}>
+        {link.label}
+      </a>
+    );
+  }
+  return (
+    <Link to={link.to} className={className}>
+      {link.label}
+    </Link>
+  );
+}
+
+function ReformaContentHub(): ReactNode {
+  return (
+    <section className="border-t border-border pt-16">
+      <div className="grid lg:grid-cols-12 gap-10">
+        <header className="lg:col-span-4">
+          <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Conteudo tecnico</div>
+          <h2 className="font-display text-3xl tracking-tight">Central de Conteudos sobre a Reforma</h2>
+          <p className="mt-4 text-muted-foreground text-[15px] leading-relaxed">
+            Mais de 20 analises tecnicas sobre a transicao para IBS e CBS, organizadas por tema.
+          </p>
+        </header>
+
+        <div className="lg:col-span-8 space-y-12">
+          <div>
+            <h3 className="text-[11px] uppercase tracking-[0.22em] text-gold mb-4">Conteudo Aprofundado</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {featured.map((link) => (
+                <div key={link.to} className="group bg-card border border-border p-5 hover:bg-secondary transition-colors">
+                  <div className="text-gold text-xl leading-none mb-3">→</div>
+                  <ContentLinkRenderer link={link} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-x-10 gap-y-10">
+            {contentGroups.map((group) => (
+              <div key={group.title}>
+                <h3 className="font-display text-[17px] text-foreground mb-3">{group.title}</h3>
+                <ul className="space-y-2">
+                  {group.links.map((link) => (
+                    <li key={link.to}>
+                      <ContentLinkRenderer link={link} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="pt-6 border-t border-border">
+            <p className="text-[15px] text-muted-foreground">
+              Nao achou o que procurava?{" "}
+              <Link to="/conteudos" className="text-foreground hover:text-gold underline decoration-gold/30 underline-offset-4 transition-colors">
+                Ver todos os Insights
+              </Link>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 const docDcon = getDoc(4);
 
@@ -84,6 +225,7 @@ function Page() {
         ]},
       ]}
     >
+      <ReformaContentHub />
       <MethodBadge note="Preparação para a Reforma conduzida pelo protocolo DCON" />
       <FAQ items={faqs} />
       <LeadCaptureForm page="solucoes" />
