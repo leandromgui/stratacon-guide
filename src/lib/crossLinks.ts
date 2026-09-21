@@ -189,6 +189,13 @@ export const crossLinks: Record<string, RelatedLink[]> = {
     { label: "Comércio e ICMS", to: "/conteudos/comercio-icms", eyebrow: "Insight" },
   ],
 
+  "atacadistas-distribuidores": [
+    { label: "Diagnóstico Fiscal e Contábil", to: "/diagnostico", eyebrow: "Primeiro passo" },
+    { label: "Recuperação de Créditos", to: "/solucoes/recuperacao-creditos-tributarios", eyebrow: "Solução" },
+    { label: "Planejamento Tributário", to: "/solucoes/planejamento-tributario", eyebrow: "Solução" },
+    { label: "Comércio e ICMS", to: "/conteudos/comercio-icms", eyebrow: "Insight" },
+  ],
+
   "prestadores-servicos": [
     { label: "Planejamento Tributário", to: "/solucoes/planejamento-tributario", eyebrow: "Solução" },
     { label: "Departamento Fiscal", to: "/solucoes/departamento-fiscal", eyebrow: "Solução" },
