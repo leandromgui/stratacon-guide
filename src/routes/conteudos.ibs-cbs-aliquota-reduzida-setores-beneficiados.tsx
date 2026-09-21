@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { buildSeoHead, SITE_URL } from "@/lib/seo";
 import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
@@ -151,9 +151,10 @@ function Page() {
     >
       <section className="grid lg:grid-cols-12 gap-10">
         <header className="lg:col-span-4">
-          <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">01 / 09</div>
+          <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Fundamento</div>
           <h2 className="font-display text-2xl md:text-3xl tracking-tight">A logica economica da reducao</h2>
         </header>
+
         <div className="lg:col-span-8 space-y-6">
           <div className="bg-card border border-border p-6 md:p-8">
             <p className="font-display text-lg text-foreground mb-2">IBS/CBS a recolher = debitos sobre as saidas - creditos das entradas</p>
@@ -166,8 +167,9 @@ function Page() {
 
       <section className="grid lg:grid-cols-12 gap-10">
         <header className="lg:col-span-4">
-          <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">02 / 09</div>
+          <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Percentuais</div>
           <h2 className="font-display text-2xl md:text-3xl tracking-tight">O que significa reducao de 60%?</h2>
+
           <p className="mt-4 text-muted-foreground text-[15px] leading-relaxed">
             Reducao de 60% nao significa que a aliquota sera de 60%. Significa que o contribuinte aplicara apenas 40% da aliquota-padrao.
           </p>
@@ -200,8 +202,9 @@ function Page() {
 
       <section className="grid lg:grid-cols-12 gap-10">
         <header className="lg:col-span-4">
-          <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">03 / 09</div>
+          <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Enquadramento</div>
           <h2 className="font-display text-2xl md:text-3xl tracking-tight">Quais atividades tem reducao de 60% do IBS e da CBS?</h2>
+
           <p className="mt-4 text-muted-foreground text-[15px] leading-relaxed">
             A LC 214/2025 preve reducao de 60% para operacoes pertencentes as seguintes categorias.
           </p>
@@ -250,8 +253,9 @@ function Page() {
 
       <section className="grid lg:grid-cols-12 gap-10">
         <header className="lg:col-span-4">
-          <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">07 / 09</div>
+          <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Creditos</div>
           <h2 className="font-display text-2xl md:text-3xl tracking-tight">Credito integral: o que realmente pode ser aproveitado?</h2>
+
           <p className="mt-4 text-muted-foreground text-[15px] leading-relaxed">
             No regime regular, o contribuinte pode aproveitar o valor de IBS e CBS efetivamente cobrado na aquisicao, observadas as condicoes legais.
           </p>
