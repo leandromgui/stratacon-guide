@@ -84,7 +84,7 @@ const contentGroups: ContentGroup[] = [
     title: "Operacional e Prazos",
     links: [
       { label: "IBS e CBS na Nota Fiscal: obrigatório desde agosto/2026", to: "/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026" },
-      { label: "Split Payment e Adiado para 2028", to: "/conteudos/split-payment-adiado-2028-o-que-muda" },
+      { label: "Split Payment é Adiado para 2028", to: "/conteudos/split-payment-adiado-2028-o-que-muda" },
       { label: "Cronograma da Reforma Tributária 2026-2033", to: "/conteudos/cronograma-reforma-tributaria-2026-2033" },
       { label: "Reforma Tributária e Formação de Preço", to: "/conteudos/reforma-tributaria-formacao-preco-margem" },
     ],
@@ -125,16 +125,16 @@ function ReformaContentHub(): ReactNode {
     <section className="border-t border-border pt-16">
       <div className="grid lg:grid-cols-12 gap-10">
         <header className="lg:col-span-4">
-          <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Conteudo tecnico</div>
-          <h2 className="font-display text-3xl tracking-tight">Central de Conteudos sobre a Reforma</h2>
+          <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Conteúdo técnico</div>
+          <h2 className="font-display text-3xl tracking-tight">Central de Conteúdos sobre a Reforma</h2>
           <p className="mt-4 text-muted-foreground text-[15px] leading-relaxed">
-            Mais de 20 analises tecnicas sobre a transicao para IBS e CBS, organizadas por tema.
+            Mais de 20 análises técnicas sobre a transição para IBS e CBS, organizadas por tema.
           </p>
         </header>
 
         <div className="lg:col-span-8 space-y-12">
           <div>
-            <h3 className="text-[11px] uppercase tracking-[0.22em] text-gold mb-4">Conteudo Aprofundado</h3>
+            <h3 className="text-[11px] uppercase tracking-[0.22em] text-gold mb-4">Conteúdo Aprofundado</h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {featured.map((link) => (
                 <div key={link.to} className="group bg-card border border-border p-5 hover:bg-secondary transition-colors">
@@ -162,7 +162,7 @@ function ReformaContentHub(): ReactNode {
 
           <div className="pt-6 border-t border-border">
             <p className="text-[15px] text-muted-foreground">
-              Nao achou o que procurava?{" "}
+              Não achou o que procurava?{" "}
               <Link to="/conteudos" className="text-foreground hover:text-gold underline decoration-gold/30 underline-offset-4 transition-colors">
                 Ver todos os Insights
               </Link>

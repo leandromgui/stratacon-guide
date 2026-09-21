@@ -152,14 +152,14 @@ function Page() {
       <section className="grid lg:grid-cols-12 gap-10">
         <header className="lg:col-span-4">
           <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Fundamento</div>
-          <h2 className="font-display text-2xl md:text-3xl tracking-tight">A logica economica da reducao</h2>
+          <h2 className="font-display text-2xl md:text-3xl tracking-tight">A lógica econômica da redução</h2>
         </header>
 
         <div className="lg:col-span-8 space-y-6">
           <div className="bg-card border border-border p-6 md:p-8">
-            <p className="font-display text-lg text-foreground mb-2">IBS/CBS a recolher = debitos sobre as saidas - creditos das entradas</p>
+            <p className="font-display text-lg text-foreground mb-2">IBS/CBS a recolher = débitos sobre as saídas - créditos das entradas</p>
             <p className="text-[15px] leading-relaxed text-foreground/90">
-              Nas atividades beneficiadas, o debito da saida e calculado com reducao da aliquota, mas os creditos das entradas nao sofrem automaticamente uma reducao proporcional. Isso cria uma possivel assimetria favoravel: entrada adquirida com aliquota-padrao, credito correspondente ao tributo efetivamente cobrado, saida tributada com aliquota reduzida, debito menor, saldo liquido de imposto menor ou saldo a recuperar.
+              Nas atividades beneficiadas, o débito da saida é calculado com redução da alíquota, mas os créditos das entradas não sofrem automaticamente uma redução proporcional. Isso cria uma possível assimetria favorável: entrada adquirida com alíquota-padrão, crédito correspondente ao tributo efetivamente cobrado, saida tributada com alíquota reduzida, débito menor, saldo liquido de imposto menor ou saldo a recuperar.
             </p>
           </div>
         </div>
@@ -168,34 +168,34 @@ function Page() {
       <section className="grid lg:grid-cols-12 gap-10">
         <header className="lg:col-span-4">
           <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Percentuais</div>
-          <h2 className="font-display text-2xl md:text-3xl tracking-tight">O que significa reducao de 60%?</h2>
+          <h2 className="font-display text-2xl md:text-3xl tracking-tight">O que significa redução de 60%?</h2>
 
           <p className="mt-4 text-muted-foreground text-[15px] leading-relaxed">
-            Reducao de 60% nao significa que a aliquota sera de 60%. Significa que o contribuinte aplicara apenas 40% da aliquota-padrao.
+            Redução de 60% não significa que a alíquota será de 60%. Significa que o contribuinte aplicará apenas 40% da alíquota-padrão.
           </p>
         </header>
         <div className="lg:col-span-8 space-y-6">
           <p className="text-[15px] leading-relaxed text-foreground/90">
-            Se a aliquota-padrao hipotetica fosse de 25%, por exemplo: 25% x 40% = 10%. Nesse exemplo meramente ilustrativo, a operacao sujeita a reducao de 60% teria aliquota efetiva de 10%.
+            Se a alíquota-padrão hipotética fosse de 25%, por exemplo: 25% x 40% = 10%. Nesse exemplo meramente ilustrativo, a operação sujeita a redução de 60% teria alíquota efetiva de 10%.
           </p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border border-border">
               <thead className="bg-secondary text-secondary-foreground">
                 <tr>
-                  <th className="text-left p-4 font-display">Reducao legal</th>
-                  <th className="text-left p-4 font-display">Percentual da aliquota-padrao aplicado</th>
+                  <th className="text-left p-4 font-display">Redução legal</th>
+                  <th className="text-left p-4 font-display">Percentual da alíquota-padrão aplicado</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
-                <tr className="bg-card"><td className="p-4">30%</td><td className="p-4">70% da aliquota-padrao</td></tr>
-                <tr className="bg-card"><td className="p-4">40%</td><td className="p-4">60% da aliquota-padrao</td></tr>
-                <tr className="bg-card"><td className="p-4">60%</td><td className="p-4">40% da aliquota-padrao</td></tr>
-                <tr className="bg-card"><td className="p-4">100%</td><td className="p-4">Aliquota zero</td></tr>
+                <tr className="bg-card"><td className="p-4">30%</td><td className="p-4">70% da alíquota-padrão</td></tr>
+                <tr className="bg-card"><td className="p-4">40%</td><td className="p-4">60% da alíquota-padrão</td></tr>
+                <tr className="bg-card"><td className="p-4">60%</td><td className="p-4">40% da alíquota-padrão</td></tr>
+                <tr className="bg-card"><td className="p-4">100%</td><td className="p-4">Alíquota zero</td></tr>
               </tbody>
             </table>
           </div>
           <p className="text-[15px] leading-relaxed text-foreground/90">
-            As reducoes sao aplicadas sobre as aliquotas-padrao definidas para a CBS e para o IBS, conforme o art. 126 da LC 214/2025.
+            As reduções sao aplicadas sobre as alíquotas-padrão definidas para a CBS e para o IBS, conforme o art. 126 da LC 214/2025.
           </p>
         </div>
       </section>
@@ -203,10 +203,10 @@ function Page() {
       <section className="grid lg:grid-cols-12 gap-10">
         <header className="lg:col-span-4">
           <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Enquadramento</div>
-          <h2 className="font-display text-2xl md:text-3xl tracking-tight">Quais atividades tem reducao de 60% do IBS e da CBS?</h2>
+          <h2 className="font-display text-2xl md:text-3xl tracking-tight">Quais atividades têm redução de 60% do IBS e da CBS?</h2>
 
           <p className="mt-4 text-muted-foreground text-[15px] leading-relaxed">
-            A LC 214/2025 preve reducao de 60% para operacoes pertencentes as seguintes categorias.
+            A LC 214/2025 prevê redução de 60% para operações pertencentes às seguintes categorias.
           </p>
         </header>
         <div className="lg:col-span-8 space-y-6">
@@ -215,37 +215,37 @@ function Page() {
               <thead className="bg-secondary text-secondary-foreground">
                 <tr>
                   <th className="text-left p-4 font-display">Categoria</th>
-                  <th className="text-left p-4 font-display">Observacao principal</th>
+                  <th className="text-left p-4 font-display">Observação principal</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
-                <tr className="bg-card"><td className="p-4">Servicos de educacao</td><td className="p-4">Somente os servicos relacionados no Anexo II e classificados na NBS</td></tr>
-                <tr className="bg-card"><td className="p-4">Servicos de saude</td><td className="p-4">Servicos relacionados no Anexo III</td></tr>
-                <tr className="bg-card"><td className="p-4">Dispositivos medicos</td><td className="p-4">Produtos dos anexos legais, com requisitos da Anvisa</td></tr>
-                <tr className="bg-card"><td className="p-4">Dispositivos de acessibilidade</td><td className="p-4">Produtos enquadrados nos anexos e requisitos do orgao competente</td></tr>
-                <tr className="bg-card"><td className="p-4">Medicamentos</td><td className="p-4">Medicamentos registrados na Anvisa, ressalvadas hipoteses de aliquota zero</td></tr>
+                <tr className="bg-card"><td className="p-4">Serviços de educação</td><td className="p-4">Somente os serviços relacionados no Anexo II e classificados na NBS</td></tr>
+                <tr className="bg-card"><td className="p-4">Serviços de saúde</td><td className="p-4">Serviços relacionados no Anexo III</td></tr>
+                <tr className="bg-card"><td className="p-4">Dispositivos médicos</td><td className="p-4">Produtos dos anexos legais, com requisitos da Anvisa</td></tr>
+                <tr className="bg-card"><td className="p-4">Dispositivos de acessibilidade</td><td className="p-4">Produtos enquadrados nos anexos e requisitos do órgão competente</td></tr>
+                <tr className="bg-card"><td className="p-4">Medicamentos</td><td className="p-4">Medicamentos registrados na Anvisa, ressalvadas hipóteses de alíquota zero</td></tr>
                 <tr className="bg-card"><td className="p-4">Alimentos destinados ao consumo humano</td><td className="p-4">Produtos expressamente relacionados no Anexo VII</td></tr>
-                <tr className="bg-card"><td className="p-4">Higiene pessoal e limpeza</td><td className="p-4">Produtos do Anexo VIII, voltados majoritariamente a familias de baixa renda</td></tr>
-                <tr className="bg-card"><td className="p-4">Produtos agropecuarios e similares in natura</td><td className="p-4">Desde que preservada a condicao legal de produto in natura</td></tr>
-                <tr className="bg-card"><td className="p-4">Insumos agropecuarios e aquicolas</td><td className="p-4">Itens do Anexo IX, sujeitos tambem a regras de diferimento</td></tr>
-                <tr className="bg-card"><td className="p-4">Producoes artisticas e culturais nacionais</td><td className="p-4">Operacoes e classificacoes do Anexo X</td></tr>
-                <tr className="bg-card"><td className="p-4">Producoes jornalisticas e audiovisuais nacionais</td><td className="p-4">Conforme os requisitos de producao nacional</td></tr>
-                <tr className="bg-card"><td className="p-4">Eventos especificados</td><td className="p-4">Congressos, conferencias, feiras, exposicoes e outros previstos na lei</td></tr>
-                <tr className="bg-card"><td className="p-4">Comunicacao institucional</td><td className="p-4">Em determinadas operacoes com a administracao publica</td></tr>
-                <tr className="bg-card"><td className="p-4">Atividades desportivas</td><td className="p-4">Educacao desportiva e determinadas operacoes de associacoes e clubes</td></tr>
-                <tr className="bg-card"><td className="p-4">Seguranca da informacao e cibernetica</td><td className="p-4">Operacoes do Anexo XI e observancia dos requisitos societarios ou do adquirente</td></tr>
-                <tr className="bg-card"><td className="p-4">Soberania e seguranca nacional</td><td className="p-4">Operacoes previstas no Anexo XI</td></tr>
+                <tr className="bg-card"><td className="p-4">Higiene pessoal e limpeza</td><td className="p-4">Produtos do Anexo VIII, voltados majoritariamente a famílias de baixa renda</td></tr>
+                <tr className="bg-card"><td className="p-4">Produtos agropecuários e similares in natura</td><td className="p-4">Desde que preservada a condição legal de produto in natura</td></tr>
+                <tr className="bg-card"><td className="p-4">Insumos agropecuários e aquícolas</td><td className="p-4">Itens do Anexo IX, sujeitos também a regras de diferimento</td></tr>
+                <tr className="bg-card"><td className="p-4">Produções artísticas e culturais nacionais</td><td className="p-4">Operações e classificações do Anexo X</td></tr>
+                <tr className="bg-card"><td className="p-4">Produções jornalísticas e audiovisuais nacionais</td><td className="p-4">Conforme os requisitos de produção nacional</td></tr>
+                <tr className="bg-card"><td className="p-4">Eventos especificados</td><td className="p-4">Congressos, conferências, feiras, exposições e outros previstos na lei</td></tr>
+                <tr className="bg-card"><td className="p-4">Comunicação institucional</td><td className="p-4">Em determinadas operações com a administração pública</td></tr>
+                <tr className="bg-card"><td className="p-4">Atividades desportivas</td><td className="p-4">Educação desportiva e determinadas operações de associações e clubes</td></tr>
+                <tr className="bg-card"><td className="p-4">Segurança da informação e cibernética</td><td className="p-4">Operações do Anexo XI e observancia dos requisitos societários ou do adquirente</td></tr>
+                <tr className="bg-card"><td className="p-4">Soberania e segurança nacional</td><td className="p-4">Operações previstas no Anexo XI</td></tr>
               </tbody>
             </table>
           </div>
           <p className="text-[15px] leading-relaxed text-foreground/90">
-            A lista geral esta no art. 128 da LC 214/2025, mas o enquadramento concreto depende dos artigos seguintes e dos respectivos anexos.
+            A lista geral está no art. 128 da LC 214/2025, mas o enquadramento concreto depende dos artigos seguintes e dos respectivos anexos.
           </p>
 
           <div className="bg-card border border-border p-6">
-            <h3 className="font-display text-[17px] text-foreground mb-3">CNAE nao e suficiente</h3>
+            <h3 className="font-display text-[17px] text-foreground mb-3">CNAE não é suficiente</h3>
             <p className="text-[15px] leading-relaxed text-foreground/90">
-              O beneficio nao e necessariamente concedido para toda a empresa ou para todas as receitas de determinado CNAE. O que deve ser analisado e cada operacao, produto ou servico, sua classificacao na NCM ou NBS e os requisitos legais aplicaveis. Uma escola, por exemplo, pode ter mensalidade relativa a servico educacional beneficiado, venda de uniformes, venda de materiais, alimentacao, locacao de espacos, publicidade, eventos nao educacionais. A reducao concedida ao servico de educacao nao se estende automaticamente as demais receitas da instituicao.
+              O benefício não é necessariamente concedido para toda a empresa ou para todas as receitas de determinado CNAE. O que deve ser analisado é cada operação, produto ou serviço, sua classificação na NCM ou NBS e os requisitos legais aplicáveis. Uma escola, por exemplo, pode ter mensalidade relativa a serviço educacional beneficiado, venda de uniformes, venda de materiais, alimentação, locação de espaços, publicidade, eventos não educacionais. A redução concedida ao serviço de educação não se estende automaticamente às demais receitas da instituição.
             </p>
           </div>
         </div>
@@ -253,21 +253,21 @@ function Page() {
 
       <section className="grid lg:grid-cols-12 gap-10">
         <header className="lg:col-span-4">
-          <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Creditos</div>
-          <h2 className="font-display text-2xl md:text-3xl tracking-tight">Credito integral: o que realmente pode ser aproveitado?</h2>
+          <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Créditos</div>
+          <h2 className="font-display text-2xl md:text-3xl tracking-tight">Crédito integral: o que realmente pode ser aproveitado?</h2>
 
           <p className="mt-4 text-muted-foreground text-[15px] leading-relaxed">
-            No regime regular, o contribuinte pode aproveitar o valor de IBS e CBS efetivamente cobrado na aquisicao, observadas as condicoes legais.
+            No regime regular, o contribuinte pode aproveitar o valor de IBS e CBS efetivamente cobrado na aquisição, observadas as condições legais.
           </p>
         </header>
         <div className="lg:col-span-8 space-y-6">
           <p className="text-[15px] leading-relaxed text-foreground/90">
-            Abrange materias-primas, mercadorias, materiais, equipamentos, ativo imobilizado, energia, servicos de tecnologia, servicos contabeis e juridicos, publicidade, manutencao, locacoes tributadas, fretes, entre outros. O credito nao depende de um teste de essencialidade como o atual criterio jurisprudencial de PIS/Cofins, mas continua sujeito a requisitos documentais, operacionais e financeiros.
+            Abrange matérias-primas, mercadorias, materiais, equipamentos, ativo imobilizado, energia, serviços de tecnologia, serviços contábeis e jurídicos, publicidade, manutenção, locações tributadas, fretes, entre outros. O crédito não depende de um teste de essencialidade como o atual critério jurisprudencial de PIS/Cofins, mas continua sujeito a requisitos documentais, operacionais e financeiros.
           </p>
           <div className="bg-card border border-border p-6">
-            <h3 className="font-display text-[17px] text-foreground mb-3">O credito e integral, mas nao e presumido</h3>
+            <h3 className="font-display text-[17px] text-foreground mb-3">O crédito e integral, mas não é presumido</h3>
             <p className="text-[15px] leading-relaxed text-foreground/90">
-              A empresa nao podera calcular o credito aplicando a aliquota-padrao sobre qualquer despesa. O credito correspondera ao valor do IBS ou da CBS que estiver corretamente documentado, tiver sido destacado na aquisicao, tiver sido extinto por uma das modalidades previstas na legislacao, e nao estiver relacionado a uso ou consumo pessoal. Se o fornecedor aplicar aliquota reduzida, o adquirente recebera credito reduzido. Se o fornecedor aplicar aliquota zero, nao havera imposto cobrado na aquisicao e, consequentemente, o comprador nao tera credito daquela operacao. Se o fornecedor estiver no Simples Nacional puro, o credito do adquirente sera limitado ao montante de IBS e CBS efetivamente devido por meio do regime simplificado.
+              A empresa não poderá calcular o crédito aplicando a alíquota-padrão sobre qualquer despesa. O crédito corresponderá ao valor do IBS ou da CBS que estiver corretamente documentado, tiver sido destacado na aquisição, tiver sido extinto por uma das modalidades previstas na legislação, e não estiver relacionado a uso ou consumo pessoal. Se o fornecedor aplicar alíquota reduzida, o adquirente recebera crédito reduzido. Se o fornecedor aplicar alíquota zero, não haverá imposto cobrado na aquisição e, consequentemente, o comprador não terá crédito daquela operação. Se o fornecedor estiver no Simples Nacional puro, o crédito do adquirente será limitado ao montante de IBS e CBS efetivamente devido por meio do regime simplificado.
             </p>
           </div>
         </div>
@@ -278,7 +278,7 @@ function Page() {
           <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Base legal</div>
           <h2 className="font-display text-2xl md:text-3xl tracking-tight">Fonte normativa</h2>
           <p className="mt-4 text-muted-foreground text-[15px] leading-relaxed">
-            Dispositivos legais citados nesta analise sobre IBS e CBS com aliquota reduzida.
+            Dispositivos legais citados nesta análise sobre IBS e CBS com alíquota reduzida.
           </p>
         </header>
         <div className="lg:col-span-8 bg-card border border-border p-6 md:p-8">
@@ -286,7 +286,7 @@ function Page() {
             Lei Complementar nº 214/2025, arts. 47 a 52, 126 a 128.
           </p>
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-            Fonte oficial: Receita Federal do Brasil / Comite Gestor do IBS.
+            Fonte oficial: Receita Federal do Brasil / Comitê Gestor do IBS.
           </p>
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
             Revisão técnica:{" "}

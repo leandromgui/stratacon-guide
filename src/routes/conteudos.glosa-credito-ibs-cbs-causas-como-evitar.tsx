@@ -184,7 +184,7 @@ function Page() {
           <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Base legal</div>
           <h2 className="font-display text-2xl md:text-3xl tracking-tight">Fonte normativa</h2>
           <p className="mt-4 text-muted-foreground text-[15px] leading-relaxed">
-            Dispositivos legais citados nesta analise sobre glosa de credito de IBS e CBS.
+            Dispositivos legais citados nesta análise sobre glosa de crédito de IBS e CBS.
           </p>
         </header>
         <div className="lg:col-span-8 bg-card border border-border p-6 md:p-8">
