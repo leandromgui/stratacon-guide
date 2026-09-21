@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import type { ReactNode } from "react";
 import { PageScaffold } from "../components/PageScaffold";
 import { getDoc } from "../lib/dcon-content";
 import { FAQ, faqJsonLd, serviceJsonLd, type FAQItem } from "../components/FAQ";
