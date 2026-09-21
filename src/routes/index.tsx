@@ -270,12 +270,12 @@ function Home() {
           </Reveal>
 
           <Reveal as="h1" delay={80} className="mt-8 md:mt-10 font-display text-4xl md:text-6xl font-light tracking-tight leading-[1.05] max-w-4xl">
-            Consultoria tributária em Goiânia com{" "}
-            <span className="font-semibold">leitura técnica</span> do que sua empresa declara.
+            Contabilidade e Consultoria Tributária em Goiânia para proteger seu lucro, caixa e{" "}
+            <span className="font-semibold">segurança fiscal</span>.
           </Reveal>
 
           <Reveal as="p" delay={160} className="mt-6 max-w-2xl text-[15px] md:text-[17px] leading-relaxed text-white/70">
-            Diagnóstico técnico em <span className="text-white font-medium">7 dias úteis</span>, planejamento tributário, Reforma Tributária (CBS/IBS) e recuperação de créditos sob responsabilidade técnica com CRC ativo.
+            Diagnóstico técnico em <span className="text-white font-medium">7 dias úteis</span>, planejamento tributário, Reforma Tributária (CBS/IBS) e recuperação de créditos tributários, com análise documentada e responsabilidade técnica.
           </Reveal>
 
           <Reveal delay={240} className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
