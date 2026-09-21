@@ -5,8 +5,6 @@ import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
 
 const SLUG = "/segmentos/atacadistas-distribuidores";
 
-const faq: { q: string; a: string }[] = [];
-
 export const Route = createFileRoute("/segmentos/atacadistas-distribuidores")({
   head: () => ({
     ...buildSeoHead({
@@ -28,7 +26,7 @@ export const Route = createFileRoute("/segmentos/atacadistas-distribuidores")({
               "@type": "ListItem",
               position: 3,
               name: "Atacadistas e Distribuidores",
-              item: SLUG,
+              item: "/segmentos/atacadistas-distribuidores",
             },
           ],
         }),
@@ -37,22 +35,6 @@ export const Route = createFileRoute("/segmentos/atacadistas-distribuidores")({
         type: "application/ld+json",
         children: JSON.stringify(LEANDRO_PERSON_JSONLD),
       },
-      ...(faq.length > 0
-        ? [
-            {
-              type: "application/ld+json" as const,
-              children: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                mainEntity: faq.map((f) => ({
-                  "@type": "Question",
-                  name: f.q,
-                  acceptedAnswer: { "@type": "Answer", text: f.a },
-                })),
-              }),
-            },
-          ]
-        : []),
     ],
   }),
   component: Page,
@@ -69,7 +51,6 @@ function Page() {
       pillarKey="atacadistas-distribuidores"
       ctaPrimary={{ label: "Solicitar diagnostico tecnico inicial", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
-      faq={faq}
       sections={[
         {
           h2: "Atacadistas com margem reduzida devem analisar o Lucro Real",
