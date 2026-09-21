@@ -66,6 +66,18 @@ function Page() {
       faq={faqs}
     >
       <MethodBadge note="Saúde conduzida pelo protocolo DCON" />
+      <div className="bg-card border border-border p-6 md:p-8">
+        <p className="text-[15px] leading-relaxed text-foreground/90">
+          Sua clínica pode ter direito a redução e recuperação de IRPJ e CSLL —{" "}
+          <a
+            href="/segmentos/equiparacao-hospitalar-recuperacao-irpj-csll/"
+            className="underline decoration-gold/50 hover:text-foreground"
+          >
+            veja nossa análise aprofundada sobre equiparação hospitalar
+          </a>
+          .
+        </p>
+      </div>
     </PageScaffold>
   );
 }
