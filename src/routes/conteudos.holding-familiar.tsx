@@ -418,11 +418,11 @@ function Page() {
         <div data-heatmap-section="boas-praticas"><GoodPracticeCards /></div>
         <div data-heatmap-section="microcopy-confianca"><TrustMicrocopy /></div>
         <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-          Revisao tecnica:{" "}
+          Revisão técnica:{" "}
           <a href="/sobre/leandro/" className="underline decoration-gold/50 hover:text-foreground">
-            Leandro Matsuoka Guimaraes
+            Leandro Matsuoka Guimarães
           </a>
-          , socio-fundador e diretor tecnico da DCON. Contador com 22 anos de experiencia, bacharel em Direito e pos-graduado em Controladoria e Financas Corporativas. CRC-GO 16.395/O-9.
+          , sócio-fundador e diretor técnico da DCON. Contador com 22 anos de experiência, bacharel em Direito e pós-graduado em Controladoria e Finanças Corporativas. CRC-GO 16.395/O-9.
         </p>
       </div>
     </PageScaffold>

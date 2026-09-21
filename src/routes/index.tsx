@@ -321,17 +321,17 @@ function Home() {
           <div className="lg:col-span-5">
             <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Responsabilidade tecnica</div>
             <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight leading-[1.05]">
-              Experiencia tecnica por tras de cada decisao
+              Experiência técnica por trás de cada decisão
             </h2>
           </div>
           <div className="lg:col-span-7 lg:border-l lg:border-border lg:pl-10">
-            <h3 className="font-display text-2xl tracking-tight">Leandro Matsuoka Guimaraes</h3>
-            <p className="mt-2 text-[11px] uppercase tracking-[0.18em] text-gold">Socio-fundador e diretor tecnico da DCON</p>
+            <h3 className="font-display text-2xl tracking-tight">Leandro Matsuoka Guimarães</h3>
+            <p className="mt-2 text-[11px] uppercase tracking-[0.18em] text-gold">Sócio-fundador e diretor técnico da DCON</p>
             <p className="mt-6 text-[15px] leading-relaxed text-muted-foreground">
-              Contador com 22 anos de experiencia, bacharel em Direito e pos-graduado em Controladoria e Financas Corporativas. Registrado no Conselho Regional de Contabilidade sob o no CRC-GO 16.395/O-9.
+              Contador com 22 anos de experiência, bacharel em Direito e pós-graduado em Controladoria e Finanças Corporativas. Registrado no Conselho Regional de Contabilidade sob o nº CRC-GO 16.395/O-9.
             </p>
             <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
-              Leandro conduz a revisao tecnica dos diagnosticos, planejamentos e pareceres contabeis, tributarios e empresariais elaborados pela DCON. Sua formacao multidisciplinar permite analisar cada empresa de maneira ampla, considerando os impactos contabeis, fiscais, financeiros e societarios envolvidos em cada decisao.
+              Leandro conduz a revisão técnica dos diagnósticos, planejamentos e pareceres contábeis, tributários e empresariais elaborados pela DCON. Sua formação multidisciplinar permite analisar cada empresa de maneira ampla, considerando os impactos contábeis, fiscais, financeiros e societários envolvidos em cada decisão.
             </p>
             <Link to="/sobre" className="mt-7 inline-flex items-center border-b border-gold pb-1 text-[11px] uppercase tracking-[0.2em] text-secondary hover:text-primary">
               Conheca a DCON →
