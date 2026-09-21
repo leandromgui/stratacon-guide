@@ -4,24 +4,24 @@ import { buildSeoHead, SITE_URL } from "@/lib/seo";
 import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
 
 const SLUG = "/conteudos/glosa-credito-ibs-cbs-causas-como-evitar";
-const H1 = "Glosa de Credito de IBS e CBS: Principais Causas e Como Evitar";
-const META_TITLE = "Glosa de credito de IBS e CBS: causas e prevencao";
+const H1 = "Glosa de Crédito de IBS e CBS: Principais Causas e Como Evitar";
+const META_TITLE = "Glosa de crédito de IBS e CBS: causas e prevenção";
 const META_DESCRIPTION =
-  "A glosa de credito de IBS/CBS pode gerar cobranca retroativa, juros e multa. Entenda as principais causas e como estruturar controles preventivos.";
+  "A glosa de crédito de IBS/CBS pode gerar cobrança retroativa, juros e multa. Entenda as principais causas e como estruturar controles preventivos.";
 const PUBLISHED = "21/09/2026";
 
 const faq = [
   {
-    q: "Se o fornecedor cometer um erro na nota, eu perco o credito?",
-    a: "Pode perder, mesmo agindo de boa-fe, ja que o credito depende da regularidade formal e material da operacao anterior na cadeia.",
+    q: "Se o fornecedor cometer um erro na nota, eu perco o crédito?",
+    a: "Pode perder, mesmo agindo de boa-fé, já que o crédito depende da regularidade formal e material da operação anterior na cadeia.",
   },
   {
-    q: "Glosa de credito de IBS/CBS afeta tambem o IRPJ e a CSLL?",
-    a: "Nao automaticamente, mas pode gerar questionamento sobre a despesa correspondente, dependendo da causa da glosa.",
+    q: "Glosa de crédito de IBS/CBS afeta também o IRPJ e a CSLL?",
+    a: "Não automaticamente, mas pode gerar questionamento sobre a despesa correspondente, dependendo da causa da glosa.",
   },
   {
-    q: "Como faco para identificar fornecedores de risco antes de um problema acontecer?",
-    a: "Auditoria periodica de regularidade cadastral e historico de conformidade fiscal, priorizando fornecedores de maior volume de compra.",
+    q: "Como faço para identificar fornecedores de risco antes de um problema acontecer?",
+    a: "Auditoria periódica de regularidade cadastral e histórico de conformidade fiscal, priorizando fornecedores de maior volume de compra.",
   },
 ];
 
@@ -87,85 +87,85 @@ function Page() {
     <PageScaffold
       eyebrow={`Reforma tributária · ${PUBLISHED}`}
       h1={H1}
-      intro="Na nao cumulatividade do IBS e da CBS, o credito da sua empresa depende da regularidade de toda a cadeia, nao so do seu proprio controle interno. Isso muda o perfil de risco: um erro do fornecedor, um documento mal preenchido ou uma classificacao incorreta pode custar credito que a empresa já contava para o caixa."
+      intro="Na não cumulatividade do IBS e da CBS, o crédito da sua empresa depende da regularidade de toda a cadeia, não só do seu próprio controle interno. Isso muda o perfil de risco: um erro do fornecedor, um documento mal preenchido ou uma classificação incorreta pode custar crédito que a empresa já contava para o caixa."
       breadcrumbs={[
         { label: "Insights", to: "/conteudos" },
         { label: H1, to: SLUG },
       ]}
-      ctaPrimary={{ label: "Solicitar auditoria preventiva de creditos e fornecedores", to: "/diagnostico" }}
+      ctaPrimary={{ label: "Solicitar auditoria preventiva de créditos e fornecedores", to: "/diagnostico" }}
       faq={faq}
       sections={[
         {
           h2: "Principais causas de glosa",
-          lead: "O credito de IBS/CBS pode ser glosado por problemas no documento fiscal, na operacao ou na cadeia de fornecedores.",
+          lead: "O crédito de IBS/CBS pode ser glosado por problemas no documento fiscal, na operação ou na cadeia de fornecedores.",
           h3: [
             {
-              title: "Documento fiscal inidoneo ou com dados incorretos",
-              body: "nota emitida contra CNPJ errado, ou operacao que nao corresponde ao documento.",
+              title: "Documento fiscal inidôneo ou com dados incorretos",
+              body: "nota emitida contra CNPJ errado, ou operação que não corresponde ao documento.",
             },
             {
               title: "Falta de destaque correto de IBS/CBS",
-              body: "quando o fornecedor nao discrimina os valores corretamente na nota.",
+              body: "quando o fornecedor não discrimina os valores corretamente na nota.",
             },
             {
-              title: "Credito em duplicidade",
-              body: "apropriacao do mesmo documento mais de uma vez, comum em falhas de integracao de sistemas.",
+              title: "Crédito em duplicidade",
+              body: "apropriação do mesmo documento mais de uma vez, comum em falhas de integração de sistemas.",
             },
             {
-              title: "Operacao cancelada sem estorno",
-              body: "credito mantido mesmo apos o cancelamento da nota fiscal original.",
+              title: "Operação cancelada sem estorno",
+              body: "crédito mantido mesmo após o cancelamento da nota fiscal original.",
             },
             {
               title: "Compra de fornecedor do Simples Nacional",
-              body: "credito calculado pela aliquota cheia quando deveria ser limitado ao valor efetivamente transferido pelo regime simplificado.",
+              body: "crédito calculado pela alíquota cheia quando deveria ser limitado ao valor efetivamente transferido pelo regime simplificado.",
             },
             {
               title: "Uso ou consumo pessoal",
-              body: "despesas de socios ou administradores lancadas como despesa da empresa.",
+              body: "despesas de sócios ou administradores lançadas como despesa da empresa.",
             },
             {
-              title: "Ausencia de vinculo entre pagamento e documento fiscal",
-              body: "falta de conciliacao entre o que foi pago e a nota correspondente.",
+              title: "Ausência de vínculo entre pagamento e documento fiscal",
+              body: "falta de conciliação entre o que foi pago e a nota correspondente.",
             },
           ],
         },
         {
-          h2: "Consequencias reais de uma glosa",
-          lead: "Quando um credito e glosado, o impacto vai alem do valor questionado.",
+          h2: "Consequências reais de uma glosa",
+          lead: "Quando um crédito é glosado, o impacto vai além do valor questionado.",
           h3: [
             {
-              title: "Recomposicao do debito com juros e multa",
-              body: "A empresa pode enfrentar recomposicao do debito de IBS/CBS, juros, multa e reducao do saldo credor acumulado.",
+              title: "Recomposição do débito com juros e multa",
+              body: "A empresa pode enfrentar recomposição do débito de IBS/CBS, juros, multa e redução do saldo credor acumulado.",
             },
             {
-              title: "Indeferimento de ressarcimento ja solicitado",
-              body: "A glosa tambem pode levar ao indeferimento de pedidos de ressarcimento ja solicitados.",
+              title: "Indeferimento de ressarcimento já solicitado",
+              body: "A glosa também pode levar ao indeferimento de pedidos de ressarcimento já solicitados.",
             },
             {
               title: "Impacto na dedutibilidade para IRPJ e CSLL",
-              body: "Em casos de fiscalizacao, a glosa pode gerar questionamentos sobre a dedutibilidade da despesa para IRPJ e CSLL.",
+              body: "Em casos de fiscalização, a glosa pode gerar questionamentos sobre a dedutibilidade da despesa para IRPJ e CSLL.",
             },
           ],
         },
         {
           h2: "Como reduzir o risco de glosa",
-          lead: "Controles preventivos reduzem a incidencia de glosas e o custo de correcao posterior.",
+          lead: "Controles preventivos reduzem a incidência de glosas e o custo de correção posterior.",
           h3: [
             {
               title: "Validar a regularidade cadastral dos fornecedores",
               body: "antes de fechar contratos relevantes.",
             },
             {
-              title: "Conferir se o documento fiscal reflete a operacao",
-              body: "verificar se o documento fiscal corresponde corretamente a operacao realizada.",
+              title: "Conferir se o documento fiscal reflete a operação",
+              body: "verificar se o documento fiscal corresponde corretamente à operação realizada.",
             },
             {
-              title: "Manter conciliacao entre pagamento e nota fiscal",
-              body: "evitando lancamentos sem vinculo claro.",
+              title: "Manter conciliação entre pagamento e nota fiscal",
+              body: "evitando lançamentos sem vínculo claro.",
             },
             {
               title: "Separar despesas pessoais das despesas da empresa",
-              body: "com politica clara de reembolso para socios e administradores.",
+              body: "com política clara de reembolso para sócios e administradores.",
             },
             {
               title: "Auditar periodicamente os fornecedores de maior volume",
@@ -184,12 +184,12 @@ function Page() {
           <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Base legal</div>
           <h2 className="font-display text-2xl md:text-3xl tracking-tight">Fonte normativa</h2>
           <p className="mt-4 text-muted-foreground text-[15px] leading-relaxed">
-            Dispositivos legais citados nesta analise sobre glosa de credito de IBS e CBS.
+            Dispositivos legais citados nesta análise sobre glosa de crédito de IBS e CBS.
           </p>
         </header>
         <div className="lg:col-span-8 bg-card border border-border p-6 md:p-8">
           <p className="text-[15px] leading-relaxed text-foreground/90">
-            Lei Complementar no 214/2025, arts. 47 a 57; Lei Complementar no 227/2026.
+            Lei Complementar nº 214/2025, arts. 47 a 57; Lei Complementar nº 227/2026.
           </p>
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
             Fonte oficial: Receita Federal do Brasil / Comitê Gestor do IBS.
