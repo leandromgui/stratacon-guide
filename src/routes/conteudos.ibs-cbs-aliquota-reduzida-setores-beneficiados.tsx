@@ -109,7 +109,7 @@ function Page() {
           lead: "A legislação também prevê redução de 30% das alíquotas de IBS e CBS para determinadas profissões intelectuais fiscalizadas por conselho profissional.",
           h3: [
             { title: "Profissões abrangidas", body: "administradores, advogados, arquitetos e urbanistas, assistentes sociais, bibliotecários, biólogos, contabilistas, economistas, profissionais de educação física, engenheiros e agrônomos, estatísticos, médicos veterinários e zootecnistas, museólogos, químicos, profissionais de relações públicas, técnicos industriais e técnicos agrícolas." },
-            { title: "Alíquota aplicavel", body: "Nesse caso, a empresa aplicará 70% da alíquota-padrão." },
+            { title: "Alíquota aplicável", body: "Nesse caso, a empresa aplicará 70% da alíquota-padrão." },
             { title: "Requisitos para pessoas jurídicas", body: "A sociedade deverá observar requisitos cumulativos, entre eles sócios com habilitações relacionadas ao objeto da sociedade, fiscalização pelo conselho profissional, ausência de pessoa juridica no quadro societário, exercício apenas das atividades profissionais habilitadas, e prestação direta dos serviços pelos sócios." },
             { title: "Base legal", body: "Essas condições estao detalhadas no art. 127 da LC 214/2025." },
           ],
@@ -118,8 +118,8 @@ function Page() {
           h2: "Regimes com redução de 40%",
           lead: "A LC 214 também prevê redução de 40% em alguns regimes específicos.",
           h3: [
-            { title: "Setores contemplados", body: "bares, restaurantes e lanchonetes; hotelaria; parques de diversao e parques tematicos; transporte coletivo intermunicipal e interestadual; transporte aereo regional; intermediação realizada por agências de turismo." },
-            { title: "Análise separada necessaria", body: "Esses regimes precisam ser analisados separadamente porque podem ter limitações especificas tanto para o fornecedor quanto para o adquirente." },
+            { title: "Setores contemplados", body: "bares, restaurantes e lanchonetes; hotelaria; parques de diversão e parques temáticos; transporte coletivo intermunicipal e interestadual; transporte aéreo regional; intermediação realizada por agências de turismo." },
+            { title: "Análise separada necessária", body: "Esses regimes precisam ser analisados separadamente porque podem ter limitações especificas tanto para o fornecedor quanto para o adquirente." },
             { title: "Exemplo: hotelaria e parques", body: "Hotéis e parques podem aproveitar créditos de suas aquisições, mas o cliente de hotel ou parque, em regra, não aproveita crédito da aquisição." },
           ],
         },
@@ -233,7 +233,7 @@ function Page() {
                 <tr className="bg-card"><td className="p-4">Eventos especificados</td><td className="p-4">Congressos, conferências, feiras, exposições e outros previstos na lei</td></tr>
                 <tr className="bg-card"><td className="p-4">Comunicação institucional</td><td className="p-4">Em determinadas operações com a administração pública</td></tr>
                 <tr className="bg-card"><td className="p-4">Atividades desportivas</td><td className="p-4">Educação desportiva e determinadas operações de associações e clubes</td></tr>
-                <tr className="bg-card"><td className="p-4">Segurança da informação e cibernética</td><td className="p-4">Operações do Anexo XI e observancia dos requisitos societários ou do adquirente</td></tr>
+                <tr className="bg-card"><td className="p-4">Segurança da informação e cibernética</td><td className="p-4">Operações do Anexo XI e observância dos requisitos societários ou do adquirente</td></tr>
                 <tr className="bg-card"><td className="p-4">Soberania e segurança nacional</td><td className="p-4">Operações previstas no Anexo XI</td></tr>
               </tbody>
             </table>
