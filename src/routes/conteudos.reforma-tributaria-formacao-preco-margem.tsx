@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { buildSeoHead, SITE_URL } from "@/lib/seo";
 import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
-import { TechnicalReview } from "../components/TechnicalReview";
 
 const SLUG = "/conteudos/reforma-tributaria-formacao-preco-margem";
 const H1 = "Reforma Tributária e Formação de Preço: por que seu mark-up precisa ser refeito";
@@ -150,7 +149,13 @@ function Page() {
           <p className="text-[15px] leading-relaxed text-foreground/90">
             Lei Complementar nº 214/2025, art. 28 (alíquotas de teste 2026) e art. 344 (IBS 2027-2028).
           </p>
-          <TechnicalReview />
+          <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+          Revisao tecnica:{" "}
+          <a href="/sobre/leandro/" className="underline decoration-gold/50 hover:text-foreground">
+            Leandro Matsuoka Guimaraes
+          </a>
+          , socio-fundador e diretor tecnico da DCON. Contador com 22 anos de experiencia, bacharel em Direito e pos-graduado em Controladoria e Financas Corporativas. CRC-GO 16.395/O-9.
+        </p>
         </div>
       </section>
     </PageScaffold>

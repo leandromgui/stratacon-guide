@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { buildSeoHead, SITE_URL } from "@/lib/seo";
 import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
-import { TechnicalReview } from "../components/TechnicalReview";
 
 const SLUG = "/conteudos/split-payment-adiado-2028-o-que-muda";
 const H1 =
@@ -231,7 +230,13 @@ function Page() {
               https://www.cgibs.gov.br/split-payment
             </a>
           </p>
-          <TechnicalReview />
+          <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+          Revisao tecnica:{" "}
+          <a href="/sobre/leandro/" className="underline decoration-gold/50 hover:text-foreground">
+            Leandro Matsuoka Guimaraes
+          </a>
+          , socio-fundador e diretor tecnico da DCON. Contador com 22 anos de experiencia, bacharel em Direito e pos-graduado em Controladoria e Financas Corporativas. CRC-GO 16.395/O-9.
+        </p>
         </div>
       </section>
     </PageScaffold>

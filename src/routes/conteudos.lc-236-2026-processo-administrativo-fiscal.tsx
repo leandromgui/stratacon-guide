@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
 import { buildSeoHead, SITE_URL } from "@/lib/seo";
-import { TechnicalReview } from "../components/TechnicalReview";
 import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
 
 export const Route = createFileRoute("/conteudos/lc-236-2026-processo-administrativo-fiscal")({
@@ -201,7 +200,13 @@ function Page() {
           ))}
         </ul>
       </section>
-      <TechnicalReview />
+      <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+          Revisao tecnica:{" "}
+          <a href="/sobre/leandro/" className="underline decoration-gold/50 hover:text-foreground">
+            Leandro Matsuoka Guimaraes
+          </a>
+          , socio-fundador e diretor tecnico da DCON. Contador com 22 anos de experiencia, bacharel em Direito e pos-graduado em Controladoria e Financas Corporativas. CRC-GO 16.395/O-9.
+        </p>
     </PageScaffold>
   );
 }
