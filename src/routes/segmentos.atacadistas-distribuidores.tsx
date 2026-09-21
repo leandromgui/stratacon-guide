@@ -76,6 +76,56 @@ function Page() {
             },
           ],
         },
+        {
+          h2: "Aliquota zero de ICMS exige cuidado terminologico",
+          lead: 'No uso comercial, e comum dizer que determinado produto possui "ICMS zero". Entretanto, juridicamente, e necessario identificar qual tratamento realmente existe. A desoneracao pode decorrer de isencao, nao incidencia, reducao de base de calculo, diferimento, suspensao, credito outorgado, tributacao anterior por substituicao tributaria, aliquota especifica ou regime especial. Essas figuras produzem efeitos diferentes sobre emissao da nota, escrituracao e manutencao ou estorno de creditos. Em Goias, os beneficios de ICMS estao concentrados especialmente no Anexo IX do Regulamento do Codigo Tributario do Estado, aprovado pelo Decreto no 4.852/1997, alem de leis, decretos, convenios e atos especificos. A revisao de NCM pode revelar produtos submetidos a isencao, reducao de base, diferimento, credito outorgado ou outros tratamentos fiscais, desde que todos os requisitos da norma sejam atendidos.',
+        },
+        {
+          h2: "Beneficios de ICMS que devem ser investigados",
+          lead: "Uma revisao fiscal de atacadistas em Goias deve verificar, produto a produto e operacao a operacao, a existencia de:",
+          h3: [
+            {
+              title: "Isencao",
+              body: "A operacao fica dispensada do recolhimento do ICMS nos limites da norma, com efeitos sobre os creditos das entradas.",
+            },
+            {
+              title: "Reducao de base de calculo",
+              body: "O imposto continua existindo, mas e calculado sobre uma base reduzida.",
+            },
+            {
+              title: "Diferimento",
+              body: "O recolhimento e transferido para etapa posterior da cadeia, nao significa eliminacao do imposto.",
+            },
+            {
+              title: "Credito outorgado",
+              body: "A empresa recebe um credito fiscal calculado conforme a regra do beneficio, podendo substituir creditos ordinarios ou exigir estornos.",
+            },
+            {
+              title: "Substituicao tributaria",
+              body: "A revisao pode identificar mercadoria indevidamente incluida na substituicao, CEST incorreto, MVA inadequada, imposto retido a maior e direito a restituicao.",
+            },
+            {
+              title: "Incentivos e regimes especiais",
+              body: "Podem depender de enquadramento especifico, autorizacao da Secretaria da Economia ou Termo de Acordo de Regime Especial.",
+            },
+          ],
+        },
+        {
+          h2: "PROTEGE Goias nao e beneficio, e custo ou condicionante",
+          lead: 'O Fundo de Protecao Social do Estado de Goias - PROTEGE GOIAS - foi instituido pela Lei estadual no 14.469/2003. Em determinados beneficios e incentivos fiscais, a legislacao pode condicionar a fruicao do tratamento a realizacao de contribuicao ao PROTEGE. Isso significa que o percentual nominal de um beneficio nao representa, sozinho, a economia efetiva da empresa. A analise precisa verificar se aquele beneficio exige contribuicao, qual e a base de calculo, qual percentual esta previsto, qual e o prazo de pagamento, se a contribuicao e mensal ou vinculada a utilizacao, e se o descumprimento pode comprometer o beneficio. O PROTEGE nao deve ser apresentado como beneficio fiscal - deve ser tratado como possivel contrapartida ou condicao para a utilizacao de determinados beneficios.',
+        },
+        {
+          h2: "Credito outorgado nao e credito livre",
+          lead: "O credito outorgado pode reduzir a carga tributaria, mas precisa ser analisado dentro da sistematica completa do regime. Dependendo da norma, podem existir substituicao dos creditos ordinarios, estorno total ou proporcional de creditos, exclusao de determinadas mercadorias, limitacao por tipo de operacao, vedacao de acumulacao com outro beneficio, contribuicao ao PROTEGE, necessidade de regularidade fiscal, TARE e prazo de vigencia. Por isso, o ganho deve ser calculado pelo resultado liquido, considerando carga tributaria no cenario atual menos carga no cenario incentivado, menos contrapartidas, menos creditos perdidos e menos custos incrementais (PROTEGE quando aplicavel, creditos estornados, custo financeiro, garantias, desenvolvimento de ERP, obrigacoes acessorias, consultoria, risco de glosa).",
+        },
+        {
+          h2: "TARE - instrumento de formalizacao, nao sinonimo de beneficio",
+          lead: "O TARE e o Termo de Acordo de Regime Especial. Ele pode estabelecer condicoes diferenciadas relacionadas a emissao de documentos, escrituracao, apuracao e recolhimento, conforme a hipotese autorizada pela legislacao, com fundamento no art. 5o do Anexo IX do RCTE. O TARE nao deve ser apresentado como um beneficio independente - ele pode funcionar como instrumento para formalizar um tratamento autorizado na legislacao. A empresa precisa verificar fundamento legal, vigencia, obrigacoes assumidas, produtos abrangidos, hipoteses de suspensao ou revogacao, e compatibilidade com a operacao efetivamente realizada.",
+        },
+        {
+          h2: "A revisao precisa alcancar PIS, COFINS, IPI e nao apenas ICMS",
+          lead: "Uma revisao fiscal limitada ao ICMS pode deixar oportunidades e riscos relevantes de fora. No atacado, a classificacao do produto tambem pode alterar o tratamento de PIS, COFINS, IPI, PIS-Importacao, COFINS-Importacao, tributacao monofasica, aliquota zero, suspensao e creditos permitidos ou vedados. Nos produtos sujeitos a tributacao monofasica, a carga de PIS e COFINS e concentrada em uma etapa anterior da cadeia - o atacadista pode ter receita submetida a aliquota zero, mas isso nao significa que toda compra gere credito. Erros frequentes incluem tributar novamente uma receita monofasica, deixar de segregar receitas, aproveitar credito vedado e classificar produto comum como monofasico. A aliquota zero tambem depende do enquadramento exato na norma, validando NCM, descricao, composicao, destinacao e periodo de vigencia.",
+        },
       ]}
     >
       <section className="grid lg:grid-cols-12 gap-10">
