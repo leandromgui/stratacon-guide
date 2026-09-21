@@ -56,7 +56,7 @@ export interface Section {
 
 export interface FaqItem { q: string; a: string | ReactNode }
 
-export type CtaVariant = "diagnostic" | "risk" | "opportunity" | "institutional" | "changeAccountant";
+export type CtaVariant = "diagnostic" | "risk" | "opportunity" | "institutional" | "changeAccountant" | "simplesPuroHibrido";
 
 const CTA_VARIANTS: Record<CtaVariant, {
   eyebrow: string;
@@ -98,6 +98,13 @@ const CTA_VARIANTS: Record<CtaVariant, {
     title: "Troque de contador com segurança.",
     body: "Diagnóstico de entrada, transição assistida e rotina auditável desde o primeiro mês.",
     primary: { label: "Trocar de Contador", to: "/diagnostico" },
+    secondary: { label: "Falar com a DCON", to: "/contato" },
+  },
+  simplesPuroHibrido: {
+    eyebrow: "Próximo passo",
+    title: "Simule Simples Nacional puro versus híbrido com a DCON.",
+    body: "Análise de carga tributária, crédito de compras, crédito transferido aos clientes, folha e fluxo de caixa para decidir com segurança.",
+    primary: { label: "Solicitar simulação de Simples Nacional puro versus híbrido", to: "/diagnostico" },
     secondary: { label: "Falar com a DCON", to: "/contato" },
   },
 };
