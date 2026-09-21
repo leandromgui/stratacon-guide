@@ -45,9 +45,9 @@ interface ContentGroup {
 }
 
 const featured: ContentLink[] = [
-  { label: "IBS e CBS com Aliquota Reduzida: Setores Beneficiados e Creditos", to: "/conteudos/ibs-cbs-aliquota-reduzida-setores-beneficiados" },
-  { label: "Simples Nacional Puro ou Hibrido: Qual Escolher em 2027?", to: "/conteudos/simples-puro-ou-hibrido-2027-como-decidir" },
-  { label: "Lucro Real na Reforma Tributaria: Creditos, Glosas e Contratos", to: "/conteudos/lucro-real-reforma-tributaria-creditos-controles" },
+  { label: "IBS e CBS com Alíquota Reduzida: Setores Beneficiados e Créditos", to: "/conteudos/ibs-cbs-aliquota-reduzida-setores-beneficiados" },
+  { label: "Simples Nacional Puro ou Híbrido: Qual Escolher em 2027?", to: "/conteudos/simples-puro-ou-hibrido-2027-como-decidir" },
+  { label: "Lucro Real na Reforma Tributária: Créditos, Glosas e Contratos", to: "/conteudos/lucro-real-reforma-tributaria-creditos-controles" },
 ];
 
 
@@ -60,46 +60,46 @@ const contentGroups: ContentGroup[] = [
     ],
   },
   {
-    title: "Creditos de IBS e CBS",
+    title: "Créditos de IBS e CBS",
     links: [
-      { label: "Quais Despesas Geram Credito de IBS e CBS", to: "/conteudos/despesas-que-geram-credito-ibs-cbs" },
-      { label: "Folha de Pagamento Gera Credito de IBS e CBS?", to: "/conteudos/folha-pagamento-credito-ibs-cbs" },
-      { label: "Aluguel, Software e Servicos: Quando Ha Credito", to: "/conteudos/aluguel-software-servicos-credito-ibs-cbs" },
+      { label: "Quais Despesas Geram Crédito de IBS e CBS", to: "/conteudos/despesas-que-geram-credito-ibs-cbs" },
+      { label: "Folha de Pagamento Gera Crédito de IBS e CBS?", to: "/conteudos/folha-pagamento-credito-ibs-cbs" },
+      { label: "Aluguel, Software e Serviços: Quando Há Crédito", to: "/conteudos/aluguel-software-servicos-credito-ibs-cbs" },
     ],
   },
   {
     title: "Riscos e Glosas",
     links: [
-      { label: "Auditoria de Fornecedores para Preservar Creditos", to: "/conteudos/auditoria-fornecedores-creditos-ibs-cbs" },
-      { label: "Glosa de Credito de IBS e CBS: Principais Causas e Como Evitar", to: "/conteudos/glosa-credito-ibs-cbs-causas-como-evitar" },
+      { label: "Auditoria de Fornecedores para Preservar Créditos", to: "/conteudos/auditoria-fornecedores-creditos-ibs-cbs" },
+      { label: "Glosa de Crédito de IBS e CBS: Principais Causas e Como Evitar", to: "/conteudos/glosa-credito-ibs-cbs-causas-como-evitar" },
     ],
   },
   {
     title: "Regimes Tributarios",
     links: [
-      { label: "Lucro Presumido na Reforma Tributaria: riscos e oportunidades", to: "/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades" },
+      { label: "Lucro Presumido na Reforma Tributária: riscos e oportunidades", to: "/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades" },
     ],
   },
   {
     title: "Operacional e Prazos",
     links: [
-      { label: "IBS e CBS na Nota Fiscal: obrigatorio desde agosto/2026", to: "/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026" },
+      { label: "IBS e CBS na Nota Fiscal: obrigatório desde agosto/2026", to: "/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026" },
       { label: "Split Payment e Adiado para 2028", to: "/conteudos/split-payment-adiado-2028-o-que-muda" },
-      { label: "Cronograma da Reforma Tributaria 2026-2033", to: "/conteudos/cronograma-reforma-tributaria-2026-2033" },
-      { label: "Reforma Tributaria e Formacao de Preco", to: "/conteudos/reforma-tributaria-formacao-preco-margem" },
+      { label: "Cronograma da Reforma Tributária 2026-2033", to: "/conteudos/cronograma-reforma-tributaria-2026-2033" },
+      { label: "Reforma Tributária e Formação de Preço", to: "/conteudos/reforma-tributaria-formacao-preco-margem" },
     ],
   },
   {
     title: "Por Setor",
     links: [
-      { label: "Reforma Tributaria para Clinicas Medicas", to: "/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda" },
-      { label: "Prestadores de Servicos na Reforma", to: "/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos" },
+      { label: "Reforma Tributária para Clínicas Médicas", to: "/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda" },
+      { label: "Prestadores de Serviços na Reforma", to: "/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos" },
     ],
   },
   {
     title: "Contratos",
     links: [
-      { label: "Revisao de Contratos para IBS e CBS: Clausulas Essenciais", to: "/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais" },
+      { label: "Revisão de Contratos para IBS e CBS: Cláusulas Essenciais", to: "/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais" },
     ],
   },
 ];
