@@ -89,6 +89,7 @@ const entries: SitemapEntry[] = [
   { path: "/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/auditoria-fornecedores-creditos-ibs-cbs", changefreq: "monthly", priority: "0.9" },
+  { path: "/conteudos/glosa-credito-ibs-cbs-causas-como-evitar", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/lucro-real-reforma-tributaria-creditos-controles", changefreq: "monthly", priority: "0.9" },
 
