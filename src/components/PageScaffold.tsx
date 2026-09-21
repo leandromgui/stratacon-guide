@@ -56,7 +56,7 @@ export interface Section {
 
 export interface FaqItem { q: string; a: string | ReactNode }
 
-export type CtaVariant = "diagnostic" | "risk" | "opportunity" | "institutional" | "changeAccountant" | "simplesPuroHibrido";
+export type CtaVariant = "diagnostic" | "risk" | "opportunity" | "institutional" | "changeAccountant" | "simplesPuroHibrido" | "lucroRealReforma";
 
 const CTA_VARIANTS: Record<CtaVariant, {
   eyebrow: string;
@@ -105,6 +105,13 @@ const CTA_VARIANTS: Record<CtaVariant, {
     title: "Simule Simples Nacional puro versus híbrido com a DCON.",
     body: "Análise de carga tributária, crédito de compras, crédito transferido aos clientes, folha e fluxo de caixa para decidir com segurança.",
     primary: { label: "Solicitar simulação de Simples Nacional puro versus híbrido", to: "/diagnostico" },
+    secondary: { label: "Falar com a DCON", to: "/contato" },
+  },
+  lucroRealReforma: {
+    eyebrow: "Próximo passo",
+    title: "Diagnóstico da Reforma Tributária para empresas do Lucro Real.",
+    body: "Mapeamos créditos, riscos de glosa, fornecedores, contratos, preços e fluxo de caixa para a transição de 2027.",
+    primary: { label: "Solicitar diagnóstico da Reforma Tributária para o Lucro Real", to: "/diagnostico" },
     secondary: { label: "Falar com a DCON", to: "/contato" },
   },
 };
