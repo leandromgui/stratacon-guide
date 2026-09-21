@@ -418,7 +418,7 @@ function Page() {
         <div data-heatmap-section="boas-praticas"><GoodPracticeCards /></div>
         <div data-heatmap-section="microcopy-confianca"><TrustMicrocopy /></div>
         <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-          Revisao tecnica:{" "}
+          Revisão técnica:{" "}
           <a href="/sobre/leandro/" className="underline decoration-gold/50 hover:text-foreground">
             Leandro Matsuoka Guimarães
           </a>

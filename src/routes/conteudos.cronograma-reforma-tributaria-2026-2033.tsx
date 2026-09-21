@@ -167,7 +167,7 @@ function Page() {
             Emenda Constitucional nº 132/2023. Lei Complementar nº 214/2025, arts. 344, 347, 348 e parágrafo 1º.
           </p>
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-          Revisao tecnica:{" "}
+          Revisão técnica:{" "}
           <a href="/sobre/leandro/" className="underline decoration-gold/50 hover:text-foreground">
             Leandro Matsuoka Guimarães
           </a>

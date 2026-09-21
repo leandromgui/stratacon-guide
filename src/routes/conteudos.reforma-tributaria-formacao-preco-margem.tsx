@@ -150,7 +150,7 @@ function Page() {
             Lei Complementar nº 214/2025, art. 28 (alíquotas de teste 2026) e art. 344 (IBS 2027-2028).
           </p>
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-          Revisao tecnica:{" "}
+          Revisão técnica:{" "}
           <a href="/sobre/leandro/" className="underline decoration-gold/50 hover:text-foreground">
             Leandro Matsuoka Guimarães
           </a>

@@ -170,7 +170,7 @@ function Page() {
             Fontes oficiais: Receita Federal do Brasil / Comitê Gestor do IBS.
           </p>
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-          Revisao tecnica:{" "}
+          Revisão técnica:{" "}
           <a href="/sobre/leandro/" className="underline decoration-gold/50 hover:text-foreground">
             Leandro Matsuoka Guimarães
           </a>
