@@ -45,10 +45,11 @@ interface ContentGroup {
 }
 
 const featured: ContentLink[] = [
-  { label: "IBS e CBS com Aliquota Reduzida: Setores Beneficiados e Creditos", to: "/conteudos/ibs-cbs-aliquota-reduzida-setores-beneficiados", external: true },
+  { label: "IBS e CBS com Aliquota Reduzida: Setores Beneficiados e Creditos", to: "/conteudos/ibs-cbs-aliquota-reduzida-setores-beneficiados" },
   { label: "Simples Nacional Puro ou Hibrido: Qual Escolher em 2027?", to: "/conteudos/simples-puro-ou-hibrido-2027-como-decidir" },
   { label: "Lucro Real na Reforma Tributaria: Creditos, Glosas e Contratos", to: "/conteudos/lucro-real-reforma-tributaria-creditos-controles" },
 ];
+
 
 const contentGroups: ContentGroup[] = [
   {

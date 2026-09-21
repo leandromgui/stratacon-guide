@@ -84,6 +84,7 @@ import { Route as ConteudosLucroRealReformaTributariaCreditosControlesRouteImpor
 import { Route as ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRouteImport } from './routes/conteudos.lucro-presumido-reforma-tributaria-riscos-oportunidades'
 import { Route as ConteudosLc2362026ProcessoAdministrativoFiscalRouteImport } from './routes/conteudos.lc-236-2026-processo-administrativo-fiscal'
 import { Route as ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026RouteImport } from './routes/conteudos.ibs-cbs-nota-fiscal-obrigatorio-agosto-2026'
+import { Route as ConteudosIbsCbsAliquotaReduzidaSetoresBeneficiadosRouteImport } from './routes/conteudos.ibs-cbs-aliquota-reduzida-setores-beneficiados'
 import { Route as ConteudosHoldingPatrimonioRouteImport } from './routes/conteudos.holding-patrimonio'
 import { Route as ConteudosHoldingFamiliarRouteImport } from './routes/conteudos.holding-familiar'
 import { Route as ConteudosGuiaSimplesNacionalRouteImport } from './routes/conteudos.guia-simples-nacional'
@@ -517,6 +518,12 @@ const ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route =
     path: '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ConteudosIbsCbsAliquotaReduzidaSetoresBeneficiadosRoute =
+  ConteudosIbsCbsAliquotaReduzidaSetoresBeneficiadosRouteImport.update({
+    id: '/conteudos/ibs-cbs-aliquota-reduzida-setores-beneficiados',
+    path: '/conteudos/ibs-cbs-aliquota-reduzida-setores-beneficiados',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosHoldingPatrimonioRoute =
   ConteudosHoldingPatrimonioRouteImport.update({
     id: '/conteudos/holding-patrimonio',
@@ -637,6 +644,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
+  '/conteudos/ibs-cbs-aliquota-reduzida-setores-beneficiados': typeof ConteudosIbsCbsAliquotaReduzidaSetoresBeneficiadosRoute
   '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026': typeof ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route
   '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades': typeof ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRoute
@@ -729,6 +737,7 @@ export interface FileRoutesByTo {
   '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
+  '/conteudos/ibs-cbs-aliquota-reduzida-setores-beneficiados': typeof ConteudosIbsCbsAliquotaReduzidaSetoresBeneficiadosRoute
   '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026': typeof ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route
   '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades': typeof ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRoute
@@ -823,6 +832,7 @@ export interface FileRoutesById {
   '/conteudos/guia-simples-nacional': typeof ConteudosGuiaSimplesNacionalRoute
   '/conteudos/holding-familiar': typeof ConteudosHoldingFamiliarRoute
   '/conteudos/holding-patrimonio': typeof ConteudosHoldingPatrimonioRoute
+  '/conteudos/ibs-cbs-aliquota-reduzida-setores-beneficiados': typeof ConteudosIbsCbsAliquotaReduzidaSetoresBeneficiadosRoute
   '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026': typeof ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route
   '/conteudos/lc-236-2026-processo-administrativo-fiscal': typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades': typeof ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRoute
@@ -917,6 +927,7 @@ export interface FileRouteTypes {
     | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
     | '/conteudos/holding-patrimonio'
+    | '/conteudos/ibs-cbs-aliquota-reduzida-setores-beneficiados'
     | '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026'
     | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
     | '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades'
@@ -1009,6 +1020,7 @@ export interface FileRouteTypes {
     | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
     | '/conteudos/holding-patrimonio'
+    | '/conteudos/ibs-cbs-aliquota-reduzida-setores-beneficiados'
     | '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026'
     | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
     | '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades'
@@ -1102,6 +1114,7 @@ export interface FileRouteTypes {
     | '/conteudos/guia-simples-nacional'
     | '/conteudos/holding-familiar'
     | '/conteudos/holding-patrimonio'
+    | '/conteudos/ibs-cbs-aliquota-reduzida-setores-beneficiados'
     | '/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026'
     | '/conteudos/lc-236-2026-processo-administrativo-fiscal'
     | '/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades'
@@ -1196,6 +1209,7 @@ export interface RootRouteChildren {
   ConteudosGuiaSimplesNacionalRoute: typeof ConteudosGuiaSimplesNacionalRoute
   ConteudosHoldingFamiliarRoute: typeof ConteudosHoldingFamiliarRoute
   ConteudosHoldingPatrimonioRoute: typeof ConteudosHoldingPatrimonioRoute
+  ConteudosIbsCbsAliquotaReduzidaSetoresBeneficiadosRoute: typeof ConteudosIbsCbsAliquotaReduzidaSetoresBeneficiadosRoute
   ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route: typeof ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route
   ConteudosLc2362026ProcessoAdministrativoFiscalRoute: typeof ConteudosLc2362026ProcessoAdministrativoFiscalRoute
   ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRoute: typeof ConteudosLucroPresumidoReformaTributariaRiscosOportunidadesRoute
@@ -1786,6 +1800,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026RouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/ibs-cbs-aliquota-reduzida-setores-beneficiados': {
+      id: '/conteudos/ibs-cbs-aliquota-reduzida-setores-beneficiados'
+      path: '/conteudos/ibs-cbs-aliquota-reduzida-setores-beneficiados'
+      fullPath: '/conteudos/ibs-cbs-aliquota-reduzida-setores-beneficiados'
+      preLoaderRoute: typeof ConteudosIbsCbsAliquotaReduzidaSetoresBeneficiadosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/holding-patrimonio': {
       id: '/conteudos/holding-patrimonio'
       path: '/conteudos/holding-patrimonio'
@@ -1951,6 +1972,8 @@ const rootRouteChildren: RootRouteChildren = {
   ConteudosGuiaSimplesNacionalRoute: ConteudosGuiaSimplesNacionalRoute,
   ConteudosHoldingFamiliarRoute: ConteudosHoldingFamiliarRoute,
   ConteudosHoldingPatrimonioRoute: ConteudosHoldingPatrimonioRoute,
+  ConteudosIbsCbsAliquotaReduzidaSetoresBeneficiadosRoute:
+    ConteudosIbsCbsAliquotaReduzidaSetoresBeneficiadosRoute,
   ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route:
     ConteudosIbsCbsNotaFiscalObrigatorioAgosto2026Route,
   ConteudosLc2362026ProcessoAdministrativoFiscalRoute:
