@@ -1,6 +1,8 @@
 import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
 import { CategoryHub } from "@/components/CategoryHub";
 import { categories, getCategory, isArticleSlug } from "@/lib/conteudos-categories";
+import { canonicalUrl } from "@/lib/seo";
+
 
 function parsePage(raw: unknown): number {
   const n = typeof raw === "string" ? parseInt(raw, 10) : typeof raw === "number" ? raw : NaN;
