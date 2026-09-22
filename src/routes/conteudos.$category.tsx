@@ -25,7 +25,7 @@ export const Route = createFileRoute("/conteudos/$category")({
     const current = Math.min(Math.max(1, parsePage((location.search as { p?: unknown }).p)), totalPages);
 
     const base = `/conteudos/${category.slug}`;
-    const canonical = `https://dcon.cnt.br${current === 1 ? base : `${base}?p=${current}`}`;
+    const canonical = canonicalUrl(current === 1 ? base : `${base}?p=${current}`);
     return {
       category,
       current,
