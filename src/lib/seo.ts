@@ -58,7 +58,7 @@ function toAbsolute(url: string): string {
  */
 export function buildSeoHead(opts: SeoHeadOptions): SeoHeadResult {
   const { title, description, ogType = "website", noindex = false } = opts;
-  const canonical = toAbsolute(opts.canonical);
+  const canonical = canonicalUrl(opts.canonical);
   const ogImage = toAbsolute(opts.ogImage ?? DEFAULT_OG_IMAGE);
 
   const meta: Array<Record<string, string>> = [
