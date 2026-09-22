@@ -124,5 +124,5 @@ export const Route = createFileRoute("/conteudos/$category")({
 function CategoryPage() {
   const { category } = Route.useLoaderData();
   const { p } = Route.useSearch();
-  return <CategoryHub category={category} page={p} />;
+  return <CategoryHub category={category} page={p ?? 1} />;
 }
