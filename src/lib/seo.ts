@@ -18,10 +18,33 @@ export interface SeoHeadResult {
   links: Array<Record<string, string>>;
 }
 
+/**
+ * Normaliza qualquer caminho/URL para a forma canônica servida pelo site:
+ * URL absoluta com barra final no caminho (exceto a home, que é apenas "/").
+ * Preserva query string e hash.
+ */
+export function canonicalUrl(url: string): string {
+  const absolute = /^https?:\/\//i.test(url)
+    ? url
+    : `${SITE_URL}${url.startsWith("/") ? url : `/${url}`}`;
+
+  const match = /^([^?#]*)([?#].*)?$/.exec(absolute);
+  const pathPart = match?.[1] ?? absolute;
+  const suffix = match?.[2] ?? "";
+
+  // Não adicionar barra em arquivos (ex.: /sitemap.xml)
+  const lastSegment = pathPart.split("/").pop() ?? "";
+  const isFile = lastSegment.includes(".");
+
+  const withSlash = pathPart.endsWith("/") || isFile ? pathPart : `${pathPart}/`;
+  return `${withSlash}${suffix}`;
+}
+
 function toAbsolute(url: string): string {
   if (/^https?:\/\//i.test(url)) return url;
   return `${SITE_URL}${url.startsWith("/") ? url : `/${url}`}`;
 }
+
 
 /**
  * Build a standardized set of <head> meta/links for a route.
