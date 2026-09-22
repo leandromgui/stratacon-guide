@@ -33,8 +33,9 @@ export const Route = createFileRoute("/conteudos/$category")({
       current,
       totalPages,
       canonical,
-      prevUrl: current > 1 ? `https://dcon.cnt.br${current === 2 ? base : `${base}?p=${current - 1}`}` : null,
-      nextUrl: current < totalPages ? `https://dcon.cnt.br${base}?p=${current + 1}` : null,
+      prevUrl: current > 1 ? canonicalUrl(current === 2 ? base : `${base}?p=${current - 1}`) : null,
+      nextUrl: current < totalPages ? canonicalUrl(`${base}?p=${current + 1}`) : null,
+
     };
   },
   head: ({ params, loaderData }) => {
