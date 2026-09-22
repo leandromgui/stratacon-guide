@@ -42,7 +42,7 @@ export const Route = createFileRoute("/conteudos/$category")({
     const c = loaderData?.category ?? getCategory(params.category);
     if (!c) return { meta: [{ title: "Categoria não encontrada | Insights DCON" }] };
     const base = `/conteudos/${c.slug}`;
-    const pageUrl = loaderData?.canonical ?? base;
+    const pageUrl = loaderData?.canonical ?? canonicalUrl(base);
     const isPaginated = (loaderData?.current ?? 1) > 1;
     const robots = isPaginated ? "noindex, follow" : "index, follow";
     return {
