@@ -10,9 +10,12 @@ function parsePage(raw: unknown): number {
 }
 
 export const Route = createFileRoute("/conteudos/$category")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    p: parsePage(search.p),
-  }),
+  validateSearch: (search: Record<string, unknown>): { p?: number } => {
+    const p = parsePage(search.p);
+    // Não normalizar para ?p=1: isso geraria redirecionamento na URL limpa.
+    return p > 1 ? { p } : {};
+  },
+
   beforeLoad: ({ params }) => {
     // Artigos individuais têm rota própria; nunca devem ser tratados como categoria.
     if (isArticleSlug(params.category)) {
