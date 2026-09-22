@@ -1,6 +1,8 @@
 import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
 import { CategoryHub } from "@/components/CategoryHub";
 import { categories, getCategory, isArticleSlug } from "@/lib/conteudos-categories";
+import { canonicalUrl } from "@/lib/seo";
+
 
 function parsePage(raw: unknown): number {
   const n = typeof raw === "string" ? parseInt(raw, 10) : typeof raw === "number" ? raw : NaN;
@@ -8,9 +10,12 @@ function parsePage(raw: unknown): number {
 }
 
 export const Route = createFileRoute("/conteudos/$category")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    p: parsePage(search.p),
-  }),
+  validateSearch: (search: Record<string, unknown>): { p?: number } => {
+    const p = parsePage(search.p);
+    // Não normalizar para ?p=1: isso geraria redirecionamento na URL limpa.
+    return p > 1 ? { p } : {};
+  },
+
   beforeLoad: ({ params }) => {
     // Artigos individuais têm rota própria; nunca devem ser tratados como categoria.
     if (isArticleSlug(params.category)) {
@@ -25,21 +30,22 @@ export const Route = createFileRoute("/conteudos/$category")({
     const current = Math.min(Math.max(1, parsePage((location.search as { p?: unknown }).p)), totalPages);
 
     const base = `/conteudos/${category.slug}`;
-    const canonical = `https://dcon.cnt.br${current === 1 ? base : `${base}?p=${current}`}`;
+    const canonical = canonicalUrl(current === 1 ? base : `${base}?p=${current}`);
     return {
       category,
       current,
       totalPages,
       canonical,
-      prevUrl: current > 1 ? `https://dcon.cnt.br${current === 2 ? base : `${base}?p=${current - 1}`}` : null,
-      nextUrl: current < totalPages ? `https://dcon.cnt.br${base}?p=${current + 1}` : null,
+      prevUrl: current > 1 ? canonicalUrl(current === 2 ? base : `${base}?p=${current - 1}`) : null,
+      nextUrl: current < totalPages ? canonicalUrl(`${base}?p=${current + 1}`) : null,
+
     };
   },
   head: ({ params, loaderData }) => {
     const c = loaderData?.category ?? getCategory(params.category);
     if (!c) return { meta: [{ title: "Categoria não encontrada | Insights DCON" }] };
     const base = `/conteudos/${c.slug}`;
-    const pageUrl = loaderData?.canonical ?? base;
+    const pageUrl = loaderData?.canonical ?? canonicalUrl(base);
     const isPaginated = (loaderData?.current ?? 1) > 1;
     const robots = isPaginated ? "noindex, follow" : "index, follow";
     return {
@@ -118,5 +124,5 @@ export const Route = createFileRoute("/conteudos/$category")({
 function CategoryPage() {
   const { category } = Route.useLoaderData();
   const { p } = Route.useSearch();
-  return <CategoryHub category={category} page={p} />;
+  return <CategoryHub category={category} page={p ?? 1} />;
 }
