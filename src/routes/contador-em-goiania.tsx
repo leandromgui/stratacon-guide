@@ -22,7 +22,7 @@ const FAQ = [
   },
   {
     q: "Como faço para agendar um diagnóstico inicial?",
-    a: "Pelo formulário do site ou WhatsApp, o diagnóstico técnico inicial leva 7 dias úteis.",
+    a: "Pelo formulário do site ou WhatsApp. O diagnóstico técnico inicial ocorre em até 7 dias úteis após o recebimento completo dos documentos e a definição do escopo.",
   },
 ];
 
@@ -72,7 +72,7 @@ export const Route = createFileRoute("/contador-em-goiania")({
     ...buildSeoHead({
       title: "Contador em Goiânia | Contabilidade Consultiva - DCON",
       description:
-        "Contador em Goiânia com 20+ anos de experiência. Consultoria tributária, planejamento fiscal e Método DCON. Atendimento para +700 clientes. Fale conosco.",
+        "Contador em Goiânia com 20+ anos de experiência. Consultoria tributária, planejamento fiscal e Método DCON. Mais de 700 empresas atendidas desde 2004. Fale conosco.",
       canonical: "/contador-em-goiania",
     }),
     scripts: [
@@ -96,7 +96,7 @@ function Page() {
       eyebrow="Goiânia"
       h1="Contador em Goiânia — Contabilidade Consultiva para Empresas"
       lead="Um contador que responde tecnicamente pelo que assina — e explica o impacto de cada decisão antes dela virar imposto pago a mais."
-      intro="A DCON atua em Goiânia desde 2004, mais de 20 anos acompanhando empresas locais em decisões contábeis, tributárias e patrimoniais. Nosso escritório fica no Setor Sul, com atendimento presencial e também remoto para empresas de todo o Brasil. Hoje, mais de 700 clientes confiam na condução técnica da DCON, com R$ 11,5 milhões em créditos tributários recuperados nos últimos 5 anos."
+      intro="A DCON atua em Goiânia desde 2004, mais de 20 anos acompanhando empresas locais em decisões contábeis, tributárias e patrimoniais. Nosso escritório fica no Setor Sul, com atendimento presencial e também remoto para empresas de todo o Brasil. Mais de 700 empresas atendidas desde 2004. Mais de R$ 11,5 milhões em créditos tributários identificados e aproveitados em projetos conduzidos nos últimos cinco anos."
       breadcrumbs={[{ label: "Contador em Goiânia", to: "/contador-em-goiania" }]}
       ctaPrimary={{ label: "Solicitar diagnóstico técnico inicial", to: "/diagnostico" }}
       ctaSecondary={{ label: "Falar com a DCON", to: "/contato" }}
@@ -144,7 +144,7 @@ function Page() {
             },
             {
               title: "Como faço para agendar um diagnóstico inicial?",
-              body: "Pelo formulário do site ou WhatsApp, o diagnóstico técnico inicial leva 7 dias úteis.",
+              body: "Pelo formulário do site ou WhatsApp. O diagnóstico técnico inicial ocorre em até 7 dias úteis após o recebimento completo dos documentos e a definição do escopo.",
             },
           ],
         },

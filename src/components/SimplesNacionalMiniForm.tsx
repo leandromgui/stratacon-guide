@@ -128,7 +128,7 @@ export function SimplesNacionalMiniForm() {
             Qualificar diagnóstico
           </div>
           <h2 className="mt-4 font-display text-3xl tracking-tight">
-            Diagnóstico do seu Simples em 7 dias.
+            Diagnóstico técnico inicial do seu Simples.
           </h2>
           <p className="mt-4 text-muted-foreground text-[15px] leading-relaxed">
             Responda 3 perguntas técnicas — Anexo, CNAE/atividade e faixa de faturamento —
@@ -137,7 +137,7 @@ export function SimplesNacionalMiniForm() {
           </p>
           <ul className="mt-6 space-y-2 text-[13px] text-muted-foreground">
             <li className="flex gap-3"><span className="text-gold">·</span> Sem custo na avaliação inicial.</li>
-            <li className="flex gap-3"><span className="text-gold">·</span> Devolutiva técnica em até 7 dias úteis.</li>
+            <li className="flex gap-3"><span className="text-gold">·</span> Diagnóstico técnico inicial em até 7 dias úteis após o recebimento completo dos documentos e a definição do escopo.</li>
             <li className="flex gap-3"><span className="text-gold">·</span> Sigilo sob responsabilidade do CRC do escritório.</li>
           </ul>
         </header>

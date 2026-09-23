@@ -28,7 +28,7 @@ const pillars = [
     items: [
       { l: "Defesas fiscais", to: "/solucoes/defesas-fiscais" },
       { l: "Regularização fiscal", to: "/solucoes/regularizacao-fiscal" },
-      { l: "Pendências fiscais", to: "/segmentos/pendencias-fiscais" },
+      { l: "Pendências fiscais", to: "/solucoes/regularizacao-fiscal" },
     ],
   },
   {
@@ -38,7 +38,7 @@ const pillars = [
     items: [
       { l: "Holding patrimonial", to: "/solucoes/holding-patrimonial" },
       { l: "Pessoa física e IRPF", to: "/solucoes/pessoa-fisica-irpf" },
-      { l: "Conteúdos de holding", to: "/conteudos/holding-patrimonio" },
+      { l: "Conteúdos de holding", to: "/solucoes/holding-patrimonial" },
     ],
   },
   {
@@ -57,7 +57,7 @@ const pillars = [
     b: "Pró-labore, PJ x CLT, retenções, riscos de vínculo e governança trabalhista.",
     items: [
       { l: "Departamento pessoal", to: "/solucoes/departamento-pessoal" },
-      { l: "DP e eSocial", to: "/conteudos/dp-esocial" },
+      { l: "DP e eSocial", to: "/solucoes/departamento-pessoal" },
     ],
   },
   {
@@ -66,7 +66,7 @@ const pillars = [
     b: "Particularidades fiscais, contábeis e regulatórias por setor atendido.",
     items: [
       { l: "Saúde e clínicas", to: "/conteudos/saude-clinicas" },
-      { l: "Comércio e ICMS", to: "/conteudos/comercio-icms" },
+      { l: "Comércio e ICMS", to: "/segmentos/comercio" },
       { l: "Provedores de internet", to: "/segmentos/provedores-internet" },
     ],
   },

@@ -8,7 +8,7 @@ import { buildSeoHead } from "@/lib/seo";
 
 const faqs: FAQItem[] = [
   { q: "Que tributos podem ser recuperados?", a: "PIS/COFINS (exclusão do ICMS da base, insumos, créditos extemporâneos), INSS sobre verbas indenizatórias, ICMS-ST recolhido a maior, crédito presumido não aproveitado e tributos pagos com erro de base ou alíquota nos últimos 5 anos." },
-  { q: "Trabalham por êxito ou por hora?", a: "Para recuperação trabalhamos por êxito — a empresa não paga se não recuperar. Para contencioso de defesa fiscal o modelo é definido caso a caso, conforme escopo e instância." },
+  { q: "Trabalham por êxito ou por hora?", a: "Os honorários de êxito são definidos contratualmente e vinculados a um marco objetivo de aproveitamento do crédito. A transmissão da compensação não equivale à homologação definitiva, que permanece sujeita à análise da Receita Federal dentro do prazo legal. Para contencioso de defesa fiscal o modelo é definido caso a caso, conforme escopo e instância." },
   { q: "Que risco a empresa corre ao recuperar crédito?", a: "Risco controlado quando a tese é consolidada e bem documentada. A DCON só conduz com base em jurisprudência firme e fundamentação auditável; cada cálculo fica rastreável para suportar fiscalização." },
   { q: "Em quanto tempo o crédito é aproveitado?", a: "Compensação via PER/DCOMP costuma ser aproveitada em semanas após a homologação técnica. Restituição em espécie ou via judicial varia conforme instância e demanda processual." },
   { q: "Vocês atuam só em recuperação ou também em contencioso?", a: "Ambos. Conduzimos recuperação administrativa de créditos e defesa fiscal (impugnação, recurso, manifestação de inconformidade, PRDI e transação) para PJ e PF." },
@@ -100,9 +100,9 @@ function Page() {
       ]}
       risks={[
         { title: "Tese sem fundamento consolidado", body: "Recuperar com base em tese frágil gera glosa, multa qualificada e devolução com encargos." },
-        { title: "Documentação insuficiente", body: "Sem memória de cálculo auditável, o crédito é indeferido na primeira revisão e o tempo investido é perdido." },
+        { title: "Documentação insuficiente", body: "Sem memória de cálculo auditável, o crédito pode ser glosado ou não homologado, e o tempo investido pode ser perdido." },
         { title: "Perder prazo de defesa", body: "Cada autuação tem janela curta de impugnação. Perdido o prazo, o débito vira definitivo." },
-        { title: "Pagar antes de conferir", body: "Pagar ou parcelar sem análise técnica extingue defesas possíveis e dinheiro que poderia voltar ao caixa." },
+        { title: "Pagar antes de conferir", body: "Pagar ou parcelar sem análise técnica pode limitar ou prejudicar determinadas estratégias de defesa e comprometer dinheiro que poderia voltar ao caixa." },
         { title: "Aderir a transação inadequada", body: "Transação errada compromete o caixa por anos sem necessariamente extinguir o passivo." },
       ]}
       faq={faqs}

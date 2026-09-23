@@ -8,7 +8,7 @@ import type { H3Item } from "../components/PageScaffold";
 export const dconMethod: H3Item[] = [
   {
     title: "Diagnóstico técnico",
-    body: "Cruzamento de documentos fiscais, contábeis, societários e trabalhistas para identificar riscos, créditos e exposições — entrega em até 7 dias úteis.",
+    body: "Cruzamento de documentos fiscais, contábeis, societários e trabalhistas para identificar riscos, créditos e exposições. Diagnóstico técnico inicial em até 7 dias úteis após o recebimento completo dos documentos e a definição do escopo.",
   },
   {
     title: "Planejamento fundamentado",

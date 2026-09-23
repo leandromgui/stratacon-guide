@@ -7,7 +7,7 @@ export const Route = createFileRoute("/diagnostico")({
   head: () => ({
     ...buildSeoHead({
       title: "Diagnóstico Técnico Inicial | DCON — CRC-GO 1202/O-5",
-      description: "Diagnóstico fiscal, contábil, tributário e trabalhista da DCON: cruzamento documental, parecer técnico e plano de ação em até 7 dias úteis. Sem compromisso comercial.",
+      description: "Diagnóstico técnico inicial em até 7 dias úteis após o recebimento completo dos documentos e a definição do escopo. Cruzamento documental, parecer técnico e plano de ação.",
       canonical: "/diagnostico",
     }),
     scripts: [
@@ -64,7 +64,7 @@ function Page() {
       ] },
       { h2: "Perguntas frequentes", h3: [
         {"title":"Quanto custa?","body":"Variável conforme porte, número de CNPJs, regimes envolvidos e volume documental. A conversa preliminar e a proposta não são cobradas."},
-        {"title":"Quanto tempo demora?","body":"Em até 7 dias úteis após o envio da documentação."},
+        {"title":"Quanto tempo demora?","body":"Diagnóstico técnico inicial em até 7 dias úteis após o recebimento completo dos documentos e a definição do escopo."},
         {"title":"Sou obrigado a contratar depois?","body":"Não. O diagnóstico é entregável independente, sem compromisso comercial."},
       ] },
       ]}

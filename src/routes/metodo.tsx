@@ -4,7 +4,7 @@ import { getDoc } from "../lib/dcon-content";
 import { buildSeoHead } from "@/lib/seo";
 
 const faqs = [
-  { q: "Quanto tempo leva o Método DCON do início ao fim?", a: "O diagnóstico técnico é entregue em até 7 dias úteis. As fases seguintes (planejamento, execução e governança) seguem cronograma específico de cada empresa, normalmente entre 30 e 90 dias para implementação completa." },
+  { q: "Quanto tempo leva o Método DCON do início ao fim?", a: "O diagnóstico técnico inicial é entregue em até 7 dias úteis após o recebimento completo dos documentos e a definição do escopo. As fases seguintes (planejamento, execução e governança) seguem cronograma específico de cada empresa, normalmente entre 30 e 90 dias para implementação completa." },
   { q: "O método se aplica a empresas de qualquer porte?", a: "Sim. Adaptamos a profundidade do diagnóstico e dos entregáveis ao porte e à complexidade tributária. ME e EPP têm método simplificado; Lucro Presumido e Real seguem o protocolo completo." },
   { q: "Como é a governança após a implementação?", a: "Reunião mensal com indicadores fiscais, contábeis e gerenciais, plus revisão trimestral de tese tributária e exposições de risco. Toda decisão fica documentada e auditável." },
 ];
@@ -53,7 +53,7 @@ function Page() {
         },
       ]}
       method={[
-        { title: "Diagnóstico técnico", body: "Cruzamento de SPED, EFD, DCTF, eSocial, DEFIS, contratos, atas e movimentação bancária. Entrega em até 7 dias úteis com mapa de exposição fiscal, créditos identificados e plano priorizado." },
+        { title: "Diagnóstico técnico", body: "Cruzamento de SPED, EFD, DCTF, eSocial, DEFIS, contratos, atas e movimentação bancária. Diagnóstico técnico inicial em até 7 dias úteis após o recebimento completo dos documentos e a definição do escopo, com mapa de exposição fiscal, créditos identificados e plano priorizado." },
         { title: "Planejamento fundamentado", body: "Tese tributária, simulações comparativas de regime, plano patrimonial e cronograma de implementação. Toda recomendação fica em parecer técnico assinado pelo responsável." },
         { title: "Execução documentada", body: "Retificações, parametrização de ERP, registros societários, defesas administrativas e implementação de rotinas. Cada movimento gera documento auditável." },
         { title: "Governança contínua", body: "Reunião mensal de indicadores, revisão trimestral de teses, monitoramento de exposições e atualização legal. A relação não termina na entrega; vira protocolo recorrente." },
@@ -70,7 +70,7 @@ function Page() {
         { title: "Trilha auditável", body: "Cada decisão fica em sistema de documentação versionada, acessível ao cliente e à equipe técnica a qualquer momento." },
       ]}
       relatedLinks={[
-        { label: "Solicitar diagnóstico em 7 dias", to: "/diagnostico", eyebrow: "Primeiro passo" },
+        { label: "Solicitar diagnóstico técnico inicial", to: "/diagnostico", eyebrow: "Primeiro passo" },
         { label: "Linhas de solução", to: "/solucoes", eyebrow: "Soluções" },
         { label: "Setores atendidos", to: "/segmentos", eyebrow: "Segmentos" },
         { label: "Liderança técnica", to: "/sobre/leandro", eyebrow: "Responsável" },

@@ -69,7 +69,7 @@ const CTA_VARIANTS: Record<CtaVariant, {
   diagnostic: {
     eyebrow: "Próximo passo",
     title: "Solicite um diagnóstico técnico da sua empresa.",
-    body: "Entrega em até 7 dias úteis. Análise fiscal, contábil, tributária, trabalhista e societária, com plano de ação acionável.",
+    body: "Diagnóstico técnico inicial em até 7 dias úteis após o recebimento completo dos documentos e a definição do escopo. Análise fiscal, contábil, tributária, trabalhista e societária, com plano de ação acionável.",
     primary: { label: "Solicitar diagnóstico", to: "/diagnostico" },
     secondary: { label: "Falar com a DCON", to: "/contato" },
   },
@@ -243,7 +243,7 @@ export function PageScaffold(p: PageScaffoldProps) {
               <span className="text-white/25">/</span>
               <span>Atendimento nacional</span>
               <span className="text-white/25">/</span>
-              <span>Diagnóstico em 7 dias úteis</span>
+              <span>Diagnóstico técnico inicial em até 7 dias úteis após o recebimento completo dos documentos e a definição do escopo</span>
             </Reveal>
           </div>
           <aside className="lg:col-span-4 lg:border-l lg:border-white/15 lg:pl-10 flex flex-col justify-end">

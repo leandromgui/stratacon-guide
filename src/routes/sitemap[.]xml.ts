@@ -101,7 +101,6 @@ const entries: SitemapEntry[] = [
 
 
 
-  { path: "/reforma-tributaria-2026", changefreq: "monthly", priority: "0.8" },
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({
