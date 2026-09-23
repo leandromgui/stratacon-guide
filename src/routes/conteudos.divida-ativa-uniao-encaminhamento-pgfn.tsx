@@ -10,7 +10,40 @@ const META_DESCRIPTION =
   "Entenda quando débitos vencidos há mais de 90 dias podem ser encaminhados à PGFN, os riscos da entrada de 10%/20% no reparcelamento e como funciona a Dívida Ativa da União.";
 const PUBLISHED = "22/09/2026";
 
-const faq: { q: string; a: string }[] = [];
+const faq: { q: string; a: string }[] = [
+  {
+    q: "Todo débito vencido há mais de 90 dias pode ser encaminhado?",
+    a: "Não automaticamente. O débito deve estar definitivamente constituído, exigível e sem impedimento legal. Também é necessário identificar corretamente o início da contagem.",
+  },
+  {
+    q: "Se o tributo venceu há dois anos, ele já pode ser encaminhado?",
+    a: "Depende. Se esteve parcelado e a rescisão ocorreu recentemente, a contagem dos 90 dias pode começar somente após a rescisão definitiva.",
+  },
+  {
+    q: "Posso desistir do parcelamento e pedir o encaminhamento imediatamente?",
+    a: "A desistência ou rescisão não gera inscrição imediata. No caso de parcelamento, a Portaria MF nº 447/2018 estabelece que o prazo começa depois da rescisão definitiva.",
+  },
+  {
+    q: "A Receita é obrigada a encaminhar depois dos 90 dias?",
+    a: "A legislação estabelece o dever de encaminhamento dos créditos definitivamente constituídos e exigíveis. A efetivação, contudo, depende do processamento pela Receita e do controle de legalidade pela PGFN.",
+  },
+  {
+    q: "O pedido suspende a cobrança?",
+    a: "Não. O requerimento de encaminhamento não constitui causa de suspensão da exigibilidade.",
+  },
+  {
+    q: "A dívida já entra na PGFN com desconto?",
+    a: "Não. O desconto depende da modalidade disponível, da data de inscrição, do edital e da capacidade de pagamento.",
+  },
+  {
+    q: "A PGFN parcela sem entrada?",
+    a: "Depende da modalidade. Pode haver entrada reduzida ou parcelada, mas não existe dispensa universal de entrada.",
+  },
+  {
+    q: "Qual é o principal risco?",
+    a: "O principal risco é permanecer com o débito exigível durante o período entre a rescisão do parcelamento, o encaminhamento, a inscrição e a formalização de uma nova negociação.",
+  },
+];
 
 export const Route = createFileRoute("/conteudos/divida-ativa-uniao-encaminhamento-pgfn")({
   head: () => ({
@@ -269,6 +302,22 @@ function Page() {
             { title: "Em destaque", body: "Economia sem segurança vira risco fiscal." },
           ],
         },
+        {
+          h2: "Conclusão",
+          lead: "A entrada de 10% ou 20% exigida no reparcelamento pode tornar a regularização financeiramente inviável, mas o encaminhamento para a PGFN exige análise cuidadosa dos prazos, riscos e modalidades disponíveis.",
+          h3: [
+            {
+              title: "Analisar débitos aptos ao encaminhamento",
+              body: "Solicite uma análise técnica dos débitos da sua empresa para identificar quais estão definitivamente constituídos, exigíveis e aptos ao encaminhamento à PGFN.",
+              cta: { label: "Analisar débitos aptos ao encaminhamento", to: "/diagnostico" },
+            },
+            {
+              title: "Comparar as alternativas",
+              body: "Compare o reparcelamento na Receita Federal e a negociação na PGFN antes de decidir o caminho da regularização.",
+              cta: { label: "Comparar reparcelamento na Receita e negociação na PGFN", to: "/contato" },
+            },
+          ],
+        },
       ]}
       relatedLinks={[
         { eyebrow: "Solução", label: "Regularização Fiscal", to: "/solucoes/regularizacao-fiscal" },
@@ -287,7 +336,7 @@ function Page() {
         </header>
         <div className="lg:col-span-8 bg-card border border-border p-6 md:p-8">
           <p className="text-[15px] leading-relaxed text-foreground/90">
-            Instrução Normativa RFB nº 2.063/2022, art. 17, parágrafo 1º, incisos I e II; Portaria MF nº 447/2018, art. 2º e parágrafos; Decreto-Lei nº 147/1967, art. 22; Portaria PGFN nº 33/2018, com a redação dada pela Portaria PGFN nº 660/2018, art. 3º.
+            Lei nº 4.320/1964; Decreto-Lei nº 147/1967; Portaria MF nº 447/2018; Portaria PGFN nº 33/2018; Portaria PGFN nº 660/2018; Portaria PGFN/ME nº 6.155/2021; Instrução Normativa RFB nº 2.063/2022; Código Tributário Nacional; Lei nº 13.988/2020; Decreto-Lei nº 1.025/1969.
           </p>
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
             Fontes oficiais: Receita Federal do Brasil —{" "}
