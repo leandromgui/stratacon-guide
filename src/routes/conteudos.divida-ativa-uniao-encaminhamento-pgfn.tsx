@@ -146,6 +146,36 @@ function Page() {
             { title: "Em destaque", body: "Encaminhamento não é sinônimo de desconto." },
           ],
         },
+      ,
+        {
+          h2: "O pedido de encaminhamento suspende a exigibilidade?",
+          lead: "O protocolo do requerimento, o decurso dos 90 dias, o encaminhamento à PGFN e a simples apresentação de proposta de transação não suspendem automaticamente a exigibilidade.",
+          h3: [
+            { title: "Suspensão exige parcelamento formalizado", body: "O art. 151, inciso VI, do Código Tributário Nacional estabelece que o parcelamento suspende a exigibilidade do crédito tributário. Mas essa suspensão ocorre depois da formalização válida da negociação e do cumprimento das condições estabelecidas, como o pagamento da entrada ou da primeira prestação." },
+            { title: "Proposta de transação não suspende", body: "A Lei nº 13.988/2020, em seu art. 12, determina que a simples proposta de transação não suspende a exigibilidade dos créditos nem o andamento das execuções fiscais." },
+            { title: "Janela de risco", body: "Portanto, existe uma janela de risco entre a rescisão do parcelamento na Receita, o transcurso do prazo, o encaminhamento, a inscrição, a disponibilização no Regularize e a formalização da nova negociação. Durante esse intervalo, a dívida permanece exigível, salvo se existir outra causa legal de suspensão." },
+          ],
+        },
+        {
+          h2: "Quais são os riscos do encaminhamento?",
+          lead: "A inscrição em Dívida Ativa pode ampliar os efeitos da dívida e adicionar novos riscos patrimoniais e cadastrais.",
+          h3: [
+            { title: "Acréscimo do encargo legal", body: "Quando existe execução fiscal, a PGFN informa que o encargo pode alcançar 20% sobre a dívida consolidada. Em determinados casos de créditos não ajuizados submetidos a protesto, a regulamentação prevê encargo reduzido para 10%." },
+            { title: "Protesto", body: "Depois da inscrição, a Certidão de Dívida Ativa pode ser encaminhada a protesto. Além da dívida, poderão existir emolumentos cobrados pelo cartório." },
+            { title: "Cadin e órgãos de proteção ao crédito", body: "A PGFN pode incluir o contribuinte no Cadin, na Lista de Devedores e comunicar a dívida aos órgãos de proteção ao crédito." },
+            { title: "Execução fiscal", body: "A dívida pode ser ajuizada, permitindo a adoção de medidas como bloqueio de valores, penhora de bens, averbação em registros patrimoniais, indisponibilidade de ativos, investigação patrimonial e responsabilização de corresponsáveis, quando houver fundamento legal." },
+            { title: "Problemas com certidão", body: "Enquanto a dívida permanecer exigível e sem negociação válida, poderá impedir a emissão de Certidão Negativa ou de Certidão Positiva com Efeitos de Negativa. Isso pode comprometer participação em licitações, manutenção de contratos, recebimentos de órgãos públicos, financiamentos, operações bancárias, cadastros de fornecedores, distribuição de recursos públicos e renovação de determinados registros." },
+            { title: "Ausência de modalidade vantajosa", body: "A dívida pode ser inscrita sem que exista naquele momento uma transação com desconto ou prazo suficiente. Por isso, o custo do encaminhamento precisa ser comparado com o custo de permanecer na Receita." },
+          ],
+        },
+        {
+          h2: "Atenção aos prazos dos editais",
+          lead: "O prazo final de adesão a um edital não se confunde com a data-limite de inscrição.",
+          h3: [
+            { title: "Edital PGDAU nº 6/2026", body: "O Edital PGDAU nº 6/2026 permite adesão até 30 de setembro de 2026, às 19h, mas alcança somente dívidas inscritas até 3 de março de 2026. Consequentemente, uma dívida encaminhada e inscrita depois de 3 de março de 2026 não se torna elegível para esse edital apenas porque a adesão permanece aberta até setembro." },
+            { title: "O que a proximidade do prazo não garante", body: "Não localizamos ato público da Receita Federal que assegure prioridade geral na fila de encaminhamento em razão do encerramento desse edital. A proximidade do prazo não garante prioridade, não substitui a regra dos 90 dias, não dispensa o controle de legalidade, não antecipa a data de corte, não assegura inscrição antes do encerramento e não garante desconto ou modalidade específica." },
+          ],
+        },
       ]}
       relatedLinks={[
         { eyebrow: "Solução", label: "Regularização Fiscal", to: "/solucoes/regularizacao-fiscal" },
