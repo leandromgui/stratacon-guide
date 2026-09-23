@@ -64,7 +64,7 @@ function Page() {
         ]},
         { h2: "Equiparação hospitalar: quando se aplica", lead: "Empresas da saúde no Lucro Presumido podem aplicar presunção reduzida quando prestam serviços hospitalares ou de auxílio diagnóstico e terapia: IRPJ de 32% para 8% e CSLL de 32% para 12%, com base no art. 15, §1º, III, \"a\" da Lei 9.249/1995. Base legal: Lei 9.249/1995; IN RFB 1.234/2012; RDC Anvisa 50/2002; Súmula CARF 142.", h3: [
           { title: "Requisitos cumulativos", body: "Sociedade empresária (não sociedade simples, embora o CARF já tenha decidido que não exige registro formal na Junta Comercial), regime de Lucro Presumido (não se aplica ao Simples Nacional), atividades vinculadas às atribuições 1 a 4 da Resolução RDC 50/2002 da Anvisa e comprovação por alvará da vigilância sanitária." },
-          { title: "Solução de Consulta SRRF03 nº 3008", body: "Baseada no art. 30 c/c art. 38, II da IN RFB 1.234/2012, reforçou esses critérios." },
+          { title: "Solução de Consulta Disit/SRRF03 nº 3.005, de 21/01/2025", body: "Baseada no art. 30 c/c art. 38, II da IN RFB 1.234/2012, reforçou esses critérios." },
           { title: "Não é direito automático", body: "Consulta médica isolada NÃO se equipara a serviço hospitalar (Súmula CARF 142). É tese que depende de qualificação técnica, documentação e coerência entre contrato, nota fiscal e prontuário, sujeita a questionamento em fiscalização — não é blindagem nem garantia de resultado." },
         ]},
         { h2: "Exportação", h3: [
