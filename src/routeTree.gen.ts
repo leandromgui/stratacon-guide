@@ -97,6 +97,7 @@ import { Route as ConteudosDividaAtivaUniaoEncaminhamentoPgfnRouteImport } from 
 import { Route as ConteudosDespesasQueGeramCreditoIbsCbsRouteImport } from './routes/conteudos.despesas-que-geram-credito-ibs-cbs'
 import { Route as ConteudosCronogramaReformaTributaria20262033RouteImport } from './routes/conteudos.cronograma-reforma-tributaria-2026-2033'
 import { Route as ConteudosComercioIcmsRouteImport } from './routes/conteudos.comercio-icms'
+import { Route as ConteudosBeneficioFiscalEcommerceGoiasRouteImport } from './routes/conteudos.beneficio-fiscal-ecommerce-goias'
 import { Route as ConteudosAuditoriaFornecedoresCreditosIbsCbsRouteImport } from './routes/conteudos.auditoria-fornecedores-creditos-ibs-cbs'
 import { Route as ConteudosAluguelSoftwareServicosCreditoIbsCbsRouteImport } from './routes/conteudos.aluguel-software-servicos-credito-ibs-cbs'
 import { Route as ConteudosCategoryRouteImport } from './routes/conteudos.$category'
@@ -597,6 +598,12 @@ const ConteudosComercioIcmsRoute = ConteudosComercioIcmsRouteImport.update({
   path: '/conteudos/comercio-icms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConteudosBeneficioFiscalEcommerceGoiasRoute =
+  ConteudosBeneficioFiscalEcommerceGoiasRouteImport.update({
+    id: '/conteudos/beneficio-fiscal-ecommerce-goias',
+    path: '/conteudos/beneficio-fiscal-ecommerce-goias',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute =
   ConteudosAuditoriaFornecedoresCreditosIbsCbsRouteImport.update({
     id: '/conteudos/auditoria-fornecedores-creditos-ibs-cbs',
@@ -656,6 +663,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/$category': typeof ConteudosCategoryRoute
   '/conteudos/aluguel-software-servicos-credito-ibs-cbs': typeof ConteudosAluguelSoftwareServicosCreditoIbsCbsRoute
   '/conteudos/auditoria-fornecedores-creditos-ibs-cbs': typeof ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute
+  '/conteudos/beneficio-fiscal-ecommerce-goias': typeof ConteudosBeneficioFiscalEcommerceGoiasRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/cronograma-reforma-tributaria-2026-2033': typeof ConteudosCronogramaReformaTributaria20262033Route
   '/conteudos/despesas-que-geram-credito-ibs-cbs': typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
@@ -752,6 +760,7 @@ export interface FileRoutesByTo {
   '/conteudos/$category': typeof ConteudosCategoryRoute
   '/conteudos/aluguel-software-servicos-credito-ibs-cbs': typeof ConteudosAluguelSoftwareServicosCreditoIbsCbsRoute
   '/conteudos/auditoria-fornecedores-creditos-ibs-cbs': typeof ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute
+  '/conteudos/beneficio-fiscal-ecommerce-goias': typeof ConteudosBeneficioFiscalEcommerceGoiasRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/cronograma-reforma-tributaria-2026-2033': typeof ConteudosCronogramaReformaTributaria20262033Route
   '/conteudos/despesas-que-geram-credito-ibs-cbs': typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
@@ -850,6 +859,7 @@ export interface FileRoutesById {
   '/conteudos/$category': typeof ConteudosCategoryRoute
   '/conteudos/aluguel-software-servicos-credito-ibs-cbs': typeof ConteudosAluguelSoftwareServicosCreditoIbsCbsRoute
   '/conteudos/auditoria-fornecedores-creditos-ibs-cbs': typeof ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute
+  '/conteudos/beneficio-fiscal-ecommerce-goias': typeof ConteudosBeneficioFiscalEcommerceGoiasRoute
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/cronograma-reforma-tributaria-2026-2033': typeof ConteudosCronogramaReformaTributaria20262033Route
   '/conteudos/despesas-que-geram-credito-ibs-cbs': typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
@@ -948,6 +958,7 @@ export interface FileRouteTypes {
     | '/conteudos/$category'
     | '/conteudos/aluguel-software-servicos-credito-ibs-cbs'
     | '/conteudos/auditoria-fornecedores-creditos-ibs-cbs'
+    | '/conteudos/beneficio-fiscal-ecommerce-goias'
     | '/conteudos/comercio-icms'
     | '/conteudos/cronograma-reforma-tributaria-2026-2033'
     | '/conteudos/despesas-que-geram-credito-ibs-cbs'
@@ -1044,6 +1055,7 @@ export interface FileRouteTypes {
     | '/conteudos/$category'
     | '/conteudos/aluguel-software-servicos-credito-ibs-cbs'
     | '/conteudos/auditoria-fornecedores-creditos-ibs-cbs'
+    | '/conteudos/beneficio-fiscal-ecommerce-goias'
     | '/conteudos/comercio-icms'
     | '/conteudos/cronograma-reforma-tributaria-2026-2033'
     | '/conteudos/despesas-que-geram-credito-ibs-cbs'
@@ -1141,6 +1153,7 @@ export interface FileRouteTypes {
     | '/conteudos/$category'
     | '/conteudos/aluguel-software-servicos-credito-ibs-cbs'
     | '/conteudos/auditoria-fornecedores-creditos-ibs-cbs'
+    | '/conteudos/beneficio-fiscal-ecommerce-goias'
     | '/conteudos/comercio-icms'
     | '/conteudos/cronograma-reforma-tributaria-2026-2033'
     | '/conteudos/despesas-que-geram-credito-ibs-cbs'
@@ -1239,6 +1252,7 @@ export interface RootRouteChildren {
   ConteudosCategoryRoute: typeof ConteudosCategoryRoute
   ConteudosAluguelSoftwareServicosCreditoIbsCbsRoute: typeof ConteudosAluguelSoftwareServicosCreditoIbsCbsRoute
   ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute: typeof ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute
+  ConteudosBeneficioFiscalEcommerceGoiasRoute: typeof ConteudosBeneficioFiscalEcommerceGoiasRoute
   ConteudosComercioIcmsRoute: typeof ConteudosComercioIcmsRoute
   ConteudosCronogramaReformaTributaria20262033Route: typeof ConteudosCronogramaReformaTributaria20262033Route
   ConteudosDespesasQueGeramCreditoIbsCbsRoute: typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
@@ -1933,6 +1947,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosComercioIcmsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/beneficio-fiscal-ecommerce-goias': {
+      id: '/conteudos/beneficio-fiscal-ecommerce-goias'
+      path: '/conteudos/beneficio-fiscal-ecommerce-goias'
+      fullPath: '/conteudos/beneficio-fiscal-ecommerce-goias'
+      preLoaderRoute: typeof ConteudosBeneficioFiscalEcommerceGoiasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/auditoria-fornecedores-creditos-ibs-cbs': {
       id: '/conteudos/auditoria-fornecedores-creditos-ibs-cbs'
       path: '/conteudos/auditoria-fornecedores-creditos-ibs-cbs'
@@ -2022,6 +2043,8 @@ const rootRouteChildren: RootRouteChildren = {
     ConteudosAluguelSoftwareServicosCreditoIbsCbsRoute,
   ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute:
     ConteudosAuditoriaFornecedoresCreditosIbsCbsRoute,
+  ConteudosBeneficioFiscalEcommerceGoiasRoute:
+    ConteudosBeneficioFiscalEcommerceGoiasRoute,
   ConteudosComercioIcmsRoute: ConteudosComercioIcmsRoute,
   ConteudosCronogramaReformaTributaria20262033Route:
     ConteudosCronogramaReformaTributaria20262033Route,

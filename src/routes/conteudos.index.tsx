@@ -36,6 +36,7 @@ type Insight = {
 };
 
 const insights: Insight[] = [
+  { theme: "Tributário", kind: "Análise", h: "Benefício Fiscal para E-commerce em Goiás: TARE e ICMS", b: "Entenda o crédito outorgado para e-commerce em Goiás, a carga própria de ICMS, os requisitos do TARE, investimentos, DIFAL e riscos fiscais.", to: "/conteudos/beneficio-fiscal-ecommerce-goias", date: "Set 2026" },
   { theme: "Tributário", kind: "Análise", h: "Revisão de Contratos para IBS e CBS: cláusulas essenciais", b: "Contratos de longo prazo sem cláusula de revisão tributária podem obrigar sua empresa a absorver o aumento de carga da Reforma. Veja o que revisar.", to: "/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais", date: "Set 2026" },
   { theme: "Tributário", kind: "Análise", h: "Prestadores de Serviços na Reforma Tributária: poucos créditos e mais pressão", b: "A folha de pagamento está fora da incidência da CBS. Entenda por que prestadores de serviço B2B sentem mais pressão de margem na Reforma Tributária.", to: "/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos", date: "Set 2026" },
   { theme: "Tributário", kind: "Análise", h: "Auditoria de Fornecedores para Preservar Créditos de IBS e CBS", b: "Na não cumulatividade do IBS/CBS, o crédito da sua empresa depende da regularidade fiscal do fornecedor. Veja como auditar sua cadeia para não perder crédito.", to: "/conteudos/auditoria-fornecedores-creditos-ibs-cbs", date: "Set 2026" },
