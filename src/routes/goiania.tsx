@@ -18,7 +18,7 @@ const FAQ = [
   },
   {
     q: "Como começo a trabalhar com a DCON?",
-    a: "Pelo formulário do site ou WhatsApp. O primeiro passo é o diagnóstico técnico inicial, entregue em até 7 dias úteis, com riscos, créditos e recomendações priorizadas.",
+    a: "Pelo formulário do site ou WhatsApp. O primeiro passo é o diagnóstico técnico inicial, entregue em até 7 dias úteis após o recebimento completo dos documentos e a definição do escopo, com riscos, créditos e recomendações priorizadas.",
   },
 ];
 
@@ -62,7 +62,7 @@ function Page() {
     <PageScaffold
       eyebrow="Goiânia"
       h1="Contador em Goiânia para empresas que precisam de visão técnica"
-      intro="A DCON Serviços Contábeis atua em Goiânia desde 2004 — mais de 20 anos acompanhando empresas locais em decisões contábeis, tributárias e patrimoniais. Nossa sede fica no Setor Sul, com atendimento presencial na capital e remoto para empresas de toda a região metropolitana e de todo o Brasil. Hoje, mais de 700 clientes confiam na condução técnica da DCON, com R$ 11,5 milhões em créditos tributários recuperados nos últimos 5 anos."
+      intro="A DCON Serviços Contábeis atua em Goiânia desde 2004 — mais de 20 anos acompanhando empresas locais em decisões contábeis, tributárias e patrimoniais. Nossa sede fica no Setor Sul, com atendimento presencial na capital e remoto para empresas de toda a região metropolitana e de todo o Brasil. Mais de 700 empresas atendidas desde 2004. Mais de R$ 11,5 milhões em créditos tributários identificados e aproveitados em projetos conduzidos nos últimos cinco anos."
       intent="contador em Goiânia, escritório contábil Goiânia, contabilidade Goiânia"
       observation="Página de SEO local. Schema LocalBusiness + NAP consistente."
       breadcrumbs={[{ label: "Contador em Goiânia", to: "/goiania" }]}

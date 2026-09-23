@@ -314,7 +314,7 @@ function TrustMicrocopy() {
         <span className="text-gold text-lg leading-none mt-0.5">✓</span>
         <p className="text-[14px] text-muted-foreground leading-relaxed">
           <strong className="text-foreground">Diagnóstico sem compromisso.</strong> Receba uma análise preliminar do seu patrimônio, 
-          com simulação tributária e parecer sobre viabilidade de holding, em até 7 dias úteis. Você só avança se o número fizer sentido.
+          com simulação tributária e parecer sobre viabilidade de holding. Diagnóstico técnico inicial em até 7 dias úteis após o recebimento completo dos documentos e a definição do escopo. Você só avança se o número fizer sentido.
         </p>
       </div>
       <div className="flex items-start gap-3">

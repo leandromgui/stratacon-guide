@@ -24,8 +24,8 @@ const PANEL_ACCENTS = [
 const faqs = [
   {
     q: "Em quanto tempo o diagnóstico fica pronto?",
-    aPlain: "Em até 7 dias úteis após o envio da documentação. Entregamos um relatório técnico com mapeamento fiscal, tributário, contábil, trabalhista, societário e patrimonial, mais um plano de ação priorizado por risco, impacto financeiro e prazo de regularização.",
-    a: <>Em até 7 dias úteis após o envio da documentação. Entregamos um relatório técnico com mapeamento fiscal, tributário, contábil, trabalhista, societário e patrimonial, mais um plano de ação priorizado por risco, impacto financeiro e prazo de regularização. <Link to="/diagnostico" className="underline text-gold hover:no-underline">Solicitar diagnóstico →</Link></>,
+    aPlain: "Diagnóstico técnico inicial em até 7 dias úteis após o recebimento completo dos documentos e a definição do escopo. Entregamos um relatório técnico com mapeamento fiscal, tributário, contábil, trabalhista, societário e patrimonial, mais um plano de ação priorizado por risco, impacto financeiro e prazo de regularização.",
+    a: <>Diagnóstico técnico inicial em até 7 dias úteis após o recebimento completo dos documentos e a definição do escopo. Entregamos um relatório técnico com mapeamento fiscal, tributário, contábil, trabalhista, societário e patrimonial, mais um plano de ação priorizado por risco, impacto financeiro e prazo de regularização. <Link to="/diagnostico" className="underline text-gold hover:no-underline">Solicitar diagnóstico →</Link></>,
   },
   {
     q: "A DCON ajuda a recuperar tributos pagos a maior?",
@@ -275,7 +275,7 @@ function Home() {
           </Reveal>
 
           <Reveal as="p" delay={160} className="mt-6 max-w-2xl text-[15px] md:text-[17px] leading-relaxed text-white/70">
-            Diagnóstico técnico em <span className="text-white font-medium">7 dias úteis</span>, planejamento tributário, Reforma Tributária (CBS/IBS) e recuperação de créditos tributários, com análise documentada e responsabilidade técnica.
+            Diagnóstico técnico inicial em até 7 dias úteis após o recebimento completo dos documentos e a definição do escopo, planejamento tributário, Reforma Tributária (CBS/IBS) e recuperação de créditos tributários, com análise documentada e responsabilidade técnica.
           </Reveal>
 
           <Reveal delay={240} className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
@@ -295,7 +295,7 @@ function Home() {
             <span className="text-white/25">/</span>
             <span>Atendimento nacional</span>
             <span className="text-white/25">/</span>
-            <span>Diagnóstico em 7 dias úteis</span>
+            <span>Diagnóstico técnico inicial em até 7 dias úteis após o recebimento completo dos documentos e a definição do escopo</span>
           </Reveal>
         </div>
       </section>
@@ -304,9 +304,9 @@ function Home() {
       <section className="border-b border-border bg-secondary text-secondary-foreground">
         <div className="mx-auto max-w-6xl px-6 py-7 grid grid-cols-1 sm:grid-cols-3 gap-y-5 sm:gap-x-8 divide-y sm:divide-y-0 sm:divide-x divide-secondary-foreground/15">
           {[
-            { n: "+700", l: "clientes" },
+            { n: "Mais de 700", l: "empresas atendidas desde 2004" },
             { n: "Desde 2004", l: "20+ anos de atuação" },
-            { n: "+R$ 11,5M", l: "recuperados" },
+            { n: "Mais de R$ 11,5 milhões", l: "em créditos tributários identificados e aproveitados em projetos conduzidos nos últimos cinco anos" },
           ].map((s) => (
             <div key={s.l} className="pt-5 sm:pt-0 sm:px-8 first:sm:pl-0 last:sm:pr-0">
               <div className="font-display text-xl md:text-2xl tracking-tight text-gold">{s.n}</div>
@@ -362,7 +362,7 @@ function Home() {
               { tag: "CBS / IBS", h: "Reforma Tributária", b: "Impacto no caixa 2026–2033", to: "/solucoes/reforma-tributaria", color: "var(--gold)" },
               { tag: "Crédito", h: "Recuperar tributos", b: "Últimos 5 anos · PER/DCOMP", to: "/solucoes/recuperacao-creditos-tributarios", color: "var(--secondary)" },
               { tag: "Patrimônio", h: "Holding e sucessão", b: "ITBI, ITCMD e governança", to: "/solucoes/holding-patrimonial", color: "var(--gold)" },
-              { tag: "Diagnóstico", h: "Mapear minha empresa", b: "7 dias úteis · relatório técnico", to: "/diagnostico", color: "var(--secondary)" },
+              { tag: "Diagnóstico", h: "Mapear minha empresa", b: "Diagnóstico técnico inicial em até 7 dias úteis após o recebimento completo dos documentos e a definição do escopo", to: "/diagnostico", color: "var(--secondary)" },
             ].map((c, i) => (
               <Reveal key={c.h} delay={i * 80} y={24}>
                 <Link

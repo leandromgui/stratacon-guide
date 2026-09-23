@@ -23,14 +23,14 @@ export const crossLinks: Record<string, RelatedLink[]> = {
     { label: "Diagnóstico Fiscal e Contábil", to: "/diagnostico", eyebrow: "Primeiro passo" },
     { label: "Reforma Tributária (IBS/CBS)", to: "/solucoes/reforma-tributaria", eyebrow: "Solução" },
     { label: "Recuperação de Créditos", to: "/solucoes/recuperacao-creditos-tributarios", eyebrow: "Solução" },
-    { label: "Como escolher o regime tributário", to: "/conteudos/planejamento-tributario", eyebrow: "Insight" },
+    { label: "Como escolher o regime tributário", to: "/solucoes/planejamento-tributario", eyebrow: "Insight" },
   ],
 
   "recuperacao-creditos-tributarios": [
     { label: "Diagnóstico Fiscal e Contábil", to: "/diagnostico", eyebrow: "Primeiro passo" },
     { label: "Defesas Fiscais", to: "/solucoes/defesas-fiscais", eyebrow: "Solução" },
     { label: "Planejamento Tributário", to: "/solucoes/planejamento-tributario", eyebrow: "Solução" },
-    { label: "Comércio e ICMS", to: "/conteudos/comercio-icms", eyebrow: "Insight" },
+    { label: "Comércio e ICMS", to: "/segmentos/comercio", eyebrow: "Insight" },
   ],
 
   "defesas-fiscais": [
@@ -64,7 +64,7 @@ export const crossLinks: Record<string, RelatedLink[]> = {
   "departamento-pessoal": [
     { label: "Contabilidade Empresarial", to: "/solucoes/contabilidade-empresarial", eyebrow: "Solução" },
     { label: "BPO Financeiro", to: "/solucoes/bpo-financeiro", eyebrow: "Solução" },
-    { label: "DP e eSocial — guia", to: "/conteudos/dp-esocial", eyebrow: "Insight" },
+    { label: "DP e eSocial — guia", to: "/solucoes/departamento-pessoal", eyebrow: "Insight" },
     { label: "Construção Civil e SPEs", to: "/segmentos/construcao-civil-spe", eyebrow: "Setor" },
   ],
 
@@ -85,7 +85,7 @@ export const crossLinks: Record<string, RelatedLink[]> = {
   "holding-patrimonial": [
     { label: "Pessoa Física e IRPF", to: "/solucoes/pessoa-fisica-irpf", eyebrow: "Solução" },
     { label: "Societário e Legalização", to: "/solucoes/societario-legalizacao", eyebrow: "Solução" },
-    { label: "Holding e Patrimônio — guia", to: "/conteudos/holding-patrimonio", eyebrow: "Insight" },
+    { label: "Holding e Patrimônio — guia", to: "/solucoes/holding-patrimonial", eyebrow: "Insight" },
     { label: "Empresas Familiares", to: "/segmentos/empresas-familiares", eyebrow: "Setor" },
   ],
 
@@ -162,7 +162,7 @@ export const crossLinks: Record<string, RelatedLink[]> = {
   ],
 
   "e-commerce": [
-    { label: "Comércio e ICMS — análise", to: "/conteudos/comercio-icms", eyebrow: "Insight" },
+    { label: "Comércio e ICMS — análise", to: "/segmentos/comercio", eyebrow: "Insight" },
     { label: "Reforma Tributária (IBS/CBS)", to: "/solucoes/reforma-tributaria", eyebrow: "Solução" },
     { label: "Recuperação de Créditos", to: "/solucoes/recuperacao-creditos-tributarios", eyebrow: "Solução" },
     { label: "Tecnologia Contábil", to: "/solucoes/tecnologia-contabil", eyebrow: "Solução" },
@@ -172,7 +172,7 @@ export const crossLinks: Record<string, RelatedLink[]> = {
     { label: "Holding Patrimonial — solução", to: "/solucoes/holding-patrimonial", eyebrow: "Solução" },
     { label: "Pessoa Física e IRPF", to: "/solucoes/pessoa-fisica-irpf", eyebrow: "Solução" },
     { label: "Empresas Familiares", to: "/segmentos/empresas-familiares", eyebrow: "Setor" },
-    { label: "Holding e Patrimônio — guia", to: "/conteudos/holding-patrimonio", eyebrow: "Insight" },
+    { label: "Holding e Patrimônio — guia", to: "/solucoes/holding-patrimonial", eyebrow: "Insight" },
   ],
 
   "odontologia": [
@@ -186,14 +186,14 @@ export const crossLinks: Record<string, RelatedLink[]> = {
     { label: "Recuperação de Créditos", to: "/solucoes/recuperacao-creditos-tributarios", eyebrow: "Solução" },
     { label: "Reforma Tributária (IBS/CBS)", to: "/solucoes/reforma-tributaria", eyebrow: "Solução" },
     { label: "E-commerce", to: "/segmentos/e-commerce", eyebrow: "Setor relacionado" },
-    { label: "Comércio e ICMS", to: "/conteudos/comercio-icms", eyebrow: "Insight" },
+    { label: "Comércio e ICMS", to: "/segmentos/comercio", eyebrow: "Insight" },
   ],
 
   "atacadistas-distribuidores": [
     { label: "Diagnóstico Fiscal e Contábil", to: "/diagnostico", eyebrow: "Primeiro passo" },
     { label: "Recuperação de Créditos", to: "/solucoes/recuperacao-creditos-tributarios", eyebrow: "Solução" },
     { label: "Planejamento Tributário", to: "/solucoes/planejamento-tributario", eyebrow: "Solução" },
-    { label: "Comércio e ICMS", to: "/conteudos/comercio-icms", eyebrow: "Insight" },
+    { label: "Comércio e ICMS", to: "/segmentos/comercio", eyebrow: "Insight" },
   ],
 
   "prestadores-servicos": [
@@ -235,7 +235,7 @@ export const crossLinks: Record<string, RelatedLink[]> = {
     { label: "Departamento Pessoal", to: "/solucoes/departamento-pessoal", eyebrow: "Solução" },
     { label: "BPO Financeiro", to: "/solucoes/bpo-financeiro", eyebrow: "Solução" },
     { label: "Terceiro Setor", to: "/segmentos/terceiro-setor", eyebrow: "Setor relacionado" },
-    { label: "eSocial e folha", to: "/conteudos/dp-esocial", eyebrow: "Insight" },
+    { label: "eSocial e folha", to: "/solucoes/departamento-pessoal", eyebrow: "Insight" },
   ],
 
   "terceiro-setor": [

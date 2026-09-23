@@ -118,7 +118,7 @@ function Page() {
       relatedLinks={[
         { label: "Regularização Fiscal", to: "/solucoes/regularizacao-fiscal", eyebrow: "Solução" },
         { label: "Defesas Fiscais", to: "/solucoes/defesas-fiscais", eyebrow: "Solução" },
-        { label: "Pendências Fiscais", to: "/segmentos/pendencias-fiscais", eyebrow: "Segmento" },
+        { label: "Pendências Fiscais", to: "/solucoes/regularizacao-fiscal", eyebrow: "Segmento" },
         { label: "Diagnóstico DCON", to: "/diagnostico", eyebrow: "Próximo passo" },
       ]}
     >

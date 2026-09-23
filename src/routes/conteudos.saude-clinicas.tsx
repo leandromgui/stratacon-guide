@@ -77,7 +77,7 @@ const faqEquiparacao: FAQItem[] = [
   },
   {
     q: "Quanto tempo leva a análise da DCON?",
-    a: "Diagnóstico técnico em até 7 dias úteis após entrega da documentação. Parecer de viabilidade, mapa de receitas, cálculo de impacto, checklist documental e plano de ação retroativo, se cabível.",
+    a: "Diagnóstico técnico inicial em até 7 dias úteis após o recebimento completo dos documentos e a definição do escopo. Parecer de viabilidade, mapa de receitas, cálculo de impacto, checklist documental e plano de ação retroativo, se cabível.",
   },
   {
     q: "Há custo inicial para a análise?",
@@ -199,7 +199,7 @@ function Page() {
           <p className="text-xs uppercase tracking-[0.18em] text-primary/80">Próximo passo</p>
           <h3 className="mt-2 text-xl font-semibold tracking-tight">Solicite a análise de equiparação hospitalar da DCON</h3>
           <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-2xl">
-            Diagnóstico em até 7 dias úteis, sem custo inicial. Parecer técnico de viabilidade, segregação de receitas, cálculo de impacto e plano de recuperação retroativa quando há lastro documental. Sigilo sob CRC.
+            Diagnóstico técnico inicial em até 7 dias úteis após o recebimento completo dos documentos e a definição do escopo, sem custo inicial. Parecer técnico de viabilidade, segregação de receitas, cálculo de impacto e plano de recuperação retroativa quando há lastro documental. Sigilo sob CRC.
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
             <a href="/diagnostico/" className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors">

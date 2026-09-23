@@ -71,10 +71,10 @@ const insights: Insight[] = [
   { theme: "Patrimônio", kind: "Guia", h: "Holding familiar: o que é, tipos, custos e passo a passo", b: "Definição, modalidades (patrimonial, pura, mista), ITBI, ITCMD e roteiro de constituição.", to: "/conteudos/holding-familiar", date: "Jun 2026" },
   { theme: "Patrimônio", kind: "Análise", h: "Holding patrimonial: quando vale e quando é mito", b: "Estrutura societária, ITCMD e governança familiar com base técnica.", to: "/solucoes/holding-patrimonial", date: "Mai 2026" },
   { theme: "Patrimônio", kind: "Briefing", h: "Sucessão em vida: doação, usufruto e cláusulas", b: "Decisões que reduzem litígio e custo de transmissão.", to: "/conteudos/holding-familiar", date: "Abr 2026" },
-  { theme: "Trabalhista", kind: "Guia", h: "PJ x CLT: risco de vínculo e estruturação correta", b: "Critérios objetivos, jurisprudência recente e desenho seguro.", to: "/conteudos/dp-esocial", date: "Mar 2026" },
-  { theme: "Trabalhista", kind: "Análise", h: "Pró-labore: como definir tecnicamente", b: "Impacto previdenciário, IRPF do sócio e distribuição de lucros.", to: "/conteudos/dp-esocial", date: "Fev 2026" },
+  { theme: "Trabalhista", kind: "Guia", h: "PJ x CLT: risco de vínculo e estruturação correta", b: "Critérios objetivos, jurisprudência recente e desenho seguro.", to: "/solucoes/departamento-pessoal", date: "Mar 2026" },
+  { theme: "Trabalhista", kind: "Análise", h: "Pró-labore: como definir tecnicamente", b: "Impacto previdenciário, IRPF do sócio e distribuição de lucros.", to: "/solucoes/departamento-pessoal", date: "Fev 2026" },
   { theme: "Setores", kind: "Estudo", h: "PJ médica e equiparação hospitalar", b: "Quem tem direito, riscos do enquadramento errado e roteiro técnico.", to: "/conteudos/saude-clinicas", date: "Mai 2026" },
-  { theme: "Setores", kind: "Guia", h: "ICMS-ST e DIFAL no e-commerce", b: "Operação multiestadual sem acumular passivo silencioso.", to: "/conteudos/comercio-icms", date: "Abr 2026" },
+  { theme: "Setores", kind: "Guia", h: "ICMS-ST e DIFAL no e-commerce", b: "Operação multiestadual sem acumular passivo silencioso.", to: "/segmentos/comercio", date: "Abr 2026" },
   { theme: "Setores", kind: "Análise", h: "Provedores de internet: tributação e regulatório", b: "Fust, Funttel, ISS e particularidades contábeis do setor ISP.", to: "/segmentos/provedores-internet", date: "Mar 2026" },
   { theme: "Governança", kind: "Briefing", h: "Valuation e KPIs para a mesa do sócio", b: "Indicadores que mostram saúde econômica antes de captação ou M&A.", to: "/solucoes/valuation-kpis", date: "Mai 2026" },
   { theme: "Governança", kind: "Análise", h: "Tecnologia contábil sob responsabilidade humana", b: "Integração com ERPs e SPED, com revisão técnica antes da entrega.", to: "/solucoes/tecnologia-contabil", date: "Abr 2026" },
@@ -98,7 +98,7 @@ const categories: Category[] = [
     topics: [
       { h3: "Regimes tributários: Simples, Presumido e Real", to: "/conteudos/regimes-tributarios", desc: "Comparativo prático por margem, folha e operação interestadual." },
       { h3: "Respostas validadas DCON", to: "/conteudos/respostas-validadas", desc: "Equiparação hospitalar, PGFN, PRDI, créditos, folha, construção, agro e IRPF em formato de resposta." },
-      { h3: "Planejamento tributário lícito", to: "/conteudos/planejamento-tributario", desc: "Critérios técnicos para reduzir carga com segurança jurídica." },
+      { h3: "Planejamento tributário lícito", to: "/solucoes/planejamento-tributario", desc: "Critérios técnicos para reduzir carga com segurança jurídica." },
       { h3: "Reforma tributária (CBS/IBS)", to: "/solucoes/reforma-tributaria", desc: "Cronograma de transição 2026–2033 por regime e setor." },
       { h3: "Recuperação de créditos tributários", to: "/solucoes/recuperacao-creditos-tributarios", desc: "Levantamento de tributos pagos a maior nos últimos 5 anos." },
     ],
@@ -111,7 +111,7 @@ const categories: Category[] = [
       { h3: "Regularização fiscal sem comprometer o caixa", to: "/conteudos/regularizacao-fiscal", desc: "Parcelamentos, transação tributária e plano de compliance." },
       { h3: "PGFN, PRDI e transação tributária", to: "/conteudos/regularizacao-fiscal", desc: "Como tratar débitos que não aparecem, estão na Receita ou já foram inscritos." },
       { h3: "Defesas fiscais administrativas e judiciais", to: "/solucoes/defesas-fiscais", desc: "Impugnação técnica e quando levar ao contencioso." },
-      { h3: "Pendências fiscais por segmento", to: "/segmentos/pendencias-fiscais", desc: "Roteiro setorial para sair do passivo fiscal." },
+      { h3: "Pendências fiscais por segmento", to: "/solucoes/regularizacao-fiscal", desc: "Roteiro setorial para sair do passivo fiscal." },
     ],
   },
   {
@@ -120,7 +120,7 @@ const categories: Category[] = [
     intro: "Estruturas societárias, holdings e sucessão em vida com base técnica, sem promessa milagrosa.",
     topics: [
       { h3: "Holding familiar: tipos, custos e passo a passo", to: "/conteudos/holding-familiar", desc: "Modalidades, ITBI, ITCMD e roteiro de constituição." },
-      { h3: "Holding patrimonial: quando vale", to: "/conteudos/holding-patrimonio", desc: "Estrutura societária, ITCMD e governança familiar." },
+      { h3: "Holding patrimonial: quando vale", to: "/solucoes/holding-patrimonial", desc: "Estrutura societária, ITCMD e governança familiar." },
       { h3: "Holding patrimonial (solução DCON)", to: "/solucoes/holding-patrimonial", desc: "Implementação assistida por equipe técnica." },
     ],
   },
@@ -129,7 +129,7 @@ const categories: Category[] = [
     h2: "Trabalhista e DP/eSocial",
     intro: "Desenho correto de vínculos, pró-labore e obrigações acessórias do departamento pessoal.",
     topics: [
-      { h3: "Departamento Pessoal e eSocial", to: "/conteudos/dp-esocial", desc: "PJ x CLT, pró-labore e obrigações acessórias." },
+      { h3: "Departamento Pessoal e eSocial", to: "/solucoes/departamento-pessoal", desc: "PJ x CLT, pró-labore e obrigações acessórias." },
       { h3: "Departamento Pessoal (solução)", to: "/solucoes/departamento-pessoal", desc: "Operação de folha sob responsabilidade técnica." },
     ],
   },
@@ -139,7 +139,7 @@ const categories: Category[] = [
     intro: "Particularidades contábeis e fiscais de cada operação — do comércio à saúde e tecnologia.",
     topics: [
       { h3: "Saúde, clínicas e PJ médica", to: "/conteudos/saude-clinicas", desc: "Equiparação hospitalar e enquadramento correto." },
-      { h3: "Comércio, ICMS-ST e DIFAL", to: "/conteudos/comercio-icms", desc: "Operação multiestadual sem passivo silencioso." },
+      { h3: "Comércio, ICMS-ST e DIFAL", to: "/segmentos/comercio", desc: "Operação multiestadual sem passivo silencioso." },
       { h3: "Provedores de internet (ISP)", to: "/segmentos/provedores-internet", desc: "Fust, Funttel, ISS e contabilidade do setor." },
       { h3: "Tecnologia e startups", to: "/segmentos/tecnologia-startups", desc: "Stock options, investidores e regimes possíveis." },
     ],

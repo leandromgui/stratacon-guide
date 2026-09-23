@@ -39,7 +39,7 @@ const mega: MegaItem[] = [
           { label: "Contador em Goiânia", to: "/contador-em-goiania", desc: "Atuação consultiva e Método DCON" },
           { label: "Escritório em Goiânia", to: "/escritorio-de-contabilidade-em-goiania", desc: "Equipe, estrutura e endereço" },
           { label: "Contato institucional", to: "/contato", desc: "Fale com a equipe técnica" },
-          { label: "Diagnóstico", to: "/diagnostico", desc: "Entrega em até 7 dias úteis" },
+          { label: "Diagnóstico", to: "/diagnostico", desc: "Diagnóstico técnico inicial em até 7 dias úteis após o recebimento completo dos documentos e a definição do escopo" },
         ],
       },
     ],
