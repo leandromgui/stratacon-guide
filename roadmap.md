@@ -1,6 +1,4 @@
 # Roadmap de tarefas
 
-1. Expandir a página de abertura de empresa com o conteúdo societário e CTA único.
-2. Adicionar o bloco de autoridade técnica à home.
-3. Atualizar o crédito de revisão técnica nos 21 artigos publicados.
-4. Validar conteúdo, apresentação e contagem; publicar ao final.
+1. Adicionar e validar a nova seção sobre benefícios fiscais em `/segmentos/e-commerce`.
+2. Aguardar o conteúdo da nova página pilar sobre Goiás antes de criá-la e publicar o conjunto.
