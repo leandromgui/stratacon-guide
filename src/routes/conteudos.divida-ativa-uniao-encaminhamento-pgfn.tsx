@@ -96,44 +96,20 @@ function Page() {
           h2: "Débitos vencidos há mais de 90 dias podem ser encaminhados à PGFN?",
           lead: "A legislação determina que os débitos tributários ou não tributários definitivamente constituídos e exigíveis sejam encaminhados à PGFN para controle de legalidade e inscrição em Dívida Ativa da União.",
           h3: [
-            {
-              title: "Prazo legal de 90 dias",
-              body: "O art. 2º da Portaria MF nº 447/2018 estabelece que, dentro de 90 dias da data em que se tornarem exigíveis, os débitos devem ser encaminhados pela Receita Federal à PGFN para controle de legalidade e inscrição em Dívida Ativa da União.",
-            },
-            {
-              title: "Fundamento no Decreto-Lei nº 147/1967",
-              body: "O art. 22 do Decreto-Lei nº 147/1967 determina o encaminhamento dos débitos à Procuradoria após o encerramento do processo ou expediente administrativo e o transcurso do prazo para pagamento.",
-            },
-            {
-              title: "Análise jurídica da data",
-              body: "Débitos que já ultrapassaram o prazo legal de 90 dias podem ser objeto de análise e requerimento administrativo para encaminhamento à PGFN. Entretanto, não basta olhar apenas a data original de vencimento. É necessário determinar juridicamente quando começou a contagem dos 90 dias.",
-            },
+            { title: "Prazo legal de 90 dias", body: "O art. 2º da Portaria MF nº 447/2018 estabelece que, dentro de 90 dias da data em que se tornarem exigíveis, os débitos devem ser encaminhados pela Receita Federal à PGFN para controle de legalidade e inscrição em Dívida Ativa da União." },
+            { title: "Fundamento no Decreto-Lei nº 147/1967", body: "O art. 22 do Decreto-Lei nº 147/1967 determina o encaminhamento dos débitos à Procuradoria após o encerramento do processo ou expediente administrativo e o transcurso do prazo para pagamento." },
+            { title: "Análise jurídica da data", body: "Débitos que já ultrapassaram o prazo legal de 90 dias podem ser objeto de análise e requerimento administrativo para encaminhamento à PGFN. Entretanto, não basta olhar apenas a data original de vencimento. É necessário determinar juridicamente quando começou a contagem dos 90 dias." },
           ],
         },
         {
           h2: "De quando começa a contagem dos 90 dias?",
           lead: "A Portaria MF nº 447/2018 diferencia a contagem conforme a origem e a situação do débito.",
           h3: [
-            {
-              title: "Débitos constituídos por lançamento de ofício",
-              body: "Nos débitos tributários constituídos por lançamento de ofício, o prazo começa depois de esgotado o período de 30 dias para cobrança amigável, sem pagamento, extinção ou suspensão da exigibilidade.",
-            },
-            {
-              title: "Débitos confessados em declaração",
-              body: "Nos débitos confessados pelo contribuinte, como valores informados em declarações fiscais, a contagem considera o término do prazo de 30 dias estabelecido na primeira intimação para recolhimento.",
-            },
-            {
-              title: "Débitos incluídos em parcelamento",
-              body: "Quando o débito estava parcelado na Receita Federal, o prazo de encaminhamento começa depois da rescisão definitiva do parcelamento, conforme o art. 2º, parágrafo 2º, da Portaria MF nº 447/2018. Isso significa que um tributo pode ter vencido há vários anos, mas, se o parcelamento foi rescindido recentemente, a contagem dos 90 dias deve considerar a data da rescisão definitiva.",
-            },
-            {
-              title: "Débitos com pedido de revisão",
-              body: "Quando existe pedido de revisão pendente, o prazo começa após 30 dias da ciência da decisão sobre o pedido, conforme o art. 2º, parágrafo 3º, da Portaria MF nº 447/2018.",
-            },
-            {
-              title: "Débitos sujeitos a pagamento em quotas",
-              body: "Nos débitos sujeitos a quotas mensais, a contagem observa o vencimento da última quota e as regras específicas da Portaria.",
-            },
+            { title: "Débitos constituídos por lançamento de ofício", body: "Nos débitos tributários constituídos por lançamento de ofício, o prazo começa depois de esgotado o período de 30 dias para cobrança amigável, sem pagamento, extinção ou suspensão da exigibilidade." },
+            { title: "Débitos confessados em declaração", body: "Nos débitos confessados pelo contribuinte, como valores informados em declarações fiscais, a contagem considera o término do prazo de 30 dias estabelecido na primeira intimação para recolhimento." },
+            { title: "Débitos incluídos em parcelamento", body: "Quando o débito estava parcelado na Receita Federal, o prazo de encaminhamento começa depois da rescisão definitiva do parcelamento, conforme o art. 2º, parágrafo 2º, da Portaria MF nº 447/2018. Isso significa que um tributo pode ter vencido há vários anos, mas, se o parcelamento foi rescindido recentemente, a contagem dos 90 dias deve considerar a data da rescisão definitiva." },
+            { title: "Débitos com pedido de revisão", body: "Quando existe pedido de revisão pendente, o prazo começa após 30 dias da ciência da decisão sobre o pedido, conforme o art. 2º, parágrafo 3º, da Portaria MF nº 447/2018." },
+            { title: "Débitos sujeitos a pagamento em quotas", body: "Nos débitos sujeitos a quotas mensais, a contagem observa o vencimento da última quota e as regras específicas da Portaria." },
           ],
         },
       ]}
@@ -157,4 +133,35 @@ function Page() {
             Instrução Normativa RFB nº 2.063/2022, art. 17, parágrafo 1º, incisos I e II; Portaria MF nº 447/2018, art. 2º e parágrafos; Decreto-Lei nº 147/1967, art. 22; Portaria PGFN nº 33/2018, com a redação dada pela Portaria PGFN nº 660/2018, art. 3º.
           </p>
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-            Fontes oficiais: Receita Federal do Brasil —{
+            Fontes oficiais: Receita Federal do Brasil —{" "}
+            <a
+              href="https://www.gov.br/receitafederal"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-gold/50 hover:text-foreground"
+            >
+              https://www.gov.br/receitafederal
+            </a>
+            ; Procuradoria-Geral da Fazenda Nacional —{" "}
+            <a
+              href="https://www.gov.br/pgfn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-gold/50 hover:text-foreground"
+            >
+              https://www.gov.br/pgfn
+            </a>
+            .
+          </p>
+          <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+            Revisão técnica:{" "}
+            <a href="/sobre/leandro/" className="underline decoration-gold/50 hover:text-foreground">
+              Leandro Matsuoka Guimarães
+            </a>
+            , sócio-fundador e diretor técnico da DCON. Contador com 22 anos de experiência, bacharel em Direito e pós-graduado em Controladoria e Finanças Corporativas. CRC-GO 16.395/O-9.
+          </p>
+        </div>
+      </section>
+    </PageScaffold>
+  );
+}
