@@ -112,6 +112,40 @@ function Page() {
             { title: "Débitos sujeitos a pagamento em quotas", body: "Nos débitos sujeitos a quotas mensais, a contagem observa o vencimento da última quota e as regras específicas da Portaria." },
           ],
         },
+        {
+          h2: "Existe valor mínimo para encaminhamento?",
+          lead: "A Portaria PGFN/ME nº 6.155/2021 estabelece regras sobre o encaminhamento de créditos e também sobre situações de não encaminhamento.",
+          h3: [
+            { title: "Limite de R$ 1.000,00", body: "O art. 3º, parágrafo 1º, da Portaria PGFN/ME nº 6.155/2021 estabelece que não será encaminhada solicitação de inscrição quando o valor consolidado dos créditos da mesma natureza, contra o mesmo devedor, for igual ou inferior a R$ 1.000,00, depois da atualização monetária, juros e multa de mora." },
+            { title: "Análise consolidada", body: "A análise precisa considerar valor consolidado, natureza dos créditos, atualização, juros, multa de mora, existência de outros débitos da mesma natureza e situações excepcionais previstas na própria regulamentação. Não basta selecionar isoladamente qualquer débito vencido." },
+          ],
+        },
+        {
+          h2: "Por que uma empresa pode querer o encaminhamento para a PGFN?",
+          lead: "O principal motivo costuma ser o impacto financeiro do reparcelamento na Receita Federal.",
+          h3: [
+            { title: "Exemplo", body: "Uma empresa possui R$ 800 mil em débitos e já teve um reparcelamento anterior. Para formalizar um novo reparcelamento na Receita, poderá ser exigida primeira prestação de 20%. Entrada estimada: R$ 160 mil. Mesmo que a empresa tenha capacidade para pagar prestações mensais, pode não dispor de R$ 160 mil imediatamente. Depois da inscrição em Dívida Ativa, podem existir outras modalidades na PGFN, como parcelamento ordinário, transação por capacidade de pagamento, transação de pequeno valor, transação para créditos de difícil recuperação, transações publicadas em editais, transação individual quando preenchidos os requisitos, e modalidades específicas para determinados contribuintes ou segmentos. Essas modalidades podem apresentar entrada reduzida ou parcelada, prazo maior e, em determinadas situações, descontos sobre juros, multas e encargo legal. Mas nenhuma dessas condições é automática." },
+          ],
+        },
+        {
+          h2: "O parcelamento na PGFN é sempre sem entrada?",
+          lead: "O encaminhamento pode evitar, em determinada modalidade, a exigência imediata de 10% ou 20% prevista no reparcelamento da Receita Federal.",
+          h3: [
+            { title: "Condições por modalidade", body: "Isso não significa que toda negociação na PGFN seja sem entrada. As condições dependem de modalidade disponível, histórico da dívida, data da inscrição, edital vigente, natureza tributária, valor consolidado, capacidade de pagamento, porte do contribuinte, existência de garantia e histórico de parcelamentos ou transações." },
+            { title: "Edital PGDAU nº 6/2026", body: "No Edital PGDAU nº 6/2026, por exemplo, a transação por capacidade de pagamento prevê entrada de 6% do valor da dívida, parcelável em até 6 ou 12 prestações, conforme o perfil do contribuinte. A dispensa de entrada está prevista para pagamento à vista, não para qualquer negociação parcelada." },
+            { title: "Comunicação segura", body: "A comunicação comercial mais segura é: o encaminhamento à PGFN pode permitir condições diferentes da entrada de 10% ou 20% exigida no reparcelamento da Receita, conforme a modalidade disponível." },
+          ],
+        },
+        {
+          h2: "A inscrição na PGFN garante desconto?",
+          lead: "O desconto depende de diversos fatores e nunca é automático.",
+          h3: [
+            { title: "Fatores que definem o desconto", body: "O desconto depende da legislação, da modalidade de transação, da data de inscrição, da recuperabilidade da dívida e da capacidade de pagamento atribuída ao contribuinte. A PGFN classifica a capacidade de pagamento com base nas informações econômicas, fiscais, patrimoniais e cadastrais disponíveis." },
+            { title: "O que pode ser negociado", body: "Dependendo da classificação, a negociação pode oferecer entrada facilitada, prazo alongado, descontos sobre juros, descontos sobre multas e redução do encargo legal. O valor principal do tributo, como regra, não é reduzido." },
+            { title: "Classificação de capacidade de pagamento", body: "Também é possível que o contribuinte seja classificado como capaz de pagar integralmente a dívida e, por isso, não receba o desconto esperado." },
+            { title: "Em destaque", body: "Encaminhamento não é sinônimo de desconto." },
+          ],
+        },
       ]}
       relatedLinks={[
         { eyebrow: "Solução", label: "Regularização Fiscal", to: "/solucoes/regularizacao-fiscal" },
