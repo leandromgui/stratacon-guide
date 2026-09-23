@@ -302,12 +302,6 @@ function Page() {
             { title: "Em destaque", body: "Economia sem segurança vira risco fiscal." },
           ],
         },
-      ]}
-      relatedLinks={[
-        { eyebrow: "Solução", label: "Regularização Fiscal", to: "/solucoes/regularizacao-fiscal" },
-        { eyebrow: "Solução", label: "Defesas Fiscais", to: "/solucoes/defesas-fiscais" },
-        { eyebrow: "Leia também", label: "LC 236/2026: processo administrativo fiscal", to: "/conteudos/lc-236-2026-processo-administrativo-fiscal" },
-        { eyebrow: "Primeiro passo", label: "Diagnóstico Fiscal e Contábil", to: "/diagnostico" },
         {
           h2: "Conclusão",
           lead: "A entrada de 10% ou 20% exigida no reparcelamento pode tornar a regularização financeiramente inviável, mas o encaminhamento para a PGFN exige análise cuidadosa dos prazos, riscos e modalidades disponíveis.",
@@ -324,6 +318,12 @@ function Page() {
             },
           ],
         },
+      ]}
+      relatedLinks={[
+        { eyebrow: "Solução", label: "Regularização Fiscal", to: "/solucoes/regularizacao-fiscal" },
+        { eyebrow: "Solução", label: "Defesas Fiscais", to: "/solucoes/defesas-fiscais" },
+        { eyebrow: "Leia também", label: "LC 236/2026: processo administrativo fiscal", to: "/conteudos/lc-236-2026-processo-administrativo-fiscal" },
+        { eyebrow: "Primeiro passo", label: "Diagnóstico Fiscal e Contábil", to: "/diagnostico" },
       ]}
     >
       <section className="grid lg:grid-cols-12 gap-10">
