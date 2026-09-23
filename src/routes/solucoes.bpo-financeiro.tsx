@@ -12,7 +12,7 @@ export const Route = createFileRoute("/solucoes/bpo-financeiro")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Soluções", "item": "/solucoes"}, {"@type": "ListItem", "position": 3, "name": "BPO Financeiro", "item": "/solucoes/bpo-financeiro"}]}),
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://dcon.cnt.br/"}, {"@type": "ListItem", "position": 2, "name": "Soluções", "item": "https://dcon.cnt.br/solucoes/"}, {"@type": "ListItem", "position": 3, "name": "BPO Financeiro", "item": "https://dcon.cnt.br/solucoes/bpo-financeiro/"}]}),
       },
     ],
   }),

@@ -40,9 +40,9 @@ export const Route = createFileRoute("/conteudos/revisao-contratos-ibs-cbs-claus
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "/" },
-            { "@type": "ListItem", position: 2, name: "Insights", item: "/conteudos" },
-            { "@type": "ListItem", position: 3, name: "Revisão de Contratos para IBS e CBS: cláusulas essenciais", item: "/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://dcon.cnt.br/" },
+            { "@type": "ListItem", position: 2, name: "Insights", item: "https://dcon.cnt.br/conteudos/" },
+            { "@type": "ListItem", position: 3, name: "Revisão de Contratos para IBS e CBS: cláusulas essenciais", item: "https://dcon.cnt.br/conteudos/revisao-contratos-ibs-cbs-clausulas-essenciais/" },
           ],
         }),
       },

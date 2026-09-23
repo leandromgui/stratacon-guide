@@ -25,7 +25,7 @@ export const Route = createFileRoute("/solucoes/reforma-tributaria")({
       canonical: "/solucoes/reforma-tributaria",
     }),
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"/solucoes"},{"@type":"ListItem","position":3,"name":"Reforma Tributária","item":"/solucoes/reforma-tributaria"}]}) },
+      { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://dcon.cnt.br/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"https://dcon.cnt.br/solucoes/"},{"@type":"ListItem","position":3,"name":"Reforma Tributária","item":"https://dcon.cnt.br/solucoes/reforma-tributaria/"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "Reforma Tributária — IBS e CBS", description: "Diagnóstico, revisão de notas, parametrização de ERP e simulações de IBS/CBS para empresas em todos os regimes.", url: "/solucoes/reforma-tributaria" }) },
       { type: "application/ld+json", children: faqJsonLd(faqs) },
     ],

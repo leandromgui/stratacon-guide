@@ -12,7 +12,7 @@ export const Route = createFileRoute("/solucoes/societario-legalizacao")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Soluções", "item": "/solucoes"}, {"@type": "ListItem", "position": 3, "name": "Societário e Legalização", "item": "/solucoes/societario-legalizacao"}]}),
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://dcon.cnt.br/"}, {"@type": "ListItem", "position": 2, "name": "Soluções", "item": "https://dcon.cnt.br/solucoes/"}, {"@type": "ListItem", "position": 3, "name": "Societário e Legalização", "item": "https://dcon.cnt.br/solucoes/societario-legalizacao/"}]}),
       },
     ],
   }),

@@ -22,7 +22,7 @@ export const Route = createFileRoute("/solucoes/tecnologia-contabil")({
       canonical: "/solucoes/tecnologia-contabil",
     }),
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"/solucoes"},{"@type":"ListItem","position":3,"name":"Tecnologia Contábil","item":"/solucoes/tecnologia-contabil"}]}) },
+      { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://dcon.cnt.br/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"https://dcon.cnt.br/solucoes/"},{"@type":"ListItem","position":3,"name":"Tecnologia Contábil","item":"https://dcon.cnt.br/solucoes/tecnologia-contabil/"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "Tecnologia Contábil", description: "Automação, BI fiscal, cruzamentos, dashboards e monitoramento para empresas em todos os regimes.", url: "/solucoes/tecnologia-contabil" }) },
       { type: "application/ld+json", children: faqJsonLd(faqs) },
     ],

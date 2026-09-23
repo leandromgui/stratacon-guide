@@ -41,9 +41,9 @@ export const Route = createFileRoute("/conteudos/split-payment-adiado-2028-o-que
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "/" },
-            { "@type": "ListItem", position: 2, name: "Insights", item: "/conteudos" },
-            { "@type": "ListItem", position: 3, name: "Split Payment adiado para 2028", item: "/conteudos/split-payment-adiado-2028-o-que-muda" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://dcon.cnt.br/" },
+            { "@type": "ListItem", position: 2, name: "Insights", item: "https://dcon.cnt.br/conteudos/" },
+            { "@type": "ListItem", position: 3, name: "Split Payment adiado para 2028", item: "https://dcon.cnt.br/conteudos/split-payment-adiado-2028-o-que-muda/" },
           ],
         }),
       },

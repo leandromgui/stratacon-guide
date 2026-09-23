@@ -17,9 +17,9 @@ export const Route = createFileRoute("/segmentos/lucro-presumido")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "/" },
-            { "@type": "ListItem", position: 2, name: "Segmentos", item: "/segmentos" },
-            { "@type": "ListItem", position: 3, name: "Lucro Presumido", item: "/segmentos/lucro-presumido" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://dcon.cnt.br/" },
+            { "@type": "ListItem", position: 2, name: "Segmentos", item: "https://dcon.cnt.br/segmentos/" },
+            { "@type": "ListItem", position: 3, name: "Lucro Presumido", item: "https://dcon.cnt.br/segmentos/lucro-presumido/" },
           ],
         }),
       },

@@ -25,7 +25,7 @@ export const Route = createFileRoute("/solucoes/regularizacao-fiscal")({
       canonical: "/solucoes/regularizacao-fiscal",
     }),
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"/solucoes"},{"@type":"ListItem","position":3,"name":"Regularização Fiscal","item":"/solucoes/regularizacao-fiscal"}]}) },
+      { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://dcon.cnt.br/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"https://dcon.cnt.br/solucoes/"},{"@type":"ListItem","position":3,"name":"Regularização Fiscal","item":"https://dcon.cnt.br/solucoes/regularizacao-fiscal/"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "Regularização Fiscal", description: "Diagnóstico técnico de pendências fiscais nas três esferas, plano de regularização, parcelamentos e compliance.", url: "/solucoes/regularizacao-fiscal" }) },
       { type: "application/ld+json", children: faqJsonLd(faqs) },
     ],

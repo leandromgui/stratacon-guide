@@ -23,7 +23,7 @@ export const Route = createFileRoute("/solucoes/planejamento-tributario")({
       canonical: "/solucoes/planejamento-tributario",
     }),
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"/solucoes"},{"@type":"ListItem","position":3,"name":"Planejamento Tributário","item":"/solucoes/planejamento-tributario"}]}) },
+      { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://dcon.cnt.br/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"https://dcon.cnt.br/solucoes/"},{"@type":"ListItem","position":3,"name":"Planejamento Tributário","item":"https://dcon.cnt.br/solucoes/planejamento-tributario/"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "Planejamento Tributário", description: "Estudo técnico comparativo de regimes e estruturas societárias para reduzir carga tributária com segurança jurídica.", url: "/solucoes/planejamento-tributario" }) },
       { type: "application/ld+json", children: faqJsonLd(faqs) },
     ],

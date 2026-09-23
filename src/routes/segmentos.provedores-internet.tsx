@@ -22,7 +22,7 @@ export const Route = createFileRoute("/segmentos/provedores-internet")({
       canonical: "/segmentos/provedores-internet",
     }),
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Segmentos","item":"/segmentos"},{"@type":"ListItem","position":3,"name":"Provedores de Internet","item":"/segmentos/provedores-internet"}]}) },
+      { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://dcon.cnt.br/"},{"@type":"ListItem","position":2,"name":"Segmentos","item":"https://dcon.cnt.br/segmentos/"},{"@type":"ListItem","position":3,"name":"Provedores de Internet","item":"https://dcon.cnt.br/segmentos/provedores-internet/"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "Contabilidade para Provedores de Internet", description: "Revisão de SCM/SVA, NFCom, ICMS, ISS e recuperação fiscal para ISPs.", url: "/segmentos/provedores-internet" }) },
       { type: "application/ld+json", children: faqJsonLd(faqs) },
     ],

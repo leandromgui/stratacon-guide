@@ -48,8 +48,8 @@ export const Route = createFileRoute("/conteudos/guia-simples-nacional")({
           "@type": "BreadcrumbList",
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "Início", item: "https://dcon.cnt.br/" },
-            { "@type": "ListItem", position: 2, name: "Conteúdos", item: "https://dcon.cnt.br/conteudos" },
-            { "@type": "ListItem", position: 3, name: "Guia do Simples Nacional", item: CANONICAL },
+            { "@type": "ListItem", position: 2, name: "Conteúdos", item: "https://dcon.cnt.br/conteudos/" },
+            { "@type": "ListItem", position: 3, name: "Guia do Simples Nacional", item: `${CANONICAL}/` },
           ],
         }),
       },

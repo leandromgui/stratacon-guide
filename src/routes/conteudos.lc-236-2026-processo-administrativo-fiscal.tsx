@@ -18,9 +18,9 @@ export const Route = createFileRoute("/conteudos/lc-236-2026-processo-administra
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "/" },
-            { "@type": "ListItem", position: 2, name: "Insights", item: "/conteudos" },
-            { "@type": "ListItem", position: 3, name: "LC 236/2026", item: "/conteudos/lc-236-2026-processo-administrativo-fiscal" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://dcon.cnt.br/" },
+            { "@type": "ListItem", position: 2, name: "Insights", item: "https://dcon.cnt.br/conteudos/" },
+            { "@type": "ListItem", position: 3, name: "LC 236/2026", item: "https://dcon.cnt.br/conteudos/lc-236-2026-processo-administrativo-fiscal/" },
           ],
         }),
       },

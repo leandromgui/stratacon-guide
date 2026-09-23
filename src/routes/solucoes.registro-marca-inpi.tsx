@@ -22,7 +22,7 @@ export const Route = createFileRoute("/solucoes/registro-marca-inpi")({
       canonical: "/solucoes/registro-marca-inpi",
     }),
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"/solucoes"},{"@type":"ListItem","position":3,"name":"Registro de Marca INPI","item":"/solucoes/registro-marca-inpi"}]}) },
+      { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://dcon.cnt.br/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"https://dcon.cnt.br/solucoes/"},{"@type":"ListItem","position":3,"name":"Registro de Marca INPI","item":"https://dcon.cnt.br/solucoes/registro-marca-inpi/"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "Registro de Marca no INPI", description: "Diagnóstico, viabilidade, estratégia de titularidade e classes — proteção de marca como ativo intangível.", url: "/solucoes/registro-marca-inpi" }) },
       { type: "application/ld+json", children: faqJsonLd(faqs) },
     ],
