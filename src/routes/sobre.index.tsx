@@ -35,8 +35,8 @@ export const Route = createFileRoute("/sobre/")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "/" },
-            { "@type": "ListItem", position: 2, name: "Sobre", item: "/sobre" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://dcon.cnt.br/" },
+            { "@type": "ListItem", position: 2, name: "Sobre", item: "https://dcon.cnt.br/sobre/" },
           ],
         }),
       },

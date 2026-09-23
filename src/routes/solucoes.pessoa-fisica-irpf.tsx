@@ -23,7 +23,7 @@ export const Route = createFileRoute("/solucoes/pessoa-fisica-irpf")({
       canonical: "/solucoes/pessoa-fisica-irpf",
     }),
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"/solucoes"},{"@type":"ListItem","position":3,"name":"Pessoa Física e IRPF","item":"/solucoes/pessoa-fisica-irpf"}]}) },
+      { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://dcon.cnt.br/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"https://dcon.cnt.br/solucoes/"},{"@type":"ListItem","position":3,"name":"Pessoa Física e IRPF","item":"https://dcon.cnt.br/solucoes/pessoa-fisica-irpf/"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "IRPF e Planejamento PF", description: "Diagnóstico fiscal para pessoa física: PF x CNPJ, IRPF, restituições, malha fina e profissionais liberais.", url: "/solucoes/pessoa-fisica-irpf" }) },
       { type: "application/ld+json", children: faqJsonLd(faqs) },
     ],

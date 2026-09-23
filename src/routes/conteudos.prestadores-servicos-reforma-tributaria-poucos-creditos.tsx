@@ -40,9 +40,9 @@ export const Route = createFileRoute("/conteudos/prestadores-servicos-reforma-tr
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "/" },
-            { "@type": "ListItem", position: 2, name: "Insights", item: "/conteudos" },
-            { "@type": "ListItem", position: 3, name: "Prestadores de Serviços na Reforma Tributária: poucos créditos e mais pressão", item: "/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://dcon.cnt.br/" },
+            { "@type": "ListItem", position: 2, name: "Insights", item: "https://dcon.cnt.br/conteudos/" },
+            { "@type": "ListItem", position: 3, name: "Prestadores de Serviços na Reforma Tributária: poucos créditos e mais pressão", item: "https://dcon.cnt.br/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos/" },
           ],
         }),
       },

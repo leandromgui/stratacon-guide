@@ -24,7 +24,7 @@ export const Route = createFileRoute("/solucoes/defesas-fiscais")({
       canonical: "/solucoes/defesas-fiscais",
     }),
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"/solucoes"},{"@type":"ListItem","position":3,"name":"Defesas Fiscais","item":"/solucoes/defesas-fiscais"}]}) },
+      { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://dcon.cnt.br/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"https://dcon.cnt.br/solucoes/"},{"@type":"ListItem","position":3,"name":"Defesas Fiscais","item":"https://dcon.cnt.br/solucoes/defesas-fiscais/"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "Defesas Fiscais", description: "Impugnação, manifestação de inconformidade, defesa em malha fiscal, transação PGFN e PRDI para PJ e PF.", url: "/solucoes/defesas-fiscais" }) },
       { type: "application/ld+json", children: faqJsonLd(faqs) },
     ],

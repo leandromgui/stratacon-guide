@@ -40,9 +40,9 @@ export const Route = createFileRoute("/conteudos/ibs-cbs-nota-fiscal-obrigatorio
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "/" },
-            { "@type": "ListItem", position: 2, name: "Insights", item: "/conteudos" },
-            { "@type": "ListItem", position: 3, name: "IBS e CBS na Nota Fiscal: obrigatório desde 3 de agosto de 2026", item: "/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://dcon.cnt.br/" },
+            { "@type": "ListItem", position: 2, name: "Insights", item: "https://dcon.cnt.br/conteudos/" },
+            { "@type": "ListItem", position: 3, name: "IBS e CBS na Nota Fiscal: obrigatório desde 3 de agosto de 2026", item: "https://dcon.cnt.br/conteudos/ibs-cbs-nota-fiscal-obrigatorio-agosto-2026/" },
           ],
         }),
       },

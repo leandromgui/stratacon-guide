@@ -48,9 +48,9 @@ export const Route = createFileRoute("/conteudos/lucro-real-reforma-tributaria-c
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "/" },
-            { "@type": "ListItem", position: 2, name: "Insights", item: "/conteudos" },
-            { "@type": "ListItem", position: 3, name: "Lucro Real na Reforma Tributária", item: "/conteudos/lucro-real-reforma-tributaria-creditos-controles" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://dcon.cnt.br/" },
+            { "@type": "ListItem", position: 2, name: "Insights", item: "https://dcon.cnt.br/conteudos/" },
+            { "@type": "ListItem", position: 3, name: "Lucro Real na Reforma Tributária", item: "https://dcon.cnt.br/conteudos/lucro-real-reforma-tributaria-creditos-controles/" },
           ],
         }),
       },

@@ -12,7 +12,7 @@ export const Route = createFileRoute("/segmentos/empresas-familiares")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Segmentos", "item": "/segmentos"}, {"@type": "ListItem", "position": 3, "name": "Empresas Familiares", "item": "/segmentos/empresas-familiares"}]}),
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://dcon.cnt.br/"}, {"@type": "ListItem", "position": 2, "name": "Segmentos", "item": "https://dcon.cnt.br/segmentos/"}, {"@type": "ListItem", "position": 3, "name": "Empresas Familiares", "item": "https://dcon.cnt.br/segmentos/empresas-familiares/"}]}),
       },
     ],
   }),

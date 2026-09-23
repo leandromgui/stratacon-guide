@@ -40,9 +40,9 @@ export const Route = createFileRoute("/conteudos/reforma-tributaria-clinicas-med
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "/" },
-            { "@type": "ListItem", position: 2, name: "Insights", item: "/conteudos" },
-            { "@type": "ListItem", position: 3, name: "Reforma Tributária para Clínicas Médicas: o que muda (e o que NÃO muda)", item: "/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://dcon.cnt.br/" },
+            { "@type": "ListItem", position: 2, name: "Insights", item: "https://dcon.cnt.br/conteudos/" },
+            { "@type": "ListItem", position: 3, name: "Reforma Tributária para Clínicas Médicas: o que muda (e o que NÃO muda)", item: "https://dcon.cnt.br/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda/" },
           ],
         }),
       },

@@ -23,7 +23,7 @@ export const Route = createFileRoute("/solucoes/recuperacao-creditos-tributarios
       canonical: "/solucoes/recuperacao-creditos-tributarios",
     }),
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"/solucoes"},{"@type":"ListItem","position":3,"name":"Recuperação de Créditos","item":"/solucoes/recuperacao-creditos-tributarios"}]}) },
+      { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://dcon.cnt.br/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"https://dcon.cnt.br/solucoes/"},{"@type":"ListItem","position":3,"name":"Recuperação de Créditos","item":"https://dcon.cnt.br/solucoes/recuperacao-creditos-tributarios/"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "Recuperação de Créditos e Contencioso Tributário", description: "Levantamento técnico de tributos pagos a maior nos últimos 5 anos e condução de defesa administrativa.", url: "/solucoes/recuperacao-creditos-tributarios" }) },
       { type: "application/ld+json", children: faqJsonLd(faqs) },
     ],

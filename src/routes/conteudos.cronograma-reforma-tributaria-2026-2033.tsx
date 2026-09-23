@@ -40,9 +40,9 @@ export const Route = createFileRoute("/conteudos/cronograma-reforma-tributaria-2
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "/" },
-            { "@type": "ListItem", position: 2, name: "Insights", item: "/conteudos" },
-            { "@type": "ListItem", position: 3, name: "Cronograma da Reforma Tributária 2026 a 2033", item: "/conteudos/cronograma-reforma-tributaria-2026-2033" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://dcon.cnt.br/" },
+            { "@type": "ListItem", position: 2, name: "Insights", item: "https://dcon.cnt.br/conteudos/" },
+            { "@type": "ListItem", position: 3, name: "Cronograma da Reforma Tributária 2026 a 2033", item: "https://dcon.cnt.br/conteudos/cronograma-reforma-tributaria-2026-2033/" },
           ],
         }),
       },

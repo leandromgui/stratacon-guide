@@ -81,8 +81,8 @@ export const Route = createFileRoute("/contador-em-goiania")({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Início", item: "/" },
-    { "@type": "ListItem", position: 2, name: "Contador em Goiânia", item: "/contador-em-goiania" },
+    { "@type": "ListItem", position: 1, name: "Início", item: "https://dcon.cnt.br/" },
+    { "@type": "ListItem", position: 2, name: "Contador em Goiânia", item: "https://dcon.cnt.br/contador-em-goiania/" },
   ],
 }) },
     ],

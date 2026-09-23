@@ -23,7 +23,7 @@ export const Route = createFileRoute("/solucoes/holding-patrimonial")({
       canonical: "/solucoes/holding-patrimonial",
     }),
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"/solucoes"},{"@type":"ListItem","position":3,"name":"Holding Patrimonial","item":"/solucoes/holding-patrimonial"}]}) },
+      { type: "application/ld+json", children: JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://dcon.cnt.br/"},{"@type":"ListItem","position":2,"name":"Soluções","item":"https://dcon.cnt.br/solucoes/"},{"@type":"ListItem","position":3,"name":"Holding Patrimonial","item":"https://dcon.cnt.br/solucoes/holding-patrimonial/"}]}) },
       { type: "application/ld+json", children: serviceJsonLd({ name: "Holding Patrimonial e Familiar", description: "Estudo prévio, constituição técnica e operação contábil de holding patrimonial e familiar.", url: "/solucoes/holding-patrimonial" }) },
       { type: "application/ld+json", children: faqJsonLd(faqs) },
     ],

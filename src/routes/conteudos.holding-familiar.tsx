@@ -181,9 +181,9 @@ export const Route = createFileRoute("/conteudos/holding-familiar")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "/" },
-            { "@type": "ListItem", position: 2, name: "Conteúdos", item: "/conteudos" },
-            { "@type": "ListItem", position: 3, name: "Holding Familiar", item: "/conteudos/holding-familiar" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://dcon.cnt.br/" },
+            { "@type": "ListItem", position: 2, name: "Conteúdos", item: "https://dcon.cnt.br/conteudos/" },
+            { "@type": "ListItem", position: 3, name: "Holding Familiar", item: "https://dcon.cnt.br/conteudos/holding-familiar/" },
           ],
         }),
       },

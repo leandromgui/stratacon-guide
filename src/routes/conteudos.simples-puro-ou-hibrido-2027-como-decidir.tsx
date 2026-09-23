@@ -53,9 +53,9 @@ export const Route = createFileRoute("/conteudos/simples-puro-ou-hibrido-2027-co
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "/" },
-            { "@type": "ListItem", position: 2, name: "Insights", item: "/conteudos" },
-            { "@type": "ListItem", position: 3, name: "Simples Nacional Puro ou Híbrido", item: "/conteudos/simples-puro-ou-hibrido-2027-como-decidir" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://dcon.cnt.br/" },
+            { "@type": "ListItem", position: 2, name: "Insights", item: "https://dcon.cnt.br/conteudos/" },
+            { "@type": "ListItem", position: 3, name: "Simples Nacional Puro ou Híbrido", item: "https://dcon.cnt.br/conteudos/simples-puro-ou-hibrido-2027-como-decidir/" },
           ],
         }),
       },

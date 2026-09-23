@@ -12,7 +12,7 @@ export const Route = createFileRoute("/solucoes/departamento-fiscal")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "/"}, {"@type": "ListItem", "position": 2, "name": "Soluções", "item": "/solucoes"}, {"@type": "ListItem", "position": 3, "name": "Departamento Fiscal", "item": "/solucoes/departamento-fiscal"}]}),
+        children: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://dcon.cnt.br/"}, {"@type": "ListItem", "position": 2, "name": "Soluções", "item": "https://dcon.cnt.br/solucoes/"}, {"@type": "ListItem", "position": 3, "name": "Departamento Fiscal", "item": "https://dcon.cnt.br/solucoes/departamento-fiscal/"}]}),
       },
     ],
   }),

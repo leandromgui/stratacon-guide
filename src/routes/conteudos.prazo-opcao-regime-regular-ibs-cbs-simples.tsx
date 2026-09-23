@@ -41,9 +41,9 @@ export const Route = createFileRoute("/conteudos/prazo-opcao-regime-regular-ibs-
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Início", item: "/" },
-            { "@type": "ListItem", position: 2, name: "Insights", item: "/conteudos" },
-            { "@type": "ListItem", position: 3, name: "Prazo e Regras para Optar pelo Regime Regular de IBS e CBS", item: "/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples" },
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://dcon.cnt.br/" },
+            { "@type": "ListItem", position: 2, name: "Insights", item: "https://dcon.cnt.br/conteudos/" },
+            { "@type": "ListItem", position: 3, name: "Prazo e Regras para Optar pelo Regime Regular de IBS e CBS", item: "https://dcon.cnt.br/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples/" },
           ],
         }),
       },
