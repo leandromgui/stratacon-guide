@@ -175,6 +175,100 @@ function Page() {
             { title: "O que a proximidade do prazo não garante", body: "Não localizamos ato público da Receita Federal que assegure prioridade geral na fila de encaminhamento em razão do encerramento desse edital. A proximidade do prazo não garante prioridade, não substitui a regra dos 90 dias, não dispensa o controle de legalidade, não antecipa a data de corte, não assegura inscrição antes do encerramento e não garante desconto ou modalidade específica." },
           ],
         },
+        {
+          h2: "Base legal do encaminhamento para a PGFN",
+          lead: "A seguir, os principais dispositivos que regulam o encaminhamento, a contagem do prazo e os efeitos da inscrição em Dívida Ativa.",
+          h3: [
+            {
+              title: "Dispositivos legais e normativos",
+              body: (
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left text-[15px]">
+                    <thead>
+                      <tr className="border-b border-border">
+                        <th className="py-3 pr-4 font-semibold whitespace-nowrap">Norma</th>
+                        <th className="py-3 font-semibold">Conteúdo</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b border-border/50">
+                        <td className="py-3 pr-4 align-top whitespace-nowrap">Art. 39, parágrafo 1º, da Lei nº 4.320/1964</td>
+                        <td className="py-3 align-top">Define a Dívida Ativa da União e a inscrição dos créditos exigíveis.</td>
+                      </tr>
+                      <tr className="border-b border-border/50">
+                        <td className="py-3 pr-4 align-top whitespace-nowrap">Art. 22 do Decreto-Lei nº 147/1967</td>
+                        <td className="py-3 align-top">Obriga o encaminhamento à PGFN após o término do procedimento e do prazo de recolhimento.</td>
+                      </tr>
+                      <tr className="border-b border-border/50">
+                        <td className="py-3 pr-4 align-top whitespace-nowrap">Art. 2º da Portaria MF nº 447/2018</td>
+                        <td className="py-3 align-top">Estabelece o prazo de 90 dias para encaminhamento dos débitos exigíveis.</td>
+                      </tr>
+                      <tr className="border-b border-border/50">
+                        <td className="py-3 pr-4 align-top whitespace-nowrap">Art. 2º, parágrafo 1º, da Portaria MF nº 447/2018</td>
+                        <td className="py-3 align-top">Disciplina o início da contagem para lançamentos de ofício e débitos confessados.</td>
+                      </tr>
+                      <tr className="border-b border-border/50">
+                        <td className="py-3 pr-4 align-top whitespace-nowrap">Art. 2º, parágrafo 2º, da Portaria MF nº 447/2018</td>
+                        <td className="py-3 align-top">Determina que, em parcelamento, o prazo começa após a rescisão definitiva.</td>
+                      </tr>
+                      <tr className="border-b border-border/50">
+                        <td className="py-3 pr-4 align-top whitespace-nowrap">Art. 2º, parágrafo 3º, da Portaria MF nº 447/2018</td>
+                        <td className="py-3 align-top">Disciplina a contagem quando existe pedido de revisão.</td>
+                      </tr>
+                      <tr className="border-b border-border/50">
+                        <td className="py-3 pr-4 align-top whitespace-nowrap">Art. 3º da Portaria PGFN nº 33/2018</td>
+                        <td className="py-3 align-top">Regulamenta o encaminhamento e o controle de legalidade.</td>
+                      </tr>
+                      <tr className="border-b border-border/50">
+                        <td className="py-3 pr-4 align-top whitespace-nowrap">Portaria PGFN nº 660/2018</td>
+                        <td className="py-3 align-top">Adequa a Portaria PGFN nº 33/2018 à regra dos 90 dias.</td>
+                      </tr>
+                      <tr className="border-b border-border/50">
+                        <td className="py-3 pr-4 align-top whitespace-nowrap">Arts. 2º e 3º da Portaria PGFN/ME nº 6.155/2021</td>
+                        <td className="py-3 align-top">Regulamentam o envio e o valor mínimo para inscrição.</td>
+                      </tr>
+                      <tr className="border-b border-border/50">
+                        <td className="py-3 pr-4 align-top whitespace-nowrap">Art. 17, parágrafo 1º, da IN RFB nº 2.063/2022</td>
+                        <td className="py-3 align-top">Estabelece a entrada de 10% ou 20% no reparcelamento.</td>
+                      </tr>
+                      <tr className="border-b border-border/50">
+                        <td className="py-3 pr-4 align-top whitespace-nowrap">Art. 151, inciso VI, do CTN</td>
+                        <td className="py-3 align-top">Estabelece que o parcelamento suspende a exigibilidade.</td>
+                      </tr>
+                      <tr className="border-b border-border/50">
+                        <td className="py-3 pr-4 align-top whitespace-nowrap">Art. 12 da Lei nº 13.988/2020</td>
+                        <td className="py-3 align-top">Determina que a simples proposta de transação não suspende a exigibilidade.</td>
+                      </tr>
+                      <tr>
+                        <td className="py-3 pr-4 align-top whitespace-nowrap">Decreto-Lei nº 1.025/1969</td>
+                        <td className="py-3 align-top">Fundamenta a incidência do encargo legal na cobrança da Dívida Ativa.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              ),
+            },
+          ],
+        },
+        {
+          h2: "Como a DCON atua",
+          lead: "A análise do encaminhamento à PGFN exige mapeamento detalhado, contagem individual e comparação financeira.",
+          h3: [
+            { title: "1. Mapeamento da dívida", body: "Levantamos débitos existentes na Receita Federal, origem e natureza dos tributos, datas de vencimento, declarações constitutivas, intimações, parcelamentos ativos, parcelamentos rescindidos, histórico de reparcelamento, processos administrativos, pedidos de revisão e causas de suspensão da exigibilidade." },
+            { title: "2. Contagem individual dos 90 dias", body: "Não consideramos apenas a data original de vencimento. Apuramos o marco inicial conforme lançamento de ofício, débito confessado, rescisão definitiva do parcelamento, decisão de pedido de revisão, vencimento de quotas e constituição definitiva do crédito." },
+            { title: "3. Comparação financeira", body: "Comparamos entrada de 10% ou 20% na Receita, custo estimado do encargo legal, modalidades disponíveis na PGFN, capacidade de pagamento, prazo, valor das prestações, impacto sobre o caixa, riscos durante o período sem suspensão e custo total da negociação." },
+            { title: "4. Protocolo e acompanhamento", body: "Quando o procedimento se mostra juridicamente possível e economicamente adequado, acompanhamos requerimento administrativo, documentação, movimentação na Receita Federal, encaminhamento à PGFN, controle de legalidade, inscrição em Dívida Ativa, disponibilização no Regularize, conferência dos valores, modalidades de negociação e regularização da certidão." },
+            { title: "5. Revisão antes da negociação", body: "Antes de formalizar o parcelamento ou a transação, verificamos valor principal, juros, multas, encargo legal, duplicidades, pagamentos não apropriados, débitos indevidos, causas de suspensão, classificação da capacidade de pagamento e condições de manutenção do acordo." },
+          ],
+        },
+        {
+          h2: "O encaminhamento deve resolver o caixa, não criar um risco maior",
+          lead: "A entrada de 10% ou 20% exigida no reparcelamento pode tornar a regularização financeiramente inviável. Entretanto, o encaminhamento para a PGFN precisa considerar o prazo legal, o aumento potencial da dívida, a ausência temporária de suspensão, o risco de protesto, o encargo legal e a possibilidade de não existir uma transação vantajosa.",
+          h3: [
+            { title: "Comparar antes de decidir", body: "A decisão correta não é simplesmente mandar a dívida para a PGFN. A decisão correta é comparar: custo da entrada na Receita, custo da inscrição, modalidade disponível e capacidade real de pagamento." },
+            { title: "Em destaque", body: "Economia sem segurança vira risco fiscal." },
+          ],
+        },
       ]}
       relatedLinks={[
         { eyebrow: "Solução", label: "Regularização Fiscal", to: "/solucoes/regularizacao-fiscal" },
