@@ -10,7 +10,40 @@ const META_DESCRIPTION =
   "Entenda quando débitos vencidos há mais de 90 dias podem ser encaminhados à PGFN, os riscos da entrada de 10%/20% no reparcelamento e como funciona a Dívida Ativa da União.";
 const PUBLISHED = "22/09/2026";
 
-const faq: { q: string; a: string }[] = [];
+const faq: { q: string; a: string }[] = [
+  {
+    q: "Todo débito vencido há mais de 90 dias pode ser encaminhado?",
+    a: "Não automaticamente. O débito deve estar definitivamente constituído, exigível e sem impedimento legal. Também é necessário identificar corretamente o início da contagem.",
+  },
+  {
+    q: "Se o tributo venceu há dois anos, ele já pode ser encaminhado?",
+    a: "Depende. Se esteve parcelado e a rescisão ocorreu recentemente, a contagem dos 90 dias pode começar somente após a rescisão definitiva.",
+  },
+  {
+    q: "Posso desistir do parcelamento e pedir o encaminhamento imediatamente?",
+    a: "A desistência ou rescisão não gera inscrição imediata. No caso de parcelamento, a Portaria MF nº 447/2018 estabelece que o prazo começa depois da rescisão definitiva.",
+  },
+  {
+    q: "A Receita é obrigada a encaminhar depois dos 90 dias?",
+    a: "A legislação estabelece o dever de encaminhamento dos créditos definitivamente constituídos e exigíveis. A efetivação, contudo, depende do processamento pela Receita e do controle de legalidade pela PGFN.",
+  },
+  {
+    q: "O pedido suspende a cobrança?",
+    a: "Não. O requerimento de encaminhamento não constitui causa de suspensão da exigibilidade.",
+  },
+  {
+    q: "A dívida já entra na PGFN com desconto?",
+    a: "Não. O desconto depende da modalidade disponível, da data de inscrição, do edital e da capacidade de pagamento.",
+  },
+  {
+    q: "A PGFN parcela sem entrada?",
+    a: "Depende da modalidade. Pode haver entrada reduzida ou parcelada, mas não existe dispensa universal de entrada.",
+  },
+  {
+    q: "Qual é o principal risco?",
+    a: "O principal risco é permanecer com o débito exigível durante o período entre a rescisão do parcelamento, o encaminhamento, a inscrição e a formalização de uma nova negociação.",
+  },
+];
 
 export const Route = createFileRoute("/conteudos/divida-ativa-uniao-encaminhamento-pgfn")({
   head: () => ({
@@ -275,6 +308,22 @@ function Page() {
         { eyebrow: "Solução", label: "Defesas Fiscais", to: "/solucoes/defesas-fiscais" },
         { eyebrow: "Leia também", label: "LC 236/2026: processo administrativo fiscal", to: "/conteudos/lc-236-2026-processo-administrativo-fiscal" },
         { eyebrow: "Primeiro passo", label: "Diagnóstico Fiscal e Contábil", to: "/diagnostico" },
+        {
+          h2: "Conclusão",
+          lead: "A entrada de 10% ou 20% exigida no reparcelamento pode tornar a regularização financeiramente inviável, mas o encaminhamento para a PGFN exige análise cuidadosa dos prazos, riscos e modalidades disponíveis.",
+          h3: [
+            {
+              title: "Analisar débitos aptos ao encaminhamento",
+              body: "Solicite uma análise técnica dos débitos da sua empresa para identificar quais estão definitivamente constituídos, exigíveis e aptos ao encaminhamento à PGFN.",
+              cta: { label: "Analisar débitos aptos ao encaminhamento", to: "/diagnostico" },
+            },
+            {
+              title: "Comparar as alternativas",
+              body: "Compare o reparcelamento na Receita Federal e a negociação na PGFN antes de decidir o caminho da regularização.",
+              cta: { label: "Comparar reparcelamento na Receita e negociação na PGFN", to: "/contato" },
+            },
+          ],
+        },
       ]}
     >
       <section className="grid lg:grid-cols-12 gap-10">
