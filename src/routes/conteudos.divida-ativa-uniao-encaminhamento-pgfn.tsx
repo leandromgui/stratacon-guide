@@ -175,7 +175,6 @@ function Page() {
             { title: "O que a proximidade do prazo não garante", body: "Não localizamos ato público da Receita Federal que assegure prioridade geral na fila de encaminhamento em razão do encerramento desse edital. A proximidade do prazo não garante prioridade, não substitui a regra dos 90 dias, não dispensa o controle de legalidade, não antecipa a data de corte, não assegura inscrição antes do encerramento e não garante desconto ou modalidade específica." },
           ],
         },
-      ,
         {
           h2: "Base legal do encaminhamento para a PGFN",
           lead: "A seguir, os principais dispositivos que regulam o encaminhamento, a contagem do prazo e os efeitos da inscrição em Dívida Ativa.",
