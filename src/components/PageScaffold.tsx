@@ -52,6 +52,7 @@ export interface Section {
   h2: string;
   lead?: string;
   h3?: H3Item[];
+  content?: ReactNode;
 }
 
 export interface FaqItem { q: string; a: string | ReactNode }
@@ -360,6 +361,11 @@ export function PageScaffold(p: PageScaffoldProps) {
                   <li aria-hidden className="hidden sm:block bg-background" />
                 )}
               </ul>
+            )}
+            {s.content && (
+              <div className="lg:col-span-8 text-muted-foreground text-[15px] leading-relaxed">
+                {s.content}
+              </div>
             )}
           </article>
         ))}

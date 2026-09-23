@@ -49,6 +49,16 @@ function Page() {
           { title: "IBS/CBS na NF-e e NFC-e", body: "Documentos fiscais passam a carregar os novos tributos — a nota pode ser autorizada e ainda assim estar fiscalmente incorreta." },
           { title: "Decisão de 2027", body: "Setembro/2026 é mês de decisão para B2B do Simples: competitividade, crédito para clientes e preço simulados antes do regime regular de IBS/CBS." },
         ]},
+        { h2: "Benefícios fiscais para e-commerce em Goiás e outros Estados", content: (
+          <div className="space-y-5">
+            <p>Uma operação de e-commerce pode estar sujeita ao ICMS normal, ao DIFAL e ao FCP e, ao mesmo tempo, apresentar elegibilidade para crédito outorgado, redução de base de cálculo, diferimento ou tratamento tributário especial. A oportunidade não decorre apenas do CNAE ou da plataforma utilizada. Ela depende da mercadoria, do destinatário, do Estado de origem, do destino da venda e da estrutura efetivamente mantida pela empresa.</p>
+            <p>Em Goiás, operações interestaduais não presenciais destinadas a consumidor final não contribuinte podem, mediante TARE, utilizar crédito outorgado previsto na Lei nº 21.555/2022 e no inciso LXXVI do art. 11 do Anexo IX do RCTE. O benefício possui condições de investimento, regularidade fiscal, escrituração e, para empresas já estabelecidas, metas de arrecadação.</p>
+            <p>A DCON realiza a análise comparativa entre Goiás e regimes existentes em outros Estados, incluindo COMPETE-ES, TTD 478 de Santa Catarina e TTS/E-commerce de Minas Gerais. O estudo considera não apenas a carga nominal, mas também créditos estornados, DIFAL, FCP, ICMS-ST, frete, estoque, custo logístico e obrigações de manutenção do benefício.</p>
+            <a className="inline-flex font-medium text-secondary underline decoration-gold underline-offset-4 hover:text-gold" href="/conteudos/beneficio-fiscal-ecommerce-goias/">
+              Veja a análise completa sobre o benefício fiscal para e-commerce em Goiás
+            </a>
+          </div>
+        )},
       ]}
     />
   );
