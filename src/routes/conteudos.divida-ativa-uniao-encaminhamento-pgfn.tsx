@@ -146,7 +146,6 @@ function Page() {
             { title: "Em destaque", body: "Encaminhamento não é sinônimo de desconto." },
           ],
         },
-      ,
         {
           h2: "O pedido de encaminhamento suspende a exigibilidade?",
           lead: "O protocolo do requerimento, o decurso dos 90 dias, o encaminhamento à PGFN e a simples apresentação de proposta de transação não suspendem automaticamente a exigibilidade.",
