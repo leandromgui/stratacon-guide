@@ -336,7 +336,7 @@ function Page() {
         </header>
         <div className="lg:col-span-8 bg-card border border-border p-6 md:p-8">
           <p className="text-[15px] leading-relaxed text-foreground/90">
-            Instrução Normativa RFB nº 2.063/2022, art. 17, parágrafo 1º, incisos I e II; Portaria MF nº 447/2018, art. 2º e parágrafos; Decreto-Lei nº 147/1967, art. 22; Portaria PGFN nº 33/2018, com a redação dada pela Portaria PGFN nº 660/2018, art. 3º.
+            Lei nº 4.320/1964; Decreto-Lei nº 147/1967; Portaria MF nº 447/2018; Portaria PGFN nº 33/2018; Portaria PGFN nº 660/2018; Portaria PGFN/ME nº 6.155/2021; Instrução Normativa RFB nº 2.063/2022; Código Tributário Nacional; Lei nº 13.988/2020; Decreto-Lei nº 1.025/1969.
           </p>
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
             Fontes oficiais: Receita Federal do Brasil —{" "}
