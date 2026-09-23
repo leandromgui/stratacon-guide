@@ -93,6 +93,7 @@ import { Route as ConteudosGuiaSimplesNacionalRouteImport } from './routes/conte
 import { Route as ConteudosGlosaCreditoIbsCbsCausasComoEvitarRouteImport } from './routes/conteudos.glosa-credito-ibs-cbs-causas-como-evitar'
 import { Route as ConteudosFolhaPagamentoCreditoIbsCbsRouteImport } from './routes/conteudos.folha-pagamento-credito-ibs-cbs'
 import { Route as ConteudosDpEsocialRouteImport } from './routes/conteudos.dp-esocial'
+import { Route as ConteudosDividaAtivaUniaoEncaminhamentoPgfnRouteImport } from './routes/conteudos.divida-ativa-uniao-encaminhamento-pgfn'
 import { Route as ConteudosDespesasQueGeramCreditoIbsCbsRouteImport } from './routes/conteudos.despesas-que-geram-credito-ibs-cbs'
 import { Route as ConteudosCronogramaReformaTributaria20262033RouteImport } from './routes/conteudos.cronograma-reforma-tributaria-2026-2033'
 import { Route as ConteudosComercioIcmsRouteImport } from './routes/conteudos.comercio-icms'
@@ -573,6 +574,12 @@ const ConteudosDpEsocialRoute = ConteudosDpEsocialRouteImport.update({
   path: '/conteudos/dp-esocial',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConteudosDividaAtivaUniaoEncaminhamentoPgfnRoute =
+  ConteudosDividaAtivaUniaoEncaminhamentoPgfnRouteImport.update({
+    id: '/conteudos/divida-ativa-uniao-encaminhamento-pgfn',
+    path: '/conteudos/divida-ativa-uniao-encaminhamento-pgfn',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosDespesasQueGeramCreditoIbsCbsRoute =
   ConteudosDespesasQueGeramCreditoIbsCbsRouteImport.update({
     id: '/conteudos/despesas-que-geram-credito-ibs-cbs',
@@ -652,6 +659,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/cronograma-reforma-tributaria-2026-2033': typeof ConteudosCronogramaReformaTributaria20262033Route
   '/conteudos/despesas-que-geram-credito-ibs-cbs': typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
+  '/conteudos/divida-ativa-uniao-encaminhamento-pgfn': typeof ConteudosDividaAtivaUniaoEncaminhamentoPgfnRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
   '/conteudos/folha-pagamento-credito-ibs-cbs': typeof ConteudosFolhaPagamentoCreditoIbsCbsRoute
   '/conteudos/glosa-credito-ibs-cbs-causas-como-evitar': typeof ConteudosGlosaCreditoIbsCbsCausasComoEvitarRoute
@@ -747,6 +755,7 @@ export interface FileRoutesByTo {
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/cronograma-reforma-tributaria-2026-2033': typeof ConteudosCronogramaReformaTributaria20262033Route
   '/conteudos/despesas-que-geram-credito-ibs-cbs': typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
+  '/conteudos/divida-ativa-uniao-encaminhamento-pgfn': typeof ConteudosDividaAtivaUniaoEncaminhamentoPgfnRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
   '/conteudos/folha-pagamento-credito-ibs-cbs': typeof ConteudosFolhaPagamentoCreditoIbsCbsRoute
   '/conteudos/glosa-credito-ibs-cbs-causas-como-evitar': typeof ConteudosGlosaCreditoIbsCbsCausasComoEvitarRoute
@@ -844,6 +853,7 @@ export interface FileRoutesById {
   '/conteudos/comercio-icms': typeof ConteudosComercioIcmsRoute
   '/conteudos/cronograma-reforma-tributaria-2026-2033': typeof ConteudosCronogramaReformaTributaria20262033Route
   '/conteudos/despesas-que-geram-credito-ibs-cbs': typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
+  '/conteudos/divida-ativa-uniao-encaminhamento-pgfn': typeof ConteudosDividaAtivaUniaoEncaminhamentoPgfnRoute
   '/conteudos/dp-esocial': typeof ConteudosDpEsocialRoute
   '/conteudos/folha-pagamento-credito-ibs-cbs': typeof ConteudosFolhaPagamentoCreditoIbsCbsRoute
   '/conteudos/glosa-credito-ibs-cbs-causas-como-evitar': typeof ConteudosGlosaCreditoIbsCbsCausasComoEvitarRoute
@@ -941,6 +951,7 @@ export interface FileRouteTypes {
     | '/conteudos/comercio-icms'
     | '/conteudos/cronograma-reforma-tributaria-2026-2033'
     | '/conteudos/despesas-que-geram-credito-ibs-cbs'
+    | '/conteudos/divida-ativa-uniao-encaminhamento-pgfn'
     | '/conteudos/dp-esocial'
     | '/conteudos/folha-pagamento-credito-ibs-cbs'
     | '/conteudos/glosa-credito-ibs-cbs-causas-como-evitar'
@@ -1036,6 +1047,7 @@ export interface FileRouteTypes {
     | '/conteudos/comercio-icms'
     | '/conteudos/cronograma-reforma-tributaria-2026-2033'
     | '/conteudos/despesas-que-geram-credito-ibs-cbs'
+    | '/conteudos/divida-ativa-uniao-encaminhamento-pgfn'
     | '/conteudos/dp-esocial'
     | '/conteudos/folha-pagamento-credito-ibs-cbs'
     | '/conteudos/glosa-credito-ibs-cbs-causas-como-evitar'
@@ -1132,6 +1144,7 @@ export interface FileRouteTypes {
     | '/conteudos/comercio-icms'
     | '/conteudos/cronograma-reforma-tributaria-2026-2033'
     | '/conteudos/despesas-que-geram-credito-ibs-cbs'
+    | '/conteudos/divida-ativa-uniao-encaminhamento-pgfn'
     | '/conteudos/dp-esocial'
     | '/conteudos/folha-pagamento-credito-ibs-cbs'
     | '/conteudos/glosa-credito-ibs-cbs-causas-como-evitar'
@@ -1229,6 +1242,7 @@ export interface RootRouteChildren {
   ConteudosComercioIcmsRoute: typeof ConteudosComercioIcmsRoute
   ConteudosCronogramaReformaTributaria20262033Route: typeof ConteudosCronogramaReformaTributaria20262033Route
   ConteudosDespesasQueGeramCreditoIbsCbsRoute: typeof ConteudosDespesasQueGeramCreditoIbsCbsRoute
+  ConteudosDividaAtivaUniaoEncaminhamentoPgfnRoute: typeof ConteudosDividaAtivaUniaoEncaminhamentoPgfnRoute
   ConteudosDpEsocialRoute: typeof ConteudosDpEsocialRoute
   ConteudosFolhaPagamentoCreditoIbsCbsRoute: typeof ConteudosFolhaPagamentoCreditoIbsCbsRoute
   ConteudosGlosaCreditoIbsCbsCausasComoEvitarRoute: typeof ConteudosGlosaCreditoIbsCbsCausasComoEvitarRoute
@@ -1891,6 +1905,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosDpEsocialRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/divida-ativa-uniao-encaminhamento-pgfn': {
+      id: '/conteudos/divida-ativa-uniao-encaminhamento-pgfn'
+      path: '/conteudos/divida-ativa-uniao-encaminhamento-pgfn'
+      fullPath: '/conteudos/divida-ativa-uniao-encaminhamento-pgfn'
+      preLoaderRoute: typeof ConteudosDividaAtivaUniaoEncaminhamentoPgfnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/despesas-que-geram-credito-ibs-cbs': {
       id: '/conteudos/despesas-que-geram-credito-ibs-cbs'
       path: '/conteudos/despesas-que-geram-credito-ibs-cbs'
@@ -2006,6 +2027,8 @@ const rootRouteChildren: RootRouteChildren = {
     ConteudosCronogramaReformaTributaria20262033Route,
   ConteudosDespesasQueGeramCreditoIbsCbsRoute:
     ConteudosDespesasQueGeramCreditoIbsCbsRoute,
+  ConteudosDividaAtivaUniaoEncaminhamentoPgfnRoute:
+    ConteudosDividaAtivaUniaoEncaminhamentoPgfnRoute,
   ConteudosDpEsocialRoute: ConteudosDpEsocialRoute,
   ConteudosFolhaPagamentoCreditoIbsCbsRoute:
     ConteudosFolhaPagamentoCreditoIbsCbsRoute,

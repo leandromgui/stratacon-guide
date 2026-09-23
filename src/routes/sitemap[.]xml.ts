@@ -95,7 +95,7 @@ const entries: SitemapEntry[] = [
   { path: "/conteudos/lucro-presumido-reforma-tributaria-riscos-oportunidades", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/lucro-real-reforma-tributaria-creditos-controles", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/ibs-cbs-aliquota-reduzida-setores-beneficiados", changefreq: "monthly", priority: "0.9" },
-
+  { path: "/conteudos/divida-ativa-uniao-encaminhamento-pgfn", changefreq: "monthly", priority: "0.9" },
 
 
 

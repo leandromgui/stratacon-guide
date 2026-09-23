@@ -91,6 +91,7 @@ export const categories: CategoryDef[] = [
       { h3: "Compliance pós-regularização", body: "Como evitar reincidência depois de sair do passivo fiscal." },
     ],
     articles: [
+      { h2: "Dívida Ativa da União: quando o débito vai para a PGFN", excerpt: "Entenda quando débitos vencidos há mais de 90 dias podem ser encaminhados à PGFN, os riscos da entrada de 10%/20% no reparcelamento e como funciona a Dívida Ativa da União.", to: "/conteudos/divida-ativa-uniao-encaminhamento-pgfn", kind: "Análise", date: "Set 2026" },
       { h2: "LC 236/2026: as novas regras nacionais do processo administrativo fiscal", excerpt: "Teto de multa, reduções por antecipação, prazos processuais unificados, inscrição em dívida ativa, duplo grau e súmulas vinculantes.", to: "/conteudos/lc-236-2026-processo-administrativo-fiscal", kind: "Análise", date: "Set 2026" },
       { h2: "Glosa de Credito de IBS e CBS: Principais Causas e Como Evitar", excerpt: "A glosa de credito de IBS/CBS pode gerar cobranca retroativa, juros e multa. Entenda as principais causas e como estruturar controles preventivos.", to: "/conteudos/glosa-credito-ibs-cbs-causas-como-evitar", kind: "Análise", date: "Set 2026" },
       { h2: "Como conduzir tecnicamente uma autuação", excerpt: "Etapas de impugnação administrativa e quando levar ao contencioso judicial.", to: "/solucoes/defesas-fiscais", kind: "Análise", date: "Mai 2026" },
