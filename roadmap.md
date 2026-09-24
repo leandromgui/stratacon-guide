@@ -5,3 +5,5 @@
 5. [Concluído] Validar localmente, publicar uma vez e conferir o HTML público solicitado.
 6. [Concluído] Adicionar à página de médicos e clínicas a nova seção sobre Fator R, incluindo os três erros mais comuns.
 7. [Concluído] Complementar a seção de Fator R com impacto prático e nota destacada no preview, sem publicar.
+
+8. [Concluído] Adicionar seção sobre ISS fixo e equiparação hospitalar após Fator R, validar no preview e não publicar.
