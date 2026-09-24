@@ -4,3 +4,4 @@
 4. [Concluído] Padronizar as afirmações institucionais em todas as páginas.
 5. [Concluído] Validar localmente, publicar uma vez e conferir o HTML público solicitado.
 6. [Concluído] Adicionar à página de médicos e clínicas a nova seção sobre Fator R, incluindo os três erros mais comuns.
+7. [Concluído] Complementar a seção de Fator R com impacto prático e nota destacada no preview, sem publicar.
