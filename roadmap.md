@@ -8,4 +8,4 @@
 
 8. [Concluído] Adicionar seção sobre ISS fixo e equiparação hospitalar após Fator R, validar no preview e não publicar.
 
-9. [Em andamento] Adicionar seção sobre Receita Saúde, Carnê-Leão e INSS após ISS fixo, validar no preview e não publicar.
+9. [Concluído] Adicionar seção sobre Receita Saúde, Carnê-Leão e INSS após ISS fixo, validar no preview e não publicar.
