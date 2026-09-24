@@ -7,7 +7,7 @@ const SLUG = "/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda";
 const H1 = "Reforma Tributária para Clínicas Médicas: o que muda (e o que NÃO muda)";
 const META_TITLE = "Reforma Tributária para clínicas médicas: o que muda de verdade";
 const META_DESCRIPTION =
-  "Entenda a redução de 60% na alíquota de IBS/CBS para saúde, por que a folha de pagamento limita os créditos, e por que a equiparação hospitalar continua separada da reforma.";
+  "Entenda a redução de 60% na alíquota de IBS/CBS para saúde, por que a folha de pagamento limita os créditos, e por que a equiparação hospitalar continua separada da reforma. Análise para clínicas médicas em Goiânia e todo o Brasil.";
 const PUBLISHED = "14/09/2026";
 
 const faq = [
@@ -87,7 +87,7 @@ function Page() {
     <PageScaffold
       eyebrow={`Saúde · Reforma tributária · ${PUBLISHED}`}
       h1={H1}
-      intro="A Reforma Tributária do Consumo gera dúvida real para clínicas médicas: ela muda a equiparação hospitalar? A resposta curta é não. São mecanismos diferentes, que atuam em impostos diferentes, e entender essa distinção evita decisões equivocadas de planejamento tributário."
+      intro="A Reforma Tributária do Consumo gera dúvida real para clínicas médicas: ela muda a equiparação hospitalar? A resposta curta é não. São mecanismos diferentes, que atuam em impostos diferentes, e entender essa distinção evita decisões equivocadas de planejamento tributário. A análise é aplicável a clínicas médicas em Goiânia e em todo o Brasil."
       breadcrumbs={[
         { label: "Insights", to: "/conteudos" },
         { label: "Reforma Tributária para Clínicas Médicas: o que muda (e o que NÃO muda)", to: SLUG },
