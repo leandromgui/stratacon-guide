@@ -7,3 +7,5 @@
 7. [Concluído] Complementar a seção de Fator R com impacto prático e nota destacada no preview, sem publicar.
 
 8. [Concluído] Adicionar seção sobre ISS fixo e equiparação hospitalar após Fator R, validar no preview e não publicar.
+
+9. [Em andamento] Adicionar seção sobre Receita Saúde, Carnê-Leão e INSS após ISS fixo, validar no preview e não publicar.
