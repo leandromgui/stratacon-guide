@@ -1,19 +1,11 @@
-# Plano — conteúdo societário e autoridade técnica
+# Ajuste local de SEO — Reforma Tributária para clínicas médicas
 
-## Implementação
-
-- Expandir `/solucoes/abrir-empresa/` com a nova introdução, as duas seções e a frase final exatamente como fornecidas.
-- Deixar nessa página apenas o CTA “Solicitar diagnóstico para abertura da empresa”, preservando o destino atual do diagnóstico.
-- Adicionar à home uma seção própria sobre Leandro Matsuoka Guimarães com os dois textos e o CTA “Conheça a DCON”.
-- Substituir o crédito atual no rodapé dos 21 artigos publicados pela revisão técnica completa, mantendo o link no nome.
-- Não alterar outros conteúdos.
+## Alterações
+- Manter o H1 e o título SEO atuais, preservando a abrangência nacional da página.
+- Substituir somente a meta description pela versão fornecida, incluindo “clínicas médicas em Goiânia e todo o Brasil”.
+- Acrescentar ao primeiro parágrafo uma menção natural ao atendimento da DCON a clínicas em Goiânia, sem alterar o restante do conteúdo ou a estrutura.
 
 ## Validação e publicação
-
-- Confirmar por busca automatizada que os 21 artigos receberam o novo crédito.
-- Conferir visualmente a home e a página de abertura de empresa, inclusive em tela menor.
-- Verificar a compilação e publicar a versão final.
-
-## Detalhe técnico
-
-O crédito editorial será centralizado em um componente reutilizável para manter o mesmo texto e apresentação nos 21 artigos.
+- Confirmar acentuação, H1 e título SEO inalterados no código.
+- Publicar uma única vez.
+- Consultar o HTML publicado e confirmar “Goiânia” na meta description e no primeiro parágrafo visível.
