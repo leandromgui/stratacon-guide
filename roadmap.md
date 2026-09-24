@@ -3,4 +3,4 @@
 3. [Concluído] Precisar as afirmações sobre êxito, homologação, defesa e sustentação dos créditos.
 4. [Concluído] Padronizar as afirmações institucionais em todas as páginas.
 5. [Concluído] Validar localmente, publicar uma vez e conferir o HTML público solicitado.
-6. [Em andamento] Adicionar à página de médicos e clínicas a nova seção sobre Fator R, incluindo os três erros mais comuns.
+6. [Concluído] Adicionar à página de médicos e clínicas a nova seção sobre Fator R, incluindo os três erros mais comuns.
