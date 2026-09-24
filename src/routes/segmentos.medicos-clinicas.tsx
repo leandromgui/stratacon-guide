@@ -103,6 +103,25 @@ function Page() {
         ],
         content: <aside className="border-l-2 border-gold bg-card p-6 text-foreground/90">A DCON avalia se sua clínica atende aos requisitos do Tema 1.323 e, separadamente, se há espaço para equiparação hospitalar — são duas frentes de economia tributária que exigem laudos e enquadramentos diferentes.</aside>,
       },
+      {
+        h2: "Receita Saúde, Carnê-Leão e INSS: obrigações que não se confundem",
+        lead: "Médicos que atendem via convênio, particular e plantão frequentemente misturam três obrigações fiscais distintas — o que gera tanto erros de recolhimento a menor (risco de autuação) quanto de recolhimento a maior (dinheiro deixado na mesa).",
+        h3: [
+          {
+            title: "Carnê-Leão (Programa Receita Saúde / recolhimento mensal obrigatório)",
+            body: "Aplica-se ao médico pessoa física que recebe diretamente de pessoas físicas (consultas particulares pagas fora de PJ) ou que tem rendimentos tributáveis recebidos de fontes sem retenção. O recolhimento é mensal, sobre a tabela progressiva do IR, até o último dia útil do mês seguinte ao recebimento. Documentação que sustenta o recolhimento correto: recibo de pagamento a profissional autônomo (RPA) ou nota fiscal quando emitida por PJ; prontuário do paciente como lastro do atendimento; comprovante de recebimento (PIX, cartão, dinheiro com recibo).",
+          },
+          {
+            title: "INSS como contribuinte individual",
+            body: "Distinto do Carnê-Leão: é a contribuição previdenciária do médico autônomo, calculada sobre o valor declarado como base de contribuição (dentro do teto do RGPS), recolhida via GPS/DARF código específico. Um médico pode estar em dia com o Carnê-Leão e, ainda assim, estar irregular no recolhimento do INSS — são guias e prazos diferentes, e nenhum supre o outro.",
+          },
+          {
+            title: "Quando o médico atua via PJ (sociedade ou EIRELI/unipessoal)",
+            body: "Se a prestação de serviço se dá através de uma pessoa jurídica, o recolhimento correto passa a ser feito pela PJ (Simples Nacional, Lucro Presumido, etc.) — o Carnê-Leão pessoa física deixa de se aplicar àquela receita específica, mas o pró-labore retirado da PJ ainda gera INSS pessoa física sobre a folha.",
+          },
+        ],
+        content: <aside className="border-l-2 border-gold bg-card p-6 text-foreground/90">O erro mais comum não é técnico — é documental. Quando a Receita Federal cruza dados de convênios (DMED) com declarações do médico, a ausência de nota fiscal, recibo formal ou prontuário correspondente é o que transforma uma diferença de interpretação em autuação com multa. A conformidade começa na organização do fluxo documental, não apenas no cálculo do imposto. A DCON estrutura o fluxo de recolhimento (Carnê-Leão, INSS, PJ) de acordo com a forma real de atuação do médico, com controle documental que sustenta a apuração em caso de fiscalização.</aside>,
+      },
       { h2: "PF x PJ na saúde", h3: [{"title":"Comparativo técnico","body":"Médicos, dentistas, psicólogos, fisioterapeutas e terapeutas comparam tributação como PF e PJ, considerando Fator R, Simples, Lucro Presumido, ISS e pró-labore."},{"title":"Receita Saúde", body:"Recibo eletrônico, Livro Caixa, Carnê-Leão, despesas dedutíveis e risco de malha revisados antes da decisão."}] },
       { h2: "Equiparação hospitalar: quando se aplica", lead: "Empresas da saúde no Lucro Presumido podem aplicar presunção reduzida quando prestam serviços hospitalares ou de auxílio diagnóstico e terapia: IRPJ de 32% para 8% e CSLL de 32% para 12%, com base no art. 15, §1º, III, \"a\" da Lei 9.249/1995. Base legal: Lei 9.249/1995; IN RFB 1.234/2012; RDC Anvisa 50/2002; Súmula CARF 142.", h3: [
         { title: "Requisitos cumulativos", body: "Sociedade empresária (não sociedade simples, embora o CARF já tenha decidido que não exige registro formal na Junta Comercial), regime de Lucro Presumido (não se aplica ao Simples Nacional), atividades vinculadas às atribuições 1 a 4 da Resolução RDC 50/2002 da Anvisa e comprovação por alvará da vigilância sanitária." },
