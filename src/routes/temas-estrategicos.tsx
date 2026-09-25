@@ -2,10 +2,25 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/temas-estrategicos")({
-  head: () => buildSeoHead({
+  head: () => ({
+    ...buildSeoHead({
       title: "Temas Estratégicos | DCON Consultoria Contábil e Tributária",
       description: "Agenda do CFO e do sócio: reforma tributária, sucessão, defesas fiscais, governança e recuperação de créditos. Análises técnicas da DCON.",
       canonical: "/temas-estrategicos",
+    }),
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://dcon.cnt.br/" },
+            { "@type": "ListItem", position: 2, name: "Temas Estratégicos", item: "https://dcon.cnt.br/temas-estrategicos/" },
+          ],
+        }),
+      },
+    ],
   }),
   component: Page,
 });
