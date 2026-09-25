@@ -191,7 +191,16 @@ function Page() {
           h3: [
             {
               title: "Base legal e percentuais confirmados",
-              body: "A Solução de Consulta Disit/SRRF03 nº 3.005, de 21 de janeiro de 2025, vinculada à Solução de Consulta Cosit nº 147/2023, confirma a aplicação dos percentuais de 8% para determinação da base do IRPJ e 12% para determinação da base da CSLL. O entendimento administrativo exige que a receita decorra de serviços hospitalares ou de auxílio diagnóstico e terapia e que a prestadora esteja organizada, de direito e de fato, como sociedade empresária, cumpra as normas da Agência Nacional de Vigilância Sanitária, e consiga demonstrar a natureza dos serviços efetivamente prestados.",
+              body: (
+                <div className="space-y-4">
+                  <p>
+                    A Solução de Consulta Disit/SRRF03 nº 3.005, de 21 de janeiro de 2025, vinculada à Solução de Consulta Cosit nº 147/2023, confirma a aplicação dos percentuais de 8% para determinação da base do IRPJ e 12% para determinação da base da CSLL. O entendimento administrativo exige que a receita decorra de serviços hospitalares ou de auxílio diagnóstico e terapia e que a prestadora esteja organizada, de direito e de fato, como sociedade empresária, cumpra as normas da Agência Nacional de Vigilância Sanitária, e consiga demonstrar a natureza dos serviços efetivamente prestados.
+                  </p>
+                  <aside className="border-l-2 border-gold bg-card p-6 text-foreground/90">
+                    Atenção à numeração: existe também uma Solução de Consulta SRRF03 nº 3.005, porém de 2026 (publicada em 15/01/2026), que trata de assunto totalmente distinto — composição da receita bruta e reembolso de despesas/valores de terceiros — e não guarda relação com a equiparação hospitalar tratada nesta página. É comum confundir as duas por compartilharem o mesmo número de protocolo em anos diferentes.
+                  </aside>
+                </div>
+              ),
             },
             {
               title: "Requisitos cumulativos",
