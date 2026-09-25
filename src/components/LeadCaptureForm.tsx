@@ -11,7 +11,7 @@ const schema = z.object({
   interest: z.string().trim().min(2).max(120),
 });
 
-export function LeadCaptureForm({ page }: { page: "solucoes" | "segmentos" | "conteudos" }) {
+export function LeadCaptureForm({ page }: { page: "solucoes" | "segmentos" | "conteudos" | "diagnostico" }) {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
   const [err, setErr] = useState<string>("");
   const submit = useServerFn(submitLead);

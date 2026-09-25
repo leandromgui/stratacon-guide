@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { LeadCaptureForm } from "../components/LeadCaptureForm";
 import { getDoc } from "../lib/dcon-content";
 import { buildSeoHead } from "@/lib/seo";
 
@@ -68,6 +69,8 @@ function Page() {
         {"title":"Sou obrigado a contratar depois?","body":"Não. O diagnóstico é entregável independente, sem compromisso comercial."},
       ] },
       ]}
-    />
+    >
+      <LeadCaptureForm page="diagnostico" />
+    </PageScaffold>
   );
 }
