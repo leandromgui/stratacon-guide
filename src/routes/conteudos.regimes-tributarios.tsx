@@ -8,6 +8,7 @@ export const Route = createFileRoute("/conteudos/regimes-tributarios")({
       title: "Simples, Presumido e Lucro Real | Conteúdos DCON",
       description: "Como escolher entre Simples Nacional, Lucro Presumido e Lucro Real: guias e análises da DCON para decisões com segurança.",
       canonical: "/conteudos/regimes-tributarios",
+      noindex: true,
     }),
     scripts: [
       {
