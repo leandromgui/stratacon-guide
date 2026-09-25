@@ -97,6 +97,7 @@ const entries: SitemapEntry[] = [
   { path: "/conteudos/ibs-cbs-aliquota-reduzida-setores-beneficiados", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/divida-ativa-uniao-encaminhamento-pgfn", changefreq: "monthly", priority: "0.9" },
   { path: "/conteudos/beneficio-fiscal-ecommerce-goias", changefreq: "monthly", priority: "0.9" },
+  { path: "/conteudos/recuperacao-tributaria-clinicas-perdcomp", changefreq: "monthly", priority: "0.9" },
 
 
 
