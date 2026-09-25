@@ -30,8 +30,8 @@ const faqs = [
   },
   {
     q: "A DCON ajuda a recuperar tributos pagos a maior?",
-    aPlain: "Sim. Fazemos levantamento técnico dos últimos 5 anos em PIS, COFINS, ICMS, INSS e contribuições previdenciárias, com hipóteses como monofásico, alíquota zero, exclusão do ICMS da base, equiparação hospitalar e DIFAL. A recuperação é executada com PER/DCOMP e parecer técnico auditável.",
-    a: <>Sim. Fazemos levantamento técnico dos últimos 5 anos em PIS, COFINS, ICMS, INSS e contribuições previdenciárias, com hipóteses como monofásico, alíquota zero, exclusão do ICMS da base, equiparação hospitalar e DIFAL. A recuperação é executada com PER/DCOMP e parecer técnico auditável. <Link to="/solucoes/recuperacao-creditos-tributarios" className="underline text-gold hover:no-underline">Recuperação de créditos →</Link></>,
+    aPlain: "Sim. Revisamos hipóteses de recolhimento indevido ou a maior conforme regime, operação, documentos e prazo de cada tributo. Para créditos federais, avaliamos o pedido ou a compensação via PER/DCOMP quando a lei permitir; créditos estaduais, municipais e valores do Simples podem exigir procedimentos próprios. A utilização do crédito é acompanhada de memória de cálculo e pode permanecer sujeita a homologação ou fiscalização.",
+    a: <>Sim. Revisamos hipóteses de recolhimento indevido ou a maior conforme regime, operação, documentos e prazo de cada tributo. Para créditos federais, avaliamos o pedido ou a compensação via PER/DCOMP quando a lei permitir; créditos estaduais, municipais e valores do Simples podem exigir procedimentos próprios. A utilização do crédito é acompanhada de memória de cálculo e pode permanecer sujeita a homologação ou fiscalização. <Link to="/solucoes/recuperacao-creditos-tributarios" className="underline text-gold hover:no-underline">Recuperação de créditos →</Link></>,
   },
   {
     q: "Como a DCON conduz a Reforma Tributária (CBS/IBS)?",
@@ -65,8 +65,8 @@ const faqs = [
   },
   {
     q: "Dá para trocar de contador no meio do ano fiscal sem multa ou burocracia?",
-    aPlain: "Sim. A transição pode ser feita em qualquer mês do ano fiscal, sem multa e sem burocracia. Antes da migração efetiva fazemos o levantamento técnico do histórico fiscal e contábil, para garantir continuidade das obrigações sem exposição a risco.",
-    a: <>Sim. A transição pode ser feita em qualquer mês do ano fiscal, sem multa e sem burocracia. Antes da migração efetiva fazemos o levantamento técnico do histórico fiscal e contábil, para garantir continuidade das obrigações sem exposição a risco. <Link to="/solucoes/trocar-contabilidade" className="underline text-gold hover:no-underline">Como trocar de contabilidade →</Link></>,
+    aPlain: "A troca de escritório contábil pode ser planejada em qualquer mês, respeitando o contrato vigente, os prazos de entrega e o repasse de documentos e acessos. Antes da migração, levantamos obrigações e pendências para organizar a transição e reduzir o risco de descontinuidade.",
+    a: <>A troca de escritório contábil pode ser planejada em qualquer mês, respeitando o contrato vigente, os prazos de entrega e o repasse de documentos e acessos. Antes da migração, levantamos obrigações e pendências para organizar a transição e reduzir o risco de descontinuidade. <Link to="/solucoes/trocar-contabilidade" className="underline text-gold hover:no-underline">Como trocar de contabilidade →</Link></>,
   },
   {
     q: "Como funciona a cobrança da DCON?",
