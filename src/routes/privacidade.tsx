@@ -3,10 +3,25 @@ import { PageScaffold } from "../components/PageScaffold";
 import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/privacidade")({
-  head: () => buildSeoHead({
+  head: () => ({
+    ...buildSeoHead({
       title: "Política de Privacidade | DCON Serviços Contábeis",
       description: "Como a DCON trata dados pessoais, cookies e formulários de contato em conformidade com a LGPD.",
       canonical: "/privacidade",
+    }),
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Início", item: "https://dcon.cnt.br/" },
+            { "@type": "ListItem", position: 2, name: "Política de Privacidade", item: "https://dcon.cnt.br/privacidade/" },
+          ],
+        }),
+      },
+    ],
   }),
   component: Page,
 });
