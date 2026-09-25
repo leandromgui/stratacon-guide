@@ -8,7 +8,7 @@ import { Reveal } from "./Reveal";
 import heroBg from "../assets/hero-bg.webp";
 
 const DIAGNOSTIC_WA_MESSAGE =
-  "Olá, Dcon. Vim pelo site e gostaria de solicitar um diagnostico para a minha empresa.";
+  "Olá, DCON. Vim pelo site e gostaria de solicitar um diagnóstico para a minha empresa.";
 const DIAGNOSTIC_WA_HREF = `https://wa.me/5562992890898?text=${encodeURIComponent(DIAGNOSTIC_WA_MESSAGE)}`;
 
 function CtaLink({

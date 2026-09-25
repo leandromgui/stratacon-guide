@@ -110,7 +110,7 @@ function Page() {
           h3: [
             { title: "Profissões abrangidas", body: "administradores, advogados, arquitetos e urbanistas, assistentes sociais, bibliotecários, biólogos, contabilistas, economistas, profissionais de educação física, engenheiros e agrônomos, estatísticos, médicos veterinários e zootecnistas, museólogos, químicos, profissionais de relações públicas, técnicos industriais e técnicos agrícolas." },
             { title: "Alíquota aplicável", body: "Nesse caso, a empresa aplicará 70% da alíquota-padrão." },
-            { title: "Requisitos para pessoas jurídicas", body: "A sociedade deverá observar requisitos cumulativos, entre eles sócios com habilitações relacionadas ao objeto da sociedade, fiscalização pelo conselho profissional, ausência de pessoa juridica no quadro societário, exercício apenas das atividades profissionais habilitadas, e prestação direta dos serviços pelos sócios." },
+            { title: "Requisitos para pessoas jurídicas", body: "A sociedade deverá observar requisitos cumulativos, entre eles sócios com habilitações relacionadas ao objeto da sociedade, fiscalização pelo conselho profissional, ausência de pessoa jurídica no quadro societário, exercício apenas das atividades profissionais habilitadas, e prestação direta dos serviços pelos sócios." },
             { title: "Base legal", body: "Essas condições estao detalhadas no art. 127 da LC 214/2025." },
           ],
         },
@@ -127,12 +127,12 @@ function Page() {
           h2: "Quais setores tendem a ser mais beneficiados?",
           lead: "Tendem a se beneficiar mais empresas com determinadas características estruturais.",
           h3: [
-            { title: "Características favoráveis", body: "saida com redução de 60% ou alíquota zero, grande volume de entradas tributadas pela alíquota-padrão, margem de valor agregado relativamente pequena, investimentos frequentes em máquinas e infraestrutura, baixa participação da folha na estrutura de custos." },
+            { title: "Características favoráveis", body: "saída com redução de 60% ou alíquota zero, grande volume de entradas tributadas pela alíquota-padrão, margem de valor agregado relativamente pequena, investimentos frequentes em máquinas e infraestrutura, baixa participação da folha na estrutura de custos." },
             { title: "Exemplos de setores", body: "hospitais e laboratórios intensivos em materiais e tecnologia; fabricantes de dispositivos médicos; indústria farmacêutica; produções audiovisuais e culturais com terceirização relevante; instituições de educação com investimentos tecnológicos; empresas de segurança cibernética; hotelaria e parques; profissionais regulamentados com estrutura empresarial e investimentos." },
           ],
         },
         {
-          h2: "Quem pode não ser tao beneficiado?",
+          h2: "Quem pode não ser tão beneficiado?",
           lead: "Mesmo com redução da alíquota, o resultado pode ser menos favorável para algumas estruturas de custo.",
           h3: [
             { title: "Fatores que reduzem o benefício", body: "folha de pagamento muito elevada, grande quantidade de prestadores pessoas físicas, compras de fornecedores do Simples Nacional puro, aquisições sujeitas a alíquota zero, e baixa proporção de insumos tributados." },
@@ -143,7 +143,7 @@ function Page() {
           lead: "Existem dois riscos distintos que precisam ser gerenciados.",
           h3: [
             { title: "Glosa dos créditos de entrada", body: "documento fiscal inidôneo, classificação incorreta, crédito superior ao valor efetivamente cobrado, duplicidade." },
-            { title: "Glosa da redução na saida", body: "pode ser ainda mais onerosa - o Fisco pode cobrar a diferença até a alíquota-padrão quando: for usado apenas o CNAE como justificativa, o produto não estiver relacionado no anexo, a NCM ou NBS estiver incorreta, ou faltar registro em órgão regulatório como Anvisa." },
+            { title: "Glosa da redução na saída", body: "pode ser ainda mais onerosa - o Fisco pode cobrar a diferença até a alíquota-padrão quando: for usado apenas o CNAE como justificativa, o produto não estiver relacionado no anexo, a NCM ou NBS estiver incorreta, ou faltar registro em órgão regulatório como Anvisa." },
             { title: "Consequências", body: "A consequência pode envolver recomposição do débito pela alíquota-padrão, juros, multa e questionamento dos créditos tomados pelo comprador." },
           ],
         },
@@ -159,7 +159,7 @@ function Page() {
           <div className="bg-card border border-border p-6 md:p-8">
             <p className="font-display text-lg text-foreground mb-2">IBS/CBS a recolher = débitos sobre as saídas - créditos das entradas</p>
             <p className="text-[15px] leading-relaxed text-foreground/90">
-              Nas atividades beneficiadas, o débito da saida é calculado com redução da alíquota, mas os créditos das entradas não sofrem automaticamente uma redução proporcional. Isso cria uma possível assimetria favorável: entrada adquirida com alíquota-padrão, crédito correspondente ao tributo efetivamente cobrado, saida tributada com alíquota reduzida, débito menor, saldo liquido de imposto menor ou saldo a recuperar.
+              Nas atividades beneficiadas, o débito da saída é calculado com redução da alíquota, mas os créditos das entradas não sofrem automaticamente uma redução proporcional. Isso cria uma possível assimetria favorável: entrada adquirida com alíquota-padrão, crédito correspondente ao tributo efetivamente cobrado, saída tributada com alíquota reduzida, débito menor, saldo líquido de imposto menor ou saldo a recuperar.
             </p>
           </div>
         </div>

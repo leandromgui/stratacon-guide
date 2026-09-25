@@ -320,7 +320,7 @@ function Home() {
       <section className="border-b border-border bg-background">
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-20 grid gap-10 lg:grid-cols-12 lg:items-start">
           <div className="lg:col-span-5">
-            <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Responsabilidade tecnica</div>
+            <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Responsabilidade técnica</div>
             <h2 className="mt-4 font-display text-3xl md:text-5xl tracking-tight leading-[1.05]">
               Experiência técnica por trás de cada decisão
             </h2>
@@ -335,7 +335,7 @@ function Home() {
               Leandro conduz a revisão técnica dos diagnósticos, planejamentos e pareceres contábeis, tributários e empresariais elaborados pela DCON. Sua formação multidisciplinar permite analisar cada empresa de maneira ampla, considerando os impactos contábeis, fiscais, financeiros e societários envolvidos em cada decisão.
             </p>
             <Link to="/sobre" className="mt-7 inline-flex items-center border-b border-gold pb-1 text-[11px] uppercase tracking-[0.2em] text-secondary hover:text-primary">
-              Conheca a DCON →
+              Conheça a DCON →
             </Link>
           </div>
         </div>
