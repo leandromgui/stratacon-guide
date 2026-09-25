@@ -9,12 +9,14 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import ogImageSrc from "../assets/og-dcon.jpg";
+import dconLogoAsset from "../assets/dcon-logo-oficial.png.asset.json";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { initGoogleAnalytics } from "../lib/gtag";
 import { SiteLayout } from "../components/SiteLayout";
 
 const SITE_URL = "https://dcon.cnt.br";
-const OG_IMAGE = `${SITE_URL}/og-image.png`;
+const OG_IMAGE = `${SITE_URL}${ogImageSrc}`;
 
 const ORGANIZATION_JSONLD = {
   "@context": "https://schema.org",
@@ -22,7 +24,7 @@ const ORGANIZATION_JSONLD = {
   "@id": `${SITE_URL}/#organization`,
   name: "DCON Serviços Contábeis",
   url: `${SITE_URL}/`,
-  logo: `${SITE_URL}/logo-dcon.png`,
+  logo: `${SITE_URL}${dconLogoAsset.url}`,
   contactPoint: [
     {
       "@type": "ContactPoint",

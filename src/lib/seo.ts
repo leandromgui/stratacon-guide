@@ -1,7 +1,8 @@
 import type { AnyRouteMatch } from "@tanstack/react-router";
+import ogDefaultImageSrc from "@/assets/og-dcon.jpg";
 
 export const SITE_URL = "https://dcon.cnt.br";
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-default.jpg`;
+export const DEFAULT_OG_IMAGE = `${SITE_URL}${ogDefaultImageSrc}`;
 
 export interface SeoHeadOptions {
   title: string;

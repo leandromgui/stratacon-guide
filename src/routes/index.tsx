@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import ogImage from "../assets/og-dcon.jpg";
+import dconLogoAsset from "../assets/dcon-logo-oficial.png.asset.json";
 import heroBg from "../assets/hero-bg.webp";
 import { Reveal } from "../components/Reveal";
 import { AnimatedHeroBg } from "../components/AnimatedHeroBg";
@@ -8,7 +9,7 @@ import { useState } from "react";
 import { buildSeoHead } from "@/lib/seo";
 
 const SITE_URL = "https://dcon.cnt.br";
-const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
+const OG_IMAGE_URL = `${SITE_URL}${ogImage}`;
 const HERO_BG_URL = heroBg;
 
 // Paleta on-brand: preto/grafite + vermelho DCON. Sem cores fora da marca.
@@ -152,11 +153,11 @@ export const Route = createFileRoute("/")({
           alternateName: "DCON",
           description: "Escritório de contabilidade consultiva em Goiânia, GO. Especializado em conformidade fiscal-contábil, planejamento tributário, recuperação de créditos, reforma tributária CBS/IBS, holding patrimonial, departamento pessoal e valuation. Método DCON: Diagnóstico, Cruzamento, Parecer, Correção e Monitoramento.",
           url: `${SITE_URL}/`,
-          logo: `${SITE_URL}/logo-dcon.png`,
+          logo: `${SITE_URL}${dconLogoAsset.url}`,
           image: OG_IMAGE_URL,
           telephone: "+55-62-3223-7010",
           email: "contato@dcon.cnt.br",
-          foundingDate: "2005",
+          foundingDate: "2004",
           numberOfEmployees: { "@type": "QuantitativeValue", value: 11 },
           areaServed: [
             { "@type": "City", name: "Goiânia", addressRegion: "GO", addressCountry: "BR" },
