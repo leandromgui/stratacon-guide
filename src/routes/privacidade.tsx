@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { ManageCookiesButton } from "@/components/ManageCookiesButton";
 import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/privacidade")({
@@ -57,7 +58,7 @@ function Page() {
           h3: [
             { title: "Essenciais", body: "Mantêm a navegação e a preferência de consentimento; não podem ser desativados." },
             { title: "Analíticos", body: "Medem audiência e comportamento agregado; ativados apenas com aceite." },
-            { title: "Revogar consentimento", body: "Limpe os cookies do navegador para que o aviso apareça novamente." },
+            { title: "Revogar consentimento", body: "Você pode revisar ou revogar sua escolha a qualquer momento. Clique no botão abaixo para reabrir o aviso de cookies." },
           ],
         },
         {
@@ -69,6 +70,10 @@ function Page() {
           ],
         },
       ]}
-    />
+    >
+      <section className="mt-12 border-t border-border pt-8">
+        <ManageCookiesButton />
+      </section>
+    </PageScaffold>
   );
 }

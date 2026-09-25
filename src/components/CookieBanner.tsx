@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { initGoogleAnalytics } from "@/lib/gtag";
 
-const STORAGE_KEY = "dcon:cookie-consent:v1";
+export const STORAGE_KEY = "dcon:cookie-consent:v1";
 
 type Consent = "accepted" | "essential" | null;
 
