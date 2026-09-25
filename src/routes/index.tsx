@@ -125,7 +125,7 @@ export const Route = createFileRoute("/")({
   head: () => {
     const seo = buildSeoHead({
       title: "DCON | Contador Tributarista e Consultoria Tributária em Goiânia",
-      description: "Consultoria tributária estratégica em Goiânia. Planejamento tributário, recuperação de créditos, defesas fiscais e reforma CBS/IBS com responsabilidade técnica CRC-GO 1202/O-5.",
+      description: "Consultoria tributária estratégica em Goiânia. Planejamento tributário, recuperação de créditos, defesas fiscais e reforma CBS/IBS com responsabilidade técnica.",
       canonical: `${SITE_URL}/`,
       ogImage: OG_IMAGE_URL,
     });

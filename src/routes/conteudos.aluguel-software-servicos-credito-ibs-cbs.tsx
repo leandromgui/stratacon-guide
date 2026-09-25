@@ -7,7 +7,7 @@ const SLUG = "/conteudos/aluguel-software-servicos-credito-ibs-cbs";
 const H1 = "Aluguel, Software e Serviços: Quando Há Crédito de IBS e CBS";
 const META_TITLE = "Aluguel, software e serviços: quando há crédito de IBS/CBS";
 const META_DESCRIPTION =
-  "Aluguel comercial tem regra própria de crédito, e a documentação do locador pode definir se você recupera esse crédito ou não. Entenda também software e serviços contratados.";
+  "Aluguel comercial tem regra própria de crédito de IBS/CBS, e a documentação do locador pode definir se você o recupera. Entenda também software e serviços.";
 const PUBLISHED = "17/09/2026";
 
 const faq = [

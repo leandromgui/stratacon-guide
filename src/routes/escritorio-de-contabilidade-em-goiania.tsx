@@ -104,7 +104,7 @@ const JSONLD = {
 export const Route = createFileRoute("/escritorio-de-contabilidade-em-goiania")({
   head: () => ({
     ...buildSeoHead({
-      title: "Escritório de Contabilidade em Goiânia - DCON | Mais de 700 Empresas",
+      title: "Escritório de Contabilidade em Goiânia | DCON",
       description:
         "Escritório de contabilidade em Goiânia com equipe especializada em compliance, tributação e auditoria fiscal. Conheça a DCON Contábil.",
       canonical: "/escritorio-de-contabilidade-em-goiania",

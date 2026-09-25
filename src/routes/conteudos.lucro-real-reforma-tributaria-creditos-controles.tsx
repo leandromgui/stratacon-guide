@@ -5,7 +5,7 @@ import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
 
 const SLUG = "/conteudos/lucro-real-reforma-tributaria-creditos-controles";
 const H1 = "Lucro Real na Reforma Tributária: Créditos de CBS, Riscos, Contratos e Preparação para 2027";
-const META_TITLE = "Lucro Real na Reforma Tributária: créditos de CBS, riscos, contratos e preparação para 2027";
+const META_TITLE = "Lucro Real na Reforma Tributária: créditos e preparação";
 const META_DESCRIPTION =
   "Entenda como CBS, créditos, glosas, split payment e revisão de contratos afetarão empresas do Lucro Real a partir de 2027 e como preparar a operação.";
 const PUBLISHED = "21/09/2026";

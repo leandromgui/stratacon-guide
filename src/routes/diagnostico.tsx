@@ -8,7 +8,7 @@ export const Route = createFileRoute("/diagnostico")({
   head: () => ({
     ...buildSeoHead({
       title: "Diagnóstico Técnico Inicial | DCON — CRC-GO 1202/O-5",
-      description: "Diagnóstico técnico inicial em até 7 dias úteis após o recebimento completo dos documentos e a definição do escopo. Cruzamento documental, parecer técnico e plano de ação.",
+      description: "Diagnóstico técnico inicial em até 7 dias úteis após o recebimento dos documentos. Cruzamento documental, parecer técnico e plano de ação.",
       canonical: "/diagnostico",
     }),
     scripts: [
