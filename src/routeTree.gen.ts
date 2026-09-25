@@ -79,6 +79,7 @@ import { Route as ConteudosRegularizacaoFiscalRouteImport } from './routes/conte
 import { Route as ConteudosRegimesTributariosRouteImport } from './routes/conteudos.regimes-tributarios'
 import { Route as ConteudosReformaTributariaFormacaoPrecoMargemRouteImport } from './routes/conteudos.reforma-tributaria-formacao-preco-margem'
 import { Route as ConteudosReformaTributariaClinicasMedicasOQueMudaRouteImport } from './routes/conteudos.reforma-tributaria-clinicas-medicas-o-que-muda'
+import { Route as ConteudosRecuperacaoTributariaClinicasPerdcompRouteImport } from './routes/conteudos.recuperacao-tributaria-clinicas-perdcomp'
 import { Route as ConteudosPrestadoresServicosReformaTributariaPoucosCreditosRouteImport } from './routes/conteudos.prestadores-servicos-reforma-tributaria-poucos-creditos'
 import { Route as ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRouteImport } from './routes/conteudos.prazo-opcao-regime-regular-ibs-cbs-simples'
 import { Route as ConteudosPlanejamentoTributarioRouteImport } from './routes/conteudos.planejamento-tributario'
@@ -488,6 +489,12 @@ const ConteudosReformaTributariaClinicasMedicasOQueMudaRoute =
     path: '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ConteudosRecuperacaoTributariaClinicasPerdcompRoute =
+  ConteudosRecuperacaoTributariaClinicasPerdcompRouteImport.update({
+    id: '/conteudos/recuperacao-tributaria-clinicas-perdcomp',
+    path: '/conteudos/recuperacao-tributaria-clinicas-perdcomp',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ConteudosPrestadoresServicosReformaTributariaPoucosCreditosRoute =
   ConteudosPrestadoresServicosReformaTributariaPoucosCreditosRouteImport.update(
     {
@@ -682,6 +689,7 @@ export interface FileRoutesByFullPath {
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
   '/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos': typeof ConteudosPrestadoresServicosReformaTributariaPoucosCreditosRoute
+  '/conteudos/recuperacao-tributaria-clinicas-perdcomp': typeof ConteudosRecuperacaoTributariaClinicasPerdcompRoute
   '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda': typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRoute
   '/conteudos/reforma-tributaria-formacao-preco-margem': typeof ConteudosReformaTributariaFormacaoPrecoMargemRoute
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
@@ -779,6 +787,7 @@ export interface FileRoutesByTo {
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
   '/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos': typeof ConteudosPrestadoresServicosReformaTributariaPoucosCreditosRoute
+  '/conteudos/recuperacao-tributaria-clinicas-perdcomp': typeof ConteudosRecuperacaoTributariaClinicasPerdcompRoute
   '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda': typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRoute
   '/conteudos/reforma-tributaria-formacao-preco-margem': typeof ConteudosReformaTributariaFormacaoPrecoMargemRoute
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
@@ -878,6 +887,7 @@ export interface FileRoutesById {
   '/conteudos/planejamento-tributario': typeof ConteudosPlanejamentoTributarioRoute
   '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples': typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
   '/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos': typeof ConteudosPrestadoresServicosReformaTributariaPoucosCreditosRoute
+  '/conteudos/recuperacao-tributaria-clinicas-perdcomp': typeof ConteudosRecuperacaoTributariaClinicasPerdcompRoute
   '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda': typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRoute
   '/conteudos/reforma-tributaria-formacao-preco-margem': typeof ConteudosReformaTributariaFormacaoPrecoMargemRoute
   '/conteudos/regimes-tributarios': typeof ConteudosRegimesTributariosRoute
@@ -977,6 +987,7 @@ export interface FileRouteTypes {
     | '/conteudos/planejamento-tributario'
     | '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
     | '/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos'
+    | '/conteudos/recuperacao-tributaria-clinicas-perdcomp'
     | '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda'
     | '/conteudos/reforma-tributaria-formacao-preco-margem'
     | '/conteudos/regimes-tributarios'
@@ -1074,6 +1085,7 @@ export interface FileRouteTypes {
     | '/conteudos/planejamento-tributario'
     | '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
     | '/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos'
+    | '/conteudos/recuperacao-tributaria-clinicas-perdcomp'
     | '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda'
     | '/conteudos/reforma-tributaria-formacao-preco-margem'
     | '/conteudos/regimes-tributarios'
@@ -1172,6 +1184,7 @@ export interface FileRouteTypes {
     | '/conteudos/planejamento-tributario'
     | '/conteudos/prazo-opcao-regime-regular-ibs-cbs-simples'
     | '/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos'
+    | '/conteudos/recuperacao-tributaria-clinicas-perdcomp'
     | '/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda'
     | '/conteudos/reforma-tributaria-formacao-preco-margem'
     | '/conteudos/regimes-tributarios'
@@ -1271,6 +1284,7 @@ export interface RootRouteChildren {
   ConteudosPlanejamentoTributarioRoute: typeof ConteudosPlanejamentoTributarioRoute
   ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute: typeof ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute
   ConteudosPrestadoresServicosReformaTributariaPoucosCreditosRoute: typeof ConteudosPrestadoresServicosReformaTributariaPoucosCreditosRoute
+  ConteudosRecuperacaoTributariaClinicasPerdcompRoute: typeof ConteudosRecuperacaoTributariaClinicasPerdcompRoute
   ConteudosReformaTributariaClinicasMedicasOQueMudaRoute: typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRoute
   ConteudosReformaTributariaFormacaoPrecoMargemRoute: typeof ConteudosReformaTributariaFormacaoPrecoMargemRoute
   ConteudosRegimesTributariosRoute: typeof ConteudosRegimesTributariosRoute
@@ -1821,6 +1835,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ConteudosReformaTributariaClinicasMedicasOQueMudaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conteudos/recuperacao-tributaria-clinicas-perdcomp': {
+      id: '/conteudos/recuperacao-tributaria-clinicas-perdcomp'
+      path: '/conteudos/recuperacao-tributaria-clinicas-perdcomp'
+      fullPath: '/conteudos/recuperacao-tributaria-clinicas-perdcomp'
+      preLoaderRoute: typeof ConteudosRecuperacaoTributariaClinicasPerdcompRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos': {
       id: '/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos'
       path: '/conteudos/prestadores-servicos-reforma-tributaria-poucos-creditos'
@@ -2075,6 +2096,8 @@ const rootRouteChildren: RootRouteChildren = {
     ConteudosPrazoOpcaoRegimeRegularIbsCbsSimplesRoute,
   ConteudosPrestadoresServicosReformaTributariaPoucosCreditosRoute:
     ConteudosPrestadoresServicosReformaTributariaPoucosCreditosRoute,
+  ConteudosRecuperacaoTributariaClinicasPerdcompRoute:
+    ConteudosRecuperacaoTributariaClinicasPerdcompRoute,
   ConteudosReformaTributariaClinicasMedicasOQueMudaRoute:
     ConteudosReformaTributariaClinicasMedicasOQueMudaRoute,
   ConteudosReformaTributariaFormacaoPrecoMargemRoute:

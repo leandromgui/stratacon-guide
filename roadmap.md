@@ -9,3 +9,4 @@
 8. [Concluído] Adicionar seção sobre ISS fixo e equiparação hospitalar após Fator R, validar no preview e não publicar.
 
 9. [Concluído] Adicionar seção sobre Receita Saúde, Carnê-Leão e INSS após ISS fixo, validar no preview e não publicar.
+10. [Concluído] Criar o artigo sobre recuperação tributária para clínicas e PER/DCOMP, integrar às listagens e validar no preview sem publicar.
