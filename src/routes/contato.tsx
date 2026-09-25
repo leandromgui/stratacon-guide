@@ -41,7 +41,7 @@ function Page() {
             <div className="text-[11px] uppercase tracking-[0.24em] text-gold mb-3">Endereço</div>
             <h2 className="font-display text-2xl md:text-3xl tracking-tight">Presença física em Goiânia</h2>
             <p className="mt-4 text-muted-foreground leading-relaxed text-[15px]">
-              R. 89-A, nº 51 — St. Sul, Goiânia — GO, 74093-150
+              R. 89-A, nº 51 — Setor Sul, Goiânia — GO, 74093-150
             </p>
           </header>
           <div className="lg:col-span-8 space-y-4">
