@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageScaffold } from "../components/PageScaffold";
+import { ManageCookiesButton } from "@/components/ManageCookiesButton";
 import { buildSeoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/privacidade")({
