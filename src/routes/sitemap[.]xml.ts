@@ -70,7 +70,6 @@ const entries: SitemapEntry[] = [
   { path: "/conteudos/trabalhista", changefreq: "weekly", priority: "0.8" },
   { path: "/conteudos/setores", changefreq: "weekly", priority: "0.8" },
   { path: "/conteudos/governanca", changefreq: "weekly", priority: "0.8" },
-  { path: "/conteudos/regimes-tributarios", changefreq: "monthly", priority: "0.7" },
   { path: "/conteudos/holding-familiar", changefreq: "monthly", priority: "0.7" },
   { path: "/conteudos/respostas-validadas", changefreq: "monthly", priority: "0.8" },
   { path: "/conteudos/guia-simples-nacional", changefreq: "monthly", priority: "0.8" },
