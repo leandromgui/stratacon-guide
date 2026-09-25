@@ -10,3 +10,4 @@
 
 9. [Concluído] Adicionar seção sobre Receita Saúde, Carnê-Leão e INSS após ISS fixo, validar no preview e não publicar.
 10. [Concluído] Criar o artigo sobre recuperação tributária para clínicas e PER/DCOMP, integrar às listagens e validar no preview sem publicar.
+11. [Concluído] Corrigir a viabilidade técnica da equiparação hospitalar em odontologia e validar no preview sem publicar.

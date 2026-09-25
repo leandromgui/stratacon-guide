@@ -41,7 +41,7 @@ function Page() {
           { title: "Sociedade entre dentistas", body: "Distribuição entre sócios, pró-labore, contratos de cooperação e repasses de convênios escriturados de forma rastreável." },
         ]},
         { h2: "Equiparação hospitalar em odontologia", h3: [
-          { title: "Viabilidade técnica", body: "Lucro Presumido com atividades equiparáveis a hospitalares — IRPJ 8% e CSLL 12% apenas sobre receita qualificada, cumpridos os requisitos sanitários e estruturais." },
+          { title: "Viabilidade técnica", body: "A equiparação hospitalar para fins de tributação favorecida do IRPJ e da CSLL no Lucro Presumido exige que o estabelecimento odontológico atenda a requisitos estruturais equivalentes aos de estabelecimento hospitalar. A Solução de Consulta Cosit nº 268/2024 reconhece a possibilidade de equiparação hospitalar para clínicas odontológicas, desde que seja comprovado o cumprimento da Atribuição 4 da RDC Anvisa nº 50/2002, que trata dos estabelecimentos assistenciais de saúde e de seus requisitos estruturais e funcionais — não basta o exercício da atividade odontológica em si. A ausência de licença sanitária compatível com essa atribuição específica é o principal motivo de glosa em fiscalização." },
           { title: "Segregação de receita", body: "Consultas simples separadas de procedimentos qualificados — sem isso a tese não se sustenta em fiscalização." },
         ]},
         { h2: "Folha, eSocial e pejotização", h3: [
