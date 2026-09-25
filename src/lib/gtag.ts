@@ -1,5 +1,6 @@
 // Google Analytics 4 — mede pageviews, cliques no WhatsApp e no CTA de diagnóstico.
 const MEASUREMENT_ID = "G-0S43W12ENN";
+const CONSENT_KEY = "dcon:cookie-consent:v1";
 
 declare global {
   interface Window {
@@ -13,10 +14,20 @@ export function gtagEvent(name: string, params: Record<string, unknown> = {}) {
   window.gtag("event", name, params);
 }
 
+export function hasAnalyticsConsent(): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    return window.localStorage.getItem(CONSENT_KEY) === "accepted";
+  } catch {
+    return false;
+  }
+}
+
 let initialized = false;
 
 export function initGoogleAnalytics() {
   if (initialized || typeof window === "undefined") return;
+  if (!hasAnalyticsConsent()) return;
   initialized = true;
 
   const script = document.createElement("script");

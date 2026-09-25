@@ -92,9 +92,9 @@ export function SimplesNacionalMiniForm() {
           faq_question: lastFaq,
           cta_label: "guia-simples-nacional-miniform",
           cta_target: "/diagnostico",
+          essential: true,
           metadata: {
             page: "conteudos",
-            essential: true,
             anexo: draft.anexo,
             cnae: draft.cnae,
             faturamento: draft.faturamento,
