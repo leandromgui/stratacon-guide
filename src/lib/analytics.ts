@@ -1,5 +1,7 @@
 import { supabase } from "@/integrations/supabase/client";
 
+import { hasAnalyticsConsent } from "./gtag";
+
 const SESSION_KEY = "dcon.analytics.sid";
 const LAST_FAQ_KEY = "dcon.analytics.last_faq";
 
@@ -47,11 +49,13 @@ export type AnalyticsPayload = {
   faq_question?: string | null;
   cta_label?: string | null;
   cta_target?: string | null;
+  essential?: boolean;
   metadata?: Record<string, unknown>;
 };
 
 export function trackEvent(payload: AnalyticsPayload): void {
   if (typeof window === "undefined") return;
+  if (!payload.essential && !hasAnalyticsConsent()) return;
   const row = {
     event_name: payload.event_name.slice(0, 80),
     page_path: window.location.pathname.slice(0, 255),

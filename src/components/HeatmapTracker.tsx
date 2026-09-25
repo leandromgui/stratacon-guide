@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { trackEvent } from "../lib/analytics";
+import { hasAnalyticsConsent } from "../lib/gtag";
 
 /**
  * Coleta sinais leves de engajamento para gerar heatmap:
@@ -15,6 +16,7 @@ import { trackEvent } from "../lib/analytics";
 export function HeatmapTracker({ pageKey }: { pageKey: string }) {
   useEffect(() => {
     if (typeof window === "undefined") return;
+    if (!hasAnalyticsConsent()) return;
 
     const reached = new Set<number>();
     const milestones = [25, 50, 75, 100];

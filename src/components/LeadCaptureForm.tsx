@@ -57,7 +57,8 @@ export function LeadCaptureForm({ page }: { page: "solucoes" | "segmentos" | "co
           faq_question: lastFaq,
           cta_label: parsed.data.interest,
           cta_target: "/lead",
-          metadata: { page, essential: true },
+          essential: true,
+          metadata: { page },
         });
       }
     } catch (e2) {

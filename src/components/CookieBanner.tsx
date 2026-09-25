@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
+import { initGoogleAnalytics } from "@/lib/gtag";
 
 const STORAGE_KEY = "dcon:cookie-consent:v1";
 
@@ -25,6 +26,9 @@ export function CookieBanner() {
       localStorage.setItem(STORAGE_KEY + ":at", new Date().toISOString());
     } catch {
       /* ignore */
+    }
+    if (value === "accepted") {
+      initGoogleAnalytics();
     }
     setConsent(value);
   }
