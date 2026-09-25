@@ -20,7 +20,7 @@ export const LEANDRO_PERSON_JSONLD = {
     "Recuperação de créditos tributários",
     "Reforma tributária (IBS/CBS)",
     "Holding patrimonial e sucessão",
-    "Controladoria e finanças corporativas",
+    "Controladoria e Finanças Corporativas",
   ],
   hasCredential: {
     "@type": "EducationalOccupationalCredential",
