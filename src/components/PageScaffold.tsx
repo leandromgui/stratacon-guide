@@ -1,9 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import { isValidElement } from "react";
+import { Children, isValidElement } from "react";
 import { getCrossLinks } from "../lib/crossLinks";
 import { rememberLastFaqQuestion, trackEvent } from "../lib/analytics";
 import { AnimatedHeroBg } from "./AnimatedHeroBg";
+import { LegalSourcesSection } from "./LegalSourcesSection";
 import { Reveal } from "./Reveal";
 import heroBg from "../assets/hero-bg.webp";
 
@@ -154,6 +155,21 @@ function Eyebrow({ children }: { children: ReactNode }) {
   );
 }
 
+function nodeContainsText(node: ReactNode, text: string): boolean {
+  if (typeof node === "string") return node.includes(text);
+  if (typeof node === "number" || node == null || typeof node === "boolean")
+    return false;
+  if (Array.isArray(node))
+    return node.some((child) => nodeContainsText(child, text));
+  if (isValidElement(node)) {
+    return nodeContainsText(
+      (node.props as { children?: ReactNode }).children,
+      text,
+    );
+  }
+  return false;
+}
+
 // Paleta on-brand alinhada à Home: gold + secondary alternados.
 const PANEL_ACCENTS = [
   "var(--gold)",
@@ -167,6 +183,11 @@ const PANEL_ACCENTS = [
 export function PageScaffold(p: PageScaffoldProps) {
   const resolvedRelated =
     p.relatedLinks ?? (p.pillarKey ? getCrossLinks(p.pillarKey) : undefined);
+  const articlePath = p.breadcrumbs?.at(-1)?.to;
+  const normalizedArticlePath = articlePath?.replace(/\/$/, "");
+  const visibleChildren = Children.toArray(p.children).filter(
+    (child) => !nodeContainsText(child, "Base legal"),
+  );
   return (
     <div>
       {/* Hero */}
@@ -370,7 +391,8 @@ export function PageScaffold(p: PageScaffoldProps) {
           </article>
         ))}
 
-        {p.children}
+        {visibleChildren}
+        <LegalSourcesSection path={normalizedArticlePath} />
 
         {p.method && p.method.length > 0 && (
           <section className="border-t border-border pt-16">
