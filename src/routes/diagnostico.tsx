@@ -69,6 +69,8 @@ function Page() {
         {"title":"Sou obrigado a contratar depois?","body":"Não. O diagnóstico é entregável independente, sem compromisso comercial."},
       ] },
       ]}
-    />
+    >
+      <LeadCaptureForm page="diagnostico" />
+    </PageScaffold>
   );
 }
