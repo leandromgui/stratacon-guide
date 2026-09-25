@@ -12,3 +12,4 @@
 10. [Concluído] Criar o artigo sobre recuperação tributária para clínicas e PER/DCOMP, integrar às listagens e validar no preview sem publicar.
 11. [Concluído] Corrigir a viabilidade técnica da equiparação hospitalar em odontologia e validar no preview sem publicar.
 12. [Concluído] Adicionar nota de esclarecimento sobre a Solução de Consulta SRRF03 nº 3.005/2026 na página de equiparação hospitalar, sem publicar.
+13. [Concluído] Adicionar o formulário de captação de lead à página /diagnostico, sem alterar o restante do conteúdo.
