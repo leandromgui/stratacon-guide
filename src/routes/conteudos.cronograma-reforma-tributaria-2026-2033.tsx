@@ -5,7 +5,7 @@ import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
 
 const SLUG = "/conteudos/cronograma-reforma-tributaria-2026-2033";
 const H1 = "Cronograma da Reforma Tributária: o que muda a cada ano, de 2026 a 2033";
-const META_TITLE = "Cronograma da Reforma Tributária 2026 a 2033: o que muda a cada ano";
+const META_TITLE = "Cronograma da Reforma Tributária 2026-2033";
 const META_DESCRIPTION =
   "Entenda ano a ano o cronograma da Reforma Tributária, de 2026 a 2033: teste, CBS plena, split payment, transição de ICMS/ISS e sistema pleno.";
 const PUBLISHED = "14/09/2026";

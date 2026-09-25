@@ -5,7 +5,7 @@ import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
 
 const SLUG = "/conteudos/simples-puro-ou-hibrido-2027-como-decidir";
 const H1 = "Simples Nacional Puro ou Híbrido: Qual Escolher na Reforma Tributária?";
-const META_TITLE = "Simples Nacional puro ou híbrido: qual escolher na reforma tributária";
+const META_TITLE = "Simples puro ou híbrido: como decidir em 2027";
 const META_DESCRIPTION =
   "Compare Simples Nacional puro e híbrido: DAS, créditos de IBS/CBS, clientes B2B, folha, preços, riscos e critérios para escolher em 2027.";
 const PUBLISHED = "21/09/2026";

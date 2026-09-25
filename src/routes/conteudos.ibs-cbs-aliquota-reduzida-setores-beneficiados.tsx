@@ -7,7 +7,7 @@ const SLUG = "/conteudos/ibs-cbs-aliquota-reduzida-setores-beneficiados";
 const H1 = "IBS e CBS com alíquota reduzida: quais setores podem pagar menos e manter créditos?";
 const META_TITLE = "IBS e CBS com Alíquota Reduzida: Setores Beneficiados e Créditos";
 const META_DESCRIPTION =
-  "Entenda quais atividades terão redução de IBS e CBS, como funcionará o aproveitamento dos créditos, quais setores podem ser beneficiados e os riscos de glosa e enquadramento.";
+  "Entenda quais atividades terão redução de IBS e CBS, como funcionará o aproveitamento dos créditos e os riscos de glosa e enquadramento.";
 const PUBLISHED = "21/09/2026";
 
 const faq = [

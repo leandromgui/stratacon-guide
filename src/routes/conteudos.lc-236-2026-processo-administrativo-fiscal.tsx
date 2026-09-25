@@ -6,8 +6,8 @@ import { LEANDRO_PERSON_JSONLD } from "@/lib/person";
 export const Route = createFileRoute("/conteudos/lc-236-2026-processo-administrativo-fiscal")({
   head: () => ({
     ...buildSeoHead({
-      title: "LC 236/2026: as novas regras nacionais do processo administrativo fiscal",
-      description: "Entenda a Lei Complementar 236/2026, que unificou regras de multas, prazos e processo administrativo fiscal para União, Estados e Municípios. Análise técnica da DCON.",
+      title: "LC 236/2026: regras do processo administrativo fiscal",
+      description: "Entenda a LC 236/2026, que unificou regras de multas, prazos e processo administrativo fiscal para União, Estados e Municípios.",
       canonical: "/conteudos/lc-236-2026-processo-administrativo-fiscal",
       ogType: "article",
     }),

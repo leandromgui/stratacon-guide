@@ -36,7 +36,7 @@ export const Route = createFileRoute("/conteudos/guia-simples-nacional")({
   head: () => ({
     ...buildSeoHead({
       title: "Guia do Simples Nacional para Empresas | DCON",
-      description: "Guia técnico do Simples Nacional: consulta, anexos, Fator R, sublimites de ICMS, planejamento tributário e recuperação de créditos. Conteúdo DCON.",
+      description: "Guia técnico do Simples Nacional: consulta, anexos, Fator R, sublimites de ICMS, planejamento tributário e recuperação de créditos.",
       canonical: CANONICAL,
       ogType: "article",
     }),

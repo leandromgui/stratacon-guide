@@ -8,7 +8,7 @@ export const Route = createFileRoute("/sobre/leandro")({
   head: () => ({
     ...buildSeoHead({
       title: "Leandro Matsuoka Guimarães | Contador Estrategista em Goiânia",
-      description: "Leandro Matsuoka Guimarães, CRC-GO nº 16.395/O-9, sócio da DCON: contador em Goiânia especialista em planejamento tributário, recuperação de créditos, finanças corporativas e estruturação societária.",
+      description: "Leandro Matsuoka Guimarães, CRC-GO 16.395/O-9, sócio da DCON: contador em Goiânia especialista em planejamento tributário e recuperação de créditos.",
       canonical: "/sobre/leandro",
     }),
     scripts: [

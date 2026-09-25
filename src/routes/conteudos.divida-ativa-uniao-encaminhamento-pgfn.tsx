@@ -7,7 +7,7 @@ const SLUG = "/conteudos/divida-ativa-uniao-encaminhamento-pgfn";
 const H1 = "Dívida Ativa da União: débitos vencidos há mais de 90 dias podem ser encaminhados à PGFN";
 const META_TITLE = "Dívida Ativa da União: quando o débito vai para a PGFN";
 const META_DESCRIPTION =
-  "Entenda quando débitos vencidos há mais de 90 dias podem ser encaminhados à PGFN, os riscos da entrada de 10%/20% no reparcelamento e como funciona a Dívida Ativa da União.";
+  "Entenda quando débitos vencidos há mais de 90 dias podem ir à PGFN, os riscos da entrada no reparcelamento e como funciona a Dívida Ativa da União.";
 const PUBLISHED = "22/09/2026";
 
 const faq: { q: string; a: string }[] = [

@@ -7,7 +7,7 @@ const SLUG = "/conteudos/reforma-tributaria-clinicas-medicas-o-que-muda";
 const H1 = "Reforma Tributária para Clínicas Médicas: o que muda (e o que NÃO muda)";
 const META_TITLE = "Reforma Tributária para clínicas médicas: o que muda de verdade";
 const META_DESCRIPTION =
-  "Entenda a redução de 60% na alíquota de IBS/CBS para saúde, por que a folha de pagamento limita os créditos, e por que a equiparação hospitalar continua separada da reforma. Análise para clínicas médicas em Goiânia e todo o Brasil.";
+  "Entenda a redução de 60% na alíquota de IBS/CBS para saúde e por que a folha de pagamento limita os créditos. Análise para clínicas médicas.";
 const PUBLISHED = "14/09/2026";
 
 const faq = [
