@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
 import { z } from "zod";
-import { submitLead } from "../lib/leads.functions";
+import { supabase } from "@/integrations/supabase/client";
 import { getLastFaqQuestion, getSessionId, trackEvent } from "../lib/analytics";
 
 const ANEXOS = ["Anexo I", "Anexo II", "Anexo III", "Anexo IV", "Anexo V", "Não sei"] as const;
@@ -28,9 +27,8 @@ export function SimplesNacionalMiniForm() {
   const [step, setStep] = useState<"form" | "review">("form");
   const [draft, setDraft] = useState<FormData | null>(null);
   const [consent, setConsent] = useState(false);
-  const [status, setStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "ok" | "ok_no_record" | "err">("idle");
   const [err, setErr] = useState<string>("");
-  const submit = useServerFn(submitLead);
 
   function onReview(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -67,54 +65,61 @@ export function SimplesNacionalMiniForm() {
     const sessionId = getSessionId();
     const lastFaq = getLastFaqQuestion();
     const interest = `Simples Nacional · ${draft.anexo} · CNAE/Atividade: ${draft.cnae} · Faturamento: ${draft.faturamento}`;
+    const msg = `Olá, sou ${draft.name}. Quero diagnóstico do Simples Nacional. ${draft.anexo} · CNAE ${draft.cnae} · Faturamento ${draft.faturamento}. E-mail: ${draft.email}.`;
+    const url = `https://wa.me/5562992890898?text=${encodeURIComponent(msg)}`;
+    let insertFailed = false;
     try {
-      const res = await submit({
-        data: {
-          name: draft.name,
-          email: draft.email,
-          whatsapp: draft.whatsapp,
-          interest: interest.slice(0, 160),
-          source_page: window.location.pathname,
-          referrer: document.referrer || null,
-          utm_source: params.get("utm_source"),
-          utm_medium: params.get("utm_medium"),
-          utm_campaign: params.get("utm_campaign"),
-          user_agent: navigator.userAgent.slice(0, 500),
-          session_id: sessionId,
-          last_faq_question: lastFaq,
-        },
+      const { error } = await supabase.from("leads").insert({
+        name: draft.name,
+        email: draft.email,
+        whatsapp: draft.whatsapp,
+        interest: interest.slice(0, 160),
+        source_page: window.location.pathname,
+        referrer: document.referrer || null,
+        utm_source: params.get("utm_source"),
+        utm_medium: params.get("utm_medium"),
+        utm_campaign: params.get("utm_campaign"),
+        user_agent: navigator.userAgent.slice(0, 500),
+        session_id: sessionId,
+        last_faq_question: lastFaq,
       });
-      if (!res.ok) {
-        setStatus("err");
-        setErr(res.error);
-        return;
+      if (error) {
+        insertFailed = true;
+        console.error(error);
+      } else {
+        trackEvent({
+          event_name: "lead_submitted",
+          faq_question: lastFaq,
+          cta_label: "guia-simples-nacional-miniform",
+          cta_target: "/diagnostico",
+          metadata: {
+            page: "conteudos",
+            essential: true,
+            anexo: draft.anexo,
+            cnae: draft.cnae,
+            faturamento: draft.faturamento,
+            lgpd_consent: true,
+            consent_timestamp: new Date().toISOString(),
+          },
+        });
       }
-      trackEvent({
-        event_name: "lead_submitted",
-        faq_question: lastFaq,
-        cta_label: "guia-simples-nacional-miniform",
-        cta_target: "/diagnostico",
-        metadata: {
-          page: "conteudos",
-          anexo: draft.anexo,
-          cnae: draft.cnae,
-          faturamento: draft.faturamento,
-          lgpd_consent: true,
-          consent_timestamp: new Date().toISOString(),
-        },
-      });
-      const msg = `Olá, sou ${draft.name}. Quero diagnóstico do Simples Nacional. ${draft.anexo} · CNAE ${draft.cnae} · Faturamento ${draft.faturamento}. E-mail: ${draft.email}.`;
-      const url = `https://wa.me/5562992890898?text=${encodeURIComponent(msg)}`;
-      window.open(url, "_blank", "noopener,noreferrer");
-      setStatus("ok");
+    } catch (e2) {
+      insertFailed = true;
+      console.error(e2);
+    }
+    // Sempre abre o WhatsApp, mesmo se o registro falhar.
+    window.open(url, "_blank", "noopener,noreferrer");
+    if (insertFailed) {
+      setStatus("ok_no_record");
       setDraft(null);
       setConsent(false);
       setStep("form");
-    } catch (e2) {
-      console.error(e2);
-      setStatus("err");
-      setErr("Falha ao enviar. Tente novamente.");
+      return;
     }
+    setStatus("ok");
+    setDraft(null);
+    setConsent(false);
+    setStep("form");
   }
 
   const inputCls =
@@ -177,9 +182,11 @@ export function SimplesNacionalMiniForm() {
                 Revisar antes de enviar →
               </button>
               {status === "err" && <p className="sm:col-span-2 text-xs text-destructive">{err}</p>}
-              {status === "ok" && (
+              {(status === "ok" || status === "ok_no_record") && (
                 <p className="sm:col-span-2 text-xs text-muted-foreground">
-                  Recebido. Estamos abrindo o WhatsApp com sua mensagem — a equipe DCON responde em horário comercial.
+                  {status === "ok"
+                    ? "Recebido. Estamos abrindo o WhatsApp com sua mensagem — a equipe DCON responde em horário comercial."
+                    : "WhatsApp aberto com sua mensagem — a equipe DCON responde em horário comercial."}
                 </p>
               )}
             </form>
